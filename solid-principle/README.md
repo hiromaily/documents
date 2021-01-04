@@ -12,7 +12,7 @@
 
 1. Single Responsibility Principle (単一責任の原則)
    - Class を変更する理由は 1 つでなければならない
-2. ## Open/Closed Principle (オープン/クローズドの原則)
+2. Open/Closed Principle (オープン/クローズドの原則)
    - Class は拡張に対して開かれて、修正に対して閉じられていなければならない
 3. Liskov Substitution Principle (リスコフの置換原則)
    - 派生型は基本型と置換可能でなければならない
