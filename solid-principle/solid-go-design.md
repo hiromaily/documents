@@ -1,4 +1,4 @@
-# 和訳 [SOLID principle in GO](https://medium.com/@s8sg/solid-principle-in-go-e1a624290346) written by [David](https://dave.cheney.net/about)
+# 和訳 [SOLID Go Design](https://dave.cheney.net/2016/08/20/solid-go-design) written by [David](https://dave.cheney.net/about)
 
 ## Code review: コードレビュー
 
@@ -35,7 +35,7 @@
 
 ## SOLID: しっかりした、信頼できる、確かな
 
-2002 年に、Robert Martin は彼の著書[「Agile Software Development, Principles, Patterns, and Practices」](https://www.amazon.com/Software-Development-Principles-Patterns-Practices/dp/0135974445)を出版しました。 その中で彼は、名前の最初の文字の後に、再利用可能なソフトウェア設計の 5 つの原則を説明しました。これを`SOLIDの原則`と呼びました。
+2002 年に、Robert Martin は彼の著書[「Agile Software Development, Principles, Patterns, and Practices」](https://www.amazon.com/Software-Development-Principles-Patterns-Practices/dp/0135974445)を出版しました。 その中で彼は、名前の最初の文字の後に、再利用可能なソフトウェア設計の 5 つの原則を説明しました。これを`SOLID principles`(`SOLIDの原則`)と呼びました。
 
 - Single Responsibility Principle: 単一責任の原則
 - Open / Closed Principle: オープン/クローズドの原則
@@ -49,7 +49,7 @@
 
 ## 1.Single Responsibility Principle: 単一責任の原則
 
-SOLID の最初の原則である`S`は、単一責任の原則です。
+SOLID の最初の原則である`S`は、Single Responsibility Principle: 単一責任の原則です。
 
 `A class should have one, and only one, reason to change. –Robert C Martin`
 `クラスには、変更する理由が1つだけある必要があります。– Robert C Martin`
@@ -75,7 +75,7 @@ Go プログラムの結合度と凝集度を説明するために、SRP(Single 
 
 ### Package names パッケージ名
 
-Go では、すべてのコードはパッケージ内にあり、適切に設計されたパッケージはその名前で始まります。 パッケージの名前は、その目的の説明であると同時に、名前空間のプレフィックスでもあります。 Go 標準ライブラリの優れたパッケージの例は次のとおりです。
+Go では、すべてのコードはパッケージ内にあり、適切に設計されたパッケージはその名前で始まります。 パッケージの名前は、その目的の説明であると同時に、name space(名前空間)のプレフィックスでもあります。 Go 標準ライブラリの優れたパッケージの例は次のとおりです。
 
 - `net/http` http クライアントとサーバーを提供します
 - `os/exec` 外部コマンドを実行する
@@ -91,7 +91,7 @@ Go では、すべてのコードはパッケージ内にあり、適切に設�
 
 パッケージ `private` は何を提供しますか？ 見てはいけないものは？ パブリックシンボルが必要ですか？
 
-そして、パッケージ `common` は、犯罪のパートナーであるパッケージ `utils` と同様に、これらの他の犯罪者の近くで見つかることがよくあります。
+そして、パッケージ `common` は、愚かな行いの仲間であるパッケージ `utils` と同様に、これらの他の不快なものの近くで見つかることがよくあります。
 
 このようなすべてのパッケージをキャッチすると、雑多なゴミ捨て場になります。また、多くの責任があるため、頻繁に、理由もなく変更されます。
 
