@@ -1,81 +1,25 @@
 # Clean Architecture
+## References
+- [Clean Architecture using Golang](https://eminetto.medium.com/clean-architecture-using-golang-b63587aa5e3f)
+    - exampleのディレクトリ構成は整っている
+  ```
+  pkg/user
+  - entity.go ...userモデルの構造体を定義
+  - mongodb.go ...DB操作の実装
+  - repository.go　...DB操作のinterface
+  - service.go ...ビジネスロジックを担うベースとなる構造体を定義
+  ```
+- [bxcodec/go-clean-arch](https://github.com/bxcodec/go-clean-arch)
+    - 多くのレビュアーの意見を取り入れてブラッシュアップされてきた感があるので、良いModelかもしれないが、分割の概念がディレクトリ名として表現されているのが、golangの思想に反する気がする。
+- [Trying Clean Architecture on Golang](https://hackernoon.com/golang-clean-archithecture-efd6d7c43047)
 
-## Part1 Introduction
+## 日本語 (Architectureの要でもあるディレクトリ構造が全然駄目)
+- [Go(Echo), Gorm, Mysql, Docker, Swaggerで、クリーンアーキテクチャなAPIサーバーを作ったメモ](https://zenn.dev/ulwlu/scraps/170d2d2412daf7)
 
-### Chapter1 What is Design and Architecture?
 
-### Chapter2 A Tale of Two Values
+## アーキテクチャの変遷
+- [ドメイン駆動 + オニオンアーキテクチャ概略](https://qiita.com/little_hand_s/items/2040fba15d90b93fc124)
 
-## Part2 Starting with the Bricks: Programming Paradigms
-
-### Chapter3 Paradigm Overview
-
-### Chapter4 Structured Programming
-
-### Chapter5 Object Oriented Programming
-
-### Chapter6 Functional Programming
-
-## Part3 Design Principles
-
-### Chapter7 SRP: The Single Responsibility Principle
-
-### Chapter8 OCP: The Open-Closed Principle
-
-### Chapter9 LSP: The Liskov Substitution Principle
-
-### Chapter10 ISP: The Interface Segregation Principle
-
-### Chapter11 DIP: The Dependency Inversion Principle
-
-## Part4 Components Principles
-
-### Chapter12 Components
-
-### Chapter13 Component Cohesion
-
-### Chapter14 Component Coupling
-
-## Part5 Architecture
-
-### Chapter15 What Is Architecture?
-
-### Chapter16 Independence
-
-### Chapter17 Boundaries: Drawing Lines
-
-### Chapter18 Boundary Anatomy
-
-### Chapter19 Policy and Level
-
-### Chapter20 Business Rules
-
-### Chapter21 Screaming Architecture
-
-### Chapter22 The Clean Architecture
-
-### Chapter23 Presenters and Humble Objects
-
-## Chapter24 Partial Boundaries
-
-## Chapter25 Layers and Boundaries
-
-## Chapter26 The Main Component
-
-## Chapter27 Services: Great and Small
-
-## Chapter28 The Test Boundary
-
-## Chapter29 Clean Embedded Architecture
-
-## Part6 Details
-
-## Chapter30 The Database Is a Detail
-
-## Chapter31 The Web Is a Detail
-
-## Chapter32 Frameworks Are Details
-
-## Chapter33 Case Study: Video Sales
-
-## Chapter34 The Missing Chapter
+- レイヤードアーキテクチャ
+- ヘキサゴナルアーキテクチャ
+- オニオンアーキテクチャ
