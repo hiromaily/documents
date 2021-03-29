@@ -88,6 +88,10 @@
 
 1. Proxy Design Pattern
 2. Decorator Design Pattern
+
+- [Decorator design pattern in Go](https://golangbyexample.com/decorator-pattern-golang/)
+- It lets you provide additional functionality or decorates an object without altering that object
+
 3. Facade Design Pattern
 4. Flyweight Design Pattern
 
