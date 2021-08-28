@@ -78,6 +78,11 @@
 - [Bazel](https://github.com/bazelbuild/bazel) is Google's monorepo-oriented build system.
 - [bit](https://github.com/teambit/bit) is a tool for building and managing JavaScript projects with multiple components, and managing the dependency graph of components.
 
+### 所管
+
+フロントエンドとバックエンドは分けたほうがいい。
+この場合の問題点としてフロントエンドとバックエンドの I/F が変更された場合の整合性であり、これは`Schema Driven Development`を取り入れることで解決できないだろうか？
+
 ### References
 
 - [wiki Monorepo](https://en.wikipedia.org/wiki/Monorepo)
