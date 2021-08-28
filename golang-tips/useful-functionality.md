@@ -9,6 +9,11 @@
 - [Go 言語でファジング](https://deeeet.com/writing/2015/12/21/go-fuzz/)
 - [dvyukov/go-fuzz](https://github.com/dvyukov/go-fuzz)
 
+## Go 1.17
+
+[Go 1.17 Release Notes](https://golang.org/doc/go1.17)
+目立った修正は見当たらない
+
 ## Go 1.16
 
 [Go 1.16 Release Notes](https://golang.org/doc/go1.16)
