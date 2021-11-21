@@ -1,204 +1,215 @@
 # Fundamentals of Software Architecture
 
-[Oreilly](https://www.oreilly.com/library/view/fundamentals-of-software/9781492043447/)
+- [Oreilly](https://www.oreilly.com/library/view/fundamentals-of-software/9781492043447/)
+- [ソフトウェアアーキテクチャ：知っておく必要のある最も重要なアーキテクチャパターン](https://ichi.pro/sofutowhea-a-kitekucha-shitteoku-hitsuyo-no-aru-mottomo-juyona-a-kitekucha-pata-n-178077573205565)
 
-## 1. Introduction
+## 1. Introduction 序章
 
-### Defining Software Architecture
+### Defining Software Architecture ソフトウェアアーキテクトの定義
 
-### Expectations of an Architect
+### Expectations of an Architect アーキテクトの期待
 
-#### Make Architecture Decisions
+#### Make Architecture Decisions アーキテクチャの決定を行う
 
-#### Continually Analyze the Architecture
+#### Continually Analyze the Architecture アーキテクチャの継続的な分析
 
-#### Keep Current with Latest Trends
+#### Keep Current with Latest Trends 最新のトレンドを常に把握する
 
-#### Ensure Compliance with Decisions
+#### Ensure Compliance with Decisions 意思決定を確実に遵守する
 
-#### Diverse Exposure and Experience
+#### Diverse Exposure and Experience 多様な露出と経験
 
-#### Have Business Domain Knowledge
+#### Have Business Domain Knowledge ビジネスドメインの知識を持つ
 
-#### Possess Interpersonal Skills
+#### Possess Interpersonal Skills 対人スキルを持っている
 
-#### Understand and Navigate Politics
+#### Understand and Navigate Politics 政治を理解し、ナビゲートする
 
-### Intersection of Architecture and…
+### Intersection of Architecture and… アーキテクチャの交差点と
 
-#### Engineering Practices
+#### Engineering Practices エンジニアリング実践
 
 #### Operations/DevOps
 
-#### Process
+#### Process 過程
 
 #### Data
 
-### Laws of Software Architecture
+### Laws of Software Architecture ソフトウェアアーキテクチャの法
 
-## I. Foundations
+## I. Foundations 基礎
 
-## 2. Architectural Thinking
+## 2. Architectural Thinking アーキテクチャ的思考
 
-### Architecture Versus Design
+### Architecture Versus Design アーキテクチャ VS 設計
 
-### Technical Breadth
+### Technical Breadth 技術的幅
 
-### Analyzing Trade-Offs
+### Analyzing Trade-Offs トレードオフの分析
 
-### Understanding Business Drivers
+### Understanding Business Drivers ビジネスドライバーの理解
 
-### Balancing Architecture and Hands-On Coding
+### Balancing Architecture and Hands-On Coding アーキテクチャーと Hands-On コーディングのバランス
 
-## 3. Modularity
+## 3. Modularity モジュール性
 
-### Definition
+### Definition 定義
 
-### Measuring Modularity
+### Measuring Modularity モジュール性の測定
 
-#### Cohesion
+#### Cohesion 凝縮度
 
-#### Coupling
+#### Coupling 結合
 
-#### Abstractness, Instability, and Distance from the Main Sequence
+#### Abstractness, Instability, and Distance from the Main Sequence 抽象性、不安定性、および Main シーケンスからの距離
 
-#### Distance from the Main Sequence
+#### Distance from the Main Sequence Main シーケンスからの距離
 
-#### Connascence
+#### Connascence 他のものと同時に作られるもの
 
-#### Unifying Coupling and Connascence Metrics
+- [Connascence：コードの結合度を測るもうひとつの指標](https://snoozer05.hatenablog.jp/entry/2020/12/11/150913)
 
-### From Modules to Components
+#### Unifying Coupling and Connascence Metrics 結合度と結合度のメトリックスを統合する
 
-## 4. Architecture Characteristics Defined
+### From Modules to Components モジュールからコンポーネントへ
 
-### Architectural Characteristics (Partially) Listed
+## 4. Architecture Characteristics Defined 定義されたアーキテクチャ特性
 
-#### Operational Architecture Characteristics
+### Architectural Characteristics (Partially) Listed 部分的にリストされたアーキテクチャの特徴
 
-#### Structural Architecture Characteristics
+#### Operational Architecture Characteristics 運用アーキテクチャの特徴
 
-#### Cross-Cutting Architecture Characteristics
+#### Structural Architecture Characteristics 構造アーキテクチャの特徴
 
-### Trade-Offs and Least Worst Architecture
+#### Cross-Cutting Architecture Characteristics 分野横断的なアーキテクチャの特徴
 
-## 5. Identifying Architectural Characteristics
+### Trade-Offs and Least Worst Architecture トレードオフと最悪のアーキテクチャ
 
-### Extracting Architecture Characteristics from Domain Concerns
+## 5. Identifying Architectural Characteristics アーキテクチャの特徴を特定する
 
-### Extracting Architecture Characteristics from Requirements
+### Extracting Architecture Characteristics from Domain Concerns ドメインの懸念からアーキテクチャの特性の抽出
+
+### Extracting Architecture Characteristics from Requirements 要件からのアーキテクチャ特性の抽出
 
 ### Case Study: Silicon Sandwiches
 
-#### Explicit Characteristics
+#### Explicit Characteristics 明示的な特性
 
-#### Implicit Characteristics
+#### Implicit Characteristics 暗黙の特性
 
-## 6. Measuring and Governing Architecture Characteristics
+## 6. Measuring and Governing Architecture Characteristics アーキテクチャ特性の測定と管理
 
-### Measuring Architecture Characteristics
+### Measuring Architecture Characteristics アーキテクチャ特性の測定
 
-#### Operational Measures
+#### Operational Measures 運用上の対策
 
-#### Structural Measures
+#### Structural Measures 構造的対策
 
-#### Process Measures
+#### Process Measures プロセス対策
 
-### Governance and Fitness Functions
+### Governance and Fitness Functions ガバナンスと適応度関数
 
-#### Governing Architecture Characteristics
+#### Governing Architecture Characteristics アーキテクチャの特性を管理する
 
-#### Fitness Functions
+#### Fitness Functions 適応度関数
 
-## 7. Scope of Architecture Characteristics
+## 7. Scope of Architecture Characteristics アーキテクチャ特性の範囲
 
-### Coupling and Connascence
+### Coupling and Connascence 結合と結合
 
-### Architectural Quanta and Granularity
+### Architectural Quanta and Granularity アーキテクチャ的 量と粒度
 
 #### Case Study: Going, Going, Gone
 
-## 8. Component-Based Thinking
+## 8. Component-Based Thinking コンポーネントベースの考え方
 
-### Component Scope
+### Component Scope コンポーネントスコープ
 
-### Architect Role
+### Architect Role アーキテクトの役割
 
-#### Architecture Partitioning
+#### Architecture Partitioning アーキテクチャの分割/領域確保
 
 #### Case Study: Silicon Sandwiches: Partitioning
 
-### Developer Role
+### Developer Role 開発者の役割
 
-### Component Identification Flow
+### Component Identification Flow コンポーネント識別フロー
 
-#### Identifying Initial Components
+#### Identifying Initial Components 初期コンポーネントの特定
 
-#### Assign Requirements to Components
+#### Assign Requirements to Components コンポーネントに要件を割り当てる
 
-#### Analyze Roles and Responsibilities
+#### Analyze Roles and Responsibilities 役割と責任を分析する
 
-#### Analyze Architecture Characteristics
+#### Analyze Architecture Characteristics アーキテクチャの特性を分析する
 
-#### Restructure Components
+#### Restructure Components コンポーネントの再構築
 
-### Component Granularity
+### Component Granularity コンポーネントの粒度
 
-### Component Design
+### Component Design コンポーネント設計
 
-#### Discovering Components
+#### Discovering Components コンポーネントの発見
 
 ### Case Study: Going, Going, Gone: Discovering Components
 
-### Architecture Quantum Redux: Choosing Between Monolithic Versus Distributed Architectures
+### Architecture Quantum Redux: Choosing Between Monolithic Versus Distributed Architectures モノリス VS 分散アーキテクチャー
 
 ## II. Architecture Styles
 
-## 9. Foundations
+## 9. Foundations 基礎
 
-### Fundamental Patterns
+### Fundamental Patterns 基本的パターン
 
-#### Big Ball of Mud
+#### Big Ball of Mud [大きな泥団子](https://ja.wikipedia.org/wiki/%E5%A4%A7%E3%81%8D%E3%81%AA%E6%B3%A5%E3%81%A0%E3%82%93%E3%81%94)
 
-#### Unitary Architecture
+- 理解可能なアーキテクチャが欠けている ソフトウェアシステム のこと
+
+#### Unitary Architecture 単一のアーキテクチャー
 
 #### Client/Server
 
-### Monolithic Versus Distributed Architectures
+### Monolithic Versus Distributed Architectures モノリス VS 分散アーキテクチャー
 
-#### Fallacy #1: The Network Is Reliable
+#### Fallacy #1: The Network Is Reliable 間違った考え#1 ネットワークは信頼できる
 
-#### Fallacy #2: Latency Is Zero
+#### Fallacy #2: Latency Is Zero 間違った考え#2 レイテンシーはゼロ
 
-#### Fallacy #3: Bandwidth Is Infinite
+#### Fallacy #3: Bandwidth Is Infinite 間違った考え#3 帯域幅は無限大
 
-#### Fallacy #4: The Network Is Secure
+#### Fallacy #4: The Network Is Secure 間違った考え#4 ネットワークは安全
 
-#### Fallacy #5: The Topology Never Changes
+#### Fallacy #5: The Topology Never Changes 間違った考え#5 トポロジーは決して変わらない
 
-#### Fallacy #6: There Is Only One Administrator
+#### Fallacy #6: There Is Only One Administrator 間違った考え#6 管理者は 1 人だけ
 
-#### Fallacy #7: Transport Cost Is Zero
+#### Fallacy #7: Transport Cost Is Zero 間違った考え#7 輸送コストはゼロ
 
-#### Fallacy #8: The Network Is Homogeneous
+#### Fallacy #8: The Network Is Homogeneous 間違った考え#8 ネットワークは均質
 
-#### Other Distributed Considerations
+#### Other Distributed Considerations その他の分散システムに関する考慮事項
 
-## 10. Layered Architecture Style
+## 10. Layered Architecture Style レイヤードアーキテクチャー
+
+- [Multitier architecture](https://en.wikipedia.org/wiki/Multitier_architecture)
+- [レイヤードアーキテクチャの視点](https://qiita.com/kichion/items/aca19765cb16e7e65946)
 
 ### Topology
 
-### Layers of Isolation
+### Layers of Isolation 分離のレイヤー
 
-### Adding Layers
+### Adding Layers レイヤーの追加
 
-### Other Considerations
+### Other Considerations その他の考慮事項
 
-### Why Use This Architecture Style
+### Why Use This Architecture Style なぜこのアーキテクチャーを使うのか？
 
-### Architecture Characteristics Ratings
+### Architecture Characteristics Ratings アーキテクチャ特性の評価
 
-## 11. Pipeline Architecture Style
+## 11. Pipeline Architecture Style パイプライン アーキテクチャー
+
+- [Pipes and Filters pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters)
+- [Pipes and Filters pattern(ja)](https://docs.microsoft.com/ja-jp/azure/architecture/patterns/pipes-and-filters)
 
 ### Topology
 
@@ -208,9 +219,12 @@
 
 ### Example
 
-### Architecture Characteristics Ratings
+### Architecture Characteristics Ratings アーキテクチャ特性の評価
 
-## 12. Microkernel Architecture Style
+## 12. Microkernel Architecture Style マイクロカーネル アーキテクチャー
+
+- [Software Architecture Patterns — Microkernel Architecture](https://priyalwalpita.medium.com/software-architecture-patterns-microkernel-architecture-97cee200264e)
+- [Microkernel アーキテクチャパターン](https://yusuke-ujitoko.hatenablog.com/entry/2016/11/19/105525)
 
 ### Topology
 
@@ -224,25 +238,29 @@
 
 ### Examples and Use Cases
 
-### Architecture Characteristics Ratings
+### Architecture Characteristics Ratings アーキテクチャ特性の評価
 
-## 13. Service-Based Architecture Style
+## 13. Service-Based Architecture Style サービス指向アーキテクチャー
+
+- [Service-oriented architecture](https://en.wikipedia.org/wiki/Service-oriented_architecture)
+- [Service-Based Architecture as an Alternative to Microservice Architecture](https://www.infoq.com/news/2016/10/service-based-architecture/)
+- [SOA（サービス指向アーキテクチャー）](https://www.ibm.com/jp-ja/cloud/learn/soa)
 
 ### Topology
 
 ### Topology Variants
 
-### Service Design and Granularity
+### Service Design and Granularity サービス設計と粒度
 
 ### Database Partitioning
 
 ### Example Architecture
 
-### Architecture Characteristics Ratings
+### Architecture Characteristics Ratings アーキテクチャ特性の評価
 
 ### When to Use This Architecture Style
 
-## 14. Event-Driven Architecture Style
+## 14. Event-Driven Architecture Style イベント駆動アーキテクチャー
 
 ### Topology
 
@@ -366,23 +384,23 @@
 
 ## III. Techniques and Soft Skills
 
-## 19. Architecture Decisions
+## 19. Architecture Decisions アーキテクチャの決定
 
-### Architecture Decision Anti-Patterns
+### Architecture Decision Anti-Patterns アーキテクチャ決定のアンチパターン
 
-#### Covering Your Assets Anti-Pattern
+#### Covering Your Assets Anti-Pattern あなたのアセットのアンチパターンをカバーする
 
 #### Groundhog Day Anti-Pattern
 
-#### Email-Driven Architecture Anti-Pattern
+#### Email-Driven Architecture Anti-Pattern Email 駆動アーキテクチャ アンチパターン
 
-### Architecturally Significant
+### Architecturally Significant アーキテクチャー的に重要
 
-### Architecture Decision Records
+### Architecture Decision Records アーキテクチャ決定記録
 
-#### Basic Structure
+#### Basic Structure 基本的構造
 
-#### Storing ADRs
+#### Storing ADRs ADRs の保存 (a form of equity security??)
 
 #### ADRs as Documentation
 
@@ -390,17 +408,17 @@
 
 #### Example
 
-## 20. Analyzing Architecture Risk
+## 20. Analyzing Architecture Risk アーキテクチャリスクの分析
 
-### Risk Matrix
+### Risk Matrix リスク行列
 
-### Risk Assessments
+### Risk Assessments リスク評価
 
-### Risk Storming
+### Risk Storming リスクストーミング?? ブレスト的な??
 
-#### Identification
+#### Identification 識別
 
-#### Consensus
+#### Consensus 合意
 
 ### Agile Story Risk Analysis
 

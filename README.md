@@ -6,9 +6,10 @@ summarized book contents and tips
 
 - Architecture
   - Clean Architecture [WIP]
-  - Design Pattern
+  - Design Pattern [WIP]
   - Domain Driven Design + CQRS
   - Event Sourcing
+  - Fundamentals of Software Architecture [WIP]
   - Schema Driven Development
 - Docker Tips
 - Git Strategy
