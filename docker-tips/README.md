@@ -1,6 +1,8 @@
 # Docker Tips
 
-## 1.Useful Commands
+- [commands](https://github.com/hiromaily/documents/blob/main/docker-tips/commands.md)
+
+## 1. Useful Commands
 
 - check specific container still running or not
 
@@ -10,19 +12,35 @@ while [ $(docker ps -f name=container-name --format "{{.Names}}" | wc -l | tr -s
 done
 ```
 
+- clean everything
+
+```
+docker system prune
+```
+
 - clean unused images
 
 ```
+docker image prune -a
+ or
 docker rmi -f $(docker images -aqf "dangling=true" --no-trunc)
 ```
 
 - clean all containers
 
 ```
+docker container prune
+ or
 docker rm -f $(docker ps -a --format "{{.Names}}")
 ```
 
-## 2.How to connect services in different docker-compose files
+- clean all volumes
+
+```
+docker volume prune
+```
+
+## 2. How to connect services in different docker-compose files
 
 First create network
 

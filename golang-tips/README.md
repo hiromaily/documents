@@ -1,17 +1,20 @@
 # Golang Tips
 
-## 1.Useful websites
+- [Useful functionalities](https://github.com/hiromaily/documents/blob/main/golang-tips/useful-functionality.md)
+
+## 1. Useful websites
 
 - [Awesome Go](https://go.libhunt.com/)
 - [Uber Go Style Guide](https://github.com/uber-go/guide/blob/master/style.md)
-## 2.Goland Settings
 
-### 2.1.Preferences
+## 2. IDE: Goland Settings
+
+### 2.1. Preferences
 
 - [Editor]-[Live Templates]
   register for shortcut of coding
 
-### 2.2.Useful tips
+### 2.2. Useful tips
 
 1. bookmark
 
@@ -66,7 +69,7 @@ select [Mark Directory As] - [Excluded]
 [Command] + 9
 ```
 
-### 2.3.Debug
+### 2.3. Debug
 
 #### local debugging
 
@@ -94,14 +97,14 @@ select [Mark Directory As] - [Excluded]
     command: bash -c "go build -o /go/bin/xxx ./cmd/main.go && dlv --listen=:2345 --headless=true --api-version=2 exec /go/bin/xxx -- --config xxxx.conf"
 ```
 
-## 3.VS Code
+## 3. IDE: VS Code
 
 - [VSCode + golang での快適な補完について自分なりにまとめてみた](https://qiita.com/akinobufujii/items/50d605ecf22daa3309cb)
 - [Go for Visual Studio Code(official vscode extention for golang)](https://github.com/microsoft/vscode-go)
 - [json settings example](https://github.com/golang/tools/blob/master/gopls/doc/vscode.md)
 - [VS Code の Go 言語テストコード生成ツールを使ってみたらめちゃくちゃ便利だった話とか](https://kdnakt.hatenablog.com/entry/2019/01/03/080000)
 
-## 4.`make` with slice
+## 4. `make` with slice
 
 ```
 package main
@@ -135,7 +138,7 @@ func main() {
 }
 ```
 
-## 5.Golang Modules
+## 5. Golang Modules
 
 ### 5.1.Using private repository
 
@@ -155,7 +158,7 @@ or
 	insteadOf = https://github.yourhost.com/
 ```
 
-## 6.How to use pointer without definition as variable
+## 6. How to use pointer without definition as variable
 
 - struct
 
@@ -169,9 +172,9 @@ or
 (*string)(&s.SomethingType)
 ```
 
-## 7.To avoid problems using 3rd party
+## 7. To avoid problems using 3rd party
 
-### 7.1.[aerospike-client-go](https://github.com/aerospike/aerospike-client-go)
+### 7.1. [aerospike-client-go](https://github.com/aerospike/aerospike-client-go)
 
 #### Don't use pointer of map object as much as possible
 
