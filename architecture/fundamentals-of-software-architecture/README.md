@@ -262,65 +262,74 @@
 
 ## 14. Event-Driven Architecture Style イベント駆動アーキテクチャー
 
+- [Event-driven architecture](https://en.wikipedia.org/wiki/Event-driven_architecture)
+- [What is an Event-Driven Architecture?](https://aws.amazon.com/event-driven-architecture/)
+- [イベント駆動アーキテクチャとは?](https://aws.amazon.com/jp/serverless/patterns/eda/)
+- [イベント駆動型アーキテクチャとは](https://www.redhat.com/ja/topics/integration/what-is-event-driven-architecture)
+
 ### Topology
 
-### Broker Topology
+### Broker Topology 仲介者トポロジー
 
-### Mediator Topology
+### Mediator Topology 仲介者トポロジー (上記との違いは??)
 
-### Asynchronous Capabilities
+### Asynchronous Capabilities 非同期機能
 
-### Error Handling
+### Error Handling エラーハンドリング
 
-### Preventing Data Loss
+### Preventing Data Loss データ損失の防止
 
-### Broadcast Capabilities
+### Broadcast Capabilities ブロードキャスト機能
 
 ### Request-Reply
 
-### Choosing Between Request-Based and Event-Based
+### Choosing Between Request-Based and Event-Based リクエストベースとイベントベースのどちらを選択するか
 
-### Hybrid Event-Driven Architectures
+### Hybrid Event-Driven Architectures ハイブリッドイベント駆動アーキテクチャー
 
-### Architecture Characteristics Ratings
+### Architecture Characteristics Ratings アーキテクチャ特性の評価
 
 ## 15. Space-Based Architecture Style
 
+- [Space-based architecture](https://en.wikipedia.org/wiki/Space-based_architecture)
+- [Space-Based Architecture](https://docs.gigaspaces.com/latest/overview/space-based-architecture.html)
+- [スペースベースアーキテクチャ](https://www.jpan.wiki/wiki/en/Space-based_architecture)
+
 ### General Topology
 
-#### Processing Unit
+#### Processing Unit 処理装置
 
-#### Virtualized Middleware
+#### Virtualized Middleware 仮想化ミドルウェア
 
-#### Data Pumps
+#### Data Pumps データポンプ
 
-#### Data Writers
+#### Data Writers データライター
 
-#### Data Readers
+#### Data Readers データリーダー
 
-### Data Collisions
+### Data Collisions データの衝突
 
-### Cloud Versus On-Premises Implementations
+### Cloud Versus On-Premises Implementations クラウド VS オンプレ
 
-### Replicated Versus Distributed Caching
+### Replicated Versus Distributed Caching 複製キャッシングと分散キャッシング
 
-### Near-Cache Considerations
+### Near-Cache Considerations キャッシュに近い考慮事項
 
 ### Implementation Examples
 
-#### Concert Ticketing System
+#### Concert Ticketing System コンサートチケットシステム
 
-#### Online Auction System
+#### Online Auction System オンラインオークションシステム
 
-### Architecture Characteristics Ratings
+### Architecture Characteristics Ratings アーキテクチャ特性の評価
 
-## 16. Orchestration-Driven Service-Oriented Architecture
+## 16. Orchestration-Driven Service-Oriented Architecture オーケストレーション駆動 サービス指向アーキテクチャ
 
-### History and Philosophy
+### History and Philosophy 歴史と哲学
 
 ### Topology
 
-### Taxonomy
+### Taxonomy 分類法
 
 #### Business Services
 
@@ -334,11 +343,11 @@
 
 #### Message Flow
 
-### Reuse…and Coupling
+### Reuse…and Coupling 再利用、そして結合
 
-### Architecture Characteristics Ratings
+### Architecture Characteristics Ratings アーキテクチャ特性の評価
 
-## 17. Microservices Architecture
+## 17. Microservices Architecture マイクロサービスアーキテクチャー
 
 ### History
 
