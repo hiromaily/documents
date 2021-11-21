@@ -4,22 +4,24 @@ summarized book contents and tips
 
 ## Table of contents
 
-- Clean Architecture [WIP]
-- Clean Code [WIP]
-- Design Pattern
+- Architecture
+  - Clean Architecture [WIP]
+  - Design Pattern
+  - Domain Driven Design + CQRS
+  - Event Sourcing
+  - Schema Driven Development
 - Docker Tips
-- Domain Driven Design + CQRS
-- Event Sourcing
 - Git Strategy
 - Golang Best Architecture [WIP]
 - Golang Tips
 - HTTP Status Code
 - Network Commands
-- Readable Code
-- Schema Driven Development
+- Principle
+  - Clean Code [WIP]
+  - Readable Code
+  - Solid Principle
 - Service Manager
 - Shell Tips
-- Solid Principle
 - Transport Layer Security (TLS/SSL)
 - Web Rendering [WIP]
 - Web Vitals [WIP]
