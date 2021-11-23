@@ -353,27 +353,27 @@
 
 ### Topology
 
-### Distributed
+### Distributed 分散システム
 
 ### Bounded Context
 
-#### Granularity
+#### Granularity 粒度
 
-#### Data Isolation
+#### Data Isolation データの分離
 
 ### API Layer
 
-### Operational Reuse
+### Operational Reuse 運用上の再利用
 
 ### Frontends
 
 ### Communication
 
-#### Choreography and Orchestration
+#### Choreography and Orchestration 振り付けとオーケストレーション(調整)
 
 #### Transactions and Sagas
 
-### Architecture Characteristics Ratings
+### Architecture Characteristics Ratings アーキテクチャ特性の評価
 
 ### Additional References
 
@@ -381,7 +381,7 @@
 
 ### Shifting “Fashion” in Architecture
 
-### Decision Criteria
+### Decision Criteria 決定基準
 
 ### Monolith Case Study: Silicon Sandwiches
 
@@ -429,19 +429,19 @@
 
 #### Consensus 合意
 
-### Agile Story Risk Analysis
+### Agile Story Risk Analysis アジャイルストーリーのリスク分析
 
 ### Risk Storming Examples
 
 #### Availability
 
-#### Elasticity
+#### Elasticity 弾性
 
 #### Security
 
-## 21. Diagramming and Presenting Architecture
+## 21. Diagramming and Presenting Architecture アーキテクチャの図表化と提示
 
-### Diagramming
+### Diagramming 図表化
 
 #### Tools
 
@@ -455,77 +455,79 @@
 
 #### Incremental Builds
 
-#### Infodecks Versus Presentations
+#### Infodecks Versus Presentations Infodecks はスライド?
 
 #### Slides Are Half of the Story
 
-#### Invisibility
+#### Invisibility 不可視
 
-## 22. Making Teams Effective
+## 22. Making Teams Effective チームを効果的にする
 
-### Team Boundaries
+### Team Boundaries チームの境界
 
 ### Architect Personalities
 
-#### Control Freak
+#### Control Freak 支配欲が強い人
 
-#### Armchair Architect
+#### Armchair Architect 机上のアーキテクト
 
-#### Effective Architect
+#### Effective Architect 効果的なアーキテクト
 
-### How Much Control?
+### How Much Control? どのくらいの制御？
 
-### Team Warning Signs
+### Team Warning Signs チームの警告サイン
 
-### Leveraging Checklists
+### Leveraging Checklists チェックリストの活用
 
-#### Developer Code Completion Checklist
+#### Developer Code Completion Checklist 開発者コード補完チェックリスト
 
-#### Unit and Functional Testing Checklist
+#### Unit and Functional Testing Checklist ユニットおよび機能テストのチェックリスト
 
 #### Software Release Checklist
 
-### Providing Guidance
+### Providing Guidance ガイダンスの提供
 
 ### Summary
 
-## 23. Negotiation and Leadership Skills
+## 23. Negotiation and Leadership Skills 交渉とリーダーシップのスキル
 
-### Negotiation and Facilitation
+### Negotiation and Facilitation 交渉と円滑化
 
-#### Negotiating with Business Stakeholders
+#### Negotiating with Business Stakeholders ビジネスの利害関係者との交渉
 
-#### Negotiating with Other Architects
+#### Negotiating with Other Architects 他のアーキテクトとの交渉
 
-#### Negotiating with Developers
+#### Negotiating with Developers 開発者との交渉
 
-### The Software Architect as a Leader
+### The Software Architect as a Leader リーダーとしてのソフトウェアアーキテクト
 
 #### The 4 C’s of Architecture
 
-#### Be Pragmatic, Yet Visionary
+- [The four C’s of software architecture](https://medium.com/devlix-blog/the-four-cs-of-software-architecture-58a784bdb19)
+
+#### Be Pragmatic, Yet Visionary 実用的でありながら先見性がある
 
 #### Leading Teams by Example
 
-### Integrating with the Development Team
+### Integrating with the Development Team 開発チームとの統合
 
 ### Summary
 
-## 24. Developing a Career Path
+## 24. Developing a Career Path キャリアパスの開発
 
-### The 20-Minute Rule
+### The 20-Minute Rule 20 分のルール
 
 ### Developing a Personal Radar
 
 #### The ThoughtWorks Technology Radar
 
-#### Open Source Visualization Bits
+#### Open Source Visualization Bits オープンソース視覚化
 
 ### Using Social Media
 
-### Parting Words of Advice
+### Parting Words of Advice 別れのアドバイス
 
-## Self-Assessment Questions
+## Self-Assessment Questions 自己評価の質問
 
 ### Chapter 1: Introduction
 
