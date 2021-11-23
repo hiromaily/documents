@@ -76,21 +76,27 @@
 ### Structual Patterns 1
 
 1. Composite Design Pattern
+   - This is a structural design pattern. Composition design pattern is used when we want a Group of objects called ‘composite’ is treated in a similar way as a single object. It comes under structural design pattern as it allows you to compose objects into a tree structure. Each of the individual objects in the tree structure can be treated in the same way irrespective of whether they are Complex or Primitive.
+   - Let’s try to understand it with an example of a file system of OS. In the file system, there are two types of objects File and Folder. There are cases when File and Folder are treated to be the same way. It will be more clear as we go along.
+   - [Composite Design Pattern in Go](https://golangbyexample.com/composite-design-pattern-golang/)
 2. Adapter Design Pattern
 
    - [Adapter Design Pattern in Go](https://golangbyexample.com/adapter-design-pattern-go/)
 
 3. Bridge Design Pattern
+   - [Bridge Design Pattern in Go](https://golangbyexample.com/bridge-design-pattern-in-go/)
 
 ### Structual Patterns 2
 
 1. Proxy Design Pattern
 2. Decorator Design Pattern
 
-   - [Decorator design pattern in Go](https://golangbyexample.com/decorator-pattern-golang/)
    - It lets you provide additional functionality or decorates an object without altering that object
+   - [Decorator design pattern in Go](https://golangbyexample.com/decorator-pattern-golang/)
 
 3. Facade Design Pattern
+   - Facade Pattern is classified as a structural design pattern. This design pattern is meant to hide the complexities of the underlying system and provide a simple interface to the client. It provides a unified interface to underlying many interfaces in the system so that from the client perspective it is easier to use. Basically it provides a higher level abstraction over a complicated system.
+   - [Facade Design Pattern in Go](https://golangbyexample.com/facade-design-pattern-in-golang/)
 4. Flyweight Design Pattern
 
 ### Behavioral Patterns 1
