@@ -9,6 +9,13 @@
 - [Go 言語でファジング](https://deeeet.com/writing/2015/12/21/go-fuzz/)
 - [dvyukov/go-fuzz](https://github.com/dvyukov/go-fuzz)
 
+## Go 1.18
+
+[Go 1.18 Release Notes](https://tip.golang.org/doc/go1.18)
+
+- Generics
+- Fuzzing tools
+
 ## Go 1.17
 
 [Go 1.17 Release Notes](https://golang.org/doc/go1.17)
