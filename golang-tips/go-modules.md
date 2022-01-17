@@ -45,7 +45,8 @@ The commands are:
 github.com/friendsofgo/errors v0.9.2
 ```
 
-- そのパッケージは tag で管理されておらず、疑似バージョンとなる
+- そのパッケージは tag で管理されておらず、`疑似バージョン`となる
+  - 疑似バージョン：リビジョン識別子（Git コミットハッシュなど）とバージョン管理システムからのタイムスタンプをエンコードするバージョン
 
 ```
 github.com/hiromaily/ripple-lib-proto v0.0.0-20200615012248-6990db627c3d
