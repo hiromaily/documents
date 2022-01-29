@@ -69,9 +69,7 @@ select [Mark Directory As] - [Excluded]
 [Command] + 9
 ```
 
-### 2.3. Debug
-
-#### local debugging
+### 2.3. Local Debugging
 
 1. Click [Edit configurations] from the top right
 2. Click [+]button from the top left and choose [Go Build]
@@ -81,7 +79,60 @@ select [Mark Directory As] - [Excluded]
    - [Working directory] your project(git repo) directory
    - [Program arguments] arguments that your app requres
 
-#### remote debugging
+### 2.4. Remote Debugging
+
+- Environement
+
+  - GoLand 2021.3.2
+  - go version go1.17.5 darwin/amd64
+  - Docker Version 4.3.2 (72729)
+
+- [Attach to running Go processes with the debugger](https://www.jetbrains.com/help/go/attach-to-running-go-processes-with-debugger.html)
+- [デバッガーで実行中の Go プロセスにアタッチする](https://pleiades.io/help/go/attach-to-running-go-processes-with-debugger.html)
+- [Debugging a Go application inside a Docker container](https://blog.jetbrains.com/go/2020/05/06/debugging-a-go-application-inside-a-docker-container/)
+- [Debugging Go applications with Docker Compose](https://blog.jetbrains.com/go/2020/05/08/running-go-applications-using-docker-compose-in-goland/#debugging-go-applications-with-docker-compose)
+- [Debugging Go Code in docker-compose](https://lukelogbook.tech/2021/03/04/debugging-go-code-in-docker-compose/)
+
+1. Dockerfile
+
+```
+# As debug mode
+RUN go build -v -gcflags "all=-N -l" -o /workspace/app .
+# Install dlv
+RUN GOBIN=/workspace go install github.com/go-delve/delve/cmd/dlv@latest
+```
+
+2. Command to run dlv with binary on remote host
+
+```
+dlv --listen=:40000 --headless=true --api-version=2 --accept-multiclient exec /usr/bin/app
+```
+
+3. docker-compose.yaml
+
+```
+services:
+  my-app:
+    container_name: my-container
+    image: my-image:latest
+    ports:
+      - 40000:40000
+    security_opt:
+      - "seccomp:unconfined"
+    cap_add:
+      - SYS_PTRACE
+    #privileged: true
+```
+
+4. Goland setting
+   File–> settings –> Go –> Go Modules and select both “Enable Go module integration” and “Enable Vendoring support automatically”
+
+5. Remote Debug by Goland
+
+- Host: localhost
+- Port: 40000
+
+#### Out dated way as of 2022 Jan
 
 1. Click [Edit configurations] from the top right
 2. Click [+]button from the top left and choose [Go Remote]
