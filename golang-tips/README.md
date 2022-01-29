@@ -150,10 +150,12 @@ services:
 
 ## 3. IDE: VS Code
 
-- [VSCode + golang での快適な補完について自分なりにまとめてみた](https://qiita.com/akinobufujii/items/50d605ecf22daa3309cb)
-- [Go for Visual Studio Code(official vscode extention for golang)](https://github.com/microsoft/vscode-go)
-- [json settings example](https://github.com/golang/tools/blob/master/gopls/doc/vscode.md)
-- [VS Code の Go 言語テストコード生成ツールを使ってみたらめちゃくちゃ便利だった話とか](https://kdnakt.hatenablog.com/entry/2019/01/03/080000)
+### 3.1. Debugging
+
+- [github:vscode-go](https://github.com/golang/vscode-go)
+- [github:vscode-go docs](https://github.com/golang/vscode-go/tree/master/docs)
+- [github:vscode-go debuging](https://github.com/golang/vscode-go/blob/master/docs/debugging.md)
+- [vscode debuging](https://code.visualstudio.com/docs/editor/debugging)
 
 ## 4. `make` with slice
 
