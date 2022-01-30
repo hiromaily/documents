@@ -81,6 +81,8 @@ select [Mark Directory As] - [Excluded]
 
 ### 2.4. Remote Debugging
 
+#### For now, remote debugging is not working on Goland. Use VSCODE with dap.
+
 - Environement
 
   - GoLand 2021.3.2
@@ -156,6 +158,48 @@ services:
 - [github:vscode-go docs](https://github.com/golang/vscode-go/tree/master/docs)
 - [github:vscode-go debuging](https://github.com/golang/vscode-go/blob/master/docs/debugging.md)
 - [vscode debuging](https://code.visualstudio.com/docs/editor/debugging)
+- [dap: Debug Adapter Protocol](https://github.com/Microsoft/debug-adapter-protocol)
+
+### 3.2. Debugging Using [dlv](https://github.com/go-delve/delve)
+
+- [コンテナで動く Go アプリをデバッグする方法](https://zenn.dev/skanehira/articles/2021-11-26-go-remote-debug)
+
+1. install `dlv`
+
+```
+go install github.com/go-delve/delve/cmd/dlv@latest
+```
+
+2. create `launch.json` in a .vscode folder in your workspace (project root folder)
+
+```
+{
+	"version": "0.2.0",
+	"configurations": [{
+		"name": "Debug Compose Container",
+		"type": "go",
+		"debugAdapter": "dlv-dap",
+		"request": "launch",
+		"port": 40000,
+		"host": "localhost",
+		"mode": "exec",
+		"program": "/usr/bin/chaincode",
+		"substitutePath": [{
+			"from": "${workspaceFolder}/demo/chains/fabric/chaincode/fabibc",
+			"to": "/root"
+		}]
+	}]
+}
+```
+
+- port: デバッガのポート
+- program: コンテナ側にある実行ファイルのフルパス
+- exec: 事前ビルドされた program を実行する
+- substitutePath: VSCode 側のパスをコンテナ側のパスに置換
+
+#### Error message `could not find file` at break point
+
+- [Solution] try to put source code onto container. Not only binary. Build code inside container and run binary via dlv.
 
 ## 4. `make` with slice
 
