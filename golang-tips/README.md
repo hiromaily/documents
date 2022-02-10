@@ -197,6 +197,35 @@ go install github.com/go-delve/delve/cmd/dlv@latest
 - exec: 事前ビルドされた program を実行する
 - substitutePath: VSCode 側のパスをコンテナ側のパスに置換
 
+3. Dockerfile
+
+```
+FROM golang:1.17-alpine3.13
+RUN apk add --no-cache gcc libc-dev
+
+WORKDIR /root
+COPY ./ ./
+
+# build with gcflags
+RUN go build -v -mod=vendor -gcflags "all=-N -l" -o /usr/bin/app .
+# Install dlv
+RUN GOBIN=/usr/bin go install github.com/go-delve/delve/cmd/dlv@latest
+
+ENTRYPOINT dlv dap
+CMD -l 0.0.0.0:40000 --log --check-go-version=false
+```
+
+4. docker-compose.yml
+
+```
+   ports:
+      - "40000:40000"
+```
+
+#### Note
+
+- 注意点として、`vendor`を使うとき、Editor でそちらのファイルを開いて breakpoint をセットせねばならない。
+
 #### Error message `could not find file` at break point
 
 - [Solution] try to put source code onto container. Not only binary. Build code inside container and run binary via dlv.

@@ -109,96 +109,10 @@ replace golang.org/x/tools => ../../tools
 
 1. バージョニングしていないパッケージを取得
    - このとき、main ブランチから取得される
+2. パッケージをバージョニングするには、参照側でタグを用意する必要がある。
 
-```
-cd go-crypto-wallet
-go get -u github.com/hiromaily/ripple-lib-proto
-
-# go.mod
-require github.com/hiromaily/ripple-lib-proto v0.0.0-20200615012248-6990db627c3d
-```
-
-2. パッケージをバージョニングするには、タグを用意する必要がある。
-
-```
-cd ripple-lib-proto
-git tag -a v1.0.0 -m "Version 1.0.0"
-git push --tags
-```
-
-3. 再度、パッケージを取得してみる
-   - パッケージにバージョンが指定される
-
-```
-cd go-crypto-wallet
-go get -u github.com/hiromaily/ripple-lib-proto
-
-# go.mod
-require github.com/hiromaily/ripple-lib-proto v1.0.0
-```
-
-4. パッケージのマイナーバージョンをアップグレードしてみる
-
-```
-cd ripple-lib-proto
-git tag -a v1.1.0 -m "Version 1.1.0"
-git push --tags
-```
-
-5. 再度、パッケージを取得してみる
-
-```
-cd go-crypto-wallet
-go clean --modcache
-go get -u github.com/hiromaily/ripple-lib-proto
-
-# go.mod
-require github.com/hiromaily/ripple-lib-proto v1.0.0
-=> 予想外にもキャッシュを消しても、バージョンは`v1.1.0`に上がらなかった。
-
-# 明示的にバージョンを指定して取得することでうまくいった
-go get -u github.com/hiromaily/ripple-lib-proto@v1.1.0
-```
-
-6. パッケージのメジャーバージョンをアップグレードしてみる
-
-```
-cd ripple-lib-proto
-git tag -a v2.0.0 -m "Version 2.0.0"
-git push --tags
-```
-
-7. 再度、パッケージを取得してみる
-   - メジャーバージョンは `go get -u` ではアップグレードされない
-
-```
-cd go-crypto-wallet
-go clean --modcache
-go get -u github.com/hiromaily/ripple-lib-proto
-
-# go.mod
-require github.com/hiromaily/ripple-lib-proto v1.1.0
-=> バージョンは`v2.0.0`に上がらなかった。
-
-# 明示的にバージョンを指定して取得することでうまくいった
-go get -u github.com/hiromaily/ripple-lib-proto@v2.0.0
-=> errorが起きる。`go get: github.com/hiromaily/ripple-lib-proto@v2.0.0: invalid version: module contains a go.mod file, so major version must be compatible: should be v0 or v1, not v2`
-```
-
-- [参考:Go modules で依存モジュールのメジャーバージョンが v2 以上の時の対応](https://christina04.hatenablog.com/entry/go-modules-major-version)
-
-8. go.mod 内のパッケージの module 名を以下のように修正
-
-```
-module github.com/hiromaily/ripple-lib-proto/v2
-```
-
-9. 再度、パッケージを取得してみる
-
-```
-cd go-crypto-wallet
-go get -u github.com/hiromaily/ripple-lib-proto/v2
-```
+- experimental branch
+  - [version-test](https://github.com/hiromaily/version-test)
 
 ### 作成したパッケージのバージョニングと、その参照方法
 
