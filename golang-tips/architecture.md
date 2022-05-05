@@ -1,7 +1,6 @@
-# [WIP] Golang Best Architecture 考察と草案
+# [WIP] Architecture 考察と草案
 
 アーキテクチャは記述すべき箇所を示す方針であるが、どのような構造が望ましいか考察する
-WEB だろうと、バッチの CUI だろうと、UI の際による構造の違いはない
 
 ## golang-standards/project-layout
 
