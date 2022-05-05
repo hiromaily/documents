@@ -6,11 +6,7 @@
 - [Solidity 日本語](https://solidity-ja.readthedocs.io/ja/latest/)
 - [Solidity 日本語(古い)](https://solidity-jp.readthedocs.io/ja/latest/)
 
-## 書籍まとめ
-
-### Solidity と Ethereum による実践スマートコントラクト開発
-
-- [book](https://www.oreilly.co.jp/books/9784873119342/)
+## Memo
 
 - private の状態変数や、パラメータの名前の先頭に`_`をつけるのが一般的なプラクティス
   うべき
@@ -78,3 +74,38 @@ receive () external payable {
 - 整数のオーバーフロー問題を解決するために、`SafeMath`が OpenZeppelin に実装されている
 - Truffle で書く test は、Mocha がベースとなっている
 - React Truffle Box という React Box のラッパー機能を使うと UI 開発が楽
+
+- コントラクトのインスタンス化には 2 通りあり、既に Deploy されているコントラクトアドレスを利用して、インスタンス化する方法もあり、これは参照にあたる。
+
+```
+# 新たにインスタンスを生成
+HelloWorld myObj = new HelloWorld();
+# アドレスからコントラクトを参照
+HelloWorld myObj = HelloWorld(contractAddress);
+```
+
+- コントラクタの宣言がない場合、コンパイラがデフォルトコントラクタを作成する
+- コントラクタはコントラクトのデプロイ時に１度だけ実行される
+- 状態変数を初期化するためにコントラクタは存在し、それ以外で書く必要はない
+- function における、オーバーロード、オーバーライドが利用可能
+- 抽象コントラクトという関数定義のみ、もしくは関数定義以外の実装を持つコントラクトがある。これはインスタンスを作成できないが、継承して利用する。継承したコントラクトはそれを実装する必要がある。
+- インターフェースは関数定義のみしかできない。状態変数を含めること、インターフェイスから他のコントラクトを継承することはできないが、他のインターフェースを継承することはできる。
+
+```
+interface IHelloWorld {
+  function GetValue() public view returns (uint);
+  function SetValue(uint _value) public;
+}
+
+contract HelloWorld is IHelloWorld {
+  ...
+}
+
+contract client {
+  IHelloWorld myObj;
+
+  function client(){
+    myObj - new HelloWorld();
+  }
+}
+```
