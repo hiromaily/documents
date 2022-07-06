@@ -20,6 +20,12 @@ cargo --version
 # install cargo-edit (https://crates.io/crates/cargo-edit)
 cargo install cargo-edit
 
+# install rust-analyzer
+rustup component add rls rust-src rust-analysis
+
+# update all
+rustup update
+
 # create project
 cargo new foo_bar
 ```
