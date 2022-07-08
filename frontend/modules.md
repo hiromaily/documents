@@ -59,3 +59,10 @@ AMD（Asynchronous Module Definition）も JS モジュールシステムの 1 �
   - `const Bar = require('./utils/bar.cjs');`
   - `const Bar = require('./utils/bar');` のように、`.cjs`ファイルの拡張子を省略するとエラーになる。
     - `CJS` として扱われている.js ファイルを読み込む場合は、拡張子を省略できる
+- [Native ESM + TypeScript 拡張子問題: 歯にものが挟まったようなスッキリしない書き流し](https://zenn.dev/qnighy/articles/19603f11d5f264)
+
+## DefinitelyTyped
+
+- [github](https://github.com/DefinitelyTyped/DefinitelyTyped)
+- [github:ja](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.ja.md)
+- 型定義ファイル
