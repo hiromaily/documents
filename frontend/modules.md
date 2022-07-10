@@ -65,9 +65,9 @@ AMD（Asynchronous Module Definition）も JS モジュールシステムの 1 �
 
 - Native ESM とは ES Modules のこと
 - [Native ESM + TypeScript 拡張子問題: 歯にものが挟まったようなスッキリしない書き流し](https://zenn.dev/qnighy/articles/19603f11d5f264)
-
+- [Native ESM 時代とはなにか](https://zenn.dev/uhyo/articles/what-is-native-esm-era)
 - ビルド時にバンドラによって import・export で繋がった複数の JavaScript ファイルたちを一つの JavaScript にまとめる処理が行われる。(バンドル)
-  つまり、ビルド前に ES Modules を利用していたとしても、ビルド後の JavaScript ではもはや ES Modules が使われいないことになる
+  つまり、ビルド前に ES Modules を利用していたとしても、ビルド後の JavaScript ではもはや ES Modules が使われていないことになる
 
 ## DefinitelyTyped
 
@@ -115,5 +115,7 @@ ES6 モジュールの仕様では、名前空間のインポート`（import * 
 
 ## import 方法の違い [WIP]
 
+```
 import \* as \_m0 from "protobufjs/minimal.js";
 import \_m0\_\_default from "protobufjs/minimal.js";
+```
