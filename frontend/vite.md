@@ -103,10 +103,8 @@ TypeError: Cannot read properties of undefined (reading 'Long')
 - [my post on svelte/kit](https://github.com/sveltejs/kit/issues/5418)
 - [my post on vite](https://github.com/vitejs/vite/issues/9018)
 
-- vite 側の issue
-
-  - [Vite + React: "TypeError: Cannot read properties of undefined (reading 'classes')"](https://github.com/vitejs/vite/issues/8395)
-
+- [There is a problem with protoubfjs when building with the vite command](https://github.com/vitejs/vite/issues/7797)
+- [Vite + React: "TypeError: Cannot read properties of undefined (reading 'classes')"](https://github.com/vitejs/vite/issues/8395)
   - But it doesn't work
 
 ```package.json
@@ -115,9 +113,19 @@ TypeError: Cannot read properties of undefined (reading 'Long')
   }
 ```
 
-- [Error in production mode using Vite VueJS](https://discourse.vtk.org/t/error-in-production-mode-using-vite-vuejs/8010)
+- [protobuf.js: error after vite building](https://github.com/protobufjs/protobuf.js/issues/1673)
 
-  - [Vite Error only in build (TypeError: Cannot read property 'insertBefore' of null)](https://www.querythreads.com/vite-error-only-in-build-type-error-cannot-read-property-insert-before-of-null/)
+#### Solutions
 
-- protobuf.js 側の issue
-  - [protobuf.js: error after vite building](https://github.com/protobufjs/protobuf.js/issues/1673)
+- import パスが間違っていた
+
+```
+import * as _m0 from "protobufjs/minimal.js";
+```
+
+のような名前空間のインポートは、ES6 モジュールの仕様では、名前空間のインポート`（import * as x）`はオブジェクトにしかなれない。
+よって、以下のように修正する必要がある。
+
+```
+import _m0 from "protobufjs/minimal.js";
+```
