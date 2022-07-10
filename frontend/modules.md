@@ -115,7 +115,12 @@ ES6 モジュールの仕様では、名前空間のインポート`（import * 
 
 ## import 方法の違い [WIP]
 
+- [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import_
+- [import(ja)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import)
+
 ```
-import \* as \_m0 from "protobufjs/minimal.js";
-import \_m0\_\_default from "protobufjs/minimal.js";
+import * as _m0 from "protobufjs/minimal.js";
+
+# ESMの場合、こちらをつかうこと
+import _m0 from "protobufjs/minimal.js";
 ```
