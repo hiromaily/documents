@@ -1,0 +1,123 @@
+# Vite
+
+ビルドツールで、ヴィートと発音する
+
+## 機能
+
+- 瞬時にスタートするサーバ ... 開発時はバンドル不要で動作する
+- 超高速な HMR(Hot Module Replacement) ... 画面の再描画無しにファイル変更をブラウザに適用してくれる機能
+- 豊富な機能
+- 最適化されたビルド
+- ユニバーサルなプラグイン
+- 完全に型定義がされている API
+
+## 特徴
+
+- Node.js >=14.6.0 のバージョンが必要
+- native ES modules を利用している
+- Rollup.js をベースとしたプロダクションビルド機能
+- Vite はデフォルトでは構文変換のみを扱い デフォルトでは Polyfill をカバーしていない
+- Vite は Typescript のトランスパイルは行うが、型チェックは行わないため、ビルド時に型チェックを行うことが推奨される
+
+```
+"scripts": {
+  "build": "tsc --noEmit && vite build"
+},
+```
+
+s
+
+## コマンド
+
+- `vite dev`
+  - 開発サーバーを起動
+- `vite build`
+  - プロダクション用にビルド
+- `vite preview`
+  - プロダクション用ビルドをローカルでプレビュー
+
+## NPM の依存関係の解決と事前バンドル
+
+- ネイティブ ES のインポートは次のような生のモジュールをサポートしない
+
+```
+import { someMethod } from 'my-dep'
+```
+
+- vite で生のモジュールのインポートを検出
+- 事前バンドルは [esbuild](https://esbuild.github.io/) で実行され、CommonJS / UMD モジュールを ESM に変換する
+- import を `my-dep.js` のように書き換える
+
+## Typescript
+
+## References
+
+- [Vite](https://vitejs.dev/)
+- [Vite (ja)](https://ja.vitejs.dev/)
+
+## 発生した問題
+
+### `vite build` 実行時エラー　 ERR_MODULE_NOT_FOUND
+
+```
+Error [ERR_MODULE_NOT_FOUND]: Cannot find module '/Users/me/app/node_modules/protobufjs/minimal' imported from /Users/me/app/.svelte-kit/output/server/entries/pages/index.svelte.js
+Did you mean to import protobufjs/minimal.js?
+```
+
+#### References
+
+- [Importing a .js typescript resource from a typescript file fails](https://github.com/vitejs/vite/issues/3040)
+- [Could not resolve error on .js extension in import with TypeScript](https://github.com/vitejs/vite/issues/5539)
+
+#### Solutions
+
+- パスを変更する。これは ESM の問題
+
+```
+import * as _m0 from "protobufjs/minimal";
+=>
+import * as _m0 from "protobufjs/minimal.js";
+```
+
+- 実行時に、`--es-module-specifier-resolution=node` を追加する
+
+```
+NODE_OPTIONS='--es-module-specifier-resolution=node' npm run build
+```
+
+### `vite build` 実行時エラー　 TypeError: Cannot read properties of undefined
+
+```
+TypeError: Cannot read properties of undefined (reading 'Long')
+```
+
+- これは、sevelte を使っているものの、vite の問題かもしれないし、原因が発生している、protobufjs の問題かもしれないし、proto から generate する際に利用したプラグインである、ts-proto の問題かもしれない。
+- ts-proto の[Readme](https://github.com/stephenh/ts-proto)にも、vite を使う場合の注意点いついての記載がある。
+
+```
+--ts_proto_opt=esModuleInterop=true
+```
+
+#### References
+
+- [my post on svelte/kit](https://github.com/sveltejs/kit/issues/5418)
+- [my post on vite](https://github.com/vitejs/vite/issues/9018)
+
+- vite 側の issue
+
+  - [Vite + React: "TypeError: Cannot read properties of undefined (reading 'classes')"](https://github.com/vitejs/vite/issues/8395)
+
+  - But it doesn't work
+
+```package.json
+  "overrides": {
+		"rollup": "2.74.1"
+  }
+```
+
+- [Error in production mode using Vite VueJS](https://discourse.vtk.org/t/error-in-production-mode-using-vite-vuejs/8010)
+
+  - [Vite Error only in build (TypeError: Cannot read property 'insertBefore' of null)](https://www.querythreads.com/vite-error-only-in-build-type-error-cannot-read-property-insert-before-of-null/)
+
+- protobuf.js 側の issue
+  - [protobuf.js: error after vite building](https://github.com/protobufjs/protobuf.js/issues/1673)
