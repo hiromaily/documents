@@ -33,6 +33,7 @@ Privary features are
 - [Git Docs](https://github.com/sveltejs/kit/tree/master/documentation/docs)
 - [Docs](https://kit.svelte.dev/docs/introduction)
 - [Docs (jp)](https://kit.svelte.jp/docs/introduction)
+- [faq](https://kit.svelte.dev/faq)
 
 ### Others
 
@@ -59,3 +60,32 @@ cd my-app2
 
 - [Svelete Configuration](https://kit.svelte.dev/docs/configuration)
 - [Svelete Configuration (jp)](https://kit.svelte.jp/docs/configuration)
+
+## Deploy
+
+- [Adapters](https://kit.svelte.dev/docs/adapters)
+- [Adapters(jp)](https://kit.svelte.jp/docs/adapters)
+
+### Procedure
+
+```
+tsc --noEmit
+npx vite build
+# target dirs are
+# - static/
+# - build/
+```
+
+- github pages に、deploy する場合、svelte で出力したディレクトリ`_app`内のファイルが 400 エラーになり、`app`にリネームすることで対応した。
+- svelte.config.js の変更
+
+```
+const config = {
+	kit: {
+    ...
+		appDir: 'app',
+    ...
+	}
+};
+
+```
