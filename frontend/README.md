@@ -48,11 +48,26 @@
   - Adopting GraphQL
   - [Motion UI](https://github.com/foundation/motion-ui)
   - [Single Page Applications (SPAs)](https://developer.mozilla.org/en-US/docs/Glossary/SPA)
+- [Top 10 Front-End Development Trends in 2022](https://www.hackerrank.com/blog/front-end-development-trends-2022/)
+  - Front-End Design Trends
+    - Accessibility
+    - High Performance
+    - Mobile-First Design
+  - Trending Tools and Technologies
+    - GraphQL
+    - [Gatsby](https://github.com/gatsbyjs/gatsby)
+      - 開発者が非常に高速な Web サイトやアプリを構築するのに役立つ、React baseのフレームワーク
+    - Jamstack
+    - Progressive Web Apps
+    - [PyScript](https://pyscript.net/)
+      - run Python in HTML
+    - Server-Side Rendering
+    - Single Page Applications
 
 
 ## Framework
 
-Vue.js is popular more than React these days. But Svelte is growing.
+But Svelte is growing.
 
 - [Next.js](https://nextjs.org/) is React Framework which can be built by React.js view libraries.
 - [Nuxt.js](https://nuxtjs.org/) is Vue Framework which can be built by Vue.js view libraries.
