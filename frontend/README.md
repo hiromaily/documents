@@ -17,7 +17,7 @@
       - Bundle and minify HTML, CSS, and JavaScript files
         - webpack, Vite, Rollup
       - Try to avoid bulky libraries that could hinder performance
-        - 必要なツールのみを ES6 モジュールからインポートして、`Tree Shaking`を有効にします
+        - 必要なツールのみを ES6 モジュールからインポートして、`Tree Shaking`を有効にする
         - [Tree Shaking](https://webpack.js.org/guides/tree-shaking/)
       - Reduce the number of server calls
         - CSS sprites
@@ -35,7 +35,19 @@
   - Headless Architecture (headless CMS)
     - バックエンドのコンテンツ機能 (作成、管理、保存など) をフロントエンドの機能 (プレゼンテーションや配信など) から分離します。
   - Websites Rapidly Improve Accessibility
-
+- [Front-End Development Trends of 2022](https://www.dronahq.com/front-end-development-trends/)
+  - [Jamstack](https://jamstack.org/)
+    - 最新の高性能SPAを作成するための使いやすいプラットフォームを提供するJSフレームワーク。
+    - Jamstack は、re-rendering と decouplingの原則に基づいて動作する。
+    - フロントエンド UI とページをデータベース バックエンド アプリから分離する。
+    - フロントエンドがバックエンド サーバーから解放されると、グローバルに CDN に簡単に展開できる。
+    - 展開前に、フロントエンド全体が高度に最適化された静的ページとアセットに事前に組み込まれている。
+    - グローバル フロントエンドは、Javascript と API を使用してバックエンド サービスと通信し、ページを拡張してパーソナライズできるようにする。 
+  - [Progressive Web Apps (PWAs)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
+    - Service Worker、マニフェスト、その他の Web プラットフォーム機能をプログレッシブ エンハンスメントと組み合わせて使用し、ネイティブ アプリと同等のエクスペリエンスをユーザーに提供する Web アプリ。
+  - Adopting GraphQL
+  - [Motion UI](https://github.com/foundation/motion-ui)
+  - [Single Page Applications (SPAs)](https://developer.mozilla.org/en-US/docs/Glossary/SPA)
 
 
 ## Framework
@@ -49,3 +61,4 @@ Vue.js is popular more than React these days. But Svelte is growing.
 ## Others
 
 ### BFF（Backends For Frontends）
+- アクセスするデバイス(mobile, web)に合わせて最適化されたレスポンスを作成する
