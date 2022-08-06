@@ -27,13 +27,13 @@
       - Enable prefetching 
         - https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
         - `<link rel="prefetch" href="/images/big.jpeg">`
-        - ユーザーがプリフェッチされたドキュメントの 1 つにアクセスすると、ブラウザのキャッシュからすぐに提供される
+        - ユーザーがpre-fetchされたドキュメントの 1 つにアクセスすると、ブラウザのキャッシュからすぐに提供される
       - Use a Content Delivery Network (CDN)
         - Netlify, Cloudflare, Google Cloud CDN, Amazon CloudFront, etc
   - Schema Markup (for search rankings)
     - https://developers.google.com/search/docs/advanced/structured-data
   - Headless Architecture (headless CMS)
-    - バックエンドのコンテンツ機能 (作成、管理、保存など) をフロントエンドの機能 (プレゼンテーションや配信など) から分離します。
+    - バックエンドのコンテンツ機能 (作成、管理、保存など) をフロントエンドの機能 (プレゼンテーションや配信など) から分離する。
   - Websites Rapidly Improve Accessibility
 - [Front-End Development Trends of 2022](https://www.dronahq.com/front-end-development-trends/)
   - [Jamstack](https://jamstack.org/)
@@ -57,6 +57,7 @@
     - GraphQL
     - [Gatsby](https://github.com/gatsbyjs/gatsby)
       - 開発者が非常に高速な Web サイトやアプリを構築するのに役立つ、React baseのフレームワーク
+      - 静的サイトジェネレーター, こちらで[確認](https://jamstack.org/generators/)
     - Jamstack
     - Progressive Web Apps
     - [PyScript](https://pyscript.net/)
