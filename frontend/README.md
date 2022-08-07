@@ -48,8 +48,13 @@
   - [Progressive Web Apps (PWAs)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
     - Service Worker、マニフェスト、その他の Web プラットフォーム機能をプログレッシブ エンハンスメントと組み合わせて使用し、ネイティブ アプリと同等のエクスペリエンスをユーザーに提供する Web アプリ。
   - Adopting GraphQL
-  - [Motion UI](https://github.com/foundation/motion-ui)
+  - Motion UI
+    - https://github.com/foundation/motion-ui
+    - [What is Motion UI?](https://www.geeksforgeeks.org/what-is-motion-ui/)
   - [Single Page Applications (SPAs)](https://developer.mozilla.org/en-US/docs/Glossary/SPA)
+    - 単一のページでコンテンツの切り替えを行う
+    - SPAでは JavaScript を用いてページ内の HTML の一部を差し替えてコンテンツを切り替える
+    - デメリットは、初期ローディングにかかる時間が増えること
 - [Top 10 Front-End Development Trends in 2022](https://www.hackerrank.com/blog/front-end-development-trends-2022/)
   - Front-End Design Trends
     - Accessibility
