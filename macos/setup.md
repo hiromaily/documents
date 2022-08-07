@@ -10,6 +10,7 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 
 - [.zprofile, .zshrc, .zenv, OMG! What Do I Put Where?!](https://www.zerotohero.dev/zshell-startup-files/)
 - [macOS, Zsh, and more](https://gist.github.com/Linerre/f11ad4a6a934dcf01ee8415c9457e7b2)
+- [Top popular Zsh plugins on GitHub (2021)](https://safjan.com/top-popular-zsh-plugins-on-github-2021/)
 - [awesome-zsh-plugins](https://project-awesome.org/unixorn/awesome-zsh-plugins)
 - [ひさしぶりに zsh に戻りました](https://blog.nishimu.land/entry/2022/03/21/003009)
 
