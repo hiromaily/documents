@@ -43,6 +43,8 @@
     - フロントエンドがバックエンド サーバーから解放されると、グローバルに CDN に簡単に展開できる。
     - 展開前に、フロントエンド全体が高度に最適化された静的ページとアセットに事前に組み込まれている。
     - グローバル フロントエンドは、Javascript と API を使用してバックエンド サービスと通信し、ページを拡張してパーソナライズできるようにする。 
+    - [Jamstackって何なの？何がいいの？](https://qiita.com/ozaki25/items/4075d03278d1fb51cc37)
+      - templateをビルドしてHTMLを生成する時にAPIからデータを取得して埋め込む
   - [Progressive Web Apps (PWAs)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
     - Service Worker、マニフェスト、その他の Web プラットフォーム機能をプログレッシブ エンハンスメントと組み合わせて使用し、ネイティブ アプリと同等のエクスペリエンスをユーザーに提供する Web アプリ。
   - Adopting GraphQL
@@ -77,4 +79,5 @@ But Svelte is growing.
 ## Others
 
 ### BFF（Backends For Frontends）
+- 各種バックエンドサーバーとフロントエンドの中間に「フロントエンド専用のサーバー」を配置し、リクエストに応じてバックエンドサービスにAPIコールをしたり、バックエンドから取得したデータを加工してフロントエンドに返却する。
 - アクセスするデバイス(mobile, web)に合わせて最適化されたレスポンスを作成する
