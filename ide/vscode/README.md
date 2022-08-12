@@ -61,3 +61,9 @@ touch .vscode/settings.json   # vscodeそのものの設定を記載
   "search.useIgnoreFiles": true,
 }
 ```
+
+## Command Palette
+- `Command Palette` => `F1` or `Shift+Command+P`
+
+### Indentの変更
+`Indent`と入力すると、関連コマンドが表示される
