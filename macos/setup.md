@@ -192,6 +192,46 @@ mkdir -p ~/go/bin
 go install golang.org/x/tools/cmd/goimports@latest
 ```
 
+
+## Rust settings
+- [install](https://rust-lang.github.io/rustup/installation/index.html)
+- configure `.zprofile`
+```
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export CARGO_CONFIG="$XDG_CONFIG_HOME"/cargo
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+
+export PATH=$CARGO_HOME/bin:$PATH
+#[ -f $CARGO_CONFIG/env ] && source $CARGO_CONFIG/env
+```
+
+```bash
+mkdir ~/.config/cargo
+mkdir ~/.local/share/cargo
+mkdir ~/.local/share/rustup
+
+brew install rustup-init
+rustup-init
+
+rustup completions zsh > ~/.config/zsh/zfunc/_rustup
+
+#mv ~/.cargo/env ~/.config/cargo/
+#mv ~/.cargo/bin ~/.local/share/cargo/ # $CARGO_HOME/
+#mv ~/.rustup/* ~/.local/share/rustup/
+```
+
+- configure `.zshrc`
+```
+fpath+=~/.config/zsh/zfunc
+```
+
+- check
+```
+rustup --version
+cargo --version
+rustc --version
+```
+
 ## NeoVIM settings
 
 ```
