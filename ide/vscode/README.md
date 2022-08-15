@@ -62,6 +62,16 @@ touch .vscode/settings.json   # vscodeそのものの設定を記載
 }
 ```
 
+- スニペットを有効にする
+  - [Snippets in Visual Studio Code](https://code.visualstudio.com/docs/editor/userdefinedsnippets)
+  - Create your own snippets
+```
+cd  ~/Library/Application Support/Code/User
+mkdir snippets
+touch snippets/javascript.json # for javascript 
+touch snippets/typescript.json # for typescript
+```
+
 ## Command Palette
 - `Command Palette` => `F1` or `Shift+Command+P`
 

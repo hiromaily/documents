@@ -152,10 +152,10 @@ brew install tmux
 brew install git
 brew install git-lfs
 brew install jq
-brew install fd    # https://github.com/sharkdp/fd file search: e.g. fd filename
+brew install fd      # https://github.com/sharkdp/fd file search: e.g. fd filename
 brew install fzf
 (brew --prefix)/opt/fzf/install
-brew install bat   # https://github.com/sharkdp/bat like cat
+brew install bat     # https://github.com/sharkdp/bat like cat
 brew install ripgrep
 brew install peco
 brew install exa
