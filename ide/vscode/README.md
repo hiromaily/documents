@@ -16,7 +16,21 @@
 - `検索` => `⌘F`
 - `置換` => `⌥⌘F`
 
-## プラグイン
+## Extensions
+1. Gitlens ... コミット履歴を確認できる
+2. Live Server ... local dev serverを立ち上げる
+3. Import Cost ... npmでimportしたときのファイルサイズを表示する
+4. Prettier ... save時にprettierでformatをかける
+5. ESLint ... eslintの結果がcode上ですぐに確認できる
+6. Markdown All in One ... Markdownに便利な機能が含まれるが、defaultでも十分かも
+7. Better Comments ... better commentsが提案される
+8. Snippets
+  - ES7+ React/Redux/React-Native snippets
+  - Javascript (ES6) Code Snippets
+8. Path Intellisense ... パス入力を補完する
+9. Auto Rename Tag
+10. Auto Close Tag
+11. Live Server
 
 ## 便利機能
 ### Emmetスニペット
