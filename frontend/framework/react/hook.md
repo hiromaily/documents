@@ -1,14 +1,8 @@
-# React
+# React Hooks
 
-## Viteを使った環境設定
-- viteについては[こちら](../vite.md)
-
-```
-npm create vite
-```
-
-## React Hooks
+- これにより、React の機能を、クラスを書かずに使えるようになる
 - コンポーネントのトップレベルでcallする
+
 ### useState
 - 状態を扱うためのHook
 - useState()で1つの新しい状態を作成する
