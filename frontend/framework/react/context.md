@@ -50,3 +50,33 @@ const Page = () => {
 
 export default Page
 ```
+
+## Example2
+- [How to pass Multiple Values in React Context?]()
+```
+const CounterContext = React.createContext("counter")
+
+export default function MultiValueContextDemo() {
+    const [counter1, setCounter1] = useState(0);
+    const [counter2, setCounter2] = useState(0);
+
+    return(
+        <CounterContext.Provider value={{ counter1, setCounter1, counter2, setCounter2 }}>
+            <CounterComponent />
+        </CounterContext.Provider>
+    )
+}
+
+const CounterComponent = () => {
+    const {counter1, setCounter1, counter2, setCounter2 } = useContext(CounterContext)
+
+    return(
+        <React.Fragment>
+            <button onClick={() => setCounter1((counter) => counter + 1)}>Click Counter {counter1}</button>
+            <button onClick={() => setCounter2((counter) => counter + 1)}>Click Counter {counter2}</button>
+        </React.Fragment>
+    )
+}
+```
+- Note:
+  - [React Fragment](https://reactjs.org/docs/fragments.html)

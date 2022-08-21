@@ -161,7 +161,7 @@ const Parent = () => {
       <DecrementButton onClick={decrement} />
       {/* メモ化コンポーネントに関数を渡す */}
       <IncrementButton onClick={increment} />
-      {/* メモ化コンポーネントにメモ化した関数を渡す */}
+      {/* メモ化コンポーネントにメモ化した関数を渡す。この場合のみ再描画されない */}
       <DoubleButton onClick={double} />
     </div>
   )
@@ -170,9 +170,8 @@ const Parent = () => {
 export default Parent
 ```
 
-### useCallback
-- メモ化(ある関数の計算結果を保持し、同一の呼出があった場合は保持しておいた結果を返すといった計算結果を再利用する手法)用のHookの1つ
-- useCallbackは関数をメモ化するためのフック
+### useMemo
+- useMemoは値をメモ化するためのフック
 ```
 import React, { useState, useMemo } from 'react'
 
