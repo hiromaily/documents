@@ -22,6 +22,9 @@
 - hooks ... Custom Hooks
 - pages ... For UI
 
+## Pattern 2
+- [bulletproof-react](https://github.com/alan2207/bulletproof-react)
+
 ### Notes
 - Use Absolute Imports
 ```
@@ -30,5 +33,6 @@ import { Button } from '@components';
 - Separate business logic from UI
 - Avoiding creating a single Context for everything
 
-## Pattern 2
-- [bulletproof-react](https://github.com/alan2207/bulletproof-react)
+### Handling Component Re-Renderings
+- [5 Ways to Avoid React Component Re-Renderings](https://blog.bitsrc.io/5-ways-to-avoid-react-component-re-renderings-90241e775b8c)
+

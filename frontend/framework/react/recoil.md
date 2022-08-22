@@ -12,5 +12,6 @@
 ## References
 - [recoil](https://recoiljs.org/)
 - [github](https://github.com/facebookexperimental/Recoil)
+- [Docs](https://recoiljs.org/docs/introduction/installation)
 - [Reactの新しい状態管理ライブラリ「Recoil」とは？ Reduxとの違いを解説](https://ics.media/entry/210224/)
 
