@@ -15,12 +15,15 @@
 - Minification
 - Plugins
 
+- viteのlocal server向け buildで使われている
+
 ## rollup.js
 
 - [rollup.js](https://rollupjs.org/guide/en/)
 
 - ESM ネイティブ
 - プラグインが豊富
+- viteのproduction buildで使われている
 
 ## webpack
 
