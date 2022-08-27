@@ -7,3 +7,5 @@
 - [Ant Design](https://ant.design/)
 - [React Bootstrap](https://react-bootstrap.github.io/)
 - [Chakra UI](https://chakra-ui.com/)
+- [Blueprint](https://blueprintjs.com/)
+- [Headless UI](https://headlessui.com/)
