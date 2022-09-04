@@ -44,7 +44,10 @@ sudo apt install [package name]-theme
 ## Install Basics
 ### Terminal apps
 - [Hyper](https://hyper.is/#installation)
-
+  - 以下に続く、Zim等の設定が反映されない
+- Ubuntu Budgie Desktop をinstallしたら、`Tilix`がインストールされていた。
+  - `shortcut`の項にて、最低限、Copy, Pasteの設定は入れておく
+  - 
 ### XDG Base Directory Specification
 - /etc/zshenv
 
@@ -138,6 +141,12 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 fpath+=~/.config/zsh/zfunc
 ```
 
+#### その他必要なファイル群をzsh配下に 作成する
+```
+mkdir zfunc
+touch .alias.zsh
+touch .alias.dev.zsh
+```
 
 ### Ubuntu Workspace
 
