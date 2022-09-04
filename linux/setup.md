@@ -42,6 +42,8 @@ sudo apt install [package name]-theme
 ```
 
 ## Install Basics
+### Terminal apps
+- [Hyper](https://hyper.is/#installation)
 
 ### XDG Base Directory Specification
 - /etc/zshenv
@@ -89,3 +91,10 @@ zmodule zdharma/fast-syntax-highlighting
 zmodule olets/zsh-abbr
 zmodule fzf
 ```
+
+```
+zimfw install
+```
+
+### Install font
+- [Powerlevel10k: Font](https://github.com/romkatv/powerlevel10k/blob/master/font.md)
