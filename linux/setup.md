@@ -68,9 +68,12 @@ export HISTFILE="$XDG_DATA_HOME"/zsh/history
 ### Install newest zsh
 
 ```bash
-apt install zsh
-apt install neovim
-apt install fzf
+sudo apt install zsh
+sudo apt install neovim
+sudo apt install fzf
+sudo apt install exa
+sudo apt install bat
+sudo apt install unrar
 
 # check
 echo $SHELL
@@ -78,7 +81,7 @@ which zsh
 chsh -s $(which zsh)
 ```
 
-### Install zim
+#### Install zim
 - [install](https://zimfw.sh/docs/install/)
 - `$ZDOTDIR/.zimrc`
 ```
@@ -91,10 +94,51 @@ zmodule zdharma/fast-syntax-highlighting
 zmodule olets/zsh-abbr
 zmodule fzf
 ```
+- Then restart shell
 
-```
-zimfw install
-```
-
-### Install font
+#### Install font for Powerlevel10k
 - [Powerlevel10k: Font](https://github.com/romkatv/powerlevel10k/blob/master/font.md)
+- fontをDownload後、fontファイルをダブルクリックでinstallする
+- `Budgie Desktop Settings` を開き、`Fonts`の`Monospace`でfontを選択する
+
+
+#### `.zprofile`
+```bash
+# fzf
+[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
+
+#------------------------------------------------------------------------------
+# environment varibles
+#------------------------------------------------------------------------------
+# CARGO RUST
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export CARGO_CONFIG="$XDG_CONFIG_HOME"/cargo
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+# no needs, this script just sets $PATH if not set yet.
+#[ -f $CARGO_CONFIG/env ] && source $CARGO_CONFIG/env
+
+# GOPATH
+export GOPATH=$(go env GOPATH)
+
+# PATH
+export PATH=$HOME/.nodebrew/current/bin:$CARGO_HOME/bin:$GOPATH/bin:$PATH
+
+# Docker
+export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
+```
+
+
+#### `.zshrc`
+```bash
+# alias
+[ -f ~/.config/zsh/.alias.zsh ] && source ~/.config/zsh/.alias.zsh
+[ -f ~/.config/zsh/.alias.dev.zsh ] && source ~/.config/zsh/.alias.dev.zsh
+
+# zpath
+fpath+=~/.config/zsh/zfunc
+```
+
+
+### Ubuntu Workspace
+
+
