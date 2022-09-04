@@ -11,17 +11,12 @@ OS の 1 つで、Linux をベースとして、システムや製品、新た�
 
 大きくは以下の 3 つ
 
-1. RedHat 系 ... RedHat 社が開発している有償のディストリビューション
-
-- Cent OS, Fedra
-
-2. Debian 系 ... user-friendly で誰もが使いやすいディストリビューションで、オープンソースの考え方が強いもの
-
-- Ubuntu, LinuxMint
-
-3. Slackware 系 ... Linux カーネルとその他のソフトウェア類がまとめられているディストリビューションで、このままの状態でユーザーが十分簡単に使うことが可能
-
-- Absolute Linux, Salicx OS, Slackintosh
+- RedHat 系 ... RedHat 社が開発している有償のディストリビューション
+  - Cent OS, Fedra
+- Debian 系 ... user-friendly で誰もが使いやすいディストリビューションで、オープンソースの考え方が強いもの
+  - Ubuntu, LinuxMint
+- Slackware 系 ... Linux カーネルとその他のソフトウェア類がまとめられているディストリビューションで、このままの状態でユーザーが十分簡単に使うことが可能
+  - Absolute Linux, Salicx OS, Slackintosh
 
 ### よく使われている Distribution
 
