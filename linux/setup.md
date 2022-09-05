@@ -119,10 +119,38 @@ touch .alias.zsh
 touch .alias.dev.zsh
 ```
 
-## Git setup
+## Git Setup
 ```
 ssh-keygen -t ed25519 -f ~/.ssh/id_github -C "hiromaily@gmail.com" 
 ssh-add ~/.ssh/id_github
 # ssh-add -l
 # cat ~/.ssh/id_github.pub
+```
+
+## Docker Setup
+### Get Docker package
+```
+sudo apt update 
+sudo apt install apt-transport-https ca-certificates curl gnupg lsb-release
+# Add official Docker GPG key
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+# Add it to repository
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+# check file
+cat /etc/apt/sources.list.d/docker.list
+sudo apt update
+# check docker version
+sudo apt info docker-ce 
+```
+
+### Install Docker
+```
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo usermod -aG docker ${whoami}
+# re-login
+```
+
+### Check Docker
+```
+sudo docker run hello-world
 ```
