@@ -43,6 +43,17 @@ sudo apt install [package name]-theme
 ## tilix
 [home](https://gnunn1.github.io/tilix-web/manual/)
 
+### Change Shortcuts
+- `Preference` > `Shortcuts`にて、真っ先に`Copy`, `Paste`の設定を変更しておく
+
+- `Alt`+`T` ... Open a new session
+- `Alt`+`D` ... Add terminal right
+- `Alt`+`Shift`+`D` ... Add terminal down
+- `Alt`+`right`/`left` ... Switch session in same window
+- `Alt`+`Shift`+`right`/`left` ... Switch session of next window
+- `Alt`+`K` ... Reset and clear the terminal
+
+
 ## Ubuntuのboot USBをMacで作成する
 - OS imageをダウンロード
 - USBメモリを`FAT32`にフォーマット
