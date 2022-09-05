@@ -23,6 +23,12 @@ gsettings get org.gnome.desktop.input-sources sources
   - `Keyboard Shortcuts`-`Next input method:` で、shortcutの追加が必要
   - Restartしたら切り替えが動作するようになった
 
+## Keyboardのレイアウト設定
+- 記号を入力したときに、内容が異なる
+- [Fix wrong Keyboard Layout in Ubuntu](https://vitux.com/ubuntu-keyboard-layout/)
+```
+sudo dpkg-reconfigure keyboard-configuration
+```
 
 ## Ubuntu Workspace
 - ワークスペース切り替え ... `Ctrl`+`Alt` と `矢印キー`
