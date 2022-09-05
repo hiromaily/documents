@@ -119,6 +119,9 @@ touch .alias.zsh
 touch .alias.dev.zsh
 ```
 
+#### History File
+- Ubuntuの場合は `~/.local/share/zsh/` ディレクトリを作成する必要がある
+
 ## Git Setup
 ```
 ssh-keygen -t ed25519 -f ~/.ssh/id_github -C "hiromaily@gmail.com" 
@@ -145,8 +148,8 @@ sudo apt info docker-ce
 
 ### Install Docker
 ```
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
-sudo usermod -aG docker ${whoami}
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo usermod -aG docker <user-name>
 # re-login
 ```
 
