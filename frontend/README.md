@@ -1,5 +1,7 @@
 # front-end
 
+[JavaScript Patterns Workshop](https://javascriptpatterns.vercel.app/patterns)
+
 ## Trends
 
 - [Front End Development Trends to Watch in 2022](https://www.freecodecamp.org/news/front-end-development-trends/)
