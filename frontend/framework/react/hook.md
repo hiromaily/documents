@@ -229,6 +229,7 @@ export default UseMemoSample
 
 ### useEffect
 - 副作用(コンポーネントの描画とは関係がない)のためのHook
+- `componentDidMount`、`componentDidUpdate`、`componentWillUnmount` ライフサイクルメソッドを統合したもの
 - `props`や`state`が更新され、再描画が終わった後に処理が実行される。
 - 依存配列を指定することで、特定のデータが変化した時だけ処理を行うように設定できる
 ```

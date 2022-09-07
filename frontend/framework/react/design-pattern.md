@@ -111,76 +111,6 @@ const StyedText = withStyles(Text)
 - コンポーネントは、独自のレンダリングロジックを実装する代わりに、単にレンダープロップを呼び出すだけ
 
 ### サンプルコード
-- index.ts
-```ts
-import React from "react";
-import { render } from "react-dom";
-
-import "./styles.css";
-
-const Title = (props) => props.render();
-
-render(
-  <div className="App">
-    <Title
-      render={() => (
-        <h1>
-          <span role="img" aria-label="emoji">
-            ✨
-          </span>
-          I am a render prop!{" "}
-          <span role="img" aria-label="emoji">
-            ✨
-          </span>
-        </h1>
-      )}
-    />
-  </div>,
-  document.getElementById("root")
-);
-```
-
-```ts
-import React from "react";
-import { render } from "react-dom";
-import "./styles.css";
-
-const Title = (props) => props.render();
-
-render(
-  <div className="App">
-    <Title render={() => <h1>✨ First render prop! ✨</h1>} />
-    <Title render={() => <h2>🔥 Second render prop! 🔥</h2>} />
-    <Title render={() => <h3>🚀 Third render prop! 🚀</h3>} />
-  </div>,
-  document.getElementById("root")
-);
-```
-
-```ts
-import React from "react";
-import { render } from "react-dom";
-import "./styles.css";
-
-const Title = (props) => (
-  <>
-    {props.renderFirstComponent()}
-    {props.renderSecondComponent()}
-    {props.renderThirdComponent()}
-  </>
-);
-
-render(
-  <div className="App">
-    <Title
-      renderFirstComponent={() => <h1>✨ First render prop! ✨</h1>}
-      renderSecondComponent={() => <h2>🔥 Second render prop! 🔥</h2>}
-      renderThirdComponent={() => <h3>🚀 Third render prop! 🚀</h3>}
-    />
-  </div>,
-  document.getElementById("root")
-);
-```
 
 ```tsx
 import React from 'react';
@@ -223,13 +153,72 @@ export default function TemperatureConverter(props) {
 ## Hooks Pattern
 - [Hooks Pattern](https://javascriptpatterns.vercel.app/patterns/react-patterns/hooks-pattern)
 - [フック パターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/hooks-pattern)
+- [About Hooks](https://github.com/hiromaily/documents/blob/main/frontend/framework/react/hook.md)
 
+### 概要
+- 関数により、アプリケーション内の複数のコンポーネントでステートフルなロジックを再利用する
+- フックにより、クラスコンポーネントを使わずに、React のステートやライフサイクルメソッドを利用することができる
 
+### メリット
+- コード行数の削減
+- 複雑なコンポーネントをシンプルにする
+- ステートフルなロジックを再利用する
+- 見た目と関係しないロジックの共有
 
 ## Provider Pattern
 - [Provider Pattern](https://javascriptpatterns.vercel.app/patterns/react-patterns/provider-pattern)
 - [プロバイダ パターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/provider-pattern)
+- [About Context](https://github.com/hiromaily/documents/blob/main/frontend/framework/react/context.md)
+### 概要
+- 複数の子コンポーネントからデータを利用できるようにする
+- アプリケーション内の多くのコンポーネントからデータを利用できるようにしたい場合、prop のバケツリレー (prop drilling) を回避する仕組み
+- `createContext` メソッドにより`Context` オブジェクトを作成し、それが持つ`Provider`によってコンポーネントをラップする
+- 各コンポーネントは、`useContext` フックを使って data にアクセスすることができる
+- プロバイダパターンは、グローバルなデータの共有に非常に有効
+### サンプルコード
+```ts
+const DataContext = React.createContext();
+
+function App() {
+  const data = { ... }
+
+  return (
+    <div>
+      <DataContext.Provider value={data}>
+        <SideBar />
+        <Content />
+      </DataContext.Provider>
+    </div>
+  )
+}
+
+const SideBar = () => <List />
+const List = () => <ListItem />
+const Content = () => <div><Header /><Block /></div>
+const Block = () => <Text />
+
+function ListItem() {
+  const { data } = React.useContext(DataContext);
+  return <span>{data.listItem}</span>;
+}
+
+function Text() {
+  const { data } = React.useContext(DataContext);
+  return <h1>{data.text}</h1>;
+}
+
+function Header() {
+  const { data } = React.useContext(DataContext);
+  return <div>{data.title}</div>;
+}
+```
 
 ## Compound Pattern
 - [Compound Pattern](https://javascriptpatterns.vercel.app/patterns/react-patterns/compound-pattern)
 - [複合 パターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/compound-pattern)
+
+### 概要
+- 1 つのタスクを実行するために連携する複数のコンポーネントを作成する
+
+
+### サンプルコード
