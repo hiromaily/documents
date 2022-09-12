@@ -7,7 +7,7 @@
 - まず、`createContext()`によってContextを作成する
 
 ## Example
-```
+```tsx
 import React from 'react'
 
 // Titleを渡すためのContextを作成します
@@ -53,7 +53,7 @@ export default Page
 
 ## Example2
 - [How to pass Multiple Values in React Context?]()
-```
+```tsx
 const CounterContext = React.createContext("counter")
 
 export default function MultiValueContextDemo() {

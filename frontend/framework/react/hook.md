@@ -9,7 +9,7 @@
 - useState()で1つの新しい状態を作成する
 - localで使われる
 - `const [状態, 更新関数] = useState(初期値)`
-```
+```tsx
 import React, { useState } from 'react'
 import './styles.css'
 
@@ -46,7 +46,7 @@ export default Counter
 - useContext()と一緒に扱うことでglobalに扱える
 - Reduxで実現していたstate管理が、`useContext` & `useReducer`で実現できるようになり、Reduxが不要になる？？
   - [React Hooks vs. Redux: Do Hooks and Context replace Redux?](https://blog.logrocket.com/react-hooks-context-redux-state-management/)
-```
+```tsx
 reducer(現在の状態, action) {
   return 次の状態
 }
@@ -54,7 +54,7 @@ reducer(現在の状態, action) {
 const [現在の状態, dispatch] = useRducer(reducer, 初期値)
 ```
 
-```
+```tsx
 import { useReducer } from 'react'
 
 // reducerが受け取るactionの型を定義します
@@ -106,7 +106,7 @@ export default Counter
   - propsや内部状態が更新された時
   - コンポーネント内で参照しているContextの値が更新された時
   - 親コンポーネントが再描画された時
-```
+```tsx
 import React, { useState, useCallback } from 'react'
 
 type ButtonProps = {
@@ -173,7 +173,7 @@ export default Parent
 
 ### useMemo
 - useMemoは値をメモ化するためのフック
-```
+```tsx
 import React, { useState, useMemo } from 'react'
 
 const UseMemoSample = () => {
@@ -228,11 +228,16 @@ export default UseMemoSample
 ```
 
 ### useEffect
+- ある値が変わった時に限り、ある処理を実行する 機能
+```
+useEffect( 実行する関数, [依存する値])
+```
+
 - 副作用(コンポーネントの描画とは関係がない)のためのHook
 - `componentDidMount`、`componentDidUpdate`、`componentWillUnmount` ライフサイクルメソッドを統合したもの
 - `props`や`state`が更新され、再描画が終わった後に処理が実行される。
 - 依存配列を指定することで、特定のデータが変化した時だけ処理を行うように設定できる
-```
+```tsx
 import { useState, useEffect } from 'react'
 
 // タイマーが呼び出される周期を1秒にする
@@ -310,7 +315,7 @@ export default Clock
 
 ### useLayoutEffect
 - DOMが更新された後、画面に実際に描画される前に実行される
-```
+```tsx
 import { useState, useEffect, useLayoutEffect } from 'react'
 
 // タイマーが呼び出される周期を1秒にする
@@ -388,7 +393,7 @@ export default Clock
 
 ### useContext
 - `Context`から値を参照するためのHook
-```
+```tsx
 import React, { useContext } from 'react'
 
 type User = {
@@ -441,7 +446,7 @@ export default Parent
   - データは`ref.current`からread/writeできる
 - 2. `DOMの参照`
   - `ref`をコンポーネントに渡すと、この要素がマウントされた時、`ref.current`にDOMの参照がセットされ、DOMの関数などを呼び出すことができる
-```
+```tsx
 import React, { useState, useRef } from 'react'
 
 const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
@@ -507,7 +512,7 @@ export default ImageUploader
 ### useImperativeHandle
 - コンポーネントに`ref`が渡された時に、親の`ref`に代入される値を設定する
 - これにより、childコンポーネントが持つデータを参照したり、childコンポーネントで定義されている関数を親から読んだりできる
-```
+```tsx
 import React, { useState, useRef, useImperativeHandle } from 'react'
 
 const Child = React.forwardRef((props, ref) => {
@@ -550,7 +555,7 @@ export default Parent
 - Hookを使用する関数を新たに定義して、それを関数コンポーネントのトップレベルで呼び出すことができる
 - このような関数を実装することで、複数のHookを組み合わせたカスタムフックを実装できる
 - 慣習的に`use`から始まる名前にする
-```
+```tsx
 import React, { useState, useCallback, useDebugValue } from 'react'
 
 // input向けにコールバックと現在の入力内容をまとめたフック

@@ -1,23 +1,27 @@
 # React Best Practice
 
+## [Airbnb JavaScript Style Guide](https://airbnb.io/javascript/react/)
+- [Airbnb JavaScript Style Guide() : github](https://github.com/airbnb/javascript)
+- [Airbnb React/JSX Style Guide: github](https://github.com/airbnb/javascript/tree/master/react)
+
 ## [10 React Best Practices You Need to Follow In 2022](https://www.makeuseof.com/must-follow-react-practices/)
 
 1. Using Functional Components and Hooks Instead of Classes
 2. Avoid Using State (If Possible)
     - bad
-```
+```tsx
 const [username, setusername] = useState('')
 const [password, setpassword] = useState('')
 ```
 
     - good
-```
+```tsx
 const [user, setuser] = useState({})
 ```
 3. Organize Files Related to the Same Component in One Folder
 4. Avoid Using Indexes as Key Props
 5. Opt for Fragments Instead of Divs Where Possible
-```
+```tsx
 const Button = () => {
  return <button>Display</button>;
 };
@@ -26,14 +30,14 @@ const Button = () => {
 7. Avoid Repetitive Code
 8. Use Object Destructuring For Props
     - bad
-```
+```tsx
 const Button = (props) => {
  return <button>{props.text}</button>;
 };
 ```
 
     - good
-```
+```tsx
 const Button = ({text}) => {
  return <button>{text}</button>;
 };
@@ -74,7 +78,7 @@ const Button = ({text}) => {
 4. Extract reusable logic into custom hooks
 5. Write a fragment when a div is not needed
     - bad
-```
+```tsx
 return (
    <div>
       <h1>Hello!</h1>
@@ -87,7 +91,7 @@ return (
 ```
 
     - good
-```
+```tsx
 return (
    <>
       <h1>Hello!</h1>

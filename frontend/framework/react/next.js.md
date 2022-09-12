@@ -132,7 +132,7 @@ export default function handler(req, res) {
 
 ## Page
 - `Pages`ディレクトリ以下に配置したtsxなどのファイルは、1つのファイルが1つのページに対応する
-```
+```tsx
 import { NextPage } from 'next'
 import Head from 'next/head';
 

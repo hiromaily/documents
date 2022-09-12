@@ -84,7 +84,7 @@ export default function DogImages() {
 ### サンプルコード
 - このHOCの役割は渡されたコンポーネントに、`style`を適用し、修正されたコンポーネントを返す
 
-```ts
+```tsx
 function withStyles(Component) {
   return props => {
     const style = { padding: '0.2rem', margin: '1rem' }
@@ -176,7 +176,7 @@ export default function TemperatureConverter(props) {
 - 各コンポーネントは、`useContext` フックを使って data にアクセスすることができる
 - プロバイダパターンは、グローバルなデータの共有に非常に有効
 ### サンプルコード
-```ts
+```tsx
 const DataContext = React.createContext();
 
 function App() {
