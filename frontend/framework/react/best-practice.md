@@ -108,6 +108,7 @@ return (
 ## [React Best Practices – Tips for Writing Better React Code in 2022](https://www.freecodecamp.org/news/best-practices-for-react/)
 1. Create a good folder-structure
 2. Maintain a structured import order
+    - [ESlint で import を自動ソートする](https://zenn.dev/riemonyamada/articles/02e8c172e1eeb1) 
 3. Learn different component patterns
     - compound component pattern
 4. Use a linter and follow its rules

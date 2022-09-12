@@ -1,5 +1,6 @@
 # Architecture
 - [react-patterns](https://github.com/topics/react-patterns)
+- [File Structure](https://reactjs.org/docs/faq-structure.html)
 
 ## Pattern 1 
 - [React Architecture Patterns for Your Projects](https://blog.openreplay.com/react-architecture-patterns-for-your-projects)
