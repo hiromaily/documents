@@ -25,13 +25,21 @@ Material UI is a library of React UI components that implements Google's Materia
 - [Design kits](https://mui.com/design-kits/)
 
 ## Install and start using
-- install packages
+- [Installation](Installation)
+
+- Install packages
 ```bash
 npm install @mui/material @emotion/react @emotion/styled
-npm install @mui/icons-material
 ```
 
-- modify html
+- Or install packages using styled-components
+```bash
+npm install @mui/system @mui/styled-engine-sc styled-components
+```
+
+## Use  modify html
+- [Typography](https://mui.com/material-ui/react-typography/)
+
 ```html
 <!-- Roboto font -->
 <link
@@ -44,6 +52,23 @@ npm install @mui/icons-material
   href="https://fonts.googleapis.com/icon?family=Material+Icons"
 />
 ```
+
+# Material Icons
+- [Material Icons](https://mui.com/material-ui/material-icons/)
+```bash
+npm install @mui/icons-material
+```
+
+- use icons
+```tsx
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
+import AccountCircle from "@mui/icons-material/AccountCircle";
+import MailIcon from "@mui/icons-material/Mail";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+```
+
+## How to use components
 - use components
 ```tsx
 import { Button } from "@mui/material";
@@ -57,13 +82,4 @@ import { Button } from "@mui/material";
     </div>
   );
 }
-```
-
-- use icons
-```tsx
-import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 ```
