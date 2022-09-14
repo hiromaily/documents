@@ -1,22 +1,59 @@
 # React Hooks
-
-- これにより、React の機能を、クラスを書かずに使えるようになる
+- ただの関数
+- これにより、React の機能を、クラスを書かずに関数コンポーネントで使えるようになる
+- ロジックの分離ができるので、ロジックの再利用やテストがしやすい
 - コンポーネントのトップレベルでcallする
 
 ## Basics
 ### useState
-- 状態を扱うためのHook
+- 状態を扱うためのHookで、コンポーネント内でstate管理ができる
 - useState()で1つの新しい状態を作成する
 - localで使われる
 - `const [状態, 更新関数] = useState(初期値)`
+
+#### オブジェクトの取り扱い
+- 以下のように更新しないと、Object.isによる比較で同一と見なされ、再レンダリングされない
+- TODO: 自分で確認
+```tsx
+const [vote, setVote] = useState({ teamA: 0, teamB: 0});
+
+const voteTeamA = () {
+  setVote({...vote, vote.teamA + 1});
+}
+
+const voteTeamB = () {
+  setVote({...vote, vote.teamB + 1});
+}
+```
+
+#### 配列の取り扱い
+- 更新の方法に注意が必要
+- TODO: 自分で確認
+```tsx
+const [items, setItems] = useState([{name: "Bob"}]);
+
+const addItem = (name: string) => {
+  // items.push({name: name}) //これでは再レンダリングが発生しない
+  setItems([...items, [{name: name}]]);
+}
+
+const deleteItem = (index) => {
+  // items.splice(index, 1); //これでは再レンダリングが発生しない
+  setItems(items.filter((_, i) => i !== index));
+}
+```
+
+#### stateは1つのオブジェクトでまとめて管理すべきか、個別に管理すべきか
+- state同士が依存していたり、まとめた方が管理しやすい状況であれば、stateを1つのオブジェクトにまとめて管理する
+- 関連性によってグルーピング化する
+
+#### Example
+- 以下はstateが更新されると、再レンダリングが走る
 ```tsx
 import React, { useState } from 'react'
-import './styles.css'
 
 const Counter = () => {
-  const initialState = Math.floor(Math.random() * 10) + 1
-
-  const [count, setCount] = useState(initialState)
+  const [count, setCount] = useState(0)
   const [open, setOpen] = useState(true)
   // toggleの関数を宣言
   const toggle = () => setOpen(!open)
@@ -31,8 +68,7 @@ const Counter = () => {
           + 1
         </button>
         <button onClick={() => setCount(count - 1)}>- 1</button>
-        <button onClick={() => setCount(0)}>０</button>
-        <button onClick={() => setCount(initialState)}>最初の数値に戻す</button>
+        <button onClick={() => setCount(count + 1)}>+ 1</button>
       </div>
     </>
   )
@@ -53,6 +89,8 @@ reducer(現在の状態, action) {
 
 const [現在の状態, dispatch] = useRducer(reducer, 初期値)
 ```
+
+#### Example
 
 ```tsx
 import { useReducer } from 'react'
@@ -106,6 +144,9 @@ export default Counter
   - propsや内部状態が更新された時
   - コンポーネント内で参照しているContextの値が更新された時
   - 親コンポーネントが再描画された時
+
+#### Example
+
 ```tsx
 import React, { useState, useCallback } from 'react'
 
@@ -173,6 +214,9 @@ export default Parent
 
 ### useMemo
 - useMemoは値をメモ化するためのフック
+
+#### Example
+
 ```tsx
 import React, { useState, useMemo } from 'react'
 
@@ -237,6 +281,9 @@ useEffect( 実行する関数, [依存する値])
 - `componentDidMount`、`componentDidUpdate`、`componentWillUnmount` ライフサイクルメソッドを統合したもの
 - `props`や`state`が更新され、再描画が終わった後に処理が実行される。
 - 依存配列を指定することで、特定のデータが変化した時だけ処理を行うように設定できる
+
+#### Example
+
 ```tsx
 import { useState, useEffect } from 'react'
 
@@ -315,6 +362,9 @@ export default Clock
 
 ### useLayoutEffect
 - DOMが更新された後、画面に実際に描画される前に実行される
+
+#### Example
+
 ```tsx
 import { useState, useEffect, useLayoutEffect } from 'react'
 
@@ -393,6 +443,9 @@ export default Clock
 
 ### useContext
 - `Context`から値を参照するためのHook
+
+#### Example
+
 ```tsx
 import React, { useContext } from 'react'
 
@@ -446,6 +499,9 @@ export default Parent
   - データは`ref.current`からread/writeできる
 - 2. `DOMの参照`
   - `ref`をコンポーネントに渡すと、この要素がマウントされた時、`ref.current`にDOMの参照がセットされ、DOMの関数などを呼び出すことができる
+
+#### Example
+
 ```tsx
 import React, { useState, useRef } from 'react'
 
@@ -512,6 +568,9 @@ export default ImageUploader
 ### useImperativeHandle
 - コンポーネントに`ref`が渡された時に、親の`ref`に代入される値を設定する
 - これにより、childコンポーネントが持つデータを参照したり、childコンポーネントで定義されている関数を親から読んだりできる
+
+#### Example
+
 ```tsx
 import React, { useState, useRef, useImperativeHandle } from 'react'
 
@@ -555,6 +614,9 @@ export default Parent
 - Hookを使用する関数を新たに定義して、それを関数コンポーネントのトップレベルで呼び出すことができる
 - このような関数を実装することで、複数のHookを組み合わせたカスタムフックを実装できる
 - 慣習的に`use`から始まる名前にする
+
+#### Example
+
 ```tsx
 import React, { useState, useCallback, useDebugValue } from 'react'
 
@@ -590,4 +652,40 @@ export default Input
 
 ## Hook Library
 - [alibaba/hooks](https://github.com/alibaba/hooks)
+- [awesome-react-hooks](https://github.com/rehooks/awesome-react-hooks)
 - [React Hook Form](https://react-hook-form.com/)
+- [usehooks-ts](https://usehooks-ts.com/)
+  - useBoolean()
+  - useClickAnyWhere()
+  - useCopyToClipboard()
+  - useCountdown()
+  - useCounter()
+  - useDarkMode()
+  - useDebounce()
+  - useEffectOnce()
+  - useElementSize()
+  - useEventListener()
+  - useFetch()
+  - useHover()
+  - useImageOnLoad()
+  - useIntersectionObserver()
+  - useInterval()
+  - useIsClient()
+  - useIsFirstRender()
+  - useIsMounted()
+  - useIsomorphicLayoutEffect()
+  - useLocalStorage()
+  - useLockedBody()
+  - useMap()
+  - useMediaQuery()
+  - useOnClickOutside()
+  - useReadLocalStorage()
+  - useScreen()
+  - useScript()
+  - useSessionStorage()
+  - useSsr()
+  - useStep()
+  - useTernaryDarkMode()
+  - useTimeout()
+  - useUpdateEffect()
+  - useWindowSize()
