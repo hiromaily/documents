@@ -4,14 +4,13 @@
 - ロジックの分離ができるので、ロジックの再利用やテストがしやすい
 - コンポーネントのトップレベルでcallする
 
-## Basics
-### useState
+## useState
 - 状態を扱うためのHookで、コンポーネント内でstate管理ができる
 - useState()で1つの新しい状態を作成する
 - localで使われる
 - `const [状態, 更新関数] = useState(初期値)`
 
-#### オブジェクトの取り扱い
+### オブジェクトの取り扱い
 - 以下のように更新しないと、Object.isによる比較で同一と見なされ、再レンダリングされない
 - TODO: 自分で確認
 ```tsx
@@ -26,7 +25,7 @@ const voteTeamB = () {
 }
 ```
 
-#### 配列の取り扱い
+### 配列の取り扱い
 - 更新の方法に注意が必要
 - TODO: 自分で確認
 ```tsx
@@ -43,11 +42,11 @@ const deleteItem = (index) => {
 }
 ```
 
-#### stateは1つのオブジェクトでまとめて管理すべきか、個別に管理すべきか
+### stateは1つのオブジェクトでまとめて管理すべきか、個別に管理すべきか
 - state同士が依存していたり、まとめた方が管理しやすい状況であれば、stateを1つのオブジェクトにまとめて管理する
 - 関連性によってグルーピング化する
 
-#### Example
+### Example
 - 以下はstateが更新されると、再レンダリングが走る
 ```tsx
 import React, { useState } from 'react'
@@ -77,7 +76,7 @@ const Counter = () => {
 export default Counter
 ```
 
-### useReducer
+## useReducer
 - 状態を扱うためのHookで、複雑な状態遷移を記述可能。配列やオブジェクトなどの複数のデータをまとめたものを状態として扱う使い方ができる。
 - useContext()と一緒に扱うことでglobalに扱える
 - Reduxで実現していたstate管理が、`useContext` & `useReducer`で実現できるようになり、Reduxが不要になる？？
@@ -90,7 +89,7 @@ reducer(現在の状態, action) {
 const [現在の状態, dispatch] = useRducer(reducer, 初期値)
 ```
 
-#### Example
+### Example
 
 ```tsx
 import { useReducer } from 'react'
@@ -137,15 +136,30 @@ const Counter = (props: CounterProps) => {
 export default Counter
 ```
 
-### useCallback
-- メモ化(ある関数の計算結果を保持し、同一の呼出があった場合は保持しておいた結果を返すといった計算結果を再利用する手法)用のHookの1つ
-- useCallbackは関数をメモ化するためのフック
+## Reactのコンポーネントの再描画
 - Reactのコンポーネントは次のタイミングで再描画が発生する
   - propsや内部状態が更新された時
   - コンポーネント内で参照しているContextの値が更新された時
   - 親コンポーネントが再描画された時
 
-#### Example
+## useCallback
+- メモ化(ある関数の計算結果を保持し、同一の呼出があった場合は保持しておいた結果を返すといった計算結果を再利用する手法)用のHookの1つ
+- `useCallback`は`関数`をメモ化するためのフック
+- `useCallback(コールバック関数, 依存配列)`
+  - 依存している値がない場合は、`[]`をセット
+- `useCallback`は`React.memo`と併用するもの
+
+### React.memo
+- `コンポーネント`のレンダリング結果をメモ化するReactのAPI
+- 以下のようなコンポーネントでは効果が表れやすい。全てにやる必要はない。
+  - レンダリングコストが高いコンポーネント
+  - 頻繁に再レンダリングが発生するコンポーネントのChildコンポーネント
+- `React.memo(関数コンポーネント);`
+- しかし、コールバック関数をPropsとして受け取ったコンポーネントは再レンダリングされる。
+  - これを防ぐために、関数を`useCallback`でメモ化する必要がある
+- 関数コンポーネント内で`React.memo`を利用してもメモ化はできない
+
+### Example
 
 ```tsx
 import React, { useState, useCallback } from 'react'
@@ -212,10 +226,14 @@ const Parent = () => {
 export default Parent
 ```
 
-### useMemo
-- useMemoは値をメモ化するためのフック
+## useMemo
+- `useMemo`は`値`をメモ化するためのフック
+- `useMemo(() => 値を計算するロジック, 依存配列);` 
+  - useMemo(関数, 依存配列)となるので、useCallbackと同じ挙動をするように感じる
+- `useMemo`はレンダリング結果のメモ化もできるため、`React.memo`と同じ使い方ができる
+- 注意すべきは、useMemo, useCallbackともに、メモ化をする処理自体にコストがかかるため、シンプルな計算ロジックまでメモ化する必要はない
 
-#### Example
+### Example
 
 ```tsx
 import React, { useState, useMemo } from 'react'
@@ -271,18 +289,55 @@ const UseMemoSample = () => {
 export default UseMemoSample
 ```
 
-### useEffect
+## useEffect
 - ある値が変わった時に限り、ある処理を実行する 機能
-```
-useEffect( 実行する関数, [依存する値])
-```
-
-- 副作用(コンポーネントの描画とは関係がない)のためのHook
+- `useEffect( 実行する関数(副作用), [依存する配列])`
+- コンポーネントに`副作用`(コンポーネントの描画とは関係がない処理)を追加するためのHook
+  - 副作用の例は、`APIとの通信`, `非同期処理`, `console.log` など
 - `componentDidMount`、`componentDidUpdate`、`componentWillUnmount` ライフサイクルメソッドを統合したもの
 - `props`や`state`が更新され、再描画が終わった後に処理が実行される。
 - 依存配列を指定することで、特定のデータが変化した時だけ処理を行うように設定できる
 
-#### Example
+### 依存配列によって、副作用が実行されるタイミングは異なる
+1. コンポーネントがレンダリングされる度に副作用を実行する
+```tsx
+// 第2引数に何も渡さない
+useEffect(() => {
+  console.log('conpleted render');
+});
+```
+
+2. 副作用が依存する値が更新された時だけ、副作用を実行する
+    - e.g. クエリパラメータが更新されたら外部APIからデータを取得する
+```tsx
+// 第2引数に依存する配列を渡す
+useEffect(() => {
+  console.log(message);
+}, [message]);
+```
+
+3. 副作用を一度だけ実行させる
+    - e.g. 外部APIからデータを取得する
+```tsx
+// 第2引数に空の配列を渡す
+useEffect(() => {
+  console.log('conpleted render');
+}, []);
+```
+
+4. コンポーネントがアンマウント、もしくは副作用が再実行した時に実行される
+    - TODO: 自分で確認
+    - [sample code](https://codesandbox.io/s/04-useeffectdekurinatuputaimawoxuechusuruchuliwoshixingsaseru-gygtc)
+```tsx
+useEffect(() => {
+  // 関数を返す
+  return () => {
+    console.log('cleanup');
+  }
+}, []);
+```
+
+### Example
 
 ```tsx
 import { useState, useEffect } from 'react'
@@ -360,10 +415,10 @@ const Clock = () => {
 export default Clock
 ```
 
-### useLayoutEffect
+## useLayoutEffect
 - DOMが更新された後、画面に実際に描画される前に実行される
 
-#### Example
+### Example
 
 ```tsx
 import { useState, useEffect, useLayoutEffect } from 'react'
@@ -441,10 +496,10 @@ const Clock = () => {
 export default Clock
 ```
 
-### useContext
+## useContext
 - `Context`から値を参照するためのHook
 
-#### Example
+### Example
 
 ```tsx
 import React, { useContext } from 'react'
@@ -491,16 +546,22 @@ const Parent = () => {
 export default Parent
 ``` 
 
-### useRef
-- 書き換え可能な`ref`オブジェクトを作成する
+## useRef
+- 書き換え可能な`ref`オブジェクト(React.createRefの戻り値)を作成する
 - `ref`の機能は、
 - 1. `データの保持`
-  - `ref`オブジェクトに保存された値は更新しても、再描画が発生しないため、描画に関係ないデータを保持するのに使われる
+  - `ref`オブジェクトに保存された値は更新しても、再描画が発生しないため、描画に関係ないデータをコンポーネント内で保持するのに使われる
   - データは`ref.current`からread/writeできる
 - 2. `DOMの参照`
   - `ref`をコンポーネントに渡すと、この要素がマウントされた時、`ref.current`にDOMの参照がセットされ、DOMの関数などを呼び出すことができる
 
-#### Example
+```tsx
+const count useRef(0);
+console.log(count.current);
+count.current = count.current + 1; // 更新
+```
+
+### Example
 
 ```tsx
 import React, { useState, useRef } from 'react'
@@ -549,7 +610,7 @@ const ImageUploader = () => {
         画像をアップロード
       </p>
       <input
-        ref={inputImageRef}
+        ref={inputImageRef} {/* inputImageRef がこのタイミングで参照される */}
         type="file"
         accept="image/*"
         onChange={onChangeImage}
@@ -565,11 +626,11 @@ const ImageUploader = () => {
 export default ImageUploader
 ```
 
-### useImperativeHandle
+## useImperativeHandle
 - コンポーネントに`ref`が渡された時に、親の`ref`に代入される値を設定する
 - これにより、childコンポーネントが持つデータを参照したり、childコンポーネントで定義されている関数を親から読んだりできる
 
-#### Example
+### Example
 
 ```tsx
 import React, { useState, useRef, useImperativeHandle } from 'react'
@@ -609,13 +670,13 @@ const Parent = () => {
 export default Parent
 ```
 
-### カスタムフックとuseDebugValue
+## カスタムフックとuseDebugValue
 - `useDebugValue`は`React Developer Tools`と連携して機能するもので、カスタムフックのデバッグ情報をプリントアウトするために使用され、開発ツールにフックの値を記録できるようになる。
 - Hookを使用する関数を新たに定義して、それを関数コンポーネントのトップレベルで呼び出すことができる
 - このような関数を実装することで、複数のHookを組み合わせたカスタムフックを実装できる
 - 慣習的に`use`から始まる名前にする
 
-#### Example
+### Example
 
 ```tsx
 import React, { useState, useCallback, useDebugValue } from 'react'
