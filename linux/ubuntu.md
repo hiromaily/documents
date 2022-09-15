@@ -1,4 +1,4 @@
-# Ubuntu
+# Ubuntu 22.04 (Budgie)
 
 - [Upgrading from Ubuntu 20.04? Look Out for These Features in 22.04](https://www.omgubuntu.co.uk/2022/04/ubuntu-22-04-lts-20-key-changes)
 
@@ -33,12 +33,22 @@ sudo dpkg-reconfigure keyboard-configuration
 ## Ubuntu Workspace
 - ワークスペース切り替え ... `Ctrl`+`Alt` と `矢印キー`
 
-
-## windowを異なるWorkspaceに移動する
+## Window を異なる Workspace に移動する
 - [Cannot move window to another workspace Ubuntu 18.04](https://askubuntu.com/questions/1040244/cannot-move-window-to-another-workspace-ubuntu-18-04)
 
 - shortcutを確認する
 - `Ctrl`+`Alt`+`Shift`+[left key]/[right key]
+
+## Window Previews (for Budgie)
+- Settings
+  - `Budgie Menu` > `Previews Control`
+- How to use
+  - `Alt`+`Tab` => show windows of all applications
+  - `Alt` `\`` => show windows of currently active application
+
+## HotCorners
+- Settings
+  - `Budgie Desktop Settings` > `Top Panel` > `HotCorners`
 
 ## Gestures
 - [mouse](https://help.ubuntu.com/stable/ubuntu-help/mouse.html.en)

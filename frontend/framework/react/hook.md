@@ -77,7 +77,8 @@ export default Counter
 ```
 
 ## useReducer
-- 状態を扱うためのHookで、複雑な状態遷移を記述可能。配列やオブジェクトなどの複数のデータをまとめたものを状態として扱う使い方ができる。
+- 状態とdispatch(actionを送信する関数）を扱うためのHook
+- 配列やオブジェクトなどの複数のデータをまとめたものを状態として扱う使い方ができる
 - useContext()と一緒に扱うことでglobalに扱える
 - Reduxで実現していたstate管理が、`useContext` & `useReducer`で実現できるようになり、Reduxが不要になる？？
   - [React Hooks vs. Redux: Do Hooks and Context replace Redux?](https://blog.logrocket.com/react-hooks-context-redux-state-management/)
