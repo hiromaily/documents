@@ -33,6 +33,13 @@ sudo dpkg-reconfigure keyboard-configuration
 ## Ubuntu Workspace
 - ワークスペース切り替え ... `Ctrl`+`Alt` と `矢印キー`
 
+
+## windowを異なるWorkspaceに移動する
+- [Cannot move window to another workspace Ubuntu 18.04](https://askubuntu.com/questions/1040244/cannot-move-window-to-another-workspace-ubuntu-18-04)
+
+- shortcutを確認する
+- `Ctrl`+`Alt`+`Shift`+[left key]/[right key]
+
 ## Gestures
 - [mouse](https://help.ubuntu.com/stable/ubuntu-help/mouse.html.en)
 - [touchscreen-gestures](https://help.ubuntu.com/stable/ubuntu-help/touchscreen-gestures.html.en)

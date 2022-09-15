@@ -157,3 +157,20 @@ sudo usermod -aG docker <user-name>
 ```
 sudo docker run hello-world
 ```
+
+### dconf-editor
+設定管理ツール
+
+```
+sudo apt update
+sudo install dconf-editor
+```
+
+### video編集
+- [kdenlive](https://kdenlive.org/en/download/)
+
+```
+sudo add-apt-repository ppa:kdenlive/kdenlive-stable
+sudo apt update
+sudo apt install kdenlive
+```
