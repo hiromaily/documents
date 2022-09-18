@@ -12,6 +12,18 @@
 単方向データフロー(高い階層のコンポーネントから低い階層のコンポーネントにデータを一方向に流す)という原則がある。  
 子コンポーネントでデータを変更して、そのデータを親要素が使いたい場合、データを変更するためのfunctionを親から子に渡す必要がある。
 
+## Contextの使い所
+- 複数のコンポーネントで共通利用したいデータがあるが、コンポーネントの数が多かったり、階層が深いのでPropsで渡すのが困難な場合
+
+## Context利用のユースケース
+- 認証情報
+- コンポーネントに適用するスタイルを制御するためのテーマ
+- 言語情報 (i18n)
+## Contextのデメリット
+- コンポーネントがContextに依存するため、コンポーネントの再利用性が低下する
+- Contextオブジェクトの値はグローバルなstateなので、値がどこで利用されているか管理するのが大変
+- 以上の理由からContext以外の問題解決の手段も検討すべき
+
 ## Example
 ```tsx
 import React from 'react'
@@ -98,8 +110,13 @@ const CounterComponent = () => {
 ```tsx
 import React, { createContext, useContext, useReducer, useMemo } from 'react';
 
-const CountContext = createContext();
+// 1. Contextは1つにまとめるのではなく、分割する
+//const CountContext = createContext();
+const CountStateContext = createContext();
+const CountDispatchContext = createContext();
 
+
+// reducer
 function countReducer(state, action) {
   switch (action.type) {
     case 'INCREMENT': {
@@ -114,34 +131,45 @@ function countReducer(state, action) {
   }
 }
 
+// ラップするコンポーネントをパラメーターに渡す、providerとしてのfunction
 function CountProvider({ children }) {
   const [state, dispatch] = useReducer(countReducer, { count: 0 });
-  const value = {
-    state,
-    dispatch
-  };
+  // const value = {
+  //   state,
+  //   dispatch
+  // };
 
   return (
     // value（state か dispatch のどちらか）が更新したら、
     // CountContext.Provider 内のすべての Consumer が再レンダーされる。
-    <CountContext.Provider value={value}>{children}</CountContext.Provider>
+    // <CountContext.Provider value={value}>{children}</CountContext.Provider>
+    // そのため、以下のように分割する
+    <CountStateContext.Provider value={state}>
+      <CountDispatchContext.Provider value={dispatch}>
+        {children}
+      </CountDispatchContext.Provider>
+    </CountStateContext.Provider>
   );
 }
 
+// Count コンポーネント
 function Count() {
   console.log('render Count');
   // CountContext からは state のみを取得しているが、
   // dispatch が更新されても再レンダーされる
-  const { state } = useContext(CountContext);
+  // => これはContextを分割したことによって解決
+  const { state } = useContext(CountStateContext);
 
   return <h1>{state.count}</h1>;
 }
 
+// Counter コンポーネント
 function Counter() {
   console.log('render Counter');
   // CountContext からは dispatch のみを取得しているが、
   // state が更新されても再レンダーされる
-  const { dispatch } = useContext(CountContext);
+  // => これはContextを分割したことによって解決
+  const { dispatch } = useContext(CountDispatchContext);
 
   // CountContext.Provider の value の更新による Counter コンポーネントの
   // 再レンダーは避けられない。そのため dispatch を利用するレンダリング結果（計算結果）を
@@ -156,6 +184,18 @@ function Counter() {
     );
   }, [dispatch]);
 }
+// もしくは、以下のようなメモ化したコンポーネントを用意し、Counter()内で、
+// return <DispatchButton dispatch={dispatch} />;
+// とする方法もある
+// const DispatchButton = React.memo(({ dispatch }) => {
+//   console.log("render DispatchButton");
+//   return (
+//     <>
+//       <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>
+//       <button onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>
+//     </>
+//   );
+// })
 
 export default function App() {
   return (
@@ -166,3 +206,7 @@ export default function App() {
   );
 }
 ```
+
+## Contextを利用せずにProp drilling問題を解決する
+- [コンテクストを使用する前に](https://ja.reactjs.org/docs/context.html#before-you-use-context)
+

@@ -726,6 +726,7 @@ export default Input
 - [alibaba/hooks](https://github.com/alibaba/hooks)
 - [awesome-react-hooks](https://github.com/rehooks/awesome-react-hooks)
 - [React Hook Form](https://react-hook-form.com/)
+- [react-use](https://github.com/streamich/react-use)
 - [usehooks-ts](https://usehooks-ts.com/)
   - useBoolean()
   - useClickAnyWhere()
@@ -761,3 +762,5 @@ export default Input
   - useTimeout()
   - useUpdateEffect()
   - useWindowSize()
+- [Collection of React Hooks](https://nikgraf.github.io/react-hooks/)
+- [useHooks](https://usehooks.com/)
