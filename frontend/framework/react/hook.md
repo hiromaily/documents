@@ -77,28 +77,38 @@ export default Counter
 ```
 
 ## useReducer
-- 状態とdispatch(actionを送信する関数）を扱うためのHook
+- `state`(状態)と`dispatch`(actionを送信する関数）を扱うためのHook
 - 配列やオブジェクトなどの複数のデータをまとめたものを状態として扱う使い方ができる
+- 定義した`action`を`dispatch()`することで、stateを更新する
 - useContext()と一緒に扱うことでglobalに扱える
 - Reduxで実現していたstate管理が、`useContext` & `useReducer`で実現できるようになり、Reduxが不要になる？？
   - [React Hooks vs. Redux: Do Hooks and Context replace Redux?](https://blog.logrocket.com/react-hooks-context-redux-state-management/)
+
 ```tsx
 reducer(現在の状態, action) {
   return 次の状態
 }
 
-const [現在の状態, dispatch] = useRducer(reducer, 初期値)
+const [現在の状態, dispatch] = useReducer(reducer, 初期値)
 ```
+
+### useReducerとuseStateの使い分け
+- `useReducer`の場合、複雑なstateを管理しやすくなる
+  - stateの更新ロジックがreducerに集約される
+  - コンポーネントにw足すstate関数がdispatchだけになる
+  - dispatchの同一性が保たれる
+    - コンポーネントを再レンダリングしても、dispatchは発生しないため、メモ化したコンポーネントにそのままdispatchを渡すことができる
+    - 尚、通常の関数は再レンダリングする度に再生成される(useCallbackで関数をラップする必要がある)
 
 ### Example
 
 ```tsx
 import { useReducer } from 'react'
 
-// reducerが受け取るactionの型を定義します
+// reducerが受け取るactionの型を定義する
 type Action = 'DECREMENT' | 'INCREMENT' | 'DOUBLE' | 'RESET'
 
-// 現在の状態とactionにもとづいて次の状態を返します
+// 現在の状態とactionにもとづいて次の状態を返す
 const reducer = (currentCount: number, action: Action) => {
   switch (action) {
     case 'INCREMENT':
@@ -125,7 +135,7 @@ const Counter = (props: CounterProps) => {
   return (
     <div>
       <p>Count: {count}</p>
-      {/* dispatch関数にactionを渡して、状態を更新します */}
+      {/* dispatch関数にactionを渡して、状態を更新する */}
       <button onClick={() => dispatch('DECREMENT')}>-</button>
       <button onClick={() => dispatch('INCREMENT')}>+</button>
       <button onClick={() => dispatch('DOUBLE')}>×2</button>
@@ -498,8 +508,8 @@ export default Clock
 ```
 
 ## useContext
-- `Context`から値を参照するためのHook
-
+- `Context`の`Provider`から値を参照するためのHook
+- つまり、`Context`と併用するためのHook
 ### Example
 
 ```tsx
