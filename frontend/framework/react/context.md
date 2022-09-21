@@ -210,3 +210,38 @@ export default function App() {
 ## Contextを利用せずにProp drilling問題を解決する
 - [コンテクストを使用する前に](https://ja.reactjs.org/docs/context.html#before-you-use-context)
 
+- コンテクストを使用せずにこの問題を解決する 1 つの手法は、深い位置にあるコンポーネント自身を渡すようにする
+```tsx
+function Page(props) {
+  const user = props.user;
+  const userLink = (
+    <Link href={user.permalink}>
+      <Avatar user={user} size={props.avatarSize} />
+    </Link>
+  );
+  return <PageLayout userLink={userLink} />;
+}
+
+// これで以下のようになります。
+<Page user={user} avatarSize={avatarSize} />
+// ... Page コンポーネントは以下をレンダー ...
+<PageLayout userLink={...} />
+// ... PageLayout コンポーネントは以下をレンダー ...
+<NavigationBar userLink={...} />
+// ... NavigationBar コンポーネントは以下をレンダー ...
+{props.userLink}
+```
+
+## Render prop
+- [レンダープロップ](https://ja.reactjs.org/docs/render-props.html)
+- [レンダープロップパターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/render-props-pattern)
+- [React + TypeScript: レンダープロップ](https://qiita.com/FumioNonaka/items/6f20673cf50afe41f088)
+
+- JSX の要素を返す関数を値とするコンポーネントの propを使って、コンポーネント間でコードを共有するためのテクニック
+- 横断的関心事にレンダープロップを使う
+- コンポーネントは、独自のレンダリングロジックを実装する代わりに、単にレンダープロップを呼び出すだけとなる
+- prop を受け取るコンポーネントを再利用しやすいこと
+
+### 考察
+- 大規模プロジェクトでコンポーネントを再利用する頻度が高いところ以外は無理に使うと可読性が悪くなるので注意
+- ロジックの再利用ならカスタムフックのほうがシンプルでは？
