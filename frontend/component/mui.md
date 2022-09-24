@@ -25,7 +25,7 @@ Material UI is a library of React UI components that implements Google's Materia
 - [Design kits](https://mui.com/design-kits/)
 
 ## Install and start using
-- [Installation](Installation)
+- [Installation](https://mui.com/material-ui/getting-started/installation/)
 
 - Install packages
 ```bash
@@ -82,4 +82,61 @@ import { Button } from "@mui/material";
     </div>
   );
 }
+```
+
+## Theme
+`theme`と呼ばれるオブジェクトで、スタイリングを調整する
+
+```tsx
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+
+let theme = createTheme({
+    palette: {
+        primary: {
+        main: "#42a5f5",
+        light: "#1976d2",
+        dark: "#1565c0",
+        },
+})
+
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box component="div">
+            <Button color="primary" sx={{
+                color: theme.palette.primary.main,
+            }}>
+                Button
+            <Button>
+        </Box>
+    </ThemeProvider>
+    );
+}
+```
+
+## Components
+### Box
+Boxはdefaultで`div`として機能し、`component`属性で要素を変更できる
+```tsx
+<Box component="main" />
+
+<Box component="div" sx={{
+    height: 300,
+    width: 350,
+}}>
+```
+
+### Container
+Boxと基本は同じだが、要素を中央に寄せたい場合`maxWidth`属性で設定できる
+```tsx
+<Container maxWidth="xs" />
+```
+
+### Typography (仕上がり、デザイン)
+themeのtypographyオブジェクトを使用してスタイリングできる
+```tsx
+<Typography variant="h1">text</Typography>
 ```

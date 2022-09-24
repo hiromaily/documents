@@ -10,6 +10,8 @@ The React Framework for Production
 npx create-next-app@lates
  or
 npx create-next-app@latest --ts
+ or
+npx create-next-app <app-name> --ts --use-npm
 ```
 - [next.js/example](https://github.com/vercel/next.js/tree/canary/examples)をtemplateとすることもできる。
 ```
@@ -654,3 +656,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export default EnvSample
 ```
+
+## Next.js の「next start・next dev」挙動差分一覧
+- [Next.js の「next start・next dev」挙動差分一覧](https://zenn.dev/takepepe/scraps/321ce98dd8a81a)
