@@ -58,6 +58,9 @@ npm install --save-dev eslint-plugin-react-hooks
 - [【2022年】Next.js + TypeScript + ESLint + Prettier の構成でサクッと環境構築する](https://zenn.dev/hungry_goat/articles/b7ea123eeaaa44)
 
 ### Import Rules
+- [ESlint で import を自動ソートする](https://zenn.dev/riemonyamada/articles/02e8c172e1eeb1)
+- [TypeScript / JavaScript の import を自動でソートする](https://buildersbox.corp-sansan.com/entry/2021/05/28/110000)
+
 - `.eslintrc.json` e.g.
 ```json
 {
