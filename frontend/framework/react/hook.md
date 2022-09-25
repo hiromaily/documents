@@ -4,6 +4,14 @@
 - ロジックの分離ができるので、ロジックの再利用やテストがしやすい
 - コンポーネントのトップレベルでcallする
 
+## Rules of Hooks
+- [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html)
+
+- Only Call Hooks at the Top Level
+  - Don’t call Hooks inside loops, conditions, or nested functions
+- Only Call Hooks from React Functions
+  - Don’t call Hooks from regular JavaScript functions
+
 ## useState
 - 状態を扱うためのHookで、コンポーネント内でstate管理ができる
 - useState()で1つの新しい状態を作成する
@@ -686,7 +694,7 @@ export default Parent
 - Hookを使用する関数を新たに定義して、それを関数コンポーネントのトップレベルで呼び出すことができる
 - このような関数を実装することで、複数のHookを組み合わせたカスタムフックを実装できる
 - 慣習的に`use`から始まる名前にする
-
+- 同じカスタムフックを使っても state は別々
 ### Example
 
 ```tsx
