@@ -1,14 +1,19 @@
-# Mui
+# MUI
 MUI offers a comprehensive suite of UI tools to help you ship new features faster.
 Start with Material UI, our fully-loaded component library, 
 or bring your own design system to our production-ready components.
 
 Material UI is a library of React UI components that implements Google's Material Design.
 
+
+`MUI Core`の中に、`Material UI`, `Joy UI`, `MUI Base`, `MUI System`とあり、それぞれ独立してinstallが必要
 ## References
 - [Official](https://mui.com/)
   - [Material UI Docs](https://mui.com/material-ui/getting-started/overview/)
 - [github](https://github.com/mui) 
+- [React templates & tools](https://mui.com/store/)
+- [MUI Component Template](https://mui.com/templates/)
+
 
 ## Products
 - [MUI Core](https://mui.com/core/)
@@ -140,3 +145,6 @@ themeのtypographyオブジェクトを使用してスタイリングできる
 ```tsx
 <Typography variant="h1">text</Typography>
 ```
+
+## Componentのセンタリング方法
+- [4 ways to center a component in Material-UI](https://medium.com/@tsubasakondo_36683/4-ways-to-center-a-component-in-material-ui-a4bcafe6688e)
