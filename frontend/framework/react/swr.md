@@ -173,6 +173,21 @@ const logger = (useSWRNext) => {
 useSWR(key, fetcher, { use: [logger] })
 ```
 
+- useSWRのkeyに必要なエンドポイントを追加するミドルウェアは有用かもしれない
+  - TODO: 以下のコードは未確認
+```tsx
+const endpoint = (useSWRNext) => {
+  return (key, fetcher, config) => {
+    let newKey = key
+    if (process.env.API_ENDPOINT) newKey = `${process.env.API_ENDPOINT}${key}`      
+    return useSWRNext(newKey, fetcher, config)
+  }
+}
+
+// ... コンポーネント内
+useSWR(key, fetcher, { use: [endpoint] })
+```
+
 ##  [Options](https://swr.vercel.app/docs/options#options)
 - 再検証やポーリングに伴う設定が多い
 - リクエスト終了後のcallbackもある
