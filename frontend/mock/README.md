@@ -36,6 +36,7 @@ Did you mean to import @mswjs/interceptors/lib/interceptors/ClientRequest/index.
 ```
 
 これは、既知の問題でissueにもあがっており、今後修正されると思われる（2022/10/1現在)
+- [Can't resolve '@mswjs/interceptors/lib/interceptors/ClientRequest'](https://github.com/mswjs/msw/issues/1267)
 - [Directory import is not supported resolving ES modules](https://github.com/mswjs/msw/issues/1201)
   - `There is no support for ESM right now`
 - [ESM support + treeshaking unused bits](https://github.com/mswjs/msw/issues/1384)
