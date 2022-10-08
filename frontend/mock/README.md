@@ -44,6 +44,21 @@ Did you mean to import @mswjs/interceptors/lib/interceptors/ClientRequest/index.
   -  ES6 modulesでは、ディレクトリのimportができないとある。つまり、具体的なファイル名まで指定する必要がある。
   -  今回、ファイルの単体読み込みをしてみたが、今後は`Could not find a declaration file for module`というエラーが発生した
 
+#### Workaround
+- before
+```ts
+import { setupServer } from 'msw/node'
+import { handlers } from './handlers'
+
+export const server = setupServer(...handlers)
+```
+- after
+```ts
+import { handlers } from './handlers'
+
+export const server = require('msw/node').setupServer(...handlers)
+```
+
 ## Mirage.js
 - [Official](https://miragejs.com/)
 - [Docs](https://miragejs.com/docs/getting-started/introduction/)
