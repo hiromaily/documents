@@ -34,6 +34,9 @@ npm install --save-dev jest-environment-jsdom
 npm install --save-dev eslint-plugin-jest eslint-plugin-jest-dom
 ```
 
+- toBe(value) ... プリミティブ値を比較する
+- toEqual(value) ... オブジェクトや配列を比較する
+
 ## React Testing Library
 Componentのtestを行うためのライブラリ
 
@@ -76,6 +79,8 @@ npm install --save-dev eslint-plugin-testing-library
 - `queryBy` : 存在しない要素のアサーションを行うために使用する
 - `findBy` : 非同期要素によって生成される要素に対して使用する
 ```ts
+expect(screen.queryByText(/Searches for JavaScript/)).toBeNull();
+
 expect(await screen.findByText(/Signed in as/)).toBeInTheDocument();
 ```
 
@@ -84,7 +89,7 @@ expect(await screen.findByText(/Signed in as/)).toBeInTheDocument();
 - [eact-hooks-testing-library](https://github.com/testing-library/react-hooks-testing-library)
 - `@testing-library/react-hooks`はReact@18.xで動かないため、`@testing-library/react`を使用する
 
-### Act()
+### [Act()](https://reactjs.org/docs/test-utils.html#act)
 - `react-dom/test-utils`にある`act()`は、`@testing-library`でも利用可能(こちらが推奨されている)
 ```tsx
 import { renderHook, act, waitFor } from '@testing-library/react'
@@ -99,6 +104,7 @@ import { renderHook, act, waitFor } from '@testing-library/react'
 ### [waitFor()](https://testing-library.com/docs/dom-testing-library/api-async#waitfor)
 - Stateの変更など、しばらく待つ必要がある場合は、 `waitFor`を使用して、期待値がセットされるのを待つことができる
 - waitForのタイムアウトに達するまで、何度もコールバックを実行できる
+- 非同期で生成される要素であれば、`findBy`のみで取得可能
 - `interval` オプションによって調整が可能
 - デフォルトの`interval`は`50ms`
 - デフォルトの`timeout`は`1000ms`
@@ -131,6 +137,8 @@ module.exports = createJestConfig(customJestConfig);
 
 
 ## その他 References
-- [React + Testing Library + Jestの覚書 (2022)](https://zenn.dev/nus3/articles/jest-react-testing-library)
 - [Next.js 12でJestの設定がかなり楽になった](https://zenn.dev/miruoon_892/articles/e42e64fbb55137)
+- [React + Testing Library + Jestの覚書 (2022)](https://zenn.dev/nus3/articles/jest-react-testing-library)
+- [Reactのテストについてまとめてみた](https://zenn.dev/iamtillmans/articles/171f41fbd03c89)
+- [React Testing Libraryの使い方](https://qiita.com/ossan-engineer/items/4757d7457fafd44d2d2f)
 - [Jestのモックパターン](https://zenn.dev/technote/articles/jest-mock-patterns)
