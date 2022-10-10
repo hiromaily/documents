@@ -47,7 +47,7 @@
   - SGX は、次のように SGXSSL ベースの SDK を構築するためのビルドの組み合わせを提供する
   - ユーザーは、この暗号化ライブラリを SGX エンクレーブ アプリケーションで個別に利用することもできる
 
-### Intel SGX SDK および Intel SGX PSW パッケージのビルド
+### Intel SGX SDK ~~および Intel SGX PSW パッケージ~~ のビルド
 - Ubuntu22.04 にて実行
 
 1. 必要なツールをinstall
@@ -121,17 +121,12 @@ make: *** [Makefile:62: psw] Error 2
 - [issue]((https://github.com/intel/linux-sgx/issues/466))には、`You need to install the SDK before building PSW`とある
 
 
-8. 生成されたファイルを消去する (このタイミングで必要か？)
-```
-make clean
-```
-
 ### Intel SGX SDK をInstallする
 - Ubuntu22.04 にて実行
 
 1. 必要なtoolをinstall
 ```
-sudo apt install build-essential python
+sudo apt install build-essential python-is-python3
 ```
 
 2. Install
@@ -140,10 +135,99 @@ cd linux/installer/bin
 
 # インストール パスを指定する必要がある
 export SDK_INSTALL_PATH_PREFIX=/opt/intel
-./sgx_linux_x64_sdk_${version}.bin --prefix $SDK_INSTALL_PATH_PREFIX
+sudo ./sgx_linux_x64_sdk_${version}.bin --prefix $SDK_INSTALL_PATH_PREFIX
 
-
-# 環境変数の設定
-# source ${sgx-sdk-install-path}/environment
+# 環境変数の設定(.zprofile等に設定しておく)
 source /opt/intel/sgxsdk/environment
 ```
+
+### Intel SGX PSW パッケージのビルド
+1.  デフォルト構成で、Intel SGX PSW をbuild
+```
+make psw
+```
+
+2. 生成されたファイルを消去する (このタイミングで必要か？)
+```
+make clean
+```
+
+3. Intel SGX PSW インストーラーをbuild
+```
+make deb_psw_pkg
+```
+- これにより、`./linux/installer/deb`ディレクトリ下に様々なファイルができる
+  - libsgx-enclave-common/
+  - libsgx-epid/
+  - libsgx-headers/
+  - libsgx-launch/
+  - libsgx-quote-ex/
+  - libsgx-uae-service/
+  - libsgx-urts/
+  - local_repo_tool/
+  - sgx-aesm-service/
+
+### Intel SGX PSW のインストール
+- 条件に `第 6 世代インテル(R) Core(TM) プロセッサー以降` とある
+- 今回使用したマシンは`ASUS` の `UX430U`で、Processorは`i5-8250U`でこれは第8世代なので問題なさそう
+
+- Intel SGX PSW は SGX SDK に対する、いわゆるランタイム
+
+- SGX PSW は、起動、EPID ベースの構成証明、およびアルゴリズムに依存しない構成証明の 3 つのサービスを提供する
+- SGX PSW は小さなパッケージに分割され、ユーザーはインストールする機能とサービスを選択できる
+- 必要なパッケージをインストールするには、個別のパッケージを使用する方法と、ビルド システムによって生成されたローカル リポジトリを使用する方法の 2 つがある
+- システムが依存関係を自動的に解決するため、ローカル リポジトリを使用することを勧められる
+
+1. 必要となるライブラリをinstall
+```
+sudo apt install libssl-dev libcurl4-openssl-dev libprotobuf-dev
+```
+
+2. ローカル リポジトリの使用（推奨）
+
+  1. ローンチサービス
+```
+sudo apt install libsgx-launch libsgx-urts
+```
+
+  2. EPID ベースの認証サービス
+```
+sudo apt install libsgx-epid libsgx-urts
+```
+
+  3. アルゴリズムに依存しない認証サービス
+```
+sudo apt install libsgx-quote-ex libsgx-urts
+```
+
+  4. DCAP ECDSA ベースのサービス
+```
+sudo apt install libsgx-dcap-ql
+```
+
+
+### コード サンプルを使用してIntel SGX SDK パッケージをテストする
+- シミュレーション モードで実行する
+```
+cd /opt/intel/sgxsdk/SampleCode/LocalAttestation
+sudo make SGX_MODE=SIM
+cd bin
+./app
+# Succeed to load enclaves
+# Succeed to establish secure channel
+# Succeed to exchange secure message
+# Succeed to close Session
+```
+
+### ハードウェア モードでのコード サンプルのコンパイルと実行
+- Intel SGX ハードウェア対応マシンを使用している場合は、コード サンプルをハードウェア モードで実行できる
+- 以下、`./app`実行後、エラーが発生: [Requires libsgx_urts.so to run in SGX hardware mode](https://github.com/hyperledger-labs/minbft/issues/93)
+```
+cd /opt/intel/sgxsdk/SampleCode/LocalAttestation
+sudo make
+cd bin
+./app
+# ./app: error while loading shared libraries: libsgx_urts.so: cannot open shared object file: No such file or directory
+```
+- [issue](https://github.com/hyperledger-labs/minbft/issues/93)には、`we need to install a driver and a platform software (PSW) in addition to the SDK to run the command in the hardware mode` とある
+
