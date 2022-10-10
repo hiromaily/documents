@@ -167,6 +167,7 @@ make deb_psw_pkg
   - local_repo_tool/
   - sgx-aesm-service/
 
+
 4. [WIP] ローカル Debian package repositoryをbuild
 - 実行したがエラーが発生: [Can't make deb_local_repo](https://github.com/intel/linux-sgx/issues/587)
 ```
@@ -205,10 +206,21 @@ Components: main
 Description: ubuntu/jammy repository for SGX PSW
 DebIndices: Packages .
 ```
+- 再度実行
+```
+make deb_local_repo
+
+# Local repository is successfully generated at /home/hy/work/linux-sgx/linux/installer/deb/local_repo_tool/../sgx_debian_local_repo.
+# Please follow the instructions in README to use this repository.
+```
 
 5. ローカル Debian package repositoryをシステムrepository構成に追加する
 ```
-deb [trusted=yes arch=amd64] file:/PATH_TO_LOCAL_REPO focal main
+# e.g
+# deb [trusted=yes arch=amd64] file:/PATH_TO_LOCAL_REPO focal main
+deb [trusted=yes arch=amd64] file:/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo jammy main
+
+sudo apt update
 ```
 
 
