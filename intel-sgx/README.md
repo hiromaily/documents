@@ -168,7 +168,7 @@ make deb_psw_pkg
   - sgx-aesm-service/
 
 
-4. [WIP] ローカル Debian package repositoryをbuild
+4. ローカル Debian package repositoryをbuild
 - 実行したがエラーが発生: [Can't make deb_local_repo](https://github.com/intel/linux-sgx/issues/587)
 ```
 make deb_local_repo
@@ -214,7 +214,8 @@ make deb_local_repo
 # Please follow the instructions in README to use this repository.
 ```
 
-5. ローカル Debian package repositoryをシステムrepository構成に追加する
+5. [WIP] ローカル Debian package repositoryをシステムrepository構成に追加する
+- 追加後、`sudo apt update`でエラーが発生。`Release`ファイルは存在するが、`InRelease`ファイルは存在しない
 ```
 sudo vim /etc/apt/sources.list
 # e.g
@@ -224,11 +225,13 @@ deb [trusted=yes arch=amd64] file:/home/hy/work/linux-sgx/linux/installer/deb/sg
 sudo apt update
 # N: Download is performed unsandboxed as root as file '/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/dists/jammy/InRelease' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
 ```
+- 
 
-- 対応
+- 対応したが、うまくいかなかった。。。
 ```
-sudo chown -Rv _apt:root /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
-sudo chmod -Rv 700 /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
+usermod -aG hy _apt
+#sudo chown -Rv _apt:root /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
+# sudo chmod -Rv 775 /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
 ```
 
 
@@ -256,6 +259,13 @@ sudo apt install libssl-dev libcurl4-openssl-dev libprotobuf-dev
   1. ローンチサービス
 ```
 sudo apt install libsgx-launch libsgx-urts
+ or
+cd ./linux/installer/deb/libsgx-launch/
+chmod +x libsgx-launch_2.17.101.1-jammy1_amd64.deb
+sudo apt install libsgx-launch_2.17.101.1-jammy1_amd64.deb
+chmod -x libsgx-launch_2.17.101.1-jammy1_amd64.deb
+
+cd ./linux/installer/deb/libsgx-urts
 ```
 
   2. EPID ベースの認証サービス
