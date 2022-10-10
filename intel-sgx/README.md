@@ -6,7 +6,8 @@
 - [Intel SGX入門 - SGXプログラミング編](https://qiita.com/Cliffford/items/c6c0c696d4cc6d60d515)
 - [Intel SGX - Remote Attestation概説](https://qiita.com/Cliffford/items/095b1df450583b4803f2)
 - [Intel SGX - Provisioning解説](https://qiita.com/Cliffford/items/19145f6fa0340013f94f)
-
+- [Intel SGX](https://hazm.at/mox/security/tee/intel-sgx/index.html)
+  - 概要、Intel SGX 開発環境の構築、Intel SGX 開発など
 
 ## Intel SGXの初期設定 (ASUS UX430U x Ubuntu22.04)
 - `F2`キーを押しながら電源を入れて、BIOS画面を表示
@@ -46,8 +47,8 @@
   - SGX は、次のように SGXSSL ベースの SDK を構築するためのビルドの組み合わせを提供する
   - ユーザーは、この暗号化ライブラリを SGX エンクレーブ アプリケーションで個別に利用することもできる
 
-### SGX SDK およびインテル(R) SGX PSW パッケージのビルド
-- Ubuntu22.04 にて実行してみる
+### Intel SGX SDK および Intel SGX PSW パッケージのビルド
+- Ubuntu22.04 にて実行
 
 1. 必要なツールをinstall
 ```
@@ -97,7 +98,7 @@ make sdk_install_pkg
 ```
 make psw
 ```
-- 以下エラーが発生
+- 以下エラーが発生: [Error while executing "make psw"](https://github.com/intel/linux-sgx/issues/466)
 ```
 ❯ make psw
 make -C psw/ USE_OPT_LIBS=1
@@ -117,6 +118,7 @@ make[1]: *** [Makefile:49: uae_service] Error 2
 make[1]: Leaving directory '/home/hy/work/linux-sgx/psw'
 make: *** [Makefile:62: psw] Error 2
 ```
+- [issue]((https://github.com/intel/linux-sgx/issues/466))には、`You need to install the SDK before building PSW`とある
 
 
 8. 生成されたファイルを消去する (このタイミングで必要か？)
@@ -124,3 +126,24 @@ make: *** [Makefile:62: psw] Error 2
 make clean
 ```
 
+### Intel SGX SDK をInstallする
+- Ubuntu22.04 にて実行
+
+1. 必要なtoolをinstall
+```
+sudo apt install build-essential python
+```
+
+2. Install
+```
+cd linux/installer/bin
+
+# インストール パスを指定する必要がある
+export SDK_INSTALL_PATH_PREFIX=/opt/intel
+./sgx_linux_x64_sdk_${version}.bin --prefix $SDK_INSTALL_PATH_PREFIX
+
+
+# 環境変数の設定
+# source ${sgx-sdk-install-path}/environment
+source /opt/intel/sgxsdk/environment
+```
