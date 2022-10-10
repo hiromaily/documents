@@ -216,11 +216,19 @@ make deb_local_repo
 
 5. ローカル Debian package repositoryをシステムrepository構成に追加する
 ```
+sudo vim /etc/apt/sources.list
 # e.g
 # deb [trusted=yes arch=amd64] file:/PATH_TO_LOCAL_REPO focal main
 deb [trusted=yes arch=amd64] file:/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo jammy main
 
 sudo apt update
+# N: Download is performed unsandboxed as root as file '/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/dists/jammy/InRelease' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
+```
+
+- 対応
+```
+sudo chown -Rv _apt:root /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
+sudo chmod -Rv 700 /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
 ```
 
 
