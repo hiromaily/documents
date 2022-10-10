@@ -167,10 +167,41 @@ make deb_psw_pkg
   - local_repo_tool/
   - sgx-aesm-service/
 
+4. [WIP] ローカル Debian package repositoryをbuild
+- 実行したがエラーが発生: [Can't make deb_local_repo](https://github.com/intel/linux-sgx/issues/587)
+```
+make deb_local_repo
+# ./linux/installer/common/local_repo_builder/local_repo_builder.sh debian build
+# make: *** [Makefile:245: deb_local_repo] Error 249
+```
+- [issue](https://github.com/intel/linux-sgx/issues/587)によると、`apt install reprepro` が必要？？
+  - これは`Debian package repository producer` とあるが、既にinstallされていた
+- 実際に実行されているのは、`./linux/installer/deb/local_repo_tool/debian_repo.sh`内の`local_repo_build()`
+```
+{
+    local_repo_clean
+    code_name=$(lsb_release -cs)
+    deb_pkgs=$(find ${SOURCE_PKG_DIR} -type f \( -name "*.deb" -o -name "*.ddeb" \))
+    if [[ ${deb_pkgs} != "" ]]
+    then
+        reprepro --confdir ${REPO_CONFIG_DIR} --outdir ${LOCAL_REPO_DIR} --dbdir ${LOCAL_REPO_DIR}/db --ignore=extension includedeb ${code_name} ${deb_pkgs} 2>/dev/null
+    fi
+}
+```
+  - 一旦、ファイルに修正を加え、`2>/dev/null`を外し、再度実行してみる
+
+5. ローカル Debian package repositoryをシステムrepository構成に追加する
+```
+deb [trusted=yes arch=amd64] file:/PATH_TO_LOCAL_REPO focal main
+```
+
+
 ### Intel SGX PSW のインストール
+#### 今回使用した検証環境について
 - 条件に `第 6 世代インテル(R) Core(TM) プロセッサー以降` とある
 - 今回使用したマシンは`ASUS` の `UX430U`で、Processorは`i5-8250U`でこれは第8世代なので問題なさそう
 
+#### Intel SGX PSW
 - Intel SGX PSW は SGX SDK に対する、いわゆるランタイム
 
 - SGX PSW は、起動、EPID ベースの構成証明、およびアルゴリズムに依存しない構成証明の 3 つのサービスを提供する
@@ -178,6 +209,7 @@ make deb_psw_pkg
 - 必要なパッケージをインストールするには、個別のパッケージを使用する方法と、ビルド システムによって生成されたローカル リポジトリを使用する方法の 2 つがある
 - システムが依存関係を自動的に解決するため、ローカル リポジトリを使用することを勧められる
 
+#### Install
 1. 必要となるライブラリをinstall
 ```
 sudo apt install libssl-dev libcurl4-openssl-dev libprotobuf-dev
