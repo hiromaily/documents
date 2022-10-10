@@ -225,9 +225,9 @@ deb [trusted=yes arch=amd64] file:/home/hy/work/linux-sgx/linux/installer/deb/sg
 sudo apt update
 # N: Download is performed unsandboxed as root as file '/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/dists/jammy/InRelease' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
 ```
-- 
+- WIP: `Release`というファイルは存在するので、これをコピーして`InRelease`を作成し、chmodで全権限を与えてみる
 
-- 対応したが、うまくいかなかった。。。
+- 以下対応したが、うまくいかなかった。。。
 ```
 usermod -aG hy _apt
 #sudo chown -Rv _apt:root /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
@@ -261,26 +261,47 @@ sudo apt install libssl-dev libcurl4-openssl-dev libprotobuf-dev
 sudo apt install libsgx-launch libsgx-urts
  or
 cd ./linux/installer/deb/libsgx-launch/
-chmod +x libsgx-launch_2.17.101.1-jammy1_amd64.deb
 sudo apt install libsgx-launch_2.17.101.1-jammy1_amd64.deb
-chmod -x libsgx-launch_2.17.101.1-jammy1_amd64.deb
+
+cd ./linux/installer/deb/libsgx-enclave-common
+sudo apt install libsgx-enclave-common_2.17.101.1-jammy1_amd64.deb
 
 cd ./linux/installer/deb/libsgx-urts
+sudo apt install libsgx-urts_2.17.101.1-jammy1_amd64.deb
 ```
 
   2. EPID ベースの認証サービス
 ```
 sudo apt install libsgx-epid libsgx-urts
+ or
+cd ./linux/installer/deb/libsgx-epid
+sudo apt install libsgx-epid_2.17.101.1-jammy1_amd64.deb
 ```
 
   3. アルゴリズムに依存しない認証サービス
 ```
 sudo apt install libsgx-quote-ex libsgx-urts
+ or
+cd ./linux/installer/deb/libsgx-quote-ex
+sudo apt install libsgx-quote-ex_2.17.101.1-jammy1_amd64.deb
 ```
 
   4. DCAP ECDSA ベースのサービス
 ```
 sudo apt install libsgx-dcap-ql
+ or
+cd ./linux/installer/deb/sgx-aesm-service
+```
+- wip
+```
+ibsgx-ae-qe3
+libsgx-ae-id-enclave
+
+libsgx-qe3-logic_1.14.100.3-jammy1_amd64.deb
+libsgx-pce-logic
+libsgx-dcap-quote-verify
+
+libsgx-dcap-ql_1.14.100.3-jammy1_amd64.deb
 ```
 
 
