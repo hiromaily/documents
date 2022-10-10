@@ -174,6 +174,7 @@ make deb_local_repo
 # ./linux/installer/common/local_repo_builder/local_repo_builder.sh debian build
 # make: *** [Makefile:245: deb_local_repo] Error 249
 ```
+
 - [issue](https://github.com/intel/linux-sgx/issues/587)によると、`apt install reprepro` が必要？？
   - これは`Debian package repository producer` とあるが、既にinstallされていた
 - 実際に実行されているのは、`./linux/installer/deb/local_repo_tool/debian_repo.sh`内の`local_repo_build()`
@@ -188,7 +189,22 @@ make deb_local_repo
     fi
 }
 ```
-  - 一旦、ファイルに修正を加え、`2>/dev/null`を外し、再度実行してみる
+- 一旦、ファイルに修正を加え、`2>/dev/null`を外し、再度実行してみる
+```
+Cannot find definition of distribution 'jammy'!
+There have been errors!
+```
+  - Ubuntu22.04固有の問題
+- `./linux/installer/deb/local_repo_tool/conf/distributions` ファイルに以下を追加
+```
+Origin: Intel Corporation
+Label: Intel Corporation
+Codename: jammy
+Architectures: amd64
+Components: main
+Description: ubuntu/jammy repository for SGX PSW
+DebIndices: Packages .
+```
 
 5. ローカル Debian package repositoryをシステムrepository構成に追加する
 ```
