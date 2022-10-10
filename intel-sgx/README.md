@@ -81,7 +81,6 @@ make sdk USE_OPT_LIBS=0
 # DEBUG情報を出力
 make sdk DEBUG=1
 ```
-- これにより、`linux/installer/*` ディレクトリに `aa` が作成される
 
 5. 生成されたファイルを消去する (このタイミングで必要か？)
 ```
@@ -92,12 +91,33 @@ make clean
 ```
 make sdk_install_pkg
 ```
+- これにより、`linux/installer/bin/sgx_linux_x64_sdk_xxxxx.bin*` が作成される
 
 7.  デフォルト構成で、Intel SGX PSW をbuild
 ```
 make psw
 ```
-- 
+- 以下エラーが発生
+```
+❯ make psw
+make -C psw/ USE_OPT_LIBS=1
+make[1]: Entering directory '/home/hy/work/linux-sgx/psw'
+make -C uae_service/linux/
+make[2]: Entering directory '/home/hy/work/linux-sgx/psw/uae_service/linux'
+make -C ../../../psw/ae/aesm_service/source/core/ipc
+make[3]: Entering directory '/home/hy/work/linux-sgx/psw/ae/aesm_service/source/core/ipc'
+protoc  messages.proto --cpp_out=.
+make[3]: Leaving directory '/home/hy/work/linux-sgx/psw/ae/aesm_service/source/core/ipc'
+g++ -Wnon-virtual-dtor -std=c++14 -fstack-protector-strong -O2 -D_FORTIFY_SOURCE=2 -UDEBUG -DNDEBUG -ffunction-sections -fdata-sections -Wall -Wextra -Winit-self -Wpointer-arith -Wreturn-type -Waddress -Wsequence-point -Wformat-security -Wmissing-include-dirs -Wfloat-equal -Wundef -Wshadow -Wcast-align -Wconversion -Wredundant-decls -DITT_ARCH_IA64 -fcf-protection -fPIC -Werror -Wno-unused-parameter -g -DPROTOBUF_INLINE_NOT_IN_HEADERS=0 -Wno-deprecated-declarations -I. -I/home/hy/work/linux-sgx/common -I/home/hy/work/linux-sgx/common/inc -I/home/hy/work/linux-sgx/common/inc/internal  -I/home/hy/work/linux-sgx/psw/ae/common -I/home/hy/work/linux-sgx/psw/ae/inc -I/home/hy/work/linux-sgx/psw/ae/inc/internal -I/opt/intel/sgxsdk/include -I/home/hy/work/linux-sgx/external/epid-sdk -I../../../psw/ae/aesm_service/source/core/ipc -I../uae_wrapper/inc -I../../../psw/ae/aesm_service/source/core/ipc -I/home/hy/work/linux-sgx/psw/ae/aesm_service/source -I/home/hy/work/linux-sgx/psw/ae/aesm_service/source/common -c ../uae_wrapper/src/AEServicesImpl.cpp -o AEServicesImpl.o
+cc1plus: error: /opt/intel/sgxsdk/include: No such file or directory [-Werror=missing-include-dirs]
+cc1plus: all warnings being treated as errors
+make[2]: *** [Makefile:182: AEServicesImpl.o] Error 1
+make[2]: Leaving directory '/home/hy/work/linux-sgx/psw/uae_service/linux'
+make[1]: *** [Makefile:49: uae_service] Error 2
+make[1]: Leaving directory '/home/hy/work/linux-sgx/psw'
+make: *** [Makefile:62: psw] Error 2
+```
+
 
 8. 生成されたファイルを消去する (このタイミングで必要か？)
 ```
