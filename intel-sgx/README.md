@@ -221,13 +221,19 @@ sudo vim /etc/apt/sources.list
 # e.g
 # deb [trusted=yes arch=amd64] file:/PATH_TO_LOCAL_REPO focal main
 deb [trusted=yes arch=amd64] file:/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo jammy main
-
 sudo apt update
 # N: Download is performed unsandboxed as root as file '/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/dists/jammy/InRelease' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
 ```
-- WIP: `Release`というファイルは存在するので、これをコピーして`InRelease`を作成し、chmodで全権限を与えてみる
+
+- WIP
+deb [trusted=yes arch=amd64] file:/opt/local/linux-sgx/linux/installer/deb/sgx_debian_local_repo focal main
+" > /etc/apt/sources.list.d/intel-sgx.list && \
+
+=> /opt/localを使うべきだった？
 
 - 以下対応したが、うまくいかなかった。。。
+  - `Release`というファイルは存在するので、これをコピーして`InRelease`を作成し、chmodで全権限を与えてみる
+  - 以下コマンドの実行
 ```
 usermod -aG hy _apt
 #sudo chown -Rv _apt:root /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
