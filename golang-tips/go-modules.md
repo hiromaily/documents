@@ -97,13 +97,26 @@ go mod graph | grep github.com/Shopify/sarama
 ```
 
 ## replace ディレクティブ
-
-monorepo など、複数の module で構成されたプロジェクトなどで、local のファイルを参照したい場合など、
+- VCS (GitHub など) にある別のモジュールや、ローカルファイルシステム上の相対ファイルパスや絶対ファイルパスを指定して、別のインポートパスを指定することができる
+- replaceディレクティブによる新しいインポートパスは、実際のソースコードでインポートパスを更新する必要なく使用される
+  - monorepo など、複数の module で構成されたプロジェクトなどで、local のファイルを参照したい場合など、
+  - forkされたrepositoryを使う場合、向き先をfork先の名前に差し替えるなど
 
 ```
 # e.g.
 replace golang.org/x/tools => ../../tools
 ```
+
+### forked repositoryの参照
+例えば、[quorum](https://github.com/ConsenSys/quorum)は[go-ethereum](https://github.com/ethereum/go-ethereum)のforkで、
+`quorum`の内部は、go.modのmodule名から、importパスまで、`go-ethereum`のまあ  
+このforkされた`quorum`を他のプロジェクトからimportしたい場合、
+go.mod内の`replace`ディレクティブで、以下のように修正することで参照することができる
+```
+# e.g.
+replace github.com/ethereum/go-ethereum => github.com/ConsenSys/quorum
+```
+
 
 ## go module の versioning
 
