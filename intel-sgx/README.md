@@ -1,7 +1,8 @@
 # Intel SGX
 - [Intel SGX for Linux OS](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/linux-overview.html)
 - [Github: Intel SGX for Linux OS](https://github.com/intel/linux-sgx)
-
+  - もうすぐUbuntu22.04に対応したバージョンが出るとのことなので、releaseをチェック(2022/10)
+  - https://github.com/intel/linux-sgx/issues/849
 - [Intel SGX入門 - SGX基礎知識編](https://qiita.com/Cliffford/items/2f155f40a1c3eec288cf)
 - [Intel SGX入門 - SGXプログラミング編](https://qiita.com/Cliffford/items/c6c0c696d4cc6d60d515)
 - [Intel SGX - Remote Attestation概説](https://qiita.com/Cliffford/items/095b1df450583b4803f2)

@@ -51,3 +51,6 @@ summarized book contents and tips
 - 12 Factor Application with Docker and Go
 - Object-Oriented vs. Functional Programming
 - Designing Distributed System
+
+## WebSites
+- [プログラマが知るべき97のこと](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/)
