@@ -29,12 +29,17 @@ The OpenAPI Specification (OAS) defines a standard, programming language-agnosti
   - 様々な言語に対応した型定義を作成する
 
 ### Golang
+- [OpenAPI3.0のまともなGoコード生成ツールがいない](https://blog.masu-mi.me/post/2021/12/23/no-good-go-code-generator-of-openapi-v3.0/)
+- [oapi-codegen](https://github.com/deepmap/oapi-codegen)
+  - Generate Go client and server boilerplate from OpenAPI 3 specifications
+- [goa](https://github.com/goadesign/goa)
+  - Design-based APIs and microservices in Go
 - [kin-openapi](https://github.com/getkin/kin-openapi)
   - OpenAPI 3.0 (and Swagger v2) implementation for Go (parsing, converting, validation, and more)
 - [gin-swagger](https://github.com/swaggo/gin-swagger)
   - gin middleware to automatically generate RESTful API documentation with Swagger 2.0
-- [goa](https://github.com/goadesign/goa)
-  - Design-based APIs and microservices in Go
+- [go-swagger](https://github.com/go-swagger/go-swagger)
+  - Swagger 2.0 implementation for go
 
 ### Typescript/Javascript/Node.js
 - [zod](https://github.com/colinhacks/zod)
