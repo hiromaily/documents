@@ -111,15 +111,15 @@ firebase init
 - そのため、自由な形式のデータをコレクションに保存することができる
 - ドキュメント志向データベース補足
   - ドキュメント: RDBでいうレコードで、値はJSON形式となる
-    - `doc()関数`でドキュメントの更新ができる
-    - `setDoc()関数`によってドキュメントの作成もしくは上書きができるが、作成するドキュメントのIDも指定しなければならない
-    - `addDoc()関数`の場合、IDは自動生成される
-    - `geDoc()関数`によってデータの読み取りが可能
+    - `doc()`でドキュメントの更新ができる
+    - `setDoc()`によってドキュメントの作成もしくは上書きができるが、作成するドキュメントのIDも指定しなければならない
+    - `addDoc()`の場合、IDは自動生成される
+    - `geDoc()`によってデータの読み取りが可能
   - コレクション: RDBでいうテーブル相当で、ドキュメントの束
-    - コレクションを特定するために、`collection()関数`によってコレクションへの参照を取得する
+    - コレクションを特定するために、`collection()`によってコレクションへの参照を取得する
 - DBへはlocalからでもアクセスが可能
 - Firestoneの内容が更新された場合、その更新を検出、反映する仕組みがある
-  - `onSnapshot()関数`
+  - `onSnapshot()`
 
 ## Storage
 - 写真や動画、各種データを格納できるサービス
@@ -128,3 +128,37 @@ firebase init
 - AdminSDKを使って各種言語でアクセスが可能
 - ファイルのリスト、ファイルのメタデータにアクセスすることも可能
 - アップロードも可能
+
+## Functions
+- クラウド上でコンテナを作成し、その中で関数を実行する
+- 実行するきっかけを`トリガー`という
+
+### トリガー
+- 直接実行
+  - アプリから直接呼び出す
+  - HTTPリクエストによる実行
+  - スケジュールトリガー
+- 間接的実行
+  - Cloud Firestoreトリガー
+  - Realtime Databaseトリガー
+  - Remote Configトリガー
+  - Authenticationトリガー
+  - アナリティクストリガー
+  - Cloud Storageトリガー
+  - Pub/Subトリガー: Google CloudのPUb/Subによるもの
+  - Test Labトリガー
+
+## Authentication
+- Webアプリのログインを実現する機能
+- パスワード認証、Google/Facebook/Twitter/Github/MicrosoftといったSNSアカウントとの連携も可能
+- ショートメッセージ(SMS)や電話番号、emailを使った2段階認証もサポート
+
+### Authenticationの有効化
+- firebaseダッシュボードからAuthenticationを選択し、設定が必要
+- ここから手動でユーザーを登録することもできる
+
+### 機能
+- `createUserWithEmailAndPassword()`によって新しいユーザーを登録することが可能
+- `signInWithEmailAndPassword()`によって既存ユーザーのログインが可能
+- `onAuthStateChanged()`によって、ログイン/ログアウトの状態変化をコールバックで検知可能
+- または、`getAuth()`で戻り値の`currentUser`プロパティを見て、ログインしていない場合、nullとなる
