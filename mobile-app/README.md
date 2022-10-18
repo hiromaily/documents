@@ -17,6 +17,21 @@
 ### References
 - [Flutterで始めるアプリ開発](https://www.flutter-study.dev/)
 
+### [Install](https://docs.flutter.dev/get-started/install)
+- zipファイルをdownloadし、展開後、PATHを通す
+- install後は、`flutter doctor`コマンドで、実行環境の状態を調べ、足りないtoolをinstallする
+- iOS setup
+- Set up the iOS simulator
+
+### アプリケーションの作成と起動
+```sh
+flutter create flutter_sample_app
+cd flutter_sample_app
+flutter run
+```
+- `flutter run`実行前に、`iOS Simulator`を使う場合は事前に立ち上げておかねばならない
+
+
 ## [React Native](https://reactnative.dev/)
 - Language: JavaScript
 - Platform: Android, iOS, Web Apps
