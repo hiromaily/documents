@@ -95,7 +95,7 @@
   - [Keycloak(14.0.0)で試す OpenID Connect CIBA](https://www.creationline.com/lab/43470)
 
 
-## [WIP] FIDO認証
+## FIDO認証
 - パスワードレスによって、利便性と安全性を満たすための認証プロトコル
   - パスワードレス認証とは、多要素認証 (MFA)の一種
 - FIDO: `Fast Identity Online`の略であり、日本語だと`ファイド`と発音される
@@ -122,8 +122,17 @@
 
 
 ## [WIP] WebAuthn
-- WebAuthn (WebAuthenticationの略) はFIDO認証をベースとした、ブラウザ経由でパスワードレス認証を行うための仕組み
+- WebAuthnは `WebAuthentication`の略で、 `FIDO認証`をベースとした、ブラウザ経由でパスワードレス認証を行うための仕組み
 - WebAuthnを実現するために用意されているJavaScript APIを `WebAuthn API` と呼ぶ
+- WebAuthnというのは、`FIDO2`の仕様の一部のことを指している
+
+- 認証クライアントとなるアプリケーションなどのサービスを `Relying Party`
+- ユーザーが使用するデバイスには`認証器`が必要となる
+  - 署名の作成、キーペアの作成、認証情報の管理、所有確認や生体認証の実施などの機能
+- `認証サーバ`は、つまりFIDOの認証の処理を行うサーバのこと
+
+### References
+- [Official](https://webauthn.io/)
 
 
 ## SAML認証
@@ -157,5 +166,9 @@
   - Javaで書かれている
 
 
-## [WIP] OpenAM
+## OpenAM
 - OpenAMはシングルサインオンを実現するためのオープンソースで、Javaで開発されている
+
+
+## IDaaS
+- `Identity as a Service`の略で、IDやパスワードなどのログイン情報の一括管理を行えるクラウド型のID管理サービス
