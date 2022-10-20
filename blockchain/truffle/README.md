@@ -1,14 +1,28 @@
 # truffle
+
 - [Docs](https://trufflesuite.com/)
 
 ## Debug
-- txIDを取得後、以下のコマンドを実行する
-  - network nameは`truffle-config.js`の定義より取得
+
+- txID を取得後、以下のコマンドを実行する
+  - network name は`truffle-config.js`の定義より取得
+
 ```
 npx truffle debug <txID> --network <network-name>
 ```
 
+### Migration
+
+```
+npx truffle migrate --network development
+
+npx truffle migrate --network development --reset
+
+npx truffle migrate -f 2 --to 2 --network development --reset
+```
+
 ### Debug Command
+
 ```
 Commands:
 (enter) last command entered (step next)
