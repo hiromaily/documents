@@ -95,6 +95,9 @@
   - [Keycloak(14.0.0)で試す OpenID Connect CIBA](https://www.creationline.com/lab/43470)
 
 
+## [TODO] JWT
+
+
 ## FIDO認証
 - パスワードレスによって、利便性と安全性を満たすための認証プロトコル
   - パスワードレス認証とは、多要素認証 (MFA)の一種
