@@ -9,10 +9,12 @@
 - [Design: Upgrading (ja)](https://goa.design/ja/learn/upgrading/)
 - [Goa DSL](https://pkg.go.dev/goa.design/goa/dsl)
 - [Goa DSL: V3](https://pkg.go.dev/goa.design/goa/v3/dsl)
+- [API Development in Go Using Goa](https://www.toptal.com/go/goa-api-development)
 
 - 日本語Docs
   - [Goa v3 入門](https://zenn.dev/ikawaha/books/goa-design-v3/viewer/foreword)
-  - [読者コミュニティ｜Goa v3 入門]()
+  - [Goa v1 と v3 の DSL の比較](https://tchssk.hatenablog.com/entry/2019/10/24/192113)
+  - [Goaをv1からv3にアップグレードしてみた](https://qiita.com/hirokisan/items/1905ef0c5642f84912d8)
   - [Goaで「HELLO WORLD」する](https://qiita.com/crml1206/items/ccdf62e713e3c9599fd5)
   - [Goa入門 - 簡単なCRUDを実装してみる](https://takakisan.com/golang-goa-beginner/)
   - [Goa v3でAPIキー認証(APIKeyAuth)を設定する](https://maya-zapiska.hateblo.jp/entry/2021/07/27/011305)
@@ -28,7 +30,7 @@ API --- Service 1
 ```
 
 ### API
-- APIの全体を通した説明, タイトル, どのURLで待ち受けるかなどの設定
+- API定義。全体を通した説明, タイトル, どのURLで待ち受けるかなどの設定
 
 ```go
 import cors "goa.design/plugins/v3/cors"
@@ -79,6 +81,8 @@ var _ = API("adder", func() {
     })
 }
 ```
+### Server
+- サーバー定義
 
 ### Service
 - 通常、APIの中に、複数のServiceが存在する。`user`, `production` といった複数のServiceに分けて定義する。
@@ -92,7 +96,8 @@ var _ = API("adder", func() {
 ### Security
 
 ### Method
-- service内における、get, create といったmethodを定義していく
+- Service内における、get, create といったmethodを定義していく
+- HTTPのエンドポイントの定義
 
 ### Payload
 - どんな値を受け取るか
@@ -132,6 +137,15 @@ goa gen resume/design
 goa example resume/design
 ```
 
+- このタイミングで、生成された`cmd`を使ってendpointの確認を行う
+  - serverを起動
+  - endpointを確認してcurlコマンドを実行してみる
+
+### Swaggerでの確認
+- [Swagger Editor](https://editor.swagger.io/)にアクセス
+- `goa gen`コマンドで生成された`gen/http`ディレクトリ配下に、openapiファイルが生成されているので、そちらを閲覧する
+
+
 ### ディレクトリ構成
 - `build`
   - docker, gcp用のファイル
@@ -163,6 +177,6 @@ goa example resume/design
     - `model`を使って、queryを記述したファイル
   - `storage`
     - `mysql`, `postgresql`といったDatabaseの設定ファイル
-- `public`
+- `assets`
 - `scripts`
 - `web`
