@@ -2,6 +2,46 @@
 
 - [Docs](https://trufflesuite.com/)
 
+## Compile
+
+- build crtifacts and files are generated in `build/contracts/`
+- [Compiling contracts](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts/)
+
+```
+truffle compile
+# ignore cache
+truffle compile --all
+```
+
+### compile によって生成される `artifacts` について
+
+- [Compilation artifacts](https://hardhat.org/hardhat-runner/docs/advanced/artifacts)
+
+  - これは、Hardhat によるものなので、Truffle によって生成された output と異なる
+
+- truffe によっ t 生成された json ファイルの構造について
+  - contractName
+  - abi
+    - contract の ABI (Application Binary Interface)
+  - metadata
+  - bytecode
+    - deployment bytecode
+  - deployedBytecode
+    - runtime/deployed bytecode
+  - immutableReferences
+  - generatedSources
+  - deployedGeneratedSources
+  - sourceMap
+  - deployedSourceMap
+  - source
+  - sourcePath
+  - ast
+  - compiler
+  - networks
+  - schemaVersion
+  - updatedAt
+  - userdoc
+
 ## Debug
 
 - txID を取得後、以下のコマンドを実行する
