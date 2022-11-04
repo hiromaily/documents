@@ -4,6 +4,20 @@ The React Framework for Production
 - [Next.js](https://nextjs.org/)
 - [Docs](https://nextjs.org/docs/getting-started)
 - [Docs (ja)](https://nextjs-ja-translation-docs.vercel.app/docs/getting-started)
+
+## Next.js 13
+- [Next.js 13 Blog](https://nextjs.org/blog/next-13)
+
+- `app/` Directory (beta): Easier, faster, less client JS.
+  - Layouts
+  - React Server Components
+  - Streaming
+- Turbopack (alpha): Up to 700x faster Rust-based Webpack replacement.
+- `next/image` (stable): Faster with native browser lazy loading.
+- `@next/font` (beta): Automatic self-hosted fonts with zero layout shift.
+- `next/link`: Simplified API with automatic <a>.
+
+
 ## Create Next App
 - [Docs](https://nextjs.org/docs/api-reference/create-next-app)
 ```
