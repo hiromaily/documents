@@ -43,7 +43,7 @@ npm install @mui/material @emotion/react @emotion/styled
 npm install @mui/system @mui/styled-engine-sc styled-components
 ```
 
-## Use  modify html
+### modify html to use typography
 - [Typography](https://mui.com/material-ui/react-typography/)
 
 ```html
@@ -59,7 +59,7 @@ npm install @mui/system @mui/styled-engine-sc styled-components
 />
 ```
 
-# Material Icons
+### Material Icons
 - [Material Icons](https://mui.com/material-ui/material-icons/)
 ```bash
 npm install @mui/icons-material
@@ -90,38 +90,6 @@ import { Button } from "@mui/material";
 }
 ```
 
-## Theme
-`theme`と呼ばれるオブジェクトで、スタイリングを調整する
-
-```tsx
-import { createTheme } from "@mui/material/styles";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-
-let theme = createTheme({
-    palette: {
-        primary: {
-        main: "#42a5f5",
-        light: "#1976d2",
-        dark: "#1565c0",
-        },
-})
-
-const App = () => {
-  return (
-    <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Box component="div">
-            <Button color="primary" sx={{
-                color: theme.palette.primary.main,
-            }}>
-                Button
-            <Button>
-        </Box>
-    </ThemeProvider>
-    );
-}
-```
 
 ## Components v5
 - Inputs
@@ -294,6 +262,36 @@ const App = () => {
 - ビジネスやブランドの特定のニーズを満たすために、プロジェクトのすべてのデザイン面をカスタマイズできる。
 - アプリ間の一貫性を高めるために、`light`と`dark`のテーマ タイプから選択できる。
   - デフォルトでは、コンポーネントは `light` テーマ タイプを使用する。
+
+```tsx
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+
+let theme = createTheme({
+    palette: {
+        primary: {
+        main: "#42a5f5",
+        light: "#1976d2",
+        dark: "#1565c0",
+        },
+})
+
+const App = () => {
+  return (
+    <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Box component="div">
+            <Button color="primary" sx={{
+                color: theme.palette.primary.main,
+            }}>
+                Button
+            <Button>
+        </Box>
+    </ThemeProvider>
+    );
+}
+```
 
 #### ThemeProvider
 - テーマをカスタマイズする場合は`ThemeProvider`によって、アプリケーションにテーマを挿入する
