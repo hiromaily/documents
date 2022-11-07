@@ -21,3 +21,11 @@
   - `package.json`や`package-lock.json`ファイルへの更新は行われない
 
 ## yarn / yarn v2
+
+- npm ci 相当の yarn command
+
+```
+yarn install --frozen-lockfile
+ or
+rm -rf node_modules && yarn install --frozen-lockfile
+```
