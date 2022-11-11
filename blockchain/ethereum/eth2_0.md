@@ -13,7 +13,8 @@
 - [The New Ethereum Upgrade (2.0): Your Guide 2022](https://www.alchemy.com/overviews/ethereum-2-0-your-guide-for-2022)
 - [The Beacon Chain Ethereum 2.0 explainer you need to read first](https://ethos.dev/beacon-chain)
 - [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs/tree/dev/specs/altair/light-client)
-- [https://clientdiversity.org/](https://clientdiversity.org/)
+- [Diversify Now](https://clientdiversity.org/)
+- [Ethereum 2.0 (Eth2)・コンセンサスレイヤーとは？](https://pontem.network/posts/ethereum-2-0-eth2-konsensasureiyatoha)
 
 ## Phase
 
@@ -67,9 +68,17 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
     - Star: 2.1k (Nov 2022)
   - [Docs](https://lighthouse-book.sigmaprime.io/)
 - Teku
+  - [Github](https://github.com/ConsenSys/teku)
+  - Java Implementation of the Ethereum 2.0 Beacon Chain
+  - Star: 474
 - Nimbus
+  - [Github](https://github.com/status-im/nimbus-eth1)
+  - Nimbus: an Ethereum 1.0 and 2.0 Client for Resource-Restricted Devices
+  - Nim
 - Lodestar
-- Uncertain
+
+  - [Github](https://github.com/ChainSafe/lodestar)
+  - TypeScript Implementation of Ethereum Consensus
 
 - 現在は Prysm が一番高いシェアを誇るが、Lighthouse との差は日々縮まっており、いずれ追い抜かれるように見える
 - クライアントの多様性の重要性と、イーサリアム ブロックチェーンを実行するプロトコル実装をより均等に分散させることの重要性について議論されている
@@ -83,13 +92,41 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
 - Erigon
 - Besu
 
-### 各 Consensus Clients の Install 方法
+## Node と Network
+
+- [References](https://docs.prylabs.network/docs/concepts/nodes-networks)
+
+- イーサリアムには、主に`実行ノード`と`ビーコンノード`の 2 種類のノードがある
+- ユーザーが `32 ETH` をステークして Ethereum のプルーフ オブ ステーク コンセンサス メカニズムに参加する場合、Prysm ビーコン ノードに接続する`バリデータ クライアント`と呼ばれる別のソフトウェアを使用する
+  - これは、新しいブロックの作成や他の提案されたブロックへの投票など、バリデータ キーと義務を管理する特別なソフトウェア
+  - Validator クライアントは、実行ノードに依存するビーコン ノードを介して Ethereum ネットワークに接続する
+
+## Eth Beacon Node API
+
+- [Docs](https://ethereum.github.io/beacon-APIs/)
+
+## 各 Consensus Clients の Install 方法
 
 - [Installing consensus client (beacon chain and validator)](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/configuring-consensus-client-beaconchain-and-validator)
 
-### Prysm as Consensus Clients
+- docker compose
+  - [stereum-dev/ethereum2-docker-compose](https://github.com/stereum-dev/ethereum2-docker-compose)
+- k8s
+  - [ethpandaops/ethereum-k8s-testnets](https://github.com/ethpandaops/ethereum-k8s-testnets)
+
+## Prysm as Consensus Clients
 
 - [Docs](https://docs.prylabs.network/docs/getting-started)
   - [Nodes and networks](https://docs.prylabs.network/docs/concepts/nodes-networks)
+- [Github](https://github.com/prysmaticlabs/prysm)
 
-### Lighthouse as Consensus Clients
+## Lighthouse as Consensus Clients
+
+- [Docs](https://lighthouse-book.sigmaprime.io/)
+- [Github](https://github.com/sigp/lighthouse/)
+
+## Light Client
+
+- 2022 Nov 現在、Code Name の`Altair`でしか、light-client の spec は存在しない
+- [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs/)
+- [ethereum/consensus-specs light-client](https://github.com/ethereum/consensus-specs/tree/dev/specs/altair/light-client)
