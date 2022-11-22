@@ -139,3 +139,7 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
 - [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs/)
 - [ethereum/consensus-specs light-client](https://github.com/ethereum/consensus-specs/tree/dev/specs/altair/light-client)
 - [lightclients/kevlar](https://github.com/lightclients/kevlar)
+
+## SSZ (Simple Serialize)
+
+Ethreum2.0 用に設計された構造化データのエンコードと merkleization(マーキュリー化)のための標準
