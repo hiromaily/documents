@@ -27,7 +27,7 @@
   - 同社の収益は、主に EV への電気エネルギーの提供によるもの。
 - Crypto Climate Accord (CCA)
   - Crypto Climate Accord (CCA)は、2040 年までに暗号およびブロックチェーン業界を脱炭素化するデジタル ソリューションを構築、テスト、および実装するために、Energy Web が共同で立ち上げた民間セクター主導のグローバルなイニシアチブ。
-  - [詳細](https://cryptoclimate.org/) Make Crypto Green
+  - [詳細](https://cryptoclimate.org/): Make Crypto Green
 - dApp
   - 分散型アプリケーション (dApp) は、スマート コントラクトとフロントエンド ユーザー インターフェイスを組み合わせた分散型ネットワーク上に構築されたアプリケーション。
 - Decentralized Identifier (DID)
@@ -37,7 +37,7 @@
 - Decentralized Service Bus (DSB)
   - 分散型サービス バス (DSB) 
   - DSB は、Energy Web Decentralized Operating System (EW-DOS)ユーティリティ層のメッセージング サービス。
-  - EW-DSB は、他の集中管理されたパブ/サブ メッセージング システムとは異なり、完全に分散化され、スケーラブルになるように設計および実装されている。
+  - EW-DSB は、他の集中管理されたPub/Sub メッセージング システムとは異なり、完全に分散化され、スケーラブルになるように設計および実装されている。
   - EW-DSB で共有されたメッセージは、暗号署名を使用して元の送信者まで追跡できる。
   - これにより、データ交換のセキュリティがさらに強化される。
   - EW-DSB の主な利点の 1 つは、スキーマにとらわれないこと。つまり、任意のタイプのスキーマをユーザー/システム間でメッセージとして共有できる。
