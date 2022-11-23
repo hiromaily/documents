@@ -19,3 +19,7 @@
   - コントラクト ABI をエンコードおよびデコードする方法については、明確な仕様がある。
   - [コントラクトABIの仕様](https://solidity-ja.readthedocs.io/ja/latest/abi-spec.html)
   - [ABIエンコーディングおよびデコーディングの関数](https://solidity-ja.readthedocs.io/ja/latest/units-and-global-variables.html#abi)
+
+## 用語集
+- ENR: Ethereum Node Records 
+  - ノード検出プロトコル

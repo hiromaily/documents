@@ -75,8 +75,7 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
   - [Github](https://github.com/status-im/nimbus-eth1)
   - Nimbus: an Ethereum 1.0 and 2.0 Client for Resource-Restricted Devices
   - Nim
-- Lodestar
-
+- [Lodestar](https://lodestar.chainsafe.io/)
   - [Github](https://github.com/ChainSafe/lodestar)
   - TypeScript Implementation of Ethereum Consensus
 
@@ -104,6 +103,7 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
 ## Eth Beacon Node API
 
 - [Docs](https://ethereum.github.io/beacon-APIs/)
+- 基本的にConsensus ClientはこのAPI仕様に準拠している
 
 ## 各 Consensus Clients の Install 方法
 
