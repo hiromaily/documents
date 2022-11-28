@@ -76,6 +76,7 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
   - Nimbus: an Ethereum 1.0 and 2.0 Client for Resource-Restricted Devices
   - Nim
 - [Lodestar](https://lodestar.chainsafe.io/)
+
   - [Github](https://github.com/ChainSafe/lodestar)
   - TypeScript Implementation of Ethereum Consensus
 
@@ -103,7 +104,7 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
 ## Eth Beacon Node API
 
 - [Docs](https://ethereum.github.io/beacon-APIs/)
-- 基本的にConsensus ClientはこのAPI仕様に準拠している
+- 基本的に Consensus Client はこの API 仕様に準拠している
 
 ## 各 Consensus Clients の Install 方法
 
@@ -143,3 +144,7 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
 ## SSZ (Simple Serialize)
 
 Ethreum2.0 用に設計された構造化データのエンコードと merkleization(マーキュリー化)のための標準
+
+## genesis.ssz
+
+SSZ-encoded, genesis beacon state
