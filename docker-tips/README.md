@@ -85,3 +85,18 @@ networks:
 ```
 
 In this case, app1 can connect to app2 with container_name and internal port
+
+## 3. run complicated shell in command in compose
+
+```
+  something-service:
+    image: "something:latest"
+    command: >
+      bash -c "
+        while ! nc -z localhost 9545; do
+          sleep 1
+        done
+        node index.js xxxxx &&
+        node index.js xxxxxx false
+      "
+```

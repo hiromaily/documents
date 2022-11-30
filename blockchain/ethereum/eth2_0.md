@@ -15,6 +15,7 @@
 - [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs/tree/dev/specs/altair/light-client)
 - [Diversify Now](https://clientdiversity.org/)
 - [Ethereum 2.0 (Eth2)・コンセンサスレイヤーとは？](https://pontem.network/posts/ethereum-2-0-eth2-konsensasureiyatoha)
+- [Ethereum Book (eth2)](https://eth2.incessant.ink/book/00__introduction/00__foreword.html)
 
 ## Phase
 
