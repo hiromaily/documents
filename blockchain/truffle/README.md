@@ -42,6 +42,16 @@ truffle compile --all
   - updatedAt
   - userdoc
 
+## Migration
+
+```
+npx truffle migrate --network development
+
+npx truffle migrate --network development --reset
+# migrationファイルの番号を指定
+npx truffle migrate -f 2 --to 2 --network development --reset
+```
+
 ## Debug
 
 - txID を取得後、以下のコマンドを実行する
@@ -49,16 +59,6 @@ truffle compile --all
 
 ```
 npx truffle debug <txID> --network <network-name>
-```
-
-### Migration
-
-```
-npx truffle migrate --network development
-
-npx truffle migrate --network development --reset
-
-npx truffle migrate -f 2 --to 2 --network development --reset
 ```
 
 ### Debug Command
