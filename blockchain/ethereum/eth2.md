@@ -7,15 +7,20 @@
 - 実行レイヤー + 合意レイヤー = イーサリアム
 
 ## References
+- [Ethereum 2.0 Knowledge Base](https://kb.beaconcha.in/)
+- [Ethereum Book (eth2)](https://eth2.incessant.ink/book/00__introduction/00__foreword.html)
 
+### Upgrade
+- [The Merge](https://ethereum.org/en/upgrades/merge/)
 - [Upgrading Ethereum to radical new heights](https://ethereum.org/en/upgrades/)
 - [リブランディング: Eth2 の名称廃止](https://blog.ethereum.org/ja/2022/01/24/the-great-eth2-renaming)
 - [The New Ethereum Upgrade (2.0): Your Guide 2022](https://www.alchemy.com/overviews/ethereum-2-0-your-guide-for-2022)
+
+### Consensus Client
 - [The Beacon Chain Ethereum 2.0 explainer you need to read first](https://ethos.dev/beacon-chain)
 - [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs/tree/dev/specs/altair/light-client)
 - [Diversify Now](https://clientdiversity.org/)
 - [Ethereum 2.0 (Eth2)・コンセンサスレイヤーとは？](https://pontem.network/posts/ethereum-2-0-eth2-konsensasureiyatoha)
-- [Ethereum Book (eth2)](https://eth2.incessant.ink/book/00__introduction/00__foreword.html)
 
 ## Phase
 
@@ -51,49 +56,7 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
   - このステップが必要かどうかは、イーサリアム コミュニティ内で議論されている
     - 多くの人は、「バージョン 1: データの可用性」で提供される 1 秒あたりのトランザクション数の増加で十分であり、「よりスマートな」シャードは必要ないと考えている
 
-## Ethereum Clients
-
-- [Diversify Now](https://clientdiversity.org/)
-- `Consensus Clients`と`Execution Clients`によって構成される
-
-### Consensus Clients
-
-- [Prysm](https://prysmaticlabs.com/)
-  - [Github](https://github.com/prysmaticlabs/prysm)
-    - Go implementation of Ethereum proof of stake
-    - Star: 2.9k (Nov 2022)
-  - [Docs](https://docs.prylabs.network/docs/getting-started)
-- [Lighthouse](https://lighthouse.sigmaprime.io/)
-  - [Github](https://github.com/sigp/lighthouse/)
-    - Ethereum consensus client in Rust
-    - Star: 2.1k (Nov 2022)
-  - [Docs](https://lighthouse-book.sigmaprime.io/)
-- Teku
-  - [Github](https://github.com/ConsenSys/teku)
-  - Java Implementation of the Ethereum 2.0 Beacon Chain
-  - Star: 474
-- Nimbus
-  - [Github](https://github.com/status-im/nimbus-eth1)
-  - Nimbus: an Ethereum 1.0 and 2.0 Client for Resource-Restricted Devices
-  - Nim
-- [Lodestar](https://lodestar.chainsafe.io/)
-
-  - [Github](https://github.com/ChainSafe/lodestar)
-  - TypeScript Implementation of Ethereum Consensus
-
-- 現在は Prysm が一番高いシェアを誇るが、Lighthouse との差は日々縮まっており、いずれ追い抜かれるように見える
-- クライアントの多様性の重要性と、イーサリアム ブロックチェーンを実行するプロトコル実装をより均等に分散させることの重要性について議論されている
-  - [Prysmatic Labs’ Statement on Client Diversity](https://medium.com/prysmatic-labs/prysmatic-labs-statement-on-client-diversity-c0e3c2f05671)
-- [Consensus Clients 比較](https://docs.rocketpool.net/guides/node/eth-clients.html#consensus-clients)
-
-### Execution Clients
-
-- Geth (圧倒的シェア)
-- Nethermind
-- Erigon
-- Besu
-
-## Node と Network
+## Node(Client) と Network
 
 - [References](https://docs.prylabs.network/docs/concepts/nodes-networks)
 
@@ -102,41 +65,22 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
   - これは、新しいブロックの作成や他の提案されたブロックへの投票など、バリデータ キーと義務を管理する特別なソフトウェア
   - Validator クライアントは、実行ノードに依存するビーコン ノードを介して Ethereum ネットワークに接続する
 
-## Eth Beacon Node API
+- [Diversify Now](https://clientdiversity.org/)
+- `Consensus Clients`と`Execution Clients`によって構成される
 
-- [Docs](https://ethereum.github.io/beacon-APIs/)
-- 基本的に Consensus Client はこの API 仕様に準拠している
+### Consensus Clients
+- [./consensus_client.md]
 
-## 各 Consensus Clients の Install 方法
+### Execution Clients
 
-- [Installing consensus client (beacon chain and validator)](https://www.coincashew.com/coins/overview-eth/guide-or-how-to-setup-a-validator-on-eth2-mainnet/part-i-installation/configuring-consensus-client-beaconchain-and-validator)
+- Geth (圧倒的シェア)
+- Nethermind
+- Erigon
+- Besu
 
-- docker compose
-  - [stereum-dev/ethereum2-docker-compose](https://github.com/stereum-dev/ethereum2-docker-compose)
-- k8s
-  - [ethpandaops/ethereum-k8s-testnets](https://github.com/ethpandaops/ethereum-k8s-testnets)
-
-## Prysm as Consensus Clients
-
-- [Docs](https://docs.prylabs.network/docs/getting-started)
-  - [Nodes and networks](https://docs.prylabs.network/docs/concepts/nodes-networks)
-- [Github](https://github.com/prysmaticlabs/prysm)
-
-### Install
-
-#### Docker による Install
-
-- [Prysm Docs](https://docs.prylabs.network/docs/install/install-with-docker)
-  - [Execution Node](https://docs.prylabs.network/docs/install/install-with-script)
-- [Beaconnode & validator using Docker](https://kb.beaconcha.in/archive/outdated-prysm-client-windows/prysm-client-windows/docker-beaconnode-and-validator) ... maybe outdated
-
-## Lighthouse as Consensus Clients
-
-- [Docs](https://lighthouse-book.sigmaprime.io/)
-- [Github](https://github.com/sigp/lighthouse/)
 
 ## Light Client
-
+- これはConsensus Clientで持つ機能
 - 2022 Nov 現在、Code Name の`Altair`でしか、light-client の spec は存在しない
 - [ethereum/consensus-specs](https://github.com/ethereum/consensus-specs/)
 - [ethereum/consensus-specs light-client](https://github.com/ethereum/consensus-specs/tree/dev/specs/altair/light-client)
@@ -146,6 +90,26 @@ Ethereum 2.0 と呼ばれる大規模なアップデートにはフェーズが�
 
 Ethreum2.0 用に設計された構造化データのエンコードと merkleization(マーキュリー化)のための標準
 
-## genesis.ssz
+### genesis.ssz
 
 SSZ-encoded, genesis beacon state
+
+## Blockの生成について
+- [Angle Explains: ETH 2.0, changes in block production and impact on MEV](https://blog.angle.money/angle-explains-eth-2-0-changes-in-block-production-and-impact-on-mev-f9c6f353c6bd)
+
+![eth2 epoch slot](https://raw.githubusercontent.com/hiromaily/documents/main/images/eth2_epoch_slot.webp "eth2 epoch slot")
+
+- PoSでは、チェーンは`Slot`に分割され、32個のSlotのグループは`Epoch`と呼ばれる
+- 各Slotは、チェーンにブロックが追加されるチャンスとなる
+- Slot（ブロックの可能性）は、12秒おきに正確に発生する。(genesis.jsonの設定による)
+- 1ブロックあたり2ETHの採掘報酬は、1ブロックあたり0.22ETHの賭け報酬となり、~90%減少している
+- これはETHの供給にとってメリットが、バリデータの収益に占めるtransaction feeの割合がはるかに高くなる
+- 収益を上げ、競合するバリデータに対して市場シェアを獲得するためには、`MEV`を最大化することがより重要になる
+- PoSではEpoch 32slotのValidator(採掘者)が事前に判明する
+
+- TODO: Miner Extractable Value（MEV）リスク
+
+## Localnetの構築について
+- [How to set up an Ethereum proof-of-stake devnet in minutes](https://rauljordan.com/2022/08/21/how-to-setup-a-proof-of-stake-devnet.html)
+  - これは`geth`と`prysm`を使った例となる
+  - [Ethereum Proof-of-Stake Devnet](https://github.com/rauljordan/eth-pos-devnet)

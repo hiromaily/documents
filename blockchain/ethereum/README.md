@@ -3,10 +3,13 @@
 [How does Ethereum work, anyway?](https://www.preethikasireddy.com/post/how-does-ethereum-work-anyway)
 
 ## Private Network (Local Testnet)
-- [Private Networks](https://geth.ethereum.org/docs/interface/private-network)
+- [Go Ethreum: Private Networks](https://geth.ethereum.org/docs/interface/private-network)
+- [Go Ethreum: Developer mode](https://geth.ethereum.org/docs/getting-started/dev-mode)
 - [DEVELOPMENT NETWORKS](https://ethereum.org/en/developers/docs/development-networks/)
-- [Running a Private Ethereum Blockchain using Docker](https://medium.com/scb-digital/running-a-private-ethereum-blockchain-using-docker-589c8e6a4fe8)
 
+- [Running a Private Ethereum Blockchain using Docker](https://medium.com/scb-digital/running-a-private-ethereum-blockchain-using-docker-589c8e6a4fe8)
+- [Create your own Ethereum private network](https://gist.github.com/0mkara/b953cc2585b18ee098cd)
+- 
 ## フォーマット
 - [RLP](https://github.com/ethereum/wiki/wiki/%5BJapanese%5D-RLP)
   - トランザクションのフォーマットなど、Ethereumのデータに使われる
@@ -24,6 +27,11 @@
   - コントラクト ABI をエンコードおよびデコードする方法については、明確な仕様がある。
   - [コントラクトABIの仕様](https://solidity-ja.readthedocs.io/ja/latest/abi-spec.html)
   - [ABIエンコーディングおよびデコーディングの関数](https://solidity-ja.readthedocs.io/ja/latest/units-and-global-variables.html#abi)
+
+## Development tools
+- [Truffle](https://trufflesuite.com/)
+- [Hardhat](https://hardhat.org/)
+- [Foundry](https://github.com/foundry-rs/foundry/)
 
 ## 用語集
 - ENR: Ethereum Node Records 
