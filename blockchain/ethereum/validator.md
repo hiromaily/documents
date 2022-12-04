@@ -1,5 +1,6 @@
 # Validator
 [Validator](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/#validators)
+[My Journey to Becoming a Validator on Ethereum 2.0](https://consensys.net/blog/blockchain-explained/my-journey-to-becoming-a-validator-on-ethereum-2-0/)
 
 - Ethreum mainnetの Deposit contractの特定のトランザクションを使用して`32ETH`をDepositすることでバリデーターになることができる
 - 有効なDepositが発生するたびに、イベントがトリガーされる
@@ -24,7 +25,7 @@
 - バリデータは1つのエポックにつき1つのコミッティーにしか所属できない。また、1つのスロットに対して複数の委員会が存在することもある
 - すべての委員会は同じ大きさでなければならない
 
-![eth2 validator](https://raw.githubusercontent.com/hiromaily/documents/main/images/eth2_validator.webp "eth2 validator")
+![eth2 validator](https://raw.githubusercontent.com/hiromaily/documents/main/images/eth2_validator2.webp "eth2 validator")
 
 - 各スロットにおいて、そのブロック提案者は既存のBeaconチェーンに追加するブロックを選択し、委員会はこれをメインチェーンに追加するかどうかを投票する
 - これらの投票は「認証」と呼ばれ、バリデータの預託金によって重み付けされる
@@ -36,14 +37,39 @@
 - 仮に攻撃者が16,384個のバリデータの3分の1を制圧したとしても、同じ攻撃者がランダムに選んだ128個のバリデータ委員会の3分の2以上を制圧できる可能性は非常に低い（1兆分の1）
 - エポック境界のブロック（チェックポイント）だけが正当化され、最終化される。最終化については[GASPER](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/gasper/)を参照
 
-## TODO
-lodestar における`Validator deposit contract`について
-- この挙動にdevモードであることは関係あるか？
-- `Validator deposit contract`
-  - は、バリデータを初期化し、PoSに参加するために必要な32ETHのdepositを行うためのSCとなる。
-  - Validatorは、既存のEthereumのブロックチェーンから`Validator deposit contract`に32ETHの入金が行われ、ノードが完全に起動すると、Proof-of-Stake システムのキューに入れられる。
-  - Prysmノードの場合、このコントラクトからのdeposit logを自動的にリッスンし、バリデータが起動できる状態になったことを検出する。
+## TODO: LodestarのValidatorの挙動について
+- [Validator management](https://chainsafe.github.io/lodestar/usage/validator-management/)
+- validator packageが存在する
+  - https://github.com/ChainSafe/lodestar/tree/unstable/packages/validator
+- lodestar における`Validator deposit contract`について
+  - この挙動にdevモードであることは関係あるか？
+  - `Validator deposit contract` は、バリデータを初期化し、PoSに参加するために必要な32ETHのdepositを行うためのSCとなる。
 
+
+- Keyword
+  - DEPOSIT_CONTRACT_ADDRESS
+    - chainConfigに定義
+      - packages/config/src/chainConfig/presets/mainnet.ts
+      - packages/config/src/chainConfig/presets/minimal.ts
+    - もしくは、network種別に応じた設定ファイルに定義されている
+      - packages/config/src/chainConfig/networks/sepolia.ts
+  - DEPOSIT_CONTRACT_TREE_DEPTH
+
+### lodestarを`dev`モードで起動したときのValidatorの挙動
+- packages/cli/src/cmds/dev/handler.ts devHandler()
+  - beaconHandler()呼び出し後、args.startValidatorsの値が存在する場合、validatorHandler()を呼び出す
+- packages/cli/src/cmds/validator/handler.ts validatorHandler()
+
+
+### `DEPOSIT_CONTRACT_ADDRESS`がいつ使われている？
+- packages/beacon-node/src/api/impl/config/index.ts
+  - getConfigApi() > getDepositContract()
+- packages/beacon-node/src/eth1/provider/eth1Provider.ts
+  - Eth1Provider classのメンバーに`depositContractAddress`が存在する
+  - validateContract()
+  - getDepositEvents()
+    - packages/beacon-node/src/eth1/eth1DepositDataTracker.ts update() > updateDepositCache()から呼ばれる
+    - beacon node起動時に、`eth1`optionがtrueの場合、runAutoUpdate()を実行し、内部でloopし、処理を定期的に実行する
 
 ## Staking / Validator Deposit Contract
 ### Spec
