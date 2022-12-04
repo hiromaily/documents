@@ -1,4 +1,15 @@
 # Consensus Client
+[Ethereum 2.0: The Beacon Chain](https://medium.com/blockchain-stories/ethereum-2-0-the-beacon-chain-d669fa65e50d)
+
+- Beacon Chianとも言われ、Ethereum2.0のコンセンサスエンジンとして機能するブロックチェーン
+- システム全体を調整する部分
+- Beaconチェーンは、PoSシステムを実装することができる最小限の構造として設計されている
+- Beaconチェーンは、Transactionの処理やスマートコントラクトのホストは行わない
+- Beaconチェーンは、Proof of WorkにおけるMinerまたはパズル解決者を、ブロックを決定するValidatorに置き換えたEthereum 2.0の中核となることを意図している
+- バリデータのアドレス、各バリデータの状態、attestations(認証)（バリデータの投票）、シャードへのリンクなどのレジストリが格納されている
+- Ethereum Beacon Chainは、乱数の公開ソースを提供する暗号サービスであるrandomness beaconにちなんで命名された。
+- ビーコンチェーンは、`RANDAO` と呼ばれる疑似乱数処理に基づいてブロックのバリデータをランダムに選択し、コンセンサスメカニズムを管理する
+
 
 - [Prysm](https://prysmaticlabs.com/)
   - [Github](https://github.com/prysmaticlabs/prysm)

@@ -113,3 +113,8 @@ SSZ-encoded, genesis beacon state
 - [How to set up an Ethereum proof-of-stake devnet in minutes](https://rauljordan.com/2022/08/21/how-to-setup-a-proof-of-stake-devnet.html)
   - これは`geth`と`prysm`を使った例となる
   - [Ethereum Proof-of-Stake Devnet](https://github.com/rauljordan/eth-pos-devnet)
+- [Multi-client post-merge Eth devnet setup](https://notes.ethereum.org/@protolambda/merge-devnet-setup-guide)
+  - 2020年の記事なので古い
+
+## Testnetへの接続
+- [Connect to the Kintsugi Testnet](https://hackmd.io/@76u7HkGHS7-S8srG1WCWjg/B1y18LfYF#Connect-to-the-Kintsugi-Testnet)
