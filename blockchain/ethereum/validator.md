@@ -71,6 +71,8 @@
     - packages/beacon-node/src/eth1/eth1DepositDataTracker.ts update() > updateDepositCache()から呼ばれる
     - beacon node起動時に、`eth1`optionがtrueの場合、runAutoUpdate()を実行し、内部でloopし、処理を定期的に実行する
 
+### 初期Validatorの変更がどのように行われるのか？
+
 ## Staking / Validator Deposit Contract
 ### Spec
 - [Deposit Contract on spec](https://github.com/ethereum/consensus-specs/tree/dev/solidity_deposit_contract)
