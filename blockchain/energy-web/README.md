@@ -2,7 +2,10 @@
 - [Official](https://www.energyweb.org/)
 - [Energy Web Stack](https://www.energyweb.org/tech/)
 - [Tech Docs](https://energy-web-foundation.gitbook.io/energy-web/)
+- [Energy Web Origin](https://energy-web-foundation-origin.readthedocs-hosted.com/en/latest/)
+  - [github docs](https://github.com/energywebfoundation/origin)
 - [Github](https://github.com/energywebfoundation/)
+
 
 ## Energy Web 分散型オペレーティングシステム (EW-DOS)
 - 分散化及び脱炭素化されたエネルギーシステムのためのデジタルインフラストラクチャー
