@@ -1,6 +1,7 @@
-# Cosmos
+# Cosmos And Tendermint
 
 ## References
+### Cosmos
 - [Official](https://cosmos.network/)
 - [Cosmos SDK Docs](https://docs.cosmos.network/main)
 - [Tendermint Docs](https://docs.tendermint.com/)
@@ -11,6 +12,14 @@
 - [How does Cosmos work? Part2](https://www.preethikasireddy.com/post/how-does-cosmos-work-how-does-it-compare-to-bitcoin-and-ethereum-part-2)
 - [Cosmos SDKの教科書](https://zenn.dev/kimurayu45z/books/abf4114858f7c35b775d)
 - [IBC(ブロックチェーン間通信)の概要](https://zenn.dev/qope/articles/51bc0d7ff25fc8)
+
+### Tendermint
+- [Docs](https://docs.tendermint.com/v0.34/)
+  - [What is Tendermint](https://docs.tendermint.com/v0.34/introduction/what-is-tendermint.html)
+
+![tendermint flow](https://github.com/hiromaily/documents/raw/main/images/tendermint_flow01.png "tendermint flow")
+
+
 
 ## Cosmosのコンセンサス
 - Tendermintコンセンサスアルゴリズムを使用している
@@ -44,3 +53,5 @@
 - Tendermintコンセンサスでは、固定された既知のバリデータが存在する必要があり、各バリデータは公開鍵によって識別される
 - Tendermintでは、次のブロックを提案するリーダー（提案者）を選ぶ
 - Tendermintはブロックチェーンが停止することなく進行することを保証するために、明示的なタイムアウトを使用している
+
+![consensus flow](https://github.com/hiromaily/documents/raw/main/images/tendermint_consensus_logic.png "consensus flow")
