@@ -6,7 +6,7 @@
 ## References
 
 - [コンセンサスアルゴリズムとは？](https://academy.binance.com/ja/articles/what-is-a-blockchain-consensus-algorithm)
-
+- [Ethereum Proof-Of-Stake](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/)
 ## 大まかな挙動
 
 - まず、ブロックを追加したいユーザー(バリデーター)に`ステーク`を提供することを要求する。

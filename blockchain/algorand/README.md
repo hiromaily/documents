@@ -89,6 +89,10 @@
 - [algoexplorer](https://algoexplorer.io/)
 - [Metrics Dashboard](https://metrics.algorand.org/)
 
+## 学習サイト
+- [Algorand - ALGO](https://pol.techtec.world/blockchain-usecase/algorand)
+
+
 ## 用語集
 - Pure Proof of Stake（PPoS）
 - Future of Finance（FutureFi）
