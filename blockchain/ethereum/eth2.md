@@ -115,6 +115,7 @@ SSZ-encoded, genesis beacon state
   - [Ethereum Proof-of-Stake Devnet](https://github.com/rauljordan/eth-pos-devnet)
 - [Multi-client post-merge Eth devnet setup](https://notes.ethereum.org/@protolambda/merge-devnet-setup-guide)
   - 2020年の記事なので古い
+- [ethereum-localnet](https://github.com/hiromaily/ethereum-localnet)
 
 ## Testnetへの接続
 - [Connect to the Kintsugi Testnet](https://hackmd.io/@76u7HkGHS7-S8srG1WCWjg/B1y18LfYF#Connect-to-the-Kintsugi-Testnet)
