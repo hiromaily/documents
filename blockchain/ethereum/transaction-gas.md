@@ -210,32 +210,73 @@ units of gas used * (base fee + priority fee)
 - ブロックの詳細は[こちら](https://ethereum.org/en/developers/docs/blocks/)
 
 ### Base fee
+- 各ブロックには、`reserve price`として機能する`base fee`が設定されている。
+- ブロックに含まれるためには、ガスあたりの提供priceが最低でも`base fee`と等しくなければならない
+- `base fee`は現在のブロックとは無関係に計算され、それ以前のブロックによって決定される。
+- ブロックが採掘されると、この`base fee`はburnされて、circulationから取り除かれる。
+- `base fee`は、直前のブロックサイズ（全てのトランザクションに使用されたガス量）と目標ブロックサイズを比較する計算式で算出される。
+- 目標ブロックサイズを超えた場合、`base fee`は1ブロックあたり最大`12.5％`増加する
+- この指数関数的な増加により、ブロックサイズをいつまでも高いままにしておくことは経済的に不可能となる。
 
+![base fee](../../images/base_fee.png "base fee")
+
+- Londonアップグレード以前のgas auction市場と比較すると、このトランザクション手数料の仕組みの変更により、手数料の予測はより確実なものとなっている。
+- また、fullブロックの基本料金の上昇スピードが速いので、fullブロックのスパイクが長く続くことはないだろうということも重要。
 
 
 ### Priority fee (tips)
-
+- Londonアップグレード以前は、ブロックに含まれるあらゆるトランザクションから、採掘者はガス料金の合計を受け取っていた。
+- 新しいbase feeがburnされるため、Londonアップグレードでは、ブロックにトランザクションを含めるよう採掘者にインセンティブを与える`priority fee (tips)`が導入された
+- `tip`がなければ、採掘者は同じブロック報酬を受け取ることができるため、空のブロックを採掘することが経済的に可能であると考えるだろう
+- 通常の条件下では、少額のチップは採掘者がトランザクションを含めるための最小限のインセンティブとなる
+- 同じブロック内の他のトランザクションより優先的に実行される必要があるトランザクションの場合、競合するトランザクションに勝つためには、より高いチップが必要となる
 
 ### Max fee
+- ネットワーク上でトランザクションを実行するために、ユーザーはトランザクション実行のために支払ってもよい上限を`maxFeePerGas`によって指定することができる
+- トランザクションが実行されるには、`max fee`が`base fee`+`tips`の合計を上回らなければならない
+- トランザクションの送信者は、`max fee`と`base fee`および`tips`の合計との差額を払い戻しを受け取ることができる
+
+### feesの計算
+- Londonアップグレードの主な利点の1つは、トランザクション手数料を設定する際のユーザーエクスペリエンスを向上させること
+- このアップグレードに対応したウォレットでは、トランザクションを成立させるためにいくら支払うかを明示する代わりに、ウォレットプロバイダが推奨トランザクション手数料（base fee + 推奨priority fee）を自動的に設定し、ユーザーに負担をかける複雑さを軽減することができる
+
+### [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)
+- Londonアップグレードで`EIP-1559 (Fee market change for ETH 1.0 chain)`を導入したことにより、トランザクション手数料の仕組みが従来のgas priceオークションよりも複雑になりったが、gas feeの予測が可能になり、結果としてトランザクション手数料市場の効率性が向上するというメリットが生まれた
+- ユーザーは、ガスのmarket price（baseFeePerGas）を超える金額を支払うことはないと分かっていながら、トランザクションを実行するためにいくら支払ってもよいと思うかに対応する`maxFeePerGas`を付けてトランザクションを申請し、tipsを差し引いた余剰分を返金してもらうことができる
+
+### Gas Feesはなぜ存在するのか?
+- Gas FeesはEthereumのネットワークの安全性を保つのに役立つ
+- ネットワーク上で実行されるすべての計算に対してfeeを要求することで、悪質な業者がネットワークにスパムをかけることを防ぐ
+- コードにおける偶発的または敵対的な無限ループやその他の計算の無駄を避けるために、各トランザクションはコード実行の計算ステップ数に上限を設定する必要がある
+- 計算の基本単位は`gas`でとなる
+- トランザクションには上限があるが、トランザクションに使用されなかったガスはユーザーに返却される `(i.e. max fee - (base fee + tip)`
 
 
-### Calculating fees
+### Gas Limitとは何か?
+- Gas Limitとは、トランザクションで消費するガスの最大量を指す
+- スマートコントラクトを含むより複雑なトランザクションは、より多くの計算作業を必要とするため、単純な支払いよりも高いガスリミットを必要とする
+- 標準的なETHの送金には、`21,000 unit`のガスの上限が必要となるが、このときGas Limitを50,000とした場合、EVMは21,000を消費し、残りの29,000が戻ってくることになる
+- しかし、ガスが少なすぎる場合、例えば、単純なETHの転送に20,000のガスの制限を指定すると、EVMは、トランザクションを実行しようとする20,000 unitを消費するが、コードを最後まで実行できず、EVMはその後、変更を元に戻すことになる。採掘者はすでに20,000 gas unit分の作業を行ったので、そのgasは消費されることになる。
+
+### なぜGas Feeはそんなに高くなるのか？
+- Gas Feeが高いのは、Ethereumの人気に起因する
+- Ethereum上で何らかの操作を行うにはガスを消費する必要があり、ガスのスペースはブロックごとに制限されている
+- 手数料には、計算、データの保存や操作、トークンの転送などが含まれ、さまざまな量のgas unitを消費する
+- dAppsの機能が複雑になればなるほど、スマートコントラクトが実行する操作の数も増え、各トランザクションが限られたサイズのブロックの中でより多くのスペースを占めることになる
+- 需要が多すぎる場合、ユーザーはより高いtip額を提示して、他のユーザーのトランザクションを打ち負かそうとする必要がある
+- 高いtipは、あなたのトランザクションが次のブロックに入る可能性を高くすることができる
+
+### Gas Cost削減のための取り組み
+- Ethereumの[スケーラビリティのアップグレード](https://ethereum.org/en/upgrades/)は、最終的にgas feeの問題のいくつかを解決し、その結果、プラットフォームが毎秒数千のトランザクションを処理し、グローバルに拡張することを可能にすることが期待されている
+- [Layer2 スケーリング](https://ethereum.org/en/developers/docs/scaling/#layer-2-scaling)は、Gas Cost、ユーザーエクスペリエンス、スケーラビリティを大幅に向上させるための主要な取り組みとなる
 
 
-### EIP-1559
-
-
-### WHY DO GAS FEES EXIST?
-
-
-### WHAT IS GAS LIMIT?
-
-
-### WHY CAN GAS FEES GET SO HIGH?
-
-
-
-### INITIATIVES TO REDUCE GAS COSTS
-
-
-### STRATEGIES FOR YOU TO REDUCE GAS COSTS
+### Gas Cost削減のための戦略
+- ETHのGas Costを削減したい場合、トランザクションの優先レベルを示すtipを設定することができる
+- マイナーたちは、あなたが支払うtipを維持できるため、gasあたりのtipが高いトランザクションを優先して実行し、低いtipが設定されたトランザクションを実行しようとは思わなくなる
+- gas pricesを監視して、ETHをより安く送れるようにしたい場合は、さまざまなツールを使うことができます。
+  - [Ethereum Gas Tracker](https://etherscan.io/gastracker)
+  - [Chrome Extension: Blocknative Gas Fee Estimator for ETH & MATIC](https://chrome.google.com/webstore/detail/blocknative-gas-fee-estim/ablbagjepecncofimgjmdpnhnfjiecfm)
+  - [Eth Gas Station](https://ethgasstation.info/)
+  - [Gas Fees Caluculator](https://www.cryptoneur.xyz/gas-fees-calculator)
+  - [ETH Gas API](https://www.blocknative.com/gas-platform)
