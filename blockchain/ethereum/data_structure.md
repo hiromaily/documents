@@ -16,13 +16,14 @@ Ethereumは大量のデータを作成、保存、転送します。このデー
 
 
 ### [Recursive Length Prefix (RLP)](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/)
+- [RLP](https://github.com/ethereum/wiki/wiki/%5BJapanese%5D-RLP)
+- [Golang:RLP package](https://github.com/ethereum/go-ethereum/blob/master/rlp/encode.go)
 - RLPはEthereumの実行レイヤーのオブジェクトをシリアライズするために使われる主要なエンコーディング方法 
 - RLPは、ノード間のデータ転送をスペース効率の良い形式で標準化する
 - RLPの目的-は、バイナリデータの任意にネストされた配列をエンコードすること
 - RLP の唯一の目的は構造のエンコードであり、特定のデータ型 (文字列や浮動小数点数など) のエンコードは高次のプロトコルに任されている
 - デシリアライズされた正の整数の先頭の0は無効なものとして扱われる
 - 文字列の長さの整数表現も、ペイロードの整数と同様にこの方法で符号化されなければならない
-
 
 ### [Simple Serialize](https://ethereum.org/en/developers/docs/data-structures-and-encoding/ssz/)
 - Simple Serialize（SSZ）は、merklelizationと互換性があるため、Ethereumのコンセンサス層で主流のシリアライズ形式
