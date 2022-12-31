@@ -1,5 +1,5 @@
 # Consensus Client
-[Ethereum 2.0: The Beacon Chain](https://medium.com/blockchain-stories/ethereum-2-0-the-beacon-chain-d669fa65e50d)
+[The Beacon Chain](https://medium.com/blockchain-stories/ethereum-2-0-the-beacon-chain-d669fa65e50d)
 
 - Beacon Chianとも言われ、Ethereum2.0のコンセンサスエンジンとして機能するブロックチェーン
 - システム全体を調整する部分
