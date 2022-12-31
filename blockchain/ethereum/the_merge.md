@@ -1,4 +1,4 @@
-# Ethereum 2.0
+# Ethereum The Merge
 
 `Ethereum1.0`と`Ethereum2.0`の名称は廃止され、`実行レイヤー`と`合意レイヤー`という呼称に改めされた
 

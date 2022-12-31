@@ -1,6 +1,10 @@
 # Genesis Configuration
 
-## From Source Code in go-ethreum
+- [Genesis file items by Hyperledger BESU](https://besu.hyperledger.org/en/stable/public-networks/reference/genesis-items/)
+- [Chain Specification - Wiki](https://openethereum.github.io/Chain-specification)
+- [Genesis JSON at Klaytn Docs]
+
+## From Source Code in go-ethereum
 - [go-ethereum: ChainConfig](https://github.com/ethereum/go-ethereum/blob/v1.10.26/params/config.go#L348-L388)
 
 ```
@@ -86,6 +90,3 @@ type CliqueConfig struct {
   }
 }
 ```
-
-- [Genesis file items by Hyperledger BESU](https://besu.hyperledger.org/en/stable/public-networks/reference/genesis-items/)
-- [Chain Specification - Wiki](https://openethereum.github.io/Chain-specification)
