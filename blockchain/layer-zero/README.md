@@ -110,6 +110,8 @@ function _getPrices(uint16 _dstChainId, uint16 _outboundProofType, address, byte
 ```
 
 #### 計算式
+Ethereumの場合、`base fee`が常に変動する
+
 ```
 // Native Fee
 nativeFee = relayerFee + oracleFee + protocolFee
@@ -127,7 +129,7 @@ const payloadSize = 0
 // calculate _getPrices()
 const remoteGasTotal = dstPrice.dstGasPriceInWei * (dstConfig.baseGas + _adapterParameters.extraGas)
 const totalRemoteToken =
-  baseGas + extraGas + requiredNativeAmount + remoteGasTotal
+  dstConfig.baseGas + _adapterParameters.extraGas + _adapterParameters.requiredNativeAmount + remoteGasTotal
 const tokenConversionRate = dstPrice.dstPriceRatio / localPrice
 
 const basePrice = totalRemoteToken * tokenConversionRate

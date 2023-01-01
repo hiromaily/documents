@@ -1,5 +1,11 @@
 # Ethereum Transaction And Gas
 
+- [Transaction](https://ethereum.org/en/developers/docs/transactions/)
+- [What is Gas and How is it Used?](https://www.web3.university/tracks/create-a-smart-contract/what-is-gas-and-how-is-it-used)
+- [How to estimate the gas fee](https://metamask.zendesk.com/hc/en-us/articles/360059562111-How-to-estimate-the-gas-fee)
+- [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md)
+- [Ethereum Gas Tracker: Gas Price](https://etherscan.io/gastracker)
+
 ## [Transaction](https://ethereum.org/en/developers/docs/transactions/)
 
 ### Transactionとは
@@ -173,6 +179,11 @@ Gasとは、Ethereum上でトランザクションを正常に行うために必
 - `Gas prices`は`gwei`で表記される
   - gweiはETHの1通貨であり、1gweiは0.000000001ETHと等しい
 
+## 計算式概要
+![gas calc1](../../images/gas_calc1.png "gas")
+![gas calc2](../../images/gas_calc2.png "gas")
+
+
 ### 2021/8に発生したLondonアップグレード以前
 例えば、アリスがボブに1ETHを支払う場合、このトランザクションでは、`gas limit`は`21,000`で、`gas price`は200gweiとなる  
 このとき、手数料の合計は、
@@ -183,8 +194,9 @@ Gas units (limit) * Gas price per unit
 
 ### 2021/8に発生したLondonアップグレード以後
 Ethereumネットワークのトランザクションfeeの計算方法が変更された  
+`Gas price`は`base fee + priority fee`となる  
 
-例えば、JordanがTaylorに1ETHを支払う場合、このトランザクションでは、`gas limit`は`21,000`で、`base fee`は10gweiとなり、Jordanはこれに、2gweiのチップを含んでいる  
+例えば、JordanがTaylorに1ETHを支払う場合、このトランザクションでは、`gas limit`は`21,000`で、`base fee`は10gweiとなり、Jordanはこれに、2gweiの`priority fee`を含んでいる  
 このとき、手数料の合計は、
 ```
 // base fee: protocolによって設定されるvalue
