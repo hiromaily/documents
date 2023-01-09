@@ -292,3 +292,20 @@ units of gas used * (base fee + priority fee)
   - [Eth Gas Station](https://ethgasstation.info/)
   - [Gas Fees Caluculator](https://www.cryptoneur.xyz/gas-fees-calculator)
   - [ETH Gas API](https://www.blocknative.com/gas-platform)
+
+## EIP-1559
+- [EIP-1559のトランザクションガス手数料のメカニズムの変更の調査](https://recruit.gmo.jp/engineer/jisedai/blog/eip-1559-research/)
+- Londonアップグレードによって、トランザクションガス手数料のメカニズムに変更が入った
+  - EIP-1559はファーストプライスオークション（first-price auction）を廃止し、固定価格セール（fixed-price sale）に置き換えた
+  - これは、「Gas Price」でのオークションの代わりに、予測可能（ブロック毎に固定）の「Base Fee Per Gas 」、チップ機能の「Priority Fee Per Gas」とロックに含めるために出せる最大額の「Max Fee Per Gas」を新たにガスメカニズムに組み込んだもの
+
+### JSON-RPCの変更
+- eth_feeHistory
+  - 各ブロックのBase Fee Per Gasの履歴データを返す
+- eth_call
+  - `maxPriorityFeePerGas`と`maxFeePerGas`が追加された
+- eth_getBlockBy
+  - `baseFeePerGas`が追加された
+- eth_getTransactionBy
+  - `maxPriorityFeePerGas`と`maxFeePerGas`の2つの新しいフィールドが追加
+  - `gasPrice`が廃止
