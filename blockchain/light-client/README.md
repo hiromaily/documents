@@ -3,6 +3,7 @@
 - [IBC Light Client](https://ibcprotocol.org/lightClients/)
 - [Blockchain Light Client](https://medium.com/codechain/blockchain-light-client-1171dfa1269a)
 - [Tendermint Light Client](https://medium.com/tendermint/everything-you-need-to-know-about-the-tendermint-light-client-f80d03856f98)
+- [ブロックチェーン上で他のブロックチェーンを検証する方法](https://medium.com/@FullyProtocol/%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E4%B8%8A%E3%81%A7%E4%BB%96%E3%81%AE%E3%83%96%E3%83%AD%E3%83%83%E3%82%AF%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%82%92%E6%A4%9C%E8%A8%BC%E3%81%99%E3%82%8B%E6%96%B9%E6%B3%95-e62558ec4e73)
 
 ## 概要
 

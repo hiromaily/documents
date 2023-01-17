@@ -1,10 +1,17 @@
 # Contract
 
-## Mainnet の contract の呼び出し
+## Javascript から Solidity の Contract の呼び出し
 
 - [CALLING A SMART CONTRACT FROM JAVASCRIPT](https://ethereum.org/en/developers/tutorials/calling-a-smart-contract-from-javascript/)
 - [Sending Static Calls to a Smart Contract With Ethers.js](https://betterprogramming.pub/sending-static-calls-to-a-smart-contract-with-ethers-js-e2b4ceccc9ab)
 - [How to call a contract function/method using ethersjs](https://ethereum.stackexchange.com/questions/120817/how-to-call-a-contract-function-method-using-ethersjs)
+
+### call()と send()の違いについて
+
+- [Calling smart contract functions using web3.js - call() vs send()](https://bitsofco.de/calling-smart-contract-functions-using-web3-js-call-vs-send/)
+
+- 状態の変わる function の呼び出しには、`call()`
+- 状態の変わらない function の呼び出しには、`send()`
 
 ### Typescript Sample using Web3
 

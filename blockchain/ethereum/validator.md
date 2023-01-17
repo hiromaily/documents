@@ -1,7 +1,12 @@
 # Validator
 
-[Validator](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/#validators)
-[My Journey to Becoming a Validator on Ethereum 2.0](https://consensys.net/blog/blockchain-explained/my-journey-to-becoming-a-validator-on-ethereum-2-0/)
+- [Spec: Phase 0 -- Honest Validator](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/validator.md)
+- [Validator](https://ethereum.org/en/developers/docs/consensus-mechanisms/pos/#validators)
+- [My Journey to Becoming a Validator on Ethereum 2.0](https://consensys.net/blog/blockchain-explained/my-journey-to-becoming-a-validator-on-ethereum-2-0/)
+- [My Journey to Being a Validator on Ethereum 2.0, Part 5](https://consensys.net/blog/developers/my-journey-to-being-a-validator-on-ethereum-2-0-part-5/)
+- [How to become an ETH2 Validator](https://www.cleverti.com/blockchain/how-to-become-an-eth2-validator-step-by-step-practical-tutorial/)
+- [Staking Launchpad](https://launchpad.ethereum.org/en/)
+- [Spec: Phase 0 -- Deposit Contract](https://github.com/ethereum/consensus-specs/blob/dev/specs/phase0/deposit-contract.md)
 
 - Ethreum mainnet の Deposit contract の特定のトランザクションを使用して`32ETH`を Deposit することでバリデーターになることができる
 - 有効な Deposit が発生するたびに、イベントがトリガーされる
