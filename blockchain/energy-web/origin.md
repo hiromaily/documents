@@ -19,7 +19,7 @@ Originは、エネルギー属性証明書(EAC)の発行と管理のためのシ
 - [origin repository](https://github.com/energywebfoundation/origin)
   - gasPriceの設定は見つからない。これはコントラクトを含まないオフチェーン側のロジックが含まれている様子
   - API機能もこちらに含まれる
-- [pjm-origin-monorepo]
+- [pjm-origin-monorepo](https://github.com/energywebfoundation/pjm-origin-monorepo)
   - こちらにはコントラクトも含まれるため、設定はこちらのpackagesに含まれている
 
 ### 関連コンポーネント
