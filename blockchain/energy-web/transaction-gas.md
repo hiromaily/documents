@@ -113,3 +113,8 @@ TxCost(unit:fiat$) = GasCost(unit:gas) x GasPrice(unit:token/gas) x TokenValue($
 - 2019年6月のEWC開始以降の過去のデータを見ると、トランザクションfeeは通常極めて低いと言える
 - 平均ブロック利用率（ガス消費量）は15～20％程度で、2ブロック以内にトランザクションが検証されるためには、最低0.1gweiというGas Priceだけでほぼ十分となる
 - EWTの過去の市場価格に基づいて、fiat currencyで表されるトランザクション手数料は、通常0.0001ドルの範囲（またはそれ以下）
+
+## Energy Webが持つエコシステム
+- [Gas Metrics](https://dashboards.anyblock.tools/ethereum/ewf/ewc/gas-metrics/?currency=usd&chunk_size=hour&interval=latest_week&speed=slow&tx_type=TOKEN_TRANSFER&tx_currency=eur&tx_chunk_size=day)
+- [gasPrice API](https://api.anyblock.tools/ewc/gasprice)
+- [gasPrice Oracle](https://explorer.energyweb.org/api/v1/gas-price-oracle)

@@ -1,12 +1,10 @@
 # Energy Web
 - [Official](https://www.energyweb.org/)
-- [Energy Web Stack](https://www.energyweb.org/tech/)
-- [Tech Docs](https://energy-web-foundation.gitbook.io/energy-web/)
-- [Energy Web Origin](https://energy-web-foundation-origin.readthedocs-hosted.com/en/latest/)
-  - [github docs](https://github.com/energywebfoundation/origin)
 - [Github](https://github.com/energywebfoundation/)
-
-- [Energy Web chain code sources](https://www.reddit.com/r/EnergyWeb/comments/rm1hsy/energy_web_chain_code_sources/)
+- [Energy Web Stack](https://www.energyweb.org/how-we-work/)
+- [Energy Web Tech Docs](https://energy-web-foundation.gitbook.io/energy-web/)
+- [Energy Web Origin: Github](https://github.com/energywebfoundation/origin)
+  - [Energy Web Origin Docs](https://energy-web-foundation-origin.readthedocs-hosted.com/en/latest/)
 
 
 ## Energy Web 分散型オペレーティングシステム (EW-DOS)
