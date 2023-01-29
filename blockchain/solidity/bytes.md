@@ -3,6 +3,7 @@
 ## References
 
 - [Solidity Tutorial : all about Bytes](https://jeancvllr.medium.com/solidity-tutorial-all-about-bytes-9d88fdb22676)
+- [solidity-examples: Bytes](https://github.com/ethereum/solidity-examples/blob/master/docs/bytes/Bytes.md)
 
 ## byte 文字列を変数にセットする
 
