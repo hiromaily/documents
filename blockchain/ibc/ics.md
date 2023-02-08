@@ -4,4 +4,5 @@ IBC (Inter‑Blockchain Communication Protocol) というブロックチェー�
 
 # ICS-2
 
-[README](<[ics-002-client-semantics](https://github.com/cosmos/ibc/blob/main/spec/core/ics-002-client-semantics/README.md)>)
+[Client Semantics](https://github.com/cosmos/ibc/tree/main/spec/core/ics-002-client-semantics)
+ICS-2 を実装することによって、Light Client となる
