@@ -9,6 +9,16 @@
 - [Go 言語でファジング](https://deeeet.com/writing/2015/12/21/go-fuzz/)
 - [dvyukov/go-fuzz](https://github.com/dvyukov/go-fuzz)
 
+## Go 1.20
+[Go 1.20 Release Notes](https://tip.golang.org/doc/go1.20)
+
+
+## Go 1.19
+
+[Go 1.19 Release Notes](https://tip.golang.org/doc/go1.19)
+- 変更のほとんどは、tool chain, runtime, ライブラリの実装となる
+- 目立った修正は見られない
+
 ## Go 1.18
 
 [Go 1.18 Release Notes](https://tip.golang.org/doc/go1.18)
