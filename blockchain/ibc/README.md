@@ -5,3 +5,5 @@ IBC は`Inter-Blockchain Communication`の略で、 ブロックチェーン間�
 ## References
 
 - [IBC(ブロックチェーン間通信)の概要](https://zenn.dev/qope/articles/51bc0d7ff25fc8)
+
+![IBC](../../images/IBC.jpg "IBC")
