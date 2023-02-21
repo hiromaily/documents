@@ -1,26 +1,42 @@
 # YUI Relayer
+
 - [yui-relayer](https://github.com/hyperledger-labs/yui-relayer)
 
-## 対応Chain
+## 対応 Chain
+
+コードは以下の通り、別々の repository に分かれている
+
 - Cosmos/Tendermint with [ibc-go](https://github.com/cosmos/ibc-go)
 - EVM chains with [ibc-solidity](https://github.com/hyperledger-labs/yui-ibc-solidity)
 - Hyperledger Fabric with [fabric-ibc](https://github.com/hyperledger-labs/yui-fabric-ibc)
 - Corda with [corda-ibc](https://github.com/hyperledger-labs/yui-corda-ibc)
 
+### EVM chains
+
+- [ibc-solidity](https://github.com/hyperledger-labs/yui-ibc-solidity)
+
+- [pkg/wallet/wallet.go](https://github.com/hyperledger-labs/yui-ibc-solidity/blob/main/pkg/wallet/wallet.go)
+  - PrivateKey を取得するパターンは以下の通り
+    - GetPrvKeyFromHDWallet() ... seed 情報がパラメータとなる
+      - GetPrvKeyFromMnemonicAndHDWPath()から呼び出される
+    - GetPrvKeyFromMnemonicAndHDWPath() ... mnemonic 情報がパラメータとなる
+      - pkg/relay/ethereum/chain.go の`NewChain()`では、こちらを呼び出している
+
 ## 用語集
+
 - Chain ... チェーンへのトランザクションの送信とその状態の問い合わせをサポートする
-- Prover ... ターゲットチェーンの状態に関する証明を生成または照会する。この証明は、相手側のチェーンに配置されたOn-chain Light Clientによって検証される。
-- ProvableChain ... ChainとProverから構成される
-- Path ... パケットを中継する2つのProvableChainのパス
-- ChainConfig ... Chainを生成するための設定
+- Prover ... ターゲットチェーンの状態に関する証明を生成または照会する。この証明は、相手側のチェーンに配置された On-chain Light Client によって検証される。
+- ProvableChain ... Chain と Prover から構成される
+- Path ... パケットを中継する 2 つの ProvableChain のパス
+- ChainConfig ... Chain を生成するための設定
 - ProverConfig ... Prover を生成するための設定
 
+## Relay の確認方法
 
-## Relayの確認方法
 - [test-tx](https://github.com/hyperledger-labs/yui-relayer/blob/main/tests/cases/tm2tm/scripts/test-tx)
 
 ```
-# transfer tx 
+# transfer tx
 ${RLY} tx transfer ibc01 ibc0 ibc1 100samoleans ${TM_ADDRESS1}
 # relay packet
 ${RLY} tx relay ibc01
@@ -28,11 +44,10 @@ ${RLY} tx relay ibc01
 ${RLY} tx acks ibc01
 ```
 
-## WIP: Relayの挙動について
+## Relay の挙動について
 
+## WIP: Relayer における mock の挙動は？
 
-
-## WIP: Relayerにおけるmockの挙動は？
 ```go
 import mock "github.com/hyperledger-labs/yui-relayer/provers/mock/module"
 
@@ -48,9 +63,10 @@ func main() {
 }
 ```
 
-## relayerのconfigファイルについて
+## relayer の config ファイルについて
 
 ### fabric sample
+
 ```
 {
   "chain": {
@@ -77,6 +93,7 @@ func main() {
 ```
 
 ### tendermint sample
+
 ```
 {
   "chain": {
@@ -96,6 +113,7 @@ func main() {
 ```
 
 ### fabric sample
+
 ```
 {
   "chain": {
@@ -122,6 +140,7 @@ func main() {
 ```
 
 ### ethereum sample
+
 ```
 {
   "chain": {
