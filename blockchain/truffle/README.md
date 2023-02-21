@@ -2,6 +2,49 @@
 
 - [Docs](https://trufflesuite.com/)
 
+## Commands
+
+```
+❯ npx truffle --help
+Truffle v5.7.4 - a development framework for Ethereum
+
+Usage: truffle <command> [options]
+
+Commands:
+  truffle build      Execute build pipeline (if configuration present)
+  truffle compile    Compile contract source files
+  truffle config     Set user-level configuration options
+  truffle console    Run a console with contract abstractions and commands
+                     available
+  truffle create     Helper to create new contracts, migrations and tests
+  truffle dashboard  Start Truffle Dashboard to sign development transactions
+                     using browser wallet
+  truffle db         Database interface commands
+  truffle debug      Interactively debug any transaction on the blockchain
+  truffle deploy     (alias for migrate)
+  truffle develop    Open a console with a local development blockchain
+  truffle exec       Execute a JS module within this Truffle environment
+  truffle help       List all commands or provide information about a specific
+                     command
+  truffle init       Initialize new and empty Ethereum project
+  truffle migrate    Run migrations to deploy contracts
+  truffle networks   Show addresses for deployed contracts on each network
+  truffle obtain     Fetch and cache a specified compiler
+  truffle opcode     Print the compiled opcodes for a given contract
+  truffle preserve   Save data to decentralized storage platforms like IPFS and
+                     Filecoin
+  truffle run        Run a third-party command
+  truffle test       Run JavaScript and Solidity tests
+  truffle unbox      Download a Truffle Box, a pre-built Truffle project
+  truffle version    Show version number and exit
+  truffle watch      Watch filesystem for changes and rebuild the project
+                     automatically
+
+Options:
+  --help     Show help                                                 [boolean]
+  --version  Show version number                                       [boolean]
+```
+
 ## Compile
 
 - build crtifacts and files are generated in `build/contracts/`
@@ -42,26 +85,25 @@ truffle compile --all
   - updatedAt
   - userdoc
 
-### testやmigration時に読み込む `artifacts.require` について
+### test や migration 時に読み込む `artifacts.require` について
+
 [truffle: artifacts.require()](https://trufflesuite.com/docs/truffle/how-to/contracts/run-migrations/#artifactsrequire)
 
 - Truffle に `artifacts.require()` メソッドで対話したいコントラクトを教える。これによってコントラクトの抽象化を返す。
 - 指定する名前は、そのソース・ファイル内のコントラクト定義の名前と一致する必要がある。
 - ファイルには複数のコントラクトを含めることができるため、ソース ファイル名は渡してはならない。
-- Documentsには、ただ`コントラクト名`を渡すだけでよい、とある
-- [FIXME] ターゲットは`solファイル`であって、compileによって生成されるartifactsではない？
+- Documents には、ただ`コントラクト名`を渡すだけでよい、とある
+- [FIXME] ターゲットは`solファイル`であって、compile によって生成される artifacts ではない？
 - これによって自動的に読み込まれるパスは、
   - contracts
   - test
   - node_modules
 - ファイルパスが正しくない場合、`Could not find artifacts`エラーが出る
-- こちらのissue: [Allow artifacts loading from outside contracts and test folders](https://github.com/trufflesuite/truffle/issues/3436)がまだOpenなので、これらのディレクトリ外のコントラクトは読み込めないのかもしれない。
+- こちらの issue: [Allow artifacts loading from outside contracts and test folders](https://github.com/trufflesuite/truffle/issues/3436)がまだ Open なので、これらのディレクトリ外のコントラクトは読み込めないのかもしれない。
 
 ```js
 const ERC1400ContractModule = artifacts.require('ERC1400ContractModule');
 ```
-
-
 
 ## Migration
 
@@ -74,6 +116,7 @@ npx truffle migrate -f 2 --to 2 --network development --reset
 ```
 
 ## Debug
+
 [Use the Truffle debugger](https://trufflesuite.com/docs/truffle/how-to/debug-test/use-the-truffle-debugger/)
 
 - txHash を取得後、以下のコマンドを実行する
@@ -82,7 +125,8 @@ npx truffle migrate -f 2 --to 2 --network development --reset
 ```
 npx truffle debug <txHash> --network <network-name>
 ```
-- このdebugサブコマンドを実行する環境には、ソースコードも必要となる。
+
+- この debug サブコマンドを実行する環境には、ソースコードも必要となる。
 
 ### Debug Command
 
@@ -105,28 +149,31 @@ Commands:
 ```
 
 ## Test
+
 - [Test your contracts](https://trufflesuite.com/docs/truffle/how-to/debug-test/test-your-contracts/#test-your-contracts)
 - [Write Solidity tests](https://trufflesuite.com/docs/truffle/how-to/debug-test/write-tests-in-solidity/)
-  - これは、solidityでtestを書くパターン
+  - これは、solidity で test を書くパターン
   - あまり使うことはないはず
 - [Write JavaScript tests](https://trufflesuite.com/docs/truffle/how-to/debug-test/write-tests-in-javascript/)
 
+### Javascript(Typescript)での test の書き方
 
-### Javascript(Typescript)でのtestの書き方
-- `test` directoryにjs(ts)ファイルを入れる 
-- Mocha test frameworkベース
+- `test` directory に js(ts)ファイルを入れる
+- Mocha test framework ベース
 - `describe()`の代わりに、`contract()`を使用する (必ずしも、というわけではない)
-  - これにより、truffleの[Clean-room environment](https://trufflesuite.com/docs/truffle/how-to/debug-test/test-your-contracts/#clean-room-environment)が利用できる
-  - これは、`Ganache`か`Truffle Develop`を使ってtestを行う場合、stateを外部に共有しない。
-  - `contract()`実行前に、contractsがredeployされる
-    - [FIXME] これは、おそらく別途deployが必要な外部のcontractを利用したい場合、contract()の利用を止める必要がある
+  - これにより、truffle の[Clean-room environment](https://trufflesuite.com/docs/truffle/how-to/debug-test/test-your-contracts/#clean-room-environment)が利用できる
+  - これは、`Ganache`か`Truffle Develop`を使って test を行う場合、state を外部に共有しない。
+  - `contract()`実行前に、contracts が redeploy される
+    - [FIXME] これは、おそらく別途 deploy が必要な外部の contract を利用したい場合、contract()の利用を止める必要がある
     - `Error: ERC1400 has not been deployed to detected network (network/artifact mismatch)` といったエラーがでるのは、おそらく上記に起因いしているはず
-  - `contract()`によってaccountsが渡される
+  - `contract()`によって accounts が渡される
 
 ### [web3](https://trufflesuite.com/docs/truffle/how-to/debug-test/write-tests-in-javascript/#using-web3)
-- testファイル内で、web3インスタンスが利用可能なため、`web3.eth.getBalance`と記述するだけで利用可能
 
-### コマンド
+- test ファイル内で、web3 インスタンスが利用可能なため、`web3.eth.getBalance`と記述するだけで利用可能
+
+### test コマンド
+
 ```
 # test with specific network
 $ truffle test --debug --network test
@@ -138,3 +185,38 @@ $ truffle test --stacktrace-extra
 # test for specific file
 $ truffle test --debug test/ERC1400.test.js --network test
 ```
+
+## Networks
+
+Show addresses for deployed contracts on each network
+
+```
+❯ npx truffle networks
+
+The following networks are configured to match any network id ('*'):
+
+    dashboard
+    development
+    quickstartWallet
+    test
+
+Closely inspect the deployed networks below, and use `truffle networks --clean` to remove any networks that don't match your configuration. You should not use the wildcard configuration ('*') for staging and production networks for which you intend to deploy your application.
+
+Network: UNKNOWN (id: 5777)
+  CrossSimpleModule: 0x4E009eab5A60734303A81b7d0200e6F3b6cc5215
+  ERC1400ContractModule: 0x21877416CeEC7cC453fb3367F2ef488262C8ebbb
+  IBCChannel: 0x1eABC6bAc7D38C564ba267D413238a1135ece19e
+  IBCClient: 0x732Fe10862fa54898e0aeA49C37BC17AC45856e4
+  IBCCommitment: 0x864CbE7834B79F0743f6267487505B4e54fC6d8b
+  IBCConnection: 0xd6C5a2555b587Fe81dBDE28C4aF5a9084A65a49e
+  IBCMsgs: 0xd973eE141e2f88B1dEa04de331a4dD401Ba4114A
+  LCPClient: 0x08a145602F6922a001900e12F994E84fB2B52cb5
+  Migrations: 0x24f587cc12A305Ae6aE54CF3528056F1157889B9
+  MockClient: 0x633f031b6Dbba10C143F55B80100a8C11F6437f7
+  OwnableIBCHandler: 0x0b91f6e4125ea096449acE720F50eF01aA1E126d
+  Report: 0xfeb599b73802c615e811993F16857BC50d0bF366
+  SolRsaVerify: 0xCF8D5f5E88b84C1b4a20431e72D04026efE4df62
+
+```
+
+異なるディレクトリ（異なる truffle-config.js)毎に、`truffle networks`コマンドによって表示される contract は異なる。
