@@ -28,7 +28,7 @@ ${RLY} tx relay ibc01
 ${RLY} tx acks ibc01
 ```
 
-## Relayの挙動について
+## WIP: Relayの挙動について
 
 
 
