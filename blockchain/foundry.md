@@ -1,7 +1,16 @@
 # Foundry
 
-Ethereum testing framework
+Ethereumのアプリケーション開発のためのtoolkitで、構成は以下の通り
 
+- [Forge](https://github.com/foundry-rs/foundry/tree/master/forge)
+  - Ethereum testing framework
+- [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)
+  - EVM smart contractsに対して、transactions送信や、データの取得ができる
+- [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil)
+  - LocalのEthereumノード
+- [Chisel](https://github.com/foundry-rs/foundry/tree/master/chisel)
+  - solidity REPL
+ 
 ## Reference
 
 - [github](https://github.com/foundry-rs/foundry)
