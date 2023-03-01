@@ -63,10 +63,48 @@ curl -X POST -H "Content-Type: application/json" \
 
 余談だが、endpoint には、[ankr](https://www.ankr.com/rpc/)が便利
 
-## `address.call{}()`
+## TODO: `address.call{}()`
 
 ```
-(bool success, ) = _refundAddress.call{value: amount}("");
+(bool success, ) = addr.call{value: amount}("");
+
+//
+addr.call{value: msg.value, gas: 5000}(
+    abi.encodeWithSignature("foo(string,uint256)", "call foo", 123)
+);
 ```
 
 - [How to use address.call{}() in Solidity](https://ethereum.stackexchange.com/questions/96685/how-to-use-address-call-in-solidity)
+
+## Constructors
+
+- [Solidity Tutorial : all about Constructors](https://medium.com/coinmonks/solidity-tutorial-all-about-constructors-46a10610336)
+
+- constructor はコントラクトが deploy されるタイミングで一度だけ呼び出される
+- constructor に`function`は不要
+- constructor は必ずしも定義が必要なわけではない
+- `internal` constructor は`0.7.0`以降は deprecated されている。その代わりに `abstract contract`が作れるはず。
+- contract の継承と呼び出しについて
+
+```sol
+contract Animal {
+
+    string name;
+    uint feet;
+    bool canSwim;
+
+    constructor(string memory _name, uint _feet, bool _canSwim) {
+        name = _name;
+        feet = _feet;
+        canSwim = _canSwim;
+    }
+}
+contract Lion is Animal {
+
+    constructor(string memory _name)
+        Animal(_name, 4, true)
+    {
+        // ...
+    }
+}
+```
