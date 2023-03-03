@@ -5,7 +5,8 @@
 - [Solidity docs](https://docs.soliditylang.org/)
 - [Solidity 日本語](https://solidity-ja.readthedocs.io/ja/latest/)
 - [Solidity 日本語(古い)](https://solidity-jp.readthedocs.io/ja/latest/)
-
+- [Solidityの基本構文 0.8.7](https://note.com/npaka/n/n4fb510d2b3b4)
+- 
 ## 基本
 
 ### 変数
@@ -25,10 +26,18 @@ const {value, dates} = await fundraiser.myDoanations();
 - データの保管場所として
   - memory キーワード: この値がコントラクトの永続ストレージに配置されているものを一切参照しないことを意味する
   - calldata キーワード: 関数が external として宣言されていて、パラメータのデータ型が mapping, struct, string, array といった参照型である場合に限られる
+- コントラクトまたは EOA にイーサを送信すると、それらのアドレスの残高を自動的に増やすことになる
+- function における、オーバーロード、オーバーライドが利用可能
 
-#### fallback 関数は
+#### Method ID
+コントラクトから他のコントラクトの関数を実行する際に、Method IDをFunction Selectorに渡して実行する。関数名と引数の型の文字列を`keccak256`でハッシュ化し、頭の4byteを取ったものがMethod IDとなる
+```
+bytes4(keccak256("setNum(uint256)") = 0xcd16ecbf
+```
+
+#### fallback 関数
 - fallback 関数は名前を持たない関数であり、以下の振る舞いをする
-  - コントラクトが通常のトランザクションを通じてイーサを受け取ったとき
+  - コントラクトが通常のトランザクションを通じてEtherを受け取ったとき
   - コントラクトが定義済みのどの関数とも一致しないシグネチャを持つ関数で呼び出されたとき
 - fallback 関数はパラメータなしの external 関数として宣言する
 
@@ -46,8 +55,6 @@ receive () external payable {
   ...
 }
 ```
-- コントラクトまたは EOA にイーサを送信すると、それらのアドレスの残高を自動的に増やすことになる
-- function における、オーバーロード、オーバーライドが利用可能
 
 
 #### functionへの追加情報

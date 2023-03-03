@@ -66,17 +66,20 @@ curl -X POST -H "Content-Type: application/json" \
 
 余談だが、endpoint には、[ankr](https://www.ankr.com/rpc/)が便利
 
-## TODO: `address.call{}()`
-- [アドレス型](./README.md)
+##  `address.call{}()`
+- [アドレス型](./README.md#address型)
 - [アドレス型のメンバー](https://solidity-ja.readthedocs.io/ja/latest/units-and-global-variables.html#address-related)
 - [アドレスのメンバ](https://solidity-ja.readthedocs.io/ja/latest/types.html#members-of-addresses)
 ```
+# `value`修飾子でEtherを送金する
 (bool success, ) = addr.call{value: amount}("");
 
+# gas修飾子で供給ガスを調整することも可能
 addr.call{value: msg.value, gas: 5000}(
     abi.encodeWithSignature("foo(string,uint256)", "call foo", 123)
 );
 ```
+
 
 - [How to use address.call{}() in Solidity](https://ethereum.stackexchange.com/questions/96685/how-to-use-address-call-in-solidity)
 
