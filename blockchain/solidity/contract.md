@@ -1,5 +1,8 @@
 # Contract
 
+## thisについて
+`this`は現在のコントラクト型でアドレスに明示的に変換可能
+
 ## Javascript から Solidity の Contract の呼び出し
 
 - [CALLING A SMART CONTRACT FROM JAVASCRIPT](https://ethereum.org/en/developers/tutorials/calling-a-smart-contract-from-javascript/)
@@ -64,11 +67,12 @@ curl -X POST -H "Content-Type: application/json" \
 余談だが、endpoint には、[ankr](https://www.ankr.com/rpc/)が便利
 
 ## TODO: `address.call{}()`
-
+- [アドレス型](./README.md)
+- [アドレス型のメンバー](https://solidity-ja.readthedocs.io/ja/latest/units-and-global-variables.html#address-related)
+- [アドレスのメンバ](https://solidity-ja.readthedocs.io/ja/latest/types.html#members-of-addresses)
 ```
 (bool success, ) = addr.call{value: amount}("");
 
-//
 addr.call{value: msg.value, gas: 5000}(
     abi.encodeWithSignature("foo(string,uint256)", "call foo", 123)
 );
