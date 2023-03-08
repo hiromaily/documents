@@ -81,11 +81,32 @@
   - 手数料はかかるが、元手がなくとも大きな取引を同時に行うことができるのが特徴
 
 ## Bridge Application
-
+- [Stargate](https://stargate.finance/)
 ### Pool
+- [Docs: Pool](https://stargateprotocol.gitbook.io/stargate/v/user-docs/stargate-features/pool)
+- Liquidity(流動性)をStargateのpoolに追加することで、transfer 毎もしくはfarm毎に StableCoin reward (LP Token) を得ることができる。
+- Liquidity Provider は そこで得た LP token を farm して(Stargateのfarmにtokenを割り当てる) STG token reward を得ることができる。
 
-- [Stargate Pool](https://stargate.finance/pool)
-- Liquidity(流動性)を追加することで、transfer 毎に StableCoin reward を得ることができる。(LP Token)
-- Liquidity Provider は そこで得た LP token を farm して　 STG token reward を得ることができる。(ST Token?)
+#### App
+- [Stargate Pool App](https://stargate.finance/pool)
+  - 画面の表示項目
+    - Total Amount
+    - Pooled Tokens
+    - LPT Farming
+    - Share of Pool
+    - Volume (24h)
+    - Liquidity
+
+#### Code
 - Stargate の[Pool コントラクト](https://github.com/stargate-protocol/stargate/blob/c647a3a647fc693c38b16ef023c54e518b46e206/contracts/Pool.sol#L491)では、LDamount だったり SDamout というものが出てくるが、これは何？
-- 画面の表示項目
+
+### Farming
+- [Docs: Farm](https://stargateprotocol.gitbook.io/stargate/v/user-docs/stargate-features/farm)
+- LP tokenをfarmすることで、STGのrewardを得ることで、Stargate communityのメンバーとなる。
+- STG rewardはStargate protocolのGovernance tokenである`veSTG`を獲得するためにstakeすることができる
+
+### Staking
+- STG tokenをlockして、Stargate protocolのGovernance tokenである`veSTG`を獲得することができる
+- コミュニティーメンバーはVote-escrowed STG (veSTG)の残高を持つアカウントのことで、Stargate DAOのガバナンスに参加することができる
+
+### Governance Model
