@@ -5,8 +5,16 @@ GraphQL is a query language for APIs and a runtime for fulfilling those queries 
 - [Official](https://graphql.org/)
 - [Schema-First vs Code-Only GraphQL](https://www.apollographql.com/blog/backend/architecture/schema-first-vs-code-only-graphql/)
 - [Awesome-GraphQL](https://github.com/chentsulin/awesome-graphql)
+
+### Golang Library
 - [Golang: gqlgen](https://github.com/99designs/gqlgen)
+  - [go-gqlgen-server](https://github.com/hiromaily/go-gqlgen-server)
+### Others
 - [GraphQL APIの設計 by Shipify](https://github.com/Shopify/graphql-design-tutorial/blob/master/lang/TUTORIAL_JAPANESE.md)
+- [GraphQL実践ノウハウ/graphql-knowhow](https://speakerdeck.com/sonatard/graphql-knowhow)
+- [GraphQLを徹底解説する記事](https://zenn.dev/nameless_sn/articles/graphql_tutorial)
+- [Goで学ぶGraphQLサーバーサイド入門](https://zenn.dev/hsaki/books/golang-graphql)
+- [【GraphQL】開発・学習で必ず確認するべきリポジトリ・ツール・Webサイト等 29](https://zenn.dev/nameless_sn/articles/awesome_gql_resources)
 
 ## 開発でやるべきこと
 - GraphQLのスキーマを定義
