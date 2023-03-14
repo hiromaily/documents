@@ -69,7 +69,7 @@
   - fetch関数にはリクエストのモードとして`same-origin`, `cors`(default), `no-cors`とあるが、状況によって使い分ける
 - サイドチャネル攻撃
   - ブラウザを実行しているコンピューターのCPUやメモリの特性を悪用した攻撃
-  - `Spectre`が有名
+  - [`Spectre`](https://ja.wikipedia.org/wiki/Spectre)が有名
   - この攻撃を防ぐために、最新ブラウザではRendererのプロセスが分離するようになっている。この仕組みが`Site Isolation`
   - オリジン毎にプロセスを分離する仕組みを`Cross-Origin Isolation`といい、サーバー側のレスポンスヘッダに指定できる
     -  (まだ過渡期のため詳細は割愛)
@@ -124,7 +124,7 @@
 - Reactといったフレームワークでは、自動的にフレームワーク内部でエスケープ処理が走る
   - 例外として、Reactの`dangerouslySetInnerHTML`を使う場合はエスケープ処理が実行されないので注意が必要
   - ReactでもjavascriptスキームによるXSSは防ぐことができないが、Consoleで警告文が出るので開発時にチェックが必要
-- `DOMPurify`というライブラリによって、sanitizeが可能
+- [`DOMPurify`](https://github.com/cure53/DOMPurify)というライブラリによって、sanitizeが可能
   - `const clean = DOMPurfify.sanitize(dirty);`
 - `Sanitizer API`を使った対策
   - [ブラウザ対応状況](https://caniuse.com/mdn-api_sanitizer)
@@ -148,4 +148,35 @@ el.setHTML(dirty, sanitizer);
 - Cookieの送信をユーザー側で拒否した場合、HTTP通信時にXMLHttpRequestの場合、`withCredentials`をfalseで送信する必要がある。(要確認)
 - Cookie付きのリクエストをクロスオリジンへ送信するためには、サーバー側で`Access-Control-Allow-Credentials`ヘッダを追加することでリクエストを許可する
 
-## 脆弱性診断
+## Security Tools / 脆弱性診断
+### [Burp Suite](https://portswigger.net/)
+- Webアプリケーションセキュリティテストツール
+- セキュリティツールとしても最も広く普及している製品の1つ
+- ソフトウェア開発におけるセキュリティテストのほか、ペネトレーションテストなどにも利用されている
+- 対象のWebアプリケーションに対する動的スキャンや、ソフトウェア開発パイプラインへの連携、テストの自動化、プロキシサービスといった機能を利用することができる
+
+### [OWASP ZAP](https://www.zaproxy.org/)
+- 無料のWeb脆弱性診断ツール
+- OWASP(The Open Web Application Security Project)というコミュニティーによって開発されたもの
+- [Web脆弱性診断ツール「OWASP ZAP」とは](https://www.shadan-kun.com/blog/measure/vulnerability/2961/)
+
+### [Nikto](https://github.com/sullo/nikto)
+- Perlで記述されたプラグ可能なWebサーバーおよびCGIスキャナーであり、rfpのLibWhiskerを使用して高速なセキュリティまたは情報チェックを実行する
+- Web脆弱性診断ツール
+
+
+### [Metasploit](https://www.metasploit.com/)
+- オープンソースのペネトレーションテスト用プラットフォーム
+- エクスプロイトの作成・テスト・実行や、脆弱性テストなどの機能を備えている
+- サイバー攻撃などに悪用されたりもしている
+- [wiki](https://ja.wikipedia.org/wiki/Metasploit)
+
+### [OpenVAS](https://www.openvas.org/)
+- 脆弱性スキャンツール
+- リモートから脆弱性をスキャンするためのセキュリティチェック用ツール
+
+### Nmap
+- ネットワークの調査や監査などに使用するオープンソースのツール
+- ポートスキャンによく使われる
+
+
