@@ -1,11 +1,23 @@
 # GraphQL
-GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
+- GraphQL は、API のためのクエリ言語であり、既存のデータでこれらのクエリを実行するためのランタイム
+- GraphQL は、API 内のデータについて完全で理解しやすい説明を提供し、クライアントに必要なものだけを要求する力を与え、時間の経過とともに API を進化させることを容易にし、強力な開発者ツールを可能にする
 
+## 特徴
+- Overfetch/Underfetchの解消
+- スキーマ駆動開発
+  - GraphQL Schemaの定義に従い、静的解析が可能でLinterを作ることができる
+- Graph構造を活かした設計にする。複数のQueryが必要な設計にしない
+- Front-end側で受け取った型を変換するということは期待しない
+### コンポーネント
+- Front-end ... Query
+- Server-side ... Resolver(Handler)とその裏のLogic
 ## References
 - [Official](https://graphql.org/)
 - [Schema-First vs Code-Only GraphQL](https://www.apollographql.com/blog/backend/architecture/schema-first-vs-code-only-graphql/)
 - [Awesome-GraphQL](https://github.com/chentsulin/awesome-graphql)
 - [Principled GraphQL](https://principledgraphql.com/)
+- [GraphQL Best Practices](https://graphql.org/learn/best-practices/)
+
 ### Golang Library
 - [GraphQL Go List](https://graphql.org/code/#go)
 - [gqlgen](https://github.com/99designs/gqlgen): Star:8.7K
@@ -51,6 +63,16 @@ GraphQL is a query language for APIs and a runtime for fulfilling those queries 
   - [Apollo Client for React](https://www.apollographql.com/docs/react/)
   - [Relay](https://relay.dev/)
 
+## WIP:Schema設計 (最重要)
+- QueryとMutationでSchema設計のポイントが異なる
+- Role
+- オブジェクト毎のクエリーを用意しないことが一般的で代わりにnodeクエリーを用意する
+  - ただし、IDからどのオブジェクトかを判別できる必要がある
+  - nodeというフィールドになることを避けるために、`alias`を使う
+- `Relay`のGraphQL　Server Specificationとは？
+- MutationにおけるCacheの更新？GraphQLキャッシュ
+- Scalar？
+- directiveの活用
 ## Databaseスキーマ情報から自動的にGraphQLエンドポイントを生成するツール
 
 ### [PostGraphile](https://www.graphile.org/postgraphile/)
@@ -66,3 +88,9 @@ GraphQL is a query language for APIs and a runtime for fulfilling those queries 
   - 対応DB: PostgreSQL, MS SQL Server,Big Query.
 - [Prisma](https://www.prisma.io/)
   - Node.jsとTypescriptのためのORM
+
+## [GraphQL Code Generator](https://the-guild.dev/graphql/codegen)
+- [github](https://github.com/dotansimha/graphql-code-generator)
+- [GraphQL Code Generatorってどんなコードを生成してくれるの？](https://qiita.com/kyntk/items/624f9b340e813844a292)
+- GraphQL schema からコードを生成するためのもので、ReactのHookなどFront-endのコンポーネント生成に役立つ
+- Back-endの生成も可能だがGolangには対応していない
