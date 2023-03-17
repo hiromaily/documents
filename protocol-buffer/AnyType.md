@@ -2,7 +2,7 @@
 
 - [any.proto](https://github.com/protocolbuffers/protobuf/blob/master/src/google/protobuf/any.proto)
 
-## example of proto file
+## Example of proto file
 
 ```
 import "google/protobuf/any.proto";
