@@ -2,6 +2,7 @@
 
 ## Install plugin for Golang
 
+### プラグイン
 - [protoc-gen-go](https://pkg.go.dev/github.com/golang/protobuf/protoc-gen-go)
   - protoc-gen-go is a plugin for the Google protocol buffer compiler to generate Go code
 - [protoc-gen-go-grpc](https://pkg.go.dev/google.golang.org/grpc/cmd/protoc-gen-go-grpc)
@@ -14,6 +15,10 @@ go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 # grpc plugin to generate grpc go code
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
+
+### [`protoc-gen-go`](https://github.com/golang/protobuf) プラグインの使い方
+- TODO: gogoprotoはdeprecatedされているので、こちらの機能を洗い出す
+
 
 ## Proto files の build 方法
 

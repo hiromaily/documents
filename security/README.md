@@ -144,9 +144,29 @@ el.setHTML(dirty, sanitizer);
   - `Content-Security-Policy: script-src 'self' *.trusted.com`
 - ディレクティブはさまざまなものが存在するため、[Docs](https://developer.mozilla.org/ja/docs/Web/HTTP/CSP)を確認すること
 
-## GDPRへの対応
-- Cookieの送信をユーザー側で拒否した場合、HTTP通信時にXMLHttpRequestの場合、`withCredentials`をfalseで送信する必要がある。(要確認)
-- Cookie付きのリクエストをクロスオリジンへ送信するためには、サーバー側で`Access-Control-Allow-Credentials`ヘッダを追加することでリクエストを許可する
+
+
+## [OWASP Top 10:2021](https://owasp.org/Top10/)
+
+### A01:2021-アクセス制御の不備
+
+### A02:2021-暗号化の失敗
+
+### A03:2021-インジェクション
+
+### A04:2021-安全が確認されない不安な設計
+
+### A05:2021-セキュリティの設定ミス
+
+### A06:2021-脆弱で古くなったコンポーネント
+
+### A07:2021-識別と認証の失敗
+
+### A08:2021-ソフトウェアとデータの整合性の不具合
+
+### A09:2021-セキュリティログとモニタリングの失敗
+
+### A10:2021-サーバーサイドリクエストフォージェリ(SSRF)
 
 ## Security Tools / 脆弱性診断
 ### [Burp Suite](https://portswigger.net/)
@@ -180,3 +200,6 @@ el.setHTML(dirty, sanitizer);
 - ポートスキャンによく使われる
 
 
+## GDPRへの対応
+- Cookieの送信をユーザー側で拒否した場合、HTTP通信時にXMLHttpRequestの場合、`withCredentials`をfalseで送信する必要がある。(要確認)
+- Cookie付きのリクエストをクロスオリジンへ送信するためには、サーバー側で`Access-Control-Allow-Credentials`ヘッダを追加することでリクエストを許可する
