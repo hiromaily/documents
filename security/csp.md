@@ -1,36 +1,70 @@
 # Content-Security-Policy
 
-There are many other HTTP security response headers that can be used to set Content Security Policies and improve the security of your web application. It's important to carefully consider the specific security risks you are trying to mitigate and choose the appropriate headers to address those risks.
+コンテンツ セキュリティ ポリシーを設定し、Web アプリケーションのセキュリティを向上させるために使用できる HTTP セキュリティ レスポンス ヘッダーは他にも多数るが、軽減しようとしている特定のセキュリティ リスクを慎重に検討し、それらのリスクに対処するための適切なヘッダーを選択することが重要
+Cross-site Scripting (XSS) や Clickjacking を防ぐのに有効
 
 ## Content-Security-Policy
-This header can be used to set a Content Security Policy (CSP) for your web application. For example, you can set a policy that only allows resources to be loaded from trusted domains, such as:
+このヘッダーを使用して、Web アプリケーションのコンテンツ セキュリティ ポリシー (CSP) を設定できる。 たとえば、次のように、信頼できるドメインからのリソースのロードのみを許可するポリシーを設定できる。
 
+
+以下のポリシーは、現在のドメインと信頼できるドメイン https://trusted-domain.com からのリソースのロードのみを許可する。
 ```
 Content-Security-Policy: default-src 'self' https://trusted-domain.com;
 ```
-This policy would only allow resources to be loaded from the current domain and the trusted domain https://trusted-domain.com.
 
+## [8 Best Content Security Policies for 2022](https://www.reflectiz.com/blog/8-best-content-security-policies/)
+### 1. Basic CSP Policy
+- この基本的なポリシーは、default ディレクティブで使用されるリソースを元のドメインからのリソースに制限し、インライン スクリプト/スタイルの実行を防ぐ
+- これが、このポリシーに`cross-site framing` と `cross-site form submission`が含まれている方法となる。
+- つまり、これらの制限により、サイトの攻撃対象領域が減少し、サイトがより安全になる。
+- このポリシーは、ほとんどの最新のブラウザーに適用できる。
 
-## X-Content-Type-Options
-This header can be used to prevent MIME type sniffing, which can help protect against certain types of attacks. For example:
+- 基本的なポリシーは、次のことを前提としている
+  - 外部ウェブサイトへのフォーム送信はない
+  - ウェブサイトを構成するために他のウェブサイトは必要ない(frameは使わない)
+  - ドキュメントと同じドメインがすべてのリソースをホストする
+    - これは難しいかもしれない
+  - スクリプトとスタイル リソースの`inlines`または`evals`はない
+
+```
+Content-Security-Policy: default-src ‘self’; frame-ancestors ‘self’; form-action ‘self’;
+ Or
+Content-Security-Policy: default-src ‘none’; script-src ‘self’; connect-src ‘self’; img-src ‘self’; style-src ‘self’; frame-ancestors ‘self’; form-action ‘self’;
+```
+
+### 2. Basic CSP Policy – upgrade-insecure-requests
+
+```
+Content-Security-Policy: upgrade-insecure-requests;
+```
+
+## Other HTTP Security Headers
+### X-Content-Type-Options
+このヘッダーを使用して、特定の種類の攻撃から保護するのに役立つ MIME タイプ スニッフィングを防止できる。 例えば：
 
 ```
 X-Content-Type-Options: nosniff
 ```
-This header would instruct the browser not to sniff the MIME type of the response, and instead use the content-type specified in the response headers.
+このヘッダーは、応答の MIME タイプを盗聴しないようにブラウザに指示し、代わりに応答ヘッダーで指定されたコンテンツ タイプを使用する。
 
-## X-Frame-Options
-This header can be used to prevent clickjacking attacks, which can be used to trick users into clicking on a hidden or disguised link. For example:
+### X-Frame-Options (Deprecated)
+このヘッダーは、クリックジャッキング攻撃を防ぐために使用できます。クリックジャッキング攻撃は、ユーザーをだまして非表示または偽装したリンクをクリックさせるために使用できる。 例えば：
 
 ```
 X-Frame-Options: DENY
 ```
-This header would prevent the page from being loaded in a frame or iframe, which can help protect against clickjacking attacks.
+このヘッダーは、ページがフレームまたは iframe に読み込まれるのを防ぎ、クリックジャッキング攻撃から保護するのに役立つ。
 
-## X-XSS-Protection
-This header can be used to enable the browser's built-in XSS protection, which can help protect against cross-site scripting attacks. For example:
+#### Replacement
+Content security policyの`frame-ancestors` directiveを使う
 
+### X-XSS-Protection　(Deprecated)
+最新のブラウザではサポートされていない
+
+このヘッダーを使用して、ブラウザーの組み込み XSS 保護を有効にすることができる。これは、クロスサイト スクリプティング攻撃から保護するのに役立つ。 例えば：
 ```
 X-XSS-Protection: 1; mode=block
 ```
-This header would enable the browser's built-in XSS protection and instruct it to block the page if an XSS attack is detected.
+このヘッダーは、ブラウザーの組み込み XSS 保護を有効にし、XSS 攻撃が検出された場合にページをブロックするように指示する。
+#### Replacement
+Content security policyを使う
