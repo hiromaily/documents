@@ -3,7 +3,9 @@
 - [ESLint + Prettier + Typescript and React in 2022](https://blog.devgenius.io/eslint-prettier-typescript-and-react-in-2022-e5021ebca2b1)
 
 ## ESLint
+
 ### For React
+
 ```sh
 npm install eslint --save-dev
 npx eslint --init
@@ -13,55 +15,55 @@ npm install --save-dev eslint-plugin-react-hooks
 ```
 
 - `.eslintrc.json` e.g.
+
 ```json
 {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "jest": true
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "react-hooks",
-        "@typescript-eslint",
-        "prettier"
-    ],
-    "rules": {
-        "react/react-in-jsx-scope": "off",
-        "camelcase": "error",
-        "spaced-comment": "error",
-        "quotes": ["error", "single"],
-        "no-duplicate-imports": "error"
-    },
-    "settings": {
-        "import/resolver": {
-            "typescript": {}
-        }
-    }  
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "camelcase": "error",
+    "spaced-comment": "error",
+    "quotes": ["error", "single"],
+    "no-duplicate-imports": "error"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
+    }
+  }
 }
 ```
+
 ### For Next.js
-- [【2022年】Next.js + TypeScript + ESLint + Prettier の構成でサクッと環境構築する](https://zenn.dev/hungry_goat/articles/b7ea123eeaaa44)
+
+- [【2022 年】Next.js + TypeScript + ESLint + Prettier の構成でサクッと環境構築する](https://zenn.dev/hungry_goat/articles/b7ea123eeaaa44)
 
 ### Import Rules
+
 - [ESlint で import を自動ソートする](https://zenn.dev/riemonyamada/articles/02e8c172e1eeb1)
 - [TypeScript / JavaScript の import を自動でソートする](https://buildersbox.corp-sansan.com/entry/2021/05/28/110000)
 
 - `.eslintrc.json` e.g.
+
 ```json
 {
     "extends": [
@@ -84,11 +86,13 @@ npm install --save-dev eslint-plugin-react-hooks
 ```
 
 ## Prettier
+
 ```sh
 npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
 ```
 
 - `.prettierrc`
+
 ```json
 {
   "semi": false,
@@ -101,7 +105,10 @@ npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
 }
 ```
 
+## [rome/tools](https://github.com/rome/tools)
+
 ## `package.json` scripts
+
 ```json
   "scripts": {
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",

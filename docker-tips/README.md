@@ -1,10 +1,11 @@
 # Docker Tips
 
+- [Dockerfile のベストプラクティス Top 20](https://sysdig.jp/blog/dockerfile-best-practices/)
 - [commands](https://github.com/hiromaily/documents/blob/main/docker-tips/commands.md)
 
 ## 1. Useful Commands
 
-- check specific container still running or not
+### Check specific container still running or not
 
 ```
 while [ $(docker ps -f name=container-name --format "{{.Names}}" | wc -l | tr -s " ") -ne 0 ];do
@@ -12,13 +13,13 @@ while [ $(docker ps -f name=container-name --format "{{.Names}}" | wc -l | tr -s
 done
 ```
 
-- clean everything
+### Clean everything
 
 ```
 docker system prune
 ```
 
-- clean unused images
+### Clean unused images
 
 ```
 docker image prune -a
@@ -26,7 +27,7 @@ docker image prune -a
 docker rmi -f $(docker images -aqf "dangling=true" --no-trunc)
 ```
 
-- clean all containers
+### Clean all containers
 
 ```
 docker container prune
@@ -34,7 +35,7 @@ docker container prune
 docker rm -f $(docker ps -a --format "{{.Names}}")
 ```
 
-- clean all volumes
+### Clean all volumes
 
 ```
 docker volume prune
@@ -100,3 +101,13 @@ In this case, app1 can connect to app2 with container_name and internal port
         node index.js xxxxxx false
       "
 ```
+
+## 4. Dockerfile linter
+
+[hadolint](https://github.com/hadolint/hadolint)
+
+## 5. [Dostroless Container Images](https://github.com/GoogleContainerTools/distroless)
+
+最小構成の Image 群
+
+- [Which Container Images To Use — Distroless Or Alpine?](https://itnext.io/which-container-images-to-use-distroless-or-alpine-96e3dab43a22)

@@ -1,75 +1,76 @@
-# Intel SGX
-- [Intel SGX for Linux OS](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/linux-overview.html)
-- [Github: Intel SGX for Linux OS](https://github.com/intel/linux-sgx)
-  - もうすぐUbuntu22.04に対応したバージョンが出るとのことなので、releaseをチェック(2022/10)
-  - https://github.com/intel/linux-sgx/issues/849
-- [Intel SGX入門 - SGX基礎知識編](https://qiita.com/Cliffford/items/2f155f40a1c3eec288cf)
-- [Intel SGX入門 - SGXプログラミング編](https://qiita.com/Cliffford/items/c6c0c696d4cc6d60d515)
-- [Intel SGX - Remote Attestation概説](https://qiita.com/Cliffford/items/095b1df450583b4803f2)
-- [Intel SGX - Provisioning解説](https://qiita.com/Cliffford/items/19145f6fa0340013f94f)
-- [Intel SGX](https://hazm.at/mox/security/tee/intel-sgx/index.html)
-  - 概要、Intel SGX 開発環境の構築、Intel SGX 開発など
+# Install Intel SGX
 
-## Intel SGXの初期設定 (ASUS UX430U x Ubuntu22.04)
-- `F2`キーを押しながら電源を入れて、BIOS画面を表示
+## Intel SGX の初期設定 (ASUS UX430U x Ubuntu22.04)
+
+- `F2`キーを押しながら電源を入れて、BIOS 画面を表示
 - `F7`キーで`Advanced Mode`に切り替える
 - 特に設定項目がない？
 
 ## Intel SGX for Linux
+
 - [Github: Intel SGX for Linux OS](https://github.com/intel/linux-sgx)
 
-- Intel SGXは、特定のコードやデータを開示や変更から保護しようとするアプリケーション開発者向けの Intel テクノロジー
+- Intel SGX は、特定のコードやデータを開示や変更から保護しようとするアプリケーション開発者向けの Intel テクノロジー
 - Linux SGX ソフトウェア スタックは、以下で構成される
   - SGX ドライバー
   - SGX SDK
   - SGX プラットフォーム ソフトウェア (PSW)
-- SGX SDK および SGX PSW は、linux-sgxプロジェクトでホストされている
+- SGX SDK および SGX PSW は、linux-sgx プロジェクトでホストされている
 
-- SGXDataCenterAttestationPrimitivesプロジェクト
-  - Linux SGX ソフトウェア スタック用のout-of-tree ドライバーを維持する
+- SGXDataCenterAttestationPrimitives プロジェクト
+
+  - Linux SGX ソフトウェア スタック用の out-of-tree ドライバーを維持する
   - これは、ドライバーのアップストリーム プロセスが完了するまで使用される
-  - これは、 Flexible Launch ControlとIntel AES New Instructionsをサポートするプラットフォームで使用され、以下をサポートする
+  - これは、 Flexible Launch Control と Intel AES New Instructions をサポートするプラットフォームで使用され、以下をサポートする
     - Elliptic Curve Digital Signature Algorithm (ECDSA) ベースの認証
     - Enhanced Privacy Identification (EPID) ベースの認証
 
-- linux-sgx-driverプロジェクト
-  - Linux SGX ソフトウェア スタック用の他のout-of-treeドライバーをホストする
+- linux-sgx-driver プロジェクト
+
+  - Linux SGX ソフトウェア スタック用の他の out-of-tree ドライバーをホストする
   - これは、ドライバーのアップストリーム プロセスが完了するまで使用される
-  - これは、 Flexible Launch Controlのないプラットフォーム
+  - これは、 Flexible Launch Control のないプラットフォーム
   - Enhanced Privacy Identification (EPID) ベースの構成証明をサポートするために使用される
 
-- intel-device-plugins-for-kubernetesプロジェクト
-  - ユーザーはKubernetes クラスターで SGX エンクレーブを実行するコンテナー アプリケーションを実行できる
+- intel-device-plugins-for-kubernetes プロジェクト
+
+  - ユーザーは Kubernetes クラスターで SGX エンクレーブを実行するコンテナー アプリケーションを実行できる
   - また、クラスターで ECDSA ベースの構成証明をセットアップする方法についても説明する
 
-- intel-sgx-sslプロジェクト
+- intel-sgx-ssl プロジェクト
   - SGX エンクレーブ アプリケーション向けの完全な強度の汎用暗号化ライブラリを提供する
   - これは、基礎となる OpenSSL オープン ソース プロジェクトに基づいている
   - SGX は、次のように SGXSSL ベースの SDK を構築するためのビルドの組み合わせを提供する
   - ユーザーは、この暗号化ライブラリを SGX エンクレーブ アプリケーションで個別に利用することもできる
 
 ### Intel SGX SDK ~~および Intel SGX PSW パッケージ~~ のビルド
+
 - Ubuntu22.04 にて実行
 
-1. 必要なツールをinstall
+1. 必要なツールを install
+
 ```
 sudo apt install build-essential ocaml ocamlbuild automake autoconf libtool wget python-is-python3 libssl-dev git cmake perl
 sudo apt install libssl-dev libcurl4-openssl-dev protobuf-compiler libprotobuf-dev debhelper cmake reprepro unzip pkgconf libboost-dev libboost-system-dev protobuf-c-compiler libprotobuf-c-dev lsb-release
 ```
 
-2. ソースコードをdownload
+2. ソースコードを download
+
 ```
 git clone https://github.com/intel/linux-sgx.git
 # build済のバイナリがdownloadされる
 cd linux-sgx && make preparation
 ```
-3. toolのinstall
+
+3. tool の install
+
 ```
 sudo cp external/toolset/Ubuntu20.04/* /usr/local/bin
 which ar as ld objcopy objdump ranlib
 ```
 
-4. SGX SDKのbuild (DefaultでOK)
+4. SGX SDK の build (Default で OK)
+
 ```
 # Default
 make sdk
@@ -85,21 +86,27 @@ make sdk DEBUG=1
 ```
 
 5. 生成されたファイルを消去する (このタイミングで必要か？)
+
 ```
 make clean
 ```
 
-6. SGX SDK Installerをbuild
+6. SGX SDK Installer を build
+
 ```
 make sdk_install_pkg
 ```
+
 - これにより、`linux/installer/bin/sgx_linux_x64_sdk_xxxxx.bin*` が作成される
 
-7.  デフォルト構成で、Intel SGX PSW をbuild
+7.  デフォルト構成で、Intel SGX PSW を build
+
 ```
 make psw
 ```
+
 - 以下エラーが発生: [Error while executing "make psw"](https://github.com/intel/linux-sgx/issues/466)
+
 ```
 ❯ make psw
 make -C psw/ USE_OPT_LIBS=1
@@ -119,18 +126,21 @@ make[1]: *** [Makefile:49: uae_service] Error 2
 make[1]: Leaving directory '/home/hy/work/linux-sgx/psw'
 make: *** [Makefile:62: psw] Error 2
 ```
-- [issue]((https://github.com/intel/linux-sgx/issues/466))には、`You need to install the SDK before building PSW`とある
 
+- [issue](<(https://github.com/intel/linux-sgx/issues/466)>)には、`You need to install the SDK before building PSW`とある
 
-### Intel SGX SDK をInstallする
+### Intel SGX SDK を Install する
+
 - Ubuntu22.04 にて実行
 
-1. 必要なtoolをinstall
+1. 必要な tool を install
+
 ```
 sudo apt install build-essential python-is-python3
 ```
 
 2. Install
+
 ```
 cd linux/installer/bin
 
@@ -143,20 +153,25 @@ source /opt/intel/sgxsdk/environment
 ```
 
 ### Intel SGX PSW パッケージのビルド
-1.  デフォルト構成で、Intel SGX PSW をbuild
+
+1.  デフォルト構成で、Intel SGX PSW を build
+
 ```
 make psw
 ```
 
 2. 生成されたファイルを消去する (このタイミングで必要か？)
+
 ```
 make clean
 ```
 
-3. Intel SGX PSW インストーラーをbuild
+3. Intel SGX PSW インストーラーを build
+
 ```
 make deb_psw_pkg
 ```
+
 - これにより、`./linux/installer/deb`ディレクトリ下に様々なファイルができる
   - libsgx-enclave-common/
   - libsgx-epid/
@@ -168,9 +183,10 @@ make deb_psw_pkg
   - local_repo_tool/
   - sgx-aesm-service/
 
+4. ローカル Debian package repository を build
 
-4. ローカル Debian package repositoryをbuild
 - 実行したがエラーが発生: [Can't make deb_local_repo](https://github.com/intel/linux-sgx/issues/587)
+
 ```
 make deb_local_repo
 # ./linux/installer/common/local_repo_builder/local_repo_builder.sh debian build
@@ -178,8 +194,9 @@ make deb_local_repo
 ```
 
 - [issue](https://github.com/intel/linux-sgx/issues/587)によると、`apt install reprepro` が必要？？
-  - これは`Debian package repository producer` とあるが、既にinstallされていた
+  - これは`Debian package repository producer` とあるが、既に install されていた
 - 実際に実行されているのは、`./linux/installer/deb/local_repo_tool/debian_repo.sh`内の`local_repo_build()`
+
 ```
 {
     local_repo_clean
@@ -191,13 +208,17 @@ make deb_local_repo
     fi
 }
 ```
+
 - 一旦、ファイルに修正を加え、`2>/dev/null`を外し、再度実行してみる
+
 ```
 Cannot find definition of distribution 'jammy'!
 There have been errors!
 ```
-  - Ubuntu22.04固有の問題
+
+- Ubuntu22.04 固有の問題
 - `./linux/installer/deb/local_repo_tool/conf/distributions` ファイルに以下を追加
+
 ```
 Origin: Intel Corporation
 Label: Intel Corporation
@@ -207,7 +228,9 @@ Components: main
 Description: ubuntu/jammy repository for SGX PSW
 DebIndices: Packages .
 ```
+
 - 再度実行
+
 ```
 make deb_local_repo
 
@@ -215,8 +238,10 @@ make deb_local_repo
 # Please follow the instructions in README to use this repository.
 ```
 
-5. [WIP] ローカル Debian package repositoryをシステムrepository構成に追加する
+5. [WIP] ローカル Debian package repository をシステム repository 構成に追加する
+
 - 追加後、`sudo apt update`でエラーが発生。`Release`ファイルは存在するが、`InRelease`ファイルは存在しない
+
 ```
 sudo vim /etc/apt/sources.list
 # e.g
@@ -227,27 +252,30 @@ sudo apt update
 ```
 
 - WIP
-deb [trusted=yes arch=amd64] file:/opt/local/linux-sgx/linux/installer/deb/sgx_debian_local_repo focal main
-" > /etc/apt/sources.list.d/intel-sgx.list && \
+  deb [trusted=yes arch=amd64] file:/opt/local/linux-sgx/linux/installer/deb/sgx_debian_local_repo focal main
+  " > /etc/apt/sources.list.d/intel-sgx.list && \
 
-=> /opt/localを使うべきだった？
+=> /opt/local を使うべきだった？
 
 - 以下対応したが、うまくいかなかった。。。
-  - `Release`というファイルは存在するので、これをコピーして`InRelease`を作成し、chmodで全権限を与えてみる
+  - `Release`というファイルは存在するので、これをコピーして`InRelease`を作成し、chmod で全権限を与えてみる
   - 以下コマンドの実行
+
 ```
 usermod -aG hy _apt
 #sudo chown -Rv _apt:root /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
 # sudo chmod -Rv 775 /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
 ```
 
-
 ### Intel SGX PSW のインストール
+
 #### 今回使用した検証環境について
+
 - 条件に `第 6 世代インテル(R) Core(TM) プロセッサー以降` とある
-- 今回使用したマシンは`ASUS` の `UX430U`で、Processorは`i5-8250U`でこれは第8世代なので問題なさそう
+- 今回使用したマシンは`ASUS` の `UX430U`で、Processor は`i5-8250U`でこれは第 8 世代なので問題なさそう
 
 #### Intel SGX PSW
+
 - Intel SGX PSW は SGX SDK に対する、いわゆるランタイム
 
 - SGX PSW は、起動、EPID ベースの構成証明、およびアルゴリズムに依存しない構成証明の 3 つのサービスを提供する
@@ -256,14 +284,17 @@ usermod -aG hy _apt
 - システムが依存関係を自動的に解決するため、ローカル リポジトリを使用することを勧められる
 
 #### Install
-1. 必要となるライブラリをinstall
+
+1. 必要となるライブラリを install
+
 ```
 sudo apt install libssl-dev libcurl4-openssl-dev libprotobuf-dev
 ```
 
 2. ローカル リポジトリの使用（推奨）
 
-  1. ローンチサービス
+1. ローンチサービス
+
 ```
 sudo apt install libsgx-launch libsgx-urts
  or
@@ -277,7 +308,8 @@ cd ./linux/installer/deb/libsgx-urts
 sudo apt install libsgx-urts_2.17.101.1-jammy1_amd64.deb
 ```
 
-  2. EPID ベースの認証サービス
+2. EPID ベースの認証サービス
+
 ```
 sudo apt install libsgx-epid libsgx-urts
  or
@@ -285,7 +317,8 @@ cd ./linux/installer/deb/libsgx-epid
 sudo apt install libsgx-epid_2.17.101.1-jammy1_amd64.deb
 ```
 
-  3. アルゴリズムに依存しない認証サービス
+3. アルゴリズムに依存しない認証サービス
+
 ```
 sudo apt install libsgx-quote-ex libsgx-urts
  or
@@ -293,13 +326,16 @@ cd ./linux/installer/deb/libsgx-quote-ex
 sudo apt install libsgx-quote-ex_2.17.101.1-jammy1_amd64.deb
 ```
 
-  4. DCAP ECDSA ベースのサービス
+4. DCAP ECDSA ベースのサービス
+
 ```
 sudo apt install libsgx-dcap-ql
  or
 cd ./linux/installer/deb/sgx-aesm-service
 ```
+
 - wip
+
 ```
 ibsgx-ae-qe3
 libsgx-ae-id-enclave
@@ -311,9 +347,10 @@ libsgx-dcap-quote-verify
 libsgx-dcap-ql_1.14.100.3-jammy1_amd64.deb
 ```
 
+### コード サンプルを使用して Intel SGX SDK パッケージをテストする
 
-### コード サンプルを使用してIntel SGX SDK パッケージをテストする
 - シミュレーション モードで実行する
+
 ```
 cd /opt/intel/sgxsdk/SampleCode/LocalAttestation
 sudo make SGX_MODE=SIM
@@ -326,8 +363,10 @@ cd bin
 ```
 
 ### ハードウェア モードでのコード サンプルのコンパイルと実行
+
 - Intel SGX ハードウェア対応マシンを使用している場合は、コード サンプルをハードウェア モードで実行できる
 - 以下、`./app`実行後、エラーが発生: [Requires libsgx_urts.so to run in SGX hardware mode](https://github.com/hyperledger-labs/minbft/issues/93)
+
 ```
 cd /opt/intel/sgxsdk/SampleCode/LocalAttestation
 sudo make
@@ -335,5 +374,5 @@ cd bin
 ./app
 # ./app: error while loading shared libraries: libsgx_urts.so: cannot open shared object file: No such file or directory
 ```
-- [issue](https://github.com/hyperledger-labs/minbft/issues/93)には、`we need to install a driver and a platform software (PSW) in addition to the SDK to run the command in the hardware mode` とある
 
+- [issue](https://github.com/hyperledger-labs/minbft/issues/93)には、`we need to install a driver and a platform software (PSW) in addition to the SDK to run the command in the hardware mode` とある
