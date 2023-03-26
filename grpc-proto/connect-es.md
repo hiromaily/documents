@@ -22,7 +22,7 @@
 - example
 - protoc-gen-connect-es
   - protoファイルをbuildするgenerator。Code generator plugin for the services in your schema 
-- protoc-gen-connect-web
+- protoc-gen-connect-web [Deprecated]
   - protoファイルをbuildするgenerator。
 
 ## [Tutorial](https://connect.build/docs/web/getting-started/)
