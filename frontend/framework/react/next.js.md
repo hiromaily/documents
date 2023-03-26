@@ -18,20 +18,6 @@ The React Framework for Production
 - `next/link`: Simplified API with automatic <a>.
 
 
-## Create Next App
-- [Docs](https://nextjs.org/docs/api-reference/create-next-app)
-```
-npx create-next-app@lates
- or
-npx create-next-app@latest --ts
- or
-npx create-next-app <app-name> --ts --use-npm
-```
-- [next.js/example](https://github.com/vercel/next.js/tree/canary/examples)をtemplateとすることもできる。
-```
-npx create-next-app --example https://github.com/vercel/next.js/tree/canary/examples/hello-world-esm app-name
-```
-
 ## Functionality
 ### Image Component and Image Optimization
 - [Docs](https://nextjs.org/docs/basic-features/image-optimization)

@@ -1,11 +1,5 @@
 # React
 
-## Viteを使った環境設定
-- viteについては[こちら](../vite.md)
-
-```
-npm create vite
-```
 
 ## React v18.0
 - [React v18.0](https://reactjs.org/blog/2022/03/29/react-v18.html)
