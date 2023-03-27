@@ -56,11 +56,6 @@
 - レスポンスは常に200 OKのHTTPステータス
 - エラーはBodyの最後の部分で送信される
 
-
-
-
-
-
 ## [Routing](https://connect.build/docs/go/routing)
 ```
 :method post
@@ -77,6 +72,46 @@ curl --header "Content-Type: application/json" --data '{"name": "Jane"}' \
 
 - これを使うためには、API Gatewayがあったほうがいいかもしれない
   - AWS API Gateway, Azure API Management, Kong, Yyk.IO, 
+
+## Proto generator
+### buf.gen.yaml
+```yaml
+version: v1
+plugins:
+  - name: go
+    out: pkg/gen
+    opt: paths=source_relative
+  - name: connect-go
+    out: pkg/gen
+    opt: paths=source_relative
+  - name: es
+    out: ./web/src/gen
+    opt:
+     - target=ts
+     - import_extension=none
+    path: ./web/node_modules/.bin/protoc-gen-es
+  - name: connect-es
+    out: ./web/src/gen
+    opt:
+      - target=ts
+      - import_extension=none
+    path: ./web/node_modules/.bin/protoc-gen-connect-es
+```
+- name: go
+  - Go向けprotocのpluginによって定義ファイルからGoの型情報が生成される
+  - `go install google.golang.org/protobuf/cmd/protoc-gen-go` が必要
+- name: connect-go
+  - connect-go用のpluginによって定義ファイルからconnect-goのHandlerやClient向けのコードが生成される
+  - `go install github.com/bufbuild/connect-go/cmd/protoc-gen-connect-go@latest` が必要
+- name: es
+  - Typescript(ES)向けprotocのpluginによって定義ファイルからTypescriptの型情報が生成される
+  - targetによって出力ファイル(ts or js)の切り替えが可能
+  - [@bufbuild/protoc-gen-es](https://www.npmjs.com/package/@bufbuild/protoc-gen-es)のinstallが必要
+- name: es
+  - connect-es
+  - connect-es用のpluginによって、clientのためのInterfaceが生成される
+  - [protoc-gen-connect-es](https://github.com/bufbuild/connect-es/tree/main/packages/protoc-gen-connect-es)のinstallが必要
+  - 尚、[protoc-gen-connect-web](https://github.com/bufbuild/connect-es/tree/main/packages/protoc-gen-connect-web)はdeprecatedされている
 
 ## Example
 [hiromaily/connect-example](https://github.com/hiromaily/connect-example)
