@@ -40,9 +40,12 @@
 - 外側の円で宣言されたものの名前を、内側の円から言及してはならない
 
 ### 関心の分離
+ソフトウェアをレイヤーに分けることによって、関心の分離を達成する
 
-### 依存関係逆転の法則(DIP)
+### 依存関係逆転の法則 (Dependency Inversion Principle:DIP)
 図でいう、右下の図の「コントローラーからはじまり、ユースケースを抜けて、プレゼンターで実行される」という矛盾を 依存関係逆転の原則(Dependency Inversion Principle) で解決する
+
+![dip](../../images/dip.png "dip")  
 
 ## Github References
 
