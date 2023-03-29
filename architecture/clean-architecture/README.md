@@ -7,9 +7,6 @@
 
 `依存性のルール`として、`ソースコードは、内側に向かってのみ依存することができる`
 
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture2.png"  width="50%" height="50%">
-
-Application Business Rules(UseCases)レイヤー及び、Interface Adapterレイヤーは抽象に依存することで、依存関係逆転の法則(DIP)によって依存性のルールを満たす
 
 ## このアーキテクチャーによって実現したいこと
 1. フレームワーク独立
@@ -21,21 +18,30 @@ Application Business Rules(UseCases)レイヤー及び、Interface Adapterレイ
 5. 外部機能独立
 
 ## Layer
-### Framework & Device (Web, UI, DB, Devices)
-- 一般に、このレイヤーには、多くのコードは書かない
+- 上位レベルの方針(入出力から遠い方針)は、下位レベルの方針よりも変更の頻度が低い
+- 上位レベルのコンセプトは下位レベルのコンセプトのことを知らないが、下位レベルは上位レベルのことを知っている
+### Enterprise Business Rules (Entities)
+- エンティティは、メソッドを持ったオブジェクトかもしれない
+- あるいは、データ構造と関数の集合かもしれない
+- 最重要ビジネスデータを操作する最重要ビネジスルールをいくつか含んだもの
+- 複数のアプリケーションで使用できるように一般化されている
+
+### Application Business Rules (Use Cases)
+- アプリケーション固有のビジネスルールを含む
+- アプリケーション固有のため、システムの入出力に近くなる
+- ユースケースを見ただけでは、それがWebアプリケーションなのかCUIアプリケーションなのか判断はつかない
+- これらのユースケースは、エンティティからの、あるいはエンティティーへのデータの流れを組み立てる。
+- そして、エンティティ、プロジェクトレベルのビジネスルールを使って、ユースケースの目的を達成せよと指示する。
+
+
 ### Interface Adapter (Controllers, Presenters, Gateways)
 - アダプターの集合
 - ユースケースとエンティティにもっとも便利な形式から、データベースやウェブのような外部の機能にもっとも便利な形式に、データを変換する
 - たとえば、このレイヤーは、GUIのMVCアーキテクチャを完全に内包する (Blogによると)
 
-### Application Business Rules (Use Cases)
-- アプリケーション固有のビジネスルールを含む
-- これらのユースケースは、エンティティからの、あるいはエンティティーへのデータの流れを組み立てる。
-- そして、エンティティ、プロジェクトレベルのビジネスルールを使って、ユースケースの目的を達成せよと指示する。
+### Framework & Device (Web, UI, DB, Devices)
+- 一般に、このレイヤーには、多くのコードは書かない
 
-### Enterprise Business Rules (Entities)
-- エンティティは、メソッドを持ったオブジェクトかもしれない
-- あるいは、データ構造と関数の集合かもしれない
 
 ## 重要なルール
 
@@ -50,6 +56,25 @@ Application Business Rules(UseCases)レイヤー及び、Interface Adapterレイ
 図でいう、右下の図の「コントローラーからはじまり、ユースケースを抜けて、プレゼンターで実行される」という矛盾を 依存関係逆転の原則(Dependency Inversion Principle) で解決する
 
 ![dip](../../images/dip.png "dip")  
+
+
+## 図解による依存関係の整理
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture2.png"  width="50%" height="50%">
+
+Application Business Rules(UseCases)レイヤー及び、Interface Adapterレイヤーは抽象に依存することで、依存関係逆転の法則(DIP)によって依存性のルールを満たす
+
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture3.png"  width="50%" height="50%">
+
+実際にコードを書くことによって見えたことだが、システムの起点となるHandlerを持つ`WebFramework`だったり、`UI`は依存関係逆転の法則(DIP)によって`UseCases`に依存する必要はなく、直接`UseCases`に依存することができる。ただそのコンポーネントが存在するかどうかのみで、WebFrameworkやUIは変更可能。
+
+## 考察
+- Clean Architectureの中核は`Entities`層ではあるが、`Application Business Rules (Use Cases)`層を中心に各レイヤーとの関係を俯瞰したほうがわかりやすいように思える
+- そのため、`Application Business Rules (Use Cases)`層の基本オブジェクトの構造と構築手法が重要であると考える。
+- `Application Business Rules (Use Cases)`層の構造体がもつメンバーはそれぞれが`Interface Adapter`の抽象に依存するが、`Interface Adapter`層の不要な`Device`層(loggerやクラウドサービスへのエンドポイント)に依存するケースもあり得る。
+- `Application Business Rules (Use Cases)`層構築については`関心の分離`の観点から`システムを使うこと`と、`構築すること`を分離する
+- 依存関係はDI(Dependency injection)によって、
+- Webフレームワークへの依存をいかにplugableにするか？と同時に可読性を優先するという観点でその必要性がないシステムもある
+
 
 ## Github References
 
@@ -68,8 +93,3 @@ Application Business Rules(UseCases)レイヤー及び、Interface Adapterレイ
   - 多くのレビュアーの意見を取り入れてブラッシュアップされてきた感があるので、良い Model かもしれないが、分割の概念がディレクトリ名として表現されているのが、golang の思想に反する気がする。
 - [Trying Clean Architecture on Golang](https://hackernoon.com/golang-clean-archithecture-efd6d7c43047)
 
-## アーキテクチャの変遷
-
-- レイヤードアーキテクチャ
-- ヘキサゴナルアーキテクチャ
-- オニオンアーキテクチャ
