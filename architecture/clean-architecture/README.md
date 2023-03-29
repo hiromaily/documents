@@ -72,9 +72,14 @@ Application Business Rules(UseCases)レイヤー及び、Interface Adapterレイ
 - そのため、`Application Business Rules (Use Cases)`層の基本オブジェクトの構造と構築手法が重要であると考える。
 - `Application Business Rules (Use Cases)`層の構造体がもつメンバーはそれぞれが`Interface Adapter`の抽象に依存するが、`Interface Adapter`層の不要な`Device`層(loggerやクラウドサービスへのエンドポイント)に依存するケースもあり得る。
 - `Application Business Rules (Use Cases)`層構築については`関心の分離`の観点から`システムを使うこと`と、`構築すること`を分離する
-- 依存関係はDI(Dependency injection)によって、
-- Webフレームワークへの依存をいかにplugableにするか？と同時に可読性を優先するという観点でその必要性がないシステムもある
+- 依存関係はDI(Dependency injection)によって、環境変数やConfigファイルの値から適切なコンポーネント切り替える。
+- Webフレームワークへの依存をいかにplugableにするか？と同時に可読性を優先するという観点でその必要性がないシステム（もしくはトレードオフ）もあるように思う。この場合、Handlerの各エンドポイントをユースケースとして見立てることになる。
 
+## Clean Architectureを採用している企業
+- Uber
+- Netflix
+- Xalando
+- SoundCloud
 
 ## Github References
 
