@@ -7,6 +7,10 @@
 
 `依存性のルール`として、`ソースコードは、内側に向かってのみ依存することができる`
 
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture2.png"  width="50%" height="50%">
+
+Application Business Rules(UseCases)レイヤー及び、Interface Adapterレイヤーは抽象に依存することで、依存関係逆転の法則(DIP)によって依存性のルールを満たす
+
 ## このアーキテクチャーによって実現したいこと
 1. フレームワーク独立
 2. テスト可能
@@ -22,7 +26,7 @@
 ### Interface Adapter (Controllers, Presenters, Gateways)
 - アダプターの集合
 - ユースケースとエンティティにもっとも便利な形式から、データベースやウェブのような外部の機能にもっとも便利な形式に、データを変換する
-- たとえば、このレイヤーは、GUIのMVCアーキテクチャを完全に内包するだろう
+- たとえば、このレイヤーは、GUIのMVCアーキテクチャを完全に内包する (Blogによると)
 
 ### Application Business Rules (Use Cases)
 - アプリケーション固有のビジネスルールを含む
