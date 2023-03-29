@@ -3,7 +3,7 @@
 - [The Clean Architecture from The Clean Code Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [The Clean Architecture 翻訳](https://blog.tai2.net/the_clean_architecture.html)
 
-![clean architecture](../../images/clean-architecture.jpg 'clean architecture')
+![clean architecture](../../images/clean-architecture-origin.jpg 'clean architecture')
 
 `依存性のルール`として、`ソースコードは、内側に向かってのみ依存することができる`
 
@@ -70,17 +70,16 @@
 
 ## 図解による依存関係の整理
 
+- `Application Business Rules(UseCases)`レイヤー及び、`Interface Adapter` レイヤーは抽象に依存することで、`依存関係逆転の法則(DIP)`によって`依存性のルール`を満たす
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture1.png"  width="50%" height="50%">
+
+- 実際にコードを書くことによって見えたことだが、システムの起点となる Handler を持つ`WebFramework`だったり、`UI`は`依存関係逆転の法則(DIP)`によって`UseCases`に依存する必要はなく、直接`UseCases`に依存することができる。ただそのコンポーネントが存在するかどうかのみで、WebFramework や UI は変更可能であり、入力の数に制限はない(CUI も GUI も備えるシステムでもよい)
 <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture2.png"  width="50%" height="50%">
 
-`Application Business Rules(UseCases)`レイヤー及び、`Interface Adapter` レイヤーは抽象に依存することで、`依存関係逆転の法則(DIP)`によって`依存性のルール`を満たす
+- 個人的な解釈だが、DeviceにはAdapterが必要なく、`依存関係逆転の法則(DIP)`によってUseCasesに直接依存可能なケースも存在する。これはUseCasesのためにデータの最適化が不要な場合がこれに該当する
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture3.png"  width="60%" height="60%">
 
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture3.png"  width="50%" height="50%">
-
-実際にコードを書くことによって見えたことだが、システムの起点となる Handler を持つ`WebFramework`だったり、`UI`は`依存関係逆転の法則(DIP)`によって`UseCases`に依存する必要はなく、直接`UseCases`に依存することができる。ただそのコンポーネントが存在するかどうかのみで、WebFramework や UI は変更可能であり、入力の数に制限はない(CUI も GUI も備えるシステムでもよい)
-
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture4.png"  width="60%" height="60%">
-
-個人的な解釈だが、DeviceにはAdapterが必要なく、`依存関係逆転の法則(DIP)`によってUseCasesに直接依存可能なケースも存在する。これはUseCasesのためにデータの最適化が不要な場合がこれに該当する。
+- 例えば、Databaseの場合、使用するDatabaseのデータを変換するための専用のAdapterが存在するケースがほとんどで`Interface Adapter`と`Framework/Device`の間にInterfaceは不要なケースがほとんどだが、Interfaceが存在しないと`依存性のルール`を満たすことができない。これを満たすためだけに対となる`Interface Adapter`と`Framework/Device`の間にInterfaceを用意するのは不毛と感じる。
 
 ## 考察
 
