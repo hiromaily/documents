@@ -78,6 +78,10 @@
 
 実際にコードを書くことによって見えたことだが、システムの起点となる Handler を持つ`WebFramework`だったり、`UI`は`依存関係逆転の法則(DIP)`によって`UseCases`に依存する必要はなく、直接`UseCases`に依存することができる。ただそのコンポーネントが存在するかどうかのみで、WebFramework や UI は変更可能であり、入力の数に制限はない(CUI も GUI も備えるシステムでもよい)
 
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture4.png"  width="60%" height="60%">
+
+個人的な解釈だが、DeviceにはAdapterが必要なく、`依存関係逆転の法則(DIP)`によってUseCasesに直接依存可能なケースも存在する。これはUseCasesのためにデータの最適化が不要な場合がこれに該当する。
+
 ## 考察
 
 - Clean Architecture の中核は`Entities`層ではあるが、`Application Business Rules (Use Cases)`層を中心に各レイヤーとの関係を俯瞰したほうがわかりやすい
