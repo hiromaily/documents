@@ -80,9 +80,9 @@
   - 具象への依存を無くし、抽象へ依存することでオブジェクト間をゆるく結合することを目的としたもので、オブジェクトの生成タイミングで、Configや環境変数の値などによって依存関係を適切に組み立てる。
   - この概念は非常にシンプルなものなので、間違ってもDIフレームワークなどは不要
 - Creational Patterns
-  - [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
-  - [Builder](https://refactoring.guru/design-patterns/builder)
-
+  - [Abstract Factory](https://github.com/hiromaily/documents/tree/main/architecture/design-pattern#abstract-factory)
+    - DIの概念はこのデザインパターンによって解決できる
+  
 ## Clean Architectureで気を付ける
 
 ## 考察

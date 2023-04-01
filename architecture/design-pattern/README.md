@@ -56,24 +56,26 @@
 ### Creational Patterns
 
 #### Singleton Design Pattern
-
-#### Builder Design Pattern
-
-   - Builder Pattern is a creational design pattern used for constructing complex objects.
-   - [Builder Pattern in GoLang](https://golangbyexample.com/builder-pattern-golang/)
-
-
-#### Factory Method
-
-   - This pattern provides a way to hide the creation logic of the instances being created.
-   - [Factory Design Pattern in Go](https://golangbyexample.com/golang-factory-design-pattern/)
-
-
 #### [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
    - [Abstract Factory Design Pattern in Go](https://golangbyexample.com/abstract-factory-design-pattern-go/)
    - 関連するオブジェクトのFamilyを、その具体的なクラスを指定することなく生成することができる創造的なデザインパターン
    - 椅子を作ると仮定すると、椅子の種類毎にクラスが存在するが、それぞれの椅子Classはベースとなる椅子のInterfaceを満たすようにする
+##### 考察
+- DIの概念はこのデザインパターンによって解決できる。そのため抽象への依存が重要となる`Clean Architecture`などで有用
+- 同じInterfaceを持つ同一グループのオブジェクトの切り替え
 
+#### [Factory Method](https://refactoring.guru/design-patterns/factory-method)
+- [Factory Design Pattern in Go](https://golangbyexample.com/golang-factory-design-pattern/)
+- スーパークラスでオブジェクトを生成するためのインターフェースを提供しながら、サブクラスで生成されるオブジェクトの種類を変更できるようにする創造的デザインパターン
+##### 考察
+- Abstract Factoryとの使い分けについては、スーパークラス/サブクラスを使う構造によって、同じInterfaceを持つ同一グループのオブジェクトが同時に存在する場合に有効
+
+#### [Builder Design Pattern](https://refactoring.guru/design-patterns/builder)
+- [Builder Pattern in GoLang](https://golangbyexample.com/builder-pattern-golang/)
+- Builderは、複雑なオブジェクトを段階的に構築することができる創造的なデザインパターンで、同じ構築コードを使用して、オブジェクトの異なるタイプや表現を作成することができる。
+##### 考察
+- 多くのパラメータを持つコンストラクトの解決を目的としているので、そのようなケースには検討できる。
+- しかし、そのようなオブジェクトはそもそも構造として良くない可能性があり、オブジェクトの最適化によってこのパターンは必要ないと考える
 
 #### Prototype Design Patten
 

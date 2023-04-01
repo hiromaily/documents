@@ -9,7 +9,7 @@
 ## アーキテクチャの変遷
 
 - レイヤードアーキテクチャ
-- ヘキサゴナルアーキテクチャ
+- [ヘキサゴナルアーキテクチャ](./clean-architecture/hexagonal-architecture.md)
 - オニオンアーキテクチャ
 - [Clean Architecture](./clean-architecture/README.md)
 

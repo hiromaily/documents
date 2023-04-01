@@ -12,6 +12,13 @@
 ## Go 1.20
 [Go 1.20 Release Notes](https://tip.golang.org/doc/go1.20)
 
+- [PGO: Profile-guided optimization](https://go.dev/doc/pgo)
+  - まだpreview段階
+  - ビルド時にプロファイルを提供することにより、コンパイラは一般的なアプリケーションを約3～4%高速化することができる
+- 標準ライブラリの追加
+  - [crypto/ecdh](https://pkg.go.dev/crypto/ecdh)パッケージ
+  - [errors.Join](https://pkg.go.dev/errors#Join)関数: エラータイプに`Unwrap() []error`メソッドが実装されている場合、再度取得することができるエラーのリストをラップしたエラーを返す
+- パフォーマンスの向上
 
 ## Go 1.19
 
