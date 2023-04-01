@@ -9,17 +9,13 @@
 
 ## このアーキテクチャーによって実現したいこと
 
-1. フレームワーク独立
-2. テスト可能
-
-- ビジネスルールは、UI、データベース、ウェブサーバー、その他外部の要素なしにテストできる
-
-3. UI 独立
-
-- UI は、容易に変更できる
-
-4. データベース独立
-5. 外部機能独立
+- フレームワーク独立
+- テスト可能
+  - ビジネスルールは、UI、データベース、ウェブサーバー、その他外部の要素なしにテストできる
+- UI 独立
+  - UI は、容易に変更できる
+- データベース独立
+- 外部機能独立
 
 ## Layer
 
@@ -79,7 +75,15 @@
 - 個人的な解釈だが、DeviceにはAdapterが必要なく、`依存関係逆転の法則(DIP)`によってUseCasesに直接依存可能なケースも存在する。これはUseCasesのためにデータの最適化が不要な場合がこれに該当する
 <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture3.png"  width="60%" height="60%">
 
-- 例えば、Databaseの場合、使用するDatabaseのデータを変換するための専用のAdapterが存在するケースがほとんどで`Interface Adapter`と`Framework/Device`の間にInterfaceは不要なケースがほとんどだが、Interfaceが存在しないと`依存性のルール`を満たすことができない。これを満たすためだけに対となる`Interface Adapter`と`Framework/Device`の間にInterfaceを用意するのは不毛と感じる。
+## Clean Architectureと相性のいいデザインパターン
+- DI (Dependency Injection)
+  - 具象への依存を無くし、抽象へ依存することでオブジェクト間をゆるく結合することを目的としたもので、オブジェクトの生成タイミングで、Configや環境変数の値などによって依存関係を適切に組み立てる。
+  - この概念は非常にシンプルなものなので、間違ってもDIフレームワークなどは不要
+- Creational Patterns
+  - [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
+  - [Builder](https://refactoring.guru/design-patterns/builder)
+
+## Clean Architectureで気を付ける
 
 ## 考察
 
@@ -89,7 +93,9 @@
 - `Application Business Rules (Use Cases)`層構築については`関心の分離`の観点から`システムを使うこと`と、`構築すること`を分離する
 - 依存関係は DI(Dependency injection)によって、環境変数や Config ファイルの値から適切なコンポーネント切り替える。
 - Web フレームワークへの依存をいかに plugable にするか？と同時に可読性を優先するという観点でその必要性がないシステム（もしくはトレードオフ）もあるように思う。この場合、Handler の各エンドポイントをユースケースとして見立てることになる。
-
+- 例えば、Databaseの場合、使用するDatabaseのデータを変換するための専用のAdapterが存在するケースがほとんどで`Interface Adapter`と`Framework/Device`の間にInterfaceは不要なケースがほとんどだが、Interfaceが存在しないと`依存性のルール`を満たすことができない。これを満たすためだけに対となる`Interface Adapter`と`Framework/Device`の間にInterfaceを用意するのは不毛と感じる。
+- 周りを見ているとClean Architectureを難しく考えすぎる節があるが、そこにDDD(domain-driven design)の思想を持ち込むが故に思える。Clean Architectureをシンプルに考えると具象ではなく抽象への依存が重要な要素であり、それに付随して依存の方向性と、抽象への依存の先にある具象とそれをユースケースに渡すAdapter Interface層の責務の分担を抑えればよい。
+- 抽象への依存の目的はplugableなコンポーネントによる変更の容易性であり、それを実現するためのオブジェクト生成のコードが重要になる。デザインパターンにおけるCreational PatternsやDIとの相性がいい
 ## Clean Architecture を採用している企業
 
 - Uber

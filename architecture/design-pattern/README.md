@@ -12,7 +12,7 @@
   - `Abstract Factory`によって、生成に関する詳細をアプリケーションから分離する
 - `依存性注入(Dependency Injection, DI)`
   - どの依存オブジェクトが実際に使われるかは、設定ファイルに記述する
-  - コンストラクタ引数を通じて依存性の注入を受け付ける
+  - コンストラクタのInterface型の引数を通じて依存性の注入を受け付ける
 
 ### 2. Switch 文, IF 文の連鎖
 
@@ -55,65 +55,86 @@
 
 ### Creational Patterns
 
-1. Singleton Design Pattern
-2. Builder Design Pattern
+#### Singleton Design Pattern
+
+#### Builder Design Pattern
 
    - Builder Pattern is a creational design pattern used for constructing complex objects.
    - [Builder Pattern in GoLang](https://golangbyexample.com/builder-pattern-golang/)
 
-3. Factory Method
+
+#### Factory Method
 
    - This pattern provides a way to hide the creation logic of the instances being created.
    - [Factory Design Pattern in Go](https://golangbyexample.com/golang-factory-design-pattern/)
 
-4. Abstract Factory
 
-   - Abstract Factory Design Pattern is a creational design pattern that lets you create a family of related objects.
+#### [Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory)
    - [Abstract Factory Design Pattern in Go](https://golangbyexample.com/abstract-factory-design-pattern-go/)
+   - 関連するオブジェクトのFamilyを、その具体的なクラスを指定することなく生成することができる創造的なデザインパターン
+   - 椅子を作ると仮定すると、椅子の種類毎にクラスが存在するが、それぞれの椅子Classはベースとなる椅子のInterfaceを満たすようにする
 
-5. Prototype Design Patten
+
+#### Prototype Design Patten
 
 ### Structual Patterns 1
 
-1. Composite Design Pattern
+
+#### Composite Design Pattern
    - This is a structural design pattern. Composition design pattern is used when we want a Group of objects called ‘composite’ is treated in a similar way as a single object. It comes under structural design pattern as it allows you to compose objects into a tree structure. Each of the individual objects in the tree structure can be treated in the same way irrespective of whether they are Complex or Primitive.
    - Let’s try to understand it with an example of a file system of OS. In the file system, there are two types of objects File and Folder. There are cases when File and Folder are treated to be the same way. It will be more clear as we go along.
    - [Composite Design Pattern in Go](https://golangbyexample.com/composite-design-pattern-golang/)
-2. Adapter Design Pattern
+
+#### Adapter Design Pattern
 
    - [Adapter Design Pattern in Go](https://golangbyexample.com/adapter-design-pattern-go/)
 
-3. Bridge Design Pattern
+
+#### Bridge Design Pattern
    - [Bridge Design Pattern in Go](https://golangbyexample.com/bridge-design-pattern-in-go/)
 
 ### Structual Patterns 2
 
-1. Proxy Design Pattern
-2. Decorator Design Pattern
+
+#### Proxy Design Pattern
+
+#### Decorator Design Pattern
 
    - It lets you provide additional functionality or decorates an object without altering that object
    - [Decorator design pattern in Go](https://golangbyexample.com/decorator-pattern-golang/)
 
-3. Facade Design Pattern
+
+#### Facade Design Pattern
    - Facade Pattern is classified as a structural design pattern. This design pattern is meant to hide the complexities of the underlying system and provide a simple interface to the client. It provides a unified interface to underlying many interfaces in the system so that from the client perspective it is easier to use. Basically it provides a higher level abstraction over a complicated system.
    - [Facade Design Pattern in Go](https://golangbyexample.com/facade-design-pattern-in-golang/)
-4. Flyweight Design Pattern
+
+#### Flyweight Design Pattern
 
 ### Behavioral Patterns 1
 
-1. Strategy Design Pattern
-2. Chain of Responsibility Design Pattern
-3. Command Design Pattern
+
+#### Strategy Design Pattern
+
+#### Chain of Responsibility Design Pattern
+
+#### Command Design Pattern
 
 ### Behavioral Patterns 2
 
-1. Template Design Pattern
-2. Memento Design Pattern
-3. Interpreter Design Pattern
+
+#### Template Design Pattern
+
+#### Memento Design Pattern
+
+#### Interpreter Design Pattern
 
 ### Behavioral Patterns 3
 
-1. Visitor Design Pattern
-2. State Design Pattern
-3. Mediator Design Pattern
-4. Observer Design Pattern
+
+#### Visitor Design Pattern
+
+#### State Design Pattern
+
+#### Mediator Design Pattern
+
+#### Observer Design Pattern
