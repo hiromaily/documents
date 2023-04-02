@@ -8,6 +8,8 @@
 ## References
 - [An Introduction To Generics](https://go.dev/blog/intro-generics)
 - [Tutorial](https://go.dev/doc/tutorial/generics)
+  - [Type parameters](https://go.dev/tour/generics/1)
+  - [Generic types](https://go.dev/tour/generics/2)
 
 - [Go言語のジェネリクス入門](https://zenn.dev/nobishii/articles/type_param_intro)
 - [Go言語のジェネリクス入門(2) インスタンス化と型推論](https://zenn.dev/nobishii/articles/type_param_intro_2)
@@ -19,7 +21,7 @@
 - 型パラメータリストは，括弧の代わりに角括弧を使う以外は，普通のパラメータリストと同じように見える
 
 ```go
-# 通常のfunction
+// 通常のfunction
 func Min(x, y float64) float64 {
     if x < y {
         return x
@@ -27,7 +29,7 @@ func Min(x, y float64) float64 {
     return y
 }
 
-// Generic
+// Generic: unions
 type Ordered interface {
 	Integer | Float | ~string
 }
@@ -183,12 +185,56 @@ func Scale[S ~[]E, E constraints.Integer](s S, c E) S {
 - 型推論が成功すれば型引数を省略でき、generic 関数の呼び出しも普通の関数と変わらない。 型推論が失敗すればコンパイラがエラーメッセージを出すが、その場合は必要な型引数を与えればよい 
 - コンパイラが型推論を行う際、その型が決して驚くようなものではないことを保証したいが、まだ完全に機能するわけではない。明示的な型引数はあったほうがいい。
 
+## Type `T comparable` 
+- 型パラメータ `T comparable`は`==`や`!=`で比較可能な値のみ引数に受け取ることができる
+- mapのkeyにも使うことができる
+
+```go
+package main
+
+import "fmt"
+
+// Index returns the index of x in s, or -1 if not found.
+func Index[T comparable](s []T, x T) int {
+	for i, v := range s {
+		// v and x are type T, which has the comparable
+		// constraint, so we can use == here.
+		if v == x {
+			return i
+		}
+	}
+	return -1
+}
+
+func main() {
+	// Index works on a slice of ints
+	si := []int{10, 20, 15, -10}
+	fmt.Println(Index(si, 15))
+
+	// Index also works on a slice of strings
+	ss := []string{"foo", "bar", "baz"}
+	fmt.Println(Index(ss, "hello"))
+}
+```
+
+## 型の満たす性質
+- あるメソッドを持っているという性質
+  - 従来のインタフェース型
+- `==`, `!=`で比較できるという性質
+  - comparableインタフェース
+- `<`, `>`, `>=`, `<=`で順序づけられるという性質
+  - unionsを利用した新しいインタフェース
+- for ~ range文でループを回すことができるという性質
+  - for rangeループができる型を使って、その1つの型だけからなるunionsによる型制約 (型が1つだけであれば無意味...)
+- ある名前のフィールドを持っているという性質
+  - フィールドを持つという性質を型制約で表して、型パラメータ型の値のフィールドを参照することはできない。
+
 
 ## [go.1.20の変更点によるGenericsへの影響](https://go.dev/doc/go1.20#language)
 - Comparable types:（通常のインターフェースなど）は、型引数が厳密に比較可能でない場合でも、比較可能な制約を満たすことができるようになった（比較は実行時にパニックになる可能性がある）
 - これにより、Interface型やInterface型を含む複合型など、厳密に比較できない型引数で、Comparable制約を受けた型パラメータ（例えば、ユーザー定義のGenerics map keyの型パラメータ）をインスタンス化することが可能になった。
 
-
+- [All your comparable types](https://go.dev/blog/comparable)
 ## Example
 - [Go by Example: Generics](https://gobyexample.com/generics)
 
