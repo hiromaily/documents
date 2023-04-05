@@ -83,7 +83,9 @@
   - [Abstract Factory](https://github.com/hiromaily/documents/tree/main/architecture/design-pattern#abstract-factory)
     - DIの概念はこのデザインパターンによって解決できる
   
-## Clean Architectureで気を付ける
+## Clean Architectureでよく勘違いされていること
+Clean Architectureの文脈で`Domain-Driven Design (DDD)`がよく語られるが、DDDはClean Architectureの一部ではなくこれは`Layered-Architecture`にも適用できる。
+この認識の齟齬がClean Architecture=実装が大変、難しいにつながっていると感じる。
 
 ## 考察
 

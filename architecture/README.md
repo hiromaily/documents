@@ -8,8 +8,8 @@
 
 ## アーキテクチャの変遷
 
-- レイヤードアーキテクチャ
-- [ヘキサゴナルアーキテクチャ](./clean-architecture/hexagonal-architecture.md)
+- [レイヤードアーキテクチャ](./layered-architecture.md)
+- [ヘキサゴナルアーキテクチャ](./hexagonal-architecture.md)
 - オニオンアーキテクチャ
-- [Clean Architecture](./clean-architecture/README.md)
+- [Clean Architecture](./clean-architecture.md)
 
