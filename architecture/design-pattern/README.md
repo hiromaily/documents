@@ -82,15 +82,20 @@
 ### Structual Patterns 1
 
 
-#### Composite Design Pattern
-   - This is a structural design pattern. Composition design pattern is used when we want a Group of objects called ‘composite’ is treated in a similar way as a single object. It comes under structural design pattern as it allows you to compose objects into a tree structure. Each of the individual objects in the tree structure can be treated in the same way irrespective of whether they are Complex or Primitive.
-   - Let’s try to understand it with an example of a file system of OS. In the file system, there are two types of objects File and Folder. There are cases when File and Folder are treated to be the same way. It will be more clear as we go along.
-   - [Composite Design Pattern in Go](https://golangbyexample.com/composite-design-pattern-golang/)
+#### [Composite Design Pattern](https://refactoring.guru/design-patterns/composite)
+  - [Composite Design Pattern in Go](https://golangbyexample.com/composite-design-pattern-golang/)
+  - Compositeパターンの使用は、ApplicationのCore Modelが`Tree`として表現できる場合にのみ意味がある
+  - 例えば、2種類のオブジェクトがあるケース、「Product」と「Box」。Boxには、いくつかの`Product`と、いくつかの小さな`Box`を入れることができる。この小さな`Box`には、いくつかの`Product`と、さらに小さな`Box`を入れることができる。
+  - これは[Sample](https://golangbyexample.com/composite-design-pattern-golang/)を見るのが早いが、このようなデータ構造をJSONで作成し、Key Valueの1つの値として保持することで、データの取得コストを削減することもできる。
 
-#### Adapter Design Pattern
-
-   - [Adapter Design Pattern in Go](https://golangbyexample.com/adapter-design-pattern-go/)
-
+#### [Adapter Design Pattern](https://refactoring.guru/design-patterns/adapter)
+  - [Adapter Design Pattern in Go](https://golangbyexample.com/adapter-design-pattern-go/)
+  - 互換性のないインタフェースを持つオブジェクトを連携させるための構造的なデザインパターン
+  - Adapterは、データを様々な形式に変換するだけでなく、異なるインターフェースを持つオブジェクトの連携を支援することができる。
+    - アダプタは、既存のオブジェクトの1つと互換性のあるインターフェイスを取得する。 
+    - このインターフェイスを使用することで、既存のオブジェクトは安全にアダプタのメソッドを呼び出すことができる。 
+    - 呼び出しを受けたアダプタは、リクエストを第2のオブジェクトに渡すが、第2のオブジェクトが期待する形式と順序で渡す。
+  - 双方向の通話を変換できるアダプターを作成することも可能
 
 #### Bridge Design Pattern
    - [Bridge Design Pattern in Go](https://golangbyexample.com/bridge-design-pattern-in-go/)
