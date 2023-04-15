@@ -1,10 +1,5 @@
 # Consensus Client
 
-- [The Beacon Chain](https://medium.com/blockchain-stories/ethereum-2-0-the-beacon-chain-d669fa65e50d)
-- [The Beacon Chain Ethereum 2.0 explainer you need to read first](https://ethos.dev/beacon-chain)
-- [Spec: Bellatrix -- The Beacon Chain](https://github.com/ethereum/consensus-specs/blob/dev/specs/bellatrix/beacon-chain.md)
-- [Eth Beacon Node API](https://ethereum.github.io/beacon-APIs/)
-
 - Beacon Chian とも言われ、Ethereum2.0 のコンセンサスエンジンとして機能するブロックチェーン
 - システム全体を調整する部分
 - Beacon チェーンは、PoS システムを実装することができる最小限の構造として設計されている
@@ -13,6 +8,13 @@
 - バリデータのアドレス、各バリデータの状態、attestations(認証)（バリデータの投票）、シャードへのリンクなどのレジストリが格納されている
 - Ethereum Beacon Chain は、乱数の公開ソースを提供する暗号サービスである randomness beacon にちなんで命名された。
 - ビーコンチェーンは、`RANDAO` と呼ばれる疑似乱数処理に基づいてブロックのバリデータをランダムに選択し、コンセンサスメカニズムを管理する
+
+- [The Beacon Chain](https://medium.com/blockchain-stories/ethereum-2-0-the-beacon-chain-d669fa65e50d)
+- [The Beacon Chain Ethereum 2.0 explainer you need to read first](https://ethos.dev/beacon-chain)
+- [Spec: Bellatrix -- The Beacon Chain](https://github.com/ethereum/consensus-specs/blob/dev/specs/bellatrix/beacon-chain.md)
+- [Eth Beacon Node API](https://ethereum.github.io/beacon-APIs/)
+
+## 主要な Consensus Client
 
 - [Prysm](https://prysmaticlabs.com/)
   - [Github](https://github.com/prysmaticlabs/prysm)
@@ -36,6 +38,8 @@
 
   - [Github](https://github.com/ChainSafe/lodestar)
   - TypeScript Implementation of Ethereum Consensus
+
+### 考察
 
 - 現在は Prysm が一番高いシェアを誇るが、Lighthouse との差は日々縮まっており、いずれ追い抜かれるように見える
 - クライアントの多様性の重要性と、イーサリアム ブロックチェーンを実行するプロトコル実装をより均等に分散させることの重要性について議論されている
