@@ -22,6 +22,14 @@
     - GetPrvKeyFromMnemonicAndHDWPath() ... mnemonic 情報がパラメータとなる
       - pkg/relay/ethereum/chain.go の`NewChain()`では、こちらを呼び出している
 
+
+### Prover
+Proverはターゲットチェーンの状態に関する証明を生成または照会する。この証明は、相手側のチェーンに配置された On-chain Light Client によって検証される
+
+例えば、`yui-fabric-ibc`のProverの[code](https://github.com/hyperledger-labs/yui-fabric-ibc/blob/d9230985e320ee0333c349bef80e822620c7150e/relay/prover.go)はFabric Chain向けのQuery機能を備え、yui-relayerからimportされて使われることになる。
+
+Tendermint向けChainについては、yui-relayer側の[code](https://github.com/hyperledger-labs/yui-relayer/blob/07aa9b6f7d6894d14aaf278a550e40d6d2fdf35b/chains/tendermint/prover.go)に内包されている
+
 ## 用語集
 
 - Chain ... チェーンへのトランザクションの送信とその状態の問い合わせをサポートする
