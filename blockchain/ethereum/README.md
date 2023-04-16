@@ -8,29 +8,40 @@
 ## Contents
 - [ABI](./abi.md)
   - ABIエンコーディング
-- [Consensus Client](./consensus_client.md)
+- [Consensus Client (Beacon Chain)](./consensus_client.md)
   - Beacon Chainに関する情報まとめ
 - [Data Structure](./data_structure.md)
   - データ構造とエンコーディング
   - Recursive Length Prefix (RLP)
   - Simple Serialize (SSZ)
 - [Finality](./finality.md)
-  - PoS Finality
-  - PoS Block
+  - Block
   - Checkpoint
+  - PoS Finality
 - [Genesis](./genesis.md)
   - Genesis Config (genesis.json)
 - [Light Client](./light-client.md)
 - [Network](./network.md)
+  - Networkの種類
   - Testnetの種類など
+  - Private Network (Local Testnet)
+  - Localnetの構築について
 - [Node Client](./node_client.md)
-  - [The Merge](./the_merge.md)と重複するが、EthereumのDocumentである、[Nodes and Clients](https://ethereum.org/en/developers/docs/nodes-and-clients/)の要約
+  - EthereumのDocumentである、[Nodes and Clients](https://ethereum.org/en/developers/docs/nodes-and-clients/)の要約
   - Execution ClientとConsensus Clientについて
   - Nodeの種類について (Full node, Light node)
-  - Validator
-  - Staking
+  - 自分でNodeを立てるメリット
+  - 実行クライアント
+  - コンセンサスクライアント
+  - 同期モード
+  - Nodeアーキテクチャー
+    - 実行クライアントの役割
+    - コンセンサスクライアントの役割
+    - Validator (簡単なまとめのみ)
+    - Node比較の構成要素
 - [Phase](./phase.md)
-  - Phase
+- [Staking](./staking.md)
+- [Tips](./tips.md)
 - [TransactionとGas](./transaction-gas.md)
 - [Upgrade History](./upgrade_history.md)
 - [Validator](./validator.md)

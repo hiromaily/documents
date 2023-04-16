@@ -3,7 +3,7 @@
 - [The history of Ethereum](https://ethereum.org/en/history/)
 - [Upgrading Ethereum to radical new heights](https://ethereum.org/en/upgrades/)
 
-## WIP: Shanghai - TBD
+## Shanghai - TBD
 
 - [spec](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/shanghai.md)
 
@@ -11,7 +11,7 @@
 - Capella のアップグレードと連動する
 - staker は beacon chain から実行レイヤーに ETH を引き出すことができる
 
-## WIP: Capella - TBD
+## Capella - TBD
 
 - [spec](https://github.com/ethereum/consensus-specs/blob/dev/specs/capella/beacon-chain.md)
 

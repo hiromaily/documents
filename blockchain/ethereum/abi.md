@@ -17,5 +17,7 @@
 - [ABI encode and decode using solidity](https://medium.com/coinmonks/abi-encode-and-decode-using-solidity-2d372a03e110)
 - アプリケーション（および人）は、コントラクトにデータを送信したり、コントラクトからデータを取得したりする。このとき、データをコントラクトに送るには、コントラクトが読めるような形で送る必要がある。つまり、エンコードされる必要がある。
 - このようなエンコードをどのように行うかのルールは、Ethereum Virtual Machine（EVM）の実装で定義されている
+
+### ABI function
 - abi.encode()
 - abi.decode()

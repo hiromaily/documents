@@ -1,8 +1,6 @@
 # Nodeとクライアント
+[Docs: NODES AND CLIENTS](https://ethereum.org/en/developers/docs/nodes-and-clients/)要約
 
-- [Docs: NODES AND CLIENTS](https://ethereum.org/en/developers/docs/nodes-and-clients/)
-- [execution-specs](https://github.com/ethereum/execution-specs/)
-- [consensus-specs](https://github.com/ethereum/consensus-specs)
 
 - Ethereumは、ブロックとトランザクションデータを検証できるソフトウェアを実行するコンピュータ（Nodeと呼ばれる）の分散型ネットワーク
 - `クライアント`と呼ばれるソフトウェア・アプリケーションをコンピュータ上で実行し、Ethereumの`Node`にする必要がある
@@ -14,6 +12,11 @@
 - `コンセンサスクライアント`（ビーコンNode、CLクライアント(consensus layer)、旧Eth2クライアントとも呼ばれる）は、Proof-of-stakeコンセンサスアルゴリズムを実装し、実行クライアントからの検証済みデータに基づいてネットワークの合意を達成することができる
 
 ![client](../../images/eth1eth2client.png "client")
+
+
+## Spec References
+- [execution-specs](https://github.com/ethereum/execution-specs/)
+- [consensus-specs](https://github.com/ethereum/consensus-specs)
 
 ## ネットワーク上のNodeを追跡する
 - [Ethereum Node Tracker](https://etherscan.io/nodetracker)
@@ -161,9 +164,6 @@
 - Validatorは`attestations(認証)`と`block proposals`を処理する
 - これらにより、Nodeは報酬を得たり、ペナルティやslashingによりETHを失ったりすることができる
 - Validatorを実行することで、Nodeは新しいブロックを提案するために選ばれる資格を得ることもできる
-
-
-### [Staking](https://ethereum.org/en/staking/)
 
 ### Node比較の構成要素
 - 実行クライアント
