@@ -6,35 +6,33 @@
 - Testnet
 - Private network
 - コンソーシアム network
-
-- How to upgrade protocol?
  
 ## Testnetの種類
-
-### Goerli
+以下の違いはConfiguration(genesis.json)による違いで、EthereumはPoSでもPoWでもPoAでも動くように作られている
+### [Sepolia](https://sepolia.dev/)
 - PoS
 
-### Sepolia
+### [Goerli](https://goerli.net/)
 - PoS
+- 2023年でサポートが終了する
+  - [github: Readme](https://github.com/eth-clients/goerli)
 
-## 非推奨となったTestnet
+### 非推奨となったTestnet
+- Ropsten
+  - PoS
+- Rinkeby
+  - 古いバージョンの Geth クライアントにしか対応していない
+- Kovan
+  - 非常に古いPoAのTestnetとなる
 
-### Ropsten
-- PoS
-
-### Rinkeby
-- 古いバージョンの Geth クライアントにしか対応していない
-
-### Kovan
-- 非常に古いプルーフ・オブ・オーソリティのTestnetとなる
-
-## どうやってTestnetを開発するのか？
-- 特別なGenesis Fileを用意して、Nodeを起動する。PoWの場合、そこからMineする
-- どうやって、Consensusアルゴリズムを変更するのか？
-- Private Networkと変わらない？
+## Testnetの設定方法
+- Ethereum Clientの選択 (Geth)
+- 独自の`genesis.json`を用意しGethの構成を設定する (networkIDといった起動パラメーターなど)
+  - ここで、PoAやPoSの設定も変えることができる
 
 
 ## Private Network (Local Testnet)
+### References
 - [go-ethereum: Private Networks](https://geth.ethereum.org/docs/fundamentals/private-network)
 - [DEVELOPMENT NETWORKS](https://ethereum.org/en/developers/docs/development-networks/)
 - [Ethereum Private Network – Create your own Ethereum Blockchain!](https://www.edureka.co/blog/ethereum-private-network-tutorial)
@@ -44,3 +42,13 @@
 - [Create your own Ethereum private network](https://gist.github.com/0mkara/b953cc2585b18ee098cd)
 - [プライベート・ネットに接続する](https://book.ethereum-jp.net/first_use/connect_to_private_net)
 - [Gethを使って、EthereumのPrivate Networkを作ってみよう！(2021)](https://note.com/standenglish/n/nd186bd57e102)
+- [Connect to the Kintsugi Testnet](https://hackmd.io/@76u7HkGHS7-S8srG1WCWjg/B1y18LfYF#Connect-to-the-Kintsugi-Testnet)
+
+## Localnetの構築について
+- [How to set up an Ethereum proof-of-stake devnet in minutes](https://rauljordan.com/2022/08/21/how-to-setup-a-proof-of-stake-devnet.html)
+  - これは`geth`と`prysm`を使った例となる
+  - [Ethereum Proof-of-Stake Devnet](https://github.com/rauljordan/eth-pos-devnet)
+- [Multi-client post-merge Eth devnet setup](https://notes.ethereum.org/@protolambda/merge-devnet-setup-guide)
+  - 2020年の記事なので古い
+- [ethereum-localnet](https://github.com/hiromaily/ethereum-localnet)
+

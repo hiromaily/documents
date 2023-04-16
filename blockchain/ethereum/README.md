@@ -1,15 +1,36 @@
 # Ethereum
 
-[How does Ethereum work, anyway?](https://www.preethikasireddy.com/post/how-does-ethereum-work-anyway)
+## References
+- [How does Ethereum work, anyway?](https://www.preethikasireddy.com/post/how-does-ethereum-work-anyway)
+- [Ethereum 2.0 Knowledge Base](https://kb.beaconcha.in/)
+- [Ethereum Book (eth2)](https://eth2.incessant.ink/book/00__introduction/00__foreword.html)
 
 ## Contents
 - [ABI](./abi.md)
+  - ABIエンコーディング
 - [Consensus Client](./consensus_client.md)
-- [データ構造とエンコーディング](./data_structure.md)
+  - Beacon Chainに関する情報まとめ
+- [Data Structure](./data_structure.md)
+  - データ構造とエンコーディング
+  - Recursive Length Prefix (RLP)
+  - Simple Serialize (SSZ)
+- [Finality](./finality.md)
+  - PoS Finality
+  - PoS Block
+  - Checkpoint
 - [Genesis](./genesis.md)
+  - Genesis Config (genesis.json)
+- [Light Client](./light-client.md)
 - [Network](./network.md)
+  - Testnetの種類など
 - [Node Client](./node_client.md)
-- [The Merge](./the_merge.md)
+  - [The Merge](./the_merge.md)と重複するが、EthereumのDocumentである、[Nodes and Clients](https://ethereum.org/en/developers/docs/nodes-and-clients/)の要約
+  - Execution ClientとConsensus Clientについて
+  - Nodeの種類について (Full node, Light node)
+  - Validator
+  - Staking
+- [Phase](./phase.md)
+  - Phase
 - [TransactionとGas](./transaction-gas.md)
 - [Upgrade History](./upgrade_history.md)
 - [Validator](./validator.md)

@@ -1,11 +1,27 @@
-# Finality
+# PoS Finality
 
 ## Block
 
 - PoS では、チェーンは`Slot`に分割され、32 個の Slot のグループは`Epoch`と呼ばれる
 - 各 Slot は、チェーンにブロックが追加されるチャンスとなる
-- Slot（ブロックの可能性）は、`12秒`おきに正確に発生する。(genesis.json の設定による)
-- [Etherscan:Blocks](https://etherscan.io/blocks)を見る限り、12 秒毎に新しい Block が生成されている
+- Slot（ブロックの可能性）は、`12秒`毎に正確に発生する。(genesis.json の設定による)
+- [Etherscan:Blocks](https://etherscan.io/blocks)を見る限り、`12秒`毎に新しい Block が生成されている
+
+
+### Blockの生成について
+- [Angle Explains: ETH 2.0, changes in block production and impact on MEV](https://blog.angle.money/angle-explains-eth-2-0-changes-in-block-production-and-impact-on-mev-f9c6f353c6bd)
+
+![eth2 epoch slot](https://raw.githubusercontent.com/hiromaily/documents/main/images/eth2_epoch_slot.webp "eth2 epoch slot")
+
+- PoSでは、チェーンは`Slot`に分割され、32個のSlotのグループは`Epoch`と呼ばれる
+- 各Slotは、チェーンにブロックが追加されるチャンスとなる
+- Slot（ブロックの可能性）は、12秒おきに正確に発生する。(genesis.jsonの設定による)
+- 1ブロックあたり2ETHの採掘報酬は、1ブロックあたり0.22ETHの賭け報酬となり、~90%減少している
+- これはETHの供給にとってメリットが、バリデータの収益に占めるtransaction feeの割合がはるかに高くなる
+- 収益を上げ、競合するバリデータに対して市場シェアを獲得するためには、`MEV`を最大化することがより重要になる
+- PoSではEpoch 32slotのValidator(採掘者)が事前に判明する
+
+- TODO: Miner Extractable Value（MEV）リスク
 
 ## [Checkpoint](https://ethereum.org/se/glossary/#checkpoint)
 

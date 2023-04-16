@@ -1,6 +1,6 @@
 # Nodeとクライアント
 
-- [Docs](https://ethereum.org/en/developers/docs/nodes-and-clients/)
+- [Docs: NODES AND CLIENTS](https://ethereum.org/en/developers/docs/nodes-and-clients/)
 - [execution-specs](https://github.com/ethereum/execution-specs/)
 - [consensus-specs](https://github.com/ethereum/consensus-specs)
 
@@ -9,7 +9,7 @@
 - 実行クライアントを単独で実行することはできなくなったため、The Mergeの後、ユーザーがイーサリアムネットワークにアクセスするためには、`実行クライアント`と`コンセンサスクライアント`の両方を一緒に実行する必要がある
 - `Node`とは、Ethereumのクライアントソフトウェアのインスタンスで、同じくイーサリアムのソフトウェアを実行している他のコンピュータに接続され、ネットワークを形成しているもの
 - `クライアント`は、データをプロトコルの規則に照らして検証し、ネットワークを安全に保つ、イーサリアムの実装
-- Post-Merge Ethereum は、実行層と合意層の2つの部分から構成されるが、両レイヤーは、それぞれ異なるクライアントソフトウェアによって実行される
+- Post-Merge Ethereum は、`Execution Layer`と`Consensus Layer`の2つの部分から構成されるが、両レイヤーは、それぞれ異なるクライアントソフトウェアによって実行される
 - `実行クライアント`（実行エンジン、ELクライアント(execution layer)、または旧Eth1クライアントとも呼ばれる）は、ネットワークでブロードキャストされた新しいトランザクションを聞き、EVMで実行し、最新の状態と現在のすべてのEthereumデータのデータベースを保持します。 
 - `コンセンサスクライアント`（ビーコンNode、CLクライアント(consensus layer)、旧Eth2クライアントとも呼ばれる）は、Proof-of-stakeコンセンサスアルゴリズムを実装し、実行クライアントからの検証済みデータに基づいてネットワークの合意を達成することができる
 
@@ -154,12 +154,16 @@
 
 ### Validator
 - `32ETH`が`deposit contract`にある場合、Nodeオペレータはコンセンサスクライアントに`Validator`を追加することができる
+  - 具体的には、ユーザーが `32 ETH` をステークして Ethereum のPoSコンセンサス メカニズムに参加する場合、`Prysm`や`Lodestar`といったBeacon Chain(Node)に接続する `バリデータ クライアント` と呼ばれる別のソフトウェアを使用する
+  - これは、新しいブロックの作成や他の提案されたブロックへの投票など、バリデータ キーと義務を管理する特別なソフトウェア
+  - Validator クライアントは、実行ノードに依存するビーコン ノードを介して Ethereum ネットワークに接続する
 - Validatorクライアントはコンセンサスクライアントに同梱されており、いつでもNodeに追加することができる
 - Validatorは`attestations(認証)`と`block proposals`を処理する
 - これらにより、Nodeは報酬を得たり、ペナルティやslashingによりETHを失ったりすることができる
 - Validatorを実行することで、Nodeは新しいブロックを提案するために選ばれる資格を得ることもできる
 
-[Staking](https://ethereum.org/en/staking/)
+
+### [Staking](https://ethereum.org/en/staking/)
 
 ### Node比較の構成要素
 - 実行クライアント
