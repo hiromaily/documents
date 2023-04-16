@@ -45,6 +45,7 @@
 - [TransactionとGas](./transaction-gas.md)
 - [Upgrade History](./upgrade_history.md)
 - [Validator](./validator.md)
+  - PoS（Proof of Stake）のしくみ
 
 ## Development tools
 - [Truffle](https://trufflesuite.com/)
