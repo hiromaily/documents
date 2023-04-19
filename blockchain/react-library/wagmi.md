@@ -162,7 +162,7 @@ InjectedConnector は、Browser や Window に`Ethereum Provider`を注入する
 
 #### [Safe Wallet](https://wagmi.sh/react/connectors/safe)
 
-`SafeConnector`は、[Safe Apps SDK](https://github.com/safe-global/safe-apps-sdk)を使用した Safe Wallet との接続をサポートします。
+`SafeConnector`は、[Safe Apps SDK](https://github.com/safe-global/safe-apps-sdk)を使用した Safe Wallet との接続をサポートする
 
 ## Hooks
 
@@ -342,6 +342,10 @@ const data = await multicall({
   ],
 });
 ```
+
+## [Module Types](https://wagmi.sh/core/module-types)
+
+Default: Pure ESM
 
 ## Examples
 
