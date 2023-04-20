@@ -3,6 +3,7 @@
 - これにより、React の機能を、クラスを書かずに関数コンポーネントで使えるようになる
 - ロジックの分離ができるので、ロジックの再利用やテストがしやすい
 - コンポーネントのトップレベルでcallする
+- Hookの中でHookを呼び出すこともできる
 
 ## Rules of Hooks
 - [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html)

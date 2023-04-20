@@ -33,6 +33,11 @@ import { Button } from '@components';
 - UIをコンポーネントに定義し、ビジネスロジックをHooksに定義し、Hooksはビジネスロジックのfunction自体をコンポーネントに渡す
 
 <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/react-ui-business.webp"  width="50%" height="50%">
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/react-ui-business2.png"  width="50%" height="50%">
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/react-ui-business3.png"  width="80%" height="80%">
+
+
+### ビジネスロジックにTestabilityを持たすためには
 
 
 ## すべてに対して単一のコンテキストを作成することを避ける
