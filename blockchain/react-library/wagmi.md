@@ -307,6 +307,8 @@ React Hooks の宣言的な性質が、アプリの一部で機能しないこ�
 
 [multicall3](https://github.com/mds1/multicall) を介して複数のイーサコントラクトの読み取り専用メソッドを呼び出す
 
+疑問だが、`useContractReads`との使い分けは？
+
 ```ts
 import { multicall } from '@wagmi/core';
 
@@ -347,6 +349,14 @@ const data = await multicall({
 
 Default: Pure ESM
 
+## [CLI](https://wagmi.sh/cli/getting-started)
+Wagmi CLIは、
+- ABIの管理（Etherscan/ブロックエクスプローラ、Foundry/Hardhatプロジェクトなど）
+- コードの生成（React Hooks、VanillaJSアクションなど）
+- 手作業を自動化することで、Ethereumでの作業を容易にする（例えば、EtherscanからABIをコピー＆ペーストする必要がなくなる）
+- また、CLIをさらに拡張するためのプラグインを書くことも可能
+
+
 ## Examples
 
 - [Connect Wallet](https://wagmi.sh/examples/connect-wallet)
@@ -356,3 +366,7 @@ Default: Pure ESM
 - [Create Custom Connector](https://wagmi.sh/examples/custom-connector)
   - これによりカスタマイズしやすいのかもしれない。
   - sushiswap の wagmi package 内に[hooks](https://github.com/sushiswap/sushiswap/tree/master/packages/wagmi/hooks)があるので参考になる
+
+## Wagmi関連の記事
+- [ウォレットとの接続を簡単にしてくれるライブラリwagmiの使い方](https://zenn.dev/pokena/articles/3d53b52c2d441c)
+- [TurboETH + WAGMI CLI - Automatically generate smart contract read, write and event hooks](https://www.youtube.com/watch?v=sBX79sPjRss)
