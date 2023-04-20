@@ -1,12 +1,11 @@
 # Architecture
 - [react-patterns](https://github.com/topics/react-patterns)
 - [File Structure](https://reactjs.org/docs/faq-structure.html)
-
-## Pattern 1 
 - [React Architecture Patterns for Your Projects](https://blog.openreplay.com/react-architecture-patterns-for-your-projects)
 - [React Folder Structure in 5 Steps](https://www.robinwieruch.de/react-folder-structure/)
+- [bulletproof-react](https://github.com/alan2207/bulletproof-react)
 
-### Structure
+## Structure
 ```
 └── /src
     ├── /assets
@@ -23,17 +22,21 @@
 - hooks ... Custom Hooks
 - pages ... For UI
 
-## Pattern 2
-- [bulletproof-react](https://github.com/alan2207/bulletproof-react)
 
-### Notes
-- Use Absolute Imports
+## 基本方針
+### 絶対パスによる Imports
 ```
 import { Button } from '@components';
 ```
-- Separate business logic from UI
-- Avoiding creating a single Context for everything
 
-### Handling Component Re-Renderings
+## UIとビジネス層の分離について
+- UIをコンポーネントに定義し、ビジネスロジックをHooksに定義し、Hooksはビジネスロジックのfunction自体をコンポーネントに渡す
+
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/react-ui-business.webp"  width="50%" height="50%">
+
+
+## すべてに対して単一のコンテキストを作成することを避ける
+
+## 再レンダリングの取り扱い
 - [5 Ways to Avoid React Component Re-Renderings](https://blog.bitsrc.io/5-ways-to-avoid-react-component-re-renderings-90241e775b8c)
 
