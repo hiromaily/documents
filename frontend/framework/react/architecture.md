@@ -32,9 +32,17 @@ import { Button } from '@components';
 ## UIとビジネス層の分離について
 - UIをコンポーネントに定義し、ビジネスロジックをHooksに定義し、Hooksはビジネスロジックのfunction自体をコンポーネントに渡す
 
+コンポーネントと機能の分離
 <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/react-ui-business.webp"  width="50%" height="50%">
+
+Page, Component, Hookの関係性
 <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/react-ui-business2.png"  width="50%" height="50%">
+
+Hookからビジネス層に依存するパターン１:抽象への依存をDIで解決する
 <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/react-ui-business3.png"  width="80%" height="80%">
+
+外部通信発生時のレイヤーの分離
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/front-end-layer.png"  width="80%" height="80%">
 
 
 ### ビジネスロジックにTestabilityを持たすためには
