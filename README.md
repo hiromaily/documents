@@ -56,9 +56,21 @@ summarized book contents and tips
 - ドメイン駆動設計入門 ボトムアップでわかる！ドメイン駆動設計の基本
 - 「実践ドメイン駆動設計」から学ぶ DDD の実装入門
 
+### Blockchain
+- ● 暗号技術入門
+- マスタリング・イーサリアム
+- SolidityとEthereumによる実践スマートコントラクト開発
+- ● Pythonによるブロックチェーン開発教本
+- ブロックチェーン技術概論
+- ブロックチェーンプログラミングのためのコンピュータサイエンスがわかる本
+
+### AI
+- ● ディープラーニング実践ガイド
 ### APIs
 - ● APIデザインパターン
 
+### Rust
+- ● Rustプログラミング完全ガイド
 ### Golang
 - Dependency Injection in Go
 - 12 Factor Application with Docker and Go
