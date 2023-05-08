@@ -28,31 +28,40 @@ summarized book contents and tips
 - Web Vitals [WIP]
 
 ## Read books
-
+### Architecture/Principle
 - Clean Architecture
 - Clean Code
 - Clean Coder
 - Clean Agile
 - Clean Craftsmanship
+- ● Good Code, Bad Code
 - Refactoring: Improving the Design of Existing Code
 - Fundamentals of Software Architecture
-- Software Architecture: The Hard parts
-- Domain-Driven Design
-  - ドメイン駆動設計 モデリング 実践ガイド
-  - ドメイン駆動設計入門 ボトムアップでわかる！ドメイン駆動設計の基本
-  - 「実践ドメイン駆動設計」から学ぶ DDD の実装入門
-- データ思考アプリケーションデザイン
-- 進化的アーキテクチャー
+- ● Software Architecture The Hard Parts
+- Object-Oriented vs. Functional Programming
+- Software Architecture Patterns
+
+### Architecture/Principle Others
+- ● データ思考アプリケーションデザイン
+- ● 進化的アーキテクチャー
 - レガシーコードからの脱却
 - ベタープログラマ
-- モノリスからマイクロサービスへ
 - 達人プログラマー
-- Software Architecture Patterns
+- モノリスからマイクロサービスへ
+- モダン・ソフトウェアエンジニアリング
+- Designing Distributed System / 分散システムデザインパターン
+
+### Domain-Driven Design
+- ドメイン駆動設計 モデリング 実践ガイド
+- ドメイン駆動設計入門 ボトムアップでわかる！ドメイン駆動設計の基本
+- 「実践ドメイン駆動設計」から学ぶ DDD の実装入門
+
+### APIs
+- ● APIデザインパターン
+
+### Golang
 - Dependency Injection in Go
 - 12 Factor Application with Docker and Go
-- Object-Oriented vs. Functional Programming
-- Designing Distributed System
-- 初めての GraphQL
 
 ## WebSites
 - [プログラマが知るべき97のこと](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/)
