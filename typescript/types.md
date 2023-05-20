@@ -1,8 +1,4 @@
-# TypeScript
-
-## undefined の扱い
-
-- [How to solve TypeScript possibly undefined value](https://linguinecode.com/post/how-to-solve-typescript-possibly-undefined-value)
+# Types
 
 ## Type Declarations
 
@@ -91,3 +87,7 @@ declare global {
 - [TypeScript で window 直下にいろいろ生やしたりグローバル変数を定義する](https://dev.classmethod.jp/articles/typings-of-window-object/)
 - [How to declare global types in TypeScript](https://bobbyhadz.com/blog/typescript-make-types-global)
 - [HOW TO FIX 'PROPERTY DOES NOT EXIST ON TYPE WINDOW IN TYPESCRIPT' ERROR](https://robkendal.co.uk/blog/how-to-fix-property-does-not-exist-on-window-type-in-typescript)
+
+## undefined の扱い
+
+- [How to solve TypeScript possibly undefined value](https://linguinecode.com/post/how-to-solve-typescript-possibly-undefined-value)
