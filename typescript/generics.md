@@ -47,7 +47,7 @@ class Queue<T> {
   pop(): T | undefined { return this.data.shift(); }
 }
 
-/** Again sample usage */
+// 呼び出し
 const queue = new Queue<number>();
 queue.push(0);   // OK
 queue.push("1"); // Error
