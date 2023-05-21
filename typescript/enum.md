@@ -5,14 +5,6 @@ Typescriptではenum の利用は推奨されない。
 [挙型(enum)の問題点と代替手段 by サバイバルTypeScript](https://typescriptbook.jp/reference/values-types-variables/enum/enum-problems-and-alternatives-to-enums)  
 
 
-2023年の時点でも使うべきではないという記事が多数Postされている
-- [Nine terrible ways to use TypeScript enums, and one good way](https://bluepnume.medium.com/nine-terrible-ways-to-use-typescript-enums-and-one-good-way-f9c7ec68bf15)
-- [Don't use Enums in Typescript, they are very dangerous](https://dev.to/ivanzm123/dont-use-enums-in-typescript-they-are-very-dangerous-57bh)
-- [Are Typecript Enums Really Harmful?](https://blog.theodo.com/2023/03/are-typescript-enums-really-harmful/)
-
-しかし、Typescript5.0によって改善されている様子
-- [TypeScript enums in 5.0 (are they still bad?)](https://blog.graphqleditor.com/enums-are-still-bad)
-
 ## 問題点
 ### 数値列挙型には型安全上の問題があるため、不用意なアクセスを防ぐことができない
 ```ts
@@ -85,3 +77,13 @@ function toJapanese(position: Position) {
   }
 }
 ```
+
+## References
+2023年の時点でも使うべきではないという記事が多数Postされている
+- [Nine terrible ways to use TypeScript enums, and one good way](https://bluepnume.medium.com/nine-terrible-ways-to-use-typescript-enums-and-one-good-way-f9c7ec68bf15)
+- [Don't use Enums in Typescript, they are very dangerous](https://dev.to/ivanzm123/dont-use-enums-in-typescript-they-are-very-dangerous-57bh)
+- [Are Typecript Enums Really Harmful?](https://blog.theodo.com/2023/03/are-typescript-enums-really-harmful/)
+
+
+しかし、Typescript5.0によって改善されている様子
+- [TypeScript enums in 5.0 (are they still bad?)](https://blog.graphqleditor.com/enums-are-still-bad)
