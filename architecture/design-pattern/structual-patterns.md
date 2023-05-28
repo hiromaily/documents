@@ -20,13 +20,20 @@
 ## [Bridge Design Pattern](https://refactoring.guru/design-patterns/bridge)
 - [Go sample](https://refactoring.guru/design-patterns/bridge/go/example)
 - [Bridge Design Pattern in Go](https://golangbyexample.com/bridge-design-pattern-in-go/)
+- 実装から抽象を切り離すことで、巨大なクラスを分割し、変更の容易性を与えることを目的としている
 
-## Proxy Design Pattern
+### 考察
+- デザインパターンと呼べるものではないような？
+
+## [Proxy Design Pattern](https://refactoring.guru/design-patterns/proxy)
+- [Go sample](https://refactoring.guru/design-patterns/proxy/go/example)
+- ユースケースとしては、実際に使うサービスをラップすることで、前後に処理を差し込む場合に有効
 
 ## [Decorator Design Pattern](https://refactoring.guru/design-patterns/decorator)
 - [Go sample](https://refactoring.guru/design-patterns/decorator/go/example)
 - [Decorator design pattern in Go](https://golangbyexample.com/decorator-pattern-golang/)
-
+- 別名で、Wrapperとも言われる
+- Interfaceを併せ持つオブジェクトをラップすることで、処理に加え内包するオブジェクトを実行し処理をまとめる
 
 ## [Facade Design Pattern](https://refactoring.guru/design-patterns/facade)
 - [Go sample](https://refactoring.guru/design-patterns/facade/go/example)
@@ -36,4 +43,8 @@
 - つまり、複雑なライブラリやClassに対して機能制限はあるものの、簡単に操作するためのラッパーオブジェクトとなる
 - 内部のクラスを使いこなすもので、独自の機能を実装するものではない
 
-## Flyweight Design Pattern
+## [Flyweight Design Pattern](https://refactoring.guru/design-patterns/flyweight)
+- [Go sample](https://refactoring.guru/design-patterns/flyweight/go/example)
+- メモリ消費量を低く抑えることでプログラムが膨大な数のオブジェクトを支えることが可能になる
+- 異なるオブジェクトによって使われる同じデータをキャッシュすることにより、 RAM を節約する
+- 該当する既存のインスタンスがあれば、それを共用する
