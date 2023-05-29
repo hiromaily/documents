@@ -33,6 +33,9 @@ Beacon Chain には、Slot (12 秒) と Epochs (32Slot) に分割されたテン
 
 PoS Ethereum では、Finality は`checkpoint` Block を使用して管理される。各 Epochs の最初のブロックは`Checkpoint`となる。Validator は、有効であると見なす Checkpoint のペアに投票する。Checkpoint のペアがステークされた ETH の合計の少なくとも 3 分の 2 を表す票を集めた場合、Checkpoint はアップグレードされる。 2 つのうちの新しい方 (ターゲット) が`正当化:justified`される。 前の Epoch の「ターゲット」だったので、2 つのうち早い方がすでに正当化されている。 これで「ファイナライズ済み」にアップグレードされた。 ファイナライズされたブロックを元に戻すには、攻撃者はステーキングされた ETH の総供給量の少なくとも 3 分の 1 を失うことを約束する。 Finality には 3 分の 2 の多数決が必要であるため、攻撃者は総ステークの 3 分の 1 で投票することにより、ネットワークがファイナリティに到達するのを防ぐことができる。
 
+## Gaspe
+Gasper（Casper FFG + LMD GHOST）によって、ターゲット ブロックに投票するため、明示的なファイナリティを提供する。Epochごとに、バリデーターが投票を送信して収集し、Blockを完成させるまでに 2 エポックかかる。
+平均Block Finality時間は 2.5 エポック タイムとなり、960 秒 (12 秒 * 32 * 2.5) に相当する。
 
 ## [What Happens After Finality in ETH2?](https://hackmd.io/@prysmaticlabs/finality)
 
