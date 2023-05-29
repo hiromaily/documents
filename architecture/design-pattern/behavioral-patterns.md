@@ -7,9 +7,14 @@
 - 処理の目的は同じだが、複数のアルゴリズムが存在しており、それを状況に合わせてスイッチしたいようなケースに有効
 - 処理のInterfaceを定義し、異なるアルゴリズム毎にInterfaceを満たすオブジェクトを用意。DIなどによって生成時に使用したいアルゴリズムを設定したり、設定した後に変更可能なset()functionを用意する。
 
-## Chain of Responsibility Design Pattern
+## [Chain of Responsibility Design Pattern](https://refactoring.guru/design-patterns/chain-of-responsibility)
+- [Go sample](https://refactoring.guru/design-patterns/chain-of-responsibility/go/example)
+- 別名、CoR、Chain of Command、責任のチェーン、責任の連鎖、コマンドのチェーン、コマンドの連鎖
+- 潜在的なハンドラーの連鎖の上を、 ハンドラーのどれかが処理するまで、 リクエストを回していく
+- Web Serverのハンドラーメソッドはこのパターンを利用することが多い
 
-## Command Design Pattern
+## [Command Design Pattern](https://refactoring.guru/design-patterns/command)
+- [Go sample](https://refactoring.guru/design-patterns/command/go/example)
 
 
 ## Behavioral Patterns 2
