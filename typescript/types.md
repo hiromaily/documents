@@ -1,5 +1,19 @@
 # Types
 
+
+## constアサーション
+オブジェクトリテラルの末尾に`as const`を記述すればプロパティがreadonlyでリテラルタイプで指定した物と同等の扱いになる
+
+```
+const movie = {
+  name: "good one",
+  no: 25,
+  genre: "action",
+  height: 0.4,
+  weight: 6.0,
+} as const;
+```
+
 ## Type Declarations
 
 - `d.ts`とは型定義ファイル（型宣言ファイル）。これにより、ライブラリの型定義ができるようになる
