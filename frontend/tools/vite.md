@@ -2,6 +2,13 @@
 
 ビルドツールで、ヴィートと発音する
 
+2023年6月時点でVersion 4.3
+
+## References
+
+- [Vite](https://vitejs.dev/)
+- [Vite (ja)](https://ja.vitejs.dev/)
+
 ## 機能
 
 - 瞬時にスタートするサーバ ... 開発時はバンドル不要で動作する
@@ -15,7 +22,8 @@
 
 - Node.js >=14.6.0 のバージョンが必要
 - native ES modules を利用している
-- Rollup.js をベースとしたプロダクションビルド機能
+- Rollup.js をベースとしたプロダクションビルド機能 (開発時には`esbuild`が使われる)
+- SWCのサポート
 - Vite はデフォルトでは構文変換のみを扱い デフォルトでは Polyfill をカバーしていない
 - Vite は Typescript のトランスパイルは行うが、型チェックは行わないため、ビルド時に型チェックを行うことが推奨される
 
@@ -30,7 +38,7 @@
 - `vite dev`
   - 開発サーバーを起動
 - `vite build`
-  - プロダクション用にビルド
+  - プロダクション用にビルド (`Rollup`が使われる)
 - `vite preview`
   - プロダクション用ビルドをローカルでプレビュー
 
@@ -46,12 +54,6 @@ import { someMethod } from 'my-dep'
 - 事前バンドルは [esbuild](https://esbuild.github.io/) で実行され、CommonJS / UMD モジュールを ESM に変換する
 - import を `my-dep.js` のように書き換える
 
-## Typescript
-
-## References
-
-- [Vite](https://vitejs.dev/)
-- [Vite (ja)](https://ja.vitejs.dev/)
 
 ## 発生した問題
 
