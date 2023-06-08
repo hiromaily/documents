@@ -9,6 +9,9 @@
   - 各Selectorは複数のAtomにもとづく派生状態の一部で、Atom・他のSelectorを受け取る純粋な関数として定義する
   - これらの単位をHooks APIで操作しながら状態管理を行うのがRecoil
 
+
+recoilより、[Jotai](./hooks/jotai.md)のほうがよさそう
+
 ## References
 - [recoil](https://recoiljs.org/)
 - [github](https://github.com/facebookexperimental/Recoil)
