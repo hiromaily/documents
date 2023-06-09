@@ -34,3 +34,13 @@
 - ~~見た目の制御もローカルな状態管理である`useState`, `useRef`などもなるべく利用しない~~
 
 ## Flux アーキテクチャ
+
+
+## WIP: トップダウン型とボトムアップ型
+- [トップダウン型の状態管理 (#Redux #Zustand )と比較して知るボトムアップ型の状態管理 (#Recoil #Jotai )](https://zenn.dev/jotaifriends/articles/d714f9c16c1d3a)
+
+- トップダウン型 ... Redux, Zustand
+  - 親のコンポーネントから何かの値が子のコンポーネントへ渡されるこの形をトップダウン
+  - useState()やContext APIを使ったflowなど
+  - 例えば末端のコンポーネントで扱う必要のあるStateもトップに位置する1つの巨大なState、Store、に含めて扱う
+- ボトムアップ型 ... Recoil, Jotai

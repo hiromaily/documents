@@ -1,4 +1,4 @@
-# Front-end Architecture
+# Frontend Architecture
 
 ## Architecture
 - Model-View-Controller (MVC)
