@@ -1,5 +1,11 @@
 # Flux
-FluxはReactと組み合わせて使われるSPA構築のためのアプリケーション・アーキテクチャで、コンポーネント間のデータとアクションの一方向の流れを重視するもの
+FluxはReactと組み合わせて使われるSPA構築のためのアプリケーション・アーキテクチャで、コンポーネント間のデータとアクションの一方向の流れを重視するもの  
+
+公式サイトには、
+```
+The Flux project has been archived and no further changes will be made. We recommend using modern alternatives like Redux, MobX, Recoil, Zustand, or Jotai instead.
+```
+とあるため、Reduxなどのアーキテクチャーを参考にしたほうがいい。
 
 ## References
 - [Official](https://facebookarchive.github.io/flux/)
@@ -47,9 +53,25 @@ FluxはReactと組み合わせて使われるSPA構築のためのアプリケ�
 - Storeが更新されると`changeイベント`が発行され、その結果、そのEventをListenしているViewが再レンダリングされる
 - `Web API Call`は`Action Creators`で行われる
 
-## 単方向のデータフロー
+## 単方向のデータフロー (Unidirectional data flow)
 - 更新するビューの流れは単一方向となる
 ```mermaid
 flowchart LR
   A[Action Creator] --> D[Dispatcher] --> S[Store] --> V[View]
 ```
+
+### Store Reads
+
+### Store Writes in synchronous actions
+
+### Store Writes in asynchronous actions
+
+
+## Pros
+- Fluxアーキテクチャは、ViewがDomain Storeに直接マッピングされないようなアプリケーションにより適している
+- これは、Viewが多くのストアを更新するActionを作成でき、Storeが多くのViewを更新する変更をトリガーできる場合
+- Actionを永続化し、再生することができる
+
+## Cons
+- Fluxは、各Viewが1つのStoreにマッピングされるようなアプリケーションに不必要な複雑さを加える可能性がある
+- このようなアプリケーションでは、ViewとStoreの分離で十分
