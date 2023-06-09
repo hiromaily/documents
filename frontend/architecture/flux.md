@@ -41,3 +41,15 @@ FluxはReactと組み合わせて使われるSPA構築のためのアプリケ�
 - ActionはそのActionの種類を示す`type`プロパティがある
 - ActionオブジェクトはApplication内の至る所で使われるため、immutableにしておく
 - Actionを作成し、Dispatchする関数を`Action Creators`と呼ぶ
+
+#### Web API Call
+- UIを更新するためにWeb `API Call`を行う場合、`Web API Call`に続いてStoreを更新するActionが発生する
+- Storeが更新されると`changeイベント`が発行され、その結果、そのEventをListenしているViewが再レンダリングされる
+- `Web API Call`は`Action Creators`で行われる
+
+## 単方向のデータフロー
+- 更新するビューの流れは単一方向となる
+```mermaid
+flowchart LR
+  A[Action Creator] --> D[Dispatcher] --> S[Store] --> V[View]
+```
