@@ -12,6 +12,7 @@ Featuresには、
 ## References
 - [Official](https://jotai.org/)
 - [github](https://github.com/pmndrs/jotai)
+- [React の状態管理ライブラリ9選](https://zenn.dev/kazukix/articles/react-state-management-libraries)
 
 ## Core
 ### [atom](https://jotai.org/docs/core/atom)

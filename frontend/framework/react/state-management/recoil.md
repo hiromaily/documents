@@ -10,7 +10,7 @@
   - これらの単位をHooks APIで操作しながら状態管理を行うのがRecoil
 
 
-recoilより、[Jotai](./hooks/jotai.md)のほうがよさそう
+recoilより、[Jotai](./jotai.md)のほうがよさそう
 
 ## References
 - [recoil](https://recoiljs.org/)
