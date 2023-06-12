@@ -12,7 +12,12 @@ Featuresには、
 ## References
 - [Official](https://jotai.org/)
 - [github](https://github.com/pmndrs/jotai)
+  - [examples](https://github.com/pmndrs/jotai/tree/main/examples)
+  - [jotaiの様々なlibrary](https://github.com/jotaijs)
+- [You Might Not Need React Query for Jotai](https://blog.axlight.com/posts/you-might-not-need-react-query-for-jotai/)
 - [React の状態管理ライブラリ9選](https://zenn.dev/kazukix/articles/react-state-management-libraries)
+- [jotaiをさわってみた](https://chaika.hatenablog.com/entry/2023/03/11/073000)
+- [jotai Provider](https://chaika.hatenablog.com/entry/2023/03/11/111100)
 
 ## Core
 ### [atom](https://jotai.org/docs/core/atom)
@@ -82,10 +87,20 @@ const Root = () => (
 ### [SSR](https://jotai.org/docs/utilities/ssr)
 
 ### [Async](https://jotai.org/docs/utilities/async)
+- 全てのatomは非同期読み出しや非同期書き込みをサポートしている
+- asyncの使い方は[こちら](https://jotai.org/docs/guides/async)
+#### lodable
+- 非同期atomのsuspendやerror throwを望まない場合、`lodable` を使う。atomをwrapするのみ。
+
+#### atomWithObservable
+- `atomWithObservable` function は `rxjs`の`subject`もしくは`obsrvable`から atomを生成する
 
 ### [Resettable](https://jotai.org/docs/utilities/resettable)
 
 ### [Family](https://jotai.org/docs/utilities/family)
+
+
+## [大きなオブジェクト](https://jotai.org/docs/recipes/large-objects)
 
 ## [Comparison](https://jotai.org/docs/basics/comparison)
 以下が比較対象として言及されており(つまり以下とアプローチは違えど目的が同じ)、Recoildの影響も受けている
