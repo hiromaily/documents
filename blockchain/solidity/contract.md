@@ -13,8 +13,8 @@
 
 - [Calling smart contract functions using web3.js - call() vs send()](https://bitsofco.de/calling-smart-contract-functions-using-web3-js-call-vs-send/)
 
-- 状態の変わる function の呼び出しには、`call()`
-- 状態の変わらない function の呼び出しには、`send()`
+- 状態の変わる function の呼び出しには、`send()`
+- 状態の変わらない function の呼び出しには、`call()`
 
 ### Typescript Sample using Web3
 

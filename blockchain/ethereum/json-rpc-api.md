@@ -100,7 +100,7 @@ web3.eth.getTransactionReceipt(txHash, (error, receipt) => {
 ```
 
 ## [eth_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber)
-- これには、slotが含まれていない。Block HeightからどうやってSlotを取得する？
+- WIP: これには、slotが含まれていない。Block HeightからどうやってSlotを取得する？
 ```
 // Request
 curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":["0x108f81f", true],"id":1}' https://rpc.ankr.com/eth/xxx
@@ -108,5 +108,54 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":[
 
 ```
 
-## [eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat)
-WIP:
+## [WIP: eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat)
+
+
+## [eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call)
+- [`eth_call`を使ってコマンドラインから呼び出す方法](../solidity/contract.md#eth_callを使ってコマンドラインから呼び出す方法)
+
+### Parameters
+1. Transaction call object
+- to: 
+  - txのreceiver (実行するcontractのアドレス)
+- data: 
+  - function selectorと、エンコードされたパラメータ
+- from (optional): 
+  - txのsender address
+- gas (optional):
+  - `eth_call`はガスを消費しないが、実行によってはこのパラメータが必要な場合がある
+- gasPrice (optional):
+  - ガスの支払いに使われるgasPrice
+- value (optional):
+  - このトランザクションで送信される値の整数値
+1. Quantity|TAG
+- block number, もしくは、`latest`, `earliest`, `pending`
+
+## [eth_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas)
+- [docs from alchemy](https://docs.alchemy.com/reference/eth-estimategas)
+
+Transactionを完了させるために必要なガスの量の見積もりを生成して返す.
+EVMの仕組みやノードの性能など様々な理由により、推定値は実際に取引で使用されたガス量よりも大幅に多くなる可能性がある。
+
+### Parameters
+eth_callと同じだが、dataもoptionalとなる。
+
+### wagmiによる実行
+```ts
+import { useContract } from 'wagmi'
+
+const tokenContract = useContract({
+  address: token?.address ?? AddressZero,
+  abi: erc20ABI,
+  signerOrProvider: signer,
+})
+
+const estimatedGas = await tokenContract.estimateGas.approve(spender as Address, MaxUint256).catch(() => {
+  // General fallback for tokens who restrict approval amounts
+  useExact = true
+  return tokenContract.estimateGas.approve(
+    spender as Address,
+    BigNumber.from(amountToApprove.quotient.toString())
+  )
+})
+```
