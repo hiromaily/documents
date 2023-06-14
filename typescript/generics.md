@@ -78,6 +78,65 @@ function changeBackgroundColor<T extends HTMLElement>(element: T) {
 }
 ```
 
+### Typescriptsの`extends`について
+- [Typescriptsの`extends`について](https://zenn.dev/nbr41to/articles/7d2e7c4e31c54c)
+
+#### interfaceを用いた型の継承（拡張）
+```ts
+interface User {
+  name: string;
+}
+
+interface Admin extends User {
+  isMaster: boolean;
+}
+// interface Admin {
+// 	name: string;
+//  isMaster: boolean;
+// }
+```
+
+#### Genericsの型を限定する
+```ts
+type User = {
+  name: string;
+  age: number;
+};
+
+const f = <T extends User>(arg: T): string => arg.name;
+```
+
+#### Conditional Typeとしてのextends
+Conditional Typeは `T extends U ? A : B` と書くことで型の条件分岐をすることができる
+
+```ts
+type A<T> = T extends string ? string : number;
+
+type B = A<string>;  // string
+type C = A<boolean>; // number
+type D = A<'hello'>; // string
+type E = A<123>;     // number
+```
+
+#### Conditional Typeとしてのextendsの中でinferを使う
+inferを使うことで型を取り出すことができる
+
+```ts
+type UserA = {
+  name: string;
+  role: 'admin' | 'user'; // ここの型を抽出する
+};
+type UserB = {
+  name: string;
+  age:number
+};
+
+type A<T> = T extends { role: infer U } ? U : null;
+
+type B = A<UserA>; // "admin" | "user" 抽出された
+type C = A<UserB>; // null
+```
+
 ## References
 - [Typescript Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 - [Typescript Deep Dive 日本語版 ジェネリック型](https://typescript-jp.gitbook.io/deep-dive/type-system/generics)
