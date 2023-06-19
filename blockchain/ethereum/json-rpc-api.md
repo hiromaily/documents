@@ -159,3 +159,8 @@ const estimatedGas = await tokenContract.estimateGas.approve(spender as Address,
   )
 })
 ```
+
+## [eth_getCode](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getcode)
+- [docs from alchemy](https://docs.alchemy.com/reference/eth-getcode)
+
+特定のアドレスのコードを返す。contractのアドレスを渡した場合、smart contractのbytecodeが取得できる。
