@@ -109,6 +109,125 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":[
 ```
 
 ## [WIP: eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat)
+コントラクトの特定のストレージ位置に保存されている値を取得できるため、コントラクトの状態変数に直接アクセスして検査したい場合に便利
+
+### Parameters
+- data: storageのaddress
+- quantity: storage内のposition(index) (integer)
+- quantity: block number もしくは、`latest`, `earliest`, `pending`といったタグ
+
+[eth_getStorageAtの例](http://man.hubwiz.com/docset/Ethereum.docset/Contents/Resources/Documents/eth_getStorageAt.html)
+### どうやって storage positionを算出するか？
+#### 1.Solidity storage layout の理解
+Solidity はState変数をコントラクトのストレージに密集して格納する。各State変数は、そのタイプとサイズに応じて、1 つまたは複数のストレージ スロットを占有する。
+
+- ストレージはState変数の値を保持するkey/valueのようなデータ構造
+- ストレージを配列として考えるとわかりやすい
+- 各スペースはSlotとヤバれ、32byte(256bit)のデータを保持する
+- 配列の最大超は2^256-1
+- Contract内の宣言された各State変数はその宣言位置と型に応じてSlotを占有する
+- 以下は例
+```sol
+contract StorageLayout {
+  uint256 public id = 543; //Slot Index:0   
+  uint256 public count;
+  address public owner;
+  // 以下はイメージ
+  // storage[0] = 543; // 0x000000000000000000000000000000000000000000000000000000000000021F (32byte)
+  // storage[1] = 0;
+  // storage[2] = 0x0;
+}
+```
+  - 上記の`id`はストレージのインデックス0に543を割り当てている
+  - ストレージ内のデータはすべてバイトとして保存されるため、10進数の`543`を16進数バイト形式に変換すると`021f`となり、32バイトにパディングされる
+  - web3.jsを使った例
+```js
+// value = 0x000000000000000000000000000000000000000000000000000000000000021f
+const value = await web3.eth.getStorageAt("0x8Aa5C5B74F35a1cB01631bCA24D995d369670E60", 0)
+
+// decode
+await web3.eth.abi.decodeParameter("uint256", value)
+
+```
+- `文字列型`の場合、ゼロ値は空の文字列として表現される
+- `アドレス型`の場合、値はゼロアドレス0x000000000000000000、40個のゼロ、または20個の空のバイトとして表現される
+- `uint256`の場合は、バイトで表すと64個のゼロ
+- `bool型`の場合、ゼロ値は`false`となり、0x00、1バイト長
+- ストレージ内の値はすべてABIエンコードされて保存され、その変数を使用して値を取り出すときに自動的にデコードされる
+- では、32バイト未満の型のステート変数を宣言した場合はどうなるのか？
+
+| Variable type | Size in bytes |
+| ------------- | ------------- |
+|  uint8        |  1 byte       |
+|  uint16       |  2 bytes      |
+|  uint32       |  4 bytes      |
+|  uint64       |  8 bytes      |
+|  uint128      |  16 bytes     |
+|  uint256      |  32 bytes     |
+|  bool         |  1 bytes      |
+|  byte1        |  1 bytes      |
+|  byte2        |  2 bytes      |
+|  byte32       |  32 bytes     |
+|  address      |  20 bytes     |
+
+- 次の例
+```sol
+contract StorageLayout {
+  uint64 public value1 = 1;
+  uint64 public value2 = 2;
+  uint64 public value3 = 3;
+  uint64 public value4 = 4;
+  uint256 public value5 = 5;
+}
+```
+  - slot index:0 を呼び出す
+```js
+// value = 0x04000000000000000300000000000000020000000000000001
+const value = await web3.eth.getStorageAt("0x9168fBa74ADA0EB1DA81b8E9AeB88b083b42eBB4", 0)
+```
+  - 右から左へ、最初に宣言された変数が一番右のバイトを占めている
+
+- 次の例。8byte, 32byte, 8byteと宣言したらどうなる？
+```sol
+contract StorageLayout {
+  uint64 public value1 = 1;
+  uint256 public value2 = 2;
+  uint64 public value3 = 3;
+}
+```
+```js
+// 0x0000000000000000000000000000000000000000000000000000000000000001
+web3.eth.getStorageAt("0x8eDf01e48279a8b59dcCDe6D06Df8A002a2132e0", 0)
+// 0x0000000000000000000000000000000000000000000000000000000000000002
+web3.eth.getStorageAt("0x8eDf01e48279a8b59dcCDe6D06Df8A002a2132e0", 1)
+// 0x0000000000000000000000000000000000000000000000000000000000000003
+web3.eth.getStorageAt("0x8eDf01e48279a8b59dcCDe6D06Df8A002a2132e0", 2)
+```
+
+#### Reference
+- [ストレージ内の状態変数のレイアウト](https://solidity-ja.readthedocs.io/ja/latest/internals/layout_in_storage.html)
+- [Solidity layout and access of storage state variables simply explained](https://coinsbench.com/solidity-layout-and-access-of-storage-variables-simply-explained-1ce964d7c738)
+- [What is Smart Contract Storage Layout?](https://docs.alchemy.com/docs/smart-contract-storage-layout)
+
+#### 2. Storage Positionを計算する
+Solidityにおける配列の格納位置は、配列の最初の要素の格納位置によって決定される。格納位置は、要素のインデックスにスロットサイズを掛けることで得られる。配列のような動的なサイズの型では、スロットサイズは 32 バイトとなる。
+
+```js
+const slotIndex = web3.utils.keccak256('chainPaths'); // Calculate the slot index
+const slotSize = 32; // Slot size in bytes
+const index = 1; // Index of the element you want to retrieve
+
+const storagePosition = web3.utils.toHex(web3.utils.toBN(slotIndex).add(web3.utils.toBN(index).mul(web3.utils.toBN(slotSize))));
+
+web3.eth.getStorageAt(contractAddress, storagePosition, blockNumber)
+  .then((result) => {
+    console.log(`Storage value at position ${storagePosition}: ${result}`);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+```
+
 
 
 ## [eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call)
