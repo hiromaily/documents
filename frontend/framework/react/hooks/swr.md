@@ -59,7 +59,7 @@ SWRでは、データを自動的にre-fetchするoptionがある
 - 例として、同じページを異なるtabで開き、一方で変更したデータをもう一方のページ側でもfocusをトリガーとして反映させる。
 - 複数のデバイス間によるデータ同期の例では、モバイル側でデータを更新し(サーバー側のDBに変更が入る)ページ情報が更新されたとき、PC側で表示されているページでも最新情報をfetchすることで更新されることになる。
 
-### タイミング１: Pageがfucusによりactiveになる
+### タイミング１: Pageがfocusによりactiveになる
 - Hookに関連づけられたコンポーネントが画面上にある場合にのみre-fetchが行われる。
 - この機能は、 `revalidateOnFocus` optionでdefaultで有効
 
@@ -74,7 +74,10 @@ useSWR('/api/todos', fetcher, { refreshInterval: 1000 })
 - この機能は、`revalidateOnReconnect` optionでdefaultで有効
 
 ### その他のタイミング
-- 関連optionとしては、`refreshWhenHidden`や`refreshWhenOffline`がある
+- `refreshWhenHidden` (default: false)
+  - ウィンドウが非表示の場合にポーリングする（refreshInterval が有効になっているときのみ）
+- `refreshWhenOffline` (default: false)
+  - ブラウザがオフラインのときにポーリングします（navigator.onLine によって決定される）
 
 ### この機能を無効化するには？
 - `useSWRImmutable`を使う
@@ -528,6 +531,30 @@ function App() {
 }
 ```
 
+## [Performance](https://swr.vercel.app/docs/advanced/performance)
+
+### Deduplication 重複排除
+- useSWRを複数定義していても、同じkeyであれば重複リクエストは行わない
+- `dedupingInterval = 2000` option: この期間内に同じキーを持つ重複排除リクエスト (ミリ秒単位)
+
+### Deep Comparison
+- SWR はデフォルトでデータの変更を詳細に比較し、データ値が変更されていない場合、再レンダリングはトリガーされない
+- 動作を変更したい場合は、比較オプションを使用して`compare` optionをカスタマイズすることもできる
+  - たとえば、一部の API 応答は、データ差分から除外したいサーバータイムスタンプを返すなど
+
+### Dependency Collection
+以下は AとBでレンダリング回数が異なる。取得する値が多いと、それだけレンダリング回数も増えるので要注意
+```tsx
+// A: レンダリングは少ない
+const { data } = useSWR('/api', fetcher)
+
+// B: レンダリングが多くなる
+const { data, error, isValidating } = useSWR('/api', fetcher)
+```
+
+## DevTools
+- [SWR DevTools](https://swr-devtools.vercel.app/)というBrowserのExtensionによって、keyごとのcache情報を確認できる
+
 ## WIP: ここから下の情報は更新が必要
 
 ## 特徴
@@ -540,27 +567,6 @@ function App() {
 - エラーが発生しても自動で再取得を行う (`shouldRetryOnError: true`の設定が必要)
 - useSWR()の戻り値の `mutate` はキャッシュされたデータを更新する関数となる
 
-
-## Dependency Collection
-- [依存関係のコレクション](https://swr.vercel.app/ja/docs/advanced/performance#%E4%BE%9D%E5%AD%98%E9%96%A2%E4%BF%82%E3%81%AE%E3%82%B3%E3%83%AC%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3)
-
-以下は AとBでレンダリング回数が異なる。取得する値が多いと、それだけレンダリング回数も増えるので要注意
-```tsx
-// A: レンダリングは少ない
-const { data } = useSWR('/api', fetcher)
-
-// B: レンダリングが多くなる
-const { data, error, isValidating } = useSWR('/api', fetcher)
-```
-
-##  [Options](https://swr.vercel.app/docs/options#options)
-- 再検証やポーリングに伴う設定が多い
-- リクエスト終了後のcallbackもある
-
-- `revalidateOnFocus: true`
-  - ブラウザのウィンドウがフォーカスされたときに自動で再取得する
-- `revalidateOnReconnect: true`
-  - ネットワーク接続が切れて、回復したときに自動的に再取得する
 
 ## Sample Code
 ```tsx
