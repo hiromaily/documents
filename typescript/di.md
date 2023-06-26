@@ -1,5 +1,8 @@
 # Dependency Injection (DI)
 
+- [Dependency Injection /Services pattern for React (inspired by Angular)](https://dev.to/dansolhan/simple-dependency-injection-functionality-for-react-518j)
+- [TypeScriptのDIとTsyringeについて](https://zenn.dev/chida/articles/1f7df8f2beb6b6)
+
 ## React内におけるパターン
 ### `Props`を使う
   - これは環境に合わせて、異なる`TodoService`を挿入することを想定している
