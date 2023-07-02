@@ -137,18 +137,21 @@ const Root = () => (
 ## Guides
 - v2 API migration
 - TypeScript
-- [Next.js](https://jotai.org/docs/guides/nextjs)
 - Gatsby
 - Remix
 - React Native
 - Debugging
 - Performance
 - Testing
-- Core internals
 - Composing atoms
 - Atoms in atom
 - Initializing state on render
 - Persistence
+
+### [Next.js](https://jotai.org/docs/guides/nextjs)
+
+### [Core internals](https://jotai.org/docs/guides/core-internals)
+
 
 ## Recipes
 ### [WIP: Large objects](https://jotai.org/docs/recipes/large-objects)
@@ -157,6 +160,55 @@ const Root = () => (
 
 ### [Custom useAtom hooks](https://jotai.org/docs/recipes/custom-useatom-hooks)
 
+
+## 使い方サンプル
+- atomを定義
+```ts
+// atoms.ts
+import { atom } from 'jotai';
+
+export const input1Atom = atom('');
+export const input2Atom = atom('');
+export const input3Atom = atom('');
+export const input4Atom = atom('');
+```
+- atomの値を使って計算するfunction
+```ts
+// centralFunction.ts (これもatom)
+import { atom } from 'jotai';
+import { input1Atom, input2Atom, input3Atom, input4Atom } from './atoms';
+
+export const centralFunction = atom(
+  get => {
+    const input1 = get(input1Atom);
+    const input2 = get(input2Atom);
+    const input3 = get(input3Atom);
+    const input4 = get(input4Atom);
+    // Perform the desired action using the input values
+    console.log(input1, input2, input3, input4);
+  }
+);
+```
+- コンポーネント1の例
+```tsx
+// Component1.tsx
+import { useAtom } from 'jotai';
+import { input1Atom, centralFunction } from './atoms';
+
+const Component1 = () => {
+  const [input1, setInput1] = useAtom(input1Atom);
+  const [, triggerCentralFunction] = useAtom(centralFunction);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setInput1(event.target.value);
+    triggerCentralFunction();
+  };
+
+  return <input type="text" value={input1} onChange={handleChange} />;
+};
+
+export default Component1;
+```
 
 ## 既存の`useState`を置き換えるだけで、グローバルなステートにできる
 
