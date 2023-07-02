@@ -13,11 +13,13 @@ Featuresには、
 - [Official](https://jotai.org/)
 - [github](https://github.com/pmndrs/jotai)
   - [examples](https://github.com/pmndrs/jotai/tree/main/examples)
-  - [jotaiの様々なlibrary](https://github.com/jotaijs)
 - [You Might Not Need React Query for Jotai](https://blog.axlight.com/posts/you-might-not-need-react-query-for-jotai/)
 - [React の状態管理ライブラリ9選](https://zenn.dev/kazukix/articles/react-state-management-libraries)
 - [jotaiをさわってみた](https://chaika.hatenablog.com/entry/2023/03/11/073000)
 - [jotai Provider](https://chaika.hatenablog.com/entry/2023/03/11/111100)
+
+## [Jotaiの様々なLibrary](https://github.com/jotaijs)
+
 
 ## Core
 ### [atom](https://jotai.org/docs/core/atom)
@@ -40,7 +42,7 @@ Featuresには、
 - `useAtom`内でもメモ化は必要で、`useMemo`等を使うこと
 
 ### [Store](https://jotai.org/docs/core/store)
-- `createStore()`によってStoreを作成し、Provider内で渡されるような使い方ができるで利用する
+- `createStore()`によってStoreを作成し、Provider内で使われる
 - storeの持つメソッド
   - `get` ... atomのvalueを取得
   - `set` ... atomのvalueをセット
@@ -99,16 +101,62 @@ const Root = () => (
 
 ### [Family](https://jotai.org/docs/utilities/family)
 
+## Integrations
+- tRPC
+- URQL
+- Immer
+- XState
+- Location
+- Mokecules
+- Optics
 
-## [大きなオブジェクト](https://jotai.org/docs/recipes/large-objects)
+### [Query](https://jotai.org/docs/integrations/query)
+### [Cache](https://jotai.org/docs/integrations/cache)
+- [jotai-cache](https://github.com/jotaijs/jotai-cache)
+- `atomWithCache`を使う
 
-## [Comparison](https://jotai.org/docs/basics/comparison)
+## Tools
+### [SWC](https://jotai.org/docs/tools/swc)
+### Babeel
+### [Devtools](https://jotai.org/docs/tools/devtools)
+
+## Bacics
+### Concepts
+
+### [Comparison](https://jotai.org/docs/basics/comparison)
 以下が比較対象として言及されており(つまり以下とアプローチは違えど目的が同じ)、Recoildの影響も受けている
 - useContext + useState
 - [use-context-selector](https://github.com/dai-shi/use-context-selector)
 
 `Jotai takes a bottom-up approach with the atomic model, inspired by Recoil.`
 とある。
+
+### [Showcase](https://jotai.org/docs/basics/showcase) (example)
+
+
+## Guides
+- v2 API migration
+- TypeScript
+- [Next.js](https://jotai.org/docs/guides/nextjs)
+- Gatsby
+- Remix
+- React Native
+- Debugging
+- Performance
+- Testing
+- Core internals
+- Composing atoms
+- Atoms in atom
+- Initializing state on render
+- Persistence
+
+## Recipes
+### [WIP: Large objects](https://jotai.org/docs/recipes/large-objects)
+
+### Atom creators
+
+### [Custom useAtom hooks](https://jotai.org/docs/recipes/custom-useatom-hooks)
+
 
 ## 既存の`useState`を置き換えるだけで、グローバルなステートにできる
 
