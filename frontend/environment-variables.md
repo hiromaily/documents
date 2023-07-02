@@ -1,10 +1,94 @@
 # Environment Variables
 
+- Node.js上では、JavaScriptのコードからprocess.envオブジェクトにアクセスすることによって、環境変数を読み取ることができるが、クライアント側つまり、ブラウザで実行中のJavaScriptでは、`process`という名前空間は定義されていない。
+- クライアント側でも利用する場合は、`webpack`などのバンドラーによって値を注入することで読み込むことができる。
+- そのため、環境変数にシークレット情報を使うとコード内に埋め込まれてしまう危険性がある。
+
 ## 環境変数を取り扱う方法
 - `.env`ファイルを使う
   - `.env.development`, `env.production`といったファイルに環境ごとに作る。Reactで実行したときに、開発環境では、`.env.development`が優先される
-  - [Next.js](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables)を使う場合、defaultで環境変数を取り扱うことができる。
-  - これはバンドルツールなどによってビルド時に置換が内部的に発生することによって、環境変数が使える
 
 ## アクセス方法
 - コード内では、`process.env.ENV_NAME`でアクセスする
+
+## React
+[Adding Custom Environment Variables](https://create-react-app.dev/docs/adding-custom-environment-variables/)
+
+- デフォルトでは、`NODE_ENV`と、`REACT_APP_`で始まるその他の環境変数が定義されている
+- 環境変数はビルド時に埋め込まれる
+- `Create React App` (つまり開発環境)は静的なHTML/CSS/JSバンドルを生成するため、実行時にこれらを読み込むことはできない
+- 実行時にこれらを読み込むには、[Injecting Data from the Server into the Page](https://create-react-app.dev/docs/title-and-meta-tags/#injecting-data-from-the-server-into-the-page)の通り、サーバー上のメモリにHTMLをロードし、実行時にプレースホルダを置き換える必要がある。あるいは、変更するたびにサーバー上でアプリを再構築することもできる。
+- `REACT_APP_`で始まるカスタム環境変数を作成する必要がある。
+- `NODE_ENV`以外の変数は無視される
+- 環境変数を変更すると、開発サーバーが実行されている場合は再起動する必要がある
+- これらの環境変数は、process.envで定義される
+
+### NODE_ENVの挙動
+- `npm start`を実行すると常に`'development'`
+- `npm test`を実行すると常に`'test'`
+- `npm run build`を実行してproductionバンドルを作成すると常に`'production'`
+- NODE_ENVを手動で上書きすることはできない
+- 起動時に一時的に設定することも可能
+  - `REACT_APP_NOT_SECRET_CODE=abcdef && npm start`
+
+### `.env`ファイルの種類
+- .`env`: デフォルト
+- `.env.local`: ローカル・オーバーライド。このファイルはtest以外のすべての環境で読み込まれる
+- `.env.development`、`.env.test`、`.env.production`: 環境固有の設定
+- `.env.development.local`、`.env.test.local`、`.env.production.local`: 環境固有の設定をローカルでオーバーライドする
+
+## Next.js
+- [Next.js 環境変数](https://nextjs.org/docs/pages/building-your-application/configuring/environment-variables)
+- [Next.js: 環境変数(ja)](https://nextjs-ja-translation-docs.vercel.app/docs/basic-features/environment-variables)
+
+- `.env.local` を使用して環境変数をロードする
+- `NEXT_PUBLIC_` prefix を用いてブラウザに環境変数を公開する
+- Node.js環境では、通常の名前で環境変数を使うことができる
+```
+DB_HOST=localhost
+DB_USER=myuser
+DB_PASS=password
+```
+
+```js
+export async function getStaticProps() {.
+  const  db  = await myDB.connect({)
+    host: process.env.DB_HOST、
+    username: process.env.DB_USER、
+    password: process.env.DB_PASS、
+ })
+  // ...
+}
+```
+
+- ブラウザから環境変数の値にアクセスできるようにするために、Next.jsはビルド時に、クライアントに配信されるjsバンドルに値を挿入し、process.env.VARIABLEへの参照をすべてハードコードされた値に置き換えることができる
+- これを行うには、変数の前に`NEXT_PUBLIC_`を付ける
+```
+NEXT_PUBLIC_ANALYTICS_ID=abcdefghijk
+```
+- ビルド後、環境変数を変更してもAppは検知しない
+- ただし、注意すべき点として、`動的検索`はインライン化されない
+```js
+// 変数を使用しているため、インライン化されません。
+const varName  = 'NEXT_PUBLIC_ANALYTICS_ID'
+setupAnalyticsService(process.env[varName])
+ 
+// 変数を使用しているため、インライン化されません。
+const env  = process.env
+setupAnalyticsService(env.NEXT_PUBLIC_ANALYTICS_ID)
+```
+- 環境変数`NODE_ENV`が割り当てられていない場合、Next.jsは`dev`コマンドの実行時に自動的に`development`を割り当てる
+
+### Test環境について
+- 開発環境と本番環境とは別に、3番目のオプションとして`test`がある
+- 開発環境や本番環境にデフォルトを設定できるのと同じように、テスト環境用の`.env.test`ファイルでも同じことができる
+- Next.jsは、テスト環境で`.env.development`や `.env.production`から環境変数を読み込まない
+- `NODE_ENV`が`test` に設定されている場合は、テストのデフォルト値が読み込まれるが、これはテストツールが対応してくれるので、通常は手動で設定する必要はない
+- `.env.local`もTest環境では読み込まれない
+
+### 環境変数のロード順序
+1. process.env
+2. .env.$(NODE_ENV).local
+3. .env.local (test環境は除く)
+4. .env.$(NODE_ENV)
+5. .env
