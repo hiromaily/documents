@@ -6,48 +6,22 @@ The React Framework for Production
 - [Docs](https://nextjs.org/docs/getting-started)
 - [Docs (ja)](https://nextjs-ja-translation-docs.vercel.app/docs/getting-started)
 
-## Next.js 13
+## System Requirements
 
-- [Next.js 13 Blog](https://nextjs.org/blog/next-13)
+- Node.js 16.8 or later
 
-- `app/` Directory (beta): Easier, faster, less client JS.
-  - Layouts
-  - React Server Components
-  - Streaming
-- Turbopack (alpha): Up to 700x faster Rust-based Webpack replacement.
-- `next/image` (stable): Faster with native browser lazy loading.
-- `@next/font` (beta): Automatic self-hosted fonts with zero layout shift.
-- `next/link`: Simplified API with automatic <a>.
+## Building Application
 
-## [Top-level folder 構成](https://nextjs.org/docs/getting-started/project-structure#top-level-folders)
+- [Routing](./routing.md)
+- [Rendering](./rendering.md)
+- [Data Fetching](./data-fetching.md)
+- [Styling](https://nextjs.org/docs/pages/building-your-application/styling)
+- [Optimizing](./optimizations.md)
+- [Configuring](https://nextjs.org/docs/pages/building-your-application/configuring)
+- [Deploying](https://nextjs.org/docs/pages/building-your-application/deploying)
+- [Upgrading](https://nextjs.org/docs/pages/building-your-application/upgrading)
 
-- app: App Router
-- pages: Pages Router
-- public: Static assets to be servd
-- src: Optional appliation source folder
-
-### [`app` Routing Conventions](https://nextjs.org/docs/getting-started/project-structure#app-routing-conventions)
-
-#### Routing Files
-
-- layout file
-- page file
-- loading file
-- not-found file
-- error file
-- global-error file
-- route file
-- template file
-- default
-
-#### Nexted Routes
-
-- folder
-- folder / folder
-
-## app ディレクトリと pages ディレクトリの違い
-
-## Functionality 機能
+## Functionality / 機能
 
 ### Image Component and Image Optimization
 
