@@ -1,7 +1,7 @@
 # Routing
 
-[Routing Fundamentals](https://nextjs.org/docs/app/building-your-application/routing)
-
+- [Routing Fundamentals](https://nextjs.org/docs/app/building-your-application/routing)
+- [Working with the app directory in Next.js 13](https://blog.logrocket.com/next-js-13-app-directory/)
 - Next.js は`file-system routing`を採用している
 
 ## app ディレクトリと pages ディレクトリの違い
