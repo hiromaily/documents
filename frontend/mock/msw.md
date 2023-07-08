@@ -1,7 +1,9 @@
 # Mock Service Worker (MSW)
-- Service Worker APIを使ったMockingライブラリで、実際のリクエストをインターセプトする
+
+- Service Worker API を使った Mocking ライブラリで、実際のリクエストをインターセプトする
 
 ## References
+
 - [Official](https://mswjs.io/)
 - [Docs](https://mswjs.io/docs/getting-started/install)
 - [github](https://github.com/mswjs/msw): Star: 10.5K, 2018/11 created
@@ -18,43 +20,46 @@
 - `REST`や`GraphQL`の API に対応
 
 ## 動作していることの確認
-ブラウザのconsoleに以下のメッセージ表示される
+
+ブラウザの console に以下のメッセージ表示される
+
 ```
 > [MSW] Mocking enabled
 ```
 
-## Jestを使ったUnittest内での利用について
+## Jest を使った Unittest 内での利用について
+
 - [integrate/node](https://mswjs.io/docs/getting-started/integrate/node)
-- Test時には、test runnerとしてJestを利用している
+- Test 時には、test runner として Jest を利用している
 - [Direct usage](https://mswjs.io/docs/getting-started/integrate/node#direct-usage)にある通り、
   - Jest の jsdom のような DOM のような環境がない場合、`NodeJS では絶対リクエスト URL を使用する必要がある`ことに注意してください。これはリクエスト ハンドラーに反映される必要があります。
-```
 
 ```js
 export const server = setupServer(
   // NOT "/user", nothing to be relative to!
   rest.get('https://api.backend.dev/user', (req, res, ctx) => {
-    return res(ctx.json({ firstName: 'John' }))
-  }),
-)
+    return res(ctx.json({ firstName: 'John' }));
+  })
+);
 ```
 
 ```js
 // src/setupTests.js
-import { server } from './mocks/server.js'
+import { server } from './mocks/server.js';
 
 // Establish API mocking before all tests.
-beforeAll(() => server.listen())
+beforeAll(() => server.listen());
 
 // Reset any request handlers that we may add during the tests,
 // so they don't affect other tests.
-afterEach(() => server.resetHandlers())
+afterEach(() => server.resetHandlers());
 
 // Clean up after the tests are finished.
-afterAll(() => server.close())
+afterAll(() => server.close());
 ```
 
 ## 不具合
+
 ### Next.js 13 の App directory で動かない問題
 
 - [Support Next.js 13 (App directory) ](https://github.com/mswjs/msw/issues/1644)
