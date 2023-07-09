@@ -1,5 +1,6 @@
-# keyof型演算子
-keyofはオブジェクト型からプロパティ名を型として返す型演算子
+# keyof 型演算子
+
+keyof はオブジェクト型からプロパティ名を型として返す型演算子
 
 ```ts
 type Book = {
@@ -9,27 +10,29 @@ type Book = {
 };
 type BookKey = keyof Book;
 // 上は次と同じ意味になる
-type BookKey = "title" | "price" | "rating";
+type BookKey = 'title' | 'price' | 'rating';
 ```
 
 ## Mapped Types
+
 `keyof`は単体で使うことより`Mapped Types`と組み合わせて使われることが多い。
 そして`Mapped Types`は主に`ユニオン型`と組み合わせて使い。
 
 ```ts
-type SystemSupportLanguage = "en" | "fr" | "it" | "es";
+type SystemSupportLanguage = 'en' | 'fr' | 'it' | 'es';
 type Butterfly = {
   [key in SystemSupportLanguage]: string;
 };
 // SystemSupportLanguage型の値のみ、keyとして設定可能
 const butterflies: Butterfly = {
-  en: "Butterfly",
-  fr: "Papillon",
-  it: "Farfalla",
-  es: "Mariposa",
-};  
+  en: 'Butterfly',
+  fr: 'Papillon',
+  it: 'Farfalla',
+  es: 'Mariposa',
+};
 ```
 
 ## References
-- [サバイバルTypescript keyof型演算子](https://typescriptbook.jp/reference/type-reuse/keyof-type-operator)
-- [サバイバルTypescript Mapped Types](https://typescriptbook.jp/reference/type-reuse/mapped-types)
+
+- [サバイバル Typescript keyof 型演算子](https://typescriptbook.jp/reference/type-reuse/keyof-type-operator)
+- [サバイバル Typescript Mapped Types](https://typescriptbook.jp/reference/type-reuse/mapped-types)

@@ -1,8 +1,8 @@
 # Types
 
+## const アサーション
 
-## constアサーション
-オブジェクトリテラルの末尾に`as const`を記述すればプロパティがreadonlyでリテラルタイプで指定した物と同等の扱いになる
+オブジェクトリテラルの末尾に`as const`を記述すればプロパティが readonly でリテラルタイプで指定した物と同等の扱いになる
 
 ```
 const movie = {
@@ -12,6 +12,47 @@ const movie = {
   height: 0.4,
   weight: 6.0,
 } as const;
+```
+
+## indexed access operator `[]`
+
+以下の`requestConfigMap`を`requestConfigMap[key]`のようにアクセスしたい場合、`requestConfigMap`内の key を`[]`で囲む必要がある
+
+```ts
+export const KEY_GET_CONFIG: string = '/get_config';
+export const KEY_GET_CONTRACTS: string = '/get_contracts';
+
+export interface RequestConfig {
+  method: string;
+  params: any;
+  fetcherFn: (url: string, method: string, params: any) => Promise<any>;
+  swrOption: any;
+}
+
+export interface RequestConfigMap {
+  [name: string]: RequestConfig;
+}
+
+// WIP: add or modify as needed
+// For now, only backendAPI is expected
+export const requestConfigMap: RequestConfigMap = {
+  [KEY_GET_CONFIG]: {
+    method: 'dummy',
+    params: [],
+    fetcherFn: jsonrpcFetcher,
+    swrOption: { refreshInterval: 5000 }, // TODO: commonalize
+  },
+  [KEY_GET_CONTRACTS]: {
+    method: 'dummy',
+    params: [],
+    fetcherFn: jsonrpcFetcher,
+    swrOption: { refreshInterval: 5000 },
+  },
+};
+
+function callSomething(key: string) {
+  requestConfigMap[key];
+}
 ```
 
 ## Type Declarations

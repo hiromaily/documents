@@ -20,3 +20,30 @@ test('should increment counter', () => {
   expect(result.current.count).toBe(1);
 });
 ```
+
+```ts
+import { renderHook, waitFor } from '@testing-library/react'
+import 'cross-fetch/polyfill'
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import { useBackendAPI } from '../useBackendAPI'; // The hook to be tested
+
+...
+
+describe("test useBackendAPI", () => {
+  it('calls get_contracts', async () => {
+    // call /get_contracts
+    const { result } = renderHook(() => useBackendAPI(KEY_GET_CONTRACTS));
+
+    await waitFor(() => {
+      expect(result.current.error).toBe(null);
+      expect(result.current.data.contracts?.length).toBe(2);
+      expect(result.current.data.contracts[0]?.chainId).toBe('0x1');
+      expect(result.current.data.contracts[0]?.contractId).toBe('0x1');
+      expect(result.current.data.contracts[0]?.contractType).toBe(2);
+      expect(result.current.data.contracts[0]?.contractName).toBe('Pool(TOKI)');
+    }, { timeout: 1000 },
+    );
+  });
+});
+```

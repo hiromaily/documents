@@ -18,3 +18,12 @@
 ## [React Test Utilities](https://ja.reactjs.org/docs/test-utils.html)
 
 - これはすでに更新が止まっているので注意
+
+## Test 環境で、fetch を使って`ReferenceError: fetch is not defined`エラーがでるケース
+
+[cross-fetch](https://www.npmjs.com/package/cross-fetch)を使って解消する
+
+```js
+import { render, screen } from '@testing-library/react';
+import 'cross-fetch/polyfill';
+```
