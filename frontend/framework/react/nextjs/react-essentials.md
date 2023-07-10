@@ -2,9 +2,9 @@
 
 [React Essentials](https://nextjs.org/docs/getting-started/react-essentials)
 
-- Next.js でアプリケーションを構築するには、React の新機能である Server Components を使いこなす必要がある
+- Next.js でアプリケーションを構築するには、React の新機能である `Server Components`` を使いこなす必要がある
 - `Server Components`と`Client Components`の違い、使うタイミング、おすすめのパターンについて
-- `Server Components`と`Client Components`と Developer は Server と Client にまたがるアプリケーションを構築でき、Client Application のリッチなインタラクティブ性と、従来の Server-Rendering の改善されたパフォーマンスを組み合わせることができる
+- `Server Components`と`Client Components`によって Developer は Server と Client にまたがるアプリケーションを構築でき、Client Application のリッチなインタラクティブ性と、従来の Server-Rendering の改善されたパフォーマンスを組み合わせることができる
 - React は、アプリケーション全体を Client-side でレンダリングする代わりに（シングルページアプリケーションの場合など）、目的に応じてコンポーネントをレンダリングする場所を柔軟に選択できる
 
 ## [Server Components](https://nextjs.org/docs/getting-started/react-essentials#server-components)
@@ -41,15 +41,15 @@ Next.js における Server Components は、パフォーマンスの向上、�
 ## [Client Components](https://nextjs.org/docs/getting-started/react-essentials#client-components)
 
 - Client Components を使うと、アプリケーションにクライアントサイドの`インタラクティブ機能`を追加できる
-- `Client Components` モジュール グラフのコンポーネントは、主にクライアントでレンダリングされるが、Next.js を使用すると、サーバーで事前にレンダリングし、クライアントでハイドレイトすることもできる
+- `Client Components` モジュール グラフのコンポーネントは、主にクライアントでレンダリングされるが、Next.js を使用すると、サーバーで事前にレンダリングし、クライアントで展開することもできる
 - Client Components は、Pages Router のコンポーネントと同じようなものだと考えることができる。
 
 ### `use client` ディレクティブ
 
-- Server と Client Components のモジュール・グラフの境界を宣言するための規約で、ファイルに`use client`が定義されると、そのファイルに import された子コンポーネントを含む他のすべてのモジュールは、`クライアントバンドルに含まれる` とみなされる。 -例えば、以下の処理を Server Component に含めるとエラーになる s
+- Server と Client Components のモジュール・グラフの境界を宣言するための規約で、ファイルに`use client`が定義されると、そのファイルに import された子コンポーネントを含む他のすべてのモジュールは、`クライアントバンドルに含まれる` とみなされる。例えば、以下の処理を Server Component に含めるとエラーになる
   - `onClick` event handler
   - `useState` import
-- 注意すべきは、`Server Components`がデフォルトであるため、適宜必要に応じて追加する必要があるということ
+- 注意すべきは、`Server Components`がデフォルトであるため、適宜必要に応じて`use client`を追加する必要があるということ
 - インポートする前にファイルの先頭で定義しなければならない
 - `use client` は、すべてのファイルで定義する必要はない。Client モジュールの境界は、インポートされたすべてのモジュールが Client Components とみなされるために、`エントリーポイント` で一度だけ定義する必要がある
 
