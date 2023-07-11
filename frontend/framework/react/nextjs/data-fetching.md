@@ -1,6 +1,101 @@
 # Data Fetching
 
-[Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching)
+- [Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching)
+- [詳細](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching)
+
+## 推奨される方法は
+
+- Server Components を使用してサーバー上のデータを取得する
+- ウォーターフォールを最小化し、読み込み時間を短縮するために、並列にデータを取得する
+- Layouts と Pages では、使用する場所でデータを fetch する。Next.js は、ツリー内のリクエストを自動的に推定する。
+- Loding UI、Streaming と Suspense を使用して、ページを徐々にレンダリングし、残りのコンテンツが読みこまれる間にユーザーに結果を表示する
+
+## fetch() API
+
+- ネイティブの`fetch()` Web API の上に構築され、Server Components の async と await を利用している
+- Next.js は Fetch option オブジェクトを拡張し、各リクエストに独自の[Cache ルール](https://nextjs.org/docs/app/building-your-application/data-fetching/caching)と再検証ルールを設定できる
+
+## Fetching Data on the Server
+
+- 可能な限り、Server Components でデータを取得することが推奨されている
+- Server Components は、常に Server 上のデータを取得する。これにより、以下のことが可能になる
+  - Backend のデータリソース（データベースなど）に直接アクセスできる
+  - アクセストークンや API キーなどの機密情報が Client に公開されないようにすることで、アプリケーションをより安全に保つことができる
+  - データの取得とレンダリングを同じ環境で行うことによって、Client と Server 間の往復通信と、Client 上のメインスレッドでの作業の両方が削減される
+  - Client への複数の個別リクエストの代わりに、1 回のラウンドトリップで複数のデータ取得を実行する
+  - Client-Server モデルのウォーターフォールを減らす
+  - Region によっては、Data fetching はデータ・ソースに近い場所で行われるため、レイテンシーが短縮され、パフォーマンスが向上する
+
+## コンポーネントレベルでのデータ取得
+
+- App Router では、`layouts`、`pages`、components 内部でデータをフェッチできる
+- データ取得は[Streaming と Suspense](https://nextjs.org/docs/app/building-your-application/data-fetching#streaming-and-suspense)にも対応している
+
+## Parallel and Sequential Data Fetching
+
+[実装方法](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching#data-fetching-patterns)
+
+### Parallel
+
+Route 内のリクエスト同時にデータを読み込むことによって、Client と Server のウォーターフォールが減り、データのロードにかかる総時間が短縮される
+
+### Sequential
+
+- Route 内のリクエストは互いに依存し、ウォーターフォールが発生する。
+- 1 つの fetch が他の fetch の結果に依存するため、あるいはリソースを節約するために次のフェッチの前に条件を満たす必要がある場合に利用する
+- これは読み込み時間の延長につながる
+
+## 自動 fetch()リクエストの推定
+
+- ツリー内の複数のコンポーネントで同じデータを fetch する必要がある場合、Next.js は同じ入力を持つ fetch request（GET）を一時キャッシュに自動的に Cache する。この最適化により、レンダリングパス中に同じデータが複数回 fetch されることを防ぐ。
+- [Pending] POST メソッドの場合の挙動は？？
+- Server 上 では、レンダリング処理が完了するまで、Cache は Server リクエストの有効期間を持続する
+  - この最適化は、`Layouts`、`Pages`、`Server Components`、`generateMetadata`、および `generateStaticParams`` で行われた fetch 要求に適用される
+  - この最適化は、[static generation](https://nextjs.org/docs/app/building-your-application/rendering#static-rendering)中にも適用される
+- Client 上では、Cache は、ページが完全にリロードされる前のセッションの間（複数のクライアント側の再レンダリングを含む可能性がある）持続する
+- fetch リクエストは自動的に推測されるが、その条件は[Caching のセクション](https://nextjs.org/docs/app/building-your-application/data-fetching/caching)にて
+
+## Static and Dynamic Data Fetching
+
+- Static Data: 頻繁に変化しないデータのこと。例えば、ブログ記事
+- Dynamic Data: 頻繁に変更されるデータのこと。例えばユーザー固有のショッピングデータなど
+
+![dynamic-and-static-data](../../../../images/nextjs-dynamic-and-static-data-fetching.png 'dynamic-and-static-data')
+
+- Default では、Next.js は自動的に`Static Fetch`を行う。つまり、データはビルド時に fetch され、cache され、リクエストごとに再利用される。開発者であれば、Static データをどのように cache し、再検証するかをコントロールできる。
+- [Static Data Fetching と Dynamic Data Fetching のデータ取得方法](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching#static-data-fetching)
+
+## Caching Data
+
+![cache](../../../../images/nextjs-caching.png 'cache')
+
+- ここでいう Cache とは、データをある CDN に保存して、リクエストのたびに元のソースから再フェッチする必要がないようにするプロセスを指す
+- Next.js Cache は、グローバルに分散可能な永続的[HTTP キャッシュ](https://developer.mozilla.org/ja/docs/Web/HTTP/Caching)
+- これは、キャッシュが自動的にスケールし、プラットフォームに応じて複数の Region で共有できることを意味する
+  - ただし、cache サーバーへのリクエストは発生する
+- Next.js は、`fetch()`の[options オブジェクト](https://developer.mozilla.org/en-US/docs/Web/API/fetch)を拡張し、サーバー上の各リクエストに独自の永続キャッシュ動作を設定できるようにしている。コンポーネントレベルのデータ取得と合わせて、データが使用されるアプリケーションコード内で直接キャッシュを設定できる。
+- Server のレンダリング中、Next.js が fetch に遭遇すると、cache をチェックしてデータがすでに利用可能かどうかを確認する。利用可能であれば、cache されたデータを返す。そうでない場合は、将来のリクエストのためにデータを fetch して保存する。
+- [cache 詳細](https://nextjs.org/docs/app/building-your-application/data-fetching/caching)
+
+## データの再検証
+
+- 再検証とは、キャッシュを削除して最新のデータを再取得するプロセス
+- 2 種類のデータの再検証が存在する
+  - Backgroujd: 特定の時間間隔でデータを再検証する
+  - On-demand: 更新があるたびにデータを再検証する
+
+## Streaming and Suspense
+
+- これらは React の新機能で、UI のレンダリングを徐々にレンダリングして Client にストリームすることができる
+- Server Components とネストされた Layouts を使用すると、特にデータを必要としないページの部分を即座にレンダリングし、データを fetch しているページの部分についてはロード状態を表示することができる
+  これにより、ユーザーはページ全体の読み込みを待たずに、ページの操作を開始することができる
+
+## Old Methods
+
+- 以前の Next.js のデータ取得のための以下メソッドは App Router ではサポートされていないが、Pages Router でのみ利用可能
+  - getServerSideProps、
+  - getStaticProps、
+  - getInitialProps
 
 ## [SWR Docs: Usage with Next.js](https://swr.vercel.app/docs/with-nextjs)
 
