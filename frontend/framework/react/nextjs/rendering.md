@@ -18,10 +18,11 @@
 - Dynamic Data Fetching
   - Static Rendering 中に、Dynamic Function または Daynamic `fetch()` リクエスト（キャッシュなし）が検出されると、Next.js はリクエスト時にルート全体を Dynamic Rendering に切り替える。
   - キャッシュされたデータリクエストは、Dynamic Rendering 中でも再利用できる
+  - cache option を`no-store`に設定するか、`revalidate`を`0`に設定した状態で`fetch()`リクエストする場合、Dynamic Data Fetching になる
+  - これは、[Route Segment Config](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config)によって設定することも可能
+  - 詳細は、[Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching)
 
 ![rendering pattern](../../../../images/nextjs-rendering-pattern.png 'rendering pattern')
-
-- データフェッチがキャッシュされるかどうかに関係なく、Dynamic function が常にルートを Dynamic Rendering にする
 
 ## Dynamic Functions
 
@@ -31,6 +32,7 @@ Dynamic Function は、User の Cookie、現在の Request Header、URL の検�
 - Client Components で `useSearchParams()` を使用すると、Dynamic Rendering をスキップし、代わりにクライアント上で最も近い parent Suspense 境界まですべての Client Components をレンダリングする。
   - `useSearchParams()`を使用する Client Components を`<Suspense/>`境界で囲むことを推奨する。こうすることで、それより先の Client Components を静的にレンダリングすることができる。
 - `searchParams` Pages prop を使用すると、リクエスト時にページが Daynamic Rendering される
+- データフェッチがキャッシュされるかどうかに関係なく、Dynamic function が常にルートを Dynamic Rendering にする
 
 ## レンダリングの種類 (この情報は古いので削除予定)
 
