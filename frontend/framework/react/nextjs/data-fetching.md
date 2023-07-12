@@ -50,7 +50,7 @@ Route 内のリクエスト同時にデータを読み込むことによって�
 - ツリー内の複数のコンポーネントで同じデータを fetch する必要がある場合、Next.js は同じ入力を持つ fetch request（GET）を一時キャッシュに自動的に Cache する。この最適化により、レンダリングパス中に同じデータが複数回 fetch されることを防ぐ。
 - [Pending] POST メソッドの場合の挙動は？？
 - Server 上 では、レンダリング処理が完了するまで、Cache は Server リクエストの有効期間を持続する
-  - この最適化は、`Layouts`、`Pages`、`Server Components`、`generateMetadata`、および `generateStaticParams`` で行われた fetch 要求に適用される
+  - この最適化は、`Layouts`、`Pages`、`Server Components`、`generateMetadata`、および `generateStaticParams` で行われた fetch 要求に適用される
   - この最適化は、[static generation](https://nextjs.org/docs/app/building-your-application/rendering#static-rendering)中にも適用される
 - Client 上では、Cache は、ページが完全にリロードされる前のセッションの間（複数のクライアント側の再レンダリングを含む可能性がある）持続する
 - fetch リクエストは自動的に推測されるが、その条件は[Caching のセクション](https://nextjs.org/docs/app/building-your-application/data-fetching/caching)にて
@@ -65,7 +65,132 @@ Route 内のリクエスト同時にデータを読み込むことによって�
 - Default では、Next.js は自動的に`Static Fetch`を行う。つまり、データはビルド時に fetch され、cache され、リクエストごとに再利用される。開発者であれば、Static データをどのように cache し、再検証するかをコントロールできる。
 - [Static Data Fetching と Dynamic Data Fetching のデータ取得方法](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching#static-data-fetching)
 
+### Static Data Fetching
+
+```js
+fetch('https://...'); // cache: 'force-cache' is the default
+
+// cache期間は10秒
+fetch('https://...', { next: { revalidate: 10 } });
+```
+
+### 並列で fetch することが推奨されている
+
+```ts
+import Albums from './albums';
+
+async function getArtist(username: string) {
+  const res = await fetch(`https://api.example.com/artist/${username}`);
+  return res.json();
+}
+
+async function getArtistAlbums(username: string) {
+  const res = await fetch(`https://api.example.com/artist/${username}/albums`);
+  return res.json();
+}
+
+export default async function Page({
+  params: { username },
+}: {
+  params: { username: string };
+}) {
+  // Initiate both requests in parallel
+  const artistData = getArtist(username);
+  const albumsData = getArtistAlbums(username);
+
+  // Wait for the promises to resolve
+  const [artist, albums] = await Promise.all([artistData, albumsData]);
+
+  return (
+    <>
+      <h1>{artist.name}</h1>
+      <Albums list={albums}></Albums>
+    </>
+  );
+}
+```
+
+### Dynamic Data Fetching
+
+```js
+fetch('https://...', { cache: 'no-store' });
+```
+
+### fetch()を使わない場合の cache の制御
+
+- セグメントのデフォルトのキャッシュ動作に依存する
+- セグメントキャッシュ設定を使用する
+- セグメントが動的な場合は、リクエストの出力はキャッシュされず、 セグメントがレンダリングされるたびに再 fetch される
+
+### [Route Segment Config](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config)
+
+- Route Segment オプションを使用すると、以下の変数を直接 export して、Pages、Layouts、または Route Handler(API)の動作を設定できる
+
+#### dynamic option
+
+- `Layouts`や`Pages`の動的な動作を、完全に Static または完全に Dynamic に変更する。
+  - App Router において、`getServerSideProps`や`getStaticProps`による制御に変わる方法となる
+- type: 'auto' | 'force-dynamic' | 'error' | 'force-static'
+  - `auto`: 可能な限り cache する
+  - `force-dynamic`: fetch request の cache を全て無効にし、 dynamic rendering される
+  - `error`: dynamic function や dynamic fetch を使用しているコンポーネントがある場合、エラーを発生させることで、Layouts や Pages の static rendring と static data fetch を強制する
+  - `force-static`: `cookies()`、`headers()`、`useSearchParams()`が空の値を返すように強制することで、レイアウトやページの static レンダリングと dynamic データフェッチを強制する
+- default: 'auto'
+
+#### dynamicParams option
+
+- [generateStaticParams](https://nextjs.org/docs/app/api-reference/functions/generate-static-params) で生成されなかったダイナミックセグメントにアクセスしたときの動作を制御する
+  - generateStaticParams()を動的なルートセグメントと組み合わせて使うことで、リクエスト時にオンデマンドでルートを生成するのではなく、ビルド時に静的にルートを生成することができる
+- type: boolean
+  - true: generateStaticParams に含まれない動的セグメントは、オンデマンドで生成される
+  - false: generateStaticParams に含まれていない動的セグメントは 404 を返す
+- default: true
+
+#### revalidate option
+
+- Layouts または Pages のデフォルトの再検証時間を設定する。このオプションは、個々の fetch request によって設定された revalidate 値を上書きしない
+- false | 'force-cache' | 0 | number
+- default: false
+
+`revalidate = 600`という書き方は OK だが、`revalidate = 60 * 10`という書き方は NG
+
+#### fetchCache option
+
+- Layouts または Pages 内のすべての fetch request の default の chache option を上書きする
+- 'auto' | 'default-cache' | 'only-cache' | 'force-cache' | 'force-no-store' | 'default-no-store' | 'only-no-store'
+  - auto: dynamic function の前に、その関数が提供する cache option で fetch request を cache し、dynamic function の後に fetch request を cache しない
+- default: 'auto'
+
+#### runtime option
+
+- [Edge and Node.js Runtimes](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes)
+  - nodejs: Node.js ランタイムを使用すると、すべての Node.js API と、それに依存するすべての npm パッケージにアクセスできる。ただし、Edge ランタイムを使用するルートほど起動が速くない。
+  - edge: Edge ランタイムは、ダイナミックでパーソナライズされたコンテンツを、小さくシンプルな機能で低遅延に配信する必要がある場合に最適。Edge ランタイムのスピードは、リソースの使用を最小限に抑えていることから生まれますが、多くのシナリオではそれが制限になる可能性がある。
+- 'nodejs' | 'edge'
+- default: 'nodejs'
+
+#### preferredRegion option
+
+- `preferredRegion`のサポートおよびサポートされる地域は、使用する deployment platform に依存する
+- 'auto' | 'global' | 'home' | string | string[]
+- default: 'auto'
+
+### 設定方法 (e.g. page.tsx)
+
+```tsx
+export const dynamic = 'auto';
+export const dynamicParams = true;
+export const revalidate = false;
+export const fetchCache = 'auto';
+export const runtime = 'nodejs';
+export const preferredRegion = 'auto';
+
+export default function MyComponent() {}
+```
+
 ## Caching Data
+
+- [Caching Data 詳細](https://nextjs.org/docs/app/building-your-application/data-fetching/caching)
 
 ![cache](../../../../images/nextjs-caching.png 'cache')
 
@@ -96,6 +221,10 @@ Route 内のリクエスト同時にデータを読み込むことによって�
   - getServerSideProps、
   - getStaticProps、
   - getInitialProps
+
+## Client Components 内での`use`の使用
+
+- こちらではなく、SWR や React Query を使うことが推奨されている
 
 ## [SWR Docs: Usage with Next.js](https://swr.vercel.app/docs/with-nextjs)
 
