@@ -200,7 +200,85 @@ export default function MyComponent() {}
   - ただし、cache サーバーへのリクエストは発生する
 - Next.js は、`fetch()`の[options オブジェクト](https://developer.mozilla.org/en-US/docs/Web/API/fetch)を拡張し、サーバー上の各リクエストに独自の永続キャッシュ動作を設定できるようにしている。コンポーネントレベルのデータ取得と合わせて、データが使用されるアプリケーションコード内で直接キャッシュを設定できる。
 - Server のレンダリング中、Next.js が fetch に遭遇すると、cache をチェックしてデータがすでに利用可能かどうかを確認する。利用可能であれば、cache されたデータを返す。そうでない場合は、将来のリクエストのためにデータを fetch して保存する。
-- [cache 詳細](https://nextjs.org/docs/app/building-your-application/data-fetching/caching)
+
+### [Cache 詳細](https://nextjs.org/docs/app/building-your-application/data-fetching/caching)
+
+#### fetch()
+
+- request は default で cache されるが、以下の条件では cache されない
+  - dynamic function を使っている
+  - POST request の fetch
+  - fetchCache option で、cache を skip する場合
+  - revalidate option で`0`を設定しているとき
+  - fetch の cache option で、`no-store`をしているとき
+
+#### React cache()
+
+- React では cache()でラップされた関数呼び出しの結果をメモして、リクエストを cache し、重複排除することができる
+- 同じ引数で呼び出された同じ関数は、関数を再実行する代わりに cache された値を再利用する
+- fetch() はリクエストを自動的にキャッシュするので、fetch() を使う関数を cache() でラップする必要はない
+- この新しいモデルでは、複数のコンポーネントで同じデータを要求する場合でも、props としてコンポーネント間でデータを渡すのではなく、データを必要とするコンポーネントで直接データを取得することが推奨されている
+
+```ts
+import { cache } from 'react';
+
+export const getUser = cache(async (id: string) => {
+  const user = await db.user.findUnique({ id });
+  return user;
+});
+```
+
+#### POST requests and cache()
+
+- POST リクエストは、POST Route Handler 内にあるか、headers(),cookies() を読み込んだ後でない限り、fetch を使用すると自動的に重複排除される
+- たとえば、上記のようなケースで GraphQL と POST リクエストを使用している場合、cache を使用してリクエストを重複排除することができる
+- cache の引数はフラットで、プリミティブのみでなければならない
+- Deep objects は重複排除にはマッチしない
+
+```ts
+import { cache } from 'react';
+
+export const getUser = cache(async (id: string) => {
+  const res = await fetch('...', { method: 'POST', body: '...' });
+  // ...
+});
+```
+
+#### Preload pattern with cache()
+
+- 以下の方法で preload を実装できる
+
+```tsx
+// components/User.tsx
+import { getUser } from '@utils/getUser';
+
+export const preload = (id: string) => {
+  // void evaluates the given expression and returns undefined
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
+  void getUser(id);
+};
+export default async function User({ id }: { id: string }) {
+  const result = await getUser(id);
+  // ...
+}
+
+// app/user/{id}/page.tsx
+import User, { preload } from '@components/User';
+
+export default async function Page({
+  params: { id },
+}: {
+  params: { id: string };
+}) {
+  preload(id); // starting loading the user data now
+  const condition = await fetchCondition();
+  return condition ? <User id={id} /> : null;
+}
+```
+
+- preload()関数はどんな名前でもいい。これはパターンであって、API ではない
+
+#### Combining cache, preload, and server-only
 
 ## データの再検証
 
@@ -208,6 +286,49 @@ export default function MyComponent() {}
 - 2 種類のデータの再検証が存在する
   - Backgroujd: 特定の時間間隔でデータを再検証する
   - On-demand: 更新があるたびにデータを再検証する
+
+### [Revalidating Data 詳細](https://nextjs.org/docs/app/building-your-application/data-fetching/revalidating)
+
+#### Background Revalidation
+
+- 特定の間隔で cache data を再検証するには、`fetch()`の`next.revalidate`オプションを使用して、リソースのキャッシュ有効期間 (秒単位) を設定する
+
+```js
+fetch('https://...', { next: { revalidate: 60 } });
+```
+
+- 他の package などを使い fetch()を使用しない場合にデータを再検証したい場合は、[Route セグメント設定](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#revalidate)を使用できる
+
+```js
+export const revalidate = 60; // revalidate this page every 60 seconds
+```
+
+- ただし、upstream data provider の設定に影響されるので注意が必要 (あくまで CDN 上に Cache される)
+
+#### On-demand Revalidation
+
+[revalidatePath](https://nextjs.org/docs/app/api-reference/functions/revalidatePath)や、[revalidateTag](https://nextjs.org/docs/app/api-reference/functions/revalidateTag)によって実現可能
+
+```ts
+// app/page.tsx
+export default async function Page() {
+  const res = await fetch('https://...', { next: { tags: ['collection'] } });
+  const data = await res.json();
+  // ...
+}
+```
+
+```ts
+// app/api/revalidate/route.ts
+import { NextRequest, NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
+
+export async function GET(request: NextRequest) {
+  const tag = request.nextUrl.searchParams.get('tag');
+  revalidateTag(tag);
+  return NextResponse.json({ revalidated: true, now: Date.now() });
+}
+```
 
 ## Streaming and Suspense
 
