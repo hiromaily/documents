@@ -7,7 +7,7 @@
 
 - Server Components を使用してサーバー上のデータを取得する
 - ウォーターフォールを最小化し、読み込み時間を短縮するために、並列にデータを取得する
-- Layouts と Pages では、使用する場所でデータを fetch する。Next.js は、ツリー内のリクエストを自動的に推定する。
+- Layouts と Pages では、 fetch()する場所でデータを使用する。Next.js は、ツリー内のリクエストを自動的に推定する。
 - Loding UI、Streaming と Suspense を使用して、ページを徐々にレンダリングし、残りのコンテンツが読みこまれる間にユーザーに結果を表示する
 
 ## fetch() API
@@ -140,7 +140,7 @@ fetch('https://...', { cache: 'no-store' });
 #### dynamicParams option
 
 - [generateStaticParams](https://nextjs.org/docs/app/api-reference/functions/generate-static-params) で生成されなかったダイナミックセグメントにアクセスしたときの動作を制御する
-  - generateStaticParams()を動的なルートセグメントと組み合わせて使うことで、リクエスト時にオンデマンドでルートを生成するのではなく、ビルド時に静的にルートを生成することができる
+  - generateStaticParams()を動的な Route セグメントと組み合わせて使うことで、リクエスト時にオンデマンドで Route を生成するのではなく、ビルド時に静的に Route を生成することができる
 - type: boolean
   - true: generateStaticParams に含まれない動的セグメントは、オンデマンドで生成される
   - false: generateStaticParams に含まれていない動的セグメントは 404 を返す
@@ -164,7 +164,7 @@ fetch('https://...', { cache: 'no-store' });
 #### runtime option
 
 - [Edge and Node.js Runtimes](https://nextjs.org/docs/app/building-your-application/rendering/edge-and-nodejs-runtimes)
-  - nodejs: Node.js ランタイムを使用すると、すべての Node.js API と、それに依存するすべての npm パッケージにアクセスできる。ただし、Edge ランタイムを使用するルートほど起動が速くない。
+  - nodejs: Node.js ランタイムを使用すると、すべての Node.js API と、それに依存するすべての npm パッケージにアクセスできる。ただし、Edge ランタイムを使用する Route ほど起動が速くない。
   - edge: Edge ランタイムは、ダイナミックでパーソナライズされたコンテンツを、小さくシンプルな機能で低遅延に配信する必要がある場合に最適。Edge ランタイムのスピードは、リソースの使用を最小限に抑えていることから生まれますが、多くのシナリオではそれが制限になる可能性がある。
 - 'nodejs' | 'edge'
 - default: 'nodejs'
