@@ -1,16 +1,16 @@
 # Foundry
 
-Ethereumのアプリケーション開発のためのtoolkitで、構成は以下の通り
+Ethereum のアプリケーション開発のための toolkit で、構成は以下の通り
 
 - [Forge](https://github.com/foundry-rs/foundry/tree/master/forge)
   - Ethereum testing framework
 - [Cast](https://github.com/foundry-rs/foundry/tree/master/cast)
-  - EVM smart contractsに対して、transactions送信や、データの取得ができる
+  - EVM smart contracts に対して、transactions 送信や、データの取得ができる
 - [Anvil](https://github.com/foundry-rs/foundry/tree/master/anvil)
-  - LocalのEthereumノード
+  - Local の Ethereum ノード
 - [Chisel](https://github.com/foundry-rs/foundry/tree/master/chisel)
   - solidity REPL
- 
+
 ## Reference
 
 - [github](https://github.com/foundry-rs/foundry)
@@ -91,3 +91,5 @@ Forge Standard Library is a collection of helpful contracts and libraries for us
 
 - [github](https://github.com/foundry-rs/forge-std)
 - [Docs: Forge Standard Library Overview](https://book.getfoundry.sh/forge/forge-std)
+
+## 使い方の例

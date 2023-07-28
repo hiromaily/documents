@@ -13,7 +13,7 @@ React Hooks for Ethereum
 
 ## [機能一覧](https://wagmi.sh/#features)
 
-- Ethers.js と合わせて使う React Hooks で 20 以上の Hook が用意されている
+- Ethers.js や [Viem](./viem.md) と合わせて使う React Hooks で 20 以上の Hook が用意されている
 - Wallet を通じて、ENS, contracts, transactions, signing といった基本機能を使うことができる
 - Wallet Connector により、[MetaMask](https://docs.metamask.io/wallet/), [WalletConnect](https://docs.walletconnect.com/2.0), [Coinbase Wallet](https://docs.cloud.coinbase.com/wallet-sdk/v2.0.0/docs/welcome), `Injected` などに接続ができる
   - [WalletConnect は V2 に対応している](https://wagmi.sh/react/migration-guide#012x-breaking-changes)
@@ -26,7 +26,6 @@ React Hooks for Ethereum
 
 ## その他 Docs から特筆すべき点
 
--
 - [MockConnector](https://wagmi.sh/react/connectors/mock)を持つため、Test もしくは開発時に利用できそう
 - Web3Modal でも使われている
 - Wagmi は ABIType と EIP-712 の型データ定義に基づいて型を推論することができる
@@ -82,20 +81,24 @@ const client = createClient({
 
 ## [対応 Chain について](https://wagmi.sh/react/chains)
 
-以下に一部抜粋
+[chain の定義先](https://github.com/wagmi-dev/references/tree/main/packages/chains/src)
 
-- mainnet
+### 以下に一部抜粋
+
+- [mainnet](https://github.com/wagmi-dev/references/blob/f62be25b5666ede63aa518bb0a3e62432fdacd00/packages/chains/src/mainnet.ts)
 - goerli
-- sepolia
-- bsc
-- bscTestnet
-- foundry
-- hardhat
-- localhost
+- [sepolia](https://github.com/wagmi-dev/references/blob/main/packages/chains/src/sepolia.ts)
+- [bsc](https://github.com/wagmi-dev/references/blob/main/packages/chains/src/bsc.ts)
+- [bscTestnet](https://github.com/wagmi-dev/references/blob/main/packages/chains/src/bscTestnet.ts)
+- [foundry](https://github.com/wagmi-dev/references/blob/f62be25b5666ede63aa518bb0a3e62432fdacd00/packages/chains/src/foundry.ts)
+- [hardhat](https://github.com/wagmi-dev/references/blob/main/packages/chains/src/hardhat.ts)
+- [localhost](https://github.com/wagmi-dev/references/blob/main/packages/chains/src/localhost.ts)
 
 独自の EVM 系チェーンを設定することも可能: [Build your own](https://wagmi.sh/react/chains#build-your-own)
 
 ## Provider
+
+RPC サーバーの提供先
 
 [Configuring Chains](https://wagmi.sh/react/providers/configuring-chains)
 
@@ -153,6 +156,7 @@ InjectedConnector は、Browser や Window に`Ethereum Provider`を注入する
 ### [Mock](https://wagmi.sh/react/connectors/mock)
 
 `MockConnector` は、テストなどに便利なモックされた Connector 実装
+Test 環境などでは Metamask は使えないので、そのような場合に利用する
 
 ### Others
 
@@ -260,7 +264,7 @@ Docs に用意されている Hook は比較的利用頻度が高いものと思
 
 ## [Actions](https://wagmi.sh/react/actions)
 
-React Hooks の宣言的な性質が、アプリの一部で機能しないことがある。`wagmi/core`の VanillaJS アクションはすべて、wagmi/actions エントリポイントを使ってインポートすることができる
+React Hooks の宣言的な性質が、アプリの一部で機能しないことがある。`wagmi/core`の VanillaJS アクションはすべて、wagmi/actions エントリポイントを使ってインポートすることができる。多くのケースで、内部的に [Viem](./viem.md) の function を呼び出している。
 
 - [connect](https://wagmi.sh/core/actions/connect)
 - disconnect
@@ -350,12 +354,13 @@ const data = await multicall({
 Default: Pure ESM
 
 ## [CLI](https://wagmi.sh/cli/getting-started)
-Wagmi CLIは、
-- ABIの管理（Etherscan/ブロックエクスプローラ、Foundry/Hardhatプロジェクトなど）
-- コードの生成（React Hooks、VanillaJSアクションなど）
-- 手作業を自動化することで、Ethereumでの作業を容易にする（例えば、EtherscanからABIをコピー＆ペーストする必要がなくなる）
-- また、CLIをさらに拡張するためのプラグインを書くことも可能
 
+Wagmi CLI は、
+
+- ABI の管理（Etherscan/ブロックエクスプローラ、Foundry/Hardhat プロジェクトなど）
+- コードの生成（React Hooks、VanillaJS アクションなど）
+- 手作業を自動化することで、Ethereum での作業を容易にする（例えば、Etherscan から ABI をコピー＆ペーストする必要がなくなる）
+- また、CLI をさらに拡張するためのプラグインを書くことも可能
 
 ## Examples
 
@@ -367,6 +372,7 @@ Wagmi CLIは、
   - これによりカスタマイズしやすいのかもしれない。
   - sushiswap の wagmi package 内に[hooks](https://github.com/sushiswap/sushiswap/tree/master/packages/wagmi/hooks)があるので参考になる
 
-## Wagmi関連の記事
-- [ウォレットとの接続を簡単にしてくれるライブラリwagmiの使い方](https://zenn.dev/pokena/articles/3d53b52c2d441c)
+## Wagmi 関連の記事
+
+- [ウォレットとの接続を簡単にしてくれるライブラリ wagmi の使い方](https://zenn.dev/pokena/articles/3d53b52c2d441c)
 - [TurboETH + WAGMI CLI - Automatically generate smart contract read, write and event hooks](https://www.youtube.com/watch?v=sBX79sPjRss)
