@@ -33,6 +33,11 @@ for (const index in numbers) {
 
 ## Array of Object
 ```ts
+interface Month {
+  month: string;
+  days: number;
+}
+
 const months: Month[] = [
   { month: 'Jan', days: 31 },
   { month: 'Feb', days: 28 },
