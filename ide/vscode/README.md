@@ -4,6 +4,7 @@
 ## よく使うショートカット
 - [MacOS ShortCuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
 
+- `ファイル検索` => `Command+P`
 - `Command Palette` => `F1` or `Shift+Command+P`
 - `Quick Open, Go to file` => `Command+P`
 - `User Settings` => `Command+,`

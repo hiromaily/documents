@@ -2,6 +2,7 @@
 TypescriptではなくJavascriptに備わっている機能ではあるが、こちらに記述
 
 ## map
+新しい配列を作る
 ### 基本
 ```ts
 const numbers: number[] = [1, 2, 3, 4, 5];
@@ -55,6 +56,7 @@ console.log(customMonth);
 ```
 
 ## filter
+特定の要素のみ取得する
 ### 基本
 ```ts
 const files = ['foobar.gif', 'bob.html', 'mike.mp3'];
@@ -121,6 +123,76 @@ const customMonth2 = months
 ```
 - Falsy な値は Boolean() で false になるので、.filter(Boolean) で除外できる
 - 問題点として、型推論がうまく行かないケースがある
+
+## filter
+特定の要素のみ取得する
+
+```ts
+interface Month {
+  month: string;
+  days: number;
+}
+
+const months: Month[] = [
+  { month: 'Jan', days: 31 },
+  { month: 'Feb', days: 28 },
+  { month: 'Mar', days: 31 },
+  { month: 'Apr', days: 30 },
+  { month: 'May', days: 31 },
+  { month: 'Jun', days: 30 },
+  { month: 'Jul', days: 31 },
+];
+
+const birthMonth = months.find((month: Month): boolean => {
+  return month.month === 'Jun';
+});
+// { month: 'Jun', days: 30 }
+```
+
+## reduce
+配列から新しい単一要素を返す
+
+### 例: object配列から一部の要素を使ってKey Value型のオブジェクトを返す
+```ts
+interface genreInfo {
+  id: number;
+  name?: string;
+  genreId?: number;
+}
+
+interface GenreIdNameMap {
+  [key: number]: string;
+}
+
+const mapGenreIdName = (genreData: genreInfo[]): GenreIdNameMap => {
+  return genreData.reduce((result, item) => {
+    if (item.name !== undefined && item.genreId !== undefined && !result[item.genreId]) {
+      result[item.genreId] = item.name;
+    }
+    return result;
+  }, {} as GenreIdNameMap);
+};
+
+const genreData: genreInfo[] = [
+  { id: 1, name: 'Rock', genreId: 101 },
+  { id: 2, name: 'Classical music', genreId: 105 },
+  { id: 3, name: 'Folk music', genreId: 204 },
+  { id: 4, name: 'Jazz', genreId: 303 },
+  { id: 5, name: 'Electronic music', genreId: 95 },
+  { id: 6, genreId: 99 },
+  { id: 7, name: 'Blues' },
+];
+
+const genreMap = mapGenreIdName(genreData);
+console.log(genreMap);
+// {
+//   '95': 'Electronic music',
+//   '101': 'Rock',
+//   '105': 'Classical music',
+//   '204': 'Folk music',
+//   '303': 'Jazz'
+// }
+```
 
 ## every
 - everyは配列が条件をすべて満たす場合にtrueを返す
