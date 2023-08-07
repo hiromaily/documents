@@ -124,7 +124,7 @@ const customMonth2 = months
 - Falsy な値は Boolean() で false になるので、.filter(Boolean) で除外できる
 - 問題点として、型推論がうまく行かないケースがある
 
-## filter
+## find
 特定の要素のみ取得する
 
 ```ts
