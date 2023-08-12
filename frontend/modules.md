@@ -4,6 +4,9 @@
 - `esm` is ES Module
 - `umd` is Umd Module
 
+
+[typescript/modules](../typescript/modules.md)
+
 ## Module の種類
 
 ### CJS
@@ -75,68 +78,8 @@ AMD（Asynchronous Module Definition）も JS モジュールシステムの 1 �
 - [github:ja](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.ja.md)
 - 型定義ファイル
 
-## Typescript の `esModuleInterop` について
-
-- [tsconfig#esModuleInterop](https://www.typescriptlang.org/tsconfig#esModuleInterop)
-
-デフォルトでは（esModuleInterop が false または設定されていない場合）、TypeScript は CommonJS / AMD/UMD モジュールを ES6 モジュールと同様に扱う。この問題として、
-
-```js
-import * as moment from "moment"
-```
-
-のような名前空間のインポートは、
-
-```js
-const moment = require（ "moment"）
-```
-
-と同じように機能する。
-
-```js
-import moment from "moment"
-```
-
-のようなデフォルトのインポートは、
-
-```js
-const moment = require（ "moment"）
-```
-
-もまた、default と同じように機能する。
-この不一致により、次の 2 つの問題が発生する
-
-ES6 モジュールの仕様では、名前空間のインポート`（import * as x）`はオブジェクトにしかなれない。
-これは、TypeScript `require（"x"）`と同じように処理することで、TypeScript でインポートを呼び出し可能な関数として処理できるようになる。
-2 つめの問題として、仕様によると、これは無効。
-
-`esModuleInterop`をオンにすると、TypeScript によってトランスパイルされたコードのこれらの問題の両方が修正される。
-1 つ目はコンパイラーの動作を変更し、2 つ目は発行された JavaScript の互換性を確保するためのシム(くさび)を提供する 2 つの新しいヘルパー関数によって修正される。
 
 ## import 方法の違い
 
 - [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import_
 - [import(ja)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import)
-
-## 初期化したobjectのexportについて
-```js
-// myClass.js
-class MyClass {
-  constructor() {
-    // Initialize your class instance here
-  }
-
-  // Methods and properties of your class
-}
-
-const myInstance = new MyClass();
-
-export default myInstance;
-```
-
-```js
-// someModule.js
-import myInstance from './myClass.js';
-
-// Now you can use the myInstance in this module
-```

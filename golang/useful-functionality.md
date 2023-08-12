@@ -9,6 +9,24 @@
 - [Go 言語でファジング](https://deeeet.com/writing/2015/12/21/go-fuzz/)
 - [dvyukov/go-fuzz](https://github.com/dvyukov/go-fuzz)
 
+## Go 1.21
+[Go 1.20 Release Notes](https://tip.golang.org/doc/go1.21), [Blog: Go 1.21 is released!](https://go.dev/blog/go1.21)
+
+- ジェネリクスのためのパッケージ `slices`,`maps`の追加
+- 組み込み関数 `min`, `max`, `clear` の追加
+- コアライブラリの追加
+  - `slog`パッケージ
+  - `slices`, `maps`, `cmp` パッケージ
+
+### [slog](https://pkg.go.dev/log/slog@master)
+- インタフェースではなく実装
+- structured + leveled logging 可能
+- ネストした structure も可能
+- slog.SetDefault を呼ぶと標準の log パッケージの出力も slog になる
+- テキスト形式のほか、JSON 形式の出力も手軽にできる
+- APIトークンなどをログに出さないよう型ベースで設定できる
+
+
 ## Go 1.20
 [Go 1.20 Release Notes](https://tip.golang.org/doc/go1.20)
 
