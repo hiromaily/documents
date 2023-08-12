@@ -308,8 +308,9 @@ React Hooks の宣言的な性質が、アプリの一部で機能しないこ�
 - writeContract
 
 ## [Multicall](https://wagmi.sh/core/actions/multicall)
+[multicall](../multicall3.md)
 
-[useContractReads](https://wagmi.sh/react/hooks/useContractReads)や[readContracts](https://wagmi.sh/core/actions/readContracts)は内部的に[viem の multicall](https://viem.sh/docs/contract/multicall.html)を呼び出し、[multicall3](https://github.com/mds1/multicall)コントラクト を介して複数のイーサコントラクトの読み取り専用メソッドを呼び出す。
+- [useContractReads](https://wagmi.sh/react/hooks/useContractReads)や[readContracts](https://wagmi.sh/core/actions/readContracts)は内部的に[viem の multicall](https://viem.sh/docs/contract/multicall.html)を呼び出し、[multicall3](https://github.com/mds1/multicall)コントラクト を介して複数のイーサコントラクトの読み取り専用メソッドを呼び出す。
 
 ```ts
 import { multicall } from '@wagmi/core';
@@ -359,6 +360,8 @@ Wagmi CLI は、
 - コードの生成（React Hooks、VanillaJS アクションなど）
 - 手作業を自動化することで、Ethereum での作業を容易にする（例えば、Etherscan から ABI をコピー＆ペーストする必要がなくなる）
 - また、CLI をさらに拡張するためのプラグインを書くことも可能
+
+
 
 ## Examples
 
