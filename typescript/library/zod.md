@@ -119,6 +119,13 @@ z.custom<ExistingType>()
 ```
 - stack overflowの[Zod: create a schema using an existing type](https://stackoverflow.com/questions/71782572/zod-create-a-schema-using-an-existing-type)にて、これが動くと言及されている。要検証
 
+### [z.ZodSchema](https://github.com/colinhacks/zod/blob/1ecd6241ef97b33ce229b49f1346ffeee5d0ba74/src/types.ts#L4804)
+```ts
+export { ZodType as Schema, ZodType as ZodSchema };
+```
+
+[ZodType](https://zod.dev/?id=zodtype-with-zodeffects)
+
 ### schemeForType Utility functionを定義する
 [Typecheck schemas against existing types](https://github.com/colinhacks/zod/issues/372)のissueで議論されているが、既存の型とZodSchemaの型の整合性をチェックする関数を定義する。
 
