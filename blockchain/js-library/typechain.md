@@ -89,3 +89,12 @@ done
 
 echo "TS File generation completed."
 ```
+
+## Viemと一緒に使うためには？
+[Typechain issue: Feature request: add support for viem](https://github.com/dethcrypto/TypeChain/issues/844)
+
+```
+With viem, there is no longer a need for TypeChain. Smart contract interactions are typed using abi-type. Users simply need to store ABI in TypeScript files and declared as const.
+```
+
+[wagmi: abitype](./wagmi-abitype.md)
