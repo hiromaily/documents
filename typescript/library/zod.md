@@ -81,3 +81,75 @@ const validateValue = (value: string) => {
 ## zodを使ってtype guard functionsを作成する
 
 - [Typescript: Type guards with zod](https://dev.to/sachitsac/typescript-type-guards-with-zod-1m12)
+
+```ts
+import z from "zod";
+import { invalidUser, invalidUserUuid, logisUesr, mockedCorrectUser } from "./test_data"
+
+const userSchema = z.object({
+  uuid: z.string().uuid(),
+  name: z.string().optional(),
+  email: z.string().email(),
+  verified: z.boolean().default(false),
+})
+
+type User = z.infer<typeof userSchema>;
+// interface User {
+//   name: string;
+//   email: string;
+//   uuid: string;
+//   verified: boolean;
+// }
+
+const isUser = (obj: any): obj is User => {
+  if (!userSchema.safeParse(obj).success) return false;
+  return true;
+}
+
+logIsUser(mockedCorrectUser, isUser);
+logIsUser(invalidUser, isUser);
+logIsUser(invalidUserUuid, isUser);
+```
+
+## 既存のtypeからschemaを作成する
+
+### [Custom schemas](https://zod.dev/?id=custom-schemas)
+```ts
+z.custom<ExistingType>()
+```
+- stack overflowの[Zod: create a schema using an existing type](https://stackoverflow.com/questions/71782572/zod-create-a-schema-using-an-existing-type)にて、これが動くと言及されている。要検証
+
+### schemeForType Utility functionを定義する
+[Typecheck schemas against existing types](https://github.com/colinhacks/zod/issues/372)のissueで議論されているが、既存の型とZodSchemaの型の整合性をチェックする関数を定義する。
+
+```ts
+const schemaForType = <T>() => <S extends z.ZodType<T, any, any>>(arg: S) => {
+  return arg;
+};
+
+type User {
+  name: string
+  zipCode: string // <- new
+}
+
+// zipCodeがなのでTSエラー
+const UserZodSchema = schemaForType<User>()(
+  z.objecct({
+    name: z.string()
+  })
+)
+```
+
+### 自動生成パターン
+[Generating Zod schema from TS type definitions](https://github.com/colinhacks/zod/issues/53)
+
+#### [ts-to-zod](https://github.com/fabien0102/ts-to-zod)を使う
+tsの型情報からvalidatorを自動生成する
+
+#### [Online: Typescript to zod](https://transform.tools/typescript-to-zod)
+
+
+### References
+- [Zod: create a schema using an existing type](https://stackoverflow.com/questions/71782572/zod-create-a-schema-using-an-existing-type)
+- [Typecheck schemas against existing types](https://github.com/colinhacks/zod/issues/372)
+- [Zodで真のTypeScript firstを手にする](https://zenn.dev/ynakamura/articles/65d58863563fbc)
