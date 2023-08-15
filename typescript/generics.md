@@ -31,6 +31,23 @@ let output1 = identity<string>("myString");
 // 明示的な指定がなくても型推論が走る
 let output2 = identity("myString");
 ```
+- Generics function with 2 型引数
+```ts
+function identity<T,R>(arg: T): R {
+  return ...;
+}
+
+// Usage
+let output1 = identity<number, string>(20);
+```
+- arrow function
+```ts
+const foo = <T>(arg: T) => {
+	return { value: arg };
+};
+const foo1 = foo<number[]>([1, 2]);
+```
+
 
 ## 配列を使う
 ```ts
@@ -55,10 +72,23 @@ type Foo<T> = {
 	value: T;
 };
 
+type User<T,R> = {
+	name: string;
+	age: T;
+  option: R;
+};
+
 // Usage
 const foo: Foo<number> = {
 	value: 0,
 };
+
+const user: User<number, string> = {
+	name: 'mike',
+  age: 25,
+  option: 'he is great',
+};
+
 ```
 
 ## Generics クラス
@@ -114,8 +144,8 @@ interface Admin extends User {
   isMaster: boolean;
 }
 // interface Admin {
-// 	name: string;
-//  isMaster: boolean;
+//   name: string;
+//   isMaster: boolean;
 // }
 ```
 
@@ -164,3 +194,4 @@ type C = A<UserB>; // null
 - [Typescript Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 - [Typescript Deep Dive 日本語版 ジェネリック型](https://typescript-jp.gitbook.io/deep-dive/type-system/generics)
 - [サバイバルTypescript ジェネリクス](https://typescriptbook.jp/reference/generics)
+- [【TypeScript】Genericsの基礎](https://zenn.dev/miz_dev/articles/1519a995ae306a)
