@@ -1,10 +1,48 @@
 # Types
 
+## unknown
+- any, unknown型はどのような値も代入できる
+- ちなみに、どの値も代入できない`never`という型も存在する
+- `any`型に代入したオブジェクトのプロパティ、メソッドは使用することができる
+- 一方、`unknown`型に代入したオブジェクトのプロパティ、メソッドは使用することができない
+- `tsconfig`にはこのany型の使用を防ぐためのオプションとして`noImplicitAny`がある
+- `unknown`型の場合、型を特定する必要がある。(type-guardなど)
+### References
+- [anyとunknownの違い](https://typescriptbook.jp/reference/statements/any-vs-unknown)
+
+
+
+## 型アサーション / Type Assertion
+- 型アサーション（Type Assertion）はTypeScriptによって推論された型を上書きする機能
+- 型アサーションの定義: `as 指定したい型`
+- 問題点として、型変換に問題があってもコンパイルエラーとして検知されず、実行時にエラーが発生する可能性がある
+
+### 型ガード Type Guard
+- プリミティブ型の場合、`typeof`によるType Guardで型を推定する
+```ts
+if (typeof unknownValue === 'string') {
+```
+
+- オブジェクト型の場合、`in`を利用したプロパティの有無で判定が可能だが、プロパティの存在のみでその型まではわからない
+```ts
+const isHumanType = (target: unknown): animal is CatType => {
+  const human = target as HumanType
+
+  // trueならHumanType型と推定される
+  return 'name' in human &&
+     'age' in human &&
+      typeof human.name === 'string' &&
+      typeof human.age === 'number'
+}
+
+``` 
+
 ## const アサーション
 
-オブジェクトリテラルの末尾に`as const`を記述すればプロパティが readonly でリテラルタイプで指定した物と同等の扱いになる
+- オブジェクトリテラルの末尾に`as const`を記述すればプロパティが `readonly`` でリテラルタイプで指定した物と同等の扱いになる
+- `readonly`と宣言されているプロパティを書き換えようとするとコンパイルエラーになる
 
-```
+```ts
 const movie = {
   name: "good one",
   no: 25,

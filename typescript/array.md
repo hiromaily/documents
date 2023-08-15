@@ -194,6 +194,24 @@ console.log(genreMap);
 // }
 ```
 
+## concat
+配列と配列を結合する
+
+### 組み合わせ例
+- 配列名.concat(配列)
+- 配列名.concat(配列, 配列, ...)
+- 配列名.concat(値, 値, ...)
+
+```ts
+let fruit = ['Apple', 'Melon', 'Orange'];
+let fruitAll = fruit.concat('Peach', ['Grapes', 'Strawberry']);
+```
+### concatメソッドを使った配列のコピー
+```ts
+let fruit = ['Apple', 'Melon', 'Orange'];
+let copyFruit = fruit.concat();
+```
+
 ## every
 - everyは配列が条件をすべて満たす場合にtrueを返す
 ```ts
