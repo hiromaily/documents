@@ -2,6 +2,12 @@
 - `型も変数のように扱えるようにする` というもので、型の安全性を保ちながらコードの共通化が可能
 - 型引数に使われる`T`は慣例的なもので、Type, Elementを表す `T`や`E`がよく使われる
 
+## 型引数の慣例
+- T：Type
+- K：Key
+- U：Unknown
+- E：Element
+
 ## Sample Code
 - Genericsがない場合
 ```ts
@@ -13,17 +19,17 @@ function identity(arg: string): string {
 }
 ```
 
-- Genericsを使う場合
+- Genericsを使う場合 (Generics function)
 ```ts
 // 定義
 function identity<T>(arg: T): T {
   return arg;
 }
 
-// 呼び出し側
-let output = identity<string>("myString");
+// Usage
+let output1 = identity<string>("myString");
 // 明示的な指定がなくても型推論が走る
-let output = identity("myString");
+let output2 = identity("myString");
 ```
 
 ## 配列を使う
@@ -32,24 +38,41 @@ function loggingIdentity<T>(arg: Array<T>): Array<T> {
   console.log(arg.length);
   return arg;
 }
-//もしくは
+// Or
 function loggingIdentity<T>(arg: T[]): T[] {
   console.log(arg.length);
   return arg;
 }
+
+// Usage
+const vals = [1,2,3,4,5];
+loggingIdentity<number>(vals);
+```
+
+## Generics 型
+```ts
+type Foo<T> = {
+	value: T;
+};
+
+// Usage
+const foo: Foo<number> = {
+	value: 0,
+};
 ```
 
 ## Generics クラス
 ```ts
 class Queue<T> {
-  private data = [];
+  private data: T[] = []; // Initialize data as an array of type T
   push(item: T) { this.data.push(item); }
   pop(): T | undefined { return this.data.shift(); }
 }
 
-// 呼び出し
+// Usage
 const queue = new Queue<number>();
 queue.push(0);   // OK
+queue.push(1);   // OK
 queue.push("1"); // Error
 ```
 
