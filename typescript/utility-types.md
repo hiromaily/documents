@@ -148,3 +148,52 @@ type FailGrade = Extract<Grade, "D" | "E">;
 // type FailGrade = "D" | "E"
 ```
 
+
+## 合併型(Union Types)と交差型(Intersection Types)
+```ts
+type Dog = {
+  cute: boolean;
+  bark: boolean;
+};
+
+type Cat = {
+  cute: boolean;
+  meow : boolean;
+};
+
+type DogOrCat = Dog | Cat;  // 型 Dog と Cat の合併型
+type DogAndCat = Dog & Cat; // 型 Dog と Cat の交差型
+```
+
+### 合併型(Union Types)の特徴 `|`
+```ts
+// 合併型なので、Dog, Cat型両方のプロパティが使える
+const SuperPet1: DogOrCat = {
+  cute: true;
+  bark: true;
+  meow : true;
+};
+
+// 合併型なため、どちらかの型ということを表せれば良い
+const SuperPet2: DogOrCat = {
+  cute: true;
+  bark: true;
+};
+```
+
+### 交差型(Intersection Types)の特徴 `&`
+```ts
+// 交差型なので、合併型同様Dog, Cat型両方のプロパティが使える
+const doubleAtack: KickAndPunch = {
+  cute: true;
+  bark: true;
+  meow : true;
+};
+
+// 交差型は集合元の型全てのプロパティを使わなくてはならない
+const errorNormalAtack: KickAndPunch = {
+  cute: true;
+  bark: true;
+};
+// Error: Cat型のmeowプロパティが必要
+```
