@@ -59,3 +59,24 @@
 #### プライベート鍵による暗号化 (デジタル署名)
 
 <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/degital-signature.jpg"  width="50%" height="50%">
+
+## メッセージのハッシュ値に署名する方法
+
+1. アリスは一方向ハッシュ関数でメッセージのハッシュ値を計算する
+2. アリスは自分の秘密鍵でハッシュ値を暗号化する
+3. アリスはメッセージと署名をボブに送信する
+4. ボブは受信した署名をアリスの公開鍵で復号化する
+5. ボブは受信した署名から得られたハッシュ値と、アリスから直接受信したメッセージのハッシュ値と比較する
+
+#### アリスがメッセージに署名してからボブが署名を検証するまでの流れ
+
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/degital-signature-flow.jpg"  width="50%" height="50%">
+
+## デジタル署名の種類
+
+- RSA によるデジタル署名
+- ElGamal 方式
+- DSA (Digital Signature Algorithm)
+- ECDSA (Elliptic Curve Digital Signature Algorithm)
+  - 楕円曲線暗号を使用したデジタル署名アルゴリズム
+- Rabin 方式
