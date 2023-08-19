@@ -284,11 +284,17 @@ React Hooks の宣言的な性質が、アプリの一部で機能しないこ�
 - getProvider
 - getWebSocketProvider
 - [multicall](https://wagmi.sh/core/actions/multicall)
-  - 別 Section にて
+  - 複数の"read-only" function (constant function) を呼び出すために使われる
+  - [viemのmulticall](https://viem.sh/docs/contract/multicall.html)が内部的に呼ばれる
 - prepareSendTransaction
 - prepareWriteContract
-- readContract
-- readContracts
+- [readContract](https://wagmi.sh/core/actions/readContract)
+  - "read-only" function (constant function) のために使われる
+  - [viemのreadContract](https://viem.sh/docs/contract/readContract.html)が呼ばれるが、これは内部的に[viemのcall](https://viem.sh/docs/actions/public/call.html)が呼ばれる
+  - [eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call)
+- [readContracts](https://wagmi.sh/core/actions/readContracts)
+  - 複数の"read-only" function (constant function) を呼び出すために使われる
+  - [viemのmulticall](https://viem.sh/docs/contract/multicall.html)が内部的に呼ばれる (eth_callを使ってmulticall functionが呼ばれる)
 - sendTransaction
 - signMessage
 - signTypedData
@@ -305,9 +311,11 @@ React Hooks の宣言的な性質が、アプリの一部で機能しないこ�
 - watchReadContracts
 - watchSigner
 - watchWebSocketProvider
-- writeContract
+- [writeContract](https://wagmi.sh/core/actions/writeContract)
+  - Contractの状態を変更するためのfunctionを呼び出す
+  - [viemのwriteContract](https://viem.sh/docs/contract/writeContract.html)が呼ばれるが、これは内部的にABI-encoded dataと共に[viemのsendTransaction action](https://viem.sh/docs/actions/wallet/sendTransaction.html)が呼ばれる
 
-## [Multicall](https://wagmi.sh/core/actions/multicall)
+### [Multicall](https://wagmi.sh/core/actions/multicall)
 [multicall](../multicall3.md)
 
 - [useContractReads](https://wagmi.sh/react/hooks/useContractReads)や[readContracts](https://wagmi.sh/core/actions/readContracts)は内部的に[viem の multicall](https://viem.sh/docs/contract/multicall.html)を呼び出し、[multicall3](https://github.com/mds1/multicall)コントラクト を介して複数のイーサコントラクトの読み取り専用メソッドを呼び出す。
@@ -347,6 +355,8 @@ const data = await multicall({
   ],
 });
 ```
+
+
 
 ## [Module Types](https://wagmi.sh/core/module-types)
 
