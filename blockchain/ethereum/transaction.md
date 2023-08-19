@@ -14,4 +14,43 @@
 
 ### 署名について
 
-- 署名をすることによってデジタル署名が作成される。これが証明に使われる
+[デジタル署名](../../cryptography/digital-signature.md)
+
+### 署名済み Transaction の検証について
+
+- WIP: 要検証
+
+```ts
+const ethers = require("ethers");
+
+// Sample signed transaction data received from eth_sendTransaction
+const signedTransactionData =
+  "0xf86c808504a817c8008252089435353535353535353535353535353535353535358801ca0cf1f68a82dd313f46a59a5a43e1e87267859356f4ea67b9ed89b277d9dc4c9a03a06595c34907c54d0b1e5ea37a16d4b29d0482ca8d9a13467b9538d7d0f66f8c787";
+
+// Create an ethers provider
+const provider = new ethers.providers.JsonRpcProvider("YOUR_ETHEREUM_NODE_URL");
+
+// Decode the signed transaction
+const decodedTx = ethers.utils.parseTransaction(signedTransactionData);
+
+// Verify the sender's address matches the expected address
+const expectedSenderAddress = "0xExpectedSenderAddress";
+if (decodedTx.from.toLowerCase() !== expectedSenderAddress.toLowerCase()) {
+  console.error("Sender address mismatch");
+  return;
+}
+
+// Verify the signature
+const recoveredAddress = ethers.utils.verifyMessage(
+  decodedTx.data,
+  signedTransactionData
+);
+if (recoveredAddress.toLowerCase() !== expectedSenderAddress.toLowerCase()) {
+  console.error("Invalid signature");
+  return;
+}
+
+// If all verifications pass, proceed with broadcasting the transaction
+// and executing it on the Ethereum network
+console.log("Transaction is valid and can be broadcasted");
+```
