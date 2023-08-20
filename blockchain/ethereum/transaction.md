@@ -19,19 +19,20 @@
 ### 署名済み Transaction の検証について
 
 - WIP: 要検証
+- [Ethers v5 → viem Migration Guide](https://viem.sh/docs/ethers-migration.html)
 
 ```ts
-const ethers = require("ethers");
+import { parseTransaction } from "viem";
+import { ethers } from "ethers";
 
 // Sample signed transaction data received from eth_sendTransaction
 const signedTransactionData =
   "0xf86c808504a817c8008252089435353535353535353535353535353535353535358801ca0cf1f68a82dd313f46a59a5a43e1e87267859356f4ea67b9ed89b277d9dc4c9a03a06595c34907c54d0b1e5ea37a16d4b29d0482ca8d9a13467b9538d7d0f66f8c787";
 
-// Create an ethers provider
-const provider = new ethers.providers.JsonRpcProvider("YOUR_ETHEREUM_NODE_URL");
-
 // Decode the signed transaction
-const decodedTx = ethers.utils.parseTransaction(signedTransactionData);
+//
+//parseTransaction
+const decodedTx = parseTransaction(signedTransactionData);
 
 // Verify the sender's address matches the expected address
 const expectedSenderAddress = "0xExpectedSenderAddress";
