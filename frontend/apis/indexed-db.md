@@ -193,6 +193,31 @@ dbExample
   });
 ```
 
+## Library
+
+### [Dexie.js](https://dexie.org/)
+
+- [github](https://github.com/dexie/Dexie.js)
+- A Minimalistic Wrapper for IndexedDB
+- Star: 9.6k
+
+### [idb](https://github.com/jakearchibald/idb)
+
+- IndexedDB tiny library
+- Star: 5.5k
+
+### [localForage](https://github.com/localForage/localForage)
+
+- IndexedDB や WebSQL, Web Storage のためのライブラリ
+  - [setDriver()](https://github.com/localForage/localForage/blob/master/docs/api.md#setdriver)により、Storage を変更できる
+- 22.7k
+
+### [JsStore](https://jsstore.net/)
+
+- A complete IndexedDB wrapper with SQL like syntax.
+- [github](https://github.com/ujjwalguptaofficial/JsStore)
+- Star: 774
+
 ## References
 
 - [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
