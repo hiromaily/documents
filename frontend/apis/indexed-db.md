@@ -21,6 +21,99 @@
 
 ## DB のバージョンについて
 
+Database の Schema を変更するタイミングで version を変更する
+
+## 利用の手順
+
+### DB を Open する
+
+- [DBFactory: open() method](https://developer.mozilla.org/en-US/docs/Web/API/IDBFactory/open)
+  - db name
+  - db version
+
+```js
+const dbName = 'myDatabase';
+const dbVersion = 1; // You can increase this to upgrade the database schema
+
+const request = indexedDB.open(dbName, dbVersion);
+
+request.onerror = (event) => {
+  console.error('Error opening database:', event.target.errorCode);
+};
+
+request.onsuccess = (event) => {
+  const db = event.target.result;
+  // Now you can interact with the database
+};
+```
+
+### target の DB に ObjectStore を作成する (Table 相当のもの)
+
+- [IDBDatabase: createObjectStore() method](https://developer.mozilla.org/en-US/docs/Web/API/IDBDatabase/createObjectStore)
+  - object store name
+  - object store option
+    - keyPath
+    - autoIncrement
+
+```js
+request.onupgradeneeded = (event) => {
+  const db = event.target.result;
+
+  if (!db.objectStoreNames.contains('myObjectStore')) {
+    const objectStore = db.createObjectStore('myObjectStore', {
+      keyPath: 'id',
+    });
+    // 'id' is the key property in each stored object
+  }
+};
+```
+
+### Transaction を開始し、ObjectStore を開き、データの追加/削除
+
+- [IDBDatabase](https://developer.mozilla.org/ja/docs/Web/API/IDBDatabase)
+- [IDBTransaction](https://developer.mozilla.org/ja/docs/Web/API/IDBTransaction)
+  - object store name
+  - [transaction mode](https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction#mode_constants)
+    - readonly
+    - readwrite
+    - versionchange
+
+```js
+// Transactionの開始
+const transaction = db.transaction(['myObjectStore'], 'readwrite');
+// objectStoreを開く
+const objectStore = transaction.objectStore('myObjectStore');
+
+// add()でデータを追加
+const data = { id: 1, name: 'John', age: 30 };
+const requestAdd = objectStore.add(data);
+
+requestAdd.onsuccess = (event) => {
+  console.log('Data added successfully');
+};
+
+requestAdd.onerror = (event) => {
+  console.error('Error adding data:', event.target.errorCode);
+};
+
+// put()でデータを追加
+const key = 1; // The key you want to use
+const requestPut = objectStore.put(data, key);
+
+requestPut.onsuccess = (event) => {
+  console.log('Data stored successfully');
+};
+
+requestPut.onerror = (event) => {
+  console.error('Error storing data:', event.target.errorCode);
+};
+```
+
+#### 2 パターンのデータの追加方法
+
+- add() method
+- put() method
+
 ## 発生するイベント
 
 ### [IDBRequest](https://developer.mozilla.org/en-US/docs/Web/API/IDBRequest) object
@@ -222,4 +315,5 @@ dbExample
 
 - [IndexedDB API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
 - [IndexedDB key characteristics and basic terminology](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Basic_Terminology)
+- [Using IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB)
 - [CanIUse](https://caniuse.com/?search=indexeddb)
