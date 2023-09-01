@@ -187,8 +187,6 @@ transaction.onerror = (event) => {
 };
 ```
 
-### WIP: どの Operation (Add/Update/Delete)によって Event が発生したか？
-
 ## Example Code
 
 ```ts

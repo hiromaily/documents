@@ -26,6 +26,84 @@
   - メッセージは message イベントの data 属性に収められる
   - データは共有されず、複製される
 
+## コード例
+
+- main.js
+
+```js
+// main.js
+
+document.addEventListener('DOMContentLoaded', () => {
+  const startButton = document.getElementById('startButton');
+  const statusElement = document.getElementById('status');
+
+  let worker;
+
+  startButton.addEventListener('click', () => {
+    if (typeof Worker !== 'undefined') {
+      if (!worker) {
+        worker = new Worker('worker.js');
+
+        worker.onmessage = function (event) {
+          statusElement.textContent = event.data;
+        };
+
+        worker.postMessage('start');
+        startButton.textContent = 'Stop Polling';
+      } else {
+        worker.terminate();
+        worker = undefined;
+        startButton.textContent = 'Start Polling';
+      }
+    } else {
+      statusElement.textContent =
+        'Web Workers are not supported in this browser.';
+    }
+  });
+});
+```
+
+- worker.js
+
+```js
+// worker.js
+
+let isPolling = false;
+
+function pollAPI() {
+  if (!isPolling) {
+    return;
+  }
+
+  // Perform your API request here and check for specific data
+  // If the specific data is found, post a message to the main thread
+  // If not found, schedule the next polling iteration
+
+  // Example:
+  fetch('https://api.example.com/status')
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.status === 'completed') {
+        postMessage('Status changed to completed.');
+        isPolling = false;
+      } else {
+        setTimeout(pollAPI, 5000); // Poll every 5 seconds (adjust as needed)
+      }
+    })
+    .catch((error) => {
+      console.error('Error polling API:', error);
+      isPolling = false;
+    });
+}
+
+onmessage = function (event) {
+  if (event.data === 'start' && !isPolling) {
+    isPolling = true;
+    pollAPI();
+  }
+};
+```
+
 ## [Web Workers が使用できる関数やクラス](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)
 
 - `Web Storage`は不可能
