@@ -28,6 +28,8 @@
 
 ## [Web Workers が使用できる関数やクラス](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)
 
+- `Web Storage`は不可能
+
 - Barcode Detection API
 - Broadcast Channel API
 - Cache API
@@ -56,4 +58,39 @@
 - WebSocket
 - XMLHttpRequest
 
-- `Web Storage`は不可能
+## Library
+
+### [Comlink](https://github.com/GoogleChromeLabs/comlink)
+
+- tiny WebWorkers library
+- Star: 10.1k
+- last updated: Feb 2023
+
+### [worker-dom](https://github.com/ampproject/worker-dom)
+
+- The same DOM API and Frameworks you know, but in a Web Worker
+- Star: 3.1k
+- last updated: Aug 2023
+
+### [threads.js](https://github.com/andywer/threads.js)
+
+- Offload CPU-intensive tasks to worker threads in node.js, web browsers
+- Star: 2.9k
+- last updated: Nov 2022
+
+### [Greenlet](https://github.com/developit/greenlet)
+
+- Move an async function into its own thread.
+- Star: 4.6k
+- last updated: Oct 2019
+
+### [Shopify/quilt](https://github.com/Shopify/quilt)
+
+- A loosely related set of packages for JavaScript/TypeScript projects at Shopify
+- Star: 1.6k
+- last updated: Aug 2023
+
+#### Web Workers related packages
+
+- [@shopify/web-worker](https://github.com/Shopify/quilt/tree/main/packages/web-worker)
+- [@shopify/react-web-worker](https://github.com/Shopify/quilt/tree/main/packages/react-web-worker)

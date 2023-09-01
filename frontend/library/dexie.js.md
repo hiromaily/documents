@@ -7,6 +7,16 @@ IndexedDB のための Wrapper
 - 既に該当 key が存在している状態で同一 key で add()を実行するとエラーが発生する
 - 既に該当 key が存在している状態で同一 key で put()を実行すると、新しい value で該当 key の value が置き換えられる
 
+## 複数の条件文
+
+```js
+return db.store1
+  .where('clientStatus')
+  .equals(1)
+  .and((record) => record.isDeleted === false)
+  .toArray();
+```
+
 ## [liveQuery()](<https://dexie.org/docs/liveQuery()>)と[useLiveQuery()](<https://dexie.org/docs/dexie-react-hooks/useLiveQuery()>)
 
 - Dexie に問い合わせる Promise を返す関数を`Observable`に変えることができ、監視することが可能
@@ -26,6 +36,37 @@ IndexedDB のための Wrapper
 ### この機能の制約
 
 - Dexie 以外の非同期 API を直接呼び出さないこと
+
+### 記述例
+
+```ts
+import { db } from './db';
+
+// Case 1 > ageが50-75までの間のレコードに変化があった場合、通知される
+const txHistoriesObservable = liveQuery(() =>
+  db.txHistories.where('age').between(50, 75).toArray()
+);
+
+// Case 2 > 以下条件に合致するレコードに変化があった場合、通知される
+// - この条件のInsertが走っても検知されるはず
+const txHistoriesObservable = liveQuery(() =>
+  db.txHistories
+    .where("clientStatus")
+    .equals(TxClientStatusType.PENDING)
+    .and((record) => record.isTimeout === false)
+    .toArray();
+);
+
+// Subscribe
+// おそらく、Observerのselectの結果が返ってくる
+const subscription = friendsObservable.subscribe({
+  next: (result) => console.log('Got result:', JSON.stringify(result)),
+  error: (error) => console.error(error),
+});
+
+// Unsubscribe
+subscription.unsubscribe();
+```
 
 ### React による Example
 
