@@ -115,6 +115,35 @@ export function TodoListView({ todoList }: Props) {
 }
 ```
 
+## Dexie DB と Web Worker
+
+- 問題なくできるらしい
+  　　- [Dexie DB within a web worker](https://github.com/dexie/Dexie.js/issues/789)
+
+```js
+// db.js
+import Dexie from "dexie";
+
+export const db = new Dexie("myDB");
+db.version(1).stores({
+  table1: "++key, AColumnName1",
+  table2: "++key, AColumnName2",
+  table3: "AColumnName3"
+});
+
+// worker.js
+import { db } from './db'; // You get a db with property table1 attached (because the schema is declared)
+
+self.onmessage = event => {
+  ...
+  db.table1.bulkPut(...).then(lastId => {
+    ...
+  }).catch(error => {
+    ...
+  });
+}
+```
+
 ## References
 
 - [Official](https://dexie.org/)
