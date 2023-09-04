@@ -11,7 +11,7 @@
 
 - proto ファイル内で、`gogo/protobuf/gogoproto/gogo.proto` を import することで、proto 内における拡張記述が使えるようになる。
 
-```
+```proto
 import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 ```
 
@@ -21,7 +21,7 @@ import "github.com/gogo/protobuf/gogoproto/gogo.proto";
 
 ### header option
 
-```
+```proto
 option (gogoproto.marshaler_all) = true;
 option (gogoproto.sizer_all) = true;
 option (gogoproto.unmarshaler_all) = true;
@@ -30,7 +30,7 @@ option (gogoproto.goproto_getters_all) = false;
 
 ### filed option
 
-```
+```proto
 message XXXXRequest {
   option (gogoproto.goproto_stringer) = false;
   option (gogoproto.equal)            = false;
@@ -48,7 +48,7 @@ message XXXXRequest {
 
 ### enum without additional prefix
 
-```
+```proto
 enum HIROStatus {
   option (gogoproto.goproto_enum_prefix) = false;
 
@@ -60,7 +60,7 @@ enum HIROStatus {
 
 ### any type
 
-```
+```proto
 import "google/protobuf/any.proto";
 message Account {
   string              address = 1;

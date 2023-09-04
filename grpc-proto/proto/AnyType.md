@@ -4,7 +4,7 @@
 
 ## Example of proto file
 
-```
+```proto
 import "google/protobuf/any.proto";
 message Account {
   string              address = 1;
@@ -18,22 +18,22 @@ message Account {
 
    - [sample proto](https://github.com/cosmos/cosmos-sdk/blob/master/proto/cosmos/tx/v1beta1/tx.proto)
 
-   ```
-   // Tx is the standard type used for broadcasting transactions.
-   message Tx {
-     TxBody body = 1;
-     AuthInfo auth_info = 2;
-     repeated bytes signatures = 3;
-   }
+```proto
+// Tx is the standard type used for broadcasting transactions.
+message Tx {
+  TxBody body = 1;
+  AuthInfo auth_info = 2;
+  repeated bytes signatures = 3;
+}
 
-   message TxBody {
-     repeated google.protobuf.Any messages = 1;
-     string memo = 2;
-     uint64 timeout_height = 3;
-     repeated google.protobuf.Any extension_options = 1023;
-     repeated google.protobuf.Any non_critical_extension_options = 2047;
-   }
-   ```
+message TxBody {
+  repeated google.protobuf.Any messages = 1;
+  string memo = 2;
+  uint64 timeout_height = 3;
+  repeated google.protobuf.Any extension_options = 1023;
+  repeated google.protobuf.Any non_critical_extension_options = 2047;
+}
+```
 
 2. protoc でコンパイル
 
@@ -41,7 +41,7 @@ message Account {
   - [protoc-gen-ts](https://www.npmjs.com/package/protoc-gen-ts)
   - [ts-proto](https://www.npmjs.com/package/ts-proto)
 
-```
+```sh
 #`--ts_proto_opt` に `outputTypeRegistry=true` をセット
 protoc \
   --plugin="$(yarn bin protoc-gen-ts_proto)" \
@@ -56,24 +56,22 @@ protoc \
 
 - 生成されたファイルに、Any type が含まれている場合、`outputTypeRegistry` によって、`$type: 'cosmos.tx.v1beta1.Tx'` が追加される
 
-```
+```ts
 export interface Tx {
-  $type: 'cosmos.tx.v1beta1.Tx';
+  $type: "cosmos.tx.v1beta1.Tx";
   body?: TxBody;
   authInfo?: AuthInfo;
   signatures: Uint8Array[];
 }
 
 export interface TxBody {
-  $type: 'cosmos.tx.v1beta1.TxBody';
+  $type: "cosmos.tx.v1beta1.TxBody";
   messages: Any[];
   memo: string;
   timeoutHeight: Long;
   extensionOptions: Any[];
   nonCriticalExtensionOptions: Any[];
 }
-
-- `typeRegistry.ts` というファイルも生成されているので、こちらもapp.tsから参照するようにする。
 ```
 
 4. interface 型の object を JSON に変換する
@@ -82,13 +80,13 @@ export interface TxBody {
 - json ファイルの場合、snakecase が必要になる場合、別ライブラリで最終的に変換しているが、
   - ts-proto の option によって、実現可能っぽい。`--ts_proto_opt=snakeToCamel=keys,json`
 
-```
-import snakecaseKeys from 'snakecase-keys';
-import { decodeAnyFromJSON } from '@src/utils/decodeAny';
+```ts
+import snakecaseKeys from "snakecase-keys";
+import { decodeAnyFromJSON } from "@src/utils/decodeAny";
 
 const txToJSON = (tx: Tx, optExcludes?: string[]): string | undefined => {
   const decodedJSON = decodeAnyFromJSON(Tx.toJSON(tx)) as any;
-  let excludes: string[] = ['@type'];
+  let excludes: string[] = ["@type"];
   if (optExcludes && optExcludes.length > 0)
     excludes = excludes.concat(optExcludes);
   return JSON.stringify(snakecaseKeys(decodedJSON, { exclude: excludes }));
@@ -97,16 +95,16 @@ const txToJSON = (tx: Tx, optExcludes?: string[]): string | undefined => {
 
 - decodeAny.ts
 
-```
+```ts
 //import mapObject, { mapObjectSkip } from 'map-obj';
-import mapObject from 'map-obj';
-import { messageTypeRegistry, MessageType } from '@src/codec/typeRegistry';
-import '@src/codec/cosmos/crypto/secp256k1/keys'; // somehow this module was not loaded
-import { bytesFromBase64 } from '@src/utils/base64';
+import mapObject from "map-obj";
+import { messageTypeRegistry, MessageType } from "@src/codec/typeRegistry";
+import "@src/codec/cosmos/crypto/secp256k1/keys"; // somehow this module was not loaded
+import { bytesFromBase64 } from "@src/utils/base64";
 
 const isAny = (value: any): boolean => {
   return (
-    typeof value === 'object' &&
+    typeof value === "object" &&
     value.typeUrl !== undefined &&
     value.value !== undefined
   );
@@ -141,20 +139,20 @@ const toJSON = (targetType: MessageType, value: string): unknown => {
   const jsonObj = targetType.toJSON(decoded);
 
   // add @type
-  (jsonObj as any)['@type'] = `/${decoded.$type}`;
+  (jsonObj as any)["@type"] = `/${decoded.$type}`;
   return jsonObj;
 };
 
 const unpackAny = (value: any): unknown | undefined => {
   // get target type from typeUrl
   // Note: if typeUrl includes `/` it must be removed
-  const typeUrls = (value.typeUrl as string).split('/');
+  const typeUrls = (value.typeUrl as string).split("/");
   const targetUrl =
     typeUrls.length == 1
       ? typeUrls[0]
       : typeUrls.length == 2
       ? typeUrls[1]
-      : '';
+      : "";
   if (!messageTypeRegistry.has(targetUrl)) return undefined;
   const targetType = messageTypeRegistry.get(targetUrl);
   if (targetType === undefined) return undefined;
@@ -200,5 +198,4 @@ const decodeAnyFromJSON = (target: any): unknown => {
 };
 
 export { decodeAnyFromJSON };
-
 ```

@@ -14,12 +14,12 @@
 - [@types/google-protobuf](https://www.npmjs.com/package/@types/google-protobuf)
   - This package contains type definitions for google-protobuf
 
-```
+```sh
 yarn add --dev grpc-tools grpc_tools_node_protoc_ts
 yarn add @grpc/grpc-js google-protobuf @types/google-protobuf
 ```
 
-```
+```sh
 # use protoc on bash
 PROTOC="`yarn bin`"/grpc_tools_node_protoc
 ```
@@ -30,13 +30,14 @@ PROTOC="`yarn bin`"/grpc_tools_node_protoc
   - typescript plugin
 - [ts-proto](https://www.npmjs.com/package/ts-proto)
   - it transforms your .proto files into strongly-typed, idiomatic TypeScript files.
-  ```
-  --ts_proto_opt="esModuleInterop=true,forceLong=long,useOptionals=true,outputTypeRegistry=true"
-  ```
+
+```sh
+--ts_proto_opt="esModuleInterop=true,forceLong=long,useOptionals=true,outputTypeRegistry=true"
+```
 
 ## Proto files の build 方法
 
-```
+```sh
 PLUGIN_TS=./node_modules/.bin/protoc-gen-ts
 PLUGIN_GRPC=./node_modules/.bin/grpc_tools_node_protoc_plugin
 DIST_DIR=./src
@@ -52,7 +53,7 @@ protoc \
 ./proto/proto/rippleapi/*.proto
 ```
 
-```
+```sh
 PROTOC="`yarn bin`"/grpc_tools_node_protoc
 PROTO_DIR="./proto"
 THIRD_PARTY_PROTO_DIR="./third_party/proto"

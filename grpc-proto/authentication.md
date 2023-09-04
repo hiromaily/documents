@@ -1,4 +1,4 @@
-# Authentication
+# gRPC Authentication
 
 [Docs](https://grpc.io/docs/guides/auth/)
 
