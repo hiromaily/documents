@@ -9,6 +9,19 @@ RPC はリモートプロシージャコール(RPC)システムの 1 つ。RPC �
 - IDL(Interface Definition Language/インターフェース定義言語)でデータの構造を定義するシリアライズのためのフォーマット
 - データを永続的に保存したりネットワーク通信でデータをやり取りする際に使われる
 
+## stub スタブ
+
+- gRPC では Stub というコンポーネントがサーバーとクライアントの仲介をする
+- この仲介を果たす Stub は `proto` というサービス定義ファイルから生成される
+- Stub はサーバー、クライアントそれぞれにライブラリとして組み込んで使用する
+
+### 2 種類の Client スタブ
+
+- blocking/synchronous スタブ
+  - RPC コールはサーバーからの応答を待つ
+- non-blocking/asynchronous スタブ
+  - クライアントはサーバーにノンブロッキングコールを行い、レスポンスは非同期で返される
+
 ## 4 つの通信方法
 
 ### [Unary RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#unary-rpc)
@@ -18,6 +31,8 @@ RPC はリモートプロシージャコール(RPC)システムの 1 つ。RPC �
 ### [Server streaming RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#server-streaming-rpc)
 
 - Server streaming RPC はクライアント側の投げてくるリクエストは Unary(単一)でレスポンス側が複数(Streaming)の通信方式
+
+![Server streaming RPC](../images/grpc-server-streaming.webp "Server streaming RPC")
 
 ### [Client streaming RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#client-streaming-rpc)
 
