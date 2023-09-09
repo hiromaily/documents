@@ -7,10 +7,10 @@
 - [別途まとめた Hook の Test](../framework/react/hooks/test.md)
 
 ```ts
-import { renderHook, act, waitFor } from '@testing-library/react';
-import { useMyHook } from '../useMyHook';
+import { renderHook, act, waitFor } from "@testing-library/react";
+import { useMyHook } from "../useMyHook";
 
-test('should increment counter', () => {
+test("should increment counter", () => {
   const { result } = renderHook(() => useMyHook());
 
   act(() => {
@@ -26,22 +26,18 @@ import { renderHook, waitFor } from '@testing-library/react'
 import 'cross-fetch/polyfill'
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
-import { useBackendAPI } from '../useBackendAPI'; // The hook to be tested
+import { useCustomAPI } from './useCustomAPI';
 
 ...
 
-describe("test useBackendAPI", () => {
-  it('calls get_contracts', async () => {
-    // call /get_contracts
-    const { result } = renderHook(() => useBackendAPI(KEY_GET_CONTRACTS));
+describe("test useCustomAPI", () => {
+  it('calls /foobar', async () => {
+    const expected = {};
+    const { result } = renderHook(() => useCustomAPI(KEY_GET_CONTRACTS));
 
     await waitFor(() => {
-      expect(result.current.error).toBe(null);
-      expect(result.current.data.contracts?.length).toBe(2);
-      expect(result.current.data.contracts[0]?.chainId).toBe('0x1');
-      expect(result.current.data.contracts[0]?.contractId).toBe('0x1');
-      expect(result.current.data.contracts[0]?.contractType).toBe(2);
-      expect(result.current.data.contracts[0]?.contractName).toBe('Pool(TOKI)');
+      expect(result.current.error).toBeUndefined();
+      expect(result.current.data).toEqual(expected);
     }, { timeout: 1000 },
     );
   });
