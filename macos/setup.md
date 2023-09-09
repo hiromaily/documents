@@ -2,7 +2,9 @@
 
 ## Install home brew
 
-$ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
 
 ## Setup zsh
 
@@ -20,13 +22,13 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 
 - /etc/zshenv
 
-```bash
+```sh
 ZDOTDIR=$HOME/.config/zsh
 ```
 
 - ~/.config/zsh/.zshenv
 
-```bash
+```sh
 export XDG_CONFIG_HOME="$HOME"/.config
 export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
@@ -36,7 +38,7 @@ export HISTFILE="$XDG_DATA_HOME"/zsh/history
 
 ### Install newest zsh
 
-```bash
+```sh
 brew install zsh
 ```
 
@@ -46,7 +48,7 @@ brew install zsh
 - [Zim フレームワークで Zsh 環境を構築する](https://takuyatsuchida.com/build-zsh-environment-by-zim-framework/)
 - [zim is faster than zint](https://www.reddit.com/r/zsh/comments/sojfbw/anyone_used_zshellzi/)
 
-```bash
+```sh
 curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
 ```
 
@@ -60,7 +62,7 @@ curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | 
 
 - `.zimrc`
 
-```bash
+```sh
 zmodule eriner
 zimfw install
 ```
@@ -71,7 +73,7 @@ zimfw install
 
 - `.zimrc`
 
-```bash
+```sh
 zmodule romkatv/powerlevel10k --use degit
 zimfw install
 ```
@@ -87,7 +89,7 @@ zimfw install
 
 - `.zimrc`
 
-```bash
+```sh
 zmodule olets/zsh-abbr
 zimfw install
 # then add .config/zsh/abbreviations and modify
@@ -100,7 +102,7 @@ zimfw install
 
 - `.zimrc`
 
-```bash
+```sh
 zmodule b4b4r07/enhancd
 zimfw install
 ```
@@ -111,7 +113,7 @@ zimfw install
 
 - `.zimrc`
 
-```bash
+```sh
 zmodule zdharma/history-search-multi-word
 zimfw install
 ```
@@ -133,7 +135,7 @@ mv .fzf.zsh .config/zsh/
 
 - `.zprofile`
 
-```
+```sh
 # fzf
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 ```
@@ -144,7 +146,7 @@ mv .fzf.zsh .config/zsh/
 
 ## Install tools by brew
 
-```bash
+```sh
 brew install zsh
 brew install wget
 brew install nmap
@@ -177,13 +179,13 @@ brew install figlet
 
 - Add path in `.zprofile`
 
-```
+```sh
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 ```
 
 ## Golang settings
 
-```bash
+```sh
 mkdir -p ~/go/pkg
 mkdir -p ~/go/src
 mkdir -p ~/go/bin
@@ -192,11 +194,12 @@ mkdir -p ~/go/bin
 go install golang.org/x/tools/cmd/goimports@latest
 ```
 
-
 ## Rust settings
+
 - [install](https://rust-lang.github.io/rustup/installation/index.html)
 - configure `.zprofile`
-```
+
+```sh
 export CARGO_HOME="$XDG_DATA_HOME"/cargo
 export CARGO_CONFIG="$XDG_CONFIG_HOME"/cargo
 export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
@@ -205,7 +208,7 @@ export PATH=$CARGO_HOME/bin:$PATH
 #[ -f $CARGO_CONFIG/env ] && source $CARGO_CONFIG/env
 ```
 
-```bash
+```sh
 mkdir ~/.config/cargo
 mkdir ~/.local/share/cargo
 mkdir ~/.local/share/rustup
@@ -221,12 +224,14 @@ rustup completions zsh > ~/.config/zsh/zfunc/_rustup
 ```
 
 - configure `.zshrc`
-```
+
+```sh
 fpath+=~/.config/zsh/zfunc
 ```
 
 - check
-```
+
+```sh
 rustup --version
 cargo --version
 rustc --version
@@ -234,7 +239,7 @@ rustc --version
 
 ## NeoVIM settings
 
-```
+```sh
 brew install neovim
 mkdir -p ~/.config/nvim/plugged
 touch ~/.config/nvim/init.vim
@@ -242,13 +247,13 @@ touch ~/.config/nvim/init.vim
 
 - `.config/zsh/.alias.zsh`
 
-```
+```sh
 alias vim='nvim'
 ```
 
 - `.config/nvim/init.vim`
 
-```
+```sh
 set number             "行番号を表示
 set autoindent         "改行時に自動でインデントする
 set tabstop=2          "タブを何文字の空白に変換するか
@@ -287,7 +292,7 @@ set hls                "検索した文字をハイライトする
 
 - `.zshrc`
 
-```
+```sh
 alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn"'
 ```
 
@@ -299,7 +304,7 @@ alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn"'
 - https://docs.docker.com/engine/reference/commandline/cli/
 - `.zprofile`
 
-```
+```sh
 export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 ```
 
@@ -307,6 +312,6 @@ export DOCKER_CONFIG="$XDG_CONFIG_HOME"/docker
 
 - `.zprofile`
 
-```
+```sh
 export LESSHISTFILE="$XDG_STATE_HOME"/less/history
 ```

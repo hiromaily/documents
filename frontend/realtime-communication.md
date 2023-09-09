@@ -64,7 +64,7 @@ Publish/Subscribe モデルのメッセージングにより、非同期に 1 �
 - 接続の設定と解除のオーバーヘッドが低い
 - 接続に関連するリソースを長期間にわたって管理する必要がある
 - 定期的にデータを送信または更新を受け取る
-- 接続が長い期間開いている場合に、ネットワークの中断やクライアントの切断などの問題を処理する必要があ r う
+- 接続が長い期間開いている場合に、ネットワークの中断やクライアントの切断などの問題を処理する必要がある
 - 接続数の制限、リソース管理が必要
 
 ### サーバーリソースの例
@@ -136,7 +136,7 @@ Publish/Subscribe モデルのメッセージングにより、非同期に 1 �
   - ストリームは、サービスエラーや接続エラーによって中断されることがある。エラーが発生した場合、ストリームを再開するためのロジックが必要となる
   - gRPC ストリーミング・メソッドは、1 種類のメッセージの受信と 1 種類のメッセージの送信に限定される
 
-### envoyproxy/envoy
+### [envoyproxy/envoy](https://github.com/envoyproxy/envoy) の issue
 
 - [High memory usage with long HTTP/2 connections (GRPC)](https://github.com/envoyproxy/envoy/issues/9891)
 - [Extremely high memory usage with long streaming gRPC requests](https://github.com/envoyproxy/envoy/issues/15904)
