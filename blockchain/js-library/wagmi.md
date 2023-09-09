@@ -203,58 +203,73 @@ Docs に用意されている Hook は比較的利用頻度が高いものと思
 - usePrepareContractWrite
 - usePrepareSendTransaction
 
-### Github より
+### [useContractReads](useContractReads)
 
-- [hooks](https://github.com/wagmi-dev/wagmi/tree/main/packages/react/src/hooks)
-  - [accounts](https://github.com/wagmi-dev/wagmi/tree/main/packages/react/src/hooks/accounts)
-    - useAccount.ts
-    - useBalance.ts
-    - useConnect.ts
-    - useDisconnect.ts
-    - useNetwork.ts
-    - useSignMessage.ts
-    - useSignTypedData.ts
-    - useSigner.ts
-    - useSwitchNetwork.ts
-  - [contracts](https://github.com/wagmi-dev/wagmi/tree/main/packages/react/src/hooks/contracts)
-    - useContract.ts
-    - useContractEvent.ts
-    - useContractInfiniteReads.ts
-    - useContractRead.ts
-    - useContractReads.ts
-    - useContractWrite.ts
-    - usePrepareContractWrite.ts
-    - useToken.ts
-  - [ens](https://github.com/wagmi-dev/wagmi/tree/main/packages/react/src/hooks/ens)
-    - useEnsAddress.ts
-    - useEnsAvatar.ts
-    - useEnsName.ts
-    - useEnsResolver.ts
-  - [network-status](https://github.com/wagmi-dev/wagmi/tree/main/packages/react/src/hooks/network-status)
-    - useBlockNumber.ts
-    - useFeeData.ts
-  - [providers](https://github.com/wagmi-dev/wagmi/tree/main/packages/react/src/hooks/providers)
-    - useProvider.ts
-    - useWebSocketProvider.ts
-  - [transactions](https://github.com/wagmi-dev/wagmi/tree/main/packages/react/src/hooks/transactions)
-    - usePrepareSendTransaction.ts
-    - useSendTransaction.ts
-    - useTransaction.ts
-    - useWaitForTransaction.ts
-    - useWatchPendingTransactions.ts
-  - [utils](https://github.com/wagmi-dev/wagmi/tree/main/packages/react/src/hooks/utils)
-    - [query](https://github.com/wagmi-dev/wagmi/tree/main/packages/react/src/hooks/utils/query)
-      - useBaseQuery.ts
-      - useInfiniteQuery.ts
-      - useMutation.ts
-      - useQuery.ts
-      - useQueryClient.ts
-      - utils.ts
-    - useChainId.ts
-    - useForceUpdate.ts
-    - useInvalidateOnBlock.ts
-    - useSyncExternalStore.ts
-    - useSyncExternalStoreWithTracked.ts
+- 複数の contract を後述する`multicall`を使って呼び出す
+
+#### 必須 Parameter
+
+- address (optional とあるが必須では？)
+  - contract アドレス
+- abi (optional とあるが必須では？)
+  - 呼びだす function を含む ABI ファイル
+- functionName (optional とあるが必須では？)
+  - 呼び出す function 名
+- chainId(optional とあるが必須では？)
+  - function の呼び出し先 chain である ID
+- args (optional)
+  - 呼び出す function に引数を渡す場合、こちらに設定する
+
+#### 状況によって使い分ける Parameter
+
+- allowFailure (optional)
+  - 読み込み時にエラーが発生した場合、通常はエラーが throw されるが、`true`の場合はエラーを throw しない
+- blockNumber (optional)
+  - 指定した blockNumber の Block から State を読み込む
+- blockTag (optional)
+  - 読み込み時、指定した block の状態に該当する block から State を読み込む (参考: [default block parameter](https://ethereum.org/en/developers/docs/apis/json-rpc/#default-block))
+    - `latest`: for the latest mined block
+    - `earliest`: for the earliest/genesis block
+    - `pending`: for the pending state/transactions
+    - `safe`: for the latest safe head block
+    - `finalized`: for the latest finalized block
+- cacheOnBlock (optional)
+  - 現在のブロックに対して返されたデータをキャッシュする。 新しいブロックが到着すると、古いデータは更新される。
+- watch (optional)
+  - block 毎の変化を監視し、block が更新されると reponse も変更される(はず)。ただし頻繁なリクエストにより rate-limit に引っかかる恐れがある。
+- cacheTime (optional)
+  - Default: 0. Cache としての保持期間(ms)
+- enabled (optional)
+  - Defaults to `true`. これを`false`にすることで、自動的な query をコントロールする。
+  - つまり、`enable`の値は固定値をセットするものではない。以下例`usePrepareContractWrite()`の例だが、特定の値が正しい場合のみ`true`になる
+
+```ts
+const { config } = usePrepareContractWrite({
+  ...getSushiBarContractConfig(ChainId.ETHEREUM),
+  functionName: stake ? 'enter' : 'leave',
+  args: amount ? [BigNumber.from(amount.quotient.toString())] : undefined,
+  enabled: !!amount?.quotient,
+});
+
+const { write, isLoading: isWritePending } = useContractWrite({
+  ...config,
+  onSettled,
+});
+```
+
+- scopeKey (optional)
+  - キャッシュの範囲を指定されたコンテキストに限定する。 同一のコンテキストを持つ Hook は同じキャッシュを共有する
+- staleTime (optional)
+  - Default: `0`, データが古いとみなされるまでの時間 (ミリ秒)。`Infinity` に設定すると、データは古いとはみなされない
+- select (optional)
+  - Contract によって返されたデータの一部を変換または選択する
+- structuralSharing (optional)
+  - データの参照 ID を保持し、再レンダリングを防ぐ
+- suspense (optional)
+  - `true`によって suspense モードを有効にする
+- onSuccess (optional)
+- onError (optional)
+- onSettled (optional)
 
 ## [Default で利用できる ABI (Application Binary Interface)](https://wagmi.sh/react/constants/abis)
 
@@ -285,16 +300,16 @@ React Hooks の宣言的な性質が、アプリの一部で機能しないこ�
 - getWebSocketProvider
 - [multicall](https://wagmi.sh/core/actions/multicall)
   - 複数の"read-only" function (constant function) を呼び出すために使われる
-  - [viemのmulticall](https://viem.sh/docs/contract/multicall.html)が内部的に呼ばれる
+  - [viem の multicall](https://viem.sh/docs/contract/multicall.html)が内部的に呼ばれる
 - prepareSendTransaction
 - prepareWriteContract
 - [readContract](https://wagmi.sh/core/actions/readContract)
   - "read-only" function (constant function) のために使われる
-  - [viemのreadContract](https://viem.sh/docs/contract/readContract.html)が呼ばれるが、これは内部的に[viemのcall](https://viem.sh/docs/actions/public/call.html)が呼ばれる
+  - [viem の readContract](https://viem.sh/docs/contract/readContract.html)が呼ばれるが、これは内部的に[viem の call](https://viem.sh/docs/actions/public/call.html)が呼ばれる
   - [eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call)
 - [readContracts](https://wagmi.sh/core/actions/readContracts)
   - 複数の"read-only" function (constant function) を呼び出すために使われる
-  - [viemのmulticall](https://viem.sh/docs/contract/multicall.html)が内部的に呼ばれる (eth_callを使ってmulticall functionが呼ばれる)
+  - [viem の multicall](https://viem.sh/docs/contract/multicall.html)が内部的に呼ばれる (eth_call を使って multicall function が呼ばれる)
 - sendTransaction
 - signMessage
 - signTypedData
@@ -312,10 +327,11 @@ React Hooks の宣言的な性質が、アプリの一部で機能しないこ�
 - watchSigner
 - watchWebSocketProvider
 - [writeContract](https://wagmi.sh/core/actions/writeContract)
-  - Contractの状態を変更するためのfunctionを呼び出す
-  - [viemのwriteContract](https://viem.sh/docs/contract/writeContract.html)が呼ばれるが、これは内部的にABI-encoded dataと共に[viemのsendTransaction action](https://viem.sh/docs/actions/wallet/sendTransaction.html)が呼ばれる
+  - Contract の状態を変更するための function を呼び出す
+  - [viem の writeContract](https://viem.sh/docs/contract/writeContract.html)が呼ばれるが、これは内部的に ABI-encoded data と共に[viem の sendTransaction action](https://viem.sh/docs/actions/wallet/sendTransaction.html)が呼ばれる
 
 ### [Multicall](https://wagmi.sh/core/actions/multicall)
+
 [multicall](../multicall3.md)
 
 - [useContractReads](https://wagmi.sh/react/hooks/useContractReads)や[readContracts](https://wagmi.sh/core/actions/readContracts)は内部的に[viem の multicall](https://viem.sh/docs/contract/multicall.html)を呼び出し、[multicall3](https://github.com/mds1/multicall)コントラクト を介して複数のイーサコントラクトの読み取り専用メソッドを呼び出す。
@@ -356,8 +372,6 @@ const data = await multicall({
 });
 ```
 
-
-
 ## [Module Types](https://wagmi.sh/core/module-types)
 
 Default: Pure ESM
@@ -370,8 +384,6 @@ Wagmi CLI は、
 - コードの生成（React Hooks、VanillaJS アクションなど）
 - 手作業を自動化することで、Ethereum での作業を容易にする（例えば、Etherscan から ABI をコピー＆ペーストする必要がなくなる）
 - また、CLI をさらに拡張するためのプラグインを書くことも可能
-
-
 
 ## Examples
 
