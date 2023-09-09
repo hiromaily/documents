@@ -3,7 +3,7 @@
 - [The Clean Architecture from The Clean Code Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [The Clean Architecture 翻訳](https://blog.tai2.net/the_clean_architecture.html)
 
-![clean architecture](../../images/clean-architecture-origin.jpg 'clean architecture')
+![clean architecture](../../images/clean-architecture-origin.jpg "clean architecture")
 
 `依存性のルール`として、`ソースコードは、内側に向かってのみ依存することができる`
 
@@ -62,30 +62,32 @@
 
 最上部の図の右下の図の「コントローラーからはじまり、ユースケースを抜けて、プレゼンターで実行される」という矛盾は `依存関係逆転の原則(Dependency Inversion Principle)` で解決される
 
-![dip](../../images/dip.png 'dip')
+![dip](../../images/dip.png "dip")
 
 ## 図解による依存関係の整理
 
 - `Application Business Rules(UseCases)`レイヤー及び、`Interface Adapter` レイヤーは抽象に依存することで、`依存関係逆転の法則(DIP)`によって`依存性のルール`を満たす
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture1.png"  width="50%" height="50%">
+  <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture1.png"  width="50%" height="50%">
 
 - 実際にコードを書くことによって見えたことだが、システムの起点となる Handler を持つ`WebFramework`だったり、`UI`は`依存関係逆転の法則(DIP)`によって`UseCases`に依存する必要はなく、直接`UseCases`に依存することができる。ただそのコンポーネントが存在するかどうかのみで、WebFramework や UI は変更可能であり、入力の数に制限はない(CUI も GUI も備えるシステムでもよい)
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture2.png"  width="50%" height="50%">
+  <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture2.png"  width="50%" height="50%">
 
-- 個人的な解釈だが、DeviceにはAdapterが必要なく、`依存関係逆転の法則(DIP)`によってUseCasesに直接依存可能なケースも存在する。これはUseCasesのためにデータの最適化が不要な場合がこれに該当する
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture3.png"  width="60%" height="60%">
+- 個人的な解釈だが、Device には Adapter が必要なく、`依存関係逆転の法則(DIP)`によって UseCases に直接依存可能なケースも存在する。これは UseCases のためにデータの最適化が不要な場合がこれに該当する
+  <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture3.png"  width="60%" height="60%">
 
-## Clean Architectureと相性のいいデザインパターン
+## Clean Architecture と相性のいいデザインパターン
+
 - DI (Dependency Injection)
-  - 具象への依存を無くし、抽象へ依存することでオブジェクト間をゆるく結合することを目的としたもので、オブジェクトの生成タイミングで、Configや環境変数の値などによって依存関係を適切に組み立てる。
-  - この概念は非常にシンプルなものなので、間違ってもDIフレームワークなどは不要
+  - 具象への依存を無くし、抽象へ依存することでオブジェクト間をゆるく結合することを目的としたもので、オブジェクトの生成タイミングで、Config や環境変数の値などによって依存関係を適切に組み立てる。
+  - この概念は非常にシンプルなものなので、間違っても DI フレームワークなどは不要
 - Creational Patterns
   - [Abstract Factory](https://github.com/hiromaily/documents/tree/main/architecture/design-pattern#abstract-factory)
-    - DIの概念はこのデザインパターンによって解決できる
-  
-## Clean Architectureでよく勘違いされていること
-Clean Architectureの文脈で`Domain-Driven Design (DDD)`がよく語られるが、DDDはClean Architectureの一部ではなくこれは`Layered-Architecture`にも適用できる。
-この認識の齟齬がClean Architecture=実装が大変、難しいにつながっていると感じる。
+    - DI の概念はこのデザインパターンによって解決できる
+
+## Clean Architecture でよく勘違いされていること
+
+Clean Architecture の文脈で`Domain-Driven Design (DDD)`がよく語られるが、DDD は Clean Architecture の一部ではなくこれは`Layered-Architecture`にも適用できる。
+この認識の齟齬が Clean Architecture=実装が大変、難しいにつながっていると感じる。
 
 ## 考察
 
@@ -95,9 +97,10 @@ Clean Architectureの文脈で`Domain-Driven Design (DDD)`がよく語られる�
 - `Application Business Rules (Use Cases)`層構築については`関心の分離`の観点から`システムを使うこと`と、`構築すること`を分離する
 - 依存関係は DI(Dependency injection)によって、環境変数や Config ファイルの値から適切なコンポーネント切り替える。
 - Web フレームワークへの依存をいかに plugable にするか？と同時に可読性を優先するという観点でその必要性がないシステム（もしくはトレードオフ）もあるように思う。この場合、Handler の各エンドポイントをユースケースとして見立てることになる。
-- 例えば、Databaseの場合、使用するDatabaseのデータを変換するための専用のAdapterが存在するケースがほとんどで`Interface Adapter`と`Framework/Device`の間にInterfaceは不要なケースがほとんどだが、Interfaceが存在しないと`依存性のルール`を満たすことができない。これを満たすためだけに対となる`Interface Adapter`と`Framework/Device`の間にInterfaceを用意するのは不毛と感じる。
-- 周りを見ているとClean Architectureを難しく考えすぎる節があるが、そこにDDD(domain-driven design)の思想を持ち込むが故に思える。Clean Architectureをシンプルに考えると具象ではなく抽象への依存が重要な要素であり、それに付随して依存の方向性と、抽象への依存の先にある具象とそれをユースケースに渡すAdapter Interface層の責務の分担を抑えればよい。
-- 抽象への依存の目的はplugableなコンポーネントによる変更の容易性であり、それを実現するためのオブジェクト生成のコードが重要になる。デザインパターンにおけるCreational PatternsやDIとの相性がいい
+- 例えば、Database の場合、使用する Database のデータを変換するための専用の Adapter が存在するケースがほとんどで`Interface Adapter`と`Framework/Device`の間に Interface は不要なケースがほとんどだが、Interface が存在しないと`依存性のルール`を満たすことができない。これを満たすためだけに対となる`Interface Adapter`と`Framework/Device`の間に Interface を用意するのは不毛と感じる。
+- 周りを見ていると Clean Architecture を難しく考えすぎる節があるが、そこに DDD(domain-driven design)の思想を持ち込むが故に思える。Clean Architecture をシンプルに考えると具象ではなく抽象への依存が重要な要素であり、それに付随して依存の方向性と、抽象への依存の先にある具象とそれをユースケースに渡す Adapter Interface 層の責務の分担を抑えればよい。
+- 抽象への依存の目的は plugable なコンポーネントによる変更の容易性であり、それを実現するためのオブジェクト生成のコードが重要になる。デザインパターンにおける Creational Patterns や DI との相性がいい
+
 ## Clean Architecture を採用している企業
 
 - Uber

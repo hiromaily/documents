@@ -1,21 +1,34 @@
 # Injecting Hook Dependencies
+
 [Injecting Hooks Into React Components](https://careers.wolt.com/en/blog/engineering/injecting-hooks-into-react-components)
 
-## hook dependenciesをReactコンポーネントに注入する方法は以下の3つ
+## 先に個人的な結論
+
+- 異なる hook を差し込みたい場合、その Hook を使う Component 単位で分けてしまう
+- [patterns](https://www.patterns.dev/)の[Container/Presentational Pattern](https://www.patterns.dev/posts/presentational-container-pattern)によって、デザイン用の component とロジック用の component を分ける。
+
+<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/prescon-pattern.jpeg"  width="50%" height="50%">
+
+- [Composition vs Inheritance](https://legacy.reactjs.org/docs/composition-vs-inheritance.html)
+  - `React has a powerful composition model, and we recommend using composition instead of inheritance to reuse code between components`
+
+## hook dependencies を React コンポーネントに注入する方法は以下の 3 つ
+
 - passing in props
 - binding parameters in a function closure,
 - retrieving them from a React context
 
 ## Passing Hooks in Props
-- Hookをインポートする代わりに、propsで渡すことも可能
-- しかし、Hookのルールに注意し、Hookの呼び出し順序を変えないようにしなければならない
-- また、propsの中でHookを渡すことは、ある人からは無作法とみなされるかもしれない
+
+- Hook をインポートする代わりに、props で渡すことも可能
+- しかし、Hook のルールに注意し、Hook の呼び出し順序を変えないようにしなければならない
+- また、props の中で Hook を渡すことは、ある人からは無作法とみなされるかもしれない
 
 ```tsx
-import React from 'react';
+import React from "react";
 
-import { Child } from 'components/Child';
-import { useFoo } from 'hooks/useFoo';
+import { Child } from "components/Child";
+import { useFoo } from "hooks/useFoo";
 
 export const Parent = () => {
   return (
@@ -35,7 +48,8 @@ export const Child = ({ useFoo }: Props) => {
 };
 ```
 
-- 原理的には、親コンポーネント内でHookの実装を提供することも可能
+- 原理的には、親コンポーネント内で Hook の実装を提供することも可能
+
 ```tsx
 import React from "react";
 
@@ -62,12 +76,14 @@ export const Parent = ({ useBar, useBaz }: Props) => {
 };
 ```
 
-- propに渡されたフックの定義をインラインで提供することは、Hookのルールを破るものではないが、`useFoo`を `useCallback`でラップしない限り、Childが不必要に再レンダリングする可能性がある。しかし、ESLintはこれに対して正当な警告を示す
+- prop に渡されたフックの定義をインラインで提供することは、Hook のルールを破るものではないが、`useFoo`を `useCallback`でラップしない限り、Child が不必要に再レンダリングする可能性がある。しかし、ESLint はこれに対して正当な警告を示す
+
 ```sh
-React Hook "useBar" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function. 
+React Hook "useBar" cannot be called inside a callback. React Hooks must be called in a React function component or a custom React Hook function.
 ```
 
-- インライン化されたHookをHook作成関数に展開し、その結果をメモ化することで、この問題を回避することは可能
+- インライン化された Hook を Hook 作成関数に展開し、その結果をメモ化することで、この問題を回避することは可能
+
 ```tsx
 import React, { useMemo } from "react";
 
@@ -89,23 +105,26 @@ const createUseFoo =
   };
 ```
 
-- しかし、Hook Factoryを使うと、ESLintはフックのルールを破ること、例えば条件付きでHookを呼び出すことから守ってくれなくなる。次のコードは`useFooWithParam`を条件付きで呼び出している。
+- しかし、Hook Factory を使うと、ESLint はフックのルールを破ること、例えば条件付きで Hook を呼び出すことから守ってくれなくなる。次のコードは`useFooWithParam`を条件付きで呼び出している。
+
 ```tsx
 const createUseFoo =
- ({ useBar, useFooWithParam }: Pick<Props, "useBar" | "useFooWithParam">) =>
- () => {
-   const bar = useBar();
-   // Calling useFooWithParam conditionally changes the hook call order
-   return bar ? useFooWithParam(bar) : "";
- };
-``` 
+  ({ useBar, useFooWithParam }: Pick<Props, "useBar" | "useFooWithParam">) =>
+  () => {
+    const bar = useBar();
+    // Calling useFooWithParam conditionally changes the hook call order
+    return bar ? useFooWithParam(bar) : "";
+  };
+```
 
-## Currying Hook Parameters: Hookパラメータのカリー化
+## Currying Hook Parameters: Hook パラメータのカリー化
+
 コードが冗長化するため、割愛
 
 ## Passing Hooks Through Context
-- Context経由でHookを提供する
-- [react-facade](https://github.com/garbles/react-facade)を使うことでProxy機能により可読性と利便性が高まる
+
+- Context 経由で Hook を提供する
+- [react-facade](https://github.com/garbles/react-facade)を使うことで Proxy 機能により可読性と利便性が高まる
 
 ```ts
 import { createFacade } from "react-facade";
@@ -116,6 +135,7 @@ type Hooks = {
 
 export const [hooks, ImplementationProvider] = createFacade<Hooks>();
 ```
+
 ```tsx
 import React from "react";
 import { hooks } from "./facade";
@@ -126,6 +146,5 @@ export const Child = () => {
 };
 ```
 
-- `ImplementationProvider`を使用して、ファサード用のHook実装を提供する必要がある
+- `ImplementationProvider`を使用して、ファサード用の Hook 実装を提供する必要がある
 - 複数のコンポーネントがファサードを共有することも、アプリ全体を共有することもできるが、ファサードを共有することで、コンポーネントでフックの型を指定する利点の一部が失われる
-
