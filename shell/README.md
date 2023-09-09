@@ -10,6 +10,7 @@
 - csh: C shell
 - tcsh
 - ksh
+- [fish](https://github.com/fish-shell/fish-shell)
 
 ### bash
 
