@@ -4,12 +4,12 @@
 
 - [MacOS ShortCuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
 
-- `ファイル検索` => `Command+P`
-- `Command Palette` => `F1` or `Shift+Command+P`
-- `Quick Open, Go to file` => `Command+P`
-- `User Settings` => `Command+,`
+- `ファイル検索` => `Command + P`
+- `Command Palette` => `F1` or `Shift + Command + P`
+- `Quick Open, Go to file` => `Command + P`
+- `User Settings` => `Command + ,`
 
-- `TextのLineを移動する` => `Option+⇅`
+- `TextのLineを移動する` => `Option + ⇅`
 - `Indent/outdent line` => `⌘] / ⌘[`
 - `Toggle line comment` => `⌘/`
 
@@ -18,35 +18,25 @@
 - `検索` => `⌘F`
 - `置換` => `⌥⌘F`
 
-## Extensions
+## Command Palette
 
-1. Gitlens ... コミット履歴を確認できる
-2. Live Server ... local dev server を立ち上げる
-3. Import Cost ... npm で import したときのファイルサイズを表示する
-4. Prettier ... save 時に prettier で format をかける
-5. ESLint ... eslint の結果が code 上ですぐに確認できる
-6. Markdown All in One ... Markdown に便利な機能が含まれるが、default でも十分かも
-7. Better Comments ... better comments が提案される
-8. Snippets
+- `Command Palette` => `F1` or `Shift + Command + P`
 
-- ES7+ React/Redux/React-Native snippets
-- Javascript (ES6) Code Snippets
+## Indent の変更
 
-8. Path Intellisense ... パス入力を補完する
-9. Auto Rename Tag
-10. Auto Close Tag
-11. Live Server
+`Indent`と入力すると、関連コマンドが表示される
 
-## 便利機能
+## Emmet スニペット
 
-### Emmet スニペット
+- Emmet とは、Web 制作において非常に便利な機能がそろったツールキットで、HTML・CSS の記述を楽にするもの
+- VSCode にはデフォルトで Emmet がインストールされている
 
 - HTML ファイルの雛形を作成する
 
-### マルチカーソル
+## マルチカーソル
 
 - 同一の文字列をマウスでドラッグして選択
-- `Ctrl+Shitf+L`
+- `Ctrl + Shitf + L`
 
 ## プロジェクトの設定ファイル
 
@@ -86,25 +76,6 @@ touch .vscode/settings.json   # vscodeそのものの設定を記載
   "search.useIgnoreFiles": true
 }
 ```
-
-- スニペットを有効にする
-  - [Snippets in Visual Studio Code](https://code.visualstudio.com/docs/editor/userdefinedsnippets)
-  - Create your own snippets
-
-```sh
-cd  ~/Library/Application Support/Code/User
-mkdir snippets
-touch snippets/javascript.json # for javascript
-touch snippets/typescript.json # for typescript
-```
-
-## Command Palette
-
-- `Command Palette` => `F1` or `Shift+Command+P`
-
-### Indent の変更
-
-`Indent`と入力すると、関連コマンドが表示される
 
 ## shell の default setting
 
