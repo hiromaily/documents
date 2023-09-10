@@ -16,6 +16,10 @@ code --list-extensions
 
 ### General
 
+#### [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+
+- Explorer 内のディレクトリ/ファイルを項目毎に沿ったアイコンに変更する
+
 #### [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 
 - コミット履歴を確認できる
@@ -53,6 +57,11 @@ code --list-extensions
 #### [Path Intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense)
 
 - パス入力を補完する
+
+#### [Auto Import](https://marketplace.visualstudio.com/items?itemName=steoates.autoimport)
+
+- 利用可能なすべてのインポートに対して、自動的に検索、解析し、コードアクションとコード補完を行う
+- ts, tsx
 
 ### HTML
 

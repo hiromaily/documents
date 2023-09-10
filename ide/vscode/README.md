@@ -4,14 +4,18 @@
 
 - [MacOS ShortCuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
 
+- `Command Palette` => `Shift + Command + P` or `F1`
+  - ` 設定ファイル`` =>  `settings.json` で検索
 - `ファイル検索` => `Command + P`
-- `Command Palette` => `F1` or `Shift + Command + P`
-- `Quick Open, Go to file` => `Command + P`
+  - `Quick Open, Go to file` => `Command + P`
 - `User Settings` => `Command + ,`
 
-- `TextのLineを移動する` => `Option + ⇅`
-- `Indent/outdent line` => `⌘] / ⌘[`
-- `Toggle line comment` => `⌘/`
+## プログラミング固有
+
+- `今までの修正箇所へ移動??` => `⌘ + Shift + ] / ⌘ + Shift + [`
+- `コメントアウト: Toggle line comment` => `⌘/`
+- `カーソル行にある全ての行を上下に移動する` => `Option + ⇅`
+- `定義箇所にジャンプ` => `Command + クリック`
 
 ## 検索/置換
 
@@ -20,7 +24,11 @@
 
 ## Command Palette
 
-- `Command Palette` => `F1` or `Shift + Command + P`
+- `Command Palette` => `Shift + Command + P` or `F1`
+
+## Formatter の指定 (Configure Default Formatter)
+
+- `Shift + Command + P` => `Format Selection`
 
 ## Indent の変更
 
@@ -38,53 +46,10 @@
 - 同一の文字列をマウスでドラッグして選択
 - `Ctrl + Shitf + L`
 
-## プロジェクトの設定ファイル
+## プロジェクト固有の設定ファイル
 
 ```sh
 mkdir .vscode
 touch .vscode/extensions.json # ワークスペースで推奨したい拡張機能を記載
 touch .vscode/settings.json   # vscodeそのものの設定を記載
-```
-
-- `settings.json`内にて、以下の設定によって、エクスプローラの表示対象からの除外するファイルとフォルダを設定する
-
-```json
-{
-  "files.exclude": {
-    "**/.git": true,
-    "**/.vendor": true,
-    "**/.DS_Store": true
-  }
-}
-```
-
-- `settings.json`内にて、検索の対象からの除外するファイルとフォルダーを設定する
-
-```json
-{
-  "search.exclude": {
-    "**/node_modules": true,
-    "**/vendor": true
-  }
-}
-```
-
-- `.gitignore` と `.ignore` の設定を検索時に有効化する
-
-```json
-{
-  "search.useIgnoreFiles": true
-}
-```
-
-## shell の default setting
-
-- 必要かどうかは、要検証
-- ~/Library/Application\ Support/Code/User/settings.json
-
-```json
-{
-  "terminal.integrated.defaultProfile.osx": "zsh",
-  ...
-}
 ```
