@@ -5,17 +5,32 @@
 - [MacOS ShortCuts](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)
 
 - `Command Palette` => `Shift + Command + P` or `F1`
-  - ` 設定ファイル`` =>  `settings.json` で検索
+  - `設定ファイル` => `settings.json` で検索
 - `ファイル検索` => `Command + P`
   - `Quick Open, Go to file` => `Command + P`
 - `User Settings` => `Command + ,`
 
 ## プログラミング固有
 
-- `今までの修正箇所へ移動??` => `⌘ + Shift + ] / ⌘ + Shift + [`
+- `今までの修正箇所へ移動` => `⌘ + Shift + ] / ⌘ + Shift + [` => 実際は開いている Tab を移動しているだけだった
 - `コメントアウト: Toggle line comment` => `⌘/`
 - `カーソル行にある全ての行を上下に移動する` => `Option + ⇅`
 - `定義箇所にジャンプ` => `Command + クリック`
+  - `Ctrl + -` でも戻るが、進めない。。。 => `Go Back`
+- メニューの[Go]に、`Next Change`と`Previous Change`がある
+  - `Option + F3` or `Option + Shift + F3` => 押しても反応しない
+- `Command Palette` => `Shift + Command + P` or `F1`
+  - Go Back in Edit Locations / Go to Last Edit Location
+    - これはファイルをまたいで移動ができるが、最後の変更を起点にしか back 方面にしか移動できない
+  - Go to Next Change / Go to Previous Change
+    - 同一ファイル内でしか移動できない
+  - Go Forward in Edit Locations / Go Previous in Edit Locations
+    - 思っているような挙動とは違う
+  - Go Back => `Ctrl + -` / Go Forward => `Ctrl + Shift + -`
+
+## Window 内
+
+- 左下に`TIMELINE`があり、Local の修正履歴が一覧で閲覧できる
 
 ## 検索/置換
 
@@ -25,6 +40,8 @@
 ## Command Palette
 
 - `Command Palette` => `Shift + Command + P` or `F1`
+
+## WIP: Code の Bookmark 機能
 
 ## Formatter の指定 (Configure Default Formatter)
 
