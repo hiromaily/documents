@@ -41,11 +41,16 @@
 
 - `Command Palette` => `Shift + Command + P` or `F1`
 
-## WIP: Code の Bookmark 機能
+## Code の Bookmark 機能
+
+- [Bookmarks](https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks)
+- line 番号を右クリックして、`Add Bookmark`を選択する
 
 ## Formatter の指定 (Configure Default Formatter)
 
 - `Shift + Command + P` => `Format Selection`
+- Format の実行は、`Shift + Option + F`
+  - JSON の Format も可能
 
 ## Indent の変更
 
