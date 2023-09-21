@@ -1,5 +1,7 @@
 # proto for Typescript (Node.js)
 
+[buf](https://buf.build/docs/introduction)を使うほうが楽で、[ts-proto](https://github.com/stephenh/ts-proto)をプラグインとして利用できる
+
 ## Using Node.js for gRPC
 
 - [grpc-tools](https://www.npmjs.com/package/grpc-tools)

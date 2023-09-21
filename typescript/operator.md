@@ -70,8 +70,16 @@ export class MySubClassedDexie extends Dexie {
   constructor() {
     super(DB_NAME);
     this.version(1).stores({
-      friends: '++id, name, age', // Primary key and indexed props
+      friends: "++id, name, age", // Primary key and indexed props
     });
   }
 }
+```
+
+## array object の存在確認
+
+```ts
+const data: string[] = ["one", "two", "three"];
+// if (data && data.length !== 0) {...};
+if (!data?.length) {...};
 ```

@@ -1,9 +1,7 @@
 # gogo/protobuf [Deprecated]
 
 - gogo/protobuf is deprectead. The folowing projects would be replacement.
-
   - [CrowdStrike/csproto](https://github.com/CrowdStrike/csproto)
-
 - [docs](https://pkg.go.dev/github.com/gogo/protobuf/gogoproto)
 - [github](https://github.com/gogo/protobuf)
 
