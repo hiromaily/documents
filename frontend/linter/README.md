@@ -139,3 +139,11 @@ dist
     'unused-imports/no-unused-imports': 'error',
   },
 ```
+
+### enum の禁止
+
+- [eslint-plugin-typescript-enum](https://github.com/shian15810/eslint-plugin-typescript-enum/tree/main)
+
+### spell チェック
+
+- [eslint-plugin-spellcheck](https://www.npmjs.com/package/eslint-plugin-spellcheck)

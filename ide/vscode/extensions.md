@@ -40,7 +40,8 @@ code --list-extensions
 
 #### [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 
-- better comments が提案される
+- better comments が提案される。コメントの色分けもできる
+- [Better Comments を使いこなす](https://qiita.com/take_me/items/ae0772646dd59630a8b5)
 
 #### [Github Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot)
 
