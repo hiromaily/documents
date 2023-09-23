@@ -28,6 +28,12 @@ code --list-extensions
 
 - local dev server を立ち上げる
 
+##### 手順
+
+- ディレクトリを作成し、中に json ファイルをセット
+- `Command Palette` => `Shift + Command + P` or `F1`
+  - `Live Server`と入力
+
 #### [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
 
 - Markdown に便利な機能が含まれるが、default でも十分かも

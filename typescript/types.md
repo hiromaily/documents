@@ -1,41 +1,47 @@
 # Types
 
 ## unknown
-- any, unknown型はどのような値も代入できる
+
+- any, unknown 型はどのような値も代入できる
 - ちなみに、どの値も代入できない`never`という型も存在する
 - `any`型に代入したオブジェクトのプロパティ、メソッドは使用することができる
 - 一方、`unknown`型に代入したオブジェクトのプロパティ、メソッドは使用することができない
-- `tsconfig`にはこのany型の使用を防ぐためのオプションとして`noImplicitAny`がある
-- `unknown`型の場合、型を特定する必要がある。(type-guardなど)
+- `tsconfig`にはこの any 型の使用を防ぐためのオプションとして`noImplicitAny`がある
+- `unknown`型の場合、型を特定する必要がある。(type-guard など)
+
 ### References
-- [anyとunknownの違い](https://typescriptbook.jp/reference/statements/any-vs-unknown)
 
-
+- [any と unknown の違い](https://typescriptbook.jp/reference/statements/any-vs-unknown)
 
 ## 型アサーション / Type Assertion
-- 型アサーション（Type Assertion）はTypeScriptによって推論された型を上書きする機能
+
+- 型アサーション（Type Assertion）は TypeScript によって推論された型を上書きする機能
 - 型アサーションの定義: `as 指定したい型`
 - 問題点として、型変換に問題があってもコンパイルエラーとして検知されず、実行時にエラーが発生する可能性がある
 
 ### 型ガード Type Guard
-- プリミティブ型の場合、`typeof`によるType Guardで型を推定する
+
+- プリミティブ型の場合、`typeof`による Type Guard で型を推定する
+
 ```ts
 if (typeof unknownValue === 'string') {
 ```
 
 - オブジェクト型の場合、`in`を利用したプロパティの有無で判定が可能だが、プロパティの存在のみでその型まではわからない
+
 ```ts
 const isHumanType = (target: unknown): animal is CatType => {
-  const human = target as HumanType
+  const human = target as HumanType;
 
   // trueならHumanType型と推定される
-  return 'name' in human &&
-     'age' in human &&
-      typeof human.name === 'string' &&
-      typeof human.age === 'number'
-}
-
-``` 
+  return (
+    "name" in human &&
+    "age" in human &&
+    typeof human.name === "string" &&
+    typeof human.age === "number"
+  );
+};
+```
 
 ## const アサーション
 
@@ -57,8 +63,8 @@ const movie = {
 以下の`requestConfigMap`を`requestConfigMap[key]`のようにアクセスしたい場合、`requestConfigMap`内の key を`[]`で囲む必要がある
 
 ```ts
-export const KEY_GET_CONFIG: string = '/get_config';
-export const KEY_GET_CONTRACTS: string = '/get_contracts';
+export const KEY_GET_CONFIG: string = "/get_config";
+export const KEY_GET_CONTRACTS: string = "/get_contracts";
 
 export interface RequestConfig {
   method: string;
@@ -75,13 +81,13 @@ export interface RequestConfigMap {
 // For now, only backendAPI is expected
 export const requestConfigMap: RequestConfigMap = {
   [KEY_GET_CONFIG]: {
-    method: 'dummy',
+    method: "dummy",
     params: [],
     fetcherFn: jsonrpcFetcher,
     swrOption: { refreshInterval: 5000 }, // TODO: commonalize
   },
   [KEY_GET_CONTRACTS]: {
-    method: 'dummy',
+    method: "dummy",
     params: [],
     fetcherFn: jsonrpcFetcher,
     swrOption: { refreshInterval: 5000 },
@@ -111,13 +117,11 @@ function callSomething(key: string) {
     - グローバル定義を自動許可するには、`tsconfig.json`の`compilerOptions.types`を使って、必要な型だけを指定して、
       明示的に取り込むことができる
 
-```
+```json
 {
-    "compilerOptions": {
-        "types" : [
-            "jquery"
-        ]
-    }
+  "compilerOptions": {
+    "types": ["jquery"]
+  }
 }
 ```
 
@@ -125,7 +129,7 @@ function callSomething(key: string) {
   - モジュールのように使用する `import * as $ from "jquery";`
 - `base64-js` の型定義の sample
 
-```
+```sh
 export function byteLength(encoded: string): number;
 export function toByteArray(encoded: string): Uint8Array;
 export function fromByteArray(bytes: Uint8Array): string;
@@ -137,13 +141,13 @@ export function fromByteArray(bytes: Uint8Array): string;
   - `tsconfig.json` の `typeRoots`, `baseUrl`, `paths` を次のように変更
   - [Reference: tsconfig#typeRoots](https://www.typescriptlang.org/tsconfig#typeRoots)
 
-```
+```json
 {
-    "compilerOptions": {
-        "baseUrl": "./",
-        "paths": {"base64-js": ["types/base64-js"]},
-        "typeRoots": ["src/@types", "node_modules/@types"],
-    }
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": { "base64-js": ["types/base64-js"] },
+    "typeRoots": ["src/@types", "node_modules/@types"]
+  }
 }
 ```
 
@@ -152,7 +156,7 @@ export function fromByteArray(bytes: Uint8Array): string;
 - コマンド `tsc --noEmit`
 - エラー例
 
-```
+```sh
 TS2339: Property 'keplr' does not exist on type '{ new (): Window; prototype: Window; }'.
 ```
 
@@ -160,12 +164,12 @@ TS2339: Property 'keplr' does not exist on type '{ new (): Window; prototype: Wi
   - `src/@types/index.d.ts`ファイルを用意し、以下のように追加。`export {};`が必要。
   - `tsconfig.json`の`compilerOptions`内に、`"typeRoots": ["./node_modules/@types", "./src/@types"],`を追加
 
-```
+```ts
 export {};
 
 declare global {
-	// eslint-disable-next-line @typescript-eslint/no-empty-interface
-	interface Window extends KeplrWindow {}
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
+  interface Window extends KeplrWindow {}
 }
 ```
 

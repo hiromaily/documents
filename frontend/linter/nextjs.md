@@ -1,6 +1,6 @@
-# ESLint
+# ESLint with Next.js
 
-[next.js/docs/basic-feature/eslint](https://github.com/vercel/next.js/blob/canary/docs/basic-features/eslint.md)
+- [next.js/docs/basic-feature/eslint](https://github.com/vercel/next.js/blob/canary/docs/basic-features/eslint.md)
 
 Strict: Includes Next.js' base ESLint configuration along with a stricter Core Web Vitals rule-set. This is the recommended configuration for developers setting up ESLint for the first time.
 
@@ -26,3 +26,4 @@ Strict: Includes Next.js' base ESLint configuration along with a stricter Core W
 ## References
 
 - [Next.js のプロジェクトを開発しやすいようにする lint と formatter などの設定](https://zenn.dev/brachio_takumi/articles/a8fecd8b1b2742)
+- [【2022 年】Next.js + TypeScript + ESLint + Prettier の構成でサクッと環境構築する](https://zenn.dev/hungry_goat/articles/b7ea123eeaaa44)

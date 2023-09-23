@@ -1,68 +1,87 @@
-# Linter
+# ESLint + Prettier
 
+- [ESLInt](https://eslint.org/)
+- [サバイバル Typescript: ESLint で TypeScript のコーディング規約チェックを自動化しよう](https://typescriptbook.jp/tutorials/eslint)
 - [ESLint + Prettier + Typescript and React in 2022](https://blog.devgenius.io/eslint-prettier-typescript-and-react-in-2022-e5021ebca2b1)
 
-## ESLint
+## Flat Config
 
-### For React
+- ファイル名が`eslint.config.js`固定であり、必ず JavaScript で書かなければいけない
 
-```sh
-npm install eslint --save-dev
-npx eslint --init
+### 設定方針
 
-npm install --save-dev eslint-plugin-import @typescript-eslint/parser eslint-import-resolver-typescript
-npm install --save-dev eslint-plugin-react-hooks
-```
+- ベースとなる設定を選ぶ
+  - airbnb (人気が高いが、設定が多い)
+  - standard (シンプル)
+  - google
+- 環境に合わせて Plugin を入れる
+- 必要に応じて独自設定を追加する
 
-- `.eslintrc.json` e.g.
+## Plugin
+
+- strict-dependencies
+- @typescript-eslint
+- eslint-plugin-import
+- eslint-plugin-react
+- eslint-plugin-jest
+- eslint-plugin-storybook
+
+## Rules
+
+## VSCode の 設定
+
+- Install [ESLInt extension](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+### Settings の編集
 
 ```json
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "jest": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
-  ],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
-  "rules": {
-    "react/react-in-jsx-scope": "off",
-    "camelcase": "error",
-    "spaced-comment": "error",
-    "quotes": ["error", "single"],
-    "no-duplicate-imports": "error"
-  },
-  "settings": {
-    "import/resolver": {
-      "typescript": {}
-    }
-  }
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.trailingComma": "es5",
+  "prettier.requireConfig": false,
+  "prettier.singleQuote": true,
+  "prettier.useTabs": true,
+  "prettier.tabWidth": 2,
+  "prettier.printWidth": 80,
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": ["source.formatDocument", "source.fixAll.eslint"]
 }
 ```
 
-### For Next.js
+## `package.json` scripts
 
-- [【2022 年】Next.js + TypeScript + ESLint + Prettier の構成でサクッと環境構築する](https://zenn.dev/hungry_goat/articles/b7ea123eeaaa44)
+### Pattern A
 
-### Import Rules
+```json
+  "scripts": {
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "type-check": "tsc --noEmit",
+    "all": "npm run format && npm run lint:fix && npm run type-check"
+  },
+```
+
+### Pattern B
+
+```json
+"lint": "tsc --noEmit && eslint src/**/*.ts{,x} --cache --max-warnings=0",
+"lint:fix": "eslint src/**/*.ts{,x} --fix"
+```
+
+## `.eslintignore` の編集
+
+```
+dist
+```
+
+## 便利な機能
+
+### import の自動ソート / Import Rules
 
 - [ESlint で import を自動ソートする](https://zenn.dev/riemonyamada/articles/02e8c172e1eeb1)
 - [TypeScript / JavaScript の import を自動でソートする](https://buildersbox.corp-sansan.com/entry/2021/05/28/110000)
-
-- `.eslintrc.json` e.g.
 
 ```json
 {
@@ -85,36 +104,38 @@ npm install --save-dev eslint-plugin-react-hooks
 }
 ```
 
-## Prettier
+### 循環参照の検知
 
-```sh
-npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
-```
-
-- `.prettierrc`
+- [import/no-cycle](https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-cycle.md)
 
 ```json
 {
-  "semi": false,
-  "tabWidth": 2,
-  "printWidth": 100,
-  "singleQuote": true,
-  "trailingComma": "all",
-  "jsxSingleQuote": true,
-  "bracketSpacing": true
+  "plugins": ["import"], // これは`"strict-dependencies"` もしくは `@typescript-eslint`が設定されていれば不要
+  "rules": {
+    "import/no-cycle": "error"
+  }
 }
 ```
 
-## [rome/tools](https://github.com/rome/tools)
+### 未参照の function や variable の検知
 
-## `package.json` scripts
+- [ESLint: no-unused-vars](https://eslint.org/docs/latest/rules/no-unused-vars)
+- [no-unused-vars](https://github.com/typescript-eslint/typescript-eslint/blob/main/packages/eslint-plugin/docs/rules/no-unused-vars.md)
+  - function の場合、`export`されているものに関しては、検知されない
 
-```json
-  "scripts": {
-    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
-    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
-    "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "type-check": "tsc --noEmit",
-    "all": "npm run format && npm run lint:fix && npm run type-check"
+```js
+  rules: {
+    '@typescript-eslint/no-unused-vars': ['warn', { 'vars': 'all', 'args': 'none' }],
+  },
+```
+
+#### export された function を検知する場合
+
+- [eslint-plugin-unused-imports](https://www.npmjs.com/package/eslint-plugin-unused-imports)
+
+```js
+  plugins: ['unused-imports'],
+  rules: {
+    'unused-imports/no-unused-imports': 'error',
   },
 ```

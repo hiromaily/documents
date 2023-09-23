@@ -2,7 +2,7 @@
 
 Component の test を行うためのライブラリ
 
-```
+```sh
 npm install --save-dev @testing-library/react @testing-library/jest-dom @testing-library/user-event
 npm install --save-dev eslint-plugin-testing-library
 ```
