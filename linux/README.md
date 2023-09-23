@@ -62,3 +62,8 @@ OS の 1 つで、Linux をベースとして、システムや製品、新た�
   - Tailored as a lightweight Linux distribution
   - Easy to use
 - [Manjaro Linux]
+
+## Ubuntu Themes
+
+- [10 Best Dark Themes for Ubuntu Linux](https://www.debugpoint.com/dark-themes-ubuntu/)
+- [20 Best Themes For Ubuntu In 2023](https://www.linuxandubuntu.com/home/20-best-themes-for-ubuntu-in-2017)

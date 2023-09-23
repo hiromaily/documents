@@ -2,48 +2,28 @@
 
 summarized book contents and tips
 
-## Table of contents
-
-- Architecture
-  - Clean Architecture [WIP]
-  - Design Pattern [WIP]
-  - Domain Driven Design + CQRS
-  - Event Sourcing
-  - Fundamentals of Software Architecture [WIP]
-  - Schema Driven Development
-- Docker Tips
-- Git Strategy
-- Golang Best Architecture [WIP]
-- Golang Tips
-- HTTP Status Code
-- Network Commands
-- Principle
-  - Clean Code [WIP]
-  - Readable Code
-  - Solid Principle
-- Service Manager
-- Shell Tips
-- Transport Layer Security (TLS/SSL)
-- Web Rendering [WIP]
-- Web Vitals [WIP]
-
 ## Read books
+
 ### Architecture/Principle
+
+- ● Good Code, Bad Code
+- ● Software Architecture The Hard Parts
+- Fundamentals of Software Architecture
 - Clean Architecture
 - Clean Code
 - Clean Coder
 - Clean Agile
 - Clean Craftsmanship
-- ● Good Code, Bad Code
 - Refactoring: Improving the Design of Existing Code
-- Fundamentals of Software Architecture
-- ● Software Architecture The Hard Parts
 - Object-Oriented vs. Functional Programming
 - Software Architecture Patterns
 
-### Architecture/Principle Others
+### Architecture/Principle (Japanese)
+
+- ● ソフトウェア設計のトレードオフと誤り
 - ● データ思考アプリケーションデザイン
 - ● 進化的アーキテクチャー
+- ● Google のソフトウェアエンジニアリング
 - レガシーコードからの脱却
 - ベタープログラマ
 - 達人プログラマー
@@ -51,29 +31,64 @@ summarized book contents and tips
 - モダン・ソフトウェアエンジニアリング
 - Designing Distributed System / 分散システムデザインパターン
 
+### Data Structure
+
+- みんなのデータ構造
+
 ### Domain-Driven Design
+
 - ドメイン駆動設計 モデリング 実践ガイド
 - ドメイン駆動設計入門 ボトムアップでわかる！ドメイン駆動設計の基本
 - 「実践ドメイン駆動設計」から学ぶ DDD の実装入門
 
+### セキュリティー
+
+- セキュア・バイ・デザイン
+- ハッキング API
+
 ### Blockchain
+
 - ● 暗号技術入門
+- ● Python によるブロックチェーン開発教本
 - マスタリング・イーサリアム
-- SolidityとEthereumによる実践スマートコントラクト開発
-- ● Pythonによるブロックチェーン開発教本
+- Solidity と Ethereum による実践スマートコントラクト開発
 - ブロックチェーン技術概論
 - ブロックチェーンプログラミングのためのコンピュータサイエンスがわかる本
 
-### AI
-- ● ディープラーニング実践ガイド
+### WebAssembly
+
+- ハンズオン WebAssembly
+
 ### APIs
-- ● APIデザインパターン
+
+- API デザインパターン
+
+### AI
+
+- ディープラーニング実践ガイド
 
 ### Rust
-- ● Rustプログラミング完全ガイド
+
+- ● Rust プログラミング完全ガイド
+- Rust と WebAssembly によるゲーム開発
+- プログラミング Rust 第 2 版
+
 ### Golang
+
+- Go 言語による分散サービス
+- 実用 Go 言語
 - Dependency Injection in Go
 - 12 Factor Application with Docker and Go
 
+### Frontend
+
+- Clean Architecture for React
+
+### Others
+
+- エンジニアリングマネージャーのしごと
+- 小さな会社のスクラム実践講座
+
 ## WebSites
-- [プログラマが知るべき97のこと](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/)
+
+- [プログラマが知るべき 97 のこと](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/)
