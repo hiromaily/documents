@@ -1,9 +1,10 @@
-# Package manager
+# Package Manager
+
 - npm
 - yarn
 - pnpm
 
-![npm vs yarn](https://raw.githubusercontent.com/hiromaily/documents/main/images/yarn-npm.png 'npm vs yarn')
+![npm vs yarn](https://raw.githubusercontent.com/hiromaily/documents/main/images/yarn-npm.png "npm vs yarn")
 
 ## [npm](https://www.npmjs.com/)
 
@@ -27,7 +28,7 @@
 
 - npm ci 相当の yarn command
 
-```
+```sh
 yarn install --frozen-lockfile
  or
 rm -rf node_modules && yarn install --frozen-lockfile
