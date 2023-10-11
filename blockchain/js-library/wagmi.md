@@ -203,7 +203,7 @@ Docs に用意されている Hook は比較的利用頻度が高いものと思
 - usePrepareContractWrite
 - usePrepareSendTransaction
 
-### [useContractReads](useContractReads)
+### [useContractReads](https://wagmi.sh/react/hooks/useContractReads)
 
 - 複数の contract を後述する`multicall`を使って呼び出す
 
@@ -270,6 +270,38 @@ const { write, isLoading: isWritePending } = useContractWrite({
 - onSuccess (optional)
 - onError (optional)
 - onSettled (optional)
+
+### [useContractWrite](https://wagmi.sh/react/hooks/useContractWrite)
+
+- contract の状態変化が発生する function を呼び出す。内部的には[writeContarct](https://viem.sh/docs/contract/writeContract.html), さらには[sendTransaction()](https://viem.sh/docs/actions/wallet/sendTransaction.html)が呼ばれる
+- write function オブジェクトを hook が返すため、button の click event などに bind して使うことができる
+- その write function に動的にパラメータを渡すことができる。[Dynamic Arguments](https://wagmi.sh/react/hooks/useContractWrite)
+  - ただし、[usePrepareContractWrite()](https://wagmi.sh/react/prepare-hooks/usePrepareContractWrite)は、そのまま実行される hook function のため、`enabled`パラメータをつかって、調整が必要
+  - config の準備ができていない状態では、`write`は`undefined`になる
+
+#### 必須 Parameter
+
+- address (optional とあるが必須では？)
+  - contract アドレス
+- abi (optional とあるが必須では？)
+  - 呼びだす function を含む ABI ファイル
+- functionName (optional とあるが必須では？)
+  - 呼び出す function 名
+- chainId(optional とあるが必須では？)
+  - function の呼び出し先 chain である ID
+- args (optional)
+  - 呼び出す function に引数を渡す場合、こちらに設定する
+
+#### 状況によって使い分ける Parameter
+
+- account (optional)
+  - from address
+- gas (optional)
+  - Transaction 実行のための`gas limit`
+- gasPrice (optional)
+  - gas 毎に支払う gas 価格だが、Legacy Transaction にのみ適用できる
+  - Deprecated されている？
+- maxFeePerGas
 
 ## [Default で利用できる ABI (Application Binary Interface)](https://wagmi.sh/react/constants/abis)
 
