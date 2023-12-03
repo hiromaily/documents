@@ -1,6 +1,7 @@
 # Contract
 
-## thisについて
+## this について
+
 `this`は現在のコントラクト型でアドレスに明示的に変換可能
 
 ## Javascript から Solidity の Contract の呼び出し
@@ -18,26 +19,25 @@
 
 ### Typescript Sample using Web3
 
-```
-import Web3 from 'web3'
-import { AbiItem } from 'web3-utils'
-import EndpointABI from '../json/endpoint.json'
+```ts
+import Web3 from "web3";
+import { AbiItem } from "web3-utils";
+import EndpointABI from "../json/endpoint.json";
 
-const web3 = new Web3(args.nodeURL)
+const web3 = new Web3(args.nodeURL);
 const contractAbi: AbiItem[] = EndpointABI as AbiItem[];
-const endpoint = new web3.eth.Contract(
-  contractAbi,
-  args.contractAddr
-)
+const endpoint = new web3.eth.Contract(contractAbi, args.contractAddr);
 
 // call
-await endpoint.methods.estimateFees(chainID, ua, payload, payInZro, fmtAdapterParams).call((err: any, res: any) => {
-  if (err) {
-    console.log('An error occured', err)
-    return
-  }
-  console.log('The balance is: ', res)
-})
+await endpoint.methods
+  .estimateFees(chainID, ua, payload, payInZro, fmtAdapterParams)
+  .call((err: any, res: any) => {
+    if (err) {
+      console.log("An error occured", err);
+      return;
+    }
+    console.log("The balance is: ", res);
+  });
 ```
 
 ### `eth_call`を使ってコマンドラインから呼び出す方法
@@ -56,7 +56,7 @@ await endpoint.methods.estimateFees(chainID, ua, payload, payInZro, fmtAdapterPa
   - 0000000000000000000000000000000000000000000000000000000000000065
   - 0000000000000000000000000000000000000000000000000000000000000001
 
-```
+```sh
 curl -X POST -H "Content-Type: application/json" \
 --data '{"jsonrpc": "2.0", "id": 1, "method": "eth_call", "params": [{"to": "0x4d73adb72bc3dd368966edd0f0b2148401a178e2", "data": "0x2a819bbf00000000000000000000000000000000000000000000000000000000000000650000000000000000000000000000000000000000000000000000000000000001"}, "latest"]}' \
 "https://mainnet.infura.io/v3/XXXXXX"
@@ -66,11 +66,13 @@ curl -X POST -H "Content-Type: application/json" \
 
 余談だが、endpoint には、[ankr](https://www.ankr.com/rpc/)が便利
 
-##  `address.call{}()`
+## `address.call{}()`
+
 - [アドレス型](./README.md#address型)
 - [アドレス型のメンバー](https://solidity-ja.readthedocs.io/ja/latest/units-and-global-variables.html#address-related)
 - [アドレスのメンバ](https://solidity-ja.readthedocs.io/ja/latest/types.html#members-of-addresses)
-```
+
+```sol
 # `value`修飾子でEtherを送金する
 (bool success, ) = addr.call{value: amount}("");
 
@@ -79,7 +81,6 @@ addr.call{value: msg.value, gas: 5000}(
     abi.encodeWithSignature("foo(string,uint256)", "call foo", 123)
 );
 ```
-
 
 - [How to use address.call{}() in Solidity](https://ethereum.stackexchange.com/questions/96685/how-to-use-address-call-in-solidity)
 
