@@ -4,55 +4,62 @@
 
 ## [Patterns](https://www.patterns.dev/)
 
-### [Design Patterns](https://www.patterns.dev/posts/introduction)
+## [Vanila JS](https://www.patterns.dev/vanilla)
 
-- Singleton Pattern
-- Proxy Pattern
-- Provider Pattern
-- Prototype Pattern
-- Container/Presentational Pattern
-- Observer Pattern
-- Module Pattern
-- Mixin Pattern
-- Mediator/Middleware Pattern
-- HOC Pattern
-- Render Props Pattern
-- Hooks Pattern
-- Flyweight Pattern
-- Factory Pattern
-- Compound Pattern
+### Design Patterns
+
 - Command Pattern
+- Factory Pattern
+- Flyweight Pattern
+- Mediator/Middleware Pattern
+- Mixin Pattern
+- Module Pattern
+- Observer Pattern
+- Prototype Pattern
+- Provider Pattern
+- Proxy Pattern
+- Singleton Pattern
+- Static import
 
-### [Rendering Patterns](https://www.patterns.dev/posts/rendering-patterns)
+### [Rendering Patterns](https://www.patterns.dev/vanilla/rendering-patterns)
 
-- Overview of React.js
-- Client-side Redering
-- Server-side Rendering
-- Static Rendering
-- Incremental Static Generation
-- Progressive Hydration
-- Streaming Server-Side Rendering
-- React Server Components
-- Selective Hydration
 - Islands Architecture
 - Animating View Transitions
 
 ### Performance Patterns
 
-- [Optimize your loading sequence](https://www.patterns.dev/posts/loading-sequence)
-- Static Import
-- Dynamic Import
-- Import On Visibility
-- Import On Interaction
-- Route Based Splitting
 - Bundle Splitting
+- Compressing JavaScript
+- Dynamic Import
+- Import On Interaction
+- Import On Visibility
+- Optimize your loading sequence
+- Prefetch
+- Preload
 - PRPL Pattern
 - Tree Shaking
-- Preload
-- Prefetch
-- Optimize loading third-parties
 - List Virtualization
-- Compressing JavaScript
+
+## [React](https://www.patterns.dev/react)
+
+### Design Patterns
+
+- Compound Pattern
+- HOC Pattern (Higher-Order Components)
+- Hooks Pattern
+- Container/Presentational Pattern
+- Render Props Pattern
+
+### Rendering Patterns
+
+- Client-side Redering
+- Incremental Static Generation
+- Progressive Hydration
+- Selective Hydration
+- React Server Components
+- Server-side Rendering
+- Static Rendering
+- Streaming Server-Side Rendering
 
 ## [JavaScript Patterns](https://javascriptpatterns.vercel.app/patterns)
 
