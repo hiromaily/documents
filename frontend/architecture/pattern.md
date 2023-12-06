@@ -44,8 +44,15 @@
 
 ### Design Patterns
 
-- Compound Pattern
+- Compound Pattern (複合パターン)
+  - Application は互いに関連し合うコンポーネントをもつが、それらは共有された状態を通じて互いに依存し合い、ロジックを共有する
+  - これは、例えば、select、ドロップダウン、メニューなどのコンポーネントがこれにあたる
+  - 複合コンポーネントパターンを使うと、あるタスクを実行するために連携するコンポーネントを作成することができる
 - HOC Pattern (Higher-Order Components)
+  - 複数のコンポーネントで同じロジックを再利用する方法の 1 つ
+    - コンポーネントに特定のスタイルを適用すること
+    - 認可を要求すること
+    - グローバルな状態を追加することなど
 - Hooks Pattern
 - Container/Presentational Pattern
 - Render Props Pattern
