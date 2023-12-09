@@ -148,6 +148,10 @@
 
 - [Official](https://webauthn.io/)
 
+## Passkey
+
+パスワードレス認証基準を普及させる団体である`FIDOアライアンス`によって策定された、新しいパスワードレス認証方法で、`パスワードを使用しないパスワードレス認証`。正式名称は`マルチデバイス対応FIDO認証資格情報（multi-device FIDO credential)`。パスキーは指紋や顔といった生体認証を利用する。
+
 ## SAML 認証
 
 - SAML は Security Assertion Markup Language の略称
