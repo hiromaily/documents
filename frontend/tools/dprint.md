@@ -10,6 +10,12 @@ dprint init
 
 ### 設定例
 
+default では[Pretter Plugin](https://dprint.dev/plugins/prettier/)は Install されないので、別途 Install が必要。Install 方法は[github: dprint-plugin-prettier](https://github.com/dprint/dprint-plugin-prettier/releases/)
+
+```sh
+dprint config add prettier
+```
+
 ```json
 {
   "lineWidth": 100,
