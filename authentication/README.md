@@ -172,6 +172,13 @@
 - サービス提供者側に保存された情報は公開鍵であるため、仮に情報が漏れたとしても秘密鍵がないとログインは不可能
 - 利用者が保存する秘密鍵は、デバイスごとに異なるものが生成されるため、これを使って他のデバイスでログインすることはできない
 
+### Google on Macbook
+
+1. [Google Acount](https://www.google.com/account/about/passkeys/)にアクセス
+2. 一度ログアウトし、再度ログインを試みると、passkey が求められる
+
+### Google on iPhone
+
 ## SAML 認証
 
 - SAML は Security Assertion Markup Language の略称
