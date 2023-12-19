@@ -40,3 +40,4 @@
 - [フロントエンドのディレクトリ設計思想](https://zenn.dev/mybest_dev/articles/c0570e67978673)
 - [フロントエンドのディレクトリ構成を整理してコードの凝集度を高める](https://zenn.dev/atamaplus/articles/frontend-package-by-feature)
 - [package by feature のススメ](https://zenn.dev/pandanoir/articles/d74d317f2b3caf)
+- [Web フロントエンドの推しディレクトリ構成と Next.js App Router なコードベース](https://zenn.dev/overflow_offers/articles/20231215-directory-structure)
