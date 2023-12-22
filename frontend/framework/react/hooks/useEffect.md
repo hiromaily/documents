@@ -193,3 +193,6 @@ useEffect(() => {
   - そのため、useCallback()などを使って回避するとよい
 - component function 内に定義された object を依存引数に設定する
   - オブジェクトの値に変更がなくても、オブジェクトは毎回再生成される
+- 依存配列の値が、useEffect 内で変更されても、無限ループが発生する
+
+### [Having objects as dependencies in React useEffect hook](https://haybeecodes.hashnode.dev/having-objects-as-dependencies-in-react-useeffect-hook)
