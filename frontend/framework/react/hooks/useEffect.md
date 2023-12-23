@@ -196,3 +196,23 @@ useEffect(() => {
 - 依存配列の値が、useEffect 内で変更されても、無限ループが発生する
 
 ### [Having objects as dependencies in React useEffect hook](https://haybeecodes.hashnode.dev/having-objects-as-dependencies-in-react-useeffect-hook)
+
+#### JSON.stringify()を使う
+
+- 実際にはもっとパフォーマンスの良いライブラリ、[fast-json-stringify](https://www.npmjs.com/package/fast-json-stringify)などを使うべき
+- `JSON.stringify()`相当の実行がどれだけのコストがかかっているか事前に検証し、このパターンが適応可能かどうか検討する
+- object サイズが大きい場合、`JSON.stringify()`のコストも高くなる
+
+```tsx
+useEffect(() => {
+  console.log("count is : ", count.value);
+}, [JSON.stringify(count)]);
+```
+
+### object のプロパティのみを渡す
+
+```tsx
+useEffect(() => {
+  console.log("count is : ", count.value);
+}, [count.value]);
+```
