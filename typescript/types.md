@@ -93,6 +93,41 @@ function callSomething(key: string) {
 }
 ```
 
-## undefined の扱い
+## undefined と null の違い
 
+### [undefined と null の違い](https://typescriptbook.jp/reference/values-types-variables/undefined-vs-null)
+
+- 多くのプログラミング言語で「値がない」を表現する方法は、`null`など 1 通り
+- しかし、JavaScript では「値がない」に相当する表現に`null`と`undefined`の 2 通り存在する
+- `undefined`: 「値が代入されていないため、値がない」
+- `null`: 「代入すべき値が存在しないため、値がない」
+- もしどちらを使うべきか迷ったら `undefined` を使っておくほうが無難
+- `undefined`と違って、`null`は自然発生しない
+- 変数を宣言したときに初期値がなければ JavaScript はその変数に`undefined`を設定する
+- オブジェクトに存在しないプロパティや配列にない要素にアクセスしたときも、自動的に`undefined`になる
+- 一部の DOM 系の API は`null`を返すこともあるため、ライブラリによっては`null`が発生する
+- `undefined`は typeof の結果がプリミティブ名を指す"undefined"になるのに対し、`null`は"null"ではなく"object"になる
+
+```ts
+typeof undefined;
+//"undefined"
+
+typeof null;
+//"object"
+```
+
+- JSON オブジェクトにおいて
+  - オブジェクトプロパティの値に`undefined`を用いたとき、そのオブジェクトを JSON.stringify で JSON 化したときに、オブジェクトプロパティは削除される
+  - 一方、プロパティの値が`null`のときは、JSON 化したときに値が保持される
+
+### 使い分け
+
+- 特にこだわりがないのなら、TypeScript では`null`は使わずに`undefined`をもっぱら使うようにするのがお勧め
+- 使い分け意識を育てる労力は、それに見合うメリットが少ない
+- TypeScript 開発チームの[コーディングガイド](https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines#null-and-undefined)では、`undefined`を使用するよう記載されている
+
+### Reference
+
+- [Typescript: Coding guidelines](https://github.com/Microsoft/TypeScript/wiki/Coding-guidelines#null-and-undefined)
+- [TypeScript null と undefined どちらを使う？](https://zenn.dev/saki/articles/48425da2f1e8a0)
 - [How to solve TypeScript possibly undefined value](https://linguinecode.com/post/how-to-solve-typescript-possibly-undefined-value)

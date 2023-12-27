@@ -22,5 +22,12 @@
 ## References
 
 - [こわくない関数型プログラミング](https://zenn.dev/tockri/books/dcaf6c55e64448)
+
+## [For TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html)
+
 - [仕事で使える TypeScript: 関数型指向のプログラミング](https://future-architect.github.io/typescript-guide/functional.html)
+
+## For Golang
+
 - [「Learning Functional Programming in Go」を読んだ](https://shinharad.hateblo.jp/entry/2018/08/30/172151)
+- [Functional Programming in Go 読書メモ](https://zenn.dev/ta_toshio/scraps/7b3e66fd311a70)

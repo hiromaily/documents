@@ -2,7 +2,7 @@
 
 ## 1. Atomic Design:
 
-- Atoms, molecules, organisms, templates, and pages: Breaking down components into smaller, reusable pieces.
+- `Atoms`, `molecules`, `organisms`, `templates`, and `pages`: Breaking down components into smaller, reusable pieces.
 
 ## 2. Container/Presentational Components:
 
