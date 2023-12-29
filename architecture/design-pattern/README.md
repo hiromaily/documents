@@ -12,17 +12,18 @@
   - `Abstract Factory`によって、生成に関する詳細をアプリケーションから分離する
 - `依存性注入(Dependency Injection, DI)`
   - どの依存オブジェクトが実際に使われるかは、設定ファイルに記述する
-  - コンストラクタのInterface型の引数を通じて依存性の注入を受け付ける
+  - コンストラクタの Interface 型の引数を通じて依存性の注入を受け付ける
 - [Registry Pattern](https://medium.com/@david.s.qian/design-pattern-registry-f6bacdf39882)
 
 ### 2. Switch 文, IF 文の連鎖
 
 - switch 文を使うの初回の 1 階層のみで、呼び出し先にまで switch 文で伝搬させるべきではない
 - 多態オブジェクトを生成するために、`Factory Method`によって、適切な instance を生成する
-  - Interface型への実装ロジックの挿入、ここでは`DI`によっても実現できる
+  - Interface 型への実装ロジックの挿入、ここでは`DI`によっても実現できる
 - この Factory Method によって生成された多態オブジェクトは共通の Interface を持つケースが多い
 
 ### 3. ソースコードの行は異なるものの、似たようなアルゴリズムを持ったモジュール
+
 - 一連の処理の中で、一部のみ処理方法が異なるものなどに適用できる
 - [Template method pattern](https://github.com/hiromaily/documents/tree/main/architecture/design-pattern#template-design-pattern)
 - [Strategy pattern](https://github.com/hiromaily/documents/tree/main/architecture/design-pattern#strategy-design-pattern)
