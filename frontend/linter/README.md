@@ -6,7 +6,7 @@
 
 ## Flat Config
 
-- ファイル名が`eslint.config.js`固定であり、必ず JavaScript で書かなければいけない
+- ファイル名が `eslint.config.js` 固定であり、必ず JavaScript で書かなければいけない
 
 ### 設定方針
 

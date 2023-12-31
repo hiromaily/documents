@@ -17,3 +17,9 @@ npm install --save-dev prettier eslint-config-prettier eslint-plugin-prettier
   "bracketSpacing": true
 }
 ```
+
+## [dprint](https://github.com/dprint/dprint)
+
+[internal docs](../tools/dprint.md)
+
+## [oxc/formatter](https://github.com/oxc-project/oxc?tab=readme-ov-file#-formatter)
