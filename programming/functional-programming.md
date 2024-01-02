@@ -46,6 +46,24 @@
   - プログラミング中に注意を払わなければならない可動部分。これはすべてプログラムの複雑さを増大させる
   - 関数型アプローチでは、イミュータブルな状態を使うことで対処する
   - オブジェクト指向アプローチでは、カプセル化によって変化するデータを保護する
+- `for 内包表記`
+
+```scala
+for {
+  x <- List(1, 2, 3)
+  y <- Set(2)
+} yield x * y
+// -> List(2, 4, 6)
+
+// for {
+//   a <- as
+//   b <- bs
+//   ...
+//   z <- zs
+// } yield function (a, b, ..., z)
+```
+
+- Option 型で null を回避
 
 ## References
 
@@ -56,10 +74,18 @@
 TypeScript は、JavaScript に伝統的な`オブジェクト指向の型`を持ち込もうとしたことから始まった。それが発展するにつれて、TypeScript の型システムはネイティブの JavaScript 者によって書かれたコードをモデル化するために進化してきた。
 実際には、TypeScript のオブジェクト指向プログラムは、OO 機能を持つ他の一般的な言語のものと似ている。
 
+- FP 用のライブラリが出ている: [gcanti/fp-ts](https://github.com/gcanti/fp-ts)
+  - Star は 10k を超える
+
 #### Immutable
 
 プリミティブ型である、`boolean`, `number`, `bigint`, `string`, `symbol`, `null`, `undefined` を関数に渡したとき、に不変な振る舞いをするため、副作用はない。しかし、`object`は参照情報が渡されるため、内部の状態が変化する。そのため、object は deepCopy などで渡された値をコピーし、それに変更を加えた結果を返す必要がある。
 配列の場合、元のデータはそのままに、複製しつつ変化させたバージョンを作るには、配列メソッドである、`map()`, `forEach()`, `filter()`が使える。
+
+#### Typescript で FP の Option 型を扱う場合
+
+- [【typescript で関数型】fp-ts の Option 型を使って undefined と戦う](https://aknow2.hatenablog.com/entry/2019/03/26/142409)
+- [gcanti/fp-ts](https://github.com/gcanti/fp-ts)を使う必要があるが、複雑になりがち
 
 ### [仕事で使える TypeScript: 関数型指向のプログラミング](https://future-architect.github.io/typescript-guide/functional.html)
 

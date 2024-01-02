@@ -28,13 +28,13 @@ const y = a || b;
 - a の真偽値が true であれば、a || b の真偽は a に託されるため、a を返す
 - a の真偽値が false であれば、a || b の真偽は b に託されるため、b を返す
 
-#### 真偽値が false となるもの
+#### `||`で、真偽値が false となるもの
 
+- null
+- undefined
 - false
 - 0
 - 空文字列
-- null
-- undefined
 
 ### `??`
 
@@ -45,10 +45,15 @@ const z = a ?? b;
 - a の真偽値が true であれば、a ?? b の真偽は a に託されるため、a を返す
 - a の真偽値が false であれば、a ?? b の真偽は b に託されるため、b を返す
 
-#### 真偽値が false となるもの
+#### `??`で、真偽値が false となるもの
 
 - null
 - undefined
+
+## `??`と`||`の使い分け
+
+- `null`, `undefined`のみのチェックで十分の場合は、`??`
+- false, 0, 空文字も含めてチェックしたい場合は、`||`
 
 ## Double Negation `!!` (二重否定)
 
