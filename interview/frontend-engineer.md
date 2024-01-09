@@ -15,17 +15,29 @@
   - 状態管理
   - コンポーネント設計
   - CSS フレームワークの経験
+- フルスクラッチで開発することができるかどうか
+- どういった視点で技術選定を行うか？
+  - 技術が手段とならないか？
 
 ### エンジニア共通
 
 - コンピューターサイエンスなどソフトウェアエンジニアとして基本的な知識
 - デザインパターンの理解
 - アーキテクチャーの理解
-- 構造化設計の知識: 凝集度や結合度を説明できるか
+- [構造化設計の知識: 凝集度や結合度を説明できるか](https://yoshitaro-yoyo.hatenablog.com/entry/refactoring_and_cohesion_coupling#2-%E5%87%9D%E9%9B%86%E5%BA%A6)
+  - 保守性と生産性の高いコードを書くための尺度
+  - 凝集度とは、関数の処理の役割の少なさを表す尺度
+  - 結合度とは、関数の独立性を表す尺度
 - コーディングスキル
   - HTML, CSS, Javascript, Typescript, React
 - コミュニケーションスキル
 - 問題解決力
+  - エラーが起きた時にどの様に調べていますか？
+
+### React 固有の質問
+
+- [sudheerj/reactjs-interview-questions](https://github.com/sudheerj/reactjs-interview-questions)
+- [44 React Frontend Interview Questions](https://dev.to/m_midas/44-react-frontend-interview-questions-2o63)
 
 ## [7 つの『フロントエンドエンジニア』の採用面接 質問例 ＆ 回答例](https://jp.indeed.com/%E6%B1%82%E4%BA%BA%E5%BA%83%E5%91%8A/interview-questions/%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89%E3%82%A8%E3%83%B3%E3%82%B8%E3%83%8B%E3%82%A2)
 
