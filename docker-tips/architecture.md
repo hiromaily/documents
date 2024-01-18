@@ -73,8 +73,10 @@ Apple Silicon Mac の`Docker Desktop`は CPU をエミュレーションでき�
 
 [Rancher Desktop](https://docs.rancherdesktop.io/ui/preferences/virtual-machine/emulation/)においても、[Preferences] -> [Virtual Machine] -> [Emulation] にて　`Virtual Machine Type`を `QEMU` (Default)か`VZ`を選ぶことができる
 
-この Emulation の機能によって、Apple Silicon でも x86 (amd64)アーキテクチャのイメージを動作させることができる。
-`--platform linux/amd64` を指定して x86 用イメージを明示的に取得して動かせばいい。
+この Emulation の機能によって、Apple Silicon でも x86 (amd64)アーキテクチャのイメージを動作させることができている？
+動かし方は、`--platform linux/amd64` を指定して x86 用イメージを明示的に取得して、実行する。
+
+[Docker on Apple Silicon Mac: How to Run x86 Containers with Rosetta 2](https://levelup.gitconnected.com/docker-on-apple-silicon-mac-how-to-run-x86-containers-with-rosetta-2-4a679913a0d5)の記事によると、`Running x86 containers on Apple Silicon Macs just got easier thanks to newly added Docker’s Rosetta support`とあるが、`Apple Rosetta 2`もまた Emulator であり、QEMU を使う必要がない。QEMU emulation はいろいろ問題があるらしい。
 
 ## [Multi-platform images](https://docs.docker.com/build/building/multi-platform/)
 
