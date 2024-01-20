@@ -1,5 +1,7 @@
 # Zsh
 
+## [XDG Base Directory Specification](../../macos/setup.md#xdg-base-directory-specification)
+
 ## パフォーマンスチューニングのための計測
 
 ```sh
@@ -78,7 +80,6 @@ fi
 $ zcompile ~/.zshrc
 ```
 
-## zsh のプラグインマネージャーは遅い
+## [zsh のプラグインマネージャー](framework.md)は遅い
 
-- `zplug`より`zinit`(`zplugin`)のほうが速いらしいが、試した限り遅くなったような？
-  - [zinit](https://github.com/zdharma/zinit)
+- 個人的には、[Zim](https://zimfw.sh/) 押し

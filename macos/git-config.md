@@ -1,4 +1,5 @@
 # git config
+
 - config would be stored as `~/.config/git/config`
 
 ```
@@ -20,7 +21,7 @@
 
 	# status
 	st = status
-	
+
 	# branch (Note: some of alias are used in other alias)
 	br = branch
 	bra = branch -a # show all branches
@@ -44,7 +45,7 @@
 	cmsign = commit --signoff -m # commit with signoff
 	cmgpg = commit -S -m # GPG-sign commits
 	coam = "!f(){ git commit -am \"$1\";};f" # `coam message` commit with add all modified files and message
-	
+
 	# fetch
 	ft = fetch origin
 	fta = fetch --all
@@ -55,7 +56,7 @@
 	puc = "!f(){ br=$(git cb);git push origin \"${br}\";};f"     # get current branch name, and push there.
 	pucu = "!f(){ br=$(git cb);git push -u origin \"${br}\";};f" # get current branch name, and push there with setting upstream
 	pucf = "!f(){ br=$(git cb);git push --force-with-lease origin \"${br}\";};f" # get current branch name, and push there with force
-	
+
 	# reset
 	canadd = reset HEAD # `git canadd filename` cancel files by git add、`git candd` cancel all files
 	rs = reset --soft HEAD~ # reset commit and add action
@@ -77,7 +78,7 @@
 	lastlog = log -1 HEAD # show latest log
 	lastmsg = log -n 1 --pretty=format:\"%s\" # show latest commit message
 	lastcmtid = log -n 1 --pretty=format:\"%H\" # show latest commit id ($git rev-parse HEAD)
-	
+
 	# log file content
 	showhis = "!f(){ id=$(git log -n $1 --pretty=format:%h);git show ${id};};f" # `git showhis 1` => show latest modification of code
 	deletelist = log --diff-filter=D --summary # show deleted file history in git log
