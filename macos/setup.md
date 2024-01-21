@@ -31,144 +31,6 @@
 xcode-select --install
 ```
 
-## Setup zsh
-
-### References
-
-- [.zprofile, .zshrc, .zenv, OMG! What Do I Put Where?!](https://www.zerotohero.dev/zshell-startup-files/)
-- [macOS, Zsh, and more](https://gist.github.com/Linerre/f11ad4a6a934dcf01ee8415c9457e7b2)
-- [Top popular Zsh plugins on GitHub (2021)](https://safjan.com/top-popular-zsh-plugins-on-github-2021/)
-- [awesome-zsh-plugins](https://project-awesome.org/unixorn/awesome-zsh-plugins)
-- [ひさしぶりに zsh に戻りました](https://blog.nishimu.land/entry/2022/03/21/003009)
-
-### XDG Base Directory Specification
-
-- [ホームディレクトリのドットファイルを整理する](https://chiyosuke.blogspot.com/2019/04/blog-post_27.html)
-
-- /etc/zshenv
-
-```sh
-ZDOTDIR=$HOME/.config/zsh
-```
-
-- ~/.config/zsh/.zshenv
-
-```sh
-export XDG_CONFIG_HOME="$HOME"/.config
-export XDG_CACHE_HOME="$HOME"/.cache
-export XDG_DATA_HOME="$HOME"/.local/share
-export XDG_STATE_HOME="$HOME"/.local/state
-export HISTFILE="$XDG_DATA_HOME"/zsh/history
-```
-
-### Install newest zsh
-
-```sh
-brew install zsh
-```
-
-### Install zim
-
-- [install](https://zimfw.sh/docs/install/)
-- [Zim フレームワークで Zsh 環境を構築する](https://takuyatsuchida.com/build-zsh-environment-by-zim-framework/)
-- [zim is faster than zint](https://www.reddit.com/r/zsh/comments/sojfbw/anyone_used_zshellzi/)
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | zsh
-```
-
-### Add modules in `.zimrc`
-
-#### eriner (theme)
-
-- https://zimfw.sh/docs/themes/
-- https://github.com/zimfw/eriner
-- https://stackoverflow.com/questions/42271657/oh-my-zsh-showing-weird-character-on-terminal#_=_
-
-- `.zimrc`
-
-```sh
-zmodule eriner
-zimfw install
-```
-
-#### Powerlevel10k (theme)
-
-- https://github.com/romkatv/powerlevel10k
-
-- `.zimrc`
-
-```sh
-zmodule romkatv/powerlevel10k --use degit
-zimfw install
-```
-
-#### zsh-autosuggestions
-
-- https://github.com/zsh-users/zsh-autosuggestions
-- not required thanks to zim
-
-#### zsh-abbr
-
-- https://github.com/olets/zsh-abbr
-
-- `.zimrc`
-
-```sh
-zmodule olets/zsh-abbr
-zimfw install
-# then add .config/zsh/abbreviations and modify
-```
-
-#### enhancd
-
-- https://github.com/b4b4r07/enhancd
-- https://liginc.co.jp/448630
-
-- `.zimrc`
-
-```sh
-zmodule b4b4r07/enhancd
-zimfw install
-```
-
-#### zdharma/history-search-multi-word [ctrl+R]
-
-- https://github.com/zdharma/history-search-multi-word
-
-- `.zimrc`
-
-```sh
-zmodule zdharma/history-search-multi-word
-zimfw install
-```
-
-#### zdharma/fast-syntax-highlighting
-
-- https://github.com/zdharma/fast-syntax-highlighting
-
-### fzf
-
-- [Ctrl-r] -> 履歴
-- [Ctrl-t] -> 現在のディレクトリ検索
-
-```bash
-brew install fzf
-/opt/homebrew/opt/fzf/install
-mv .fzf.zsh .config/zsh/
-```
-
-- `.zprofile`
-
-```sh
-# fzf
-[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
-```
-
-### fig [WIP]
-
-- https://fig.io/
-
 ## Install tools by brew
 
 ```sh
@@ -201,12 +63,6 @@ brew install bufbuild/buf/buf
 brew install go-task/tap/go-task
 brew install yarn
 brew install figlet
-```
-
-- Add path in `.zprofile`
-
-```sh
-export PATH=$HOME/.nodebrew/current/bin:$PATH
 ```
 
 ## Golang settings
@@ -294,6 +150,28 @@ set clipboard=unnamed  "yank した文字列をクリップボードにコピー
 set hls                "検索した文字をハイライトする
 ```
 
+## fzf
+
+- [Ctrl-r] -> 履歴
+- [Ctrl-t] -> 現在のディレクトリ検索
+
+```bash
+brew install fzf
+/opt/homebrew/opt/fzf/install
+mv .fzf.zsh .config/zsh/
+```
+
+- `.zprofile`
+
+```sh
+# fzf
+[ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
+```
+
+## fig [WIP]
+
+- https://fig.io/
+
 ## 既存のマシンからの設定引き継ぎ
 
 - home ディレクトリのファイルを既存マシンからコピー
@@ -315,6 +193,10 @@ set hls                "検索した文字をハイライトする
 
 - https://git-scm.com/docs/gitignore#_description
   - `~/.gitignore_global`は`$XDG_CONFIG_HOME/git/ignore`に置き換えられる
+
+#### `~/.volta`
+
+未対応かもしれない
 
 #### `~/.yarnrc`
 
