@@ -149,19 +149,21 @@ mv .fzf.zsh .config/zsh/
 ```sh
 brew install zsh
 brew install wget
-brew install nmap
-brew install tmux
-brew install git
-brew install git-lfs
+brew install exa
+brew install tree
 brew install jq
 brew install fd      # https://github.com/sharkdp/fd file search: e.g. fd filename
 brew install fzf
 (brew --prefix)/opt/fzf/install
 brew install bat     # https://github.com/sharkdp/bat like cat
-brew install ripgrep
 brew install peco
-brew install exa
-brew install tree
+brew install ripgrep
+brew install neovim
+brew install nmap
+brew install iproute2mac
+brew install tmux
+brew install git
+brew install git-lfs
 brew install truncate
 brew install readline
 brew install httpie
@@ -173,7 +175,6 @@ brew install protobuf
 brew install bufbuild/buf/buf
 brew install go-task/tap/go-task
 brew install yarn
-brew install neovim
 brew install figlet
 ```
 
