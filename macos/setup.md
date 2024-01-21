@@ -168,7 +168,7 @@ brew install httpie
 brew install direnv
 brew install go
 brew install node
-brew install nodebrew
+brew install nvm
 brew install protobuf
 brew install bufbuild/buf/buf
 brew install go-task/tap/go-task
