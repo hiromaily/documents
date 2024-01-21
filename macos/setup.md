@@ -1,9 +1,34 @@
 # MacOS Setup
 
+## やるべきこと
+
+[既存のマシンからの設定引き継ぎ](#既存のマシンからの設定引き継ぎ)のセクションも参考に
+
+- Chrome, vscode の install
+- homebrew の install
+- `XDG Base Directory` の設定
+- 最新の zsh の install と設定
+  - zsh framework を install (zim framework)
+    - Powerlevel10k (theme)は別途追加
+- brew で各 tool を install
+- git config の設定
+- NeoVIM の設定
+- go の設定
+- node の設定
+- rust の設定
+
 ## Install home brew
 
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+## XCode CLI の Install
+
+- if needed
+
+```sh
+xcode-select --install
 ```
 
 ## Setup zsh
@@ -170,7 +195,7 @@ brew install httpie
 brew install direnv
 brew install go
 brew install node
-brew install nvm
+#brew install nvm # voltaのほうが良さそう
 brew install protobuf
 brew install bufbuild/buf/buf
 brew install go-task/tap/go-task
@@ -194,6 +219,10 @@ mkdir -p ~/go/bin
 # install
 go install golang.org/x/tools/cmd/goimports@latest
 ```
+
+## Node settings
+
+- [volta 設定](../nodejs/version-manager.md)
 
 ## Rust settings
 
@@ -274,7 +303,7 @@ set hls                "検索した文字をハイライトする
   - `.zprofile` => 必要な環境変数だけコピー
   - `.alias.zsh` => 一度見直し、必要なものだけ利用
 
-### XDG Base Directory Specification
+### XDG Base Directory Specification の引き継ぎ
 
 - install 済みの Application の設定を変更する
 
