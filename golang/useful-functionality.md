@@ -2,15 +2,24 @@
 
 ## Upcoming functionality
 
-#### Fuzzing
+### Fuzzing
 
 - [Fuzzing is Beta Ready](https://blog.golang.org/fuzz-beta)
 - [Design Draft: First Class Fuzzing](https://go.googlesource.com/proposal/+/master/design/draft-fuzzing.md)
 - [Go 言語でファジング](https://deeeet.com/writing/2015/12/21/go-fuzz/)
 - [dvyukov/go-fuzz](https://github.com/dvyukov/go-fuzz)
 
+## Go 1.22
+
+[Go 1.22 Release Notes](https://tip.golang.org/doc/go1.22), [Blog: Go 1.22 is released!](https://go.dev/blog/go1.22)
+
+- ループの処理の変化
+  - [参考](https://future-architect.github.io/articles/20240129a/)
+- Slice に Concat() API の追加
+
 ## Go 1.21
-[Go 1.20 Release Notes](https://tip.golang.org/doc/go1.21), [Blog: Go 1.21 is released!](https://go.dev/blog/go1.21)
+
+[Go 1.21 Release Notes](https://tip.golang.org/doc/go1.21), [Blog: Go 1.21 is released!](https://go.dev/blog/go1.21)
 
 - ジェネリクスのためのパッケージ `slices`,`maps`の追加
 - 組み込み関数 `min`, `max`, `clear` の追加
@@ -19,20 +28,21 @@
   - `slices`, `maps`, `cmp` パッケージ
 
 ### [slog](https://pkg.go.dev/log/slog@master)
+
 - インタフェースではなく実装
 - structured + leveled logging 可能
 - ネストした structure も可能
 - slog.SetDefault を呼ぶと標準の log パッケージの出力も slog になる
 - テキスト形式のほか、JSON 形式の出力も手軽にできる
-- APIトークンなどをログに出さないよう型ベースで設定できる
-
+- API トークンなどをログに出さないよう型ベースで設定できる
 
 ## Go 1.20
+
 [Go 1.20 Release Notes](https://tip.golang.org/doc/go1.20)
 
 - [PGO: Profile-guided optimization](https://go.dev/doc/pgo)
-  - まだpreview段階
-  - ビルド時にプロファイルを提供することにより、コンパイラは一般的なアプリケーションを約3～4%高速化することができる
+  - まだ preview 段階
+  - ビルド時にプロファイルを提供することにより、コンパイラは一般的なアプリケーションを約 3 ～ 4%高速化することができる
 - 標準ライブラリの追加
   - [crypto/ecdh](https://pkg.go.dev/crypto/ecdh)パッケージ
   - [errors.Join](https://pkg.go.dev/errors#Join)関数: エラータイプに`Unwrap() []error`メソッドが実装されている場合、再度取得することができるエラーのリストをラップしたエラーを返す
@@ -41,6 +51,7 @@
 ## Go 1.19
 
 [Go 1.19 Release Notes](https://tip.golang.org/doc/go1.19)
+
 - 変更のほとんどは、tool chain, runtime, ライブラリの実装となる
 - 目立った修正は見られない
 
