@@ -55,3 +55,21 @@ if (recoveredAddress.toLowerCase() !== expectedSenderAddress.toLowerCase()) {
 // and executing it on the Ethereum network
 console.log("Transaction is valid and can be broadcasted");
 ```
+
+## トランザクションのライフサイクル
+
+- トランザクションが送信されると、次のようになる
+  - トランザクションを送信すると、暗号化により Transaction Hash が生成される `0x97d99bc7729211111a21b12c933c949d4f31684f1d6954ff477d0477538ff017`
+  - そして、そのトランザクションはネットワークにブロードキャストされ、他の多くのトランザクションと一緒に Transaction Pool に含まれる
+  - バリデータは、トランザクションを検証して `successful` と見なすために、あなたのトランザクションを選んでブロックに含めなければならない
+  - 時間が経つにつれて、送信したトランザクションを含むブロックは`justified`,`finalized`にアップグレードされる。これらのアップグレードにより、あなたのトランザクションが成功し、決して変更されないことがより確実となる。いったん`finalized`されたブロックは、何十億ドルもかかる攻撃によってのみ変更することができる。
+- 手順をまとめると
+  - Client 側での Transaction への署名
+  - Transaction の送信
+  - Transaction Hash が生成される
+  - Mem Pool へ Transaction が含まれる
+    - このとき Transaction は Broad Cast される
+    - Status は`Pending`
+  - Validator による Transaction の検証
+    - signature, gas limit, gas price
+  - Validator による transaction の選定、Block への取り込み
