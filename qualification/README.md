@@ -9,3 +9,4 @@
 - [IPA: 情報セキュリティマネジメント試験](https://www.ipa.go.jp/shiken/kubun/sg/index.html)
   - CBT 方式（Computer Based Testing）方式により、年間を通じて随時実施
   - 勉強時間の平均は 200 時間ほど
+- [IPA: 情報処理安全確保支援士試験](https://www.ipa.go.jp/shiken/kubun/sc.html)

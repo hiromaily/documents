@@ -73,3 +73,11 @@ console.log("Transaction is valid and can be broadcasted");
   - Validator による Transaction の検証
     - signature, gas limit, gas price
   - Validator による transaction の選定、Block への取り込み
+
+## トランザクションの Replace/Cancel
+
+- [Metamask: How to speed up or cancel a pending transaction](https://support.metamask.io/hc/en-us/articles/360015489251-How-to-speed-up-or-cancel-a-pending-transaction)
+- [Metamask: Why can't I replace a pending transaction?](https://support.metamask.io/hc/en-us/articles/11225646961563-Why-can-t-I-replace-a-pending-transaction)
+- [Etherscan: How to replace a Pending/Dropped transaction](https://info.etherscan.com/how-to-replace-a-transaction/)
+- [alchemy: Ethereum Transactions - Pending, Mined, Dropped & Replaced](https://docs.alchemy.com/docs/ethereum-transactions-pending-mined-dropped-replaced)
+- [How to fix replacement transaction underpriced](https://mycryptoview.com/meta-mask/how-to/how-to-fix-replacement-transaction-underpriced)
