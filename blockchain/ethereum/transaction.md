@@ -81,3 +81,30 @@ console.log("Transaction is valid and can be broadcasted");
 - [Etherscan: How to replace a Pending/Dropped transaction](https://info.etherscan.com/how-to-replace-a-transaction/)
 - [alchemy: Ethereum Transactions - Pending, Mined, Dropped & Replaced](https://docs.alchemy.com/docs/ethereum-transactions-pending-mined-dropped-replaced)
 - [How to fix replacement transaction underpriced](https://mycryptoview.com/meta-mask/how-to/how-to-fix-replacement-transaction-underpriced)
+
+In Ethereum, once a transaction is broadcasted to the network and included in the transaction pool (mem pool) of a node, it's generally not possible to replace or cancel it directly. However, you can try to accelerate or replace a transaction using the following methods:
+
+### 1. Replace-by-fee (RBF)
+
+Ethereum does not natively support RBF (as of my last knowledge update in January 2022). RBF is more commonly associated with Bitcoin.
+However, you can try to broadcast a new transaction with the same nonce but a higher gas fee. Miners are incentivized to include transactions with higher fees, so they might pick up the new transaction instead of the stuck one.
+
+### 2. Fee Bumping on EIP-1559 Transactions
+
+If you're using Ethereum Improvement Proposal (EIP)-1559 transactions, you may be able to increase the fee by sending a new transaction with the same nonce and a higher gas fee per unit of computation (the "gas price"). This is similar to RBF but specific to EIP-1559.
+
+### 3. Use of Transaction Accelerators
+
+Some services provide transaction acceleration, allowing you to "speed up" your stuck transaction by paying an additional fee. These services are usually operated by miners or mining pools.
+
+### 4. Wait for Transaction to be Dropped
+
+Transactions in the mempool will eventually be dropped if they remain unmined for an extended period. This can be time-consuming, and there's no guarantee.
+
+### 5. Revert the Transaction Through a Contract
+
+If the transaction was sent to a smart contract, you might be able to send a new transaction to the same contract with a function that cancels or reverts the original transaction.
+
+### 6. Using Flashbots
+
+Flashbots is a research and development organization that works on MEV (Miner/Maximal Extractable Value) solutions. It provides a way to submit transactions directly to miners, potentially bypassing the mempool.
