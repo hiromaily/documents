@@ -11,3 +11,5 @@
 ## インタプリタ (比較のため)
 
 プログラミング言語で書かれたソースコードないし中間表現を逐次解釈しながら実行するプログラムのこと
+
+## [Interpreted vs Compiled Programming Languages](https://www.freecodecamp.org/news/compiled-versus-interpreted-languages/)

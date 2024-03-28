@@ -36,7 +36,3 @@
 ## カノニカル・チェーン (Canonical chain)
 
 同意された "主鎖 "である。したがって、終了する側鎖の 1 つとはみなされない。
-
-## MEV について: Maximal extractable value
-
-- [Ethereum: 最大抽出可能価値（MEV）](https://ethereum.org/ja/developers/docs/mev/)

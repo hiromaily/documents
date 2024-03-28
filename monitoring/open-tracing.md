@@ -58,3 +58,9 @@ OpenTelemetry は、ベンダーにとらわれないことを目指し、異な
 - OpenTelemetry は、より広範な観測可能性という点では OpenTracing に取って代わられていますが、OpenTracing の原則と仕様は依然として価値があり、OpenTelemetry の開発に影響を与えている
 - OpenTelemetry は、すでに OpenTracing を使用しているプロジェクトがスムーズに移行できるように、後方互換性を念頭に設計されている
 - OpenTracing は現在非推奨
+
+## Frontend での OpenTelemetry 対応
+
+- [フロントエンドで収集するべきテレメトリは何か](https://zenn.dev/kimitsu/articles/frontend-and-telemetry)
+  - 2024 時点で、`ブラウザ JS で OpenTelemetry を利用するのは避け、監視 SaaS ベンダーの SDK を利用した方が良い`としている
+- [Datadog の OpenTelemetry](https://docs.datadoghq.com/ja/opentelemetry/)
