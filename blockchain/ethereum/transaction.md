@@ -82,29 +82,47 @@ console.log("Transaction is valid and can be broadcasted");
 - [alchemy: Ethereum Transactions - Pending, Mined, Dropped & Replaced](https://docs.alchemy.com/docs/ethereum-transactions-pending-mined-dropped-replaced)
 - [How to fix replacement transaction underpriced](https://mycryptoview.com/meta-mask/how-to/how-to-fix-replacement-transaction-underpriced)
 
-In Ethereum, once a transaction is broadcasted to the network and included in the transaction pool (mem pool) of a node, it's generally not possible to replace or cancel it directly. However, you can try to accelerate or replace a transaction using the following methods:
+Ethereum では、トランザクションがネットワークにブロードキャストされ、ノードのトランザクションプール（mem pool）に含まれると、通常、それを直接置き換えたりキャンセルしたりすることはできない。しかし、以下の方法を使用してトランザクションを加速したり置き換えたりすることは可能：
 
 ### 1. Replace-by-fee (RBF)
 
 Ethereum does not natively support RBF (as of my last knowledge update in January 2022). RBF is more commonly associated with Bitcoin.
 However, you can try to broadcast a new transaction with the same nonce but a higher gas fee. Miners are incentivized to include transactions with higher fees, so they might pick up the new transaction instead of the stuck one.
 
+Ethereum は RBF をネイティブにサポートしていない（2022 年 1 月現在）。RBF はビットコインの方が一般的である。
+しかし、同じ nonce でより高いガス料金の新しいトランザクションをブロードキャストしようとすることは可能。マイナーはより高い手数料のトランザクションを含むようインセンティブを与えられているので、スタックしたトランザクションの代わりに新しいトランザクションをピックアップするかもしれない。
+
 ### 2. Fee Bumping on EIP-1559 Transactions
 
 If you're using Ethereum Improvement Proposal (EIP)-1559 transactions, you may be able to increase the fee by sending a new transaction with the same nonce and a higher gas fee per unit of computation (the "gas price"). This is similar to RBF but specific to EIP-1559.
+
+Ethereum Improvement Proposal（EIP）-1559 トランザクションを使用している場合、同じ nonce と計算単位あたりの高いガス料金（「ガス料金」）で新しいトランザクションを送信することで、料金を増やすことができる場合がある。これは RBF に似ているが、EIP-1559 に特有である。
 
 ### 3. Use of Transaction Accelerators
 
 Some services provide transaction acceleration, allowing you to "speed up" your stuck transaction by paying an additional fee. These services are usually operated by miners or mining pools.
 
+トランザクションの高速化を提供するサービスもあり、追加料金を支払うことで動かなくなったトランザクションを「高速化」することができる。これらのサービスは通常、マイナーまたはマイニングプールによって運営されている。
+おそらく、Metamask の仕組みがこれにあたる。
+
 ### 4. Wait for Transaction to be Dropped
 
 Transactions in the mempool will eventually be dropped if they remain unmined for an extended period. This can be time-consuming, and there's no guarantee.
+
+mempool 内のトランザクションは、長期間 mine されないままであれば、最終的に削除される。これには時間がかかり、保証もない。
 
 ### 5. Revert the Transaction Through a Contract
 
 If the transaction was sent to a smart contract, you might be able to send a new transaction to the same contract with a function that cancels or reverts the original transaction.
 
+トランザクションがスマートコントラクトに送信された場合、元のトランザクションをキャンセルまたは元に戻す関数を使って、同じコントラクトに新しいトランザクションを送信できるかもしれない。
+
 ### 6. Using Flashbots
 
 Flashbots is a research and development organization that works on MEV (Miner/Maximal Extractable Value) solutions. It provides a way to submit transactions directly to miners, potentially bypassing the mempool.
+
+Flashbots は、MEV (マイナー/最大抽出可能値) ソリューションに取り組む研究開発組織。これは、メモリプールをバイパスして、マイナーにトランザクションを直接送信する方法を提供する。
+
+## [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559)
+
+Ethereum Improvement Proposal (EIP) 1559 は 2021 年 8 月 5 日に行われたアップグレードで、Ethereum のネットワーク取引手数料（ガス手数料）の計算方法と処理方法を変更するもの。このアップグレードは、ブロックベースの基本手数料と送信者指定の最大手数料のシステムを使用することで、イーサリアムのトランザクションをより効率的にし、ネットワーク混雑の多い時期や少ない時期により均等にマイナーにインセンティブを与えるために、ガス価格の入札ではなく、より効率的にした。これは London の Hardfork でパッケージ化された。
