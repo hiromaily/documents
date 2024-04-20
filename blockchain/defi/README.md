@@ -76,18 +76,30 @@
   - 法定通貨担保型 ... ドル等の実際の通貨を裏付けとして準備した上で発行する
   - 仮想通貨担保型 ... ETH 等の仮想通貨を裏付けとして準備した上で発行する
   - 無担保型 ... アルゴリズムだけで価値を安定化させるように取引する
-- rug pull: サービス運営者が資金を持ち逃げするという詐欺のことで、DeFi の場合、流動性プールから流動性を取り除く行為のことを指す。具体的には仮想通貨のペアによって構成される流動性プールから、片方の通貨を引き抜き別の取引所に送金するといった行為。
-- フラッシュローン: 1 つのトランザクションの中で、最初ん仮想通貨を借り、その通貨を使って swap 等の取引を行い、その結果を踏まえて仮想通貨の返済を行う
+- rug pull:
+  - サービス運営者が資金を持ち逃げするという詐欺のことで、DeFi の場合、流動性プールから流動性を取り除く行為のことを指す。
+  - 具体的には仮想通貨のペアによって構成される流動性プールから、片方の通貨を引き抜き別の取引所に送金するといった行為。
+- フラッシュローン: 1 つのトランザクションの中で、最初に仮想通貨を借り、その通貨を使って swap 等の取引を行い、その結果を踏まえて仮想通貨の返済を行う
   - 手数料はかかるが、元手がなくとも大きな取引を同時に行うことができるのが特徴
 
 ## Bridge Application
+
+[Blockchain Bridges: Building Networks of Cryptonetworks](https://medium.com/1kxnetwork/blockchain-bridges-5db6afac44f8)
+
+異なるネットワーク間の相互運用性のために Blockchain Bridge というものが存在し、2021 年の時点で 40 以上の project が存在している。
+
+### Applications
+
 - [Stargate](https://stargate.finance/)
+
 ### Pool
+
 - [Docs: Pool](https://stargateprotocol.gitbook.io/stargate/v/user-docs/stargate-features/pool)
-- Liquidity(流動性)をStargateのpoolに追加することで、transfer 毎もしくはfarm毎に StableCoin reward (LP Token) を得ることができる。
-- Liquidity Provider は そこで得た LP token を farm して(Stargateのfarmにtokenを割り当てる) STG token reward を得ることができる。
+- Liquidity(流動性)を Stargate の pool に追加することで、transfer 毎もしくは farm 毎に StableCoin reward (LP Token) を得ることができる。
+- Liquidity Provider は そこで得た LP token を farm して(Stargate の farm に token を割り当てる) STG token reward を得ることができる。
 
 #### App
+
 - [Stargate Pool App](https://stargate.finance/pool)
   - 画面の表示項目
     - Total Amount
@@ -98,15 +110,18 @@
     - Liquidity
 
 #### Code
+
 - Stargate の[Pool コントラクト](https://github.com/stargate-protocol/stargate/blob/c647a3a647fc693c38b16ef023c54e518b46e206/contracts/Pool.sol#L491)では、LDamount だったり SDamout というものが出てくるが、これは何？
 
 ### Farming
+
 - [Docs: Farm](https://stargateprotocol.gitbook.io/stargate/v/user-docs/stargate-features/farm)
-- LP tokenをfarmすることで、STGのrewardを得ることで、Stargate communityのメンバーとなる。
-- STG rewardはStargate protocolのGovernance tokenである`veSTG`を獲得するためにstakeすることができる
+- LP token を farm することで、STG の reward を得ることで、Stargate community のメンバーとなる。
+- STG reward は Stargate protocol の Governance token である`veSTG`を獲得するために stake することができる
 
 ### Staking
-- STG tokenをlockして、Stargate protocolのGovernance tokenである`veSTG`を獲得することができる
-- コミュニティーメンバーはVote-escrowed STG (veSTG)の残高を持つアカウントのことで、Stargate DAOのガバナンスに参加することができる
+
+- STG token を lock して、Stargate protocol の Governance token である`veSTG`を獲得することができる
+- コミュニティーメンバーは Vote-escrowed STG (veSTG)の残高を持つアカウントのことで、Stargate DAO のガバナンスに参加することができる
 
 ### Governance Model

@@ -92,6 +92,12 @@ However, you can try to broadcast a new transaction with the same nonce but a hi
 Ethereum は RBF をネイティブにサポートしていない（2022 年 1 月現在）。RBF はビットコインの方が一般的である。
 しかし、同じ nonce でより高いガス料金の新しいトランザクションをブロードキャストしようとすることは可能。マイナーはより高い手数料のトランザクションを含むようインセンティブを与えられているので、スタックしたトランザクションの代わりに新しいトランザクションをピックアップするかもしれない。
 
+#### [How to re-send a transaction with higher gas price using Ethers.js](https://www.quicknode.com/guides/ethereum-development/transactions/how-to-re-send-a-transaction-with-higher-gas-price-using-ethersjs)
+
+Re-sending the same transaction with higher gas and the same nonce using Ethers.js
+
+同じ nonce を使っていても、transaction を構成するパラメータのうちの、gasPrice の値を増やせば、txHash も変わることになる。
+
 ### 2. Fee Bumping on EIP-1559 Transactions
 
 If you're using Ethereum Improvement Proposal (EIP)-1559 transactions, you may be able to increase the fee by sending a new transaction with the same nonce and a higher gas fee per unit of computation (the "gas price"). This is similar to RBF but specific to EIP-1559.
