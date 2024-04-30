@@ -9,6 +9,7 @@
 - `ファイル検索` => `Command + P`
   - `Quick Open, Go to file` => `Command + P`
 - `User Settings` => `Command + ,`
+- Go Back => `Ctrl + -` / Go Forward => `Ctrl + Shift + -`
 
 ## プログラミング固有
 

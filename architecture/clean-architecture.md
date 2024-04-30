@@ -62,7 +62,7 @@
 
 最上部の図の右下の図の「コントローラーからはじまり、ユースケースを抜けて、プレゼンターで実行される」という矛盾は `依存関係逆転の原則(Dependency Inversion Principle)` で解決される
 
-![dip](../../images/dip.png "dip")
+![dip](../images/dip.png "dip")
 
 ## 図解による依存関係の整理
 
