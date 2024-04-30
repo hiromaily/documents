@@ -26,7 +26,7 @@
     - 同一ファイル内でしか移動できない
   - Go Forward in Edit Locations / Go Previous in Edit Locations
     - 思っているような挙動とは違う
-  - Go Back => `Ctrl + -` / Go Forward => `Ctrl + Shift + -`
+  - **Go Back => `Ctrl + -` / Go Forward => `Ctrl + Shift + -`**
 
 ## Window 内
 
