@@ -27,8 +27,8 @@
 ### 3. ソースコードの行は異なるものの、似たようなアルゴリズムを持ったモジュール
 
 - 一連の処理の中で、一部のみ処理方法が異なるものなどに適用できる
-- [Template method pattern](https://github.com/hiromaily/documents/tree/main/architecture/design-pattern#template-design-pattern)
-- [Strategy pattern](https://github.com/hiromaily/documents/tree/main/architecture/design-pattern#strategy-design-pattern)
+- [Template method pattern](./behavioral-patterns.md#template-design-pattern)
+- [Strategy pattern](./behavioral-patterns.md#strategy-design-pattern)
 
 ### 4. function のパラメータの数を減らす
 
