@@ -50,6 +50,28 @@
   - 並行プロセスが仕事をするのに必要なリソースを取得できない状況
   - リソース枯渇を見つける方法は`計測`
 
+##### [sync.atomic](https://pkg.go.dev/sync/atomic)
+
+- atomic な操作を提供する package
+
+```go
+var count int64
+var lock sync.Mutex
+
+// increment := func() {
+//   lock.Lock()
+//   defer lock.Unlock()
+//   count++
+//   fmt.Println("incrementing: %d\n", count)
+// }
+
+increment := func() {
+  atomic.AddInt64(&count, 1)
+}
+```
+
+- atomic.Value という構造体を使えば、Load と Store というメソッドによって、任意の型の読み込みと書き込みをアトミックにできる
+
 ### 2. 並行性をどうモデル化するか: CSP とは何か
 
 #### 並行性と並列性の違い
@@ -304,19 +326,260 @@ integer, ok := <- intStream // 0, false
 ```
 
 ```go
+intStream := make(chan int)
+go func() {
+  defer close(intStream) // goroutineを抜けるタイミングでcloseする
+  for i := 1; i <= 5; i++ {
+    intStream <- i
+  }
+}()
+
 // closeによってloopは抜ける
 // 送信側はgoroutineを抜ける前にdeferでcloseを呼び出すとよい
 for integer := range intStream {
   //
 }
-
 ```
+
+- チャネルを閉じることは複数のゴルーチンに同時にシグナルを送信する方法の１つでもある
+- キャパシティが n のバッファ付きチャネルの場合、n 回まで書き込みができる
+- バッファ付きチャネルは並行プロセスが通信するためのインメモリの FIFO キュー
 
 #### select 文
 
+- 複数のチャネルをまとめて受け取ったり、送信したりできる
+
+```go
+var c1, c2 <-chan interface{}
+var c3 chan<- interface{}
+
+select {
+  case <- c1:
+    // do something
+  case <- c2:
+    // do something
+  case c3<- struct{}{}
+    // do something
+}
+```
+
+- select ブロックの case 文は上から順番に評価されるわけではない。1 つ条件を通ると、そこから select は抜けることになる。
+  - そのため、長時間待ち受けたいときは、for loop で select を囲むことになる
+- 1 つも条件に該当しない場合には自動的に実行されない。select 全体がブロックする
+- 読み込みや書き込みのチャネルはすべて同時に取り扱われる
+
+```go
+// timeout
+var c <-chan int
+select {
+  case <-c:
+  case <-time.After(1 * time.Second);
+    fmt.Println("Timed out")
+}
+```
+
+```go
+// loopが必要な処理
+done := make(chan interface{})
+go func() {
+  time.Sleep(5*time.Second)
+  close(done)
+}
+
+workCounter := 0
+loop:
+for {
+  select {
+    case <-done:
+      break loop
+    default:
+  }
+
+  workCounter++
+  time.Sleep(1*time.Second)
+}
+
+```
+
 #### GOMAXPROCS レバー
 
+`GOMAXPROCS` は、同時に実行できる CPU の最大数を設定し、前の設定を返す。デフォルトは runtime.NumCPU の値。 n < 1 の場合、現在の設定は変更されない。スケジューラが改善されると、この呼び出しはなくなる。
+
+- [runtime#GOMAXPROCS](https://pkg.go.dev/runtime#GOMAXPROCS)
+- `func GOMAXPROCS(n int) int`
+
 ### 4. Go での並行処理パターン
+
+#### 4.1. 拘束
+
+- 並行なコードを扱うときに、安全な操作をするための方法
+  - メモリを共有するための同期のプリミティブ (sync.Mutex)
+  - 通信による同期 (channel)
+  - イミュータブルなデータ
+- `拘束`は情報をたった 1 つの並行プロセスからのみ得られることを確実にしてくれるシンプルな考え方
+- これが行われたとき、並行プログラムは暗黙的に安全であり、同期が必要なくなる
+- 2 種類の拘束
+  - アドホック (ad hoc: 特別の、その場その場の)
+  - レキシカル: コンパイラを駆使して拘束を矯正するというもの
+- レキシカル拘束はレキシカルスコープを使って適切なデータと並行処理のプリミティブだけを複数の並行プロセスが使えるように公開すること
+
+```go
+chanOwner := func() <- chan int {
+  // チャネルは関数内のレキシカルスコープ内で初期化
+  // これにより、チャネルへの書き込みができるスコープを制限
+  results := make(chan int, 5)
+  go func() {
+    defer close(results)
+    for i := 0; i <= 5; i++ {
+      result <- i
+    }
+  }()
+  return results
+}
+
+// intチャネルの読み込み専用のコピーを受け取る
+consumer := func(results <-chan int) {
+  for result := range results {
+    fmt.Printf("Received: %d\n", result)
+  }
+  fmt.Println("Done receiving!")
+}
+
+// チャネルへの読み込み権限を受け取って、それをconsumer()にわたす
+results := chanOwner()
+consumer(results)
+```
+
+- レキシカル拘束を利用する並行処理のコードは可読性が高く理解しやすくなる
+
+#### 4.2. for-select ループ
+
+```go
+for { // 無限ループまたは何かのイテレーションを回す
+  select {
+    // チャネルに対して何かを行う
+  }
+}
+```
+
+- チャネルから繰り返しの変数を送出する
+
+```go
+for _, s := range []string{"a", "b", "c"} {
+  select {
+    case <-done:
+      return
+    case stringStream <- s:
+  }
+}
+```
+
+- 停止シグナルを待つ無限ループ
+  - done チャネルが閉じられていなければ、select 文を抜けた先の処理を行う
+
+```go
+for {
+  select {
+    case <-done:
+      return
+    default:
+      // do something
+  }
+
+  // do something
+}
+```
+
+#### 4.3. goroutine リークを避ける
+
+- goroutine を確実に片付けるにはどうすればよいか？
+- goroutine が終了に至るまでの流れ
+  - ゴルーチンが処理を完了する場合
+  - 回復できないエラーにより処理を続けられない場合
+  - 停止するように命令された場合
+    - ゴルーチンの親子間で親から子にキャンセルのシグナルを送れるようにする
+    - 慣習としてこのシグナルは通常`done`という名前の読み込み専用チャネルにする
+    - 親ゴルーチンからこのチャネルを子ゴルーチンに渡して、キャンセルしたいときにチャネルを close する
+    - producer の goroutine に終了を伝えるチャネルを提供すること
+
+```go
+doWork := func(
+  done <-chan interface{},
+  strings <-chan string,
+) <-chan interface{} {
+  terminated := make(chan interface{})
+  go func() {
+    defer fmt.Println("doWork exited.")
+    defer close(terminated) // 3. terminatedをclose
+    for {
+      select {
+        case s := <-strings:
+          // do something
+          fmt.Println(s)
+        case <-done: // 2. done channelが閉じられた後、この処理を通る
+          return
+      }
+    }
+  }()
+  return terminated
+}
+
+done := make(chan interface{})
+terminated := doWork(done, nil)
+
+go func() {
+  time.Sleep(1 * time.Second)
+  fmt.Println("Canceling doWork goroutine...")
+  close(done) // 1. close
+}()
+
+<-terminated // doWork内で処理が終わったら、terminatedがcloseされることによって受信する
+fmt.Println("Done")
+```
+
+```go
+newRandStream := func(done <-chan interface{}) <-chan int {
+  randStream := make(chain int)
+  go func() {
+    defer fmt.Println("newRandStream closure exited.")
+    defer close(randStream)
+    for {
+      select {
+        case randStream <- rand.Int(): // 1. 送信を繰り返す
+        case <-done: // 3. doneのcloseによりreturn
+          return
+      }
+    }
+  }()
+  return randStream
+}
+
+done := make(chan interface{})
+randStream := newRandStream(done)
+fmt.Println("3 random ints:")
+for i := 1; i <= 3; i++ {
+  fmt.Printf("%d: %d\n", i, <-randStream)
+}
+close(done) // 2. 3つ受信したらforを抜け、channel doneをclose
+```
+
+#### 4.4. or チャネル
+
+#### 4.5. エラーハンドリング
+
+#### 4.6. パイプライン
+
+#### 4.7. ファンアウト、ファンイン
+
+#### 4.8. or-done チャネル
+
+#### 4.9. tee チャネル
+
+#### 4.10. bridge チャネル
+
+#### 4.11. キュー
+
+#### 4.12. context パッケージ
 
 ### 5. 大規模開発での並行処理
 
