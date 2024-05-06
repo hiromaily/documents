@@ -565,11 +565,158 @@ close(done) // 2. 3つ受信したらforを抜け、channel doneをclose
 
 #### 4.4. or チャネル
 
+1 つ以上の done チャネルを 1 つの done チャネルにまとめて、まとめているチャネルのうちのどれか 1 つのチャネルが閉じられたら、まとめて閉じられるようにしたいとき、`orチャネルパターン`を使ってチャネルをまとめるとよい
+
+割愛
+
 #### 4.5. エラーハンドリング
 
-#### 4.6. パイプライン
+- エラーハンドリングで発生する疑問は、`誰がそのエラーを処理する責任を持つべきか`
+- 重要なのは、`関心事を分けること`
+- エラーも正常系と同じ経路を渡って返されるべき
+
+```go
+type Result struct {
+  Error error
+  Response *http.Response
+}
+checkStatus := func(done <-chan interface{}, urls ...string) <-chan Result {
+  results := make(chan Result)
+  go func() {
+    defer close(results)
+
+    for _, url := range urls {
+      var result Result
+      resp, err := http.Get(url)
+      result = Result{Error: err, Response: resp}
+      select {
+        case <-done:
+          return
+        case results <- result: // エラーも結果もstructとしてまとめて返す
+      }
+    }
+  }()
+  return results;
+}
+
+done := make(chan interface{})
+defer close(done)
+
+urls := []string{"https://www.google.com", "https://foobar"}
+for result := range checkStatus(done, urls...) {
+  if result.Error != nil {
+    fmt.Printf("error: %v", result.Error)
+    continue
+  }
+  fmt.Printf("Response: %v\n", result.Response.Status)
+}
+```
+
+#### 4.6. [パイプライン](https://go.dev/blog/pipelines)
+
+- パイプラインはシステムの抽象化に使える道具の１つ（データストリームやバッチ処理を扱うときなど）
+- パイプラインはデータを受け取って何かしらの処理を行って、どこかに渡すという一連の作業
+- パイプラインを使うことで各ステージでの懸念事項を切り分けられる
+- パイプラインのステージの性質
+  - ステージは受け取るものと返すものが同じ型
+  - ステージは引き回せるように具体化されてなければならない
+  - `高階関数`や`モナド`
+- `バッチ処理`: 個別の値を 1 つずつ処理していくのではなく、データの塊をいっぺんに処理する
+- `ストリーム処理`: ステージが要素を１つずつ受け取って、１つずつ渡すやり方
+
+```go
+// ストリーム志向
+multiply := func(value, multiplier int) int {
+  return value * multiplier
+}
+add := func(value, additive int) int {
+  return value + additive
+}
+ints := []int{1, 2, 3, 4}
+for _, v := range ints {
+  fmt.Println(multiply(add(multiply(v, 2), 1) 2))
+}
+```
+
+##### パイプライン構築のためのベストプラクティス
+
+- go のチャネルはパイプラインの構築に必要な要件を揃えている
+
+```go
+// generator関数
+// 個別の値の塊をチャネル上を流れるデータのストリームに変換する
+// パイプラインの始めには常にチャネルへの変換を必要とするデータの塊がある
+generator := func(done <-chan interface{}, integers ...int) <-chan int {
+  intStream := make(chan int, len(integers))
+  go func() {
+    defer close(intStream)
+    for _, i := range integers {
+      select {
+        case <-done:
+          return
+        case intStream <- i: // 渡された配列をchannelで送信
+      }
+    }
+  }()
+  return intStream
+}
+
+multiply := func(
+  done <-chan interface{},
+  intStream <-chan int,
+  multiplier int,
+) <-chan int {
+  multipliedStream := make(chan int)
+  go func() {
+    defer close(multipliedStream)
+    for i := range intStream {　// 渡されたchannelから受信
+      select {
+        case <-done:
+          return
+        case multipliedStream <- i*multiplier:　// 新しい値としてchannelから送信
+      }
+    }
+  }()
+  return multipliedStream
+}
+
+add := func(
+  done <-chan interface{},
+  intStream <-chan int,
+  additive int,
+) <-chan int {
+  addedStream := make(chan int)
+  go func() {
+    defer close(addedStream)
+    for i := range intStream { // 渡されたchannelから受信
+      select {
+        case <-done:
+          return
+        case addedStream <- i+additive: // 新しい値としてchannelから送信
+      }
+    }
+  }()
+  return addedStream
+}
+
+done := make(chan interface{})
+defer close(done)
+
+intStream := generator(done, 1, 2, 3, 4)
+pipeline := multiply(done, add(done, multiply(done, intStream, 2), 1), 2)
+
+// 最後に値を取り出す
+for v := range pipeline {
+  fmt.Println(v)
+}
+```
 
 #### 4.7. ファンアウト、ファンイン
+
+- ファンアウト
+  - パイプラインからの入力を扱うために複数のゴルーチンを起動するプロセスを説明する用語
+- ファンイン
+  - 複数の結果を 1 つのチャネルに結合するプロセスを説明する用語
 
 #### 4.8. or-done チャネル
 
@@ -579,7 +726,134 @@ close(done) // 2. 3つ受信したらforを抜け、channel doneをclose
 
 #### 4.11. キュー
 
-#### 4.12. context パッケージ
+#### 4.12. [context パッケージ](https://pkg.go.dev/context)
+
+- 並行処理のプログラムではタイムアウトやキャンセル、あるいはシステムの別の箇所での失敗により、しばしば中断をする必要がある
+- Context 型は done チャネルのようにシステム内を流れる
+- context パッケージを使う場合には並行処理の呼び出し元の最上位より下流の各関数は Context を第一引数として受け取る
+- context のメソッド
+  - Done メソッド: 関数がランタイムにより割り込みされたときに閉じるチャネルを返す
+  - Deadline メソッド: ゴルーチンが一定の時刻以降にキャンセルされるかを返す
+  - Err メソッド: ゴルーチンがキャンセルされたら非 nil な値を返す
+- 関数内でのキャンセルには 3 つの側面がある
+  - ゴルーチンの親がキャンセルをしたい場合
+  - ゴルーチンが子をキャンセルしたい場合
+  - ゴルーチン内のブロックしている処理がキャンセルされるように中断できる必要がある場合
+- Context を受け取っても、それをキャンセルさせることができる関数が備わっているわけではない
+- done チャネルを提供する Done メソッドと組み合わせることで、Context 型がその祖先からのキャンセルを安全に管理できるようになる
+- Context 生成 function
+  - WithCancel: 返された cancel 関数が呼ばれたときにその done チャネルを閉じる新しい Context を返す
+  - WithDeadline: マシンの時計が与えられた deadline の時刻を経過したらその done チャネルを閉じる新しい Context を返す
+    - ctx.Deadline()で確認できる
+  - WithTimeout: 与えられた timeout だけ経過したらその done チャネルを閉じる新しい Context を返す
+  - TODO: 上流のコードが未実装だが Context がくることがわかっているときにプレースホルダーを提供するためのもの
+- context.Context のインスタンスは内部的にはスタックフレームごとに変化する
+- Context のためにあるリクエストの範囲でのデータを保管し受け取るためのデータバッグ
+
+```go
+func main() {
+  ProcessRequest("jane", "abc123")
+}
+type ctxKey int
+
+const (
+  ctxUserID ctxKey = iota
+  ctxAuthToken
+)
+
+func UserID(c context.Context) string {
+  return c.Value(ctxUserID).(string)
+}
+
+func AuthToken(c context.Context) string {
+  return c.Value(ctxAuthToken).(string)
+}
+
+func ProcessRequest(userID, authToken string) {
+  ctx := context.WithValue(context.Background(), ctxUserID, userID)
+  ctx = context.WithValue(ctx, ctxAuthToken, authToken)
+  HandleResponse(ctx)
+}
+
+func HandleResponse(ctx context.Context) {
+  fmt.Printf(
+    "handling response for %v (%v)",
+    UserID(ctx),
+    AuthToken(ctx),
+  )
+}
+```
+
+[sample code](https://gist.github.com/littlefuntik/37b04e1e97510877485ec6856ecdc33c)
+
+```go
+package main
+
+import (
+  "context"
+  "io/ioutil"
+  "log"
+  "net"
+  "net/http"
+  "time"
+)
+
+// Connect timeout error:
+//  panic: Cannot do request: Get http://localhost:3000: dial tcp: i/o timeout
+// Request timeout error:
+//  panic: Cannot do request: Get http://localhost:3000: context deadline exceeded
+// Example output
+//  Do request
+//  Read body
+//  Read response took: 154.884µs
+//  {"ip":"*.*.*.*","country":"Ukraine","cc":"UA"}
+func main() {
+  const ConnectMaxWaitTime = 1 * time.Second
+  const RequestMaxWaitTime = 5 * time.Second
+
+  client := http.Client{
+    Transport: &http.Transport{
+      DialContext: (&net.Dialer{
+        Timeout: ConnectMaxWaitTime,
+      }).DialContext,
+    },
+  }
+
+  ctx, cancel := context.WithTimeout(context.Background(), RequestMaxWaitTime)
+  defer cancel()
+
+  // create request with context
+  req, err := http.NewRequestWithContext(ctx, http.MethodGet, "https://api.myip.com", nil)
+  if err != nil {
+    log.Panicf("Cannot create request: %s\n", err)
+  }
+
+  // request
+  log.Println("Do request")
+  rsp, err := client.Do(req)
+  if rsp != nil {
+    defer rsp.Body.Close()
+  }
+  // handle timeout error and something else error
+  if e,ok := err.(net.Error); ok && e.Timeout() {
+    log.Panicf("Do request timeout: %s\n", err)
+  } else if err != nil {
+    log.Panicf("Cannot do request: %s\n", err)
+  }
+
+  // read body from response body
+  log.Println("Read body")
+  startRead := time.Now()
+  body, err := ioutil.ReadAll(rsp.Body)
+  if err != nil {
+    log.Panicf("Cannot read all response body: %s\n", err)
+  }
+  endRead := time.Now()
+  log.Printf("Read response took: %s\n", endRead.Sub(startRead))
+
+  log.Printf("%s\n", body)
+}
+```
 
 ### 5. 大規模開発での並行処理
 
