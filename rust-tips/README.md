@@ -2,13 +2,18 @@
 
 ## References
 
+- [Rust を学ぶ](https://www.rust-lang.org/ja/learn)
+- [The Rust Programming Language 日本語版](https://doc.rust-jp.rs/book-ja/)
 - [Rust by Example 日本語版](https://doc.rust-jp.rs/rust-by-example-ja/)
-- [Rust 入門](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003)
+- [Zenn: Rust 入門](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003)
+- [Microsft: Rust の最初のステップ](https://learn.microsoft.com/ja-jp/training/paths/rust-first-steps/)
 - [とほほの Rust 入門](https://www.tohoho-web.com/ex/rust.html)
+
+## [Rust 初心者が実務レベルになるまでの学習ステップ](https://ai-techblog.hatenablog.com/entry/2023/03/26/082349)
 
 ## Install on MacOS
 
-```
+```sh
 brew install rustup-init
 rustup-init
 exec $SHELL -l
@@ -34,7 +39,7 @@ cargo new foo_bar
 
 - [cargo-edit](https://crates.io/crates/cargo-edit)
 
-```
+```sh
 # add package
 cargo add <package-name>
 cargo add <package-name>@<version>
