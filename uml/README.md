@@ -8,7 +8,21 @@
 - [Mermaid](https://mermaid.js.org/#/)
   - Github の Markdown ファイルに「Mermaid」で図を挿入可能
 
-## TODO: 状態遷移図
+## PlantUML でサポートされている Diagram
+
+- Sequence diagram
+- Usecase diagram
+- Class diagram
+- Object diagram
+- Activity diagram (Beta) (Find the legacy syntax here)
+- Component diagram
+- Deployment diagram
+- State diagram
+- Timing diagram
+
+## [シーケンス図: Sequence diagram](https://plantuml.com/sequence-diagram)
+
+## [TODO] [状態遷移図: State diagram](https://plantuml.com/state-diagram)
 
 - [状態遷移図とは?](https://jp.mathworks.com/discovery/state-diagram.html)
 

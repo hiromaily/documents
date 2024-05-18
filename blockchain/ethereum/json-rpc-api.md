@@ -298,7 +298,7 @@ EVM の仕組みやノードの性能など様々な理由により、推定値�
 
 ## [eth_sendTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction)
 
-### Parameters
+### Transaction Parameters
 
 #### Transaction object
 
