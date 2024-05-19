@@ -22,25 +22,34 @@ struct Point {
 
 ## よく使われる Attribute
 
+### `#[derive(...)]`
+
+derive 属性に対応したトレイトの実装を自動的に構造体や列挙型に実装することのできる属性。
+例えば `Debug` を実装すると、Debug トレイトの fmt 関数が自動的に実装されているので、`:?`フォーマット文字列をつかうことができる。
+
+```rs
+#[derive(Debug)]
+struct Point{ x: i32, y: i32, z: i32 }
+
+fn main(){
+    let some_point = Point {x: 10, y: 20, z: 0};
+    println!("Debug: {:?}", some_point);
+}
+```
+
 ### `#[allow(dead_code)]`
 
-使用されていない関数が存在するときに警告が出るが、この機能を無効化することができる
+Rust には Lint チェックというソースコードの静的解析をしてくれるしくみがあり、そのチェック対象とされているリント項目を無視するようにするための属性。
+`dead_code`は使用されていない関数が存在するときに警告が出るが、`allow`属性によりこの機能を無効化することができる。
 
 ```rs
 #[allow(dead_code)]
 fn unused_function() {}
 ```
 
-### crate
+### `#[deny(...)]`
 
-`crate_type`属性は、そのクレートがライブラリ、バイナリのいずれにコンパイルされるべきかをコンパイラに伝えるために使用する。ライブラリの場合は、どのタイプのライブラリであるかも伝えることができる。
-`crate_name`はクレートの名前を決定するのに使用する。
-しかし、`crate_type`属性も`crate_name`属性も、Rust のパッケージマネージャ Cargo を利用している場合は不要
-
-```rs
-#![crate_type = "lib"]
-#![crate_name = "rary"]
-```
+allow 属性とは逆に、Lint チェックの内容を全てエラーとする属性
 
 ### cfg
 
@@ -49,9 +58,49 @@ fn unused_function() {}
 - cfg 属性: `#[cfg(...)]`を属性として使用する
 - cfg!マクロ: `cfg!(...)`を Boolean として評価する
 
-- トレイトの既定実装を示す `#[derive(...)]`
-- ユニットテストの `#[test]`, `#[should_panic]`, `#[ignore]`，
-- コンパイラに伝える `#[allow(...)]` や `#[cfg(...)]`
+```rs
+// This function only gets compiled if the target OS is linux
+// この関数はターゲットOSがLinuxの時のみコンパイルされる。
+#[cfg(target_os = "linux")]
+fn are_you_on_linux() {
+    println!("You are running linux!");
+}
+
+// And this function only gets compiled if the target OS is *not* linux
+// そしてこの関数はターゲットOSがLinux *ではない* ときのみコンパイルされる。
+#[cfg(not(target_os = "linux"))]
+fn are_you_on_linux() {
+    println!("You are *not* running linux!");
+}
+
+fn main() {
+    are_you_on_linux();
+
+    println!("Are you sure?");
+    if cfg!(target_os = "linux") {
+        println!("Yes. It's definitely linux!");
+    } else {
+        println!("Yes. It's definitely *not* linux!");
+    }
+}
+```
+
+### Unittest 用
+
+- `#[test]`
+- `#[should_panic]`
+- `#[ignore]`，
+
+### crate
+
+`crate_type`属性は、そのクレートがライブラリ、バイナリのいずれにコンパイルされるべきかをコンパイラに伝えるために使用する。ライブラリの場合は、どのタイプのライブラリであるかも伝えることができる。  
+`crate_name`はクレートの名前を決定するのに使用する。
+しかし、`crate_type`属性も`crate_name`属性も、Rust のパッケージマネージャ Cargo を利用している場合は不要
+
+```rs
+#![crate_type = "lib"]
+#![crate_name = "rary"]
+```
 
 ## Attribute の適用範囲
 
