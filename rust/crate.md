@@ -46,5 +46,7 @@ libraries/
 
 - [The Rust community’s crate registry](https://crates.io/)
   - crate のバージョン情報を調べるために便利
+- [Lib.rs](https://lib.rs/)
+  - カテゴリ毎にクレートの検索ができる
 - [The Rust Programming Language 日本語版: パッケージとクレート](https://doc.rust-jp.rs/book-ja/ch07-01-packages-and-crates.html)
 - [100 日後に Rust をちょっと知ってる人になる: [Day 43]モジュールシステム](https://zenn.dev/shinyay/articles/hello-rust-day043)

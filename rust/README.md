@@ -7,6 +7,7 @@
 - [Rust by Example 日本語版](https://doc.rust-jp.rs/rust-by-example-ja/)
 - [Zenn: Rust 入門](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003)
 - [Microsft: Rust の最初のステップ](https://learn.microsoft.com/ja-jp/training/paths/rust-first-steps/)
+- [ライブラリ辞典(α): Rust](https://libdict.com/rust)
 - [とほほの Rust 入門](https://www.tohoho-web.com/ex/rust.html)
 
 ### Crate
@@ -212,4 +213,7 @@ cargo clean
 
 ```sh
 cargo test
+
+# Test functionの名前に`something`が含まれるものを実行する
+cargo test something
 ```
