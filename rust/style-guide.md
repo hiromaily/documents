@@ -4,7 +4,7 @@
 
 | Item                    | Convention                                                     |
 | ----------------------- | -------------------------------------------------------------- |
-| Crates                  | `snake_case` (but prefer single word)                          |
+| Crates (パッケージ)     | `snake_case` (but prefer single word)                          |
 | Modules                 | `snake_case`                                                   |
 | Types                   | `UpperCamelCase`                                               |
 | Traits                  | `UpperCamelCase`                                               |

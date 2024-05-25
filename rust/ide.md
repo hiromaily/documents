@@ -4,11 +4,11 @@
 
 ### [rust.analyzer](https://rust-analyzer.github.io/)
 
-以下の方法は古いかもしれない。VSCode の場合、[Extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)が存在する
+以下の方法は古い。VSCode を使う場合、[Extension](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)が存在する
 
 ```sh
 # install rust-analyzer
-## rls: Rust Language Server
+## rls: Rust Language Server: これは既に非推奨になっている
 rustup component add rls rust-src rust-analysis
 ```
 
