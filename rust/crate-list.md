@@ -1,5 +1,7 @@
 # Crate List
 
+- [std](https://doc.rust-lang.org/stable/std/)
+
 ## [clap](https://crates.io/crates/clap)
 
 Command Line Argument Parser

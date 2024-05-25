@@ -16,6 +16,8 @@
 
 ## よく使われるマクロ
 
+[Crate std : Macros](https://doc.rust-lang.org/std/#macros)
+
 ### `print!`, `println!`, `format!`
 
 - `format!`: フォーマットされたテキストを文字列(String)型に書き込む
