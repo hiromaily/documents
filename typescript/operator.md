@@ -70,7 +70,7 @@ const enabled: boolean = !!amount?.quotient;
 
 ```ts
 export class MySubClassedDexie extends Dexie {
-  friends!: Table<Friend>;
+  friends!: Table<Friend>; // こちら`friend`メンバの後ろに`!`をつけている
 
   constructor() {
     super(DB_NAME);
@@ -79,6 +79,13 @@ export class MySubClassedDexie extends Dexie {
     });
   }
 }
+```
+
+```ts
+const txData: FooBar = {
+  foo: input.foo,
+  bar: bar.id!, //
+};
 ```
 
 ## array object の存在確認

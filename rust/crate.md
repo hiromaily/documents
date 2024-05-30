@@ -2,6 +2,8 @@
 
 パッケージ、モジュール、ライブラリを意味する。
 
+![rust package/crate](../images/rust-package-crate.png "rust package/crate")
+
 ```rs
 # rand crate
 use rand::Rng;
