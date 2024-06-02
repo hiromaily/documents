@@ -53,8 +53,11 @@ See 'cargo help <command>' for more information on a specific command.
 ```
 
 ```sh
-# create project
+# create project as binary crate
 cargo new foo_bar
+
+# create project as library crate
+cargo new --lib
 
 cargo init # in current directory
 ```

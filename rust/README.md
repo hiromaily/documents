@@ -16,16 +16,16 @@ RUST は式指向言語
 ## References
 
 - [Rust を学ぶ](https://www.rust-lang.org/ja/learn)
+- [github: rust-learning](https://github.com/ctjhoa/rust-learning?tab=readme-ov-file)
 - [The Rust Programming Language 日本語版](https://doc.rust-jp.rs/book-ja/)
 - [Rust by Example 日本語版](https://doc.rust-jp.rs/rust-by-example-ja/)
-- [Zenn: Rust 入門](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003)
+- [Rust 裏本 (The Rustonomicon)](https://doc.rust-jp.rs/rust-nomicon-ja/index.html)
+
 - [Microsft: Rust の最初のステップ](https://learn.microsoft.com/ja-jp/training/paths/rust-first-steps/)
+- [Zenn: Rust 入門](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003)
+  - 言葉の定義が独特でわかりにくい
 - [ライブラリ辞典(α): Rust](https://libdict.com/rust)
 - [とほほの Rust 入門](https://www.tohoho-web.com/ex/rust.html)
-
-### Crate
-
-- [crates.io](https://crates.io/)
 
 ## [Rust 初心者が実務レベルになるまでの学習ステップ](https://ai-techblog.hatenablog.com/entry/2023/03/26/082349)
 
@@ -138,6 +138,8 @@ cargo init # in current directory
 ```
 
 ## 便利なクレートの install
+
+- [crates.io](https://crates.io/)
 
 ### formatter
 
