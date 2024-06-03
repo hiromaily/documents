@@ -2,7 +2,9 @@
 
 - [std](https://doc.rust-lang.org/stable/std/)
 
-## [clap](https://crates.io/crates/clap)
+## CLI
+
+### [clap](https://crates.io/crates/clap)
 
 Command Line Argument Parser
 
@@ -17,7 +19,25 @@ cargo add clap --features derive
 clap = { version = "4.5.0", features = ["derive"] }
 ```
 
-## [assert_cmd](https://crates.io/crates/assert_cmd)
+## データのシリアライゼーションとデシリアライゼーション (JSON など)
+
+### [Serde](https://crates.io/crates/serde)
+
+- [Docs](https://serde.rs/)
+- [github](https://github.com/serde-rs/serde): Star: 8.7k
+
+## 非同期 Runtime
+
+### [tokio](https://crates.io/crates/tokio)
+
+A runtime for writing reliable asynchronous applications with Rust. Provides I/O, networking, scheduling, timers ...
+
+- [Docs](https://tokio.rs/)
+- [github](https://github.com/tokio-rs/tokio): Star: 25.1k
+
+## Test Utility
+
+### [assert_cmd](https://crates.io/crates/assert_cmd)
 
 簡単なコマンドの初期化とアサーションが可能で、CLI の統合テストを実行するプロセスを簡素化することを目的としている
 
@@ -42,7 +62,7 @@ let mut cmd = Command::cargo_bin("bin_fixture").unwrap();
 cmd.assert().success();
 ```
 
-## [pretty_assertions](https://crates.io/crates/pretty_assertions)
+### [pretty_assertions](https://crates.io/crates/pretty_assertions)
 
 `assert_eq!` and `assert_ne!` を overwrite したもので、console に colorful diffs を表示できる
 
@@ -55,7 +75,7 @@ cargo pretty_assertions --dev
 use pretty_assertions::{assert_eq, assert_ne};
 ```
 
-## [predicates](https://crates.io/crates/predicates)
+### [predicates](https://crates.io/crates/predicates)
 
 Rust でのブール値の述語関数の実装。
 このライブラリは、`述語` (引数が 1 つのブール値関数) へのインターフェイスを実装する。これにより、実行時に組み合わせロジックを作成して組み立て、値の評価に 1 回以上使用できるようになる。この種のオブジェクトは、実行時にユーザー操作で変更できるフィルターやチェックを作成するときに非常に便利。これにより、構成コードを使用して述語を構築し、その述語を実際のフィルタリングを行うコードに渡すことができるため、関心を明確に分離できる。フィルタリング コードはユーザー構成について何も知らない。
@@ -79,7 +99,9 @@ assert_eq!(true, less_than_ten.eval(&9));
 assert_eq!(false, less_than_ten.eval(&11));
 ```
 
-## [anyhow](https://crates.io/crates/anyhow)
+## Error Handling
+
+### [anyhow](https://crates.io/crates/anyhow)
 
 Rust アプリケーションで簡単に慣用的なエラー処理を実行するための特性オブジェクト ベースのエラー型である `anyhow::Error` を提供する。
 失敗のある関数の戻り値の型として、`Result<T, anyhow::Error>`、または同等の `anyhow::Result<T>` を使用する。
