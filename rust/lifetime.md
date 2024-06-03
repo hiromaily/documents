@@ -21,5 +21,7 @@ fn foo<'a>(arg: &'a str) -> &'a str
 
 ## References
 
+- [書籍: Rust プログラミング完全ガイド (第 23 章)](https://book.impress.co.jp/books/1121101129)
+  - こちらが一番理解しやすい
 - [The Rust Programming Language 日本語版: ライフタイムで参照を検証する](https://doc.rust-jp.rs/book-ja/ch10-03-lifetime-syntax.html)
 - [Rust 裏本: ライフタイム](https://doc.rust-jp.rs/rust-nomicon-ja/lifetimes.html)
