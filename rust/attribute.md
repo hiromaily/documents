@@ -189,6 +189,25 @@ test 属性と一緒に使われるアトリビュート
 - `ignore`: テストを実行しないようにする
 - `should_panic`: テストでパニックが発生した場合のみパスさせる
 
+#### `#[cfg(test)]`
+
+- コンパイラに cargo build を走らせた時ではなく、cargo test を走らせた時にだけ、 テストコードをコンパイルし走らせるよう指示する
+
+```rs
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn exploration() {
+        assert_eq!(2 + 2, 4);
+    }
+
+    #[test]
+    fn another() {
+        panic!("Make this test fail");
+    }
+}
+```
+
 ### crate
 
 `crate_type`属性は、そのクレートがライブラリ、バイナリのいずれにコンパイルされるべきかをコンパイラに伝えるために使用する。ライブラリの場合は、どのタイプのライブラリであるかも伝えることができる。  

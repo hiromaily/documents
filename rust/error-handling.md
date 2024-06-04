@@ -118,3 +118,20 @@ fn read_username_from_file2() -> Result<String, io::Error> {
     Ok(s)
 }
 ```
+
+## `Box<dyn error::Error>`
+
+Error トレイトの実装を持つ何らかのエラーを返す
+
+### 概念
+
+- `Box`: ヒープ上にデータを格納するためのスマートポインタ
+- `dyn`: dynamic の略。実行時にトレイトの具体的な型を決めたいときに使う
+- `error::Error`: Rust の標準ライブラリの error モジュールにある Error トレイト
+- `スマートポインタ`: Rust の文脈ではメモリや所有権を扱う概念・モノを指す
+  - 例えば`Box<T>`は`T`をヒープ上で扱うためのスマートポインタといえる。
+
+## References
+
+- [Rust By Example 日本語版: Boxing Errors](https://doc.rust-jp.rs/rust-by-example-ja/error/multiple_error_types/boxing_errors.html)
+- [Box<dyn error::Error>とは？](https://zenn.dev/torohash/articles/5264df373d50af)

@@ -19,9 +19,18 @@ cargo add clap --features derive
 clap = { version = "4.5.0", features = ["derive"] }
 ```
 
+## Logging
+
+### [log](https://crates.io/crates/log)
+
+A lightweight logging facade
+
+- [Docs](https://docs.rs/log/latest/log/)
+- [github](https://github.com/rust-lang/log/tree/master)
+
 ## データのシリアライゼーションとデシリアライゼーション (JSON など)
 
-### [Serde](https://crates.io/crates/serde)
+### [serde](https://crates.io/crates/serde)
 
 - [Docs](https://serde.rs/)
 - [github](https://github.com/serde-rs/serde): Star: 8.7k

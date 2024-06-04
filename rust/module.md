@@ -80,6 +80,15 @@ use std::io::{self, Write};
 use std::collections::*;
 ```
 
+### `super`と`self`と`crate`
+
+- `super`は兄弟モジュール(同じ親を持つモジュール)の参照
+  - `super::sibling_module::some_item`, `use super::*;`
+- `self`は現在のモジュールから見てサブモジュールのアイテムを参照
+  - `use self::submodule::some_item;`
+- `crate`はクレートの top level からのモジュールのパスを参照
+  - `crate::root_module::some_item;`
+
 ## TODO: モジュール分割
 
 - src/lib.rs
@@ -101,3 +110,10 @@ pub mod hosting {
   pub fn add_to_waitlist() {}
 }
 ```
+
+## References
+
+以下がわかりやすい
+
+- [Clear explanation of Rust’s module system](https://www.sheshbabu.com/posts/rust-module-system/)
+- [Rust: モジュールのベストプラクティス](https://zenn.dev/msakuta/articles/83f9991b2aba62)
