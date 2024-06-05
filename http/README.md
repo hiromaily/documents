@@ -79,7 +79,19 @@
 
 ## Keep Alive
 
+Idle connection をプールすることによって、クライアントは一回の TCP 接続で複数のコンテンツを要求することにより、通信パフォーマンスを向上させる事が出来る。
+内部的には 1 回の接続ごとに接続を閉じることなく、その接続状態を維持したまま複数の resource へのリクエスト送受信を行う。
+
 - HTTP/1.1 からサポート
+- `tcpdump`などで挙動の確認ができる
+
+### keep-alive timeout の設定による違い
+
+| Time                                         | Best for                                                                                                        | Pros                                                                                                                         | Cons                                                                                                |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| Short Keep-Alive Timeout (1-5 seconds)       | High-traffic sites with many short-lived connections, like news sites or social media                           | Frees up server resources quickly, reducing the number of idle connections                                                   | May result in more frequent reconnections, increasing overhead for establishing new TCP connections |
+| Medium Keep-Alive Timeout (10-30 seconds)    | General-purpose websites with a mix of static and dynamic content                                               | Balances the need for persistent connections with resource usage, improving user experience without overly taxing the server | May still leave connections open longer than necessary in some high-traffic scenarios               |
+| Long Keep-Alive Timeout (60 seconds or more) | Applications with frequent interactions per user session, such as real-time web apps, e-commerce sites, or APIs | Reduces latency for returning visitors, as the connection remains open                                                       | Can consume significant server resources if many connections remain idle for extended periods       |
 
 ## References
 

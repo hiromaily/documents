@@ -28,6 +28,16 @@ A lightweight logging facade
 - [Docs](https://docs.rs/log/latest/log/)
 - [github](https://github.com/rust-lang/log/tree/master)
 
+こちらには実装が含まれていないため、別途実装のための crate を使うが独自実装を用意する必要がある
+
+#### 実装 [eng_logger](https://crates.io/crates/env_logger)
+
+実行時に`RUST_LOG` 環境変数の設定が必要
+
+```rs
+RUST_LOG=info ./main
+```
+
 ## データのシリアライゼーションとデシリアライゼーション (JSON など)
 
 ### [serde](https://crates.io/crates/serde)
@@ -43,6 +53,21 @@ A runtime for writing reliable asynchronous applications with Rust. Provides I/O
 
 - [Docs](https://tokio.rs/)
 - [github](https://github.com/tokio-rs/tokio): Star: 25.1k
+
+### [async-trait](https://crates.io/crates/async-trait)
+
+trait 内で async fn を定義するのに利用される
+
+```rs
+#[async_trait::async_trait]
+trait Foo {
+   async fn foo(&self) -> u32;
+}
+```
+
+しかし、Rust の 1.75 から`async fn in trait`が実装されため、こちらは不要となる
+
+[参照: trait に async fn を含める方法](https://zenn.dev/uzabase/articles/c6a581e44effe0)
 
 ## Test Utility
 
