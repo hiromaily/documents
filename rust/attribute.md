@@ -122,6 +122,12 @@ Hash が必要になる例は、`HashMap<K, V>`にキーを格納し、データ
 
 例えば、Default トレイトは、`Option<T>`インスタンスに対してメソッド`unwrap_or_default`を使用する時に必要になる。 `Option<T>`が None ならば、メソッド unwrap_or_default は、`Option<T>`に格納された型 T に対して `Default::default` の結果を返す。
 
+#### `Error` トレイト
+
+[thiserror](https://crates.io/crates/thiserror) は、標準ライブラリの std::error::Error トレイトの便利な derive マクロを提供しており、独自のエラータイプを実装する必要がある場合、簡単にカスタムエラータイプを実装できる
+
+- [ライブラリ辞典: Rust で独自のエラータイプの実装を楽にする thiserror の使い方](https://libdict.com/rust/thiserror/introduction)
+
 ### `#[allow(dead_code)]`
 
 Rust には Lint チェックというソースコードの静的解析をしてくれるしくみがあり、そのチェック対象とされているリント項目を無視するようにするための属性。

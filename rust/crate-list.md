@@ -158,3 +158,36 @@ fn get_cluster_info() -> Result<ClusterMap> {
     Ok(map)
 }
 ```
+
+- [エラーハンドリング: anyhow](./error-handling.md#anyhowによるエラー処理)
+- [ライブラリ辞典: Rust の複数のエラー型のエラーハンドリングを楽にする anyhow の使い方](https://libdict.com/rust/anyhow/introduction)
+
+### [thiserror](https://crates.io/crates/thiserror)
+
+Rust で独自のエラータイプを実装する必要がある場合、簡単にカスタムエラータイプを実装できる
+
+```toml
+[dependencies]
+thiserror = "1.0"
+```
+
+```rs
+use thiserror::Error;
+
+#[derive(Error, Debug)]
+pub enum DataStoreError {
+    #[error("data store disconnected")]
+    Disconnect(#[from] io::Error),
+    #[error("the data for key `{0}` is not available")]
+    Redaction(String),
+    #[error("invalid header (expected {expected:?}, found {found:?})")]
+    InvalidHeader {
+        expected: String,
+        found: String,
+    },
+    #[error("unknown data store error")]
+    Unknown,
+}
+```
+
+- [ライブラリ辞典: Rust で独自のエラータイプの実装を楽にする thiserror の使い方](https://libdict.com/rust/thiserror/introduction)

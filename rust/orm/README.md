@@ -11,6 +11,12 @@
   - Dependencies
     - [sqlx](https://github.com/launchbadge/sqlx): Rust SQL Toolkit
 
+## sea-orm
+
+2024/6 時点で、`1.0.0-rc.5`がリリースされており、`0.12.15`から大幅に upgrade されることが想定される。
+
+[Actix example](https://github.com/SeaQL/sea-orm/tree/master/examples/actix_example)
+
 ## References
 
 - [A Guide to Rust ORMs in 2024](https://www.shuttle.rs/blog/2024/01/16/best-orm-rust)

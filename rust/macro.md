@@ -55,6 +55,16 @@ vec![1,2,3]
 
 `unimplemented!`とほぼ同じだが、まだ未実装という意
 
+```rs
+struct Book {}
+
+fn get_book(book: &Book) -> Option<String> {
+    todo!() // todo means "I will do it later, please be quiet"
+}
+```
+
+[The todo! macro](https://dhghomon.github.io/easy_rust/Chapter_44.html)
+
 ### `dbg!`
 
 式を評価してデバッグ表示する

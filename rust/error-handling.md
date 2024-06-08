@@ -119,6 +119,63 @@ fn read_username_from_file2() -> Result<String, io::Error> {
 }
 ```
 
+## [anyhow](https://crates.io/crates/anyhow)によるエラー処理
+
+- [github](https://github.com/dtolnay/anyhow)
+- [crates.io](https://crates.io/crates/anyhow): 400k dl per day
+- [ライブラリ辞典: Rust の複数のエラー型のエラーハンドリングを楽にする anyhow の使い方](https://libdict.com/rust/anyhow/introduction)
+
+### 利点
+
+- `std::result::Result<T, E>`型を使いやすくした`anyhow::Result<T>`型が便利
+  - `E`を省略して書くことができる
+- `context()`や`with_context()`でエラーに簡単にコンテキスト情報を付与できる
+  - Result および Option に対して使えるもので、詳細をエラーメッセージに追加できる
+  - `context()`はエラーにコンテキスト情報を付与
+  - `with_context()`はエラーに遅延評価でコンテキスト情報を付与
+- `anyhow!`や`bail!`マクロで`anyhow::Result<T>`型のエラーを簡単に作成できる
+  - わかりやすい
+
+### example
+
+```rs
+use anyhow::{anyhow, Context, Result};
+
+pub trait TodoRepository {
+  fn update(&self, id: i32, payload: UpdateTodo) -> anyhow::Result<Todo>;
+  fn delete(&self, id: i32) -> anyhow::Result<()>;
+}
+
+impl TodoRepository for TodoRepositoryForMemory {
+    fn update(&self, id: i32, payload: UpdateTodo) -> anyhow::Result<Todo> {
+        if id == 0 {
+            // anyhow!マクロで`anyhow::Result`型のエラーを簡単に作成できる
+            return Err(anyhow!("id must not be zero: {:?}", id));
+            // bail!マクロで`anyhow::Result`型のエラーをより簡単に作成できる
+            //bail!("id must not be zero: {:?}", id);
+        }
+
+        let mut store = self.write_store_ref();
+        let todo = store.get(&id).context(RepositoryError::NotFound(id))?; // contextでエラー情報を追加
+        let text = payload.text.unwrap_or(todo.text.clone());
+        let completed = payload.completed.unwrap_or(todo.completed);
+        let todo = Todo {
+            id,
+            text,
+            completed,
+        };
+        store.insert(id, todo.clone());
+        Ok(todo)
+    }
+
+    fn delete(&self, id: i32) -> anyhow::Result<()> {
+        let mut store = self.write_store_ref();
+        store.remove(&id).ok_or(RepositoryError::NotFound(id))?;
+        Ok(())
+    }
+}
+```
+
 ## `Box<dyn error::Error>`
 
 Error トレイトの実装を持つ何らかのエラーを返す
