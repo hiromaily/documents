@@ -50,3 +50,7 @@ MacOS Apple Silicon 環境において、以下のコマンドで解決
 ```sh
 ln -s "/Applications/Docker.app/Contents//Resources/bin/docker-credential-desktop" "/usr/local/bin/docker-credential-desktop"
 ```
+
+## References
+
+- [Docker 一強の終焉にあたり、押さえるべき Container 事情](https://zenn.dev/ttnt_1013/articles/f36e251a0cd24e)

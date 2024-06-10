@@ -119,13 +119,17 @@ fn read_username_from_file2() -> Result<String, io::Error> {
 }
 ```
 
+## カスタムエラー/エラー型の定義
+
+- [Rust By Example 日本語版: エラー型を定義する](https://doc.rust-jp.rs/rust-by-example-ja/error/multiple_error_types/define_error_type.html)
+
 ## [anyhow](https://crates.io/crates/anyhow)によるエラー処理
 
 - [github](https://github.com/dtolnay/anyhow)
 - [crates.io](https://crates.io/crates/anyhow): 400k dl per day
 - [ライブラリ辞典: Rust の複数のエラー型のエラーハンドリングを楽にする anyhow の使い方](https://libdict.com/rust/anyhow/introduction)
 
-### 利点
+### anyhow の利点
 
 - `std::result::Result<T, E>`型を使いやすくした`anyhow::Result<T>`型が便利
   - `E`を省略して書くことができる
@@ -173,6 +177,36 @@ impl TodoRepository for TodoRepositoryForMemory {
         store.remove(&id).ok_or(RepositoryError::NotFound(id))?;
         Ok(())
     }
+}
+```
+
+## [thiserror](https://crates.io/crates/thiserror)によるエラー処理
+
+- [github](https://github.com/dtolnay/thiserror)
+- [crates.io](https://crates.io/crates/thiserror): 500k dl per day
+- [ライブラリ辞典: Rust で独自のエラータイプの実装を楽にする thiserror の使い方](https://libdict.com/rust/thiserror/introduction)
+
+### thiserror の利点
+
+- thiserror は、標準ライブラリの `std::error::Error` トレイトの便利な`deriveマクロ`を提供している
+- カスタムエラータイプ実装時に `fmt::Display`、`std::error::Error`、`From<T>`トレイトの実装をほぼ省略できる
+  - `#error("...")`: fmt::Display を実装
+  - `#[from]`: From トレイトを実装
+  - `#[source]` : 自動的に source()メソッドを実装
+
+```rs
+// thiserrorを利用してカスタムエラータイプを定義
+#[derive(thiserror::Error)]
+pub enum DataStoreError {
+    // thiserrorのerrorを利用して、エラー時のメッセージを定義
+    #[error("data store disconnected")]
+    Disconnect(#[from] io::Error),
+    #[error("the data for key `{0}` is not available")]
+    Redaction(String),
+    #[error("invalid header (expected {expected:?}, found {found:?})")]
+    InvalidHeader { expected: String, found: String },
+    #[error("unknown data store error")]
+    Unknown,
 }
 ```
 

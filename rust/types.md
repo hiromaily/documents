@@ -85,6 +85,21 @@ fn main() {
     println!("Vector: {:?}", xs);
 ```
 
+### [スライス型](https://doc.rust-jp.rs/book-ja/ch04-03-slices.html):
+
+- 配列やベクタへの参照で、型は&[要素の型] (可変は&mut [要素の型])となる。
+- スライス自体は要素のデータ領域を持っておらず、実行時にサイズが決まる。
+- 以下のデータを保持する
+  - 配列(またはベクタ)の要素へのポインタ (ptr)
+  - 要素数 (len)
+
+```rs
+let slice = &[3, 4, 5];
+
+let arr = [23, 17, 12, 16, 15, 2];
+let slice2 = &arr[2..5];
+```
+
 ### [文字列](https://doc.rust-jp.rs/rust-by-example-ja/std/str.html)
 
 #### char
