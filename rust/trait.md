@@ -11,11 +11,13 @@
 trait HasSquareRoot {
     fn sq_root(self) -> Self;
 }
+// f32にHasSquareRootを実装
 impl HasSquareRoot for f32 {
     fn sq_root(self) -> Self {
         self.sqrt()
     }
 }
+// f64にHasSquareRootを実装
 impl HasSquareRoot for f64 {
     fn sq_root(self) -> Self {
         self.sqrt()
@@ -23,6 +25,7 @@ impl HasSquareRoot for f64 {
 }
 
 // ジェネリクス関数
+// ジェネリクスのNumber型はHasSquareRootトレイトが実装されている必要がある
 fn quartic_root<Number>(x: Number) -> Number
 where Number: HasSquareRoot {
     x.sq_root().sq_root()
@@ -42,11 +45,13 @@ print!("{} {}",
 trait HasSquareRoot {
     fn sqrt(self) -> Self;
 }
+// f32にHasSquareRootを実装
 impl HasSquareRoot for f32 {
     fn sqrt(self) -> Self {
         self.sqrt()
     }
 }
+// f64にHasSquareRootを実装
 impl HasSquareRoot for f64 {
     fn sqrt(self) -> Self {
         self.sqrt()
@@ -57,11 +62,13 @@ impl HasSquareRoot for f64 {
 trait HasAbsoluteValue {
     fn abs(self) -> Self;
 }
+// f32にHasAbsoluteValueを実装
 impl HasAbsoluteValue for f32 {
     fn abs(self) -> Self {
         self.abs()
     }
 }
+// f64にHasAbsoluteValueを実装
 impl HasAbsoluteValue for f64 {
     fn abs(self) -> Self {
         self.abs()
@@ -69,6 +76,7 @@ impl HasAbsoluteValue for f64 {
 }
 
 // ジェネリクス関数
+// ジェネリクスのNumber型はHasSquareRootトレイト及びHasAbsoluteValueトレイトが実装されている必要がある
 fn abs_quartic_root<Number>(x: Number) -> Number
 where Number: HasSquareRoot + HasAbsoluteValue {
     x.abs().x.sqrt().sqrt()
@@ -124,6 +132,7 @@ impl HasSqrtAndAbs for f64 {} // 空ブロックでOK
 
 
 // ジェネリクス関数
+// ジェネリクスのNumber型はHasSqrtAndAbsトレイトが実装されている必要がある
 fn abs_quartic_root<Number>(x: Number) -> Number
 where Number: HasSqrtAndAbs {
     x.abs().x.sqrt().sqrt()
@@ -139,10 +148,12 @@ print!("{} {}",
 ## `str`といったスタンダードライブラリなどの外部型に Trait によってメソッドを追加する
 
 ```rs
+// HasLengthトレイト
 // メソッドが1つしかない場合、そのメソッド名をトレイト名にするのが慣例なので、`Length`が正しい
 trait HasLength {
     fn length(&self) -> usize;
 }
+// strにHasLengthを実装
 impl HasLength for str {
     fn length(&self) -> usize { self.chars().count() }
 }
@@ -150,6 +161,27 @@ impl HasLength for str {
 // 呼び出し
 let s = "$ee";
 print!("{} {}", s.len(), s.length());
+```
+
+## 構造体に Trait によってメソッドを追加する(一番使われやすいはず)
+
+```rs
+struct Rect { width: u32, height: u32 }
+
+// Printableトレイト
+trait Printable {
+    fn print(&self);
+}
+// Rect構造体にPrintableを実装
+impl Printable for Rect {
+    fn print(&self) {
+        println!("width:{}, height:{}", self.width, self.height)
+    }
+}
+
+// 呼び出し
+let rect = Rect{ width: 20, height: 15};
+rect.print();
 ```
 
 ## ジェネリックトレイト
@@ -175,8 +207,9 @@ impl HasLnExp for f32 {
 trait HasMultiply<Rhs> { // Rhs stands for right-hand side
     fn multiply(self, rhs: Rhs) -> Self;
 }
-// Infoは標準ライブラリのジェネリックトレイトで、info関数は精度を失わずに型変換を行う
-// ここでは、Self型に型変換を行う
+// ジェネリックトレイトの実装
+// - Infoは標準ライブラリのジェネリックトレイトで、info関数は精度を失わずに型変換を行う
+// - ここでは、Self型に型変換を行う
 impl<Rhs> HasMultiply<Rhs> for f64 where Rhs: Info<Self> {
     fn multiply(self, rhs: Rhs) -> Self { self * rhs.info() }
 }
@@ -185,6 +218,7 @@ impl<Rhs> HasMultiply<Rhs> for f32 where Rhs: Info<Self> {
 }
 
 // ジェネリクス関数
+// ジェネリクスのBase型はHasLnExpトレイト及びHasMultiply<Exponent>トレイトが実装されている必要がある
 fn exponentiate<Base, Exponent>(
     base: Base, exponent: Exponent) -> Base
 where Base: HasLnExp + HasMultiply<Exponent>
@@ -197,17 +231,133 @@ println!("{}", exponentiate(2.5f32, 3i16)); // 2.5^3
 println!("{}", exponentiate(2.5f64, 3f32)); // 2.5^3
 ```
 
-## 構造体が実装すべきメソッドを定義する、Interface のようなもの
+## 関連型: Associated types
+
+`関連型`を使用すると、inner types を output types としての trait にローカルに移動することで、コード全体の可読性が向上する。ジェネリックトレイトの別の書き方とも言える。
 
 ```rs
-struct Rect { width: u32, height: u32 }
+// `A` and `B` are defined in the trait via the `type` keyword.
+// (Note: `type` in this context is different from `type` when used for
+// aliases).
+trait Contains {
+    type A;
+    type B;
 
-trait Printable { fn print(&self); }
-impl Printable for Rect {
-    fn print(&self) {
-        println!("width:{}, height:{}", self.width, self.height)
+    // Updated syntax to refer to these new types generically.
+    fn contains(&self, _: &Self::A, _: &Self::B) -> bool;
+}
+```
+
+```rs
+// Dictionaryトレイト
+trait Dictionary {
+    type key;
+    type Count;
+    fn get(&self, key: Self::Key) -> Option<String>;
+    fn count(&self, key: Self::Key) -> Self::Count;
+}
+struct Record {
+    id: u32,
+    name: String,
+}
+struct  RecordSet {
+    data: Vec<Record>,
+}
+// RecordSetにDictionaryを実装
+impl Dictionary for RecordSet {
+    fn get(&self, key: Self::Key) -> Option<String> {
+        for record in self.data.iter() {
+            if record.id == key {
+                return Some(String::from(&record.name));
+            }
+        }
+        None
+    }
+    fn count(&self, key: Self::Key) -> Self::Count {
+        let mut c = 0;
+        for record in self.data.iter() {
+            if record.id == key {
+                c += 1;
+            }
+        }
+        c
     }
 }
+
+// ジェネリクス関数
+// ジェネリクスのD型はDictionaryトレイトが実装されている必要がある
+fn get_name<D>(
+    dict: &D, // Dictionaryトレイトの実装のアドレス
+    id: <D as Dictionary>::Key, // DictionaryトレイトのType Key
+) -> Option<String>
+where D: Dictionary {
+    dict.get(id)
+}
+
+// 呼び出し側
+let names = RecordSet {
+    data: vec![
+        Record { id: 34, name: "John".to_string() },
+        Record { id: 49, name: "Jane".to_string() },
+    ]
+}
+print!(
+    "{}, {}: {:?}, {:?}",
+    names.count(48),
+    names.count(49),
+    get_name(&names, 48),
+    get_name(&names, 49));
+```
+
+- [Rust By Example 日本語版: 関連型](https://doc.rust-jp.rs/rust-by-example-ja/generics/assoc_items.html)
+- [Rust By Example: Associated types](https://doc.rust-lang.org/rust-by-example/generics/assoc_items/types.html)
+
+## 標準トレイト: Iterator
+
+```rs
+trait Iterator {
+    type Item;
+    fn next(&mut self) -> Option<Self::Item>;
+}
+```
+
+実装すべきもの
+
+- 生成される項目の型を表現する Item の型
+- もし可能ならば次の項目を返し、次の項目を生成できなければ None を返す next 関数の本体
+
+```rs
+// ジェネリクス関数
+// ジェネリクスのIter型はIteratorトレイトが実装されている必要がある
+fn get_third<Iter>(mut iterator: Iter) -> Option<Iter::Item>
+where
+    Iter: Iterator, // Iteratorトレイトの実装
+{
+    iterator.next();
+    iterator.next();
+    iterator.next()
+}
+
+// 呼び出し
+print!(
+    "{:?}, {:?}, {:?}, {:?}",
+    get_third(10..12),
+    get_third(20..29),
+    get_third([3.1, 3.2].iter()),
+    get_third([4.1, 4.2, 4.3, 4.4].iter()));
+```
+
+実際には、上記のジェネリクス関数は不要で、標準ライブラリに n 番目の項目を返すイテレータコンシューマ`nth`がある
+
+```rs
+// 呼び出し
+print!(
+    "{:?}, {:?}, {:?}, {:?}",
+    (10..12).nth(2),
+    (20..29).nth(2),
+    [3.1, 3.2].iter().nth(2),
+    [4.1, 4.2, 4.3, 4.4].iter().nth(2));
+
 ```
 
 ## References
@@ -215,7 +365,3 @@ impl Printable for Rect {
 - [The Rust Programming Language 日本語版: トレイト(trait)](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html)
 - [Rust By Example 日本語版](https://doc.rust-jp.rs/rust-by-example-ja/trait.html)
 - [Rust での 抽象化 3 パターンについて](https://zenn.dev/j5ik2o/articles/045737392958a3)
-
-```
-
-```
