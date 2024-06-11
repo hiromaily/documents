@@ -30,6 +30,11 @@ fn quartic_root<Number>(x: Number) -> Number
 where Number: HasSquareRoot {
     x.sq_root().sq_root()
 }
+// これは以下のようにも書ける
+// fn quartic_root<Number: HasSquareRoot>(x: Number) -> Number
+// {
+//     x.sq_root().sq_root()
+// }
 
 // 呼び出し
 print!("{} {}",
@@ -81,6 +86,12 @@ fn abs_quartic_root<Number>(x: Number) -> Number
 where Number: HasSquareRoot + HasAbsoluteValue {
     x.abs().x.sqrt().sqrt()
 }
+// これは以下のようにも書ける
+// fn abs_quartic_root<Number: HasSquareRoot + HasAbsoluteValue>(x: Number) -> Number
+// {
+//     x.abs().x.sqrt().sqrt()
+// }
+
 
 // 呼び出し
 print!("{} {}",
@@ -443,6 +454,8 @@ draw_text(&boxed_greeting);
 ## References
 
 - [The Rust Programming Language 日本語版: トレイト(trait)](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html)
-- [Rust By Example 日本語版](https://doc.rust-jp.rs/rust-by-example-ja/trait.html)
+- [The Rust Programming Language 日本語版: トレイトオブジェクトで異なる型の値を許容する](https://doc.rust-jp.rs/book-ja/ch17-02-trait-objects.html)
+- [The Rust Programming Language 日本語版: 高度なトレイト](https://doc.rust-jp.rs/book-ja/ch19-03-advanced-traits.html)
+- [Rust By Example 日本語版: トレイト](https://doc.rust-jp.rs/rust-by-example-ja/trait.html)
 - [Rust での 抽象化 3 パターンについて](https://zenn.dev/j5ik2o/articles/045737392958a3)
 - [The Rust Programming Language 日本語版: 引数としてのトレイト](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html#%E5%BC%95%E6%95%B0%E3%81%A8%E3%81%97%E3%81%A6%E3%81%AE%E3%83%88%E3%83%AC%E3%82%A4%E3%83%88)
