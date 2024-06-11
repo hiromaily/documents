@@ -360,8 +360,89 @@ print!(
 
 ```
 
+## 静的ディスパッチ
+
+コンパイラによってコンパイル時にジェネリクス関数の単相化が行われるもの
+
+```rs
+// Drawトレイト
+trait Draw {
+    fn draw(&self);
+}
+
+struct Text { characters: String }
+impl Text {
+    fn from(text: &str) -> Text {
+        Text { characters: text.to_string() }
+    }
+}
+// DrawトレイトのText型のための実装
+impl Draw for Text {
+    fn draw(&self) {
+        print!("{}", self.characters);
+    }
+}
+
+struct BoxedText {
+    text: Text,
+    first: char,
+    last: char,
+}
+impl BoxedText {
+    fn from(
+        text: &str, first: char, last: char) -> BoxedText
+    {
+        BoxedText {
+            text: Text::from(text),
+            first: first,
+            last: last,
+        }
+    }
+}
+// DrawトレイトのBoxedText型のための実装
+impl Draw for BoxedText {
+    fn draw(&self) {
+        print!("{}", self.first);
+        self.text.draw();
+        print!("{}", self.last);
+    }
+}
+
+// トレイトを引数に取るジェネリクス関数
+fn draw_text<T>(txt: T) where T: Draw {
+    txt.draw();
+}
+// 以下のようにtxtを参照にしてもよい
+// fn draw_text<T>(txt: &T) where T: Draw {
+//     txt.draw();
+// }
+
+// 呼び出し
+let greeting = Text::from("Hello");
+let boxed_greeting = BoxedText::from("Hi", '[', ']');
+
+draw_text(greeting);
+//draw_text(&greeting);
+print!(", ");
+draw_text(boxed_greeting);
+//draw_text(&boxed_greeting);
+```
+
+## 動的ディスパッチ
+
+```rs
+// トレイトを引数に取るジェネリクス関数
+fn draw_text(txt: &dyn Draw) {
+    txt.draw();
+}
+draw_text(&greeting);
+print!(", ");
+draw_text(&boxed_greeting);
+```
+
 ## References
 
 - [The Rust Programming Language 日本語版: トレイト(trait)](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html)
 - [Rust By Example 日本語版](https://doc.rust-jp.rs/rust-by-example-ja/trait.html)
 - [Rust での 抽象化 3 パターンについて](https://zenn.dev/j5ik2o/articles/045737392958a3)
+- [The Rust Programming Language 日本語版: 引数としてのトレイト](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html#%E5%BC%95%E6%95%B0%E3%81%A8%E3%81%97%E3%81%A6%E3%81%AE%E3%83%88%E3%83%AC%E3%82%A4%E3%83%88)
