@@ -323,6 +323,123 @@ print!(
 - [Rust By Example 日本語版: 関連型](https://doc.rust-jp.rs/rust-by-example-ja/generics/assoc_items.html)
 - [Rust By Example: Associated types](https://doc.rust-lang.org/rust-by-example/generics/assoc_items/types.html)
 
+## [引数としてのトレイト](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html#%E5%BC%95%E6%95%B0%E3%81%A8%E3%81%97%E3%81%A6%E3%81%AE%E3%83%88%E3%83%AC%E3%82%A4%E3%83%88)
+
+```rs
+// implキーワードとトレイト名を指定
+fn notify(item: &impl Summary) {
+    println!("{}", item.summarize());
+}
+
+// トレイト境界構文でも記載できる
+fn notify<T: Summary>(item: &T) {
+    println!("{}", item.summarize());
+}
+
+// 複数のトレイト境界
+fn notify(item: &(impl Summary + Display)) { ... }
+// or
+fn notify<T: Summary + Display>(item: &T) { ... }
+```
+
+## [トレイトを実装している型を返す](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html#%E3%83%88%E3%83%AC%E3%82%A4%E3%83%88%E3%82%92%E5%AE%9F%E8%A3%85%E3%81%97%E3%81%A6%E3%81%84%E3%82%8B%E5%9E%8B%E3%82%92%E8%BF%94%E3%81%99)
+
+```rs
+// pattern 1
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    }
+}
+
+// pattern 2
+fn returns_summarizable(switch: bool) -> impl Summary {
+    if switch {
+        NewsArticle {
+            headline: String::from(
+                "Penguins win the Stanley Cup Championship!",
+            ),
+            location: String::from("Pittsburgh, PA, USA"),
+            author: String::from("Iceburgh"),
+            content: String::from(
+                "The Pittsburgh Penguins once again are the best \
+                 hockey team in the NHL.",
+            ),
+        }
+    } else {
+        Tweet {
+            username: String::from("horse_ebooks"),
+            content: String::from(
+                "of course, as you probably already know, people",
+            ),
+            reply: false,
+            retweet: false,
+        }
+    }
+}
+```
+
+## [dyn を利用してトレイトを返す](https://doc.rust-jp.rs/rust-by-example-ja/trait/dyn.html)
+
+Rust のコンパイラはあらゆる関数のリターン型に必要なスペースを知っておく必要がある。 つまり、すべての関数は具体的な型を返す必要がある。 他の言語と違って、トレイトがある場合に、トレイトを返す関数を書くことはできない。 なぜなら、そのトレイトの異なる実装はそれぞれ別の量のメモリを必要とするから。
+
+しかし、簡単な回避策として直接トレイトオブジェクトを返す代わりに、トレイトを 含む `Box`を返す。 Box はヒープ中のメモリへの単なる参照であり、参照のサイズは静的に知ることができ、コンパイラは参照がヒープに割り当てられたトレイトを指していると保証できるので、私たちは関数からトレイトを返すことができる。
+
+ヒープにメモリを割り当てる際、Rust は可能な限り明示的であろうとする。 なので、もしあなたの関数がヒープ上のトレイトへのポインタを返す場合、例えば`Box<dyn Trait>`のように、リターン型に`dyn`キーワードをつける必要がある。
+
+```rs
+struct Sheep {}
+struct Cow {}
+
+trait Animal {
+    // Instance method signature
+    // インスタンスのメソッドシグネチャ
+    fn noise(&self) -> &'static str;
+}
+
+// Implement the `Animal` trait for `Sheep`.
+// `Sheep`に`Animal`トレイトを実装する。
+impl Animal for Sheep {
+    fn noise(&self) -> &'static str {
+        "baaaaah!"
+    }
+}
+
+// Implement the `Animal` trait for `Cow`.
+// `Cow`に`Animal`トレイトを実装する。
+impl Animal for Cow {
+    fn noise(&self) -> &'static str {
+        "moooooo!"
+    }
+}
+
+// Returns some struct that implements Animal, but we don't know which one at compile time.
+// Animalを実装した何らかの構造体を返す。
+// ただし、コンパイル時にはどの実装か分からない。
+fn random_animal(random_number: f64) -> Box<dyn Animal> {
+    if random_number < 0.5 {
+        Box::new(Sheep {})
+    } else {
+        Box::new(Cow {})
+    }
+}
+
+fn main() {
+    let random_number = 0.234;
+    // let animal: Box<dyn Animal> = random_animal(random_number);
+    let animal = random_animal(random_number);
+    println!(
+        "You've randomly chosen an animal, and it says {}",
+        animal.noise()
+    );
+}
+```
+
 ## 標準トレイト: Iterator
 
 ```rs
@@ -451,11 +568,17 @@ print!(", ");
 draw_text(&boxed_greeting);
 ```
 
+## object-safety
+
+- [rfcs: 255 object-safety](https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md)
+- [トレイトオブジェクトには、オブジェクト安全性が必要](https://doc.rust-jp.rs/book-ja/ch17-02-trait-objects.html#%E3%83%88%E3%83%AC%E3%82%A4%E3%83%88%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AB%E3%81%AF%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%AE%89%E5%85%A8%E6%80%A7%E3%81%8C%E5%BF%85%E8%A6%81)
+- [The Rust Reference: Traits Object Safety](https://doc.rust-lang.org/reference/items/traits.html#object-safety)
+
 ## References
 
 - [The Rust Programming Language 日本語版: トレイト(trait)](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html)
+  - [The Rust Programming Language 日本語版: 引数としてのトレイト](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html#%E5%BC%95%E6%95%B0%E3%81%A8%E3%81%97%E3%81%A6%E3%81%AE%E3%83%88%E3%83%AC%E3%82%A4%E3%83%88)
 - [The Rust Programming Language 日本語版: トレイトオブジェクトで異なる型の値を許容する](https://doc.rust-jp.rs/book-ja/ch17-02-trait-objects.html)
 - [The Rust Programming Language 日本語版: 高度なトレイト](https://doc.rust-jp.rs/book-ja/ch19-03-advanced-traits.html)
 - [Rust By Example 日本語版: トレイト](https://doc.rust-jp.rs/rust-by-example-ja/trait.html)
 - [Rust での 抽象化 3 パターンについて](https://zenn.dev/j5ik2o/articles/045737392958a3)
-- [The Rust Programming Language 日本語版: 引数としてのトレイト](https://doc.rust-jp.rs/book-ja/ch10-02-traits.html#%E5%BC%95%E6%95%B0%E3%81%A8%E3%81%97%E3%81%A6%E3%81%AE%E3%83%88%E3%83%AC%E3%82%A4%E3%83%88)

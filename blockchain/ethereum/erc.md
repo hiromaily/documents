@@ -24,3 +24,7 @@ We considered use cases of NFTs being owned and transacted by individuals as wel
 - “Negative value” assets — loans, burdens and other responsibilities
 
 In general, all houses are distinct and no two kittens are alike. NFTs are distinguishable and you must track the ownership of each one separately.
+
+## [ERC1155: Multi Token Standard](https://eips.ethereum.org/EIPS/eip-1155)
+
+## [ERC1400: Security Token Standard](https://thesecuritytokenstandard.org/)
