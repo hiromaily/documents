@@ -35,4 +35,4 @@ some of web frameworks developed by RUST are listed on [Web Framework Benchmarks
 
 ## References
 
-[Rust 言語で作る web アプリケーション: 環境構築編【2023 年 12 月】](https://higmasan.com/rust/getting-started-with-web-applications-in-rust-2023-building-development-environment/)
+- [Rust 言語で作る web アプリケーション: 環境構築編【2023 年 12 月】](https://higmasan.com/rust/getting-started-with-web-applications-in-rust-2023-building-development-environment/)

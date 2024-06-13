@@ -58,4 +58,13 @@ for a trait to be "object safe" it needs to allow building a vtable to allow the
              repositories::todo_repository::TodoRepositoryForMemory
 ```
 
-[stackoverflow: "this trait cannot be made into an object because it requires `Self: Sized`", except it has Sized](https://stackoverflow.com/questions/70377145/this-trait-cannot-be-made-into-an-object-because-it-requires-self-sized-ex)
+- [stackoverflow: "this trait cannot be made into an object because it requires `Self: Sized`", except it has Sized](https://stackoverflow.com/questions/70377145/this-trait-cannot-be-made-into-an-object-because-it-requires-self-sized-ex)
+- [How to clone a struct storing a boxed trait object?](https://stackoverflow.com/questions/30353462/how-to-clone-a-struct-storing-a-boxed-trait-object)
+- [Why can’t traits require Clone?](https://users.rust-lang.org/t/why-cant-traits-require-clone/23686/1)
+
+### `Trait への Clone 実装` 解決方法
+
+- trait から、Clone 実装を外す
+  - 問題は clone が必要な場合
+- `dyn Trait` を使うときはコンパイル時にサイズが分からないので何かしらの参照の形で渡してあげる必要がある
+  - [actix-web で Data<dyn trait> を使い回す](https://teratail.com/questions/kb8b224km8a6hl)

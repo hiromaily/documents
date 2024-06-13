@@ -15,6 +15,27 @@
 - f32: 32 ビット浮動小数点数
 - f64: 64 ビット浮動小数点数
 
+## [The Rust Reference: 10.Type system](https://doc.rust-lang.org/reference/types/pointer.html)
+
+- [Boolean type](https://doc.rust-lang.org/reference/types/boolean.html)
+- [Numeric types](https://doc.rust-lang.org/reference/types/numeric.html)
+- [Textual types](https://doc.rust-lang.org/reference/types/textual.html)
+- [Never type](https://doc.rust-lang.org/reference/types/never.html#never-type)
+- [Tuple types](https://doc.rust-lang.org/reference/types/tuple.html)
+- [Array types](https://doc.rust-lang.org/reference/types/array.html)
+- [Slice types](https://doc.rust-lang.org/reference/types/slice.html)
+- [Struct types](https://doc.rust-lang.org/reference/types/struct.html)
+- [Enumerated types](https://doc.rust-lang.org/reference/types/enum.html)
+- [Union types](https://doc.rust-lang.org/reference/types/union.html)
+- [Function item types](https://doc.rust-lang.org/reference/types/function-item.html)
+- [Closure types](https://doc.rust-lang.org/reference/types/closure.html)
+- [Pointer types](https://doc.rust-lang.org/reference/types/pointer.html)
+- [Function pointer types](https://doc.rust-lang.org/reference/types/function-pointer.html)
+- [Trait objects](https://doc.rust-lang.org/reference/types/trait-object.html)
+- [Impl trait](https://doc.rust-lang.org/reference/types/impl-trait.html)
+- [Type parameters](https://doc.rust-lang.org/reference/types/parameters.html)
+- [Inferred type](https://doc.rust-lang.org/reference/types/inferred.html)
+
 ## 型推論
 
 - `型推論`ができるため、`let 変数名 = 値;`のみで型まで設定できる。もちろん`let 変数名: 型 = 値;`
@@ -200,3 +221,7 @@ fn main() {
     contacts.insert("Robert", "956-1745");
 }
 ```
+
+## References
+
+- [The Rust Reference: 10.Type system](https://doc.rust-lang.org/reference/types/pointer.html)

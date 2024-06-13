@@ -6,6 +6,8 @@
 
 また、これを`パラメータ制約`というが、パラメータ制約のないジェネリック関数はわずかなことしかできないことが多いため、ほとんどのジェネリック関数の型パラメータには常にトレイト制約が必要になる。
 
+トレイト境界は、`where句`にあたるもの
+
 ```rs
 // HasSquareRootトレイト
 trait HasSquareRoot {
@@ -568,11 +570,151 @@ print!(", ");
 draw_text(&boxed_greeting);
 ```
 
-## object-safety
+## [Trait objects 型](https://doc.rust-lang.org/reference/types/trait-object.html)
 
-- [rfcs: 255 object-safety](https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md)
+Trait オブジェクトは、Trait のセットを実装する別の型の不透明な値である。Trait のセットは、オブジェクト安全性を持つ `base trait` と任意の数の[auto traits](https://doc.rust-lang.org/reference/special-types-and-traits.html#auto-traits) から構成される。
+Trait オブジェクトは、`base trait`、その `auto trait`、および base trait の`supertraits` を実装する。
+Trait オブジェクトは、キーワード `dyn` に続いて Trait 境界のセットを記述するが、Trait 境界には以下の制限がある。最初の trait を除くすべての trait は `auto traits` でなければならず、複数の lifetime を指定することはできず、opt-out bounds（例えば?Sized）は許可されない。さらに、Trait へのパスは括弧で囲むことができます。
+
+```rs
+// Traitオブジェクト
+dyn Trait
+dyn Trait + Send
+dyn Trait + Send + Sync
+dyn Trait + 'static
+dyn Trait + Send + 'static
+dyn Trait +
+dyn 'static + Trait.
+dyn (Trait)
+```
+
+`base trait` が互いにエイリアスであり、`auto trait` のセットが同じで lifetime 境界が同じであれば、2 つの Trait オブジェクトタイプは互いにエイリアスである。
+例えば、`dyn Trait + Send + UnwindSafe` は、`dyn Trait + UnwindSafe + Send` と同じ。
+
+値がどの具象型(concrete type)であるかが不透明であるため、Trait オブジェクトは[動的な大きさの型: Dynamically Sized Types (DST)](https://doc.rust-lang.org/reference/dynamically-sized-types.html#dynamically-sized-types)となる。すべての DST と同様に、Trait オブジェクトは何らかのポインタの後ろで使用される。例えば、`&dyn SomeTrait` や `Box<dyn SomeTrait>`など。
+
+trait オブジェクトへのポインタの各インスタンスには以下が含まれる
+
+- `SomeTrait` を実装する T 型のインスタンスへのポインタ
+- これは、T が実装する SomeTrait とその`supertraits`の各メソッドについて、T の実装へのポインタ（つまり関数ポインタ）を含む
+
+Trait オブジェクトの目的は、メソッドの`late binding` (遅延バインディング)を可能にすること。つまり、関数ポインタが trait オブジェクトの `vtable` からロードされ、間接的に呼び出される。 各 vtable エントリの実際の実装は、オブジェクトごとに異なる。
+
+Trait オブジェクトの例
+
+```rs
+trait Printable {
+    fn stringify(&self) -> String;
+}
+
+impl Printablefor i32 {
+    fn stringify(&self) -> String{ self.to_string() }
+}
+
+fn print(a: Box<dyn Printable>) {
+    println!("{}", a.stringify());
+}
+
+fn main() {
+    print(Box::new(10) as Box<dyn Printable>);
+}
+```
+
+### Trait オブジェクトの lifetimes 境界
+
+trait オブジェクトは参照を含むことができるので、それらの参照の lifetime を trait オブジェクトの一部として表現する必要がある。このライフタイムは `Trait + 'a.`と記述する。このライフタイムは、通常、賢明な選択で推論できる[デフォルト](https://doc.rust-lang.org/reference/lifetime-elision.html#default-trait-object-lifetimes)がある。
+
+## [Auto traits](https://doc.rust-lang.org/reference/special-types-and-traits.html#auto-traits)
+
+`Send`、`Sync`、`Unpin`、`UnwindSafe`、`RefUnwindSafe` の各 trait が`auto traits`。
+`auto traits` には特別なプロパティがある。
+
+与えられた型に対する`auto traits`について、明示的な実装や否定的な実装が書かれていない場合、コンパイラは以下の規則に従って自動的に実装する
+
+- `&T`, `&mut T`, `*const T`, `*mut T`, `[T; n]`, および`[T]`は、T が trait を実装していれば、それに従う。
+- 関数項目型と関数ポインタは自動的にこの trait を実装する。
+- 構造体、列挙型、共用体、およびタプルは、そのフィールドのすべてがその trait を実装していれば、その trait を実装する。
+- クロージャは、そのキャプチャのすべての型がその trait を実装していれば、その trait を実装する。T を共有参照でキャプチャし、U を値でキャプチャするクロージャは、&T と U の両方が実装しているすべての`auto traits`を実装している。
+
+ジェネリック型（上記の組み込み型は T を超えるジェネリック型としてカウントされる）については、ジェネリック実装が利用可能な場合、コンパイラは、必要な Trait 境界を満たさないことを除いて、その実装を使用できる型に対して自動的に実装することはない。例えば、標準ライブラリは T が Sync であるすべての&T に対して Send を実装する。これは、T が Send であり Sync でない場合、コンパイラは&T に対して Send を実装しないことを意味する。
+
+標準ライブラリのドキュメントでは、`impl !AutoTrait for T` として示され、自動実装をオーバーライドする。例えば、*mut T は Send の否定的な実装を持つので、T が Send であっても*mut T は Send ではない。現在のところ、否定的な実装を追加で指定する安定した方法はない。
+
+`auto traits`は、通常は 1 つの trait しか許されないが、どの trait オブジェクトにも追加バインドとして追加できる。例えば、`Box<dyn Debug + Send + UnwindSafe>`は有効な型である。
+
+## [Sized trait](https://doc.rust-lang.org/reference/special-types-and-traits.html#sized)
+
+Sized trait は、この型のサイズがコンパイル時に既知であることを示す。Sized trait は、この型が動的にサイズ指定される型ではないことを示す。Sized trait は、実装項目ではなく、常にコンパイラによって自動的に実装される。
+
+## Supertraits スーパートレイト
+
+Rust には`継承`はないが、あるトレイトを別のトレイトの上位集合として定義できる
+
+```rs
+trait Person {
+    fn name(&self) -> String;
+}
+
+// PersonはStudentのスーパートレイトです。
+// Studentを実装するにはPersonも実装する必要がある
+trait Student: Person {
+    fn university(&self) -> String;
+}
+```
+
+### References for Supertraits
+
+- [Rust By Example 日本語版: スーパートレイト](https://doc.rust-jp.rs/rust-by-example-ja/trait/supertraits.html)
+- [The Rust Reference: Supertraits](https://doc.rust-lang.org/reference/items/traits.html#supertraits)
+
+## object-safety オブジェクト安全性
+
+- トレイトオブジェクトには、オブジェクト安全なトレイトしか作成できない
+- トレイトは、トレイト内で定義されているメソッド全てに以下の特性があれば、オブジェクト安全になる：
+  - 戻り値の型が Self でないこと
+    - [例外] 標準ライブラリの Clone トレイトはメソッドがオブジェクト安全でない
+  - ジェネリックな型引数がないこと
+
+標準ライブラリの Clone トレイトはメソッドがオブジェクト安全でない
+
+```rs
+pub trait Clone {
+    fn clone(&self) -> Self;
+}
+```
+
+### [The Rust Reference: Traits Object Safety](https://doc.rust-lang.org/reference/items/traits.html#object-safety)
+
+オブジェクトセーフな traits は、trait オブジェクトの基本 trait になることができる。
+trait がオブジェクトセーフであるのは、次の特性を備えている場合。
+
+- すべての`supertraits`はオブジェクトセーフである必要がある (つまり、Clone を継承した trait はオブジェクトセーフではなくなる)
+- `Sized` は`supertraits`であってはならない。つまり、`Self: Sized` を必要としてはならない
+- 関連する定数があってはならない
+- ジェネリックに関連する型があってはならない
+- 関連するすべての関数は、トレイト オブジェクトからディスパッチ可能であるか、明示的にディスパッチ不可である必要がある
+  - ディスパッチ可能な関数は
+    - 型パラメータを持たないこと (ただし、lifetime パラメータは許可される)
+    - レシーバーの型以外では Self を使用しないメソッドであること
+    - 次のいずれかの型のレシーバーを持つこと:
+      - &Self (i.e. &self)
+      - &mut Self (i.e &mut self)
+      - Box<Self>
+      - Rc<Self>
+      - Arc<Self>
+      - Pin<P> where P is one of the types above
+    - 不透明な戻り型を持たないこと
+      - async fn (隠された Future 型を持つ) ではないこと
+      - 戻り値に `impl Trait` 型を持たないこと (`fn example(&self) -> impl Trait`)
+    - `where Self: Sized` 境界を持たないこと (Self のレシーバー タイプ (self) はこれを意味する)
+  - 明示的にディスパッチ不可能な関数には以下が必要
+    - self: Sized 境界がある (Self のレシーバー タイプ (つまり self) はこれを意味する)
+
+### References for object-safety
+
 - [トレイトオブジェクトには、オブジェクト安全性が必要](https://doc.rust-jp.rs/book-ja/ch17-02-trait-objects.html#%E3%83%88%E3%83%AC%E3%82%A4%E3%83%88%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AB%E3%81%AF%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%AE%89%E5%85%A8%E6%80%A7%E3%81%8C%E5%BF%85%E8%A6%81)
 - [The Rust Reference: Traits Object Safety](https://doc.rust-lang.org/reference/items/traits.html#object-safety)
+- [rfcs: 255 object-safety](https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md)
 
 ## References
 

@@ -20,6 +20,7 @@ RUST は式指向言語
 - [The Rust Programming Language 日本語版](https://doc.rust-jp.rs/book-ja/)
 - [Rust by Example 日本語版](https://doc.rust-jp.rs/rust-by-example-ja/)
 - [Rust 裏本 (The Rustonomicon)](https://doc.rust-jp.rs/rust-nomicon-ja/index.html)
+- [The Rust Reference](https://doc.rust-lang.org/reference/introduction.html)
 
 - [Microsft: Rust の最初のステップ](https://learn.microsoft.com/ja-jp/training/paths/rust-first-steps/)
 - [Zenn: Rust 入門](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003)
