@@ -27,6 +27,16 @@ struct Point {
 derive 属性に対応したトレイトの実装を自動的に構造体や列挙型に実装することのできる属性。具体的には Rust の標準ライブラリに含まれる一部のトレイトの実装を自動的に生成することができる。
 1 例として以下に`Debug` トレイトの実装を示す
 
+```rs
+#[derive(Debug)]
+struct Point{ x: i32, y: i32, z: i32 }
+
+fn main(){
+    let some_point = Point {x: 10, y: 20, z: 0};
+    println!("Debug: {:?}", some_point);
+}
+```
+
 ### `#[allow(dead_code)]`
 
 Rust には Lint チェックというソースコードの静的解析をしてくれるしくみがあり、そのチェック対象とされているリント項目を無視するようにするための属性。
