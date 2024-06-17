@@ -8,6 +8,7 @@
 - [sea-orm](https://github.com/SeaQL/sea-orm): Star: 6.4k
   - [Crates.io](https://crates.io/crates/sea-orm): DL: 20k per day, **upward trend**
   - [Official Docs](https://www.sea-ql.org/SeaORM/)
+  - [Tutorial](https://www.sea-ql.org/sea-orm-tutorial/ch00-00-introduction.html) Read it!
   - Dependencies
     - [sqlx](https://github.com/launchbadge/sqlx): Rust SQL Toolkit
 

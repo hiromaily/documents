@@ -672,7 +672,7 @@ trait Student: Person {
 - トレイトオブジェクトには、オブジェクト安全なトレイトしか作成できない
 - トレイトは、トレイト内で定義されているメソッド全てに以下の特性があれば、オブジェクト安全になる：
   - 戻り値の型が Self でないこと
-    - [例外] 標準ライブラリの Clone トレイトはメソッドがオブジェクト安全でない
+    - [例外] 標準ライブラリの `Clone トレイト`はメソッドがオブジェクト安全でない
   - ジェネリックな型引数がないこと
 
 標準ライブラリの Clone トレイトはメソッドがオブジェクト安全でない
@@ -704,7 +704,7 @@ trait がオブジェクトセーフであるのは、次の特性を備えて�
       - Arc<Self>
       - Pin<P> where P is one of the types above
     - 不透明な戻り型を持たないこと
-      - async fn (隠された Future 型を持つ) ではないこと
+      - `async fn` (隠された Future 型を持つ) ではないこと [重要]
       - 戻り値に `impl Trait` 型を持たないこと (`fn example(&self) -> impl Trait`)
     - `where Self: Sized` 境界を持たないこと (Self のレシーバー タイプ (self) はこれを意味する)
   - 明示的にディスパッチ不可能な関数には以下が必要
@@ -715,6 +715,38 @@ trait がオブジェクトセーフであるのは、次の特性を備えて�
 - [トレイトオブジェクトには、オブジェクト安全性が必要](https://doc.rust-jp.rs/book-ja/ch17-02-trait-objects.html#%E3%83%88%E3%83%AC%E3%82%A4%E3%83%88%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E3%81%AB%E3%81%AF%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E5%AE%89%E5%85%A8%E6%80%A7%E3%81%8C%E5%BF%85%E8%A6%81)
 - [The Rust Reference: Traits Object Safety](https://doc.rust-lang.org/reference/items/traits.html#object-safety)
 - [rfcs: 255 object-safety](https://github.com/rust-lang/rfcs/blob/master/text/0255-object-safety.md)
+
+#### async function を Trait で利用したい場合
+
+[async-trait](https://crates.io/crates/async-trait) を使う
+
+```rs
+use async_trait::async_trait;
+
+// Define the trait with async functions using the async-trait attribute
+#[async_trait]
+trait MyTrait {
+    async fn my_async_function(&self);
+}
+
+// Implement the trait for a struct
+struct MyStruct;
+
+#[async_trait]
+impl MyTrait for MyStruct {
+    async fn my_async_function(&self) {
+        // Your async code here
+        println!("Hello from async function!");
+    }
+}
+
+// Usage example
+#[tokio::main]
+async fn main() {
+    let my_struct = MyStruct;
+    my_struct.my_async_function().await;
+}
+```
 
 ## References
 

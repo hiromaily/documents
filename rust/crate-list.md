@@ -45,6 +45,10 @@ RUST_LOG=info ./main
 - [Docs](https://serde.rs/)
 - [github](https://github.com/serde-rs/serde): Star: 8.7k
 
+### [strum](https://crates.io/crates/strum)
+
+emum 型に様々な utility を実装してくれる
+
 ## 非同期 Runtime
 
 ### [tokio](https://crates.io/crates/tokio)
