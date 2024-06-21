@@ -87,7 +87,11 @@ n.is_ok() // true
 n.is_err() // false
 ```
 
-### `unwrap()`, `unwrap_err()`, `expect()`
+### `unwrap()`, `unwrap_err()`, `unwrap_or()`, `expect()`
+
+- `unwrap()`: `Ok` もしくは `Some` なら value を返し、`Err` もしくは `None` なら panic
+- `unwrap_err()`: `Err`なら Err を返し、`Ok`なら panic
+- `unwrap_or()`: `Ok` もしくは `Some` なら value を返し、それ以外は default 値を返す。e.g. `Some("car").unwrap_or("bike")`
 
 ```rs
 // unwrap
@@ -100,6 +104,9 @@ let ret = n.unwrap() // panic
 // unwrap_err
 let n = Err("something error");
 let ret = n.unwrap_err() // return error value
+
+// unwrap_or
+// Returns the contained Some value or a provided default.
 
 // expect
 let n = Err("something error");
