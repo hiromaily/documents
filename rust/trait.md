@@ -558,6 +558,68 @@ draw_text(boxed_greeting);
 //draw_text(&boxed_greeting);
 ```
 
+### [参考: Rust の DI を考える –– Part 2: Rust における DI の手法の整理](https://techblog.paild.co.jp/entry/2023/06/12/170637)
+
+```rs
+use anyhow::Result;
+use common::User;
+
+pub struct UserService<UR: UserRepository> {
+    repository: UR,
+}
+
+impl<UR: UserRepository> UserService<UR> {
+    pub fn new(repository: UR) -> UserService<UR> {
+        UserService { repository }
+    }
+    ...
+}
+
+pub trait UserRepository: Send + Sync + 'static {
+    fn find_user(&self, id: String) -> Result<Option<User>>;
+    fn update(&self, user: User) -> Result<()>;
+}
+
+pub struct UserRepositoryImpl {
+    database: Database,
+}
+
+impl UserRepositoryImpl {
+    pub fn new(database: Database) -> UserRepositoryImpl {
+        UserRepositoryImpl { database }
+    }
+}
+
+impl UserRepository for UserRepositoryImpl {
+    // 続く
+}
+
+pub struct Database;
+
+impl Database {
+    // 続く
+}
+
+pub struct AppModule {
+    static_user_service: UserService<UserRepositoryImpl>,
+}
+
+impl AppModule {
+    pub fn new() -> AppModule {
+        let database = Database;
+        let static_user_service = UserService::new(UserRepositoryImpl::new(database));
+
+        AppModule {
+            static_user_service,
+        }
+    }
+
+    pub fn static_user_service(&self) -> &UserService<UserRepositoryImpl> {
+        &self.static_user_service
+    }
+}
+```
+
 ## 動的ディスパッチ
 
 ```rs
