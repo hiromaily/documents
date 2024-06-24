@@ -591,13 +591,13 @@ impl UserRepositoryImpl {
 }
 
 impl UserRepository for UserRepositoryImpl {
-    // 続く
+    ...
 }
 
 pub struct Database;
 
 impl Database {
-    // 続く
+    ...
 }
 
 pub struct AppModule {
