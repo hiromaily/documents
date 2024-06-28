@@ -13,3 +13,4 @@
   - パッケージマネージャが存在しない
   - シェルがない。これによりコンテナ内へのログインが不可能
   - multi-stage ビルド専用として割り切るなど
+- [scratch](https://hub.docker.com/_/scratch/)

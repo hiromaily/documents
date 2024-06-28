@@ -2,6 +2,11 @@
 
 summarized book contents and tips
 
+## TODO: Docs
+
+- [DevSecOps](./security/dev-sec-ops.md)
+- [ヘッドレスアーキテクチャ](./infra/headless.md)
+
 ## Read books
 
 ### Architecture/Principle
@@ -69,7 +74,7 @@ summarized book contents and tips
 
 ### Rust
 
-- ● Rust プログラミング完全ガイド
+- Rust プログラミング完全ガイド
 - Rust と WebAssembly によるゲーム開発
 - プログラミング Rust 第 2 版
 
