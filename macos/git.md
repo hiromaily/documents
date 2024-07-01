@@ -1,4 +1,30 @@
-# git config
+# git
+
+## GitHub アカウントへの新しい SSH キーの追加
+
+- [新しい SSH キーを生成して ssh-agent に追加する](https://docs.github.com/ja/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+- [[GitHub アカウントへの新しい SSH キーの追加](https://docs.github.com/ja/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)]
+
+```sh
+ssh-keygen -t ed25519 -C "your_email@example.com"
+eval "$(ssh-agent -s)"
+touch ~/.ssh/config
+```
+
+modify `config`
+
+```
+Host github.com
+  AddKeysToAgent yes
+  UseKeychain yes
+  IdentityFile ~/.ssh/id_ed25519
+```
+
+```sh
+ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+```
+
+## git config
 
 - config would be stored as `~/.config/git/config`
 
