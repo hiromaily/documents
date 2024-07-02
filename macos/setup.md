@@ -43,6 +43,7 @@ brew install fd      # https://github.com/sharkdp/fd file search: e.g. fd filena
 brew install fzf
 (brew --prefix)/opt/fzf/install
 brew install bat     # https://github.com/sharkdp/bat like cat
+brew install z
 brew install peco
 brew install ripgrep
 brew install neovim
