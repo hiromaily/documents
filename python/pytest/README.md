@@ -1,5 +1,7 @@
 # pytest
 
+pytest-mock を使ったモック化は、`return_value`で固定値を戻り値として返す方法と、`side_effect`で戻り値の振る舞いを制御することができる
+
 ## Example
 
 ### Test 部
@@ -87,3 +89,7 @@ def update_firebase_user_password(firebase_uid: UUID, password: str) -> None:
     # TODO for test: Testにおいて、authクラスオブジェクトの`update_user`のmock化が必要
     auth.update_user(firebase_uid, password=password)
 ```
+
+## References
+
+- [pytest-mock でモックを使ってみる](https://dev.classmethod.jp/articles/pytest-mock/)
