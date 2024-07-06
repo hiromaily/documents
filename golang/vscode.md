@@ -59,12 +59,58 @@ else {
 }
 ```
 
+- `sel`
+
+```go
+select {
+case condition:
+
+}
+```
+
+- `switch`
+
+```go
+switch expression {
+case condition:
+
+}
+```
+
 - `go`
 
 ```go
 go func() {
 
 }()
+```
+
+- `lf`
+
+```go
+log.Printf("", var)
+```
+
+- `tyi`
+
+```go
+type name interface {
+
+}
+```
+
+- `tys`
+
+```go
+type name struct {
+
+}
+```
+
+- `var`
+
+```go
+var name type
 ```
 
 - `helloweb`
@@ -89,6 +135,44 @@ func main() {
 ```
 
 ### For test
+
+- `tf`
+
+```go
+func Test(t *testing.T) {
+
+}
+```
+
+- `tm`
+
+```go
+func TestMain(m *testing.M) {
+
+  os.Exit(m.Run())
+}
+```
+
+- `tdt`
+
+```go
+func Test(t *testing.T) {
+  testCases := []struct {
+    desc	string
+
+  }{
+    {
+      desc: "",
+
+    },
+  }
+  for _, tC := range testCases {
+    t.Run(tC.desc, func(t *testing.T) {
+
+    })
+  }
+}
+```
 
 - `bf`
 
