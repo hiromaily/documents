@@ -97,26 +97,28 @@ go mod graph | grep github.com/Shopify/sarama
 ```
 
 ## replace ディレクティブ
+
 - VCS (GitHub など) にある別のモジュールや、ローカルファイルシステム上の相対ファイルパスや絶対ファイルパスを指定して、別のインポートパスを指定することができる
-- replaceディレクティブによる新しいインポートパスは、実際のソースコードでインポートパスを更新する必要なく使用される
+- replace ディレクティブによる新しいインポートパスは、実際のソースコードでインポートパスを更新する必要なく使用される
   - monorepo など、複数の module で構成されたプロジェクトなどで、local のファイルを参照したい場合など、
-  - forkされたrepositoryを使う場合、向き先をfork先の名前に差し替えるなど
+  - fork された repository を使う場合、向き先を fork 先の名前に差し替えるなど
 
 ```
 # e.g.
 replace golang.org/x/tools => ../../tools
 ```
 
-### forked repositoryの参照
-例えば、[quorum](https://github.com/ConsenSys/quorum)は[go-ethereum](https://github.com/ethereum/go-ethereum)のforkで、
-`quorum`の内部は、go.modのmodule名から、importパスまで、`go-ethereum`のまあ  
-このforkされた`quorum`を他のプロジェクトからimportしたい場合、
-go.mod内の`replace`ディレクティブで、以下のように修正することで参照することができる
+### forked repository の参照
+
+例えば、[quorum](https://github.com/ConsenSys/quorum)は[go-ethereum](https://github.com/ethereum/go-ethereum)の fork で、
+`quorum`の内部は、go.mod の module 名から、import パスまで、`go-ethereum`のまあ  
+この fork された`quorum`を他のプロジェクトから import したい場合、
+go.mod 内の`replace`ディレクティブで、以下のように修正することで参照することができる
+
 ```
 # e.g.
 replace github.com/ethereum/go-ethereum => github.com/ConsenSys/quorum
 ```
-
 
 ## go module の versioning
 
@@ -131,26 +133,34 @@ replace github.com/ethereum/go-ethereum => github.com/ConsenSys/quorum
 
 ## Cache について
 
-```
-
+```sh
 # cache 先
-
 go env | grep GOCACHE
 
 # cache のクリア
-
 go clean -cache
 
 # module cache 先
-
 go env | grep GOMODCACHE
 
 # module cache のクリア
-
 go clean -modcache
-
 ```
 
+## Pprivate repository
+
+- [How to set GOPRIVATE environment variable](https://stackoverflow.com/questions/58305567/how-to-set-goprivate-environment-variable)
+
+add the below setting in ~/.gitconfig
+
+```
+[url "git@github.com:private-repo-name/"]
+	insteadOf = https://github.com/private-repo-name/
 ```
 
+or
+
+```
+[url "git@github.yourhost.com:"]
+	insteadOf = https://github.yourhost.com/
 ```

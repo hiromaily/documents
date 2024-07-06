@@ -33,3 +33,7 @@
     - repository を扱う Usecase 層が使うための、repository の実装に依存しない共通 object にあたる
   - DAO (DataTransferObjec)
     - Model をアプリケーションのレスポンスとして返す際に扱いやすい形に詰め替えたオブジェクトのなるため、Framework 依存となる
+
+## References
+
+- [indexnext |previous |TERASOLUNA Server Framework for Java: ドメイン層の実装](https://terasolunaorg.github.io/guideline/current/ja/ImplementationAtEachLayer/DomainLayer.html)
