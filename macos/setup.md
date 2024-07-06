@@ -64,6 +64,7 @@ brew install bufbuild/buf/buf
 brew install go-task/tap/go-task
 brew install yarn
 brew install figlet
+brew install asdf
 ```
 
 ## Golang settings
