@@ -119,6 +119,10 @@ let app = Router::new()
   - extractor として使いたいときもあれば、ミドルウェアとして使いたいときもある型
 - axum::middleware::from_extractor_with_state
 
+### [Future トレイト](https://async-book-ja.netlify.app/02_execution/02_future.html)について
+
+Future トレイトは Rust の非同期プログラミングで使われるもので、値を生成できる非同期計算
+
 ## tower の 結合子(combinator)
 
 tower には、リクエストやレスポンスに簡単な修正を加えるために使える いくつかのユーティリティコンビネータがあります。
@@ -150,7 +154,7 @@ tower には、リクエストやレスポンスに簡単な修正を加える�
 
 ## tower::Service とカスタム Future
 
-独自のフューチャーを実装するのが好きで（または、学びたいと思っていて）、できるだけ多くのコントロールが必要な場合は、`tower::Service` をボックスフューチャーなしで使用するのがよい。
+独自のフューチャーを実装するのが好きで（または、学びたいと思っていて）、できるだけ多くのコントロールが必要な場合は、`tower::Service` を`boxed futures`なしで使用するのがよい。
 
 tower::Service と manual フューチャを使用してミドルウェアを記述するケース
 
@@ -165,41 +169,233 @@ tower の[Building a middleware from scratch](https://github.com/tower-rs/tower/
 
 axum のエラーハンドリングモデルでは、ハンドラは常にレスポンスを返す必要がある。 しかし、ミドルウェアはアプリケーションにエラーを導入する可能性のある方法の一つ。 `hyper`がエラーを受信すると、レスポンスを送信せずに接続を閉じる。 したがって axum は、これらのエラーを優雅に処理することを要求する
 
-## サービス／ミドルウェアへのルーティングと背圧
-
-一般的に、複数のサービスのうちの 1 つへのルーティングとバックプレッシャーは、うまく混ざり合いません。 理想的には、サービスを呼び出す前に、そのサービスがリクエストを受け取る準備ができていることを確認したい。 しかし、どのサービスを呼び出すべきかを知るためには、リクエスト...
-
-1 つのアプローチは、すべてのデスティネーションサービスが準備完了になるまで、ルーターサービス自体を準備完了と見なさないことである。 これは tower::steer::Steer で使われているアプローチです。
-
-もう一つのアプローチは、Service::poll_ready から常にすべてのサービスが準備完了であるとみなし（常に Poll::Ready(Ok(())) を返す）、Service::call によって返されるレスポンスフューチャーの内部で実際に準備完了を駆動することです。 これは、サービスが背圧を気にせず、常に準備ができている場合に有効です。
-
-axum は、アプリで使用するすべてのサービスがバックプレッシャーを気にしないことを想定しているため、後者の戦略を使用します。 しかし、背圧を気にするサービスへのルーティング（またはミドルウェアの使用）は避けるべきです。 少なくとも、リクエストが素早くドロップされ、溜まり続けることがないように、[load shed]すべきです。
-
-また、poll_ready がエラーを返した場合、そのエラーは call からはレスポンスの未来に返され、poll_ready からは返されません。 この場合、基礎となるサービスは破棄されず、将来のリクエストに引き続き使用されます。 poll_ready が失敗した場合に破棄されることを期待するサービスは、axum では使用しないでください。
-
-可能なアプローチの 1 つは、背圧に敏感なミドルウェアだけをアプリ全体に適用することです。 これは、axum アプリケーション自体がサービスであるため可能です：
-
 ```rs
-//割愛
+use axum::{
+    routing::get,
+    error_handling::HandleErrorLayer,
+    http::StatusCode,
+    BoxError,
+    Router,
+};
+use tower::{ServiceBuilder, timeout::TimeoutLayer};
+use std::time::Duration;
+
+async fn handler() {}
+
+let app = Router::new()
+    .route("/", get(handler))
+    .layer(
+        ServiceBuilder::new()
+            // this middleware goes above `TimeoutLayer` because it will receive
+            // errors returned by `TimeoutLayer`
+            .layer(HandleErrorLayer::new(|_: BoxError| async {
+                StatusCode::REQUEST_TIMEOUT
+            }))
+            .layer(TimeoutLayer::new(Duration::from_secs(10)))
+    );
 ```
 
-しかし、この方法でアプリケーション全体にミドルウェアを適用する場合、エラーが適切に処理されるように注意する必要があります。
+axum のエラー処理モデルの詳細については [error_handling](https://docs.rs/axum/latest/axum/error_handling/index.html) を参照
 
-また、非同期関数から作成されたハンドラーは背圧を気にせず、常に準備ができていることに注意してください。 そのため、Tower ミドルウェアを使用していない場合は、このようなことを気にする必要はありません。
+## サービス／ミドルウェアへのルーティングと`backpressure`
 
-## ミドルウェアでステートにアクセスする
+一般的に、複数のサービスのうちの 1 つへのルーティングとバックプレッシャーは、うまく混ざり合わない。 理想的には、サービスを呼び出す前に、そのサービスがリクエストを受け取る準備ができていることを確認したい。 しかし、どのサービスを呼び出すべきかを知るためには、リクエストが必要。
 
-- axum::middleware::from_fn で状態にアクセスする
-- カスタム tower::Layers でステートにアクセスする
+1 つのアプローチは、すべての Destination サービスが準備完了になるまで、ルーターサービス自体を準備完了と見なさないことである。 これは `tower::steer::Steer` で使われているアプローチ。
 
-## ミドルウェアからハンドラへの状態の受け渡し
+もう一つのアプローチは、`Service::poll_ready` から常にすべてのサービスが準備完了であるとみなし（常に `Poll::Ready(Ok(()))` を返す）、`Service::call` によって返される response future の内部で実際に準備完了を駆動すること。 これは、サービスがバックプレッシャーを気にせず、常に準備ができている場合に有効。
 
-状態は、リクエスト拡張を使ってミドルウェアからハンドラに渡すことができます：
+axum は、アプリで使用するすべてのサービスがバックプレッシャーを気にしないことを想定しているため、後者の戦略を使用する。 しかし、バックプレッシャーを気にするサービスへのルーティング（またはミドルウェアの使用）は避けるべき。 少なくとも、リクエストが素早くドロップされ、溜まり続けることがないように、`[load shed]`すべき。
 
-レスポンスエクステンションも使用できますが、リクエストエクステンションは自動的にレスポンスエクステンションに移動しないことに注意してください。 必要な拡張子については手動で行う必要があります。
+また、`poll_ready` がエラーを返した場合、そのエラーは call からはレスポンスの未来に返され、poll_ready からは返されない。 この場合、基礎となるサービスは破棄されず、将来のリクエストに引き続き使用される。 poll_ready が失敗した場合に破棄されることを期待するサービスは、axum では使用するべきではない。
+
+可能なアプローチの 1 つは、バックプレッシャーに敏感なミドルウェアだけをアプリ全体に適用すること。 これは、axum アプリケーション自体がサービスであるため可能
+
+```rs
+use axum::{
+    routing::get,
+    Router,
+};
+use tower::ServiceBuilder;
+
+async fn handler() { /* ... */ }
+
+let app = Router::new().route("/", get(handler));
+
+let app = ServiceBuilder::new()
+    .layer(some_backpressure_sensitive_middleware)
+    .service(app);
+```
+
+しかし、この方法でアプリケーション全体にミドルウェアを適用する場合、エラーが適切に処理されるように注意する必要がある。
+
+また、非同期関数から作成されたハンドラーはバックプレッシャーを気にせず、常に準備ができていることに注意すること。 そのため、Tower ミドルウェアを使用していない場合は、このようなことを気にする必要はない。
+
+### CS における`backpressure`について
+
+あるコンポーネントが全体に追いつけなくなった場合、システム全体として何らかの対処をする必要がある。過負荷状態のコンポーネントが壊滅的にクラッシュしたり、制御無くメッセージを損失することは許されない。処理が追いつかなくなっていて、かつクラッシュすることも許されないならば、コンポーネントは上流のコンポーネント群に自身が過負荷状態であることを伝えて負荷を減らしてもらうべきだ。この`バック・プレッシャー (back-pressure)` と呼ばれる仕組みは、過負荷の下でシステムを崩壊させず緩やかに応答を続ける重要なフィードバック機構だ。バック・プレッシャーはユーザまで転送してもよく、その場合、即応性 (resilient) は低下するが負荷の下でのシステムの耐障害性が保証される。また、システムがその情報を使って自身に他のリソースを振り向け、負荷分散を促すこともできる。
+
+[参考](https://www.reactivemanifesto.org/ja/glossary#Back-Pressure)
+
+## ミドルウェアで`State`にアクセスする [重要]
+
+- `axum::middleware::from_fn` で State にアクセスする
+  - `axum::middleware::from_fn_with_state` を使う
+- `カスタム tower::Layers` でステートにアクセスする
+
+```rs
+use axum::{
+    Router,
+    routing::get,
+    middleware::{self, Next},
+    response::Response,
+    extract::{State, Request},
+};
+use tower::{Layer, Service};
+use std::task::{Context, Poll};
+
+#[derive(Clone)]
+struct AppState {}
+
+#[derive(Clone)]
+struct MyLayer {
+    state: AppState,
+}
+
+impl<S> Layer<S> for MyLayer {
+    type Service = MyService<S>;
+
+    fn layer(&self, inner: S) -> Self::Service {
+        MyService {
+            inner,
+            state: self.state.clone(),
+        }
+    }
+}
+
+#[derive(Clone)]
+struct MyService<S> {
+    inner: S,
+    state: AppState,
+}
+
+impl<S, B> Service<Request<B>> for MyService<S>
+where
+    S: Service<Request<B>>,
+{
+    type Response = S::Response;
+    type Error = S::Error;
+    type Future = S::Future;
+
+    fn poll_ready(&mut self, cx: &mut Context<'_>) -> Poll<Result<(), Self::Error>> {
+        self.inner.poll_ready(cx)
+    }
+
+    fn call(&mut self, req: Request<B>) -> Self::Future {
+        // Do something with `self.state`.
+        //
+        // See `axum::RequestExt` for how to run extractors directly from
+        // a `Request`.
+
+        self.inner.call(req)
+    }
+}
+
+async fn handler(_: State<AppState>) {}
+
+let state = AppState {};
+
+let app = Router::new()
+    .route("/", get(handler))
+    .layer(MyLayer { state: state.clone() })
+    .with_state(state);
+```
+
+## ミドルウェアからハンドラへの State の受け渡し
+
+State は、[リクエスト拡張](https://docs.rs/http/latest/http/request/struct.Request.html#method.extensions)を使ってミドルウェアからハンドラに渡すことができる
+
+```rs
+use axum::{
+    Router,
+    http::StatusCode,
+    routing::get,
+    response::{IntoResponse, Response},
+    middleware::{self, Next},
+    extract::{Request, Extension},
+};
+
+#[derive(Clone)]
+struct CurrentUser { /* ... */ }
+
+async fn auth(mut req: Request, next: Next) -> Result<Response, StatusCode> {
+    let auth_header = req.headers()
+        .get(http::header::AUTHORIZATION)
+        .and_then(|header| header.to_str().ok());
+
+    let auth_header = if let Some(auth_header) = auth_header {
+        auth_header
+    } else {
+        return Err(StatusCode::UNAUTHORIZED);
+    };
+
+    if let Some(current_user) = authorize_current_user(auth_header).await {
+        // insert the current user into a request extension so the handler can
+        // extract it
+        req.extensions_mut().insert(current_user);
+        Ok(next.run(req).await)
+    } else {
+        Err(StatusCode::UNAUTHORIZED)
+    }
+}
+
+async fn authorize_current_user(auth_token: &str) -> Option<CurrentUser> {
+    // ...
+}
+
+async fn handler(
+    // extract the current user, set by the middleware
+    Extension(current_user): Extension<CurrentUser>,
+) {
+    // ...
+}
+
+let app = Router::new()
+    .route("/", get(handler))
+    .route_layer(middleware::from_fn(auth));
+```
+
+[レスポンス拡張](https://docs.rs/http/latest/http/response/struct.Response.html#method.extensions)も使用できるが、自動的にレスポンス拡張に移動しないことに注意が必要。 必要な拡張については手動で行う必要がある。
 
 ## ミドルウェアでのリクエスト URI の書き換え
 
-Router::layer で追加されたミドルウェアは、ルーティングの後に実行されます。 つまり、リクエスト URI を書き換えるミドルウェアの実行には使えないということです。 ミドルウェアが実行されるときには、ルーティングはすでに終わっています。
+`Router::layer` で追加されたミドルウェアは、ルーティングの後に実行される。 つまり、リクエスト URI を書き換えるミドルウェアの実行には使えないということ。 ミドルウェアが実行されるときには、ルーティングはすでに終わっている。
 
-回避策は、ミドルウェアを Router 全体に巻き付けることです（Router は Service を実装しているので、これは機能します）：
+回避策は、ミドルウェアを Router 全体に巻き付けること。Router は Service を実装しているので、これは機能する
+
+```rs
+use tower::Layer;
+use axum::{
+    Router,
+    ServiceExt, // for `into_make_service`
+    response::Response,
+    middleware::Next,
+    extract::Request,
+};
+
+fn rewrite_request_uri<B>(req: Request<B>) -> Request<B> {
+    // ...
+}
+
+// this can be any `tower::Layer`
+let middleware = tower::util::MapRequestLayer::new(rewrite_request_uri);
+
+let app = Router::new();
+
+// apply the layer around the whole `Router`
+// this way the middleware will run before `Router` receives the request
+let app_with_middleware = middleware.layer(app);
+
+let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
+axum::serve(listener, app_with_middleware.into_make_service()).await.unwrap();
+```
