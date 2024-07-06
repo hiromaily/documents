@@ -1,14 +1,129 @@
 # VS Code
 
-## Debugging
+- [docs: vscode](../ide/vscode/README.md)
 
-- [github:vscode-go](https://github.com/golang/vscode-go)
-- [github:vscode-go docs](https://github.com/golang/vscode-go/tree/master/docs)
-- [github:vscode-go debuging](https://github.com/golang/vscode-go/blob/master/docs/debugging.md)
-- [vscode debuging](https://code.visualstudio.com/docs/editor/debugging)
-- [dap: Debug Adapter Protocol](https://github.com/Microsoft/debug-adapter-protocol)
+## Snippets
 
-### 3.2. Debugging Using [dlv](https://github.com/go-delve/delve)
+Extension にあるのは、あまり使い勝手がよくなさそうなので install しなくてもよさそう
+
+- [Golang Snippets](https://marketplace.visualstudio.com/items?itemName=honnamkuan.golang-snippets)
+  - 48k installed
+
+[Go extension](https://github.com/golang/vscode-go/wiki/features#code-editing)に snippet も含まれる。
+
+### Useful
+
+- `for`
+
+```go
+for i := 0; i < count; i++ {
+
+}
+```
+
+- `forr`
+
+```go
+for _, v := range v {
+
+}
+```
+
+- `df`
+
+```go
+defer func()
+```
+
+- `if`
+
+```go
+if condition {
+
+}
+```
+
+- `iferr`
+
+```go
+if err != nil {
+  return nil, err
+}
+```
+
+- `el`
+
+```go
+else {
+
+}
+```
+
+- `go`
+
+```go
+go func() {
+
+}()
+```
+
+- `helloweb`
+
+```go
+package main
+
+import (
+  "fmt"
+  "net/http"
+  "time"
+)
+
+func greet(w http.ResponseWriter, r *http.Request) {
+  fmt.Fprintf(w, "Hello World! %s", time.Now())
+}
+
+func main() {
+  http.HandleFunc("/", greet)
+  http.ListenAndServe(":8080", nil)
+}
+```
+
+### For test
+
+- `bf`
+
+```go
+func Benchmark(b *testing.B) {
+  for i := 0; i < b.N; i++ {
+
+  }
+}
+```
+
+### 追加したほうがいい snippet
+
+- `ifel`
+
+```go
+if cond {
+} else {
+}
+```
+
+- `elif`
+
+```go
+else if cond {
+}
+```
+
+- `pri`
+
+```go
+fmt.Println()
+```
+
+## Debugging Using [dlv](https://github.com/go-delve/delve)
 
 - [コンテナで動く Go アプリをデバッグする方法](https://zenn.dev/skanehira/articles/2021-11-26-go-remote-debug)
 
@@ -73,3 +188,11 @@ CMD -l 0.0.0.0:40000 --log --check-go-version=false
 ports:
   - "40000:40000"
 ```
+
+## References
+
+- [github:vscode-go](https://github.com/golang/vscode-go)
+- [github:vscode-go docs](https://github.com/golang/vscode-go/tree/master/docs)
+- [github:vscode-go debuging](https://github.com/golang/vscode-go/blob/master/docs/debugging.md)
+- [vscode debuging](https://code.visualstudio.com/docs/editor/debugging)
+- [dap: Debug Adapter Protocol](https://github.com/Microsoft/debug-adapter-protocol)

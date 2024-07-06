@@ -22,7 +22,7 @@
 ## User Snippets
 
 ```sh
-cd  ~/Library/Application Support/Code/User
+cd  ~/Library/Application\ Support/Code/User
 mkdir snippets
 touch snippets/javascript.json # for javascript
 touch snippets/typescript.json # for typescript
@@ -37,7 +37,3 @@ touch snippets/typescript.json # for typescript
   }
 }
 ```
-
-## Snippets Extensions
-
-### [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)

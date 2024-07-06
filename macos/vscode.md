@@ -20,3 +20,9 @@ code --list-extensions
 ```sh
 code --install-extension alefragnani.Bookmarks
 ```
+
+## Snippets
+
+独自定義ファイルを持っている場合は、そちらを作成する
+
+[vscode: snippet](../ide/vscode/snippets.md)
