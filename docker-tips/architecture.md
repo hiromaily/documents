@@ -11,7 +11,7 @@
 - x86_64
 - amd64
 - arm
-- arm64
+- arm64 (IntelMac の場合、`uname -m`で確認できる)
 
 ### 命令セット
 
