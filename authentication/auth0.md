@@ -5,6 +5,8 @@
 サーバーレスアーキテクチャを用いた`認証クラウドサービス（Identity as a Service, IDaaS）`で、認証基盤そのものをサービスとして提供するソリューション。自社で実装すると手間の掛かる、ユーザのログイン情報やトークンの管理をなどを簡単におこなうためのサービス。
 Oktaに買収されているが、それぞれ異なるサービスとなり、Oktaは大規模エンタープライズ環境向け、Auth0は小規模企業向けとなる。
 
+Auth0 platform側でパスワードは管理されるため、自身のサイトでPassword情報は保持する必要はない。
+
 ## 機能
 
 ### シングルサインオン(SSO)
@@ -32,3 +34,49 @@ Oktaに買収されているが、それぞれ異なるサービスとなり、O
 - モバイルアプリケーションの認証
 - IoTデバイスの認証
 - 企業内システムのセキュリティ強化
+
+## Applicationへの導入手順
+
+1. [Auth0 accountの作成](https://auth0.com/)
+2. Auth0のダッシュボード内
+  - 新しいApplicationを作成する (ApplicationのTypeも入力)
+  - 認証成功後、callbackする自身のアプリケーションのURLを設定。ログアウトも同様。
+  - 必要に応じて、UserのRoleやPermissionの設定
+  - Loginページの設定
+3. 認証成功後はjwtが取得できるので、自身のアプリケーションのBandend側のEndpointに対して、Validation機能をSDKを使って実装する
+4. Auth0の[`Token Storage`](https://auth0.com/docs/secure/security-guidance/data-security/token-storage)の導入？
+
+## シーケンス図
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant Browser as Browser/Client
+    participant Auth0
+    participant Backend as Backend Service
+
+    User->>Browser: (1) Sign Up
+    Browser->>Auth0: (2) Request (Sign Up)
+    Auth0->>Auth0: (3) Create User Account
+    Auth0->>Browser: (4) User Created
+    Browser->>User: (5) Success Response (Optional Token)
+
+    User->>Browser: (6) Login
+    Browser->>Auth0: (7) Request (Login)
+    Auth0->>Auth0: (8) Authenticate User
+    Auth0->>Browser: (9) Issue Token
+    Browser->>User: (10) Token Response
+
+    User->>Browser: (11) Access Service with Token
+    Browser->>Backend: (12) Send Token for Authentication
+    Backend->>Auth0: (13) Verify Token
+    Auth0->>Backend: (14) Token Valid
+    Backend->>Browser: (15) Allow Access
+    Browser->>User: (16) Access Granted
+```
+
+
+## 新規ユーザー登録時について
+
+自身のアプリケーションの新規登録画面から、Auth0のsign-upページにリダイレクトする。つまり登録処理はAuth0上で実行される。
+それとは別にSDKを組み込むことによって、自身のサイトから登録することもできる。
