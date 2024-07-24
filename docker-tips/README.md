@@ -7,7 +7,7 @@
 
 ### Check specific container still running or not
 
-```
+```sh
 while [ $(docker ps -f name=container-name --format "{{.Names}}" | wc -l | tr -s " ") -ne 0 ];do
     echo 'waiting shuting down for container-name  ...' && sleep 2;
 done
@@ -15,13 +15,13 @@ done
 
 ### Clean everything
 
-```
+```sh
 docker system prune
 ```
 
 ### Clean unused images
 
-```
+```sh
 docker image prune -a
  or
 docker rmi -f $(docker images -aqf "dangling=true" --no-trunc)
@@ -29,7 +29,7 @@ docker rmi -f $(docker images -aqf "dangling=true" --no-trunc)
 
 ### Clean all containers
 
-```
+```sh
 docker container prune
  or
 docker rm -f $(docker ps -a --format "{{.Names}}")
@@ -37,7 +37,7 @@ docker rm -f $(docker ps -a --format "{{.Names}}")
 
 ### Clean all volumes
 
-```
+```sh
 docker volume prune
 ```
 
@@ -45,14 +45,14 @@ docker volume prune
 
 First create network
 
-```
+```sh
 docker network create --driver bridge our_network
 ```
 
 1. compose A
 
-```
-version: '3'
+```sh
+#version: '3'
 services:
   app1:
     image: app1:1.0
@@ -69,8 +69,8 @@ networks:
 
 2. compose B
 
-```
-version: '3'
+```sh
+#version: '3'
 services:
   app2:
     image: app2:1.0
@@ -89,7 +89,7 @@ In this case, app1 can connect to app2 with container_name and internal port
 
 ## 3. run complicated shell in command in compose
 
-```
+```sh
   something-service:
     image: "something:latest"
     command: >
@@ -105,9 +105,3 @@ In this case, app1 can connect to app2 with container_name and internal port
 ## 4. Dockerfile linter
 
 [hadolint](https://github.com/hadolint/hadolint)
-
-## 5. [Dostroless Container Images](https://github.com/GoogleContainerTools/distroless)
-
-最小構成の Image 群
-
-- [Which Container Images To Use — Distroless Or Alpine?](https://itnext.io/which-container-images-to-use-distroless-or-alpine-96e3dab43a22)

@@ -41,6 +41,7 @@
 
 ```
 [bad practice]
+
 [DDD]---[Domain]
             |-[Models]---[domainA]
             |          |-[domainB]

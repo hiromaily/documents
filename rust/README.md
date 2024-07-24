@@ -23,6 +23,7 @@ RUST は式指向言語
 - [The Rust Reference](https://doc.rust-lang.org/reference/introduction.html)
 - [Rust Design Patterns](https://rust-unofficial.github.io/patterns/intro.html)
 - [Effective Rust](https://effective-rust.com/preface.html)
+- [Asynchronous Programming in Rust 日本語](https://async-book-ja.netlify.app/01_getting_started/01_chapter)
 
 - [Microsft: Rust の最初のステップ](https://learn.microsoft.com/ja-jp/training/paths/rust-first-steps/)
 - [Zenn: Rust 入門](https://zenn.dev/mebiusbox/books/22d4c1ed9b0003)
