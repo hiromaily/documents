@@ -12,6 +12,11 @@
 - [Test](https://docs.docker.com/build/guide/test/)
 - [Multi-platform](https://docs.docker.com/build/guide/multi-platform/)
 
+## Layer と Cache
+
+![layer1](../images/docker-layer1.png "layer1")
+![layer2](../images/docker-layer2.png "layer2")
+
 ## build command
 
 ```sh
