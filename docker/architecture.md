@@ -54,7 +54,7 @@ docker build --platform linux/amd64 ...
 
 ### Dockerfile で CPU アーキテクチャを指定する場合
 
-```
+```dockerfile
 FROM --platform=linux/amd64 ubuntu:22.04
 ```
 

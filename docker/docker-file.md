@@ -14,6 +14,99 @@ docker build -f ./docker/Dockerfile_rust . --check
 
 - [マルチステージ ビルドを使う](https://docs.docker.jp/develop/develop-images/multistage-build.html)
 
+## [Mounts](https://docs.docker.com/build/guide/mounts/)
+
+docker build 時の設定
+
+- 2 種類の mounts
+  - cache mounts
+    - ビルド中に使用される永続的なパッケージキャッシュを指定できる
+    - ビルド手順、特にパッケージ マネージャーを使用してパッケージをインストールする手順を高速化するのに役立つ
+  - [bind mount](https://docs.docker.jp/storage/bind-mounts.html)
+    - ホストからコンテナに直接ファイルを利用できるようになる
+    - この変更により、追加の COPY 命令 (およびレイヤー) がまったく不要になる
+
+### cache mounts
+
+- [sample code](https://github.com/hiromaily/docker-tips/tree/main/cache-mount)
+
+```dockerfile
+# syntax=docker/dockerfile:1
+FROM golang:1.21-alpine AS base
+WORKDIR /src
+COPY go.mod go.sum .
+# 旧来の方法
+# RUN go mod download
+# cache mountを使う
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+    go mod download -x
+COPY . .
+
+# Step 2
+FROM base AS build-client
+# RUN go build -o /bin/client ./cmd/client
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+    go build -o /bin/client ./cmd/client
+
+# Step 3
+FROM base AS build-server
+# RUN go build -o /bin/server ./cmd/server
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+    go build -o /bin/server ./cmd/server
+
+# Step 4 A
+FROM scratch AS client
+COPY --from=build-client /bin/client /bin/
+ENTRYPOINT [ "/bin/client" ]
+
+# Step 4 B
+FROM scratch AS server
+COPY --from=build-server /bin/server /bin/
+ENTRYPOINT [ "/bin/server" ]
+```
+
+#### cache mount からの rebuild
+
+`--target`オプションで Stage を指定できる
+
+```sh
+docker build --target=client --progress=plain . 2> log1.txt
+```
+
+### bind mounts
+
+```dockerfile
+# syntax=docker/dockerfile:1
+FROM golang:1.21-alpine AS base
+WORKDIR /src
+
+# COPY go.mod go.sum .
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+    --mount=type=bind,source=go.sum,target=go.sum \
+    --mount=type=bind,source=go.mod,target=go.mod \
+    go mod download -x
+
+# COPY . .
+
+FROM base AS build-client
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+--mount=type=bind,target=. \
+    go build -o /bin/client ./cmd/client
+
+FROM base AS build-server
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+--mount=type=bind,target=. \
+    go build -o /bin/server ./cmd/server
+
+FROM scratch AS client
+COPY --from=build-client /bin/client /bin/
+ENTRYPOINT [ "/bin/client" ]
+
+FROM scratch AS server
+COPY --from=build-server /bin/server /bin/
+ENTRYPOINT [ "/bin/server" ]
+```
+
 ## Directives
 
 ### `ENV`
