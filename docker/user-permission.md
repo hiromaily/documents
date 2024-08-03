@@ -2,7 +2,7 @@
 
 - [Docker コンテナの実行ユーザーと権限の関係](https://qiita.com/yitakura731/items/36a2ba117ccbc8792aa7)
 
-##　予備知識
+## 予備知識
 
 - `adduser`コマンド ... 新しいユーザーを追加
 - `addgroup`コマンド ... 新しいグループを追加
@@ -26,7 +26,7 @@
 
 ## Github Action で Permission に問題がある場合
 
-```
+```yaml
 run: sudo chown -R runner:docker your/target-dir
  or
 run: sudo chown -R your/target-dir

@@ -92,6 +92,7 @@ n.is_err() // false
 - `unwrap()`: `Ok` もしくは `Some` なら value を返し、`Err` もしくは `None` なら panic
 - `unwrap_err()`: `Err`なら Err を返し、`Ok`なら panic
 - `unwrap_or()`: `Ok` もしくは `Some` なら value を返し、それ以外は default 値を返す。e.g. `Some("car").unwrap_or("bike")`
+- `unwrap_or_else()`
 
 ```rs
 // unwrap

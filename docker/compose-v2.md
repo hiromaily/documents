@@ -24,6 +24,7 @@ services:
     build: .
     depends_on:
       db:
+        # 状態を細かく指定できる
         condition: service_healthy # DBは初期化処理等を考慮し、`service_healthy`を指定
       redis:
         condition: service_started #　redisは`service_started`で十分
@@ -41,6 +42,7 @@ services:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
       POSTGRES_DB: mydatabase
+    # DB container自身にhealthcheckを組み込む
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U user"]
       interval: 3s
