@@ -80,3 +80,7 @@ sequenceDiagram
 
 自身のアプリケーションの新規登録画面から、Auth0のsign-upページにリダイレクトする。つまり登録処理はAuth0上で実行される。
 それとは別にSDKを組み込むことによって、自身のサイトから登録することもできる。
+
+## Auth0 SDK
+
+- [go-auth0](https://github.com/auth0/go-auth0)
