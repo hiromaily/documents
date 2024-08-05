@@ -42,6 +42,8 @@ OpenAPI の spec は不変であり、Spec を[Stoplight](https://stoplight.io/)
   - [official](https://openapi-generator.tech/)
   - 様々な言語に対応した型定義を作成する
 
+## codeからspecを生成する
+
 ### Golang (WIP: 情報が古い)
 
 - [oapi-codegen](https://github.com/deepmap/oapi-codegen)
@@ -80,4 +82,3 @@ FastAPI is a modern, fast (high-performance), web framework for building APIs wi
 
 - [cue 言語を利用して OpenAPI ファイルを生成する](https://zenn.dev/kawahara/articles/bc7c0851bea7d4)
 
-## [OpenAPI Generator](https://openapi-generator.tech/)の使い方
