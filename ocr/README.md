@@ -6,7 +6,7 @@ OCR（`Optical Character Recognition/Reader`、オーシーアール、光学的
 
 1. 画像取り込み(アップロード)
 2. レイアウト解析 (deskew: スキャンした画像の傾きや歪みを修正する)
-3. グレースケールにコンバート
+3. ~~グレースケールにコンバート~~
 4. 解析及び抽出
 5. 抽出データのバリデーション
 
@@ -18,4 +18,3 @@ OCR（`Optical Character Recognition/Reader`、オーシーアール、光学的
 | GCP Vision API     | Cloud       | 画像、ドキュメント、動画から分析情報を抽出する                                   | [Link](https://note.com/newbees/n/n39f67f6daff0) |
 | AWS Textract       | Cloud       | データを、あらゆるドキュメントから自動的に抽出                                   |                                  |
 | AWS Rekognition Image | Cloud    | ラベル検出と画像プロパティ                                                     |                                  |
-| 健康保険証OCR       | 有償サービス | 健康保険証に記載されている情報を、AIを活用したOCR処理によってテキストデータ化し、レセプトコンピュータ※に自動連携するサービス |                                  |

@@ -2,6 +2,24 @@
 
 Tesseract (テッセラクト)は、オープンソースの光学式文字認識エンジン
 
+## Install (MacOS)
+
+```sh
+brew install tesseract
+brew install tesseract-lang
+
+tesseract --version
+# tesseract 5.4.1
+
+# jpnが使えることを確認
+tesseract --list-langs
+
+# program実行時、`'leptonica/allheaders.h' file not found` というエラーが出る場合
+# .zprofileに以下を追加 (zshの場合)
+export LIBRARY_PATH="/opt/homebrew/lib"
+export CPATH="/opt/homebrew/include"
+```
+
 ## [Command Line Usage](https://tesseract-ocr.github.io/tessdoc/Command-Line-Usage.html)
 
 ```sh
@@ -10,7 +28,6 @@ tesseract --list-langs
 
 # 解析 & 結果出力
 tesseract sample.png output_file --oem 1 -l jpn
-
 ```
 
 ## help
@@ -73,6 +90,41 @@ Single options:
   --print-parameters    Print tesseract parameters.
 ```
 
+### Option `--psm`
+
+Specify page segmentation mode
+
+```
+Page segmentation modes:
+  0    Orientation and script detection (OSD) only.
+  1    Automatic page segmentation with OSD.
+  2    Automatic page segmentation, but no OSD, or OCR. (not implemented)
+  3    Fully automatic page segmentation, but no OSD. (Default)
+  4    Assume a single column of text of variable sizes.
+  5    Assume a single uniform block of vertically aligned text.
+  6    Assume a single uniform block of text.
+  7    Treat the image as a single text line.
+  8    Treat the image as a single word.
+  9    Treat the image as a single word in a circle.
+ 10    Treat the image as a single character.
+ 11    Sparse text. Find as much text as possible in no particular order.
+ 12    Sparse text with OSD.
+ 13    Raw line. Treat the image as a single text line,
+       bypassing hacks that are Tesseract-specific.
+```
+
+### Option `--oem`
+
+Specify OCR Engine mode.
+
+```
+OCR Engine modes:
+  0    Legacy engine only.
+  1    Neural nets LSTM engine only.
+  2    Legacy + LSTM engines.
+  3    Default, based on what is available.
+```
+
 ## [Improving the quality of the output](https://github.com/tesseract-ocr/tessdoc/blob/main/ImproveQuality.md)
 
 - Inverting images: 画像の反転
@@ -84,7 +136,9 @@ Single options:
 - Borders
 - Transparency / Alpha channel
 
-## どのようにOCRのためにRotateするか？
+## レイアウト解析
+
+### どのようにOCRのためにRotateするか？
 
 - [Optimizing Rotation Accuracy for OCR](https://indiantechwarrior.medium.com/optimizing-rotation-accuracy-for-ocr-fbfb785c504b)
 
@@ -115,7 +169,7 @@ Script confidence: 1.00
 
 このあとは、`OpenCV`などで回転させる
 
-## どのようにOCRのためにDeskewするか？
+### Deskew (傾き補正)
 
 - [How to automatically deskew (straighten) a text image using OpenCV](https://becominghuman.ai/how-to-automatically-deskew-straighten-a-text-image-using-opencv-a0c30aed83df)
 
