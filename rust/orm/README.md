@@ -14,9 +14,13 @@
 
 ## sea-orm
 
-2024/6 時点で、`1.0.0-rc.5`がリリースされており、`0.12.15`から大幅に upgrade されることが想定される。
+2024/6 時点で、`1.0.0-rc.5`がリリースされており、`0.12.15`から大幅に upgrade されることが予想される。
 
 [Actix example](https://github.com/SeaQL/sea-orm/tree/master/examples/actix_example)
+
+## deisel
+
+CLI で schema を生成するだけでは足らず、実装コストが sea-orm と比べると高い
 
 ## References
 

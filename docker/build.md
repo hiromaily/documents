@@ -1,5 +1,7 @@
 # docker build
 
+内部 Docs の[docker-file](./docker-file.md)との境界線が曖昧なので注意
+
 - [Build with Docker](https://docs.docker.com/build/guide/)
 - [Introduction](https://docs.docker.com/build/guide/intro/)
 - [Layers](https://docs.docker.com/build/guide/layers/)
@@ -7,6 +9,8 @@
   - Update the instruction order
 - [Multi-stage](https://docs.docker.com/build/guide/multi-stage/)
 - [Mounts](https://docs.docker.com/build/guide/mounts/)
+  - cache mounts
+  - bind mounts
 - [Build arguments](https://docs.docker.com/build/guide/build-args/)
 - [Export binaries](https://docs.docker.com/build/guide/export/)
 - [Test](https://docs.docker.com/build/guide/test/)
@@ -16,6 +20,54 @@
 
 ![layer1](../images/docker-layer1.png "layer1")
 ![layer2](../images/docker-layer2.png "layer2")
+
+docker は可能な限り 構築キャッシュ build-cache を使用し、 docker build の処理を著しく高速にする。その場合はコンソール出力に `CACHED` というメッセージが表示される。
+
+## [Multi-stage Build](https://docs.docker.com/build/guide/multi-stage/)
+
+build step は並列で処理することができる (`Buildx Bake`でもできる)
+
+[マルチステージ ビルドを使う](https://docs.docker.jp/develop/develop-images/multistage-build.html)
+
+## [Export binaries](https://docs.docker.com/build/guide/export/)
+
+```dockerfile
+# syntax=docker/dockerfile:1
+ARG GO_VERSION=1.21
+FROM golang:${GO_VERSION}-alpine AS base
+WORKDIR /src
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+    --mount=type=bind,source=go.sum,target=go.sum \
+    --mount=type=bind,source=go.mod,target=go.mod \
+    go mod download -x
+
+FROM base as build-client
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+    --mount=type=bind,target=. \
+    go build -o /bin/client ./cmd/client
+
+FROM base as build-server
+ARG APP_VERSION="0.0.0+unknown"
+RUN --mount=type=cache,target=/go/pkg/mod/ \
+    --mount=type=bind,target=. \
+    go build -ldflags "-X main.version=$APP_VERSION" -o /bin/server ./cmd/server
+
+FROM scratch AS client
+COPY --from=build-client /bin/client /bin/
+ENTRYPOINT [ "/bin/client" ]
+
+FROM scratch AS server
+COPY --from=build-server /bin/server /bin/
+ENTRYPOINT [ "/bin/server" ]
+
+FROM scratch AS binaries
+COPY --from=build-client /bin/client /
+COPY --from=build-server /bin/server /
+```
+
+```sh
+docker build --output=bin --target=binaries .
+```
 
 ## build command
 
@@ -100,6 +152,20 @@ docker builder prune -af
 [buildx](https://github.com/docker/buildx) is a Docker CLI plugin for extended build capabilities with BuildKit.
 
 BuildKit サーバは Docker engine に組み込まれて提供されており、default ではその組み込まれた BuildKit サーバコンポーネントを利用する。
+
+### BuildKit の利点
+
+- 使用していない 構築ステージ の検出とスキップ
+- 独立している構築ステージを 並列構築 parallelize building
+- 構築コンテキストと構築の間では、変更のあったファイルのみ転送
+- 構築コンテキスト内で、未使用ファイルの検出と、転送のスキップ
+- 多くの新機能がある 拡張 Dockerfile 実装 external Dockerfile implementations を使用
+- 他の API （中間イメージとコンテナ）による副作用を回避
+- 自動整理 automatic pruning のために、構築キャッシュを優先度付け
+
+### BuildKit バックエンドを使う
+
+`docker build` を実行する前に、CLI 上で環境変数 `DOCKER_BUILDKIT=1` を設定する
 
 ### [Buildx Bake](https://docs.docker.com/build/bake/)
 

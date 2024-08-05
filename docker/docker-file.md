@@ -1,5 +1,24 @@
 # Dockerfile
 
+内部 Docs の[build](./build.md)との境界線が曖昧なので注意
+
+## dockerfile 内の`# syntax=docker/dockerfile:1`
+
+[参考:Dockerfile リファレンス](https://docs.docker.jp/engine/reference/builder.html#syntax)
+
+```dockerfile
+# syntax=[リモート・イメージ・リファレンス]
+```
+
+- これは、BuildKit バックエンドを利用時のみ使える
+- そのため、古い build バックエンドの利用時には、無視される
+- カスタム Dockerfile 実装により、次のことが可能
+  - Docker デーモンを更新しなくても、自動的にバグ修正をする
+  - すべての利用者が確実に同じ実装を使い、Dockerfile で構築する
+  - Docker デーモンを更新しなくても、最新機能を使う
+  - Docker デーモンに統合前の、新機能やサードパーティ機能を試す
+  - 他の build 定義や、自分自身で作成した定義 を使う
+
 ## Docker Build チェック
 
 Docker Desktop `4.33`からの機能で、Dockerfile の構文チェックだけでなく最適化などもガイドする`linter`の役割を果たす
@@ -10,15 +29,12 @@ docker build -f ./docker/Dockerfile_rust . --check
 
 - [Docker ビルド チェックの概要: ベスト プラクティスを使用した Dockerfile の最適化](https://www.docker.com/ja-jp/blog/introducing-docker-build-checks/)
 
-## マルチステージ ビルド
-
-- [マルチステージ ビルドを使う](https://docs.docker.jp/develop/develop-images/multistage-build.html)
-
 ## [Mounts](https://docs.docker.com/build/guide/mounts/)
 
 docker build 時の設定
 
 - 2 種類の mounts
+
   - cache mounts
     - ビルド中に使用される永続的なパッケージキャッシュを指定できる
     - ビルド手順、特にパッケージ マネージャーを使用してパッケージをインストールする手順を高速化するのに役立つ
@@ -26,9 +42,9 @@ docker build 時の設定
     - ホストからコンテナに直接ファイルを利用できるようになる
     - この変更により、追加の COPY 命令 (およびレイヤー) がまったく不要になる
 
-### cache mounts
+- [sample code](https://github.com/hiromaily/docker-tips/tree/main/mounts)
 
-- [sample code](https://github.com/hiromaily/docker-tips/tree/main/cache-mount)
+### cache mounts
 
 ```dockerfile
 # syntax=docker/dockerfile:1
@@ -74,6 +90,8 @@ docker build --target=client --progress=plain . 2> log1.txt
 ```
 
 ### bind mounts
+
+`COPY`が必要なのは Python や PHP といったソースコードそのものを実行環境で使う場合のみで、Go の場合は build 後のバイナリのみが必要のため、`COPY`は不要
 
 ```dockerfile
 # syntax=docker/dockerfile:1
@@ -288,3 +306,4 @@ ENTRYPOINT ["apache2ctl", "-D", "FOREGROUND"]
 ## References
 
 - [高度な Dockerfile ディレクティブ](https://dev.to/kalkwst/advanced-dockerfile-directives-193f)
+- [2024 年版の Dockerfile の考え方＆書き方](https://future-architect.github.io/articles/20240726a/)

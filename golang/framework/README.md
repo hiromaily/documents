@@ -28,6 +28,11 @@
 
 - Star: 21.3 K
 
+### [go-chi](https://github.com/go-chi)
+
+- [chi](https://github.com/go-chi/chi)
+  - Star: 17.8 K
+
 ## Performance-wise
 
 - [Web Framework Benchmarks](https://www.techempower.com/benchmarks/#hw=ph&test=fortune&section=data-r22)
