@@ -2,6 +2,9 @@
 
 ## OpenAPI spec の作成ができる Tool やサービス
 
+- [openapi-gui](https://github.com/Mermade/openapi-gui)
+  - OpenSource
+  - [Mermade/openapi-guiを使ってOpenAPI(Swagger)仕様書を作る](https://zenn.dev/dozo/articles/9a70e5b116f7e6)
 - [Redocly](https://redocly.com/)
   - [redocly-cli](https://github.com/Redocly/redocly-cli)によって spec の lint ができる
   - [Generate code samples automatically with Redocly](https://www.youtube.com/watch?v=zZUR7ih2A5A)
