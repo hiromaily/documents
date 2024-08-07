@@ -1,0 +1,31 @@
+volumes:
+  pgdata: {}
+
+services:
+  postgresql:
+    container_name: docs-postgresql
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: "database"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: example
+      TZ: Asia/Tokyo
+    #restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d example -U admin"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

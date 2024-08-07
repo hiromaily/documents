@@ -1,5 +1,9 @@
 # MySQL
 
+## 行更新時に自動でupdated_atに現在時刻を設定する関数を定義する
+
+- [TIMESTAMP および DATETIME の自動初期化および更新機能](https://dev.mysql.com/doc/refman/8.0/ja/timestamp-initialization.html)
+
 ## MySQL 8.0 と 5.7 の違い
 
 ### メリット
