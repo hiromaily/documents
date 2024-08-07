@@ -26,3 +26,16 @@
 データの表現やスキーマ定義やバリデーションなどを行うことができる言語
 
 - [cue 言語を利用して OpenAPI ファイルを生成する](https://zenn.dev/kawahara/articles/bc7c0851bea7d4)
+
+## [openapi-gui](https://github.com/Mermade/openapi-gui)
+
+```sh
+git clone https://github.com/Mermade/openapi-gui.git
+cd openapi-gui
+docker build -t mermade/openapi-gui .
+
+# 実行
+docker run --name openapi-gui -p 3000:3000 -d mermade/openapi-gui
+```
+
+![openapi-gui](../images/openapi-gui.png "openapi-gui")

@@ -18,6 +18,17 @@ docker build -f ./docker/Dockerfile_rust . --check
 
 - `compose build` では利用できない
 
+## WIP: `docker scout`
+
+[docker scout](https://www.docker.com/ja-jp/products/docker-scout/)はDockerの開発ワークフローのセキュリティー面も含めた改善を目的とするサービスで、分析、修正、評価を行う。
+無料プランもあるが、有償サービスとなる。
+
+`docker build`後に`View a summary of image vulnerabilities and recommendations` と表示される
+
+```sh
+docker scout quickview
+```
+
 ## `docker debug`
 
 Docker Desktop `4.33`からの機能で有償専用の機能
