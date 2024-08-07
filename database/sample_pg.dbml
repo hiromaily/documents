@@ -1,0 +1,88 @@
+Enum "request_status_enum" {
+  "pending"
+  "in_progress"
+  "completed"
+  "cancelled"
+}
+
+Table "patient_families" {
+  "id" UUID [pk, not null]
+  "hospital_id" INTEGER [not null]
+  "zip_code" VARCHAR(10)
+  "prefecture" VARCHAR(50)
+  "city" VARCHAR(50)
+  "town" VARCHAR(50)
+  "address" VARCHAR(255)
+  "email" VARCHAR(255)
+  "is_valid" BOOLEAN [default: true]
+  "last_login_at" TIMESTAMP
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "patient_users" {
+  "id" UUID [pk, not null]
+  "family_id" UUID [not null]
+  "last_name" VARCHAR(50)
+  "first_name" VARCHAR(50)
+  "gender" VARCHAR(10)
+  "birthday" DATE
+  "relationship" VARCHAR(50)
+  "insurance_card_image" BYTEA
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "pharmacies" {
+  "id" UUID [pk, not null]
+  "name" VARCHAR(100) [not null]
+  "branch_name" VARCHAR(100)
+  "zip_code" VARCHAR(10)
+  "prefecture" VARCHAR(50)
+  "city" VARCHAR(50)
+  "town" VARCHAR(50)
+  "address" VARCHAR(255)
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "hospital_users" {
+  "id" UUID [pk, not null]
+  "name" VARCHAR(100) [not null]
+  "branch_name" VARCHAR(100)
+  "email" VARCHAR(255) [not null]
+  "tel" VARCHAR(15)
+  "zip_code" VARCHAR(10)
+  "prefecture" VARCHAR(50)
+  "city" VARCHAR(50)
+  "town" VARCHAR(50)
+  "address" VARCHAR(255)
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "hospital_doctors" {
+  "id" UUID [pk, not null]
+  "hospital_id" UUID [not null]
+  "name" VARCHAR(100) [not null]
+  "email" VARCHAR(255) [not null]
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Table "requests" {
+  "id" UUID [pk, not null]
+  "patient_user_id" UUID [not null]
+  "request_status" request_status_enum [not null]
+  "symptom_list" "TEXT[]" [not null]
+  "symptom_details" TEXT
+  "date_list" "DATE[]" [not null]
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`]
+}
+
+Ref:"patient_families"."id" < "patient_users"."family_id"
+
+Ref:"hospital_users"."id" < "hospital_doctors"."hospital_id"
+
+Ref:"patient_users"."id" < "requests"."patient_user_id"
