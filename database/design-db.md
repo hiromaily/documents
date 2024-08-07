@@ -1,13 +1,14 @@
-# DB設計
+# DB 設計
 
-- Entity Relationship Diagram (ER図)
+- Entity Relationship Diagram (ER 図)
 - DDL (Data Definition Language)
 
-SQLにおける`DDL`には、データベースやテーブル、ビューなどの作成を行う`CREATE文`や、これらを削除する`DROP文`、これらの設定や構成に変更を加える`ALTER文`、テーブル中のデータを全削除する`TRUNCATE文`が含まれる
+SQL における`DDL`には、データベースやテーブル、ビューなどの作成を行う`CREATE文`や、これらを削除する`DROP文`、これらの設定や構成に変更を加える`ALTER文`、テーブル中のデータを全削除する`TRUNCATE文`が含まれる
 
 ## Design Tool
 
 ### 無償
+
 - [pgAdmin](https://www.pgadmin.org/) for PostgreSQL
 - [DBeaver](https://dbeaver.io/)
 - [Mermaid](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)
@@ -19,54 +20,57 @@ SQLにおける`DDL`には、データベースやテーブル、ビューなど
   - フローチャート
   - 組織図
   - スイムレーン
-  - ER図
+  - ER 図
   - シーケンス図
 - [SchemaSpy](https://schemaspy.org/)
 - [SQL DDL to ERD diagram](https://www.devtoolsdaily.com/sql/ddl-to-diagram/)
 
 ### 有償
+
 - [atlas](https://atlasgo.io/)
   - manage your database schema as code
-  - Freeプランもある
+  - Free プランもある
 - [DataGrip](https://www.jetbrains.com/ja-jp/datagrip/) by JetBrains
   - 有償
 - [dbdiagram.io](https://dbdiagram.io/home)
-  - Freeプランはかなり限定的だが、10 diagramsまでは出力できる
+  - Free プランはかなり限定的だが、10 diagrams までは出力できる
 - [DbVisualizer](https://www.dbvis.com/)
   - 有償
 
-## DDLからER図の自動生成ができるとよい
+## DDL から ER 図の自動生成ができるとよい
 
-- DDL作成後、ChatGPTからMermaidを自動生成
-- [atlas](https://atlasgo.io/)
+- DDL 作成後、ChatGPT から Mermaid を自動生成
 - [dbdiagram.io](https://dbdiagram.io/home)
+- [drawio with SQL plugin](https://www.drawio.com/doc/faq/sql-plugin)
+  - `MySQL` or `SQL Server`
+- [atlas](https://atlasgo.io/)
 
 ### [dbdiagram.io](https://dbdiagram.io/home)
 
 - [DBML - Database Markup Language](https://dbml.dbdiagram.io/home/)
-- [Crafting an Automatic ERD Generator: A Journey from DDL to Diagram](https://devtoolsdaily.medium.com/crafting-an-automatic-erd-generator-a-journey-from-ddl-to-diagram-83cc5da8cab7) ... MySQLのみ
+- [Crafting an Automatic ERD Generator: A Journey from DDL to Diagram](https://devtoolsdaily.medium.com/crafting-an-automatic-erd-generator-a-journey-from-ddl-to-diagram-83cc5da8cab7) ... MySQL のみ
 
-#### DBMLの生成
+#### DBML の生成
 
-DDLからDBMLに変換する必要がある
+DDL から DBML に変換する必要がある
 
 - [dbml CLI](https://dbml.dbdiagram.io/cli)
-- [ローカルにおけるDB品質管理の向上：dbml/cli、dbdocs、psqldefの活用](https://zenn.dev/coffee_break/articles/25a26cc7622e8c)
+- [ローカルにおける DB 品質管理の向上：dbml/cli、dbdocs、psqldef の活用](https://zenn.dev/coffee_break/articles/25a26cc7622e8c)
 
 Install
+
 ```sh
 npm install -g @dbml/cli
 ```
 
 Convert a SQL file to DBML
+
 ```
 sql2dbml sample_pg.sql --postgres
 ```
 
-
-## pgAdminによるDDL作成
+## pgAdmin による DDL 作成
 
 [Creating Databases, Schemas, and Tables on pgAdmin](https://www.youtube.com/watch?v=6DzCWzeVFD0)
 
 ![pgadmin gui](../images/pgadmin4-create-table.png "pgadmin gui")
-
