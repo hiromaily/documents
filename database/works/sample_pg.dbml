@@ -1,0 +1,111 @@
+Enum "request_status_enum" {
+  "診療仮予約"
+  "診療確定"
+  "診療キャンセル"
+  "診療終了"
+  "請求済み"
+  "支払い完了"
+}
+
+Enum "sumptom_enum" {
+  "発熱"
+  "喉の痛み"
+  "頭痛"
+  "吐き気"
+  "腹痛"
+  "下痢"
+  "鼻水"
+  "その他"
+}
+
+Table "patient_families" {
+  "id" UUID [pk, not null, note: '患者会員族ID']
+  "zip_code" VARCHAR(7) [not null, note: '住所 郵便番号']
+  "prefecture" VARCHAR(10) [not null, note: '住所 都道府県']
+  "city" VARCHAR(50) [not null, note: '住所 市/区']
+  "town" VARCHAR(50) [not null, note: '住所 町名・番地']
+  "address" VARCHAR(255) [not null, note: '住所 建物名']
+  "email" VARCHAR(255) [not null, note: 'Emailアドレス']
+  "is_valid" BOOLEAN [default: true, note: '有効フラグ, 0: 仮登録中, 1: 登録完了']
+  "last_login_at" TIMESTAMP [note: '最終ログイン日時']
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '作成日時']
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '更新日時']
+  Note: '患者会員家族テーブル'
+}
+
+Table "patient_users" {
+  "id" UUID [pk, not null, note: '患者会員個人ID']
+  "family_id" UUID [not null, note: '患者会員家族ID']
+  "last_name" VARCHAR(50) [not null, note: '氏名 性']
+  "first_name" VARCHAR(50) [not null, note: '氏名 名']
+  "gender" "CHAR (2)" [note: '性別']
+  "birthday" DATE [not null, note: '生年月日']
+  "insurance_card_image_path" VARCHAR(50) [note: '保険証ファイルパス']
+  "medical_treatment_card_image" VARCHAR(50) [note: '医療証ファイルパス']
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '作成日時']
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '更新日時']
+  Note: '患者会員個人テーブル'
+}
+
+Table "pharmacies" {
+  "id" UUID [pk, not null, note: '薬局ID']
+  "name" VARCHAR(100) [not null, note: '薬局名']
+  "branch_name" VARCHAR(100) [note: '薬局 支店名']
+  "zip_code" VARCHAR(7) [not null, note: '住所 郵便番号']
+  "prefecture" VARCHAR(10) [not null, note: '住所 都道府県']
+  "city" VARCHAR(50) [not null, note: '住所 市/区']
+  "town" VARCHAR(50) [not null, note: '住所 町名・番地']
+  "address" VARCHAR(255) [not null, note: '住所 建物名']
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '作成日時']
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '更新日時']
+  Note: '薬局テーブル'
+}
+
+Table "hospital_users" {
+  "id" UUID [pk, not null, note: '病院会員ID']
+  "name" VARCHAR(100) [not null, note: '病院名']
+  "branch_name" VARCHAR(100) [note: '病院支店名']
+  "email" VARCHAR(255) [not null, note: 'Email']
+  "tel" VARCHAR(11) [note: '電話番号']
+  "zip_code" VARCHAR(7) [not null, note: '住所 郵便番号']
+  "prefecture" VARCHAR(10) [not null, note: '住所 都道府県']
+  "city" VARCHAR(50) [not null, note: '住所 市/区']
+  "town" VARCHAR(50) [not null, note: '住所 町名・番地']
+  "address" VARCHAR(255) [not null, note: '住所 建物名']
+  "last_login_at" TIMESTAMP [note: '最終ログイン日時']
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '作成日時']
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '更新日時']
+  Note: '病院会員テーブル'
+}
+
+Table "hospital_doctors" {
+  "id" UUID [pk, not null, note: '医師ID']
+  "hospital_id" UUID [not null, note: '所属する病院会員ID']
+  "name" VARCHAR(100) [not null, note: '医師名']
+  "email" VARCHAR(255) [not null, note: 'Email']
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '作成日時']
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '更新日時']
+  Note: '医師テーブル'
+}
+
+Table "requests" {
+  "id" UUID [pk, not null, note: 'リクエストID']
+  "patient_user_id" UUID [not null, note: '該当の患者会員個人ID']
+  "hospital_id" UUID [note: '受診する病院会員ID']
+  "request_status" request_status_enum [not null, note: 'リクエストステータス']
+  "symptom_list" "sumptom_enum[]" [not null, note: '症状リスト']
+  "symptom_details" TEXT [note: '症状詳細リスト']
+  "expected_date_list" "TIMESTAMP[]" [note: '予約希望日リスト']
+  "fixed_date" TIMESTAMP [note: '確定日時']
+  "created_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '作成日時']
+  "updated_at" TIMESTAMP [default: `CURRENT_TIMESTAMP`, note: '更新日時']
+  Note: '予約リクエストテーブル'
+}
+
+Ref:"patient_families"."id" < "patient_users"."family_id"
+
+Ref:"hospital_users"."id" < "hospital_doctors"."hospital_id"
+
+Ref:"patient_users"."id" < "requests"."patient_user_id"
+
+Ref:"hospital_users"."id" < "requests"."hospital_id"

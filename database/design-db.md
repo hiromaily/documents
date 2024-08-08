@@ -1,5 +1,7 @@
 # DB 設計
 
+[参考: UML](../uml/README.md)
+
 - Entity Relationship Diagram (ER 図)
 - DDL (Data Definition Language)
 
@@ -40,7 +42,9 @@ SQL における`DDL`には、データベースやテーブル、ビューな�
 ## DDL から ER 図の自動生成ができるとよい
 
 - DDL 作成後、ChatGPT から Mermaid を自動生成
+  - NOT NULLが図に反映できにあ
 - [dbdiagram.io](https://dbdiagram.io/home)
+  - table数が10まで
 - [drawio with SQL plugin](https://www.drawio.com/doc/faq/sql-plugin)
   - `MySQL` or `SQL Server`
 - [atlas](https://atlasgo.io/)
@@ -65,7 +69,7 @@ npm install -g @dbml/cli
 
 Convert a SQL file to DBML
 
-```
+```sh
 sql2dbml sample_pg.sql --postgres
 ```
 

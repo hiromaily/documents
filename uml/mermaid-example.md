@@ -6,6 +6,19 @@ Github の Markdown ファイルに「Mermaid」で図を挿入可能
 - [Live Editor](https://mermaid.live/)
 - [VS Code Marketplace for mermaid](https://marketplace.visualstudio.com/search?term=mermaid&target=VSCode&category=All%20categories&sortBy=Relevance)
 
+## Mermaidで作成できるダイアグラム
+
+- フローチャート
+- シーケンス図
+- 状態遷移図
+- ER図
+- ユーザージャーニー図
+- ガントチャート
+- 円グラフ
+- 要件図
+- Gitグラフ
+
+
 ## シーケンス図
 
 ```mermaid
