@@ -14,14 +14,6 @@ OpenAPI の spec は不変であり、Spec を[Stoplight](https://stoplight.io/)
 
 - 3.1 (As of Oct 2022)
 
-## References
-
-- [Official](https://www.openapis.org/)
-- [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification)
-- [Swagger](https://swagger.io/)
-
-  - Simplify API development for users, teams, and enterprises with the Swagger open source and professional toolset.
-
 ## spec からコードを生成する
 
 [generator.md](./generator.md)
@@ -29,3 +21,11 @@ OpenAPI の spec は不変であり、Spec を[Stoplight](https://stoplight.io/)
 - [openapi-generator](https://github.com/OpenAPITools/openapi-generator)
   - [official](https://openapi-generator.tech/)
   - 様々な言語に対応した型定義を作成する
+
+## References
+
+- [Official](https://www.openapis.org/)
+- [OpenAPI-Specification](https://github.com/OAI/OpenAPI-Specification)
+- [Swagger](https://swagger.io/)
+
+  - Simplify API development for users, teams, and enterprises with the Swagger open source and professional toolset.

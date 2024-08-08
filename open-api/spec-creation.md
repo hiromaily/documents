@@ -4,18 +4,19 @@
 
 - [openapi-gui](https://github.com/Mermade/openapi-gui)
   - OpenSource
+  - OpenAPI 3.1.0には未対応
   - [Mermade/openapi-guiを使ってOpenAPI(Swagger)仕様書を作る](https://zenn.dev/dozo/articles/9a70e5b116f7e6)
-- [Redocly](https://redocly.com/)
-  - [redocly-cli](https://github.com/Redocly/redocly-cli)によって spec の lint ができる
-  - [Generate code samples automatically with Redocly](https://www.youtube.com/watch?v=zZUR7ih2A5A)
-  - vscode の拡張により、コードアシストできる
-  - 個人利用は無料
 - [Stoplight](https://stoplight.io/)
 
   - OpenAPI 定義ファイルの作成と管理ができる GUI エディタ
     - [Stoplight Studio](https://stoplight.io/studio)
   - [Stoplight と OpenAPI generator で API 開発をより便利にする](https://tech.talentx.co.jp/entry/2024/04/09/133904)
   - 有償
+- [Redocly](https://redocly.com/)
+  - [redocly-cli](https://github.com/Redocly/redocly-cli)によって spec の lint ができる
+  - [Generate code samples automatically with Redocly](https://www.youtube.com/watch?v=zZUR7ih2A5A)
+  - vscode の拡張により、コードアシストできる
+  - 個人利用は無料
 
 - [SwaggerHub](https://swagger.io/tools/swaggerhub/)
 - [Postman](https://www.postman.com/)
