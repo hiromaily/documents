@@ -29,3 +29,8 @@ OpenAPI の spec は不変であり、Spec を[Stoplight](https://stoplight.io/)
 - [Swagger](https://swagger.io/)
 
   - Simplify API development for users, teams, and enterprises with the Swagger open source and professional toolset.
+
+- [OpenAPI.Tools](https://openapi.tools/)
+- [github.com/google/gnostic](https://github.com/google/gnostic)
+  - A compiler for APIs described by the OpenAPI Specification with plugins for code generation and other API support tasks
+  - [protoc-gen-openapi](https://github.com/google/gnostic/tree/main/cmd/protoc-gen-openapi)
