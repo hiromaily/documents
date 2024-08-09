@@ -197,7 +197,7 @@ let rect = Rect{ width: 20, height: 15};
 rect.print();
 ```
 
-## ジェネリックトレイト
+## [ジェネリックトレイト](https://doc.rust-jp.rs/rust-by-example-ja/generics/gen_trait.html)
 
 トレイトも 1 つ以上の型によるパラメータ化が可能で、2 つの引数に違う型を使いたい場合などに有効
 
