@@ -1,6 +1,6 @@
 # Git
 
-## 便利だが以外に使ってない
+[Dangit, Git!?!](https://dangitgit.com/ja)
 
 - git add した後に変更点を見る
 

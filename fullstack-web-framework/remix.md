@@ -5,11 +5,13 @@ Fullstack フレームワーク
 2024/8 時点では、v2.11
 
 [Official](https://remix.run/)
+[Remix Docs 日本語](https://remix-docs-ja.techtalk.jp/)
 [github](https://github.com/remix-run/remix)
 [github: remix example](https://github.com/remix-run/examples)
 
 ## References
 
+- [Remix の細かすぎて伝わらない好きなところ(2024)](https://www.docswell.com/s/8723156/ZQR837-2024-08-07-172936#p1)
 - [Remix 入門【はじめからそうやって教えてくれればいいのに！】(2024)](https://zenn.dev/ak/articles/cef68c1b67a314)
 - [Remix 開発完全入門！現場で活躍できるレベルに到達するための総合ガイド (2024)](https://zenn.dev/llm_robot/articles/20240731-remix-react-ssr-routing)
 - [Remix のフォルダ構成(2024)](https://zenn.dev/tor_inc/articles/0b5960a7cee2c5)
