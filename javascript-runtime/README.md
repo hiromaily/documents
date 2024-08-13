@@ -19,3 +19,4 @@
 
 - [State of Javascript](https://stateofjs.com/en-US)
   - The annual developer survey of the JavaScript ecosystem
+- [JavaScript エンジンの高速化](https://zenn.dev/acd1034/articles/240726-accelerating-javascript-engine)
