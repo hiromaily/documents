@@ -1,12 +1,19 @@
 volumes:
   pgdata: {}
+  mysqldata: {}
 
 services:
+  # app:
+  #   ...
+  #   depends_on:
+  #     db:
+  #       condition: service_healthy
+
   postgresql:
     container_name: docs-postgresql
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: pg.Dockerfile
       target: "database"
     ports:
       - "5432:5432"
@@ -23,6 +30,35 @@ services:
       interval: 5s
       timeout: 10s
       retries: 10
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:8.0.37
+    container_name: docs-mysql
+    # build:
+    #   context: .
+    #   dockerfile: mysql.Dockerfile
+    #   target: "mysql"
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_RANDOM_ROOT_PASSWORD: 0
+      MYSQL_DATABASE: example
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+    #restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      start_period: 10s
+      start_interval: 1s
+      interval: 600s
+      timeout: 30s
+      retries: 0
     networks:
       - app-network
 

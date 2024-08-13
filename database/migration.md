@@ -46,7 +46,10 @@ Terraform と同様に、Atlas はデータベースの現在の状態を、HCL�
 
 ## Javascript/Typescript based
 
-- [typeorm](https://www.npmjs.com/package/typeorm)
+[ORM](../nodejs/orm/README.md)
+
 - [Sequelize](https://www.npmjs.com/package/sequelize)
+- [typeorm](https://www.npmjs.com/package/typeorm)
+- [Prisma](https://www.prisma.io/)
 - [knex](https://www.npmjs.com/package/knex)
 - [Umzug](https://www.npmjs.com/package/umzug)

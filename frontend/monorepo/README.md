@@ -20,7 +20,10 @@
 - 複数のタスクを並列で実行することが可能
 - 依存関係のグラフを可視化可能
 
+### [WIP: Nx](https://nx.dev/)
+
 ## References
 
 - [npm workspaces とモノレポ探検記](https://zenn.dev/suin/scraps/20896e54419069)
 - [Turborepo を使ってモノレポ構成の npm パッケージ を管理する](https://cam-inc.co.jp/p/techblog/728530570199434396)
+- [モノレポによるマイクロサービスの開発運用](https://note.com/tinkermodejapan/n/nb14009fe837f)

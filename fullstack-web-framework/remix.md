@@ -4,10 +4,10 @@ Fullstack フレームワーク
 
 2024/8 時点では、v2.11
 
-[Official](https://remix.run/)
-[Remix Docs 日本語](https://remix-docs-ja.techtalk.jp/)
-[github](https://github.com/remix-run/remix)
-[github: remix example](https://github.com/remix-run/examples)
+- [Official](https://remix.run/)
+- [Remix Docs 日本語](https://remix-docs-ja.techtalk.jp/)
+- [github](https://github.com/remix-run/remix)
+- [github: remix example](https://github.com/remix-run/examples)
 
 ## References
 

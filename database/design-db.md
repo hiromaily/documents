@@ -25,6 +25,7 @@ SQL における`DDL`には、データベースやテーブル、ビューな�
   - ER 図
   - シーケンス図
 - [SchemaSpy](https://schemaspy.org/)
+  - これもよく使われており、良さげ
 - [SQL DDL to ERD diagram](https://www.devtoolsdaily.com/sql/ddl-to-diagram/)
 
 ### 有償
