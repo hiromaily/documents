@@ -55,3 +55,33 @@ While originally for Windows, it can run on macOS using Wine or a similar compat
 - free
 - multiple databases
 - windows only
+
+## PostgreSQLから乗り換えたときに注意すべきこと
+
+### 配列型は存在しないので注意が必要
+
+これは不可能
+```sql
+expected_date_list TIMESTAMP[] NULL COMMENT '予約希望日リスト',
+```
+
+JSON型を利用する場合
+
+```sql
+expected_date_list JSON NULL COMMENT '予約希望日リスト',
+```
+
+### UUID型
+
+- [MySQLでUUIDv4をプライマリキーにするとパフォーマンス問題が起きるのはなぜ？](https://zenn.dev/reiwatravel/articles/9ce1050bf8509b)
+- [The Problem with Using a UUID Primary Key in MySQL](https://planetscale.com/blog/the-problem-with-using-a-uuid-primary-key-in-mysql)
+
+## Problems
+
+### MySQL接続時 `Public Key Retrieval is not allowed` エラー
+
+ドライバの設定で、以下を修正する
+```
+allowPublicKeyRetrieval=true
+```
+
