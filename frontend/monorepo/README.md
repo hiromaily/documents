@@ -11,7 +11,14 @@
 モノレポにおける NPM で配布するパッケージ。通常、`/packages` ディレクトリにワークスペースごとのディレクトリを作る。
 単に`パッケージ`と言った場合は、ワークスペースを指すことがある。モノレポには複数のワークスペースが存在しうる。
 
-## モノレポ ツール
+## Monorepo tool
+
+- [Which is Better JavaScript Monorepo Tools?](https://npm-compare.com/@microsoft/rush,lerna,nx,turbo)
+- [2022 Monorepo Tools](https://2022.stateofjs.com/en-US/libraries/monorepo-tools/)
+- [Super 7 JavaScript Monorepo Tools 2024](https://themeselection.com/javascript-monorepo-tools/)
+- [The 3 Best Monorepo Tools for 2023](https://itnext.io/the-3-best-monorepo-tools-for-2023-290bd4be8f0b)
+
+### 比較
 
 ### [Turborepo](https://turbo.build/repo)
 
@@ -22,10 +29,14 @@
 
 ### [WIP: Nx](https://nx.dev/)
 
+### [Lerna](https://lerna.js.org/)
+
+### [Yarn Workspaces](https://yarnpkg.com/features/workspaces)
+
 ## References
 
 - [npm workspaces とモノレポ探検記](https://zenn.dev/suin/scraps/20896e54419069)
 - [Turborepo を使ってモノレポ構成の npm パッケージ を管理する](https://cam-inc.co.jp/p/techblog/728530570199434396)
 - [モノレポによるマイクロサービスの開発運用](https://note.com/tinkermodejapan/n/nb14009fe837f)
-- [【大きいプロジェクトやモノレポ向き？】pnpmの特徴とnpm、yarnとの比較](https://www.geeklibrary.jp/counter-attack/pnpm/)
+- [【大きいプロジェクトやモノレポ向き？】pnpm の特徴と npm、yarn との比較](https://www.geeklibrary.jp/counter-attack/pnpm/)
   - [Benchmarks of JavaScript Package Managers](https://pnpm.io/benchmarks)
