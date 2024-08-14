@@ -18,25 +18,21 @@ SQL における`DDL`には、データベースやテーブル、ビューな�
   - [Mermaid with ChatGPT](https://www.mermaidchart.com/landing)
 - [PlantUML](https://plantuml.com/ja-dark/ie-diagram)
 - [draw.io](https://app.diagrams.net/)
-  - クラス図
-  - フローチャート
-  - 組織図
-  - スイムレーン
-  - ER 図
-  - シーケンス図
+  - DDLやmermaidから生成することができるが、mermaidから生成したほうがクオリティーが高い
+  - [配置]-[挿入]-[高度な設定]
 - [SchemaSpy](https://schemaspy.org/)
   - これもよく使われており、良さげ
 - [SQL DDL to ERD diagram](https://www.devtoolsdaily.com/sql/ddl-to-diagram/)
 
 ### 有償
 
+- [dbdiagram.io](https://dbdiagram.io/home)
+  - Free プランはかなり限定的だが、10 diagrams までは出力できる
 - [atlas](https://atlasgo.io/)
   - manage your database schema as code
   - Free プランもある
 - [DataGrip](https://www.jetbrains.com/ja-jp/datagrip/) by JetBrains
   - 有償
-- [dbdiagram.io](https://dbdiagram.io/home)
-  - Free プランはかなり限定的だが、10 diagrams までは出力できる
 - [DbVisualizer](https://www.dbvis.com/)
   - 有償
 
@@ -48,6 +44,7 @@ SQL における`DDL`には、データベースやテーブル、ビューな�
   - table数が10まで
 - [drawio with SQL plugin](https://www.drawio.com/doc/faq/sql-plugin)
   - `MySQL` or `SQL Server`
+  - drawioの場合、mermaidから変換したほうがクオリティーが高い
 - [atlas](https://atlasgo.io/)
 
 ### [dbdiagram.io](https://dbdiagram.io/home)
