@@ -5,8 +5,8 @@
 ## 行更新時に自動で updated_at に現在時刻を設定する関数を定義する
 
 ```sql
--- triggerを定義します。
--- 行が更新された時に、updated_atに現在時刻を設定します。
+-- triggerを定義
+-- 行が更新された時に、updated_atに現在時刻を設定
 CREATE FUNCTION set_updated_at() RETURNS TRIGGER AS $$
 BEGIN
     IF (TG_OP = 'UPDATE') THEN
@@ -16,7 +16,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
--- updated_atをもったtestsテーブルを作成します。
+-- updated_atをもったtestsテーブルを作成
 CREATE TABLE tests (
     id serial primary key,
     created_at timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE tests (
     UNIQUE(block_height)
 );
 
--- testsテーブル更新時に自動でupdated_atが更新されるようにトリガーを設定します。
+-- testsテーブル更新時に自動でupdated_atが更新されるようにトリガーを設定
 CREATE TRIGGER trg_tests_updated_at BEFORE UPDATE ON tests FOR EACH ROW EXECUTE PROCEDURE set_updated_at();
 ```
 

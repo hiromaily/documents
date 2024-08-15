@@ -30,6 +30,7 @@ RUST は式指向言語
   - 言葉の定義が独特でわかりにくい
 - [ライブラリ辞典(α): Rust](https://libdict.com/rust)
 - [とほほの Rust 入門](https://www.tohoho-web.com/ex/rust.html)
+- [Gopher が Rust 入門したので違いをまとめてみた](https://zenn.dev/skanehira/articles/2024-08-12-go-rust-pros-cons)
 
 ## [Rust 初心者が実務レベルになるまでの学習ステップ](https://ai-techblog.hatenablog.com/entry/2023/03/26/082349)
 
