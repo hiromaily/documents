@@ -27,7 +27,11 @@
 - 複数のタスクを並列で実行することが可能
 - 依存関係のグラフを可視化可能
 
+- for the frontend community.
+
 ### [WIP: Nx](https://nx.dev/)
+
+- for large-scale projects and teams.
 
 ### [Lerna](https://lerna.js.org/)
 
