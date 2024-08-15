@@ -31,7 +31,11 @@
 
 ### [Lerna](https://lerna.js.org/)
 
+Lerna が down trend なので skip
+
 ### [Yarn Workspaces](https://yarnpkg.com/features/workspaces)
+
+Yarn が down trend なので skip
 
 ## References
 

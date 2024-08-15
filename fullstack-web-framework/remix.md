@@ -9,6 +9,10 @@ Fullstack フレームワーク
 - [github](https://github.com/remix-run/remix)
 - [github: remix example](https://github.com/remix-run/examples)
 
+## Mobile アプリからの利用
+
+- [Fast, responsive native mobile apps powered by Remix & defer](https://remix.guide/resources/shaw4Nxm3QmN)
+
 ## References
 
 - [Remix の細かすぎて伝わらない好きなところ(2024)](https://www.docswell.com/s/8723156/ZQR837-2024-08-07-172936#p1)

@@ -5,6 +5,12 @@
 - pnpm
 - Bun's package manager
 
+## Trend
+
+- [npm vs pnpm vs yarn](https://npmtrends.com/npm-vs-pnpm-vs-yarn)
+
+圧倒的に`npm`、次いで`pnpm`
+
 ## [npm](https://www.npmjs.com/)
 
 ### Command
@@ -25,7 +31,13 @@
 
 ## [yarn / yarn v2, v3, v4](https://yarnpkg.com/)
 
-Yarn is an established open-source package manager used to manage dependencies in JavaScript projects
+2024 現在、`brew install yarn`で install されるのは`v1`だが、`v1`はパフォーマンスが悪い
+
+Install by [volta](../nodejs/version-manager.md)
+
+```sh
+volta install yarn@4
+```
 
 ### npm ci 相当の yarn command
 
@@ -38,6 +50,12 @@ rm -rf node_modules && yarn install --frozen-lockfile
 ## [pnPm](https://pnpm.io/)
 
 Fast, disk space efficient package manager
+
+Install by [volta](../nodejs/version-manager.md)
+
+```sh
+volta install pnpm@9
+```
 
 ### 特徴
 
@@ -55,3 +73,5 @@ Fast, disk space efficient package manager
 - [npm vs yarn](https://raw.githubusercontent.com/hiromaily/documents/main/images/yarn-npm.png "npm vs yarn")
 - [2023: npm, yarn, pnpm パッケージマネージャをベンチマークしてみた](https://zenn.dev/minedia/articles/2023-08-30-pnpm)
   - `yarn v4` は全項目において最速らしいが、2023 年末時点で`dev`バージョンのみで stable ではない様子
+- [Benchmarks of JavaScript Package Managers](https://pnpm.io/benchmarks)
+  - yarn は`v4`を使ってようやくいい勝負ができるレベル
