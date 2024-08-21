@@ -1,6 +1,7 @@
 # Design Pattern
 
-[Refactoring Guru](https://refactoring.guru/ja/design-patterns_
+- [Refactoring Guru](https://refactoring.guru/ja/design-patterns_
+- [Good Refactoring vs Bad Refactoring](https://www.builder.io/blog/good-vs-bad-refactoring)
 
 ## Cases
 
