@@ -5,15 +5,38 @@ Wasm is designed as a portable compilation target for programming languages, ena
 
 Web ブラウザ上で高速に動作するバイナリコードの仕様で、WebAssembly の頭文字を取って、`Wasm`と略される。Web ブラウザでコンパイルされた C/C++や Rust を実行する仕組み（アセンブラ）を指すもの。
 
-## WASM でできること
+## WASM でできること (ブラウザ上)
+
+ブラウザの場合、ブラウザの JS エンジン上で動く
 
 - JavaScript 以上の高速処理
 - 既存のソースコードのブラウザでの実行
   - ネイティブアプリケーションを Web アプリケーションへ容易に移行できるメリットになる
+- Wasm と Javascript 間でデータのやり取りができる
+- JS と Wasm 間で関数の相互呼び出しができる
+  - console.log を Wasm 側に import することもできる
+
+### 対応ブラウザ (一部抜粋)
+
+- Chrome
+- Edge
+- Safari
+- Firefox
+- Chrome for Android
+- iOS Safari
+
+## ブラウザ以外での Wasm の利用
+
+WASM Runtime で実行される
+
+- wasm ランタイム
+- Rust で書かれた Blockchain Node ではスマートコントラクトを Wasm として実装できるものが多い
+  - プラグインとしての利用
 
 ### できないこと
 
 - WebAssembly は、DOM 操作が出来ない
+- ブラウザ API の実行
 
 ## 利用シーン
 
@@ -26,21 +49,40 @@ Web ブラウザ上で高速に動作するバイナリコードの仕様で、W
 
 - Unity
 - Google Earth
+- Google Meet
 - AutoCAD
 - Figma
+- Amazon Prime Video
 
-## 使用できる言語
+## [使用できる言語 (抜粋)](https://github.com/appcypher/awesome-wasm-langs)
+
+ほとんどの言語が対応しているが、production use としては以下の言語
 
 - Rust
-- Go
-- Java
-- PHP
-- C# .NET
-- C++
-- Ruby
 - C
-- Swift
-- R
+- C++
+- Go (ファイルサイズが大きい)
+  - TinyGo を使ったほうがいいかもしれないが未検証
+
+### 向いている言語
+
+- クロスコンパイルができる
+- ランタイムが軽い
+  - GC がない方が良い
+  - 標準ライブラリを省ける
+
+そうなってくるとやはり Rust になる
+
+## [WebAssembly 2.0](https://webassembly.github.io/spec/core/)
+
+- Sign extension instruntions（整数における符号拡張命令）
+- Non-trapping float-to-int conversions（浮動小数点型から整数型への変換時のトラップ処理なし）
+- Multiple values（関数が複数の値を返せる）
+- Reference types（参照型の追加）
+- Table instructions（参照型を要素に持つテーブル型に対する操作命令）
+- Multiple tables （複数テーブルの処理）
+- Bulk memory and table instructions （一定範囲のメモリやテーブルに対する操作）
+- Vector instructions（並行処理が可能なベクトル処理命令の追加）
 
 ## よく使われる用語
 

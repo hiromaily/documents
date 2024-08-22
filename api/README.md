@@ -64,7 +64,7 @@
     - GraphQL を使用すれば、Experence API を構築する必要性を回避することもできますが、それも不可能な場合は、`expand`などのクエリ文字列パラメータ オプションを使用して、より複雑なクエリを作成できる
     - 以下は、プロパティを組み込んだ企業リソースのコレクションを示すレスポンス例
 
-```
+```json
 "data": [
    {
      "CompanyUid": "27e9cf71-fca4",
@@ -134,11 +134,11 @@
 
 - [Hurl](https://hurl.dev/)
   - [Github](https://github.com/Orange-OpenSource/hurl)
-  - Star: 3.2k
+  - Star: 12.5k
   - Rust
   - Docs も充実していて本命感がある
 - [zoncoen/scenarigo](https://github.com/zoncoen/scenarigo)
-  - Star: 177
+  - Star: 303
   - Golang
   - 頻繁に更新されている
   - YAML にシナリオを書いて実行できる
