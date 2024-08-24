@@ -5,14 +5,16 @@
 
 ## 1. ifconfig
 
-- ifconfig utility is used to configure network interface parameters.
-- Mostly we use this command to check the IP address assigned to the system.
+TCP/IP を使用するネットワークのネットワーク・インターフェース・パラメーターを構成または表示する
 
-```
+- `ifconfig` utility is used to configure network interface parameters.
+- Mostly we use this command `to check the IP address assigned to the system`.
+
+```sh
 $ sudo apt install net-tools
 ```
 
-```
+```sh
 $ ifconfig -a
 docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
         inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
@@ -38,7 +40,9 @@ wlp2s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 
 ## 2. ss
 
-- ss is used to dump socket statistics. It allows showing information similar to netstat.
+ソケットの状態表示をするコマンド
+
+- `ss` is used to dump socket statistics. It allows showing information similar to netstat.
 - It can display more TCP and state informations than other tools.
 
 - `-a` : -all, display all sockets
@@ -47,7 +51,7 @@ wlp2s0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
 - `-u` : -udp, display only UDP sockets
 - `-p` : -processes, show process using socket
 
-```
+```sh
 $ ss -antup | grep parity
 
 udp  UNCONN     0       0                                         0.0.0.0:30303                        0.0.0.0:*         users:(("parity",pid=25166,fd=58))
@@ -84,10 +88,13 @@ tcp  ESTAB      0       0                                  192.168.10.104:47022 
 
 ## 3. netstat (deprecated)
 
+TCP/IP 通信の状態を調べる
+非推奨のため、代わりに`ip`や`ss`コマンドを利用する。
+
 - Netstat command allows you a simple way to review each of your network connections and open sockets.
 - netstat with head output is very helpful while performing web server troubleshooting.
 
-```
+```sh
 $ netstat -n
 Proto Recv-Q Send-Q Local Address           Foreign Address         State
 tcp        0      0 192.168.10.104:51472    139.59.69.168:30303     TIME_WAIT
@@ -116,7 +123,7 @@ tcp        0      0 192.168.10.104:52828    51.77.140.200:30305     TIME_WAIT
 - `-p` = program
 - `-n` = numeric
 
-```
+```sh
 $ netstat -tulpn | grep 'parity'
 
 (Not all processes could be identified, non-owned process info
@@ -129,11 +136,13 @@ udp        0      0 0.0.0.0:30303           0.0.0.0:*                           
 
 - show open ports
 
-```
+```sh
 $ netstat -nap
 ```
 
 ## 4. lsof
+
+プロセスが開いているファイルを表示するコマンドで、サーバーで特定のポート番号を待ち受けているかどうかなどに使われる
 
 - list open files
 - Lsof lists on its standard output file information about files opened by processes for the following UNIX dialects.
@@ -142,7 +151,7 @@ $ netstat -nap
 
 - `-i` :
 
-```
+```sh
 $ lsof -i
 
 COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME
@@ -194,14 +203,16 @@ parity  25166   hy  412u  IPv4 857935      0t0  TCP hy-UX430UAR:33774->112.169.6
 
 ## 5. traceroute
 
+特定のあて先までの経路を調べる時に使うコマンド
+
 - traceroute print the route packets take to network host.
 - Destination host or IP is mandatory parameter to use this utility
 
-```
+```sh
 $ sudo apt install tracetoute
 ```
 
-```
+```sh
 $ traceroute google.com
  1  r753.tokynt01.ap.so-net.ne.jp (120.74.156.138)  3.522 ms  4.761 ms  4.744 ms
  2  maru-03Gi3-11.net.so-net.ne.jp (120.74.156.137)  3.829 ms  4.180 ms  4.198 ms
@@ -215,10 +226,12 @@ $ traceroute google.com
 
 ## 6. dig
 
+ネームサーバに対して問い合わせを行い、その応答結果を表示するコマンド
+
 - dig (Domain Information Groper) is a flexible tool for interrogating DNS name servers.
 - It performs DNS lookups and displays the answers that are returned from the name servers.
 
-```
+```sh
 $ dig google.com
 
 ; <<>> DiG 9.11.3-1ubuntu1.3-Ubuntu <<>> google.com
@@ -244,9 +257,11 @@ google.com.		120	IN	A	172.217.31.142
 
 ## 7. nslookup
 
+IP アドレスからドメイン名を確認すること、ドメイン名から IP アドレスを確認することができるコマンド
+
 - nslookup is a program to query Internet domain name servers.
 
-```
+```sh
 $ nslookup google.com
 
 Address:	127.0.0.53#53
@@ -260,32 +275,38 @@ Address: 2404:6800:400a:80b::200e
 
 ## 8. nmap
 
+対象として指定したホストに対してポート番号を変えながら IP パケットを送信し、その反応を調べることでどのポートが外部からアクセス可能なのかを調査する行為を`ポートスキャン`といい、そのためのコマンド
+
 - nmap is a one of the powerful commands, which checks the opened port on the server.
 
-```
+```sh
 $ nmap $server_name
 ```
 
 ## 9. Enable/Disable Network Interface
 
+Network Interface の ON/OFF の仕方
+
 - To enable eth0
 
-```
+```sh
 $ ifup eth0
 ```
 
 - To disable eth0
 
-```
+```sh
 $ ifdown eth0
 ```
 
 ## 10. w
 
-- w prints a summary of the current activity on the system, including what each user is doing, and their processes.
+システムに現在誰がログインしており、何を実行しているのかを表示するコマンド
+
+- `w` prints a summary of the current activity on the system, including what each user is doing, and their processes.
 - Also list the logged in users and system load average for the past 1, 5, and 15 minutes.
 
-```
+```sh
 $ w
 
  20:31:28 up 2 days, 21:51,  1 user,  load average: 4.08, 4.47, 4.31
@@ -296,17 +317,31 @@ hy       :0       :0               Fri22   ?xdm?   1:49m  0.01s /usr/lib/gdm3/gd
 
 ## 11. telnet
 
+ネットワーク経由でリモートのマシンへ`Telnetプロトコル`でログインするコマンドだが、現在は`ssh`がよく使われる
+
 - telnet connect destination host:port via a telnet protocol if connection establishes means connectivity between two hosts is working fine.
 
-```
+```sh
 $ telnet xxx.xxx.xxx 443
 ```
 
 ## 12. htop
 
+プロセスのメモリ使用率や CPU 使用率など現在のシステム状況を表示するコマンド
+
 - This is htop, an interactive process viewer for Unix systems. It is a text-mode application (for console or X terminals) and requires ncurses.
 - [htop](https://hisham.hm/htop/)
 
-```
+```sh
 sudo apt install htop
+```
+
+## 13. tcpdump
+
+ネットワーク通信の生のデータをキャプチャし、その結果を出力するコマンド
+
+`https://example.com/xxxx`へのリクエストをキャプチャしたい場合
+
+```sh
+sudo tcpdump -i en0 -A -s 0 host example.com and port 443
 ```

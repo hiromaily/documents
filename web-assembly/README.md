@@ -25,20 +25,12 @@ Web ブラウザ上で高速に動作するバイナリコードの仕様で、W
 - Chrome for Android
 - iOS Safari
 
-## ブラウザ以外での Wasm の利用
-
-WASM Runtime で実行される
-
-- wasm ランタイム
-- Rust で書かれた Blockchain Node ではスマートコントラクトを Wasm として実装できるものが多い
-  - プラグインとしての利用
-
 ### できないこと
 
 - WebAssembly は、DOM 操作が出来ない
 - ブラウザ API の実行
 
-## 利用シーン
+### 利用シーン
 
 - ビデオまたはオーディオ編集
 - Web ブラウザでのゲーム
@@ -53,6 +45,26 @@ WASM Runtime で実行される
 - AutoCAD
 - Figma
 - Amazon Prime Video
+
+## ブラウザ以外での Wasm の利用
+
+WASM Runtime 上 で実行される
+
+- cloud servers (serverless platforms)
+- IoT devices
+- Rust で書かれた Blockchain Node ではスマートコントラクトを Wasm として実装できるものが多い
+  - プラグインとしての利用
+
+### Wasm ランタイム
+
+- [Wasmtime](https://wasmtime.dev/)
+- [WasmEdge](https://wasmedge.org/)
+- [Wasmer](https://wasmer.io/)
+
+### Wasm の埋め込み　(plugin としての利用)
+
+- Node.js
+- Go, Rust
 
 ## [使用できる言語 (抜粋)](https://github.com/appcypher/awesome-wasm-langs)
 
