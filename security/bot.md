@@ -10,7 +10,16 @@
   - TLS/SSL 接続の確立方法
 - HTTP バージョンの違い
 
-## 通信の確認
+## Bot Detection Services
 
-- [Wireshark](https://www.wireshark.org/)
-- tcpdump
+- Behavioral Analysis
+- Device Fingerprinting
+- Request Signature Analysis
+  - HTTP Header
+- CAPTCHA Challenges
+- Machine Learning Models
+- IP Reputation and Blacklisting
+- JavaScript and Cookie Challenges
+- User Interaction Tracking
+- Honeypots and Decoy Traps
+- Traffic Correlation and Network Analysis

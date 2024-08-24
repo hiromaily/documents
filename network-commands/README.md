@@ -345,3 +345,15 @@ sudo apt install htop
 ```sh
 sudo tcpdump -i en0 -A -s 0 host example.com and port 443
 ```
+
+ただし、https の場合は暗号化されていて表示できないため、一旦`pcap`ファイル保存する
+
+```sh
+sudo tcpdump -i en0 -s 0 -w output.pcap host jp.indeed.com
+```
+
+wireshark で開く
+
+```
+wireshark output.pcap
+```
