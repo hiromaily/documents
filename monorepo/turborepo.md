@@ -313,7 +313,132 @@ export default Page;
 
 ## [Task の設定](https://turbo.build/repo/docs/crafting-your-repository/configuring-tasks)
 
-turborepo における npm-run-script のタスクを処理する関係性を定義するもので、`turbo.json`で管理される
+turborepo における npm-run-script のタスクを処理する関係性を定義するもので、`turbo.json`で管理される。
+Turborepo が実行するタスクを登録することで、`turbo run`によって実行することが可能となる。
+
+### タスクの定義
+
+`tasks` オブジェクトの各キーは、`turbo run` で実行できるタスクとなる
+
+- 以下の場合、`turbo run build`を実行すると、Turborepo はパッケージ内のすべての build スクリプトを並行して実行する
+
+```js
+{
+  "tasks": {
+    "build": {} // Incorrect!
+  }
+}
+```
+
+#### 正しい順序でタスクを実行
+
+`dependsOn`キーによって、別のタスクが実行を開始する前に完了しなければならないタスクを指定する
+
+- ほとんどの場合、アプリケーションの build スクリプトが実行される前に、ライブラリの build スクリプトが完了するようにする
+- 依存関係を先にビルドする
+- `^`のマイクロシンタックスは、依存関係のグラフの一番下からタスクを実行するように Turborepo に指示する
+
+```json
+{
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"]
+    }
+  }
+}
+```
+
+#### 同じパッケージ内のタスクへの依存
+
+- 同じパッケージ内の 2 つのタスクが特定の順序で実行されるようにする必要がある場合
+
+```json
+{
+  "tasks": {
+    "test": {
+      // build成功後にtestが実行される
+      "dependsOn": ["build"]
+    }
+  }
+}
+```
+
+#### 特定のパッケージの特定のタスクに依存する
+
+- 以下の例では、`utils` の `build` タスクは、`lint` タスクの前に実行されなければならない
+
+```json
+{
+  "tasks": {
+    "lint": {
+      "dependsOn": ["utils#build"]
+    }
+  }
+}
+```
+
+#### 依存タスクをより具体的にする
+
+- 特定のパッケージに限定する
+
+```json
+{
+  "tasks": {
+    "web#lint": {
+      "dependsOn": ["utils#build"]
+    }
+  }
+}
+```
+
+#### 依存関係がない場合
+
+```json
+{
+  "tasks": {
+    "spell-check": {
+      "dependsOn": []
+    }
+  }
+}
+```
+
+### output の指定
+
+- `outputs`キーは、タスクが正常に完了したときにキャッシュするファイルとディレクトリを Turborepo に伝える
+- Turborepo では、タスクの出力をキャッシュすることで、同じ作業を 2 度行うことはしない。
+
+```json
+{
+  "tasks": {
+    "build": {
+      "outputs": [".next/**", "!.next/cache/**"]
+    }
+  }
+}
+```
+
+### inputs の指定
+
+- `inputs`キーは、キャッシュのためにタスクのハッシュに含めるファイルを指定するために使う
+- デフォルトでは、Turborepo は Git が追跡しているパッケージ内のすべてのファイルを含める
+- しかし、inputs キーを使うことで、ハッシュに含めるファイルをより細かく指定することができる
+
+- 例として、Markdown ファイルのタイプミスを見つけるタスク
+
+```json
+{
+  "tasks": {
+    "spell-check": {
+      "inputs": ["**/*.md", "**/*.mdx"]
+    }
+  }
+}
+```
+
+### `turbo.json`
+
+- [Configuring turbo.json](https://turbo.build/repo/docs/reference/configuration)
 
 ```json
 {
@@ -339,10 +464,6 @@ turborepo における npm-run-script のタスクを処理する関係性を定
 }
 ```
 
-### `turbo.json`
-
-- [Configuring turbo.json](https://turbo.build/repo/docs/reference/configuration)
-
 ## コマンド
 
 - `turbo build`
@@ -355,7 +476,3 @@ turborepo における npm-run-script のタスクを処理する関係性を定
 ## Cache
 
 ## Build
-
-## References
-
-- [Turborepo tips](https://tips.weseek.co.jp/6505dee958d21abbb3ac80cf)
