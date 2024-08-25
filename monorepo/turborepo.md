@@ -517,7 +517,7 @@ README.md ファイルが変更されても、タスクはキャッシュをヒ�
 }
 ```
 
-以下が正しい設定らしいが、まだ理解できていない
+以下が正しい設定らしいが、まだ理解できていない  
 [トランジット・ノード](https://turbo.build/repo/docs/core-concepts/package-and-task-graph#transit-nodes)をタスク・グラフに導入する
 
 ```json

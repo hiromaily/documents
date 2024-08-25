@@ -17,3 +17,7 @@
 - package.json や package.lock に書き込まれることはない。
 
 [npm install と npm ci って結局どう使うの？2023 年版](https://bufferings.hatenablog.com/entry/2023/03/15/215044)
+
+## monorepo における npm の不具合
+
+- [[BUG] Dependency hoisting in workspaces not working, depending on workspace name](https://github.com/npm/cli/issues/4512)
