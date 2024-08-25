@@ -1,7 +1,7 @@
 # Turborepo
 
 Vercel 製の monorepo ツールだが、monorepo 以外でのワークフローの高速化も可能。  
-turbo は `Workspaces` の上に構築されており、これはは JavaScript エコシステムのパッケージマネージャの機能で、複数のパッケージを 1 つのリポジトリにまとめることができる。
+turbo は `Workspaces` の上に構築されており、これは JavaScript エコシステムのパッケージマネージャの機能で、複数のパッケージを 1 つのリポジトリにまとめることができる。
 
 - [Turborepo](https://turbo.build/repo)
   - [Docs](https://turbo.build/repo/docs)

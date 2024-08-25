@@ -1,4 +1,4 @@
-# npm
+# npm with Private Repository
 
 ## private リポジトリを使っているときに遭遇した npm エラー例
 
@@ -10,7 +10,7 @@ npm ERR! remote: Please see https://docs.github.com/en/get-started/getting-start
 npm ERR! fatal: Authentication failed for 'https://github.com/org/repo.git/'
 ```
 
-## [About remote repositories](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls)
+## [Github: About remote repositories](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls)
 
 ### HTTPS URL を使ったクローン作成
 
@@ -19,7 +19,7 @@ npm ERR! fatal: Authentication failed for 'https://github.com/org/repo.git/'
 - Git がパスワードの入力を求めたら、個人用のアクセストークンを入力するか、[Git Credential Manager](https://github.com/GitCredentialManager/git-credential-manager/blob/main/README.md) のようなクレデンシャル・ヘルパーを使うこともできる。
 - Git のパスワードベースの認証は、より安全な認証方法を採用するために削除された。詳細は、[Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
-### [Creating a personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+### [personal access token の作成](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
 - パスワードの代わりに使用するパーソナルアクセストークンを、コマンドラインまたは API で作成することができる
 - ただし、アクセストークンはパスワードのように使う必要がある
@@ -45,7 +45,7 @@ npm ERR! fatal: Authentication failed for 'https://github.com/org/repo.git/'
 
 - Note: 一部の機能は personal access tokens (classic)のみで機能する
 
-### [Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
+### [Github: Encrypted secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets)
 
 - Encrypted secrets は、組織、リポジトリ、リポジトリ環境での機密情報の保管を可能にする
 - Github Actions のワークフローで使うことができる
@@ -68,7 +68,7 @@ npm ERR! fatal: Authentication failed for 'https://github.com/org/repo.git/'
 
 - ここで利用する GitHub トークンには`repo権限`が必要
 
-### In Github Action
+## Github Action での`git config`の設定
 
 ```yml
 - run: git config --global url."https://${{ secrets.GIT_TOKEN }}:x-oauth-basic@github.com".insteadOf "https://github.com"
@@ -80,18 +80,15 @@ npm ERR! fatal: Authentication failed for 'https://github.com/org/repo.git/'
 
 - [GitHub Actions で private リポジトリを yarn で依存解決する](https://zenn.dev/mallowlabs/articles/yarn-private-repo-on-github-actions)
 - [npm の private registry から GitHub Packages Registry に移行する](https://tech.plaid.co.jp/npm-private-registry-to-github-packages-registry)
+- [private-npm-in-gh-actions.md](https://gist.github.com/nandorojo/46b3e46de12177b9ad7e4d454310de21)
 
 ## npm private registry
 
 - [Creating and publishing private packages](https://docs.npmjs.com/creating-and-publishing-private-packages)
-- 後述の Github Package Registry を使った方がよい
+- 後述の `Github Package Registry` を使った方がよい
 - GitHub が npm を買収するため、将来的に npm private registry は GitHub Packages Registry へと統合される予定
 
-### Reference
-
-- [private-npm-in-gh-actions.md](https://gist.github.com/nandorojo/46b3e46de12177b9ad7e4d454310de21)
-
-## Github Packages でプライベート npm パッケージを公開する
+## `Github Packages` でプライベート npm パッケージを公開する
 
 - [Reference](https://www.memory-lovers.blog/entry/2022/10/13/173000)
 - [Github Packages](https://github.co.jp/features/packages)
