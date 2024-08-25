@@ -125,6 +125,18 @@ COPY --from=build-server /bin/server /bin/
 ENTRYPOINT [ "/bin/server" ]
 ```
 
+### ubuntu 等で apt-get をキャッシュする
+
+```dockerfile
+FROM ubuntu
+
+RUN \
+  --mount=type=cache,target=/var/cache/apt \
+  --mount=type=cache,sharing=locked,target=/var/lib/apt \
+  apt-get update && apt-get install -y \
+    *
+```
+
 ## Directives
 
 ### `ENV`
