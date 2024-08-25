@@ -94,7 +94,7 @@ TypeScript を使用している場合は、ワークスペースのルートに
 
 ### package の構造
 
-#### name の命名について
+#### name の命名について [重要]
 
 `name` はパッケージを識別するために使用されるため、ワークスペース内で一意の必要がある
 
@@ -180,7 +180,7 @@ import { add } from "#add";
 
 利用するパッケージマネージャに依存する
 
-### [依存関係のインストールのベストプラクティス](https://turbo.build/repo/docs/crafting-your-repository/managing-dependencies#best-practices-for-dependency-installation)
+### [依存関係のインストールのベストプラクティス](https://turbo.build/repo/docs/crafting-your-repository/managing-dependencies#best-practices-for-dependency-installation) [重要]
 
 #### 使用する場所に依存関係をインストールする
 
@@ -436,9 +436,489 @@ Turborepo が実行するタスクを登録することで、`turbo run`によ�
 }
 ```
 
-### `turbo.json`
+#### `$TURBO_DEFAULT$` でデフォルトに戻す
 
-- [Configuring turbo.json](https://turbo.build/repo/docs/reference/configuration)
+デフォルトの inputs 動作は、多くの場合、あなたのタスクに必要なものだが、inputs を微調整して、`タスクの出力に影響しないことが分かっているファイルの変更を無視する`ことで、特定のタスクのキャッシュヒット率を上げることができる
+
+このため、$TURBO_DEFAULT$ マイクロシンタックスを使って、デフォルトの inputs の動作を微調整することができる
+
+```json
+{
+  "tasks": {
+    "build": {
+      "inputs": ["$TURBO_DEFAULT$", "!README.md"]
+    }
+  }
+}
+```
+
+このタスク定義では、Turborepo は inputs のデフォルトの動作を build タスクに使用するが、`README.md`ファイルの変更は無視する。  
+README.md ファイルが変更されても、タスクはキャッシュをヒットする。
+
+### ルートタスクの登録
+
+- package.json 内のスクリプトを、turbo を使用してワークスペースのルートで実行することもできる
+- たとえば、各パッケージの lint タスクに加えて、ワークスペースのルート・ディレクトリのファイルに対して`lint:root`タスクを実行したい場合
+
+- turbo.json
+
+```json
+{
+  "tasks": {
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "//#lint:root": {}
+  }
+}
+```
+
+- root package.json
+
+```json
+{
+  "scripts": {
+    "lint": "turbo run lint",
+    "lint:root": "eslint ."
+  }
+}
+```
+
+### 副作用の実行
+
+- キャッシュビルド後のデプロイスクリプトのように、何があっても常に実行されるべきタスクもある
+- このようなタスクには、タスク定義に `"cache": false` を追加する
+
+```json
+{
+  "tasks": {
+    "deploy": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "build": {
+      "outputs": ["dist/**"]
+    }
+  }
+}
+```
+
+### 並列実行可能な依存タスク
+
+他のパッケージに依存しているにもかかわらず、Linter といった並列実行できるタスクがある。 リンターは正常に実行するために、依存関係の出力を待つ必要がない。
+
+```json
+{
+  "tasks": {
+    "check-types": {
+      "dependsOn": ["^check-types"] // This works...but could be faster!
+    }
+  }
+}
+```
+
+以下が正しい設定らしいが、まだ理解できていない
+[トランジット・ノード](https://turbo.build/repo/docs/core-concepts/package-and-task-graph#transit-nodes)をタスク・グラフに導入する
+
+```json
+{
+  "tasks": {
+    "transit": {
+      "dependsOn": ["^transit"]
+    },
+    "check-types": {
+      "dependsOn": ["transit"]
+    }
+  }
+}
+```
+
+これらの Transit Node は、package.json のスクリプトにマッチしないため何もしないタスクを使用して、パッケージの依存関係の関係を作成する。 このため、タスクは内部の依存関係の変更を認識しながら、 並行して実行することができる。
+
+## [タスクの実行](https://turbo.build/repo/docs/crafting-your-repository/running-tasks)
+
+turbo によるタスクの実行は、開発中および CI パイプラインでリポジトリ全体のワークフローを実行するための 1 つのモデルを得られるので強力
+
+`turbo` は `turbo run` のエイリアス  
+将来追加される可能性のある turbo サブコマンドとの衝突を避けるため、`turbo run` を package.json と CI ワークフローで turbo を使用することを望ましい。
+
+### scripts を package.json で使用する [重要]
+
+頻繁に実行するタスクについては、turbo コマンドをルートの package.json に直接書き込むことができる。
+これは root の package.json のみに留めないと再帰的に実行されてしまうので注意。
+
+```json
+{
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint"
+  }
+}
+```
+
+root から以下のように実行できる
+
+```sh
+npm run dev
+```
+
+### グローバルな turbo を使う (推奨されている様子)
+
+グローバルに turbo をインストールすると、ターミナルから直接コマンドを実行できるようになる。 必要なときに必要なものを正確に実行することが容易になるため、ローカルでの開発体験が向上する。
+さらに、グローバルな turbo は CI パイプラインで有用であり、パイプラインの各ポイントで実行するタスクを最大限にコントロールできる。
+
+### パッケージの自動スコープ
+
+パッケージのディレクトリにいるとき、turbo は自動的にそのパッケージの Package Graph にコマンドをスコープする。 つまり、パッケージ用のフィルタを書かなくても、素早くコマンドを書くことができる。(前提として global な turbo が利用できる必要がある)
+
+```sh
+cd apps/docs
+turbo build
+```
+
+### 動作のカスタマイズ
+
+#### 共通コマンドのバリエーション
+
+`turbo build --filter=@repo/ui` を使えば、興味のある特定のパッケージを素早くフィルタリングできる
+
+#### 単発のコマンド
+
+`turbo build --dry` のようなコマンドは頻繁に必要になるものではないので、package.json にスクリプトを作成する必要はない。
+
+#### turbo.json 設定の上書き
+
+CLI フラグの中には、`turbo.json` に同等のものがあり、それを上書きすることができる。
+グローバルな turbo を使えば、`turbo lint --output-logs=errors-only` でエラーだけを表示できます。
+
+(global な turbo 限定?)
+
+### 複数タスクの実行
+
+turbo は複数のタスクを実行することができ、可能な限り並列化する
+
+```sh
+turbo run build test lint check-types
+```
+
+### フィルタの使用
+
+- パッケージ名によるフィルタリング
+
+```sh
+turbo build --filter=@acme/web
+```
+
+- ディレクトリによるフィルタリング
+
+```sh
+turbo lint --filter="./packages/utilities/*"
+```
+
+- 依存関係を含めるフィルタリング
+
+```sh
+turbo build --filter=...ui
+```
+
+- ソース管理変更によるフィルター (複雑なので割愛)
+- フィルタの組み合わせ (複雑なので割愛)
+
+## [キャッシュ](https://turbo.build/repo/docs/crafting-your-repository/caching)
+
+Turborepo はビルドを高速化するためにキャッシュを使用し、同じ作業を 2 度行わないようにする。 タスクがキャッシュ可能な場合、Turborepo はタスクが最初に実行された時のフィンガープリントを使用して、キャッシュからタスクの結果を復元する。  
+また、[リモートキャッシュ](https://turbo.build/repo/docs/core-concepts/remote-caching)を有効にすると、チーム全体と CI 間でキャッシュを共有することができ、さらに強力になる
+
+Turborepo は、タスクが決定論的であることを前提としている。 タスクが、Turborepo が認識している入力セットから異なる出力を生成できる場合、キャッシュは期待通りに動作しない可能性がある。
+
+### 最初の Turborepo キャッシュを実行する
+
+- 新しい Turborepo プロジェクトを作成する
+- 初めてビルドを実行する: `npm run build`
+- キャッシュを実行する: `npm run build`をもう一度実行すると、cache 結果が表示される。
+
+### リモートキャッシュ
+
+Turborepo は、タスクの結果を`.turbo/cache`ディレクトリに保存する。 しかし、このキャッシュをチームメイトや CI と共有することで、組織全体をさらに高速化することができる。
+
+#### リモートキャッシュを有効にする
+
+```sh
+npx turbo login # Remote Cacheプロバイダーで認証
+npx turbo link  # マシン上のリポジトリをリモートキャッシュにリンク
+```
+
+### 何がキャッシュされるのか？
+
+- タスクの出力
+- ログ
+- タスクの入力
+- グローバルハッシュ入力
+- パッケージのハッシュ入力
+
+### [トラブルシューティング](https://turbo.build/repo/docs/crafting-your-repository/caching#troubleshooting)
+
+- `dry runs`の使用
+- Run Summaries の使用
+- キャッシュのオフ
+- キャッシュの上書き
+- タスクのキャッシュはタスクの実行よりも遅い
+
+## [アプリケーションの開発](https://turbo.build/repo/docs/crafting-your-repository/developing-applications)
+
+monorepo でアプリケーションを開発すると、強力なワークフローが解放され、コードに簡単にアクセスしながらソース管理へアトミックなコミットができるようになる。
+ほとんどの開発タスクは、コードの変更を監視する長時間のタスク。 Turborepo は、強力なターミナル UI や様々な機能によって、このような経験を向上させる。
+
+### 開発タスクの設定
+
+```json
+{
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}
+```
+
+- `"cache": false`: タスクの結果をキャッシュしないように Turborepo に指示
+- `"persistent": true`: タスクを停止するまで実行し続けるように Turborepo に指示
+  - このキーは、ターミナル UI がタスクを長時間実行するインタラクティブなものとして扱うためのシグナル
+  - さらに、終了しないタスクに誤って依存することを防ぐ
+
+#### タスクとの対話
+
+いくつかのスクリプトでは、`stdin` を使って対話的に入力することができる。 [terminal ui](https://turbo.build/repo/docs/reference/configuration#ui) を使って、タスクを選択し、それを入力し、`stdin` を使うことができる。  
+この機能を有効にするには、タスクは interactive でなければならない
+
+### `dev` の前にセットアップタスクを実行する
+
+開発環境のセットアップやパッケージの pre-build を行うスクリプトを実行したい場合、これらのタスクは、dev タスクの前に `dependsOn` で実行されるようにすることができる
+
+```json
+{
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["//#dev:setup"]
+    },
+    "//#dev:setup": {
+      "outputs": [".codegen/**"]
+    }
+  }
+}
+```
+
+この例では、ルート・タスクを使っているが、パッケージ内の任意のタスクにも同じアイデアを使うことができる
+
+### 特定のアプリケーションの実行
+
+```sh
+turbo dev --filter=web
+```
+
+### ウォッチ・モード
+
+多くのツールには、`tsc --watch`のように、ソースコードの変更に反応するウォッチャーが組み込まれているが、そうでないものもある。
+`turbo watch` は、依存関係を意識したウォッチャーを任意のツールに追加する。 ソース コードへの変更は、他のすべてのタスクと同様に、turbo.json に記述したタスク グラフに従う。
+
+- turbo.json
+
+```json
+{
+  "tasks": {
+    "dev": {
+      "persistent": true,
+      "cache": false
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    }
+  }
+}
+```
+
+- package/ui
+
+```json
+{
+  "name": "@repo/ui"
+  "scripts": {
+    "dev": "tsc --watch",
+    "lint": "eslint ."
+  }
+}
+```
+
+- apps/web
+
+```json
+{
+  "name": "web"
+  "scripts": {
+    "dev": "next dev",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+      "@repo/ui": "workspace:*"
+    }
+}
+```
+
+`turbo watch dev lint`を実行すると、ESLint には組み込みのウォッチャーがないにもかかわらず、ソースコードを変更するたびに lint スクリプトが再実行される。 turbo watch は内部依存関係も認識しているため、@repo/ui でコードを変更すると、@repo/ui と web の両方でタスクが再実行される。
+
+web にある Next.js 開発サーバーと、@repo/ui にある TypeScript コンパイラ組み込みのウォッチャーは、persistent でマークされているので、通常どおり動作する。
+
+### 制限事項
+
+#### Teardown tasks
+
+場合によっては、dev タスクが停止しているときにスクリプトを実行したいことがある。 turbo が dev タスクの終了時に終了してしまうため、Turborepo は終了時にこれらのティアダウンスクリプトを実行することができない。
+
+代わりに、`turbo dev:teardown`スクリプトを作成し、プライマリの turbo dev タスクが終了した後に個別に実行する。
+
+## 環境変数の使用
+
+Turborepo は、システム環境変数を使って、独自の動作を設定することもできる
+
+### タスクハッシュに環境変数を追加する
+
+Turborepo は、アプリケーションの動作の変化を考慮するために、環境変数を認識する必要がある。  
+そのためには、`env` と `globalEnv` を `turbo.json` ファイルに記述する。
+
+```json
+{
+  "globalEnv": ["IMPORTANT_GLOBAL_VARIABLE"],
+  "tasks": {
+    "build": {
+      "env": ["MY_API_URL", "MY_API_KEY"]
+    }
+  }
+}
+```
+
+- `globalEnv`: このリストにある環境変数の値を変更すると、すべてのタスクのハッシュが変更される。
+- `env`: タスクに影響を与える環境変数の値の変更を含み、より細かい設定ができる。
+  - 例えば、lint タスクは、`API_KEY` の値が変更されたときにキャッシュを逃す必要はないだろうが、build タスクはキャッシュを逃す必要があるだろう
+
+#### フレームワーク推論
+
+Turborepo では、`env` キーに、一般的なフレームワークのプレフィックスワイルドカードを自動的に追加する。
+以下のフレームワーク(ここでは一部のみ記載)をパッケージで使用している場合、これらのプレフィックスで環境変数を指定する必要はない
+
+- Next.js: `NEXT_PUBLIC_*`
+- Create React App: `REACT_APP_*`
+
+- フレームワーク推論をオプトアウトしたい場合
+  - `--framework-inference=false` でタスクを実行
+  - env キーに負のワイルドカードを追加する（e.g. `"env": ["!NEXT_PUBLIC_*"]`)
+
+### 環境モード
+
+Turborepo の環境モードでは、タスクの実行時に利用可能な環境変数を制御することができる
+
+- Strict Mode (デフォルト)
+  - 環境変数を`env`と`globalEnv`の turbo.json キーで指定されたものだけに絞り込む。
+- Loose Mode
+  - プロセスのすべての環境変数を利用可能にする。
+
+### `.env` ファイルの取り扱い
+
+`.env` ファイルはアプリケーションをローカルで作業するのに適している。 Turborepo は`.env` ファイルをタスクのランタイムにロードしない。
+そのため、フレームワークや dotenv のようなツールに任せる必要がある。
+
+しかし、turbo が`.env` ファイルの値の変更を知っていて、ハッシュに使えるようにしておくことは重要。
+ビルドの間に `.env` ファイル内の変数を変更した場合、build タスクはキャッシュを見逃すだろう。
+
+これを行うには、`inputs` キーにファイルを追加する
+
+```json
+{
+  "globalDependencies": [".env"], // All task hashes
+  "tasks": {
+    "build": {
+      "inputs": ["$TURBO_DEFAULT$", ".env", ".env.local"] // Only the `build` task hash
+    }
+  }
+}
+```
+
+### ベストプラクティス [重要]
+
+#### パッケージで .env ファイルを使う
+
+- リポジトリのルートに`.env`ファイルを使用することは推奨されない。 代わりに、.env ファイルを使用するパッケージに配置する。
+- 環境変数は各アプリケーションのランタイムに個別に存在するため、この方法はアプリケーションのランタイム動作をより忠実にモデル化する。
+- さらに、モノレポの規模が大きくなるにつれて、この方法は各アプリケーションの環境管理を容易にし、アプリケーション間での環境変数のリークを防ぐ
+
+#### `eslint-config-turbo`を使う
+
+[eslint-config-turbo](https://turbo.build/repo/docs/reference/eslint-config-turbo)パッケージは、turbo.json にリストされていないコードで使用される`環境変数`を見つけるのに役立つ。 これにより、すべての環境変数が設定に含まれていることを確認できる。
+
+#### 実行時の環境変数の作成や変更を避ける
+
+Turborepo は、タスクの開始時にタスクの環境変数をハッシュ化する。タスクの途中で環境変数を作成したり、変更したりした場合、Turborepo はその変更を知ることができず、タスクハッシュに考慮されない
+
+例えば、以下の例では、Turborepo はインライン変数を検出できない
+
+```json
+{
+  "scripts": {
+    "dev": "export MY_VARIABLE=123 && next dev"
+  }
+}
+```
+
+### 環境変数を使った例
+
+- Next.js
+
+```json
+{
+  "tasks": {
+    "build": {
+      "env": ["MY_API_URL", "MY_API_KEY"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.production.local",
+        ".env.local",
+        ".env.production",
+        ".env"
+      ]
+    },
+    "dev": {
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        ".env.development.local",
+        ".env.local",
+        ".env.development",
+        ".env"
+      ]
+    },
+    "test": {}
+  }
+}
+```
+
+### トラブルシューティング
+
+- `--summarize`を使う
+
+`--summarize` フラグを `turbo run` コマンドに追加することで、タスクに関するデータをまとめた JSON ファイルを生成することができる。
+`globalEnv` と `env` キーの diff をチェックすることで、設定に欠けている環境変数を特定することができる。
+
+## [CI の構築](https://turbo.build/repo/docs/crafting-your-repository/constructing-ci)
+
+## [Upgrading](https://turbo.build/repo/docs/crafting-your-repository/upgrading)
+
+## [`turbo.json`の設定](https://turbo.build/repo/docs/reference/configuration)
+
+turbo.json ファイルを変更すると、グローバル ハッシュで考慮されるため、すべてのタスクのキャッシュが無効になる。
+グローバル・ハッシュに影響を与えずに設定を柔軟に変更したい場合は、パッケージ設定を使用する必要がある。
 
 ```json
 {
@@ -464,15 +944,84 @@ Turborepo が実行するタスクを登録することで、`turbo run`によ�
 }
 ```
 
-## コマンド
+build task の実行：リポジトリの依存関係グラフに従って、build スクリプトを実行する
 
-- `turbo build`
-  - リポジトリの依存関係グラフに従って、build スクリプトを実行する
+```sh
+turbo build
+```
+
+### グローバルオプション
+
+- extends
+  - [Package Configurations](https://turbo.build/repo/docs/reference/package-configurations)を使用してパッケージの特定の設定を作成するために、ルートの`turbo.json` から拡張する。
+- globalDependencies
+  - すべてのタスク・ハッシュに含めたいグロブのリスト。これらのグロブに一致するファイルが変更された場合、すべてのタスクはキャッシュを逃す
+  - デフォルトでは、ワークスペースのルートでソース管理されているすべてのファイルがグローバルハッシュに含まれる
+- globalEnv
+  - 全タスクのハッシュに影響を与えたい環境変数のリスト。
+  - これらの環境変数を変更すると、全てのタスクがキャッシュを逃すことになる。
+- globalPassThroughEnv
+  - タスクが利用できるようにしたい環境変数のリスト。
+  - このキーを使用すると、すべてのタスクが Strict 環境変数モードになる
+- ui
+  - リポジトリのターミナル UI を選択
+  - `"tui"` は各ログを一度に表示し、タスクと対話できる。
+  - `"stream"` は入ってきたログをそのまま出力し、対話的ではない
+    - Default: `"stream"`
+- dangerouslyDisablePackageManagerCheck
+- cacheDir
+  - ファイルシステムのキャッシュ・ディレクトリを指定する
+  - Default: `".turbo/cache"`
+- daemon
+  - Turborepo は、いくつかの高価な処理を事前に計算するためにバックグラウンドプロセスを実行する。
+  - このスタンドアロンプロセス(デーモン)はパフォーマンスの最適化
+  - Default: `true`
+- envMode
+  - Turborepo の環境モードでは、タスクの実行時に利用可能な環境変数を制御することができる
+  - Default: `"strict"`
+
+### task の定義
+
+- tasks
+
+#### タスク options
+
+- dependsOn
+  - タスクが実行を開始する前に完了する必要のあるタスクのリスト
+- env
+  - タスクが依存する環境変数のリスト
+- passThroughEnv
+  - `Strict Environment Mode` のときでも、このタスクのランタイムが利用できるようにする環境変数の許可リスト
+- outputs
+  - タスクが正常に完了したときにキャッシュする、パッケージの package.json に関連するファイル glob パターンのリスト
+- cache
+  - タスク出力をキャッシュするかどうかを定義する
+  - Default: `true`
+- inputs
+  - ソース・コントロールにチェックインされたパッケージの全ファイル
+  - Default: `[]`
+- outputLogs
+  - 出力ロギングの冗長度を設定する
+  - Default: `full`
+- persistent
+  - タスクに`persistent`というラベルを付けることで、 他のタスクが長時間実行するプロセスに依存しないようにする
+  - Default: `false`
+- interactive
+  - interactive としてラベル付けされたタスクは、ターミナル UI で `stdin` からの入力を受け付ける
+  - Default: `true`
+
+## [パッケージ構成](https://turbo.build/repo/docs/reference/package-configurations)
+
+## [コマンド](https://turbo.build/repo/docs/reference#commands)
+
+- `turbo run`
+- `turbo prune`
 - `turbo generate`
   - [Generator](https://turbo.build/repo/docs/guides/generating-code)を実行して新しいコードをリポジトリに追加する
-
-## Scope
-
-## Cache
-
-## Build
+- `turbo login`
+- `turbo logout`
+- `turbo link`
+- `turbo unlink`
+- `turbo scan`
+- `turbo bin`
+- `turbo telemetry`
