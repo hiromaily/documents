@@ -37,9 +37,13 @@
 
 - for large-scale projects and teams.
 
+### [WIP: Rush](https://rushjs.io/)
+
+Microsoft 製でアーキテクチャもしっかりしている
+
 ### [Lerna](https://lerna.js.org/)
 
-Lerna が down trend なので skip
+down trend で開発も止まっている様子
 
 ### [Yarn Workspaces](https://yarnpkg.com/features/workspaces)
 
