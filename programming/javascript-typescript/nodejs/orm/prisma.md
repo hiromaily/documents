@@ -208,6 +208,16 @@ npx prisma studio
 npx prisma validate
 ```
 
+## 実際の手順
+
+- DDLの作成
+- `prisma introspect`でschemaを生成
+- schemaを修正
+- `prisma format`でschemaをフォーマット
+- `prisma migrate dev` でマイグレーションファイル(sql)を作成し、DBへ反映
+- `prisma generate`によりclientコードの生成
+
+
 ## References
 
 - [Official](https://www.prisma.io/orm)

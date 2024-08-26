@@ -98,3 +98,7 @@ export const ChainId = {
 ## 開発した eslint plugin の 公開
 
 - [tsup](https://github.com/egoist/tsup)
+
+```sh
+tsup src/index.ts --format cjs,esm --dts
+```
