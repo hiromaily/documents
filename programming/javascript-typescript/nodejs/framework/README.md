@@ -8,4 +8,8 @@
 
 ## [NestJS](https://nestjs.com/)
 
-- [nestjs-project-structure](https://github.com/CatsMiaow/nestjs-project-structure)
+- ディレクトリ例(参考用)
+  - [nestjs-project-structure](https://github.com/CatsMiaow/nestjs-project-structure)
+- NestJSとしてのアーキテクチャ
+  - `Clean Architecuture` ??
+  - [NestJS architecture step by step guide](https://kodaschool.com/blog/the-architecture-of-nestjs)
