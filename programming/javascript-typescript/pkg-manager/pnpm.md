@@ -1,6 +1,6 @@
 # pnpm
 
-ディスク容量の節約とインストール速度の向上、node_modules の厳格さに焦点を当てているので、monorepo向きと言える
+ディスク容量の節約とインストール速度の向上、node_modules の厳格さに焦点を当てているので、monorepo 向きと言える
 
 - ストレージが効率的
 - インストールが高速
@@ -31,7 +31,25 @@ pnpm store prune
 pnpm update --latest
 ```
 
-## pnpmに移行する際に発生した問題
+## 構成
+
+### [package.json](https://pnpm.io/package_json)
+
+### [Settings (.npmrc)](https://pnpm.io/npmrc)
+
+### [pnpm-workspace.yaml](https://pnpm.io/pnpm-workspace_yaml)
+
+```yaml
+packages:
+  # packages/ の直下のサブディレクトリにあるすべてのパッケージ
+  - "packages/*"
+  # components/ のサブディレクトリにあるすべてのパッケージ
+  - "components/**"
+  # テストディレクトリ内にあるパッケージを除外
+  - "!**/test/**"
+```
+
+## pnpm に移行する際に発生した問題
 
 ### `WARN  The "workspaces" field in package.json is not supported by pnpm. Create a "pnpm-workspace.yaml" file instead.`
 
@@ -39,11 +57,11 @@ pnpm update --latest
 
 ```yaml
 packages:
-  - 'apps/*'
-  - 'apps/batch/*'
-  - 'packages/*'
-  - 'packages/api/*'
-  - 'packages/web/*'
+  - "apps/*"
+  - "apps/batch/*"
+  - "packages/*"
+  - "packages/api/*"
+  - "packages/web/*"
 ```
 
 ### `ERROR  This project is configured to use yarn`
@@ -53,11 +71,12 @@ rm -rf yarn.lock .yarnrc.yml .yarnrc .yarn
 ```
 
 - remove `yarn` from package.json
+
 ```json
 {
- // ...
- "packageManager": "yarn@..." // switch to pnpm@9.9.0
- // ...
+  // ...
+  "packageManager": "yarn@..." // switch to pnpm@9.9.0
+  // ...
 }
 ```
 
@@ -71,8 +90,6 @@ rm -rf yarn.lock .yarnrc.yml .yarnrc .yarn
 link-workspace-packages=true
 ```
 
-- `workspace: protocol in dependencies`とは？
-
 ## References
 
-- [JavaScriptパッケージ管理ツール「pnpm」の紹介 (2023)](https://zenn.dev/cloud_ace/articles/articlejs-package-manager-pnpm)
+- [JavaScript パッケージ管理ツール「pnpm」の紹介 (2023)](https://zenn.dev/cloud_ace/articles/articlejs-package-manager-pnpm)
