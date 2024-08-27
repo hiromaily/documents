@@ -84,10 +84,24 @@ rm -rf yarn.lock .yarnrc.yml .yarnrc .yarn
 
 - [github:pnpm ERR_PNPM_FETCH_404 for workspace packages](https://github.com/pnpm/pnpm/issues/8036)
 - [pnpm: Workspace Settings](https://pnpm.io/npmrc#workspace-settings)
-  - `.npmrc`ファイルを作成し以下設定を追加
+
+#### `.npmrc`ファイルを作成し以下設定を追加
 
 ```
 link-workspace-packages=true
+```
+
+#### 各package.json内にて、internalのrepositoryの参照方法に、`workspace:*`の指定が必要
+
+```json
+{
+    "name": "web",
+    "dependencies": {
+        "next": "xx",
+        "react": "xx",
+        "ui": "workspace:*" // uiパッケージをinternalとして参照する
+    }
+}
 ```
 
 ## References
