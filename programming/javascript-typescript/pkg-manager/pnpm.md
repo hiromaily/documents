@@ -91,24 +91,27 @@ rm -rf yarn.lock .yarnrc.yml .yarnrc .yarn
 link-workspace-packages=true
 ```
 
-#### 各package.json内にて、internalのrepositoryの参照方法に、`workspace:*`の指定が必要
+#### 各 package.json 内にて、internal の repository の参照方法に、`workspace:*`の指定が必要
 
 ```json
 {
-    "name": "web",
-    "dependencies": {
-        "next": "xx",
-        "react": "xx",
-        "ui": "workspace:*" // uiパッケージをinternalとして参照する
-    }
+  "name": "web",
+  "dependencies": {
+    "next": "xx",
+    "react": "xx",
+    "ui": "workspace:*" // uiパッケージをinternalとして参照する
+  }
 }
 ```
 
 ### `ERR_PNPM_WORKSPACE_PKG_NOT_FOUND`
 
-```
+```sh
 ERR_PNPM_WORKSPACE_PKG_NOT_FOUND  In apps/api: "@repo/typescript-config@workspace:*" is in the dependencies but no package named "@repo/typescript-config" is present in the workspace
 ```
+
+- [github:pnpm ERR_PNPM_WORKSPACE_PKG_NOT_FOUND  when pnpm install in a workspace with local package](https://github.com/pnpm/pnpm/issues/7678)
+- ["<PackageA> is in the dependencies but no package named <PackageA> is present in the workspace" - Error when running pnpm install](https://stackoverflow.com/questions/77865368/packagea-is-in-the-dependencies-but-no-package-named-packagea-is-present-in)
 
 ## References
 
