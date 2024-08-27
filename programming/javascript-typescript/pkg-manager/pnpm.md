@@ -104,6 +104,12 @@ link-workspace-packages=true
 }
 ```
 
+### `ERR_PNPM_WORKSPACE_PKG_NOT_FOUND`
+
+```
+ERR_PNPM_WORKSPACE_PKG_NOT_FOUND  In apps/api: "@repo/typescript-config@workspace:*" is in the dependencies but no package named "@repo/typescript-config" is present in the workspace
+```
+
 ## References
 
 - [JavaScript パッケージ管理ツール「pnpm」の紹介 (2023)](https://zenn.dev/cloud_ace/articles/articlejs-package-manager-pnpm)
