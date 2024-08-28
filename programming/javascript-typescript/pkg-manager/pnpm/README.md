@@ -96,7 +96,7 @@ rm -rf yarn.lock .yarnrc.yml .yarnrc .yarn
 
 #### `.npmrc`ファイルを作成し以下設定を追加
 
-```
+```ini
 link-workspace-packages=true
 ```
 
