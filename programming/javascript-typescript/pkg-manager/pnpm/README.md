@@ -131,6 +131,14 @@ packages:
   - 'packages/web/*'
 ```
 
+## コンテナ内で、`pnpm install`実行時に、lifetime scriptの実行で失敗する場合
+
+- `--ignore-scripts` オプションをつける
+  - Don't run lifecycle scripts
+
+```dockerfile
+RUN pnpm install --ignore-scripts
+```
 
 ## References
 
