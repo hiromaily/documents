@@ -15,39 +15,71 @@
 モノレポにおける NPM で配布するパッケージ。通常、`/packages` ディレクトリにワークスペースごとのディレクトリを作る。
 単に`パッケージ`と言った場合は、ワークスペースを指すことがある。モノレポには複数のワークスペースが存在しうる。
 
-## Monorepo tool
+## hoisting (吊り上げ) 
 
-- [Which is Better JavaScript Monorepo Tools?](https://npm-compare.com/@microsoft/rush,lerna,nx,turbo)
-- [2022 Monorepo Tools](https://2022.stateofjs.com/en-US/libraries/monorepo-tools/)
-- [Super 7 JavaScript Monorepo Tools 2024](https://themeselection.com/javascript-monorepo-tools/)
-- [The 3 Best Monorepo Tools for 2023](https://itnext.io/the-3-best-monorepo-tools-for-2023-290bd4be8f0b)
+※ ChatGPTより
 
-### 比較
+`pnpm` などのパッケージ マネージャーのコンテキストでの`hoisting`とは、依存関係をディレクトリ構造内の上位レベル (通常はプロジェクトまたはワークスペースのルート) に移動するプロセスを指し、複数のパッケージまたはワークスペース間で共有できるようにする。これにより、プロジェクトのさまざまな部分で依存関係が重複するのを防ぎ、依存関係の管理を簡素化できる。
 
-### [Turborepo](https://turbo.build/repo)
+### hoisting の詳細
 
-- キャッシュを利用し、差分がある箇所のみのビルドを行うためビルド時間が高速
-- 管理しているパッケージ間の依存関係を考慮した順でビルドが可能
-- 複数のタスクを並列で実行することが可能
-- 依存関係のグラフを可視化可能
+#### 1. **hoistingの基本概念**
 
-- for the frontend community.
+- 複数のパッケージまたはワークスペースを含むmonorepoでは、各パッケージの `package.json` ファイルで定義された独自の依存関係セットが存在する場合がある。
+- 一部の依存関係は、複数のパッケージ間で共通している場合がある。たとえば、複数のパッケージが `eslint` に依存している場合がある。
+- 各パッケージの `node_modules` ディレクトリに `eslint` を個別にインストールする代わりに、パッケージ マネージャーはこの依存関係を上位レベル (通常はルート `node_modules`) に`hoisting`して、それを必要とするすべてのパッケージからアクセスできるようにする。
 
-### [WIP: Nx](https://nx.dev/)
+#### 2. **pnpm が hoisting を処理する方法**
 
-- for large-scale projects and teams.
+- **フラットなノード モジュール構造 (設計による):** npm や Yarn とは異なり、pnpm はデフォルトでフラットな `node_modules` 構造を作成しない。代わりに、シンボリック リンクを使用して、各パッケージが必要な依存関係の正確なバージョンのみを取得する深い構造を作成する。
+- **効率性のためのhoisting:** この深い構造であっても、pnpm は共通の依存関係をルート `node_modules` に hoisting することで依存関係ツリーを最適化する。これにより、これらの依存関係をモノレポ内のすべてのパッケージで共有できるようになり、重複が減り、インストール速度が向上する。
+- **依存関係の解決:** パッケージに依存関係が必要な場合、pnpm は最初にパッケージ自体の `node_modules` を検索する。そこで依存関係が見つからない場合は、ディレクトリ構造を上に移動し、ルート `node_modules` または依存関係が`hoisting`されている可能性のある場所を確認する。
 
-### [WIP: Rush](https://rushjs.io/)
+#### 3. **モノレポでの hoisting の例**
 
-Microsoft 製でアーキテクチャもしっかりしている
+- **モノレポの構造:**
 
-### [Lerna](https://lerna.js.org/)
+```
+/monorepo
+├── package.json (ルートレベルの package.json)
+├── node_modules/ ( hoisting された依存関係はここに配置)
+├── packages/
+│ ├── package-a/
+│ │ ├── package.json
+│ │ └── node_modules/
+│ ├── package-b/
+│ │ ├── package.json
+│ │ └── node_modules/
+│ └── package-c/
+│ ├── package.json
+│ └── node_modules/
+└── pnpm-workspace.yaml
+```
+- **シナリオ:**
+- `package-a`, `package-b` と `package-c` はすべて、`eslint` を依存関係としてリストする。
+- pnpm は `eslint` を `/monorepo/node_modules/` の下のルート レベルに 1 回インストールし、すべてのパッケージはこの hoisting されたバージョンを使用する。
 
-down trend で開発も止まっている様子
+#### 4. **hoistingの利点**
 
-### [Yarn Workspaces](https://yarnpkg.com/features/workspaces)
+- **ディスク スペースの効率:** 共通の依存関係をhoistingすると、同じ依存関係の複数のコピーがすべてのパッケージにインストールされないため、ディスク スペースの使用量が削減される。
+- **インストールの高速化:**  hoisting により、共通の依存関係が 1 回だけインストールされるため、依存関係のインストールに必要な全体的な時間が短縮される。
+- **依存関係の管理が簡単:**  hoisting により、バージョンの競合や重複を回避できるため、大規模なコードベース全体で依存関係を管理しやすくなる。
 
-Yarn が down trend なので skip
+#### 5. ** hoisting に関する潜在的な問題**
+
+- **バージョンの競合:** 異なるパッケージで同じ依存関係の異なるバージョンが必要な場合、 hoisting が不可能になるか、パッケージ マネージャーが特定の方法で競合を解決する必要がある可能性がある。
+- **依存関係の可視性:**  hoisting は、特に直接のパッケージの `package.json` にリストされていない場合、開発者が依存関係がどこから解決されているかを認識しない可能性があるため、混乱を招くことがある。**[最大のデメリット]**
+
+#### 6. **hoisting の制御**
+
+- **`pnpm` を使用すると、 hoisting をある程度制御できる:**
+- **`shamefully-hoist`:** このオプションは、npm や Yarn などの他のパッケージ マネージャーの動作を模倣して、pnpm にすべての依存関係を hoisting するように強制する。
+- **`public-hoist-patterns`:** これにより、 hoisting する必要があるパッケージの特定のパターンを定義できる。
+
+### 結論
+
+`pnpm` の hoisting は、冗長性を減らしてパフォーマンスを向上させることでモノレポの依存関係管理を最適化する強力な機能だが、バージョンの競合や依存関係の可視性に関連する潜在的な問題を回避するには、プロジェクト全体で依存関係がどのように解決されるかを理解する必要がある。
+
 
 ## References
 

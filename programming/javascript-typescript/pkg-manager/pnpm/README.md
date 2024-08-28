@@ -49,6 +49,16 @@ packages:
   - "!**/test/**"
 ```
 
+これは再起的に参照していないように思える。階層が深い場合は、個別にも追加が必要かもしれない
+
+```yaml
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'packages/common/*'
+  - 'packages/web/*'
+```
+
 ## pnpm に移行する際に発生した問題
 
 ### `WARN  The "workspaces" field in package.json is not supported by pnpm. Create a "pnpm-workspace.yaml" file instead.`
@@ -58,10 +68,9 @@ packages:
 ```yaml
 packages:
   - "apps/*"
-  - "apps/batch/*"
   - "packages/*"
-  - "packages/api/*"
-  - "packages/web/*"
+  - 'packages/common/*'
+  - 'packages/web/*'
 ```
 
 ### `ERROR  This project is configured to use yarn`
@@ -112,6 +121,16 @@ ERR_PNPM_WORKSPACE_PKG_NOT_FOUND  In apps/api: "@repo/typescript-config@worksp
 
 - [github:pnpm ERR_PNPM_WORKSPACE_PKG_NOT_FOUND  when pnpm install in a workspace with local package](https://github.com/pnpm/pnpm/issues/7678)
 - ["<PackageA> is in the dependencies but no package named <PackageA> is present in the workspace" - Error when running pnpm install](https://stackoverflow.com/questions/77865368/packagea-is-in-the-dependencies-but-no-package-named-packagea-is-present-in)
+
+#### pnpm-workspace.yamlに `'packages/common/*'` を追加
+```yaml
+packages:
+  - 'apps/*'
+  - 'packages/*'
+  - 'packages/common/*'
+  - 'packages/web/*'
+```
+
 
 ## References
 
