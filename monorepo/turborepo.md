@@ -18,6 +18,63 @@ turbo は `Workspaces` の上に構築されており、これは JavaScript エ
   - ex. lint, build, test, deploy などの依存関係は慣習的に定まる
 - ビルドプロファイルを生成でき、ブラウザでインポートして時間がかかっているタスクを把握できる
 
+## Docker内での利用 `prune`
+
+```dockerfile
+# turbo prune [パッケージ]
+RUN turbo prune patient-api --docker
+```
+
+### prune
+
+- 対象パッケージの部分モノレポを生成する
+- 出力は`out`というディレクトリに置かれ、以下のものが含まれる
+  - ターゲットのビルドに必要なすべての内部パッケージの完全なソースコード
+  - ターゲットのビルドに必要なオリジナルのロックファイルのサブセットを含むプルーニングされたロックファイル
+  - rootのpackage.jsonのコピー
+
+#### --docker オプション
+
+- default: false
+- dockerのlayer cachingを使いやすくするために、出力ディレクトリを変更する
+  - `json`ディレクトリ: プルーニングされたワークスペースの `package.json` ファイルが含まれる
+  - `full`ディレクトリ: ターゲットのビルドに必要な内部パッケージの、刈り込まれたワークスペースの完全なソースコードが格納される
+  - ターゲットの構築に必要な元のロックファイルのサブセットを含むプルーニングされたロックファイル
+
+以下コマンドの実行例
+
+```dockerfile
+RUN turbo prune frontend --docker 
+```
+
+package名に`frontend`を指定していても、それ以外も格納されている？
+
+```
+.
+├── pnpm-lock.yaml (partial)
+├── full/
+│   ├── package.json (from root)
+│   ├── apps
+│   └── packages
+└── json/
+    ├── package.json (from root)
+    └── packages/
+        ├── ui/
+        │   └── package.json
+        ├── shared/
+        │   └── package.json
+        └── frontend/
+            └── package.json
+```
+
+- [turborepo: prune](https://turbo.build/repo/docs/reference/prune)
+- [turborepo: Experimental: Pruned Workspaces](https://turbo.build/blog/turbo-0-4-0#experimental-pruned-workspaces)
+
+
+
+
+
+
 ## [Support Policy](https://turbo.build/repo/docs/getting-started/support-policy)
 
 ### 利用可能なパッケージマネージャ
