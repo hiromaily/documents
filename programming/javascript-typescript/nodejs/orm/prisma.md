@@ -217,7 +217,7 @@ npx prisma validate
 - `prisma migrate dev` でマイグレーションファイル(sql)を作成し、DBへ反映
 - `prisma generate`によりclientコードの生成
 
-## schemaについて
+## schemaのDB側のnamingのmappingについて
 
 以下のように命名規則がschemaファイルと、Datbaseで異なるので、mappingが必要となる。
 そこで、[prisma-case-format](https://github.com/iiian/prisma-case-format)によって一括変換すると便利。
@@ -233,6 +233,11 @@ model Users {
   @@map("users")
 }
 ```
+
+## schemaのコメントをDDLに反映させる
+
+- [prisma-db-comments-generator](https://github.com/onozaty/prisma-db-comments-generator)をinstallし、`prisma generate`で出力
+
 
 ### [prisma-case-format](https://github.com/iiian/prisma-case-format)
 

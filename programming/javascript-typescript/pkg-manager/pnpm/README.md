@@ -29,6 +29,9 @@ pnpm add -g <pkg> # global install
 pnpm install
 pnpm store prune
 pnpm update --latest
+
+# monorepo内の指定packageのtaskを実行
+pnpm --filter "@babel/core" test
 ```
 
 ## 構成
@@ -130,6 +133,10 @@ packages:
   - 'packages/common/*'
   - 'packages/web/*'
 ```
+
+### ` This project's package.json defines "packageManager": "yarn@pnpm@9.9.0". However the current global version of Yarn is x.xx.`
+
+- repositoryにyarn関連のファイルが残っていた
 
 ## コンテナ内で、`pnpm install`実行時に、lifetime scriptの実行で失敗する場合
 
