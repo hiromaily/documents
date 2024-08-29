@@ -18,7 +18,7 @@ turbo は `Workspaces` の上に構築されており、これは JavaScript エ
   - ex. lint, build, test, deploy などの依存関係は慣習的に定まる
 - ビルドプロファイルを生成でき、ブラウザでインポートして時間がかかっているタスクを把握できる
 
-## Docker内での利用 `prune`
+## Docker 内での利用 `prune`
 
 ```dockerfile
 # turbo prune [パッケージ]
@@ -31,12 +31,12 @@ RUN turbo prune patient-api --docker
 - 出力は`out`というディレクトリに置かれ、以下のものが含まれる
   - ターゲットのビルドに必要なすべての内部パッケージの完全なソースコード
   - ターゲットのビルドに必要なオリジナルのロックファイルのサブセットを含むプルーニングされたロックファイル
-  - rootのpackage.jsonのコピー
+  - root の package.json のコピー
 
 #### --docker オプション
 
 - default: false
-- dockerのlayer cachingを使いやすくするために、出力ディレクトリを変更する
+- docker の layer caching を使いやすくするために、出力ディレクトリを変更する
   - `json`ディレクトリ: プルーニングされたワークスペースの `package.json` ファイルが含まれる
   - `full`ディレクトリ: ターゲットのビルドに必要な内部パッケージの、刈り込まれたワークスペースの完全なソースコードが格納される
   - ターゲットの構築に必要な元のロックファイルのサブセットを含むプルーニングされたロックファイル
@@ -44,10 +44,10 @@ RUN turbo prune patient-api --docker
 以下コマンドの実行例
 
 ```dockerfile
-RUN turbo prune frontend --docker 
+RUN turbo prune frontend --docker
 ```
 
-package名に`frontend`を指定していても、それ以外も格納されている？
+package 名に`frontend`を指定していても、それ以外も格納されている？
 
 ```
 .
@@ -67,13 +67,50 @@ package名に`frontend`を指定していても、それ以外も格納されて
             └── package.json
 ```
 
+実際に Dockerfile 内で、`RUN ls -al`を実行して確認してみた
+
+- `RUN ls -la /app/out`
+
+  - full
+  - json
+  - pnpm-lock.yaml
+  - pnpm-workspace.yaml
+
+- `RUN ls -la /app/out/json`
+
+  - .npmrc
+  - apps
+  - package.json
+  - packages
+  - pnpm-lock.yaml
+  - pnpm-workspace.yaml
+
+- `RUN ls -la /app/out/json/apps/batch/example`
+
+  - package.json
+
+- `RUN ls -la /app/out/full`
+
+  - .gitignore
+  - .npmrc
+  - apps
+  - package.json
+  - packages
+  - pnpm-workspace.yaml
+  - turbo.json
+
+- `RUN ls -la /app/out/full/apps/batch/example`
+
+  - .env.example
+  - Dockerfile
+  - package.json
+  - src
+  - tsconfig.json
+
+### `prune` references
+
 - [turborepo: prune](https://turbo.build/repo/docs/reference/prune)
 - [turborepo: Experimental: Pruned Workspaces](https://turbo.build/blog/turbo-0-4-0#experimental-pruned-workspaces)
-
-
-
-
-
 
 ## [Support Policy](https://turbo.build/repo/docs/getting-started/support-policy)
 
