@@ -102,6 +102,38 @@ In this case, app1 can connect to app2 with container_name and internal port
       "
 ```
 
+## 5. Containerを待機状態にして、コマンドを待ち受ける
+
+```yaml
+  batch:
+    build:
+      context: .
+      dockerfile: ./apps/Dockerfile
+    container_name: "batch"
+    profiles: ["batch"]
+    command: ["sleep", "infinity"]
+    networks:
+      - localnetwork
+```
+
+service `batch`に対して、コマンドを実行
+
+```sh
+docker exec -it sample-batch go run apps/batch/main.go
+```
+
+### `sleep infinity`について
+
+- This approach has minimal impact on system resources, as the sleep command is extremely lightweight.
+- CPU Usage: sleep infinity uses virtually no CPU resources because it doesn’t actively perform any operations
+- Memory Usage: The memory footprint of a process running sleep infinity is very small
+- `shell`による待受よりリソース消費が少ない
+
 ## 4. Dockerfile linter
 
-[hadolint](https://github.com/hadolint/hadolint)
+- [`--check` option](./debug.md)で実現できる
+
+```sh
+docker build -f ./docker/Dockerfile . --check
+```
+- Outdated: [hadolint](https://github.com/hadolint/hadolint)

@@ -140,6 +140,24 @@ healthcheck:
   start_period: 40s
 ```
 
+## build内の`target`
+
+```yaml
+postgresql:
+  container_name: webfw-postgresql
+  build:
+    context: ./docker
+    dockerfile: Dockerfile_pg
+    target: "database"
+```
+
+ここで指定する`target`は、マルチステージビルドの`ステージ名`となる。
+
+```dockerfile
+#FROM イメージ名 AS ステージ名
+FROM tytocare/node-base:20.17.0 AS base
+```
+
 ## References
 
 - [個人的 docker compose おすすめ tips 9 選](https://future-architect.github.io/articles/20240620a/)
