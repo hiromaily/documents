@@ -5,8 +5,12 @@
 `分割可能性`に優れており、他の NoSQL データベースタイプでは実現できないレベルでの`水平スケーリング`が可能。key-value データベースは、データを、キーと値のペアのコレクションとして格納する。ここでキーは、一意の識別子として機能する。キーと値は、単純なオブジェクトから複雑な複合オブジェクトまで、何でもよい。ゲーム、広告技術、IoT などのユースケースは、Key-value ストアデータ設計に特に適している。
 
 - [Redis](https://redis.io/)
+  - Redis はメモリ上で動作するキーバリューストア型のデータベース
+- [Aerospike](https://aerospike.com/)
 - [Memcached](https://memcached.org/)
+  - Redis と比べると down trend 感がある
 - [Riak](https://riak.com/index.html)
+  - 検索すると記事が古い。。。
 
 ## [Key-value DB: ワイドカラムストア型](https://aws.amazon.com/jp/nosql/key-value/)
 
