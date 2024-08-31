@@ -4,7 +4,6 @@
 - `esm` is ES Module
 - `umd` is Umd Module
 
-
 [typescript/modules](../typescript/modules.md)
 
 ## Module の種類
@@ -14,10 +13,10 @@
 Node.js で採用されているモジュールシステムで、`CommonJS`を指す。
 `CJS` はそのままではクライアント(ブラウザ)で動かすことはできない。
 
-```
-const lib = require( "package/lib" );
-function hello　()　{
-    lib.hello( "Hello!" );
+```js
+const lib = require("package/lib");
+function hello() {
+  lib.hello("Hello!");
 }
 
 exports.hello = hello;
@@ -28,10 +27,10 @@ exports.hello = hello;
 JavaScript におけるスタンダードなモジュールシステムで、ES2015 で策定された。
 Node.js もデフォルトは`CJS`だが、`ESM`のサポートも進んできている。
 
-```
-import React from 'react'
+```ts
+import React from "react";
 // ...
-export default App
+export default App;
 ```
 
 ### UMD
@@ -77,7 +76,6 @@ AMD（Asynchronous Module Definition）も JS モジュールシステムの 1 �
 - [github](https://github.com/DefinitelyTyped/DefinitelyTyped)
 - [github:ja](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.ja.md)
 - 型定義ファイル
-
 
 ## import 方法の違い
 
