@@ -8,12 +8,12 @@ RDB は水平スケーリングが難しく、分散型 DB として活用でき
 
 従来の SQL データベースとは異なるアーキテクチャを持つ分散データベース。NoSQL は、データの構造やデータの扱い方に制約が少なく、柔軟にデータの保存や処理を行うことができる。そのため、非構造化データや膨大なデータの保存や処理に適している。
 
-- Redis
-- Aerospike
-- Amazon DynamoDB
-- Apache Cassandra
-- MongoDB
-- Couchbase
+- Redis (Key-value)
+- Aerospike (Key-value)
+- Amazon DynamoDB (Key-value: wide column)
+- Apache Cassandra (Key-value: wide column)
+- MongoDB (Document DB)
+- Couchbase (Document DB)
 
 ## NewSQL
 

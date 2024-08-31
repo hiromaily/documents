@@ -18,7 +18,7 @@ SQL における`DDL`には、データベースやテーブル、ビューな�
   - [Mermaid with ChatGPT](https://www.mermaidchart.com/landing)
 - [PlantUML](https://plantuml.com/ja-dark/ie-diagram)
 - [draw.io](https://app.diagrams.net/)
-  - DDLやmermaidから生成することができるが、mermaidから生成したほうがクオリティーが高い
+  - DDL や mermaid から生成することができるが、mermaid から生成したほうがクオリティーが高い
   - [配置]-[挿入]-[高度な設定]
 - [SchemaSpy](https://schemaspy.org/)
   - これもよく使われており、良さげ
@@ -38,13 +38,14 @@ SQL における`DDL`には、データベースやテーブル、ビューな�
 
 ## DDL から ER 図の自動生成ができるとよい
 
-- DDL 作成後、ChatGPT から Mermaid を自動生成
-  - NOT NULLが図に反映できにあ
+- Mermaid 記法による ER 図
+  - DDL 作成後、ChatGPT から Mermaid を自動生成
+  - NOT NULL が図に反映できない
 - [dbdiagram.io](https://dbdiagram.io/home)
-  - table数が10まで
+  - table 数が 10 まで
 - [drawio with SQL plugin](https://www.drawio.com/doc/faq/sql-plugin)
   - `MySQL` or `SQL Server`
-  - drawioの場合、mermaidから変換したほうがクオリティーが高い
+  - drawio の場合、`mermaid から変換`したほうがクオリティーが高い
 - [atlas](https://atlasgo.io/)
 
 ### [dbdiagram.io](https://dbdiagram.io/home)

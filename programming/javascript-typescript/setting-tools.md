@@ -1,4 +1,4 @@
-# files in Github Repository
+# npm エコシステム内でよく使われるツールや設定
 
 ## .vscode directory
 
