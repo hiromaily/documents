@@ -1,11 +1,10 @@
-# ENUM 列挙型 
+# ENUM 列挙型
 
-データ型として利用できるが、[サーティーワンフレーバー](./anti-patterns.md)にある通りアンチパターンであり、ENUMは変更が入らない確証が得られる場合のみの利用に留めたほうがよい。しかし、変更が発生すると、どのようになるのか？
-
+データ型として利用できるが、[サーティーワンフレーバー](./anti-patterns.md)にある通りアンチパターンであり、ENUM は変更が入らない確証が得られる場合のみの利用に留めたほうがよい。しかし、変更が発生すると、どのようになるのか？
 
 ## PostgreSQL
 
-### Enumの作成 (PostgreSQLを想定)
+### Enum の作成 (PostgreSQL を想定)
 
 ```sql
 CREATE TYPE fruit AS ENUM ('apple', 'orange', 'strawberry');
@@ -42,7 +41,7 @@ ORDER BY
   , pg_enum.enumlabel;
 ```
 
-非常に複雑なqueryが必要になる
+非常に複雑な query が必要になる
 
 ### 値の追加
 
@@ -76,7 +75,7 @@ ALTER TYPE job_status RENAME VALUE 'pending' TO 'suspended';
 ## MySQL
 
 - 内部的には整数として保持される
-- ENUM型を独立して定義できず、テーブルに紐づけられる
+- ENUM 型を独立して定義できず、テーブルに紐づけられる
 
 ```sql
 CREATE TABLE products (

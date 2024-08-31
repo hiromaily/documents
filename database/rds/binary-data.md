@@ -1,7 +1,7 @@
 # バイナリデータの格納
 
-標準SQLは、`BLOB`または`BINARY LARGE OBJECT`という、バイナリ列型を定義するが、PostgreSQLでは異なる。
-MySQLの場合、`BLOB`型が存在する。
+標準 SQL は、`BLOB`または`BINARY LARGE OBJECT`という、バイナリ列型を定義するが、PostgreSQL では異なる。
+MySQL の場合、`BLOB`型が存在する。
 
 ## データベースにバイナリとして画像を保存するメリット・デメリット
 
@@ -10,7 +10,6 @@ MySQLの場合、`BLOB`型が存在する。
 - データの一貫性が保たれ、データベースのバックアップや復元が容易になる
 - セキュリティの観点からもアクセス制御が容易になる
 - トランザクション分離の問題が解決される
-
 
 ### デメリット
 
@@ -22,20 +21,20 @@ MySQLの場合、`BLOB`型が存在する。
 
 ## SQL Antipatterns: Phantom Files
 
-ファイルのバイナリ情報をDBの内部に保存するのではなく、外部のファイルに置くというパターンこそがアンチパターンであり、データベースで画像を保存するべきという主張だが、ここで最も大切なことは「盲目的にアンチパターンを避けない」ということ
+ファイルのバイナリ情報を DB の内部に保存するのではなく、外部のファイルに置くというパターンこそがアンチパターンであり、データベースで画像を保存するべきという主張だが、ここで最も大切なことは「盲目的にアンチパターンを避けない」ということ
 
-扱うファイルの数やサイズが小規模なものであれば、DBのトランザクションを利用して処理した方が、信頼性が高く実装コストも低くなることが期待できる。
+扱うファイルの数やサイズが小規模なものであれば、DB のトランザクションを利用して処理した方が、信頼性が高く実装コストも低くなることが期待できる。
 
 ## PostgreSQL
 
 [PostgreSQL16: バイナリ列データ型](https://www.postgresql.jp/document/16/html/datatype-binary.html)
 
 - `bytea`データ型はバイナリ列の保存を可能にする
-- bytea型は入出力用に2つの書式をサポート
-  - hex書式 (Default)
+- bytea 型は入出力用に 2 つの書式をサポート
+  - hex 書式 (Default)
   - エスケープ書式
 
-### Create文
+### Create 文
 
 ```sql
 CREATE TABLE image_box (id INTEGER PRIMARY KEY, dat BYTEA);
@@ -44,11 +43,11 @@ CREATE TABLE image_box (id INTEGER PRIMARY KEY, dat BYTEA);
 ### 汎用ファイルアクセス関数
 
 - `pg_read_binary_file`関数
-  - ファイルの内容(bytea型)を返す
+  - ファイルの内容(bytea 型)を返す
 
-#### AES-256で暗号化かけたファイルを保存する例 (Golang)
+#### AES-256 で暗号化かけたファイルを保存する例 (Golang)
 
-`AWS`を使う場合は`KMS`で管理しているpasswordを使って、暗号化する
+`AWS`を使う場合は`KMS`で管理している password を使って、暗号化する
 
 ```go
 package main
