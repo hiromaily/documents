@@ -37,7 +37,7 @@ Next Steps
      Seek for help on Discord: https://discord.gg/BypW39g6Yc
 ```
 
-## [Migration eslint with bun](https://biomejs.dev/guides/migrate-eslint-prettier/)
+## WIP: [Migration eslint with bun](https://biomejs.dev/guides/migrate-eslint-prettier/)
 
 ```sh
 # bunx biome migrate eslint
@@ -65,7 +65,31 @@ These patterns cannot be migrated because Biome doesn't support them.
   ~~`@hono-bun/eslint-config`側の依存を暫定的に、該当 workspace に install。~~
 - 依存の`"@hono-bun/eslint-config": "workspace:*",`を一旦削除し、root から再 install
   - なぜか、参照してもいない、`Cannot find package '@hono-bun/eslint-config-eslint-config'`のエラーが引き続き発生する
-- エラーは出るが、`biome.json`は下記蹴られた
+- エラーは出るが、`biome.json`は上書きされた様子
+  - だが、うまくいっていないように見える
+
+### WIP: 既存の linter 関連の dependency を適用するにはどうすべきか
+
+```json
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-config-turbo": "^2.0.0",
+    "eslint-plugin-svelte": "^2.35.1"
+  },
+```
+
+- [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin)
+  - An ESLint plugin which provides lint rules for TypeScript codebases.
+- [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser)
+  - An ESLint parser used to parse TypeScript code into ESLint-compatible nodes, as well as provide backing TypeScript programs
+- [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier)
+  - Turns off all rules that are unnecessary or might conflict with Prettier
+- [eslint-config-turbo](https://www.npmjs.com/package/eslint-config-turbo)
+  - Ease configuration for Turborepo
+- [eslint-plugin-svelte](https://github.com/sveltejs/eslint-plugin-svelte)
+  - the official ESLint plugin for Svelte
 
 ## Migration prettier with bun
 

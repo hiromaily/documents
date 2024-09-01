@@ -1,8 +1,8 @@
 # Prisma
 
-TypescriptのためのOSS ORMで、Node.jsでDB操作するときに利用される
+Typescript のための OSS ORM で、Node.js で DB 操作するときに利用される
 
-## 機能  
+## 機能
 
 - data modeling
 - migrations
@@ -12,37 +12,36 @@ TypescriptのためのOSS ORMで、Node.jsでDB操作するときに利用され
 
 - アプリケーションで使用するモデルを表現するもの
 - モデル内でテーブルやカラムの定義を行うことが可能
-- Prisma Clientでクエリーを発行するために必要となる。
+- Prisma Client でクエリーを発行するために必要となる。
 
 ### Prisma schema
 
-- Prismaの設定ファイル
+- Prisma の設定ファイル
 - データベースクライアントやマイグレーションファイルの生成を行う
 
 ### Prisma Client
 
-- Node.js および TypeScript用の自動生成された型安全なクエリビルダー
-- Prisma Modelでの型情報を使用して、クエリーの結果は型安全となる
+- Node.js および TypeScript 用の自動生成された型安全なクエリビルダー
+- Prisma Model での型情報を使用して、クエリーの結果は型安全となる
 
 ### Prisma Migrate
 
-- 宣言型データモデリングおよび移行システムで、Prisma Schemaの情報をベースにマイグレーション周りの処理が可能になる
+- 宣言型データモデリングおよび移行システムで、Prisma Schema の情報をベースにマイグレーション周りの処理が可能になる
 
 ### Prisma Studio
 
-- データベース上のデータを閲覧・編集することができるGUI
+- データベース上のデータを閲覧・編集することができる GUI
 
+## 対応する Database
 
-## 対応するDatabase
-
-主要なDatabase全てに対応している
+主要な Database 全てに対応している
 
 - [Supported databases](https://www.prisma.io/docs/orm/reference/supported-databases)
 
-
-## Installから初期化, Migration
+## Install から初期化, Migration
 
 ### コマンド
+
 ```sh
 npm install prisma
 npm install @prisma/client
@@ -54,51 +53,51 @@ npx prisma init
 
 ### 構成ファイル修正
 
-- `prisma/schema.prisma`の設定 (使用するDBなど)
-- .envの設定: `DATABASE_URL`
+- `prisma/schema.prisma`の設定 (使用する DB など)
+- .env の設定: `DATABASE_URL`
 
-### テーブルの作成とDBへの反映 (Migration)
+### テーブルの作成と DB への反映 (Migration)
 
 1. `prisma/schema.prisma`にテーブル定義を書く
-2. migrateサブコマンドを実行: `npx prisma migrate dev --name init`
+2. migrate サブコマンドを実行: `npx prisma migrate dev --name init`
 
 これにより、`prisma/migrations/YYYYMMDDHHMMSS_init/migration.sql` といったファイルが作成される
 
-### PrismaによるDBの確認
+### Prisma による DB の確認
 
 ```sh
 # GUI上でデータを確認できる
 npx prisma studio
 ```
 
-### DDLからPrisma schemaを生成する
+### DDL から Prisma schema を生成する
 
-schema.prismaの接続情報が正しいことを確認し、以下を実行
+schema.prisma の接続情報が正しいことを確認し、以下を実行
 
 ```sh
 # 最初のみ、既存DBから schema を生成
-npx prisma introspect
-
+# or
 # 以後のDBの直接的な変更があった場合、DBの変更を schema へ反映
+# npx prisma introspect # deprecated
 npx prisma db pull
 ```
 
-### Prisma Clientの生成
+### Prisma Client の生成
 
 ```sh
 npx prisma generate
 ```
 
-## Clientによる操作方法
+## Client による操作方法
 
 ### レコード作成
 
 ```ts
 await prisma.users.create({
-    data: {
-        name: name,
-        email: email,
-    },
+  data: {
+    name: name,
+    email: email,
+  },
 });
 ```
 
@@ -113,24 +112,24 @@ await prisma.user.findMany({
   where: {
     email: email,
   },
-})
+});
 ```
 
-### レコード1件取得
+### レコード 1 件取得
 
 ```ts
 // ユニークなレコードを取得
 await prisma.users.findUnique({
-    where: {
-        id: Number(req.params.id),
-    },
+  where: {
+    id: Number(req.params.id),
+  },
 });
 
 // 最初に一致したレコードを取得
 await prisma.users.findFirst({
-    where: {
-        name: name,
-    },
+  where: {
+    name: name,
+  },
 });
 ```
 
@@ -138,13 +137,13 @@ await prisma.users.findFirst({
 
 ```ts
 await prisma.users.update({
-    where: {
-        id: Number(req.params.id),
-    },
-    data: {
-        name: updatedName,
-        email: updatedEmail,
-    },
+  where: {
+    id: Number(req.params.id),
+  },
+  data: {
+    name: updatedName,
+    email: updatedEmail,
+  },
 });
 ```
 
@@ -152,27 +151,27 @@ await prisma.users.update({
 
 ```ts
 await prisma.users.delete({
-    where: {
-        id: Number(req.params.id),
-    },
+  where: {
+    id: Number(req.params.id),
+  },
 });
 ```
 
-## prismaコマンド
+## prisma コマンド
 
-- ローカルでschemaをDBへ反映させる (prisma schema first)
+- ローカルで schema を DB へ反映させる (prisma schema first)
 
 ```sh
 npx prisma migrate dev
 ```
 
-- 本番/StagingでschemaをDBへ反映させる 
+- 本番/Staging で schema を DB へ反映させる
 
 ```sh
 npx prisma migrate deploy
 ```
 
-- schemaをformatする
+- schema を format する
 
 ```sh
 npx prisma format
@@ -184,25 +183,25 @@ npx prisma format
 npx prisma db seed
 ```
 
-- 既存DBから schema を生成 (おそらく最初のみ)
+- 既存 DB から schema を生成 (おそらく最初のみ)
 
 ```sh
 npx prisma introspect
 ```
 
-- DBの変更を schema へ反映
+- DB の変更を schema へ反映
 
 ```sh
 npx prisma db pull
 ```
 
-- GUI上でデータを確認
+- GUI 上でデータを確認
 
 ```sh
 npx prisma studio
 ```
 
-- schemaでのerrorを確認
+- schema での error を確認
 
 ```sh
 npx prisma validate
@@ -210,16 +209,16 @@ npx prisma validate
 
 ## 実際の手順
 
-- DDLの作成
-- `prisma introspect`でschemaを生成
-- schemaを修正
-- `prisma format`でschemaをフォーマット
-- `prisma migrate dev` でマイグレーションファイル(sql)を作成し、DBへ反映
-- `prisma generate`によりclientコードの生成
+- DDL の作成
+- `prisma introspect`で schema を生成
+- schema を修正
+- `prisma format`で schema をフォーマット
+- `prisma migrate dev` でマイグレーションファイル(sql)を作成し、DB へ反映
+- `prisma generate`により client コードの生成
 
-## schemaのDB側のnamingのmappingについて
+## schema の DB 側の naming の mapping について
 
-以下のように命名規則がschemaファイルと、Datbaseで異なるので、mappingが必要となる。
+以下のように命名規則が schema ファイルと、Datbase で異なるので、mapping が必要となる。
 そこで、[prisma-case-format](https://github.com/iiian/prisma-case-format)によって一括変換すると便利。
 
 ```
@@ -234,10 +233,9 @@ model Users {
 }
 ```
 
-## schemaのコメントをDDLに反映させる
+## schema のコメントを DDL に反映させる
 
-- [prisma-db-comments-generator](https://github.com/onozaty/prisma-db-comments-generator)をinstallし、`prisma generate`で出力
-
+- [prisma-db-comments-generator](https://github.com/onozaty/prisma-db-comments-generator)を install し、`prisma generate`で出力
 
 ### [prisma-case-format](https://github.com/iiian/prisma-case-format)
 
@@ -278,7 +276,7 @@ For instance,
   --map-table-case=snake,singular
 ```
 
-- e.g. model名がcamelケースで、DBをsnakeにしたい場合
+- e.g. model 名が camel ケースで、DB を snake にしたい場合
 
 ```sh
 prisma-case-format --file ./prisma/schema.prisma --map-table-case=snake,singular
@@ -286,7 +284,7 @@ prisma-case-format --file ./prisma/schema.prisma --map-table-case=snake,singular
 prisma-case-format --file ./prisma/schema.prisma --map-table-case=snake,plural
 ```
 
-- e.g. カラム名がcamelケースで、DBをsnakeにしたい場合
+- e.g. カラム名が camel ケースで、DB を snake にしたい場合
 
 ```sh
 prisma-case-format --file ./prisma/schema.prisma --map-field-case=snake
@@ -294,9 +292,7 @@ prisma-case-format --file ./prisma/schema.prisma --map-field-case=snake
 
 #### `"punycode" module is deprecated`エラーが出る場合
 
-yarnとnodev21によるものらしいので、nodeのバージョンをv20に下げることで解消する
-
-
+yarn と nodev21 によるものらしいので、node のバージョンを v20 に下げることで解消する
 
 ## References
 
@@ -304,7 +300,7 @@ yarnとnodev21によるものらしいので、nodeのバージョンをv20に�
 - [Prisma CLI reference](https://www.prisma.io/docs/orm/reference/prisma-cli-reference)
 - [Best practice for instantiating Prisma Client with Next.js](https://www.prisma.io/docs/orm/more/help-and-troubleshooting/help-articles/nextjs-prisma-client-dev-practices)
   - [考察記事](https://scrapbox.io/mkizka/Prisma%E3%82%92Next.js%E3%81%A7%E4%BD%BF%E3%81%86%E3%81%A8%E3%81%8D%E3%81%AE%E3%83%99%E3%82%B9%E3%83%88%E3%83%97%E3%83%A9%E3%82%AF%E3%83%86%E3%82%A3%E3%82%B9)
-- [【入門】Prismaを初めて使うときに知りたいことまとめ: 2023](https://rakuraku-engineer.com/posts/prisma-introduction/)
-- [Prisma ORMを使いこなす ~歴史と対RDB運用の知見を添えて~: 2024](https://zenn.dev/cloudbase/articles/65b9f6e4f9ae05)
+- [【入門】Prisma を初めて使うときに知りたいことまとめ: 2023](https://rakuraku-engineer.com/posts/prisma-introduction/)
+- [Prisma ORM を使いこなす ~歴史と対 RDB 運用の知見を添えて~: 2024](https://zenn.dev/cloudbase/articles/65b9f6e4f9ae05)
 - [Prisma を使った効率的なバックエンド開発ワークフロー(2023)](https://zenn.dev/optimisuke/articles/387b30c547ac54)
-- 
+-

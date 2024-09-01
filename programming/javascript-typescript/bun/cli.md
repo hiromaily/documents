@@ -6,6 +6,8 @@
   - `bun run index.tsx` :# TS and JSX supported out of the box
   - `bun run start` : `start`という script を実行
 - `bun install`: package.json の 依存を install
+- `bun install --frozen-lockfile`: package.json の 依存を clean install
+- `bun install --global`: global install
 - `bun add <pkg>`: パッケージの 追加
 - `bun add -d <pkg>`: パッケージの dev install
 - `bun test`: 組み込みテストフレームワークでユニットテストを実行

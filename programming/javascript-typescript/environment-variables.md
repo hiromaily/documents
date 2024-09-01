@@ -26,7 +26,7 @@
 - 環境変数を変更すると、開発サーバーが実行されている場合は再起動する必要がある
 - これらの環境変数は、process.env で定義される
 
-### NODE_ENV の挙動
+### React の NODE_ENV の挙動
 
 - `npm start`を実行すると常に`'development'`
 - `npm test`を実行すると常に`'test'`
@@ -51,7 +51,7 @@
 - `NEXT_PUBLIC_` prefix を用いてブラウザに環境変数を公開する
 - Node.js 環境では、通常の名前で環境変数を使うことができる
 
-```
+```env
 DB_HOST=localhost
 DB_USER=myuser
 DB_PASS=password
