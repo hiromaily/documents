@@ -37,6 +37,83 @@ The commands are:
 	why         explain why packages or modules are needed
 ```
 
+## 同一プロジェクト内のpackageのimportについて
+
+```
+project
+  cmd
+    app1
+      main.go
+    app2
+      main.go
+  pkg
+    package1
+      something.go
+    package2
+      something.go
+```
+
+```go
+
+import (
+	"project/pkg/logger"
+    // or
+	"github.com/org/project/pkg/logger"
+)
+```
+
+### Pattern 1: Relative import
+
+```go
+import (
+	"batch/pkg/logger"
+)
+```
+
+- go mod
+
+```mod
+module batch
+```
+
+#### メリットがあるケース
+
+- ローカル開発
+  - このパターンは、プロジェクトがまだリモートリポジトリにない場合や、完全修飾パスにこだわらない場合に、ローカル開発で特に便利
+- 内部プロジェクト
+  - プロジェクトが公開されたり、GitHubのようなリモート・リポジトリでホストされたりしないことがわかっている場合
+- 単純化
+  - ローカル開発時のインポートパスを単純化できる
+
+#### デメリット
+
+このパターンは、インポートパスを完全修飾インポートパスに従うように変更する必要があるため、リモートリポジトリにコードを移動したときに問題につながる可能性がある。
+
+### Pattern 2: Fully Qualified Import
+
+```go
+import (
+	"github.com/org/project/pkg/logger"
+)
+
+- go mod
+
+```mod
+module github.com/org/project
+```
+
+#### メリット
+
+- ベストプラクティス
+  - これは一般的にベストプラクティスと考えられており、特にバージョン管理システムやリモートリポジトリを使用する場合、コードベースの管理が容易になる。
+- リモート・リポジトリ
+  - プロジェクトがリモート リポジトリ（GitHub など）でホストされている場合は、完全修飾インポート パスを使用するのが一般的
+  - これにより、Go モジュールと Go ツールが依存関係を正しく解決してダウンロードできるようになる
+- 一貫性
+  - リモート リポジトリにコードをプッシュするときに変更する必要のない一貫したインポート パスを提供する
+- チームコラボレーション
+  - 全員が同じインポートパスを使用するため、チームでの共同作業が容易になる
+
 ## require ディレクティブ内の、パッケージのバージョン指定について
 
 - 通常のバージョン指定
