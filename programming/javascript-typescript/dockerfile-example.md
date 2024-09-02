@@ -1,10 +1,12 @@
 # Docker for npm project
 
-`変更が入りやすいものほど、後ろに設定するのげ原則`
+## 原則
 
-## 方法 1
+変更が入りやすいものほど、後ろに設定する
 
-src 内に変更が入ったら`npm install`が実行されてしまう
+### 方法 1
+
+問題点: COPY 対象`src`ディレクトリ 内に変更が入ったらキャッシュが無効化され、 `npm install` が実行されてしまう
 
 ```dockerfile
 FROM node:22 AS builder
@@ -24,10 +26,9 @@ FROM nginx:stable
 COPY --from=builder /workspace/build /usr/share/nginx/html
 ```
 
-## 方法 2
+### 方法 2
 
-`RUN npm install`を先に実行
-これで src が修正入っても`npm install`は実行されないが、わずかに package.json が修正されても npm install がすべて実行されてしまう
+`RUN npm install`を先に実行することで、`src`ディレクトリに修正入っても `npm install` は実行されないが、わずかに `package.json` が修正されても `npm install` がすべて実行されてしまう
 
 ```dockerfile
 FROM node:22 AS builder
@@ -48,7 +49,7 @@ FROM nginx:stable
 COPY --from=builder /workspace/build /usr/share/nginx/html
 ```
 
-## 方法 3 [最適解]
+### 方法 3 [最適解]
 
 `--mount=type=cache` を使う
 

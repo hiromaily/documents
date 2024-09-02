@@ -11,4 +11,3 @@
     - RDS Proxy
 
 ## [Amazon RDS for PostgreSQL](https://aws.amazon.com/jp/rds/postgresql/)
-

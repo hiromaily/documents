@@ -7,9 +7,10 @@
 
 ### ANY/SOME
 
-意味は同じでANYとSOMEのどちらを使ってもいいらしい
+意味は同じで ANY と SOME のどちらを使ってもいいらしい
 
 ### ANY
+
 ```sql
 CREATE TABLE products (
     id SERIAL PRIMARY KEY,
@@ -29,7 +30,7 @@ SELECT name, categories
   WHERE 'electronics' = ANY(categories);
 ```
 
-#### SubQueryとしてArrayを使う場合
+#### SubQuery として Array を使う場合
 
 ```sql
 -- idの条件の範囲をArrayで指定

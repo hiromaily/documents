@@ -1,9 +1,8 @@
 # Database
 
-- PostgreSQL
-- MySQL
-- [MyRocks](https://myrocks.io/)
-  - MySQL用の優れたstorage engine?
+RDBMS, NoSQL, NewSQL の比較
+
+![db-comparison](../images/db-comparison.webp "db-comparison")
 
 ## マスタデータとトランザクションデータ
 

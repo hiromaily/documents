@@ -1,18 +1,20 @@
 # Database 比較
 
+![db-comparison](../images/db-comparison.webp "db-comparison")
+
 ## MySQL と PostgreSQL について
 
 MySQL と PostgreSQL はどちらも、データの保存、整理、および管理に使用される一般的なリレーショナル データベース管理システム (RDBMS) 。 ただし、この 2 つにはいくつかの重要な違いがあり、一方が他方よりもニーズに適している場合がある。
 最終的に、MySQL と PostgreSQL のどちらを選択するかは、特定のニーズとアプリケーションの要件によって異なる
 。 複雑なデータ型と拡張機能を処理でき、データの整合性を優先できるデータベースが必要な場合は、PostgreSQL の方が適している可能性がある。 読み取りおよび書き込み操作が高速で、従来のレプリケーション方法で簡単にスケーリングできるデータベースが必要な場合は、MySQL がより適切な選択肢となる可能性がある。
 
-- [技術選定の失敗 2年間を振り返る TypeScript,Hono,Nest.js,React,GraphQL](https://zenn.dev/nem/articles/ade7b83cae2fa5)
-  - MySQLに優位性はないとのこと
-    - RLSがない
-      - セッションごとに論理的にDBを分離できる機能
-        - 例えばA社のユーザーからB社のレコードを隠すことができる
-      - idが実質連番一択になる (UUIDを使えない)
-        - これはPostgreSQLでも同様では？
+- [技術選定の失敗 2 年間を振り返る TypeScript,Hono,Nest.js,React,GraphQL](https://zenn.dev/nem/articles/ade7b83cae2fa5)
+  - MySQL に優位性はないとのこと
+    - RLS がない
+      - セッションごとに論理的に DB を分離できる機能
+        - 例えば A 社のユーザーから B 社のレコードを隠すことができる
+      - id が実質連番一択になる (UUID を使えない)
+        - これは PostgreSQL でも同様では？
 
 ## MySQL と PostgreSQL の違い
 
@@ -21,7 +23,7 @@ MySQL と PostgreSQL はどちらも、データの保存、整理、および�
 | DDL 作成時にコメントの追加が 1 行でできる                                   | `COMMENT ON COLUMN`文を別途用意            |
 | 配列型がなく、JSON を使えるが、検索に弱い                                   | 配列型が使える                             |
 | `ON UPDATE`により、データ更新時に日時の自動更新ができる                     | trigger を使う必要がある                   |
-| UUID 型はパフォーマンス的に難があり、回避方法が複雑                         | MySQLと同様で`v7`対応待ち               |
+| UUID 型はパフォーマンス的に難があり、回避方法が複雑                         | MySQL と同様で`v7`対応待ち                 |
 | enum を独立した型として利用できない。table のカラムに直接記述する必要がある | enum 型を定義して他の table から利用できる |
 
 - `enum` は Anti パターンなので、重要ではない
