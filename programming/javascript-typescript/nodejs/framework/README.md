@@ -11,8 +11,10 @@
 
 ### NestJS としてのアーキテクチャ
 
-- `Clean Architecuture` ??
+- 開発手法としてDDDを使ったレイヤードアーキテクチャ
   - [NestJS architecture step by step guide](https://kodaschool.com/blog/the-architecture-of-nestjs)
+  - [Nest.js — Architectural Pattern, Controllers, Providers, and Modules.](https://medium.com/geekculture/nest-js-architectural-pattern-controllers-providers-and-modules-406d9b192a3a)
+
 - ディレクトリ例(参考用)
   - [nestjs-project-structure](https://github.com/CatsMiaow/nestjs-project-structure)
 
@@ -21,6 +23,11 @@
 - NestJs は、開発者に API を直接公開する一方で、ある程度の抽象化を提供する
 - NestJs のアーキテクチャは、AngularJS から大きなインスピレーションを得ている
   - AngularJS はただの MVC アーキテクチャ
+
+- 3 Layer
+  - Controllers (Routes)
+  - Service Layer (Business Logic)
+  - Data Access Layer (ODM)
 
 #### デメリット
 - [技術選定の失敗 2年間を振り返る TypeScript,Hono,Nest.js,React,GraphQL](https://zenn.dev/nem/articles/ade7b83cae2fa5)

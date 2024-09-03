@@ -114,6 +114,41 @@ module github.com/org/project
 - チームコラボレーション
   - 全員が同じインポートパスを使用するため、チームでの共同作業が容易になる
 
+## go moduleによるbinary toolの管理
+
+例えば、`golangci-lint`を使っていて、おsれを`go.mod`で管理したいケース。
+
+```sh
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.60.3
+```
+
+### go.modによるtool管理方法
+
+```go
+// tools.go
+// +build tools
+
+package tools
+
+import (
+    _ "github.com/golangci/golangci-lint/cmd/golangci-lint"
+)
+```
+
+
+- go.modの更新- 
+
+```sh
+go mod tidy
+```
+
+- linterの実行
+
+```
+go run github.com/golangci/golangci-lint/cmd/golangci-lint run
+```
+
+
 ## require ディレクティブ内の、パッケージのバージョン指定について
 
 - 通常のバージョン指定
@@ -144,13 +179,15 @@ github.com/uber/jaeger-client-go v2.30.0+incompatible
 
 ## 依存関係の取得
 
-```
+```sh
 go get ./...
+
+go mod download
 ```
 
 ## module 作成
 
-```
+```sh
 go mod init [module name]
 # e.g.
 go mod init github.com/hiromaily/documents
@@ -160,13 +197,13 @@ go mod init github.com/hiromaily/documents
 
 ## go ディレクティブの更新
 
-```
+```sh
 go mod tidy -go=1.17
 ```
 
 ## 依存関係の表示
 
-```
+```sh
 go mod graph
 
 # 特定のパッケージの依存関係を調べる
