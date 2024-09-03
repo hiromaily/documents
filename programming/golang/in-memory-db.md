@@ -20,6 +20,7 @@
   - Read Only
   - Star: 14.1k
 - [dgraph-io/badger](https://github.com/dgraph-io/badger)
+  - embed できるので in-memory として使える？
 
 ## In-memory Database の設計
 
