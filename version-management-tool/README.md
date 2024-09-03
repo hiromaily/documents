@@ -1,11 +1,12 @@
 # Version Managerment Tools
 
-[Docs: npmエコシステムのVersion Manager](../programming/javascript-typescript/version-manager.md)
+- [Docs: npm エコシステムの Version Manager](../programming/javascript-typescript/version-manager.md)
+- [awesome-version-managers](https://github.com/bernardoduarte/awesome-version-managers)
 
 ## [volta](https://github.com/volta-cli/volta)
 
-- jsツール専用
-- Rust製
+- js ツール専用
+- Rust 製
 - Star: 10.8k
 
 ## [asdf](https://github.com/jdx/mise)
@@ -15,9 +16,8 @@
 
 - [Official](https://asdf-vm.com/ja-jp/guide/getting-started.html)
 
-### Golangのinstall
+### Golang の `asdf`での install
 
-bugっぽいので使わないほうがいい
 ```sh
 which go
 > /opt/homebrew/bin/go
@@ -33,47 +33,10 @@ which go
 > ${HOME}/.asdf/shims/go
 ```
 
-### これならbrewのほうがいい
+- go env を調べると、設定がおかしい
+- bug っぽいので Go のバージョン管理に`asdf`は使わないほうがいい
 
-```sh
-# check current environment
-which go
-> /opt/homebrew/bin/go
-> /opt/homebrew/bin/go -> ../Cellar/go/1.23.0/bin/go
-
-ls -al /opt/homebrew/Cellar/go
-
-# uninstall
-brew uninstall --ignore-dependencies go
-
-# install
-brew search "go@1"
-brew install go@1.21
-
-# brew link go
-# > Warning: Already linked: /opt/homebrew/Cellar/go/1.23.0
-
-brew unlink go
-brew link --force --overwrite go@1.21
-
-brew unlink go
-brew link --force --overwrite go@1.23
-```
-
-- `go@1.21`に設定してもおかしい。。。
-  - `brew install go@1.21`でinstallされない？
-  - install先が、`/opt/homebrew/Cellar/go`ではなく、`/opt/homebrew/Cellar/go@1.21`
-
-```sh
-> go env
-GOBIN='/opt/homebrew/Cellar/go/1.23.0/bin'
-GOPATH='/Users/hiroki.yasui/go'
-GOROOT='/opt/homebrew/Cellar/go/1.23.0/libexec'
-GOTOOLDIR='/opt/homebrew/Cellar/go/1.23.0/libexec/pkg/tool/darwin_arm64'
-GOVERSION='go1.21.13'
-```
-
-### Uninstall
+### `asdf`で install した`go`の Uninstall
 
 以下から`go`関連のファイルを全て削除
 
@@ -81,7 +44,7 @@ GOVERSION='go1.21.13'
 - ~/.asdf/installs
 - ~/.asdf/shims
 
-### asdfがsymlinkとして定義されている場所
+### asdf が symlink として定義されている場所
 
 ```sh
 find ~/ -type l -exec ls -l {} + 2>/dev/null | grep asdf
@@ -89,7 +52,7 @@ find ~/ -type l -exec ls -l {} + 2>/dev/null | grep asdf
 
 ## [mise](https://github.com/jdx/mise)
 
-- Rust製
+- Rust 製
 - Star: 8.9k
 
 - [mise ではじめる開発環境構築](https://zenn.dev/takamura/articles/dev-started-with-mise)

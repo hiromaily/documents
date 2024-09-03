@@ -6,6 +6,9 @@
 - [sqlboiler](https://github.com/volatiletech/sqlboiler)
   - Generate a Go ORM tailored to your database schem
   - Star: 6.6k
+- [ent](https://entgo.io/)
+  - [github](https://github.com/ent/ent)
+  - Star: 15.4k
 
 ## Migration
 
