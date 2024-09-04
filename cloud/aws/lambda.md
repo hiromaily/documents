@@ -197,7 +197,17 @@ aws lambda invoke --function-name hello-world response.json
 提供された JSON 文字列に基づいてサービス操作を実行する。JSON 文字列は、`--generate-cli-skeleton` で提供される形式に従う。コマンド ラインで他の引数が指定された場合、CLI 値は JSON で提供される値を上書きする。文字列は文字通りに解釈されるため、JSON で提供される値を使用して任意のバイナリ値を渡すことはできない。 
 `--generate-cli-skeleton`を確認してみたが、これは用途が異なるようだ。  
 
-[結論: 参照: Lamdaのアーキテクチャ](./lambda.md#lamdaのアーキテクチャ)
+- `--image-config` (structure)
+
+コンテナ イメージ Dockerfile 内の値をオーバーライドするコンテナ イメージ構成値
+
+```json
+{
+  "EntryPoint": ["string", ...],
+  "Command": ["string", ...],
+  "WorkingDirectory": "string"
+}
+```
 
 ### [invoke](https://docs.aws.amazon.com/cli/latest/reference/lambda/invoke.html)
 
@@ -237,7 +247,7 @@ aws lambda create-function \
     --package-type Image \
     --code ImageUri=your-docker-image-uri \
     --environment Variables={HANDLER=function1} \
-    --role arn:aws:iam::your-account-id:role/your-lambda-role
+    --role arn:aws:iam::your-account-id:role/lambda-role
 
 # Deploy function2
 aws lambda create-function \
@@ -245,8 +255,10 @@ aws lambda create-function \
     --package-type Image \
     --code ImageUri=your-docker-image-uri \
     --environment Variables={HANDLER=function2} \
-    --role arn:aws:iam::your-account-id:role/your-lambda-role
+    --role arn:aws:iam::your-account-id:role/lambda-role
 ```
+
+とはいえ、`create-function`コマンドの`--image-config`オプションでコンテナのcommandを変更できる
 
 ## [Lamdaの実行環境](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html)
 

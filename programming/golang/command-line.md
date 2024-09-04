@@ -15,4 +15,4 @@
   - Star: 2.1k
 - [alexflint/go-arg](https://github.com/alexflint/go-arg)
   - Star: 2k
-  - Simple!
+  - Simple, Subcommandも利用できる
