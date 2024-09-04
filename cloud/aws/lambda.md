@@ -25,6 +25,229 @@
   - 関数のインスタンスが長く存続することを想定せず、アプリケーションの状態を別の場所に保存する
   - ローカルストレージとクラスレベルのオブジェクトを使用することで、パフォーマンスを向上させられる。その場合でも、デプロイパッケージのサイズと実行環境に転送するデータの量は最小限に抑える。
 
+## 環境構築の流れ
+
+[参考: コンテナイメージを使用して Go Lambda 関数をデプロイする](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/go-image.html)
+
+### 前提条件
+
+- Go
+- AWS の OS 専用ベースイメージ (provided.al2023)を使用
+
+### 手順
+
+#### 1. lamda環境で実行可能な`handler()`を備えた`main.go`を実装
+
+```go
+package main
+
+import (
+	"context"
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
+)
+
+func handler(ctx context.Context, event events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	response := events.APIGatewayProxyResponse{
+		StatusCode: 200,
+		Body:       "\"Hello from Lambda!\"",
+	}
+	return response, nil
+}
+
+func main() {
+	lambda.Start(handler)
+}
+```
+
+#### 2. Dockerfileの作成
+
+```dockerfile
+FROM golang:1.23 as build
+WORKDIR /helloworld
+# Copy dependencies list
+COPY go.mod go.sum ./
+# Build with optional lambda.norpc tag
+COPY main.go .
+RUN go build -tags lambda.norpc -o main main.go
+
+# Copy artifacts to a clean image
+FROM public.ecr.aws/lambda/provided:al2023
+COPY --from=build /helloworld/main ./main
+ENTRYPOINT [ "./main" ]
+```
+
+#### 3. Imageのビルド + 任意のtagをセット
+
+```sh
+docker build --platform linux/amd64 -t docker-image:test .
+```
+
+#### 4. ImageをLocalで実行できるかどうか、確認する
+
+```sh
+docker run -d -p 9000:8080 \
+--entrypoint /usr/local/bin/aws-lambda-rie \
+docker-image:test ./main
+```
+
+- endpointにイベントをpost
+
+```sh
+curl "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'
+```
+
+#### 5. イメージのデプロイ
+
+Amazon ECR にイメージをアップロードして Lambda 関数を作成する
+
+- `get-login-password` コマンドを実行して Amazon ECR レジストリに Docker CLI を認証
+
+```sh
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 111122223333.dkr.ecr.us-east-1.amazonaws.com
+```
+
+- `create-repository` コマンドを使用して Amazon ECR にリポジトリを作成する
+
+```sh
+aws ecr create-repository --repository-name hello-world --region us-east-1 --image-scanning-configuration scanOnPush=true --image-tag-mutability MUTABLE
+```
+
+- `docker tag`コマンドを実行して、最新バージョンとしてローカルイメージを Amazon ECR リポジトリにタグ付けする
+
+```sh
+docker tag docker-image:test <ECRrepositoryUri>:latest
+```
+
+- `docker push` コマンドを実行して Amazon ECR リポジトリにローカルイメージをデプロイ
+
+```sh
+docker push 111122223333.dkr.ecr.us-east-1.amazonaws.com/hello-world:latest
+```
+
+- Lambda 関数を作成 (create-function)
+
+```sh
+aws lambda create-function \
+  --function-name hello-world \
+  --package-type Image \
+  --code ImageUri=111122223333.dkr.ecr.us-east-1.amazonaws.com/hello-world:latest \
+  --role arn:aws:iam::111122223333:role/lambda-ex
+```
+
+#### 6. 関数を呼び出す
+
+```sh
+aws lambda invoke --function-name hello-world response.json
+```
+
+## [AWS Lamdaコマンド](https://docs.aws.amazon.com/cli/latest/reference/lambda/)
+
+### [create-function](https://docs.aws.amazon.com/cli/latest/reference/lambda/create-function.html)
+
+```
+  create-function
+--function-name <value>
+[--runtime <value>]
+--role <value>
+[--handler <value>]
+[--code <value>]
+[--description <value>]
+[--timeout <value>]
+[--memory-size <value>]
+[--publish | --no-publish]
+[--vpc-config <value>]
+[--package-type <value>]
+[--dead-letter-config <value>]
+[--environment <value>]
+[--kms-key-arn <value>]
+[--tracing-config <value>]
+[--tags <value>]
+[--layers <value>]
+[--file-system-configs <value>]
+[--image-config <value>]
+[--code-signing-config-arn <value>]
+[--architectures <value>]
+[--ephemeral-storage <value>]
+[--snap-start <value>]
+[--logging-config <value>]
+[--zip-file <value>]
+[--cli-input-json <value>]
+[--generate-cli-skeleton <value>]
+[--debug]
+[--endpoint-url <value>]
+[--no-verify-ssl]
+[--no-paginate]
+[--output <value>]
+[--query <value>]
+[--profile <value>]
+[--region <value>]
+[--version <value>]
+[--color <value>]
+[--no-sign-request]
+[--ca-bundle <value>]
+[--cli-read-timeout <value>]
+[--cli-connect-timeout <value>]
+```
+
+#### このとき、docker imageのコマンドラインパラメータをどうやって付与するか？
+
+- `--cli-input-json` (string)
+
+提供された JSON 文字列に基づいてサービス操作を実行する。JSON 文字列は、`--generate-cli-skeleton` で提供される形式に従う。コマンド ラインで他の引数が指定された場合、CLI 値は JSON で提供される値を上書きする。文字列は文字通りに解釈されるため、JSON で提供される値を使用して任意のバイナリ値を渡すことはできない。 
+`--generate-cli-skeleton`を確認してみたが、これは用途が異なるようだ。  
+
+[結論: 参照: Lamdaのアーキテクチャ](./lambda.md#lamdaのアーキテクチャ)
+
+### [invoke](https://docs.aws.amazon.com/cli/latest/reference/lambda/invoke.html)
+
+```
+--function-name <value>
+[--invocation-type <value>]
+[--log-type <value>]
+[--client-context <value>]
+[--payload <value>]
+[--qualifier <value>]
+<outfile>
+[--debug]
+[--endpoint-url <value>]
+[--no-verify-ssl]
+[--no-paginate]
+[--output <value>]
+[--query <value>]
+[--profile <value>]
+[--region <value>]
+[--version <value>]
+[--color <value>]
+[--no-sign-request]
+[--ca-bundle <value>]
+[--cli-read-timeout <value>]
+[--cli-connect-timeout <value>]
+```
+
+## Lamdaのアーキテクチャ
+
+AWS Lambda はシンプルさとスケーラビリティのために`コンテナイメージごとに 1 つの関数を実行するように設計されている`ため、単一の Docker コンテナイメージ内で複数の AWS Lambda 関数を実行することは一般的なユースケースではない。ただし、実行に基づいて同じイメージ内のハンドラーを切り替える必要があるユースケースの場合は、`環境変数`または同様の方法を使用して、呼び出すハンドラーを指定できる。これには次の方法がある。
+
+
+```sh
+# Deploy function1
+aws lambda create-function \
+    --function-name lambda-function-1 \
+    --package-type Image \
+    --code ImageUri=your-docker-image-uri \
+    --environment Variables={HANDLER=function1} \
+    --role arn:aws:iam::your-account-id:role/your-lambda-role
+
+# Deploy function2
+aws lambda create-function \
+    --function-name lambda-function-2 \
+    --package-type Image \
+    --code ImageUri=your-docker-image-uri \
+    --environment Variables={HANDLER=function2} \
+    --role arn:aws:iam::your-account-id:role/your-lambda-role
+```
+
 ## [Lamdaの実行環境](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html)
 
 WIP
