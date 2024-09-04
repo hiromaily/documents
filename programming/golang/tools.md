@@ -51,3 +51,16 @@ Go製のtaskランナー。Makefileのほうが使いにくいが、こちらは
 brew install go-task/tap/go-task
 ```
 
+## Test Utility
+
+- [Docs:mock](./mock.md)
+
+### [cweill/gotests](https://github.com/cweill/gotests)
+
+- テスト関数自動生成ツール
+- Star: 4.9k
+- 開発が2021年で止まっているのでやめたほうがいいかもしれない
+
+### `go test -coverprofile & go tool cover`
+
+- テストカバレッジの可視化
