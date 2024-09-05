@@ -1,4 +1,4 @@
-# Go Errorハンドリング
+# Go Error ハンドリング
 
 ## 様々なハンドリングの方法
 
@@ -78,7 +78,7 @@ func main() {
 }
 ```
 
-###  `pkg/errors` パッケージの `Wrap` 関数
+### `pkg/errors` パッケージの `Wrap` 関数
 
 `pkg/errors`を使用してエラーのラッピングとスタックトレースの追加が可能
 
@@ -108,7 +108,7 @@ func main() {
 
 ## 標準ライブラリの `errors` パッケージの機能
 
-`errors` パッケージは、Goの標準ライブラリの一部であり、エラーハンドリングをサポートするために便利な機能を提供しています。以下は、`errors` パッケージの有益な機能とその使い方についての説明です。
+`errors` パッケージは、Go の標準ライブラリの一部であり、エラーハンドリングをサポートするために便利な機能を提供しています。以下は、`errors` パッケージの有益な機能とその使い方についての説明です。
 
 ### **`errors.New`**
 
@@ -157,7 +157,7 @@ func main() {
 }
 ```
 
-### errorのWrap方法
+### error の Wrap 方法
 
 ```go
 func someOtherFunc() error {
@@ -228,7 +228,7 @@ func someFunc() error {
 
 func main() {
     err := someFunc()
-    
+
     var myErr *MyError
     // errors.As を使用して特定のエラー型を検出
     if errors.As(err, &myErr) {
@@ -241,3 +241,7 @@ func main() {
     }
 }
 ```
+
+## TODO: エラーの構造化について
+
+HTTP のようにコードとメッセージを管理するパターン
