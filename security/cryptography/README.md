@@ -2,7 +2,7 @@
 
 ## 対称暗号
 
-## 公開鍵暗号
+## 公開鍵暗号 / Public-key Cryptography
 
 ## [一方向ハッシュ関数 / One-way Hash Function](./one-way-hash.md)
 
