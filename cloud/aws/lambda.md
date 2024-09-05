@@ -132,8 +132,13 @@ aws lambda create-function \
   --function-name hello-world \
   --package-type Image \
   --code ImageUri=111122223333.dkr.ecr.us-east-1.amazonaws.com/hello-world:latest \
+  --image-config='{"Command": ["subcommand", "--flag", "flag-value"]}' \
   --role arn:aws:iam::111122223333:role/lambda-ex
 ```
+
+- Lamda関数のアップデート
+
+
 
 #### 6. 関数を呼び出す
 
@@ -219,6 +224,79 @@ aws lambda invoke --function-name hello-world response.json
 [--payload <value>]
 [--qualifier <value>]
 <outfile>
+[--debug]
+[--endpoint-url <value>]
+[--no-verify-ssl]
+[--no-paginate]
+[--output <value>]
+[--query <value>]
+[--profile <value>]
+[--region <value>]
+[--version <value>]
+[--color <value>]
+[--no-sign-request]
+[--ca-bundle <value>]
+[--cli-read-timeout <value>]
+[--cli-connect-timeout <value>]
+```
+
+### [update-function-code](https://docs.aws.amazon.com/cli/latest/reference/lambda/update-function-code.html)
+
+```
+ update-function-code
+--function-name <value>
+[--zip-file <value>]
+[--s3-bucket <value>]
+[--s3-key <value>]
+[--s3-object-version <value>]
+[--image-uri <value>]
+[--publish | --no-publish]
+[--dry-run | --no-dry-run]
+[--revision-id <value>]
+[--architectures <value>]
+[--cli-input-json <value>]
+[--generate-cli-skeleton <value>]
+[--debug]
+[--endpoint-url <value>]
+[--no-verify-ssl]
+[--no-paginate]
+[--output <value>]
+[--query <value>]
+[--profile <value>]
+[--region <value>]
+[--version <value>]
+[--color <value>]
+[--no-sign-request]
+[--ca-bundle <value>]
+[--cli-read-timeout <value>]
+[--cli-connect-timeout <value>]
+```
+
+### [update-function-configuration](https://docs.aws.amazon.com/cli/latest/reference/lambda/update-function-configuration.html)
+
+```
+  update-function-configuration
+--function-name <value>
+[--role <value>]
+[--handler <value>]
+[--description <value>]
+[--timeout <value>]
+[--memory-size <value>]
+[--vpc-config <value>]
+[--environment <value>]
+[--runtime <value>]
+[--dead-letter-config <value>]
+[--kms-key-arn <value>]
+[--tracing-config <value>]
+[--revision-id <value>]
+[--layers <value>]
+[--file-system-configs <value>]
+[--image-config <value>]
+[--ephemeral-storage <value>]
+[--snap-start <value>]
+[--logging-config <value>]
+[--cli-input-json <value>]
+[--generate-cli-skeleton <value>]
 [--debug]
 [--endpoint-url <value>]
 [--no-verify-ssl]
