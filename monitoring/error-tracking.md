@@ -1,34 +1,17 @@
-# Error Tracking
+# Error Tracking / エラートラッキング
 
-## Front-end Logging 収集 (エラー監視)
+エラートラッキングはソフトウェア開発において、エラーや例外の発生を監視し、それらを管理するための手法であり、アプリケーションの信頼性と品質を向上させるために非常に重要
 
-### 条件
+## エラートラッキングの方法
 
-- React/Next.js との連携が容易なこと
-- Open Source
-- React/Next.js に特化した Docs が整備されているとなお良い
-- 高機能である必要性はない(ほぼ機能的に横並び)と思うので、ランニングコストの面で選んでもいいかもしれない。
-- self-hosted 可能なサービスであれば、dev 環境でも使える
-- 使用する SaaS が増えると管理がしづらい？その場合、Datadog に集約させる？
+### ロギング
 
-### Services
+最も基本的な方法はログを使うことだ。エラーや例外が発生したときにログファイルに記録するようにアプリケーションを設定する。ログレベルを設定することで、詳細な情報から重要な情報まで収集できる。
 
-- [Sentry](https://sentry.io/for/error-monitoring/)
-  - Free for Developer
-  - $26/mo for Team
-- [Bugsnag](https://www.bugsnag.com/)
-  - Free for small teams (Business でも使える??)
-- [Rollbar](https://rollbar.com/)
-  - Free plan: 5,000 error events monthly
-  - $12.50/mo for Essentials
-- Airbrake
-- TrackJS
-- CatchJS
-- LogRocket
-- [Datadog](https://www.datadoghq.com/product/error-tracking/)
+### スタックトレース
 
-### References
+エラーが発生した際のスタックトレースをログやモニタリングシステムに記録する。スタックトレースはエラーの起こった箇所とその原因を特定するのに役立つ。
 
-- [npm trende: bugsnag vs bugsnag-js vs rollbar vs sentry vs trackjs](https://npmtrends.com/bugsnag-vs-bugsnag-js-vs-rollbar-vs-sentry-vs-trackjs)
-- [Compare Sentry vs Bugsnag vs Raygun vs Rollbar](https://www.saasworthy.com/compare/sentry-vs-bugsnag-vs-raygun-vs-rollbar?pIds=3483,3485,3490,9272)
-- [10 Best Error Monitoring Tools to Use in 2023](https://rollbar.com/blog/best-error-monitoring-tools/)
+### アラート
+
+エラートラッキングシステムとアラートシステムを連携させると、指定した条件に基づいてエラーが発生したときにすぐに通知を受けることができる。これにより、リアルタイムで問題を検知し対応することが可能になる。

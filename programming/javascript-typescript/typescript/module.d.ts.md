@@ -1,6 +1,6 @@
 # 型定義ファイル (.d.ts) / Type Declarations
 
-- `d.ts`とは型定義ファイル（型宣言ファイル）。これにより、ライブラリの型定義ができるようになる
+- `d.ts`とは`型定義ファイル（型宣言ファイル）`のことで、これによりライブラリの`型定義`ができるようになる
 - `Ambient` とは、実装を定義しない宣言のことで、通常、これらは`.d.ts` ファイルで定義される
 - `declare`キーワードを使用して他の場所に存在するコードを記述しようとしていることを TypeScript に伝えることができる。
   - これらの宣言を `.ts`ファイルまたは`.d.ts`ファイルに入れることができる。
@@ -89,6 +89,8 @@ declare global {
 
 ## References
 
+- [github](https://github.com/DefinitelyTyped/DefinitelyTyped)
+- [github:ja](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/README.ja.md)
 - [型定義ファイル (.d.ts)](https://typescriptbook.jp/reference/declaration-file)
 - [Modules .d.ts](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html)
 - [Type Declarations](https://www.typescriptlang.org/docs/handbook/2/type-declarations.html)

@@ -1,47 +1,49 @@
 # GraphQL
 
-- GraphQL は、API のためのクエリ言語であり、既存のデータでこれらのクエリを実行するためのランタイム
-- GraphQL は、API 内のデータについて完全で理解しやすい説明を提供し、クライアントに必要なものだけを要求する力を与え、時間の経過とともに API を進化させることを容易にし、強力な開発者ツールを可能にする
+GraphQL は、Facebook によって開発された`クエリ言語`および`サーバーの実行エンジン`で、`クライアントがデータをどのように取得するかを柔軟に制御できるようにするもの`です。REST の代替手段としてよく使われ、データ取得の効率性と柔軟性が特徴
 
-## 特徴
+## 主な特徴
 
-- Overfetch/Underfetch の解消
-- スキーマ駆動開発
-  - GraphQL Schema の定義に従い、静的解析が可能で Linter を作ることができる
-- Graph 構造を活かした設計にする。複数の Query が必要な設計にしない
-- Front-end 側で受け取った型を変換するということは期待しない
+### クエリ言語
 
-## コンポーネント
+- クライアントは、必要なデータの形状を具体的に定義するクエリを送信する。そのため、過剰なデータの取得を避けることができる。
+  - Overfetch/Underfetch の解消
+- クエリ例：
 
-- Front-end ... Query
-- Server-side ... Resolver(Handler)とその裏の Logic
+  ```graphql
+  {
+    user(id: "1") {
+      name
+      age
+      posts {
+        title
+        content
+      }
+    }
+  }
+  ```
 
-## 開発でやるべきこと
+### 型システム
 
-- GraphQL のスキーマを定義
-- GraphQL サーバ
-  - スキーマとデータソースを結びつける機能を持つリゾルバを実装する
-- GraphQL クライアント
-  - GraphQL クエリを実行
+- GraphQL のスキーマは、データの形状と型を定義する。これにより、どのクエリが有効であるか、どのデータ型が返されるかを事前に把握できる。
 
-## WIP:Schema 設計 (最重要)
+### 単一エンドポイント
 
-- Query と Mutation で Schema 設計のポイントが異なる
-- Role
-- オブジェクト毎のクエリーを用意しないことが一般的で代わりに node クエリーを用意する
-  - ただし、ID からどのオブジェクトかを判別できる必要がある
-  - node というフィールドになることを避けるために、`alias`を使う
-- `Relay`の GraphQL 　 Server Specification とは？
-- Mutation における Cache の更新？GraphQL キャッシュ
-- Scalar？
-- directive の活用
+- REST API がリソースごとに異なるエンドポイントを持つのに対し、GraphQL では単一のエンドポイントに対してクエリを送信する。
 
-## [GraphQL Code Generator](https://the-guild.dev/graphql/codegen)
+### リアルタイム更新
 
-- [github](https://github.com/dotansimha/graphql-code-generator)
-- [GraphQL Code Generator ってどんなコードを生成してくれるの？](https://qiita.com/kyntk/items/624f9b340e813844a292)
-- GraphQL schema からコードを生成するためのもので、React の Hook など Front-end のコンポーネント生成に役立つ
-- Back-end の生成も可能だが Golang には対応していない
+- GraphQL サブスクリプションを使うことで、クライアントはデータのリアルタイム更新を受け取ることができる。
+
+### スキーマ駆動開発
+
+- GraphQL Schema の定義に従い、静的解析が可能で Linter を作ることができる
+
+## 利点
+
+- **柔軟性**: クライアントは要求するデータだけを取得できる。
+- **効率性**: 一度のリクエストで必要なデータをすべて取得できる。
+- **型の整合性**: スキーマに基づいた厳密な型チェックにより、バグの早期発見が可能。
 
 ## References
 

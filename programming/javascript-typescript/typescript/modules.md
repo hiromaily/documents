@@ -1,6 +1,6 @@
-# Modules
+# Typescript Modules
 
-[frontend/modules](../frontend/modules.md)
+[内部Docs:modules](../modules.md)
 
 ## [Typescript の Module](https://www.typescriptlang.org/docs/handbook/modules.html)について
 
@@ -9,7 +9,7 @@
   - module が `commonjs` であれば、import は require に変換され、export は module.exports に変換される
   - module が `es2015` であれば、import は import のまま、export は export のまま
 
-### [種類](https://www.typescriptlang.org/tsconfig#module)
+## [tsconfigで設定できるmoduleの種類](https://www.typescriptlang.org/tsconfig#module)
 
 - commonjs
 - amd

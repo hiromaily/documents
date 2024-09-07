@@ -1,4 +1,4 @@
-# For Typescript
+# Typescript
 
 ## JsDoc の自動生成
 

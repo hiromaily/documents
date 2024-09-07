@@ -17,13 +17,13 @@
   - This package contains type definitions for google-protobuf
 
 ```sh
-yarn add --dev grpc-tools grpc_tools_node_protoc_ts
-yarn add @grpc/grpc-js google-protobuf @types/google-protobuf
+npm install --save-dev grpc-tools grpc_tools_node_protoc_ts
+npm install @grpc/grpc-js google-protobuf @types/google-protobuf
 ```
 
 ```sh
 # use protoc on bash
-PROTOC="`yarn bin`"/grpc_tools_node_protoc
+PROTOC="`npm bin`"/grpc_tools_node_protoc
 ```
 
 ### Option

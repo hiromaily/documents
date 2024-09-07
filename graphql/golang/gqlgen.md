@@ -1,5 +1,7 @@
 # gqlgen
 
+Note: これらの情報は古いので書き直すこと
+
 - [Github](https://github.com/99designs/gqlgen)
 - [Docs](https://gqlgen.com/)
 

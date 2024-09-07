@@ -37,43 +37,34 @@
 - 監視は継続的なプロセスであり、監視システムを継続的に見直して改善する必要がある
 - これには、新しいメトリックの追加、アラートのしきい値の微調整、視覚化および分析ツールの改善が含まれる場合がある
 
-## APM (Application Performance Management)
+## Metrics (メトリクス)
 
-アプリケーションやシステムの性能を管理・監視するサービス
+パフォーマンスや状態を測るための`指標`や`データポイント`のこと。具体的には、システムやアプリケーションがどれだけうまく動いているかを数値化したものを指す。
 
-It's important to evaluate each tool based on your specific requirements and the nature of your application environment before making a decision.
+### メトリクスの具体例
 
-- New Relic
-  - It is a cloud-based APM tool that helps to monitor application performance in real-time.
-- Dynatrace
-  - It provides AI-powered observability for cloud-native environments, containerized applications, and microservices.
+1. **CPU使用率**
+   - これはサーバーやコンピュータがどれだけの処理能力を使っているかを示す。
 
-- AppDynamics
-  - It is an APM tool that provides end-to-end visibility into the performance of applications, infrastructure, and user experience.
+2. **メモリ使用量**
+   - 現在使っているメモリの量を示す。メモリが不足するとパフォーマンスが悪化する。
 
-- Datadog
-  - It is a cloud-based monitoring tool that provides real-time visibility into the performance of applications, infrastructure, and logs.
-- SolarWinds
-  - It provides APM solutions for applications, servers, and databases, and also includes infrastructure monitoring capabilities.
+3. **レスポンスタイム**
+   - アプリケーションがリクエストに対して応答するのにかかる時間。低いほど良い指標。
 
-- Splunk
-  - It is a popular data analytics tool that can be used for APM, providing insights into application performance, user experience, and infrastructure.
+4. **エラー率**
+   - アプリケーションやサービスがエラーを返す頻度。エラーが多いと問題がある。
 
-## 分散Tracing
+5. **スループット**
+   - 一定時間内に処理できるトランザクションやリクエストの数。スループットが高いほど効率的だ。
 
-- Jaeger
-  - <https://www.jaegertracing.io/>
-- Zipkin
-  - Zipkin is an open-source distributed tracing system that was originally developed by Twitter. It is similar to Jaeger in terms of functionality and provides support for several programming languages, including Java, Python, and Ruby.
-- OpenTracing
-  - OpenTracing is a vendor-neutral, open standard for distributed tracing that provides a consistent API for instrumenting applications. It is not a tracing system itself but can be used to integrate tracing into applications and connect them to different tracing backends, including Jaeger and Zipkin.
-- LightStep
-  - LightStep is a distributed tracing system that provides real-time visibility into the performance of microservices-based applications. It supports various programming languages, including Java, Python, and Ruby, and provides advanced features such as anomaly detection and performance regression analysis.
-- AppDynamics
-  - AppDynamics is an application performance monitoring (APM) tool that provides distributed tracing functionality. It supports various programming languages, including Java, .NET, and Node.js, and provides advanced features such as code-level visibility and automatic anomaly detection.
-- Datadog
-  - Datadog is a monitoring and analytics platform that provides distributed tracing functionality. It supports various programming languages, including Java, Python, and Ruby, and provides advanced features such as correlated traces and cross-service analytics.
+6. **ディスクI/O**
+   - ディスクの読み書き操作の頻度や量。ディスクのパフォーマンスに影響する。
 
-## Prometheus
+### メトリクスの取り扱い
 
-- [Docs](https://prometheus.io/docs/introduction/overview/)
+メトリクスを収集・解析することで、システムやアプリケーションの健康状態を把握し、問題が起きたときに迅速に対応するためのデータが得られる。パフォーマンスの最適化、リソースの効率的な配分、ダウンタイムの予防などに使える。
+
+例えば、`Datadog`ではこれらのメトリクスをリアルタイムで収集し、グラフ化して表示したり、特定の閾値を超えた時にアラートを設定したりすることで、運用の効率を大幅に向上させることができる。
+
+つまり、メトリクスはシステムやアプリケーションの健康状態を数値化したデータで、それをもとにさまざまな運用活動を最適化するための基盤。
