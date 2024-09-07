@@ -28,6 +28,9 @@ some of web frameworks developed by RUST are listed on [Web Framework Benchmarks
 - [warp](https://github.com/seanmonstar/warp): Star: 9.2k
   - [Crates.io](https://crates.io/crates/warp): DL: 40k per day, **upward trend**
   - Cons: may be slower
+- [loco](https://github.com/loco-rs/loco): Star: 3.8k
+  - [Official Docs](https://loco.rs/)
+  - [Crates.io](https://crates.io/crates/loco-rs)
 
 ## HTTP library
 
