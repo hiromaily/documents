@@ -22,6 +22,7 @@ SQL における`DDL`には、データベースやテーブル、ビューな�
   - [配置]-[挿入]-[高度な設定]
 - [SchemaSpy](https://schemaspy.org/)
   - これもよく使われており、良さげ
+  - しかし、Java依存はあまりにダサすぎる
 - [SQL DDL to ERD diagram](https://www.devtoolsdaily.com/sql/ddl-to-diagram/)
 
 ### 有償
