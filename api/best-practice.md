@@ -30,7 +30,7 @@
 - たとえば、モバイル アプリケーションを構築しているお客様は、バッテリーの消耗を抑えるために、ネットワーク トラフィックを最小限にする必要がある
 - 個別のデータドリブンのマイクロサービスの構築か、API 利用の効率化か、どちらかだけを選択するのではなく、両方を提供することを検討してみる
 - つまり、特定のデータタイプ用のきめ細かい API と、共通またはユーザー固有のユーザー インターフェースの周辺の `Experience API` , UX を強化するために設計された API
-  - [理論的ディスカッション](https://www.googlecloudcommunity.com/gc/Apigee/What-is-an-Experience-API-When-should-you-make-one-Isn-t-it/td-p/21080
+  - [理論的ディスカッション](<https://www.googlecloudcommunity.com/gc/Apigee/What-is-an-Experience-API-When-should-you-make-one-Isn-t-it/td-p/21080>
   - こうした `Experience API` は、複数の小さなドメインを 1 つのエンドポイントにまとめ、UI 構築者が、画面を簡単かつ迅速にレンダリングできるようにする
 - もう一つのオプションは、`GraphQL` などを利用して、こうしたカスタマイズを可能にすること
 

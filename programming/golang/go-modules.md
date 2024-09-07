@@ -23,18 +23,18 @@ See 'go help modules' for an overview of module functionality.
 
 Usage:
 
-	go mod <command> [arguments]
+ go mod <command> [arguments]
 
 The commands are:
 
-	download    download modules to local cache
-	edit        edit go.mod from tools or scripts
-	graph       print module requirement graph
-	init        initialize new module in current directory
-	tidy        add missing and remove unused modules
-	vendor      make vendored copy of dependencies
-	verify      verify dependencies have expected content
-	why         explain why packages or modules are needed
+ download    download modules to local cache
+ edit        edit go.mod from tools or scripts
+ graph       print module requirement graph
+ init        initialize new module in current directory
+ tidy        add missing and remove unused modules
+ vendor      make vendored copy of dependencies
+ verify      verify dependencies have expected content
+ why         explain why packages or modules are needed
 ```
 
 ## 同一プロジェクト内のpackageのimportについて
@@ -56,9 +56,9 @@ project
 ```go
 
 import (
-	"project/pkg/logger"
+ "project/pkg/logger"
     // or
-	"github.com/org/project/pkg/logger"
+ "github.com/org/project/pkg/logger"
 )
 ```
 
@@ -66,7 +66,7 @@ import (
 
 ```go
 import (
-	"batch/pkg/logger"
+ "batch/pkg/logger"
 )
 ```
 
@@ -93,7 +93,7 @@ module batch
 
 ```go
 import (
-	"github.com/org/project/pkg/logger"
+ "github.com/org/project/pkg/logger"
 )
 
 - go mod
@@ -135,8 +135,7 @@ import (
 )
 ```
 
-
-- go.modの更新- 
+- go.modの更新-
 
 ```sh
 go mod tidy
@@ -147,7 +146,6 @@ go mod tidy
 ```
 go run github.com/golangci/golangci-lint/cmd/golangci-lint run
 ```
-
 
 ## require ディレクティブ内の、パッケージのバージョン指定について
 
@@ -269,12 +267,12 @@ add the below setting in ~/.gitconfig
 
 ```
 [url "git@github.com:private-repo-name/"]
-	insteadOf = https://github.com/private-repo-name/
+ insteadOf = https://github.com/private-repo-name/
 ```
 
 or
 
 ```
 [url "git@github.yourhost.com:"]
-	insteadOf = https://github.yourhost.com/
+ insteadOf = https://github.yourhost.com/
 ```

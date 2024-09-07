@@ -25,11 +25,11 @@ export HISTFILE="$XDG_DATA_HOME"/zsh/history
 
 ### git config
 
-- https://git-scm.com/docs/git-config#Documentation/git-config.txt---global
+- <https://git-scm.com/docs/git-config#Documentation/git-config.txt---global>
 
   - `~/.gitconfig`は`$XDG_CONFIG_HOME/git/config`に置き換えられる
 
-- https://git-scm.com/docs/gitignore#_description
+- <https://git-scm.com/docs/gitignore#_description>
   - `~/.gitignore_global`は`$XDG_CONFIG_HOME/git/ignore`に置き換えられる
 
 ### `~/.volta`
@@ -41,7 +41,7 @@ export PATH="$PATH:$VOLTA_HOME/bin"
 
 ### `~/.yarnrc`
 
-- https://wiki.archlinux.jp/index.php/XDG_Base_Directory
+- <https://wiki.archlinux.jp/index.php/XDG_Base_Directory>
 
 - `.zshrc`
 
@@ -50,11 +50,11 @@ alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn"'
 ```
 
 - これはうまくいかなかった。
-  - https://github.com/yarnpkg/yarn/issues/2334
+  - <https://github.com/yarnpkg/yarn/issues/2334>
 
 ### Docker
 
-- https://docs.docker.com/engine/reference/commandline/cli/
+- <https://docs.docker.com/engine/reference/commandline/cli/>
 - `.zprofile`
 
 ```sh

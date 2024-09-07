@@ -4,8 +4,11 @@
 - [TypeScriptのDIとTsyringeについて](https://zenn.dev/chida/articles/1f7df8f2beb6b6)
 
 ## React内におけるパターン
+
 ### `Props`を使う
-  - これは環境に合わせて、異なる`TodoService`を挿入することを想定している
+
+- これは環境に合わせて、異なる`TodoService`を挿入することを想定している
+
 ```tsx
 import React, { useState, useEffect } from 'react';
 
@@ -49,6 +52,7 @@ export default App;
 ```
 
 ### `Context API`を使う
+
 ```tsx
 import React, { useState, useEffect, useContext } from 'react';
 import TodoContext from './TodoContext';
@@ -93,7 +97,6 @@ function App() {
 
 export default App;
 ```
-
 
 - Reactの場合、Propsを使うパターンより、`Context API`を使ってDIを利用するのがよさそう
 - DIによりサービスを初期化するタイミングは、App functionが定義してある、`_app.tsx`などがよさそう

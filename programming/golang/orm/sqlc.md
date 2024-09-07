@@ -7,7 +7,6 @@ SQLをコンパイルしてGoのコードを生成する
 
 ## [Install](https://docs.sqlc.dev/en/latest/overview/install.html)
 
-
 ```sh
 go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 ```
@@ -23,6 +22,7 @@ go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 cd [project]
 mkdir sqlfiles
 ```
+
 利用するsqlファイルを用意するが、プリペアードステートメント形式となる。(外部から参照するのでもOK)
 
 ```sql

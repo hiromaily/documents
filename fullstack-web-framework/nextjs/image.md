@@ -1,5 +1,4 @@
 
-
 # Imageコンポーネント
 
 - imgタグではなく、Imageコンポーネントを使うことで、画像を読み込む際にサーバーサイドで画像の最適化を行う
@@ -30,6 +29,7 @@ module.exports = nextConfig
 ```
 
 ## Code
+
 ```tsx
 import { NextPage } from 'next'
 import Image from 'next/image'

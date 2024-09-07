@@ -7,7 +7,7 @@
   - `.env.${環境名}` like `.env.development` or `.env.production`
   - `.env.${環境名}.local`
 - 読み込まれた環境変数は、サーバーサイドで実行する処理から参照できる
-- クライアントサイドでもアクセスしたい値に関しては、環境変数の名前の頭に`NEXT_PUBLIC_`をつける 
+- クライアントサイドでもアクセスしたい値に関しては、環境変数の名前の頭に`NEXT_PUBLIC_`をつける
 
 ```tsx
 import { NextPage, GetStaticProps } from 'next'

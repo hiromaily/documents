@@ -43,7 +43,7 @@ const myWorker = new Worker('worker.js');
 
 #### メッセージのやり取り
 
-- ` postMessage()`` メソッドと  `onmessage` イベントハンドラーを使う
+- `postMessage()`` メソッドと`onmessage` イベントハンドラーを使う
 - main.js
 
 ```js

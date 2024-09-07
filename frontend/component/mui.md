@@ -1,16 +1,18 @@
 # MUI
+
 MUI offers a comprehensive suite of UI tools to help you ship new features faster.
-Start with Material UI, our fully-loaded component library, 
+Start with Material UI, our fully-loaded component library,
 or bring your own design system to our production-ready components.
 
 Material UI is a library of React UI components that implements Google's Material Design.
 
-
 `MUI Core`の中に、`Material UI`, `Joy UI`, `MUI Base`, `MUI System`とあり、それぞれ独立してinstallが必要
+
 ## References
+
 - [Official](https://mui.com/)
   - [Material UI Docs](https://mui.com/material-ui/getting-started/overview/)
-- [github](https://github.com/mui) 
+- [github](https://github.com/mui)
 - [React templates & tools](https://mui.com/store/)
 - [MUI Component Template](https://mui.com/templates/)
 
@@ -18,6 +20,7 @@ Material UI is a library of React UI components that implements Google's Materia
 - [React + Material-UIで管理画面を作成してみた](https://dev.classmethod.jp/articles/react-material-ui/)
 
 ## Products
+
 - [MUI Core](https://mui.com/core/)
   - Component library
     - [Supported components](https://mui.com/material-ui/getting-started/supported-components/)
@@ -32,19 +35,23 @@ Material UI is a library of React UI components that implements Google's Materia
 - [Design kits](https://mui.com/design-kits/)
 
 ## Install and start using
+
 - [Installation](https://mui.com/material-ui/getting-started/installation/)
 
 - Install packages
+
 ```bash
 npm install @mui/material @emotion/react @emotion/styled
 ```
 
 - Or install packages using styled-components
+
 ```bash
 npm install @mui/system @mui/styled-engine-sc styled-components
 ```
 
 ### modify html to use typography
+
 - [Typography](https://mui.com/material-ui/react-typography/)
 
 ```html
@@ -61,12 +68,15 @@ npm install @mui/system @mui/styled-engine-sc styled-components
 ```
 
 ### Material Icons
+
 - [Material Icons](https://mui.com/material-ui/material-icons/)
+
 ```bash
 npm install @mui/icons-material
 ```
 
 - use icons
+
 ```tsx
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
@@ -76,7 +86,9 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 ```
 
 ## How to use components
+
 - use components
+
 ```tsx
 import { Button } from "@mui/material";
 ...
@@ -91,8 +103,8 @@ import { Button } from "@mui/material";
 }
 ```
 
-
 ## Components v5
+
 - Inputs
   - [Autocomplete](https://mui.com/material-ui/react-autocomplete/)
     - autocomplete機能を持つText Input
@@ -112,7 +124,7 @@ import { Button } from "@mui/material";
   - [Text Field](https://mui.com/material-ui/react-text-field/)
   - [Transfer List](https://mui.com/material-ui/react-transfer-list/)
     - 2つのリストのグループがあり、項目を移動できるもの
-  - [Toggle Button](https://mui.com/material-ui/react-toggle-button/) 
+  - [Toggle Button](https://mui.com/material-ui/react-toggle-button/)
     - 並んだアイコンから、どれかを選択した状態にできるもの
 - Data display
   - [Avatar](https://mui.com/material-ui/react-avatar/)
@@ -128,7 +140,7 @@ import { Button } from "@mui/material";
     - `npm install @mui/icons-material`によるinstallが必要で、様々なアイコンが用意されている
     - 次項の`Material Icon`を参照
     - そのほかのライブラリも使える
-      - [MDI](https://mui.com/material-ui/icons/)は、2000を超えるアイコンが用意されている 
+      - [MDI](https://mui.com/material-ui/icons/)は、2000を超えるアイコンが用意されている
   - [Material Icons](https://mui.com/material-ui/material-icons/)
   - [Lists](https://mui.com/material-ui/react-list/)
     - メニュー的なリスト
@@ -182,6 +194,7 @@ import { Button } from "@mui/material";
     - defaultでは`div`要素が実態となるが、`component` propで要素を変更できる
       - `<Box component="span" sx={{ p: 2, border: '1px dashed grey' }}>`
     - `component`にはあらゆる要素を指定できる？
+
 ```tsx
 <Box component="div" sx={{
     height: 300,
@@ -195,21 +208,22 @@ import { Button } from "@mui/material";
 <Box component="strong" href=""/>
 <Box component="h1" href=""/>
 ```
-  - [Container](https://mui.com/material-ui/react-container/)
-    - Boxと基本は同じだが、要素を中央に寄せたい場合`maxWidth`属性で設定できる
-    - Componentのセンタリング方法
-      - [4 ways to center a component in Material-UI](https://medium.com/@tsubasakondo_36683/4-ways-to-center-a-component-in-material-ui-a4bcafe6688e)
-  - [Grid](https://mui.com/material-ui/react-grid/)
-    - レスポンシブ レイアウト グリッドによって、画面のサイズと向きに適応し、レイアウト間の一貫性を確保する
-    - デザインレイアウトの要となるもの？
-  - [Grid version 2](https://mui.com/material-ui/react-grid2/)
-    - `Grid`コンポーネントの問題を解消したもので、こちらを使う
-  - [Stack](https://mui.com/material-ui/react-stack/)
-    - `Grid`と似ているが、`Stack` コンポーネントは、垂直軸または水平軸に沿って直下の子のレイアウトを管理し、オプションで各子の間に間隔や仕切りを配置する
-  - [Image List](https://mui.com/material-ui/react-image-list/)
-    - 画像の集合体をgridで表示する
-  - [Hidden](https://mui.com/material-ui/react-hidden/)
-    - deprecated
+
+- [Container](https://mui.com/material-ui/react-container/)
+  - Boxと基本は同じだが、要素を中央に寄せたい場合`maxWidth`属性で設定できる
+  - Componentのセンタリング方法
+    - [4 ways to center a component in Material-UI](https://medium.com/@tsubasakondo_36683/4-ways-to-center-a-component-in-material-ui-a4bcafe6688e)
+- [Grid](https://mui.com/material-ui/react-grid/)
+  - レスポンシブ レイアウト グリッドによって、画面のサイズと向きに適応し、レイアウト間の一貫性を確保する
+  - デザインレイアウトの要となるもの？
+- [Grid version 2](https://mui.com/material-ui/react-grid2/)
+  - `Grid`コンポーネントの問題を解消したもので、こちらを使う
+- [Stack](https://mui.com/material-ui/react-stack/)
+  - `Grid`と似ているが、`Stack` コンポーネントは、垂直軸または水平軸に沿って直下の子のレイアウトを管理し、オプションで各子の間に間隔や仕切りを配置する
+- [Image List](https://mui.com/material-ui/react-image-list/)
+  - 画像の集合体をgridで表示する
+- [Hidden](https://mui.com/material-ui/react-hidden/)
+  - deprecated
 - Utils
   - [Click-Away Listener](https://mui.com/material-ui/react-click-away-listener/)
     - 子要素の外でクリックイベントが発生したことを検出する
@@ -217,6 +231,7 @@ import { Button } from "@mui/material";
     - 各ブラウザーの差異を平均化させる `normalize.css` のような役割を果たすベースライン
     - CssBaseline ... 全体要素に適用するときに利用し、global resetの機能を持たせるもの
     - ScopedCssBaseline ... 子要素のみに適用したい場合はこちらを使用する
+
 ```tsx
 <ThemeProvider theme={theme}>
   <CssBaseline />
@@ -225,28 +240,29 @@ import { Button } from "@mui/material";
   </Container>
 </ThemeProvider>
 ```
-  - [Modal](https://mui.com/material-ui/react-modal/)
-    - dialogs, popovers, lightboxesなどを作成するための強固な基盤を提供する
-  - [No SSR](https://mui.com/material-ui/react-no-ssr/)
-    - サーバー サイド レンダリング (SSR) の対象からコンポーネントを意図的に削除するもの 
-  - [Popover](https://mui.com/material-ui/react-popover/)
-    - コンテンツを別のコンテンツの上に表示できる
-  - [Popper](https://mui.com/material-ui/react-popper/)
-    - コンテンツを別のコンテンツの上に表示できる。`react-popper` の代替品
-  - [Portal](https://mui.com/material-ui/react-portal/)
-    - その子要素を現在の DOM 階層の外側にある新しい「サブツリー」にレンダリングする
-  - [Textarea Autosize](https://mui.com/material-ui/react-textarea-autosize/)
-    - テキストエリア
-  - [Transitions](https://mui.com/material-ui/transitions/)
-    - 非表示のものを表示させる際に、アニメーションを使って表示させる
-    - 種類は
-      - Collapse
-      - Fade
-      - Grow
-      - Slide
-      - Zoom
-  - [useMediaQuery](https://mui.com/material-ui/react-use-media-query/)
-    - ReactのCSS media query hook
+
+- [Modal](https://mui.com/material-ui/react-modal/)
+  - dialogs, popovers, lightboxesなどを作成するための強固な基盤を提供する
+- [No SSR](https://mui.com/material-ui/react-no-ssr/)
+  - サーバー サイド レンダリング (SSR) の対象からコンポーネントを意図的に削除するもの
+- [Popover](https://mui.com/material-ui/react-popover/)
+  - コンテンツを別のコンテンツの上に表示できる
+- [Popper](https://mui.com/material-ui/react-popper/)
+  - コンテンツを別のコンテンツの上に表示できる。`react-popper` の代替品
+- [Portal](https://mui.com/material-ui/react-portal/)
+  - その子要素を現在の DOM 階層の外側にある新しい「サブツリー」にレンダリングする
+- [Textarea Autosize](https://mui.com/material-ui/react-textarea-autosize/)
+  - テキストエリア
+- [Transitions](https://mui.com/material-ui/transitions/)
+  - 非表示のものを表示させる際に、アニメーションを使って表示させる
+  - 種類は
+    - Collapse
+    - Fade
+    - Grow
+    - Slide
+    - Zoom
+- [useMediaQuery](https://mui.com/material-ui/react-use-media-query/)
+  - ReactのCSS media query hook
 - Mui X
   - [Data grid](https://mui.com/x/react-data-grid/)
     - 高速で拡張可能なReactデータ テーブルとReactデータ グリッド
@@ -256,7 +272,9 @@ import { Button } from "@mui/material";
 - LAB
 
 ## Customization
+
 ### Theming
+
 - テーマで MUI をカスタマイズできる。これにより、色、タイポグラフィなどを変更できる
 - テーマは、コンポーネントの色、表面の暗さ、影のレベル、インク要素の適切な不透明度などを指定する
 - テーマを使用すると、アプリに一貫したトーンを適用できる
@@ -295,10 +313,12 @@ const App = () => {
 ```
 
 #### ThemeProvider
+
 - テーマをカスタマイズする場合は`ThemeProvider`によって、アプリケーションにテーマを挿入する
 - ただし、これはオプションであり、MUI コンポーネントには、既定のテーマが付属している
 
 #### Theme configuration variables
+
 - `.palette`
   - ブランドに合わせてコンポーネントの色を変更できる
 - `.typography`
@@ -306,7 +326,7 @@ const App = () => {
 - `.spacing`
   - UI の要素間に一貫した間隔を作成するには、`theme.spacing()` ヘルパーを使用する
 - `.breakpoints`
-  - さまざまなコンテキストでブレークポイントを使用できるようにする API 
+  - さまざまなコンテキストでブレークポイントを使用できるようにする API
 - `.zIndex`
   - z-index は、コンテンツを配置するための 3 番目の軸を提供することでレイアウトを制御するのに役立つ CSS プロパティ
 - `.transitions`
@@ -315,5 +335,6 @@ const App = () => {
   - テーマ内のキーを使用して、コンポーネントのスタイル、デフォルトのpropsなどをカスタマイズできる
 
 #### Theme builder
+
 - [Material-UI Theme Creator](https://bareynol.github.io/mui-theme-creator/)
 - [Color palettes](https://m2.material.io/inline-tools/color/)

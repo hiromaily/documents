@@ -6,4 +6,3 @@
 ## lefthook
 
 ### monorepo構成時、repository単位で実行することは可能か？
-

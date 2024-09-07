@@ -142,7 +142,6 @@ OCR Engine modes:
 
 - [Optimizing Rotation Accuracy for OCR](https://indiantechwarrior.medium.com/optimizing-rotation-accuracy-for-ocr-fbfb785c504b)
 
-
 ### tesseractで、どれだけ回転が必要か調べる
 
 ```sh

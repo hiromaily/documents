@@ -172,7 +172,7 @@ mv .fzf.zsh .config/zsh/
 
 ## fig [WIP]
 
-- https://fig.io/
+- <https://fig.io/>
 
 ## 既存のマシンからの設定引き継ぎ
 

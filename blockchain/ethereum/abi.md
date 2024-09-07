@@ -8,6 +8,7 @@
 - [コントラクトABIの仕様](https://solidity-ja.readthedocs.io/ja/latest/abi-spec.html)
 
 ## ABI エンコーディング
+
 - コントラクト ABI をエンコードおよびデコードする方法については、明確な仕様がある。
 - [ABIエンコーディングおよびデコーディングの関数](https://solidity-ja.readthedocs.io/ja/latest/units-and-global-variables.html#abi)
 
@@ -19,5 +20,6 @@
 - このようなエンコードをどのように行うかのルールは、Ethereum Virtual Machine（EVM）の実装で定義されている
 
 ### ABI function
+
 - abi.encode()
 - abi.decode()

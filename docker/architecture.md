@@ -38,11 +38,11 @@ uname -m
 ### [Docker でサポートされているアーキテクチャー](https://github.com/docker-library/official-images?tab=readme-ov-file#architectures-other-than-amd64)
 
 - Architectures officially supported by Docker, Inc. for running Docker
-  - ARMv6 32-bit (arm32v6): https://hub.docker.com/u/arm32v6/
-  - ARMv7 32-bit (arm32v7): https://hub.docker.com/u/arm32v7/
-  - ARMv8 64-bit (arm64v8): https://hub.docker.com/u/arm64v8/
-  - Linux x86-64 (amd64): https://hub.docker.com/u/amd64/
-  - Windows x86-64 (windows-amd64): https://hub.docker.com/u/winamd64/
+  - ARMv6 32-bit (arm32v6): <https://hub.docker.com/u/arm32v6/>
+  - ARMv7 32-bit (arm32v7): <https://hub.docker.com/u/arm32v7/>
+  - ARMv8 64-bit (arm64v8): <https://hub.docker.com/u/arm64v8/>
+  - Linux x86-64 (amd64): <https://hub.docker.com/u/amd64/>
+  - Windows x86-64 (windows-amd64): <https://hub.docker.com/u/winamd64/>
 
 ## Docker でアーキテクチャの指定方法
 

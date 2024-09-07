@@ -90,7 +90,7 @@ function safeMint(address to, string memory uri, uint256 tokenId) public {
 }
 ```
 
-##　ユースケース
+## 　ユースケース
 
 - NFT 作成 -> `safMint(to, uri, tokenId)`
 - NFT 出品 -> `approve(_approved, tokenId)`

@@ -1,15 +1,19 @@
 # Generics / ジェネリクス
+
 - `型も変数のように扱えるようにする` というもので、型の安全性を保ちながらコードの共通化が可能
 - 型引数に使われる`T`は慣例的なもので、Type, Elementを表す `T`や`E`がよく使われる
 
 ## 型引数の慣例
+
 - T：Type
 - K：Key
 - U：Unknown
 - E：Element
 
 ## Sample Code
+
 - Genericsがない場合
+
 ```ts
 function identity(arg: number): number {
   return arg;
@@ -20,6 +24,7 @@ function identity(arg: string): string {
 ```
 
 - Genericsを使う場合 (Generics function)
+
 ```ts
 // 定義
 function identity<T>(arg: T): T {
@@ -31,7 +36,9 @@ let output1 = identity<string>("myString");
 // 明示的な指定がなくても型推論が走る
 let output2 = identity("myString");
 ```
+
 - Generics function with 2 型引数
+
 ```ts
 function identity<T,R>(arg: T): R {
   return ...;
@@ -40,16 +47,18 @@ function identity<T,R>(arg: T): R {
 // Usage
 let output1 = identity<number, string>(20);
 ```
+
 - arrow function
+
 ```ts
 const foo = <T>(arg: T) => {
-	return { value: arg };
+ return { value: arg };
 };
 const foo1 = foo<number[]>([1, 2]);
 ```
 
-
 ## 配列を使う
+
 ```ts
 function loggingIdentity<T>(arg: Array<T>): Array<T> {
   console.log(arg.length);
@@ -67,24 +76,25 @@ loggingIdentity<number>(vals);
 ```
 
 ## Generics 型
+
 ```ts
 type Foo<T> = {
-	value: T;
+ value: T;
 };
 
 type User<T,R> = {
-	name: string;
-	age: T;
+ name: string;
+ age: T;
   option: R;
 };
 
 // Usage
 const foo: Foo<number> = {
-	value: 0,
+ value: 0,
 };
 
 const user: User<number, string> = {
-	name: 'mike',
+ name: 'mike',
   age: 25,
   option: 'he is great',
 };
@@ -92,6 +102,7 @@ const user: User<number, string> = {
 ```
 
 ## Generics クラス
+
 ```ts
 class Queue<T> {
   private data: T[] = []; // Initialize data as an array of type T
@@ -107,6 +118,7 @@ queue.push("1"); // Error
 ```
 
 ## 型引数は複数与えることも可能
+
 ```ts
 class MyGenerics<T,R> {}
 
@@ -114,6 +126,7 @@ let mg = new MyClass<string, number>();
 ```
 
 ## 型引数に規定値を与える
+
 ```ts
 class MyGenerics<T=string> {}
 
@@ -122,6 +135,7 @@ g.value = 'String';
 ```
 
 ## 型引数に制約をつける
+
 以下の意味は、型`T`は必ず`HTMLElement`またはそのサブタイプ(派生クラスのようなもの)の`HTMLButtonElement`や`HTMLDivElement`でなくてはならない
 
 ```ts
@@ -132,9 +146,11 @@ function changeBackgroundColor<T extends HTMLElement>(element: T) {
 ```
 
 ### Typescriptsの`extends`について
+
 - [Typescriptsの`extends`について](https://zenn.dev/nbr41to/articles/7d2e7c4e31c54c)
 
 #### interfaceを用いた型の継承（拡張）
+
 ```ts
 interface User {
   name: string;
@@ -150,6 +166,7 @@ interface Admin extends User {
 ```
 
 #### Genericsの型を限定する
+
 ```ts
 type User = {
   name: string;
@@ -160,6 +177,7 @@ const f = <T extends User>(arg: T): string => arg.name;
 ```
 
 #### Conditional Typeとしてのextends
+
 Conditional Typeは `T extends U ? A : B` と書くことで型の条件分岐をすることができる
 
 ```ts
@@ -172,6 +190,7 @@ type E = A<123>;     // number
 ```
 
 #### Conditional Typeとしてのextendsの中でinferを使う
+
 inferを使うことで型を取り出すことができる
 
 ```ts
@@ -191,6 +210,7 @@ type C = A<UserB>; // null
 ```
 
 ## References
+
 - [Typescript Generics](https://www.typescriptlang.org/docs/handbook/2/generics.html)
 - [Typescript Deep Dive 日本語版 ジェネリック型](https://typescript-jp.gitbook.io/deep-dive/type-system/generics)
 - [サバイバルTypescript ジェネリクス](https://typescriptbook.jp/reference/generics)

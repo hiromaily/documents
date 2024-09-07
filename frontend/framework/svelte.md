@@ -81,11 +81,11 @@ npx vite build
 
 ```
 const config = {
-	kit: {
+ kit: {
     ...
-		appDir: 'app',
+  appDir: 'app',
     ...
-	}
+ }
 };
 
 ```

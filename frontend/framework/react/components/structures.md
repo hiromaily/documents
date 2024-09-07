@@ -1,15 +1,15 @@
 # Component Structures
 
-## 1. Atomic Design:
+## 1. Atomic Design
 
 - `Atoms`, `molecules`, `organisms`, `templates`, and `pages`: Breaking down components into smaller, reusable pieces.
 
-## 2. Container/Presentational Components:
+## 2. Container/Presentational Components
 
 - Containers: Responsible for data fetching, state management, and business logic.
 - Presentational components: Focused on UI rendering, receiving data through props.
 
-## 3. Feature-Based Structure:
+## 3. Feature-Based Structure
 
 - 以下の`package by feature`と同じか？
 - Grouping components by feature: Organize components based on the features or functionalities they represent.
@@ -18,15 +18,15 @@
 
 - コードを技術的な属性 (= layer) に基づいて分類・配置するのではなく、機能やドメインの関心 (= feature) に基づいて分類・配置を行う設計方針
 
-## 4. Component Type Structure:
+## 4. Component Type Structure
 
 - Separating components by type: Grouping them by their function (e.g., buttons, forms, cards, modals).
 
-## 5. Hierarchy-Based Structure:
+## 5. Hierarchy-Based Structure
 
 - Parent/child relationships: Organizing components based on their relationship within the app's UI hierarchy.
 
-## 6. Route-Based Structure:
+## 6. Route-Based Structure
 
 - Next.js で使われるパターン
 - Grouping components by routes: Particularly useful in Next.js for organizing pages and their associated components.

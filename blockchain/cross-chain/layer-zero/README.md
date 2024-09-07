@@ -5,6 +5,7 @@
   - This repository contains the smart contracts for LayerZero Endpoints
 
 ## Estimating Message Fees
+
 - [Docs](https://layerzero.gitbook.io/docs/evm-guides/code-examples/estimating-message-fees)
 
 ```
@@ -103,13 +104,16 @@ function _getPrices(uint16 _dstChainId, uint16 _outboundProofType, address, byte
 ### RelayerのGas Feeはどのようになっているのか？
 
 #### 参考までに、Ethereumの場合
+
 使われる要素として、`gas limit`, `base fee`, `validator tips`があり、計算式は
+
 ```
 // gas limit * (base fee + validator tips)
 21,000 * (10 + 2) = 252,000 gwei (0.000252 ETH)
 ```
 
 #### 計算式
+
 Ethereumの場合、`base fee`が常に変動する
 
 ```

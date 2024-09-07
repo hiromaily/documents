@@ -126,6 +126,7 @@ ERR_PNPM_WORKSPACE_PKG_NOT_FOUND  In apps/api: "@repo/typescript-config@worksp
 - ["<PackageA> is in the dependencies but no package named <PackageA> is present in the workspace" - Error when running pnpm install](https://stackoverflow.com/questions/77865368/packagea-is-in-the-dependencies-but-no-package-named-packagea-is-present-in)
 
 #### pnpm-workspace.yamlに `'packages/common/*'` を追加
+
 ```yaml
 packages:
   - 'apps/*'
@@ -134,7 +135,7 @@ packages:
   - 'packages/web/*'
 ```
 
-### ` This project's package.json defines "packageManager": "yarn@pnpm@9.9.0". However the current global version of Yarn is x.xx.`
+### `This project's package.json defines "packageManager": "yarn@pnpm@9.9.0". However the current global version of Yarn is x.xx.`
 
 - repositoryにyarn関連のファイルが残っていた
 

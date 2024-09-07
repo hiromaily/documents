@@ -1,6 +1,6 @@
 # Tools
-Typescriptで書かれたファイルは`compile`, `bundle`, `minify` されなくてはならない
 
+Typescriptで書かれたファイルは`compile`, `bundle`, `minify` されなくてはならない
 
 - General Build Tools
   - Vite

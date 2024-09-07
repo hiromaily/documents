@@ -36,14 +36,14 @@ type DoSomethinger interface {
 }
 
 type DoSomethinger struct {
-	Object            *object1
-	Object2           *object2
-	someInterface     someinterface
-	number            uint64
+ Object            *object1
+ Object2           *object2
+ someInterface     someinterface
+ number            uint64
 }
 
 type DoSomethingA struct {
-	foobar.DoSomethingBase //embed
+ foobar.DoSomethingBase //embed
 }
 
 

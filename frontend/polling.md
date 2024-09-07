@@ -1,6 +1,7 @@
 # Pooling
 
 ## Javascript
+
 ```js
 function makeRequest() {
   // Make your request here
@@ -34,6 +35,7 @@ makeRequest()
 ```
 
 ## Typescript
+
 ```ts
 async function makeRequest(): Promise<any> {
   while (true) {
@@ -61,6 +63,7 @@ makeRequest()
 ```
 
 ## Typescript + React Hook
+
 ```ts
 import React, { useState, useEffect } from 'react';
 

@@ -60,7 +60,7 @@ Next.js における Server Components は、パフォーマンスの向上、�
 
 ![components comparison](../../../../images/nextjs-components.png 'components comparison')
 
-## [パターン](https://nextjs.org/docs/getting-started/react-essentials#patterns): 重要!!
+## [パターン](https://nextjs.org/docs/getting-started/react-essentials#patterns): 重要
 
 ### [1. Client Components を起点となる Component(layout.tsx)から離れた先端に移動する](https://nextjs.org/docs/getting-started/react-essentials#moving-client-components-to-the-leaves)
 

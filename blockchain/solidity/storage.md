@@ -1,4 +1,5 @@
 # Solidity Storage
+
 - [ストレージ内の状態変数のレイアウト](https://solidity-ja.readthedocs.io/ja/latest/internals/layout_in_storage.html)
 - [メモリ内のレイアウト](https://solidity-ja.readthedocs.io/ja/latest/internals/layout_in_memory.html)
 
@@ -19,6 +20,7 @@ contract SimpleStorage {
 ```
 
 ## ストレージ内の状態変数のレイアウト まとめ
+
 - Solidityでいうコントラクトとは、Ethereumブロックチェーン上の特定のアドレスに存在するコード（functions）とデータ（state: global変数）の集合
 - `uint storedData;` という行は、 uint型の storedData という`状態変数`を宣言している
 - これは、データベースを管理するコードの関数を呼び出すことで問い合わせや変更ができる、データベースの1つの`スロット`
@@ -40,6 +42,7 @@ contract SimpleStorage {
   - `文字列`は新しいスロットを作成し、このスロットにはデータとデータ長の両方が格納される
 
 ## メモリ内のレイアウト まとめ
+
 - Solidityは`4つ`の`32バイト`スロットを確保している
   - `0x00` - `0x3f` （64バイト）: ハッシュ化のためのスクラッチ領域
     - ステートメント間（インラインアセンブリ内）で使用できる
@@ -51,4 +54,5 @@ contract SimpleStorage {
 - メモリ上のレイアウトと ストレージ 上のレイアウトは異なる
 
 ## solidity assembly
+
 - ストレージにデータを書き込む際に、インラインアセンブリでデータサイズを意識しながら書き込むことで、ガスを節約することが可能になる

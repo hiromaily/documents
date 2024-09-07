@@ -5,7 +5,9 @@
   - [subgraphs](https://github.com/sushiswap/subgraphs)
 
 ## sushiswapの構成
+
 ### SmartContract関連
+
 - [protocols](https://github.com/sushiswap/sushiswap/tree/master/protocols)
   - [bentobox/contracts](https://github.com/sushiswap/sushiswap/tree/master/protocols/bentobox/contracts)
     - [interfaces](https://github.com/sushiswap/sushiswap/tree/master/protocols/bentobox/contracts/interfaces)
@@ -67,6 +69,7 @@
       - `function cook(uint8[] memory actions, uint256[] memory values, bytes[] memory datas) external payable;`
 
 #### [SushiXSwapコントラクト](https://github.com/sushiswap/sushiswap/blob/master/protocols/sushixswap/contracts/SushiXSwap.sol)
+
 - `cook` functionのみで、渡された`actions`(複数)によって処理を切り替えている
 - `ACTION_MASTER_CONTRACT_APPROVAL`
   - bentoBox.setMasterContractApproval() をcall
@@ -102,6 +105,7 @@
 #### [StargateAdapterコントラクト](https://github.com/sushiswap/sushiswap/blob/f01135e26ec457d3185160788ff2a8bf8e5b8a45/protocols/sushixswap/contracts/adapters/StargateAdapter.sol)
 
 ##### [_stargateTeleport()](https://github.com/sushiswap/sushiswap/blob/f01135e26ec457d3185160788ff2a8bf8e5b8a45/protocols/sushixswap/contracts/adapters/StargateAdapter.sol#L47-L79)
+
 - Bridges the token to dst chain using Stargate Router
 - [stargateRouter.swap()](https://github.com/stargate-protocol/stargate/blob/c647a3a647fc693c38b16ef023c54e518b46e206/contracts/Router.sol#L107-L134) を呼び出す
 - どういった経路で呼び出されるのか？
@@ -117,6 +121,7 @@
     - SushiXSwapコントラクトの`cook()`で、Action==`ACTION_STARGATE_TELEPORT`
 
 ### WIP: Application関連
+
 - [apps](https://github.com/sushiswap/sushiswap/tree/master/apps)
   - [xswap](https://github.com/sushiswap/sushiswap/tree/master/apps/xswap)
     - [lib](https://github.com/sushiswap/sushiswap/tree/master/apps/xswap/lib)
@@ -127,9 +132,8 @@
     - [pages](https://github.com/sushiswap/sushiswap/blob/master/apps/xswap/lib/storage.ts)
       - [index.tsx](https://github.com/sushiswap/sushiswap/blob/master/apps/xswap/pages/index.tsx)
 
-
-
 ## trident
+
 SushiSwapが新たに開発したAMMとルーティングシステム。
 Tridentは拡張可能なAMMフレームワークとして設計されており、開発者はIPoolインターフェースに準拠した新しいプールタイプを追加することが可能。
 発売前に、イーサリアム全体のプールインターフェースの標準化を支援するために、IPoolインターフェース設計のためのEIPが提出される予定。

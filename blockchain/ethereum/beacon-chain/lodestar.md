@@ -47,14 +47,14 @@
         - packages/validator/src/services/chainHeaderTracker.ts
         - this.api.events.eventstream([EventType.head], signal, this.onHeadUpdate);
           - これにより、head の更新イベントを subscribe する
-        - https://github.com/ChainSafe/lodestar/blob/unstable/packages/validator/src/services/chainHeaderTracker.ts#L50-L77
+        - <https://github.com/ChainSafe/lodestar/blob/unstable/packages/validator/src/services/chainHeaderTracker.ts#L50-L77>
         - onHeadUpdate() ... これが実際の validator の処理
           - event から message を取得
           - message から slot, block, previousDutyDependentRoot, currentDutyDependentRoot
           - validator の headBlockSlot と headBlockRoot を更新
           - パラメータから、headEventData を作成
           - head event handler を headEventData をパラメータとして実行
-            - https://github.com/ChainSafe/lodestar/blob/unstable/packages/validator/src/services/attestationDuties.ts#L254-L305
+            - <https://github.com/ChainSafe/lodestar/blob/unstable/packages/validator/src/services/attestationDuties.ts#L254-L305>
             - onNewHead()
               - attester duties
               - 以下の条件を満たす場合、`handleAttesterDutiesReorg()`を実行する
@@ -66,7 +66,7 @@
           - this.emitter.emit(ValidatorEvent.chainHead, headEventData)
 
   - beacon が管理する validator の型情報
-    - https://github.com/ChainSafe/lodestar/blob/unstable/packages/api/src/beacon/routes/validator.ts
+    - <https://github.com/ChainSafe/lodestar/blob/unstable/packages/api/src/beacon/routes/validator.ts>
 
 ```ts
 export type AttesterDuty = {
@@ -123,7 +123,7 @@ export type AttesterDuty = {
 - packages/beacon-node/src/eth1/eth1DepositDataTracker.ts
   - updateDepositCache() ... これは、eth1DepositDataTracker の update()から呼ばれる
     - getDepositEvents()を呼び出し、depositEvent が取得された場合、depositsCache プロパティに追加される
-- https://github.com/ChainSafe/lodestar/blob/eccde2f3d71448ad5b5026f87e4699c29b5b04f7/packages/beacon-node/src/chain/genesis/genesis.ts
+- <https://github.com/ChainSafe/lodestar/blob/eccde2f3d71448ad5b5026f87e4699c29b5b04f7/packages/beacon-node/src/chain/genesis/genesis.ts>
   - waitForGenesis()から呼ばれる、waitForGenesisValidators()内にて、`depositEvents`を使っている
   - それを applyDeposits()のパラメータとして呼び出すことで、validator に変更が入る
     - applyDeposits()の戻り値が、`activatedValidatorCount`にセットされる
@@ -136,5 +136,5 @@ export type AttesterDuty = {
 ### Validator Client の挙動について
 
 - validator package が存在する
-  - https://github.com/ChainSafe/lodestar/tree/unstable/packages/validator
+  - <https://github.com/ChainSafe/lodestar/tree/unstable/packages/validator>
   - validator 機能を持つモジュール群

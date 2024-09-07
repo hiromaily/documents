@@ -1,4 +1,5 @@
 # Energy Web
+
 - [Official](https://www.energyweb.org/)
 - [Github](https://github.com/energywebfoundation/)
 - [Energy Web Stack](https://www.energyweb.org/how-we-work/)
@@ -6,14 +7,15 @@
 - [Energy Web Origin: Github](https://github.com/energywebfoundation/origin)
   - [Energy Web Origin Docs](https://energy-web-foundation-origin.readthedocs-hosted.com/en/latest/)
 
-
 ## Energy Web 分散型オペレーティングシステム (EW-DOS)
+
 - 分散化及び脱炭素化されたエネルギーシステムのためのデジタルインフラストラクチャー
 - [技術スタック](https://energy-web-foundation.gitbook.io/energy-web/technology/the-stack)
   - 現在のエネルギーおよび再生可能エネルギー市場における2つの主な課題に対処するよう設計されている
 - [分散型エネルギー資源(DER)](https://energy-web-foundation.gitbook.io/energy-web/glossary-of-terms#distributed-energy-resources-der)
 
 ## [Glossary](https://energy-web-foundation.gitbook.io/energy-web/glossary-of-terms) 用語集
+
 - 24/7 Clean Energy
   - 24 時間年中無休のクリーン エネルギー
   - 消費が発生する地域の送電網で毎時間、クリーンでカーボンフリーのエネルギーを購入するためのイニシアチブ。
@@ -22,7 +24,7 @@
   - アグリゲーター
   - 電力システムの地元の参加者 (エネルギー消費者、エネルギー生産者、エネルギー消費者) をグループ化して、グリッドから消費する必要があるエネルギー量を決定および調整し、場合によっては電力の販売を支援する、エネルギー サービス提供における新しい役割。
   - 分散型エネルギー資源 (DER)からの余剰電力を地域または卸売電力市場に戻す。
-  -  アグリゲーターは、このグループにサービスを提供したり、グリッドで DER サービスを使用したりするプロシューマー、送電システム オペレーター (TSO)、および配電システム オペレーター (DSO)の間の仲介者。
+  - アグリゲーターは、このグループにサービスを提供したり、グリッドで DER サービスを使用したりするプロシューマー、送電システム オペレーター (TSO)、および配電システム オペレーター (DSO)の間の仲介者。
 - Application Registries
   - アプリケーション レジストリは、許可、登録、および市場参加者間の関係を自動化された方法で管理するためのロジック。
 - Charge Point Operator (CPO)
@@ -38,21 +40,21 @@
   - DID を使用すると、DID の管理者は、他の当事者からの許可を必要とせずに、DID の管理を証明できる。
   - DID は、DID サブジェクトを DID ドキュメントに関連付けて、そのサブジェクトとの信頼できる対話を可能にする。
 - Decentralized Service Bus (DSB)
-  - 分散型サービス バス (DSB) 
+  - 分散型サービス バス (DSB)
   - DSB は、Energy Web Decentralized Operating System (EW-DOS)ユーティリティ層のメッセージング サービス。
   - EW-DSB は、他の集中管理されたPub/Sub メッセージング システムとは異なり、完全に分散化され、スケーラブルになるように設計および実装されている。
   - EW-DSB で共有されたメッセージは、暗号署名を使用して元の送信者まで追跡できる。
   - これにより、データ交換のセキュリティがさらに強化される。
   - EW-DSB の主な利点の 1 つは、スキーマにとらわれないこと。つまり、任意のタイプのスキーマをユーザー/システム間でメッセージとして共有できる。
 - Distributed Energy Resources (DER)
-  - 分散型エネルギー資源 (DER) 
+  - 分散型エネルギー資源 (DER)
   - 配電網全体に展開される物理資産および仮想資産は、個別にまたは集合的に使用して、配電網、個々の顧客、またはその両方に価値を提供できる。
-  -  DER には、たとえば、ソーラー、バッテリー、フレキシブル負荷が含まれ、「デバイス」または「資産」とも呼ばれる。
+  - DER には、たとえば、ソーラー、バッテリー、フレキシブル負荷が含まれ、「デバイス」または「資産」とも呼ばれる。
 - Distribution System Operator (DSO)
   - 配電システム オペレーター (DSO)
-  -  地域または地方レベルで運営されるエネルギー分配ネットワークの運営管理者 (場合によっては所有者)。
-  -  DSO は、( TSO:Transmission System Operator を介して) 大規模な送電網から入ってくる高電圧の電力を管理し、それをより低い電圧に変換して、ローカル ネットワーク全体に分配する。
-  -  彼らは本質的に、送電網からの生の高電圧電力と地元の電力消費者との間の仲介者。
+  - 地域または地方レベルで運営されるエネルギー分配ネットワークの運営管理者 (場合によっては所有者)。
+  - DSO は、( TSO:Transmission System Operator を介して) 大規模な送電網から入ってくる高電圧の電力を管理し、それをより低い電圧に変換して、ローカル ネットワーク全体に分配する。
+  - 彼らは本質的に、送電網からの生の高電圧電力と地元の電力消費者との間の仲介者。
 - E-Mobility Service Provider (eSMP)
   - eMobility Service Provider (eMSP) は、充電サービスへのアクセス、支払いなどの e-mobility サービスを EVドライバーに提供する。
   - これらのサービスには特定のデータ交換が必要。たとえば、ルーティングのための課金場所がある。
@@ -63,14 +65,14 @@
   - 電力伝送
   - 初期の発電所から変電所への高圧電気の移動
 - Energy Attribute Certificates (EACs)
-  - エネルギー属性証明書(EAC) 
+  - エネルギー属性証明書(EAC)
   - エネルギー属性証書（EAC）は、 特定の単位（歴史的には1MWh、時には1KWh）の電力が再生可能エネルギー源から生産されたことを証明する世界的な手段である。
-  -  世界的には 、 再生可能エネルギーや低炭素エネルギーの使用を主張する様々な EAC制度がある。 
-  -  有名な基準としては、原産地証明（EU）、I-REC（グローバル）、REC（米国/カナダ）などがある。
-    - Redeemed EAC = 誰かが購入したEACを他の人に転売することはできない 
-    - Claimed or Cancelled EAC = Redeemed EACsの他の呼び方。 
-    - バンドル証書 ＝消耗品であるエネルギー＋EACを一緒に販売する契約 
-    - Unbundled Certificates = EACを生成したエネルギーとは別に販売する契約
+  - 世界的には 、 再生可能エネルギーや低炭素エネルギーの使用を主張する様々な EAC制度がある。
+  - 有名な基準としては、原産地証明（EU）、I-REC（グローバル）、REC（米国/カナダ）などがある。
+  - Redeemed EAC = 誰かが購入したEACを他の人に転売することはできない
+  - Claimed or Cancelled EAC = Redeemed EACsの他の呼び方。
+  - バンドル証書 ＝消耗品であるエネルギー＋EACを一緒に販売する契約
+  - Unbundled Certificates = EACを生成したエネルギーとは別に販売する契約
 - Energy Web Chain (EWC)
   - （EWC）+EWCは、エネルギーセクターの規制、運用、市場のニーズに合わせて設計された、パブリックでエンタープライズグレードのブロックチェーンプラットフォーム。
   - 2019年半ばに開始され、企業がブロックチェーンベースの分散型アプリケーション（dApps）を構築・実行するための基盤となるデジタルインフラストラクチャとして機能する。
@@ -107,9 +109,9 @@
   - 充電ポイント事業者と eMobilityサービス事業者の間で、スケーラブルかつ自動的なローミング設定を可能にするプロトコル。
   - [Docs](https://evroaming.org/app/uploads/2020/06/OCPI-2.2-d2.pdf)
 - Open Charge Network (OCN) Registry
-  -  登録されたOCNノード、OCNパーティ、OCNサービスに関する重要な情報を含む、Energy Web Chain上のスマートコントラクト
-  -  これらのコントラクトは、OCNのアドレス、ID、および許可システムとして機能する。
-  -  相互作用のために、コマンドラインインターフェースとライブラリが提供されている。
+  - 登録されたOCNノード、OCNパーティ、OCNサービスに関する重要な情報を含む、Energy Web Chain上のスマートコントラクト
+  - これらのコントラクトは、OCNのアドレス、ID、および許可システムとして機能する。
+  - 相互作用のために、コマンドラインインターフェースとライブラリが提供されている。
 - Original Equipment Manufacturer (OEM)
   - 相手先商標製品製造会社（OEM）
   - 買い手である他社が自社の顧客に販売する製品や部品を、自社のブランドで置きながら製造・販売する会社
@@ -136,12 +138,12 @@
   - 最終的には、誰もが自分の選んだサービスプロバイダーとトークンをステーキングできるようになり、EWの分散型オープンソースソフトウェアに基づく高速で安定した安全なサービスを提供することで両者が報われるようになる。
   - エナジーウェブが実施している方法でのステークは、ブロックチェーン技術の分散化とネットワーク回復力の利点を、より広くソフトウェアとITサービスに適用するもの。
 - Supervisory Control And Data Acquisition (SCADA)
- - 監視制御とデータ収集 (SCADA)
- - SCADA（Supervisory Control and Data Acquisition）は、ソフトウェアとハードウェアからなるシステムで、産業組織において、以下を可能にするもの
-   - i）ローカルまたはリモートロケーションでの産業プロセスの制御、
-   - ii）リアルタイムデータの監視、収集、処理、
-   - iii）センサー、バルブ、ポンプ、モーターなどのデバイスとの直接対話（HMI）、
-   - iv）イベントをログファイルに記録すること
+- 監視制御とデータ収集 (SCADA)
+- SCADA（Supervisory Control and Data Acquisition）は、ソフトウェアとハードウェアからなるシステムで、産業組織において、以下を可能にするもの
+  - i）ローカルまたはリモートロケーションでの産業プロセスの制御、
+  - ii）リアルタイムデータの監視、収集、処理、
+  - iii）センサー、バルブ、ポンプ、モーターなどのデバイスとの直接対話（HMI）、
+  - iv）イベントをログファイルに記録すること
 - Switchboard
   - スイッチボード
   - Switchboardは、アイデンティティとアクセス管理のdApp（分散型アプリ）。

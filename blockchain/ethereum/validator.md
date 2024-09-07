@@ -69,10 +69,10 @@
 - [eth1 の genesis.json sample](https://github.com/rauljordan/eth-pos-devnet/blob/master/execution/genesis.json#L32-L35)
 
 ```
-		"0x4242424242424242424242424242424242424242": {
-			"balance": "0",
-			"code": "0x60806040526004361061003f5760003560e01c80630...."
-		},
+  "0x4242424242424242424242424242424242424242": {
+   "balance": "0",
+   "code": "0x60806040526004361061003f5760003560e01c80630...."
+  },
 ```
 
 - いくつかの sample ではアドレスに`0x4242424242424242424242424242424242424242`が使われているが、eth2 側の config に`DEPOSIT_CONTRACT_ADDRESS`があり、それが一致していれば問題ないと思われる

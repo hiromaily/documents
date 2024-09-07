@@ -28,9 +28,9 @@ curl -fsSL https://raw.githubusercontent.com/zimfw/install/master/install.zsh | 
 
 ### eriner (theme)
 
-- https://zimfw.sh/docs/themes/
-- https://github.com/zimfw/eriner
-- https://stackoverflow.com/questions/42271657/oh-my-zsh-showing-weird-character-on-terminal#_=_
+- <https://zimfw.sh/docs/themes/>
+- <https://github.com/zimfw/eriner>
+- <https://stackoverflow.com/questions/42271657/oh-my-zsh-showing-weird-character-on-terminal#_=>_
 
 - `.zimrc`
 
@@ -41,7 +41,7 @@ zimfw install
 
 ### Powerlevel10k (theme)
 
-- https://github.com/romkatv/powerlevel10k
+- <https://github.com/romkatv/powerlevel10k>
 
 - `.zimrc`
 
@@ -52,12 +52,12 @@ zimfw install
 
 ### zsh-autosuggestions
 
-- https://github.com/zsh-users/zsh-autosuggestions
+- <https://github.com/zsh-users/zsh-autosuggestions>
 - not required thanks to zim
 
 ### zsh-abbr
 
-- https://github.com/olets/zsh-abbr
+- <https://github.com/olets/zsh-abbr>
 
 - `.zimrc`
 
@@ -69,8 +69,8 @@ zimfw install
 
 ### enhancd
 
-- https://github.com/b4b4r07/enhancd
-- https://liginc.co.jp/448630
+- <https://github.com/b4b4r07/enhancd>
+- <https://liginc.co.jp/448630>
 
 - `.zimrc`
 
@@ -81,7 +81,7 @@ zimfw install
 
 ### zdharma/history-search-multi-word [ctrl+R]
 
-- https://github.com/zdharma/history-search-multi-word
+- <https://github.com/zdharma/history-search-multi-word>
 
 - `.zimrc`
 
@@ -92,4 +92,4 @@ zimfw install
 
 ### zdharma/fast-syntax-highlighting
 
-- https://github.com/zdharma/fast-syntax-highlighting
+- <https://github.com/zdharma/fast-syntax-highlighting>

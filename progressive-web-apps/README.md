@@ -1,7 +1,9 @@
 # Progressive Web Apps
-PWAとは、`Progressive Web Apps`の略で、モバイル向けのWebサイトをアプリのように使える仕組みのこと。 
+
+PWAとは、`Progressive Web Apps`の略で、モバイル向けのWebサイトをアプリのように使える仕組みのこと。
 
 ## 特徴
+
 - 通常のWebページとネイティブアプリそれぞれの良い部分を合わせもっており、Webページのように大きなリーチを得ることが出来ながら、プッシュ通知やホーム画面へのアイコン追加などネイティブアプリのような機能を搭載することが出来る
 
 - プログレッシブ:
@@ -16,5 +18,6 @@ PWAとは、`Progressive Web Apps`の略で、モバイル向けのWebサイト�
   - HTTPSを使用してアクセスするため、セキュリティが強化されている
 
 ## References
+
 - [web.dev: pwa](https://web.dev/progressive-web-apps/)
 - [Getting started with Progressive Web Apps](https://developer.chrome.com/blog/getting-started-pwa/)

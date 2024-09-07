@@ -1,7 +1,9 @@
 # CLIを使ったDemo時のRelayerの設定
 
 ## 1. fixtureの作成
+
 ### Tendermint
+
 - tendermintのコンテナからkey_seed.jsonをlocalにコピー
 - tendermint向けCLI用に、seed.json, app.toml, client.toml, config.toml, keyring-testをlocalにコピー
   - これはCLIの初期化処理でもいい
@@ -10,8 +12,8 @@
 
 ### EVMチェーン(Ethereum)
 
-
 ## 2. relayer初期化処理 (init-rly)
+
 - あらかじめ`relayer-util`に変数を定義しておく
   - RELAYER_CONF ... configファイル
   - RLY_BINARY ... 実行ファイル
@@ -25,12 +27,13 @@
 - `${RLY} chains add-dir configs/relayer/demo/` を実行
   - testnet用のconfigurationを追加する
 
-
 ### Fabric (追加処理)
+
 - `${RLY} fabric wallet populate` を実行
 - `${RLY} fabric chaincode init` を実行
 
 ### Tendermint (追加処理)
+
 - `${RLY} tendermint keys restore ibc0 testkey "$SEED0"` を実行
 
 ## 3. WIP:Handshake

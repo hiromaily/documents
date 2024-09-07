@@ -1,7 +1,9 @@
 # YUI Relayer Command
 
 ## Commands
+
 ### Sub Commands
+
 ```
 
 Usage:
@@ -25,7 +27,9 @@ Flags:
   -h, --help          help for yrly
       --home string   set home directory (default "/Users/hiroki.yasui/.yui-relayer")
 ```
+
 ### Config Sub Commands
+
 ```
 manage configuration file
 
@@ -41,6 +45,7 @@ Available Commands:
 ```
 
 ### Chains Sub Commands
+
 ```
 manage chain configurations
 
@@ -49,15 +54,16 @@ Usage:
 
 Available Commands:
   add-dir     Add new chains to the configuration file from a directory
-		full of chain configuration, useful for adding testnet configurations
+  full of chain configuration, useful for adding testnet configurations
 ```
 
 ### Tx Sub Commands
+
 ```
 Commands to create IBC transactions on configured chains.
-		Most of these commands take a '[path]' argument. Make sure:
-	1. Chains are properly configured to relay over by using the 'rly chains list' command
-	2. Path is properly configured to relay over by using the 'rly paths list' command
+  Most of these commands take a '[path]' argument. Make sure:
+ 1. Chains are properly configured to relay over by using the 'rly chains list' command
+ 2. Path is properly configured to relay over by using the 'rly paths list' command
 
 Usage:
   yrly tx [command]
@@ -74,6 +80,7 @@ Available Commands:
 ```
 
 ### Paths Sub Commands
+
 ```
 A path represents the "full path" or "link" for communication between two chains. This includes the client,
 connection, and channel ids from both the source and destination chains as well as the strategy to use when relaying
@@ -90,6 +97,7 @@ Available Commands:
 ```
 
 ### Query Sub Commands
+
 ```
 Commands to query IBC primitives, and other useful data on configured chains.
 
@@ -107,6 +115,7 @@ Available Commands:
 ```
 
 ### Modules Sub Commands
+
 ```
 show an info about Relayer Module
 
@@ -118,6 +127,7 @@ Available Commands:
 ```
 
 ### Service Sub Commands
+
 ```
 Commands to manage the relay service
 
@@ -129,6 +139,7 @@ Available Commands:
 ```
 
 ### Tendermint Sub Commands
+
 ```
 manage tendermint configurations
 

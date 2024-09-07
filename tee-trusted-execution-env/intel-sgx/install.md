@@ -99,7 +99,7 @@ make sdk_install_pkg
 
 - これにより、`linux/installer/bin/sgx_linux_x64_sdk_xxxxx.bin*` が作成される
 
-7.  デフォルト構成で、Intel SGX PSW を build
+7. デフォルト構成で、Intel SGX PSW を build
 
 ```
 make psw
@@ -154,7 +154,7 @@ source /opt/intel/sgxsdk/environment
 
 ### Intel SGX PSW パッケージのビルド
 
-1.  デフォルト構成で、Intel SGX PSW を build
+1. デフォルト構成で、Intel SGX PSW を build
 
 ```
 make psw

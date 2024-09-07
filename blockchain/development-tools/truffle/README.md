@@ -94,7 +94,7 @@ truffle compile --all
 - ファイルには複数のコントラクトを含めることができるため、ソース ファイル名は渡してはならない。
 - Documents には、ただ`コントラクト名`を渡すだけでよい、とある
 - ターゲットは`solファイル`であって、compile によって生成される artifacts ではない？
-  - github内を`artifacts.require`で検索した[結果](https://github.com/search?l=JavaScript&q=artifacts.require&type=Code)によると、コントラクト名、もしくは、solidityファイルを指定している様子 
+  - github内を`artifacts.require`で検索した[結果](https://github.com/search?l=JavaScript&q=artifacts.require&type=Code)によると、コントラクト名、もしくは、solidityファイルを指定している様子
 - これによって自動的に読み込まれるパスは、
   - contracts
   - test
@@ -168,12 +168,14 @@ Commands:
   - `contract()`実行前に、contracts が redeploy される
   - `contract()`によって accounts が渡される
     - 外部のcontractを参照しようとした場合、以下のようなエラーがでるはず
-      - `Error: ERC1400 has not been deployed to detected network (network/artifact mismatch)` 
+      - `Error: ERC1400 has not been deployed to detected network (network/artifact mismatch)`
 
 ### Ganacheの特徴
+
 - workspace毎にcleanなstateを持つ
 
 ### solidityLog
+
 `truffle test`にて、`console.log`が使える
 
 ```
@@ -235,6 +237,7 @@ Network: UNKNOWN (id: 5777)
 異なるディレクトリ（異なる truffle-config.js)毎に、`truffle networks`コマンドによって表示される contract は異なる。
 
 ## Configuration
+
 - [Configuration](https://trufflesuite.com/docs/truffle/reference/configuration/)
 - `truffle-config.js`ファイルはprojectのrootディレクトリに置く必要がある
 - network名の`test`は`truffle test`で、`develop`は`truffle develop`で使われるので注意が必要
@@ -243,6 +246,7 @@ Network: UNKNOWN (id: 5777)
 - contract, migration, buildのディレクトリパスも設定で変更可能  
 
 - config例
+
 ```
 networks: {
   development: {

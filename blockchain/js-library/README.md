@@ -22,7 +22,7 @@ React Hooks for Ethereum
 - Ethers.js と合わせて使われる React Hook のコレクション
 - Auto refresh や Multicall の機能を持つ
   - 複数 chain の情報も`Multi chain`という機能で管理できる (TODO: 要検証)
-  - https://usedapp-docs.netlify.app/docs/Guides/Connecting/Multi%20Chain
+  - <https://usedapp-docs.netlify.app/docs/Guides/Connecting/Multi%20Chain>
 - wallet は Metamask を default で利用する仕様だが、WalletConnect のための機能もある
 - 主要な chain の情報はライブラリとしてデータを保持しており、独自の定義は不要
 - `switchNetwork()`実行時に、そのネットワークが wallet に追加されていない場合は、metamask 側で自動で追加が可能。

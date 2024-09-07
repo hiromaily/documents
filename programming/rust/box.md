@@ -24,7 +24,7 @@ struct 内のオブジェクトを実行時に動的に変える必要がある�
 
 ```rs
 struct Foo{
-	bar:Box<dyn Bar>
+ bar:Box<dyn Bar>
 }
 ```
 

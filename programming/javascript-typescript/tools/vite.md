@@ -54,7 +54,6 @@ import { someMethod } from 'my-dep'
 - 事前バンドルは [esbuild](https://esbuild.github.io/) で実行され、CommonJS / UMD モジュールを ESM に変換する
 - import を `my-dep.js` のように書き換える
 
-
 ## 発生した問題
 
 ### `vite build` 実行時エラー　 ERR_MODULE_NOT_FOUND
@@ -109,7 +108,7 @@ TypeError: Cannot read properties of undefined (reading 'Long')
 
 ```package.json
   "overrides": {
-		"rollup": "2.74.1"
+  "rollup": "2.74.1"
   }
 ```
 

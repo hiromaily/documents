@@ -30,6 +30,7 @@
   - Data Access Layer (ODM)
 
 #### デメリット
+
 - [技術選定の失敗 2年間を振り返る TypeScript,Hono,Nest.js,React,GraphQL](https://zenn.dev/nem/articles/ade7b83cae2fa5)
   - 全身技術負債みたいなフレームワーク
   - 無駄に分厚い

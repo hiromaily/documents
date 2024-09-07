@@ -35,7 +35,7 @@ Once Bob sees that Alice has locked her BTC in the HTLC, he reveals the preimage
 
 Alice, using the preimage provided by Bob, claims Bob's LTC from the HTLC on the Litecoin network.
 
-## Refunding in Case of Non-Execution:
+## Refunding in Case of Non-Execution
 
 If either party fails to reveal the preimage within the specified timeframe, the HTLCs expire, and both parties can refund their locked funds.
 

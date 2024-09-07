@@ -1,6 +1,7 @@
 # React CSS
 
 ## どのパターンを採用すべきか？
+
 - [React CSSで悩む全ての人へ【2022年版】](https://ramble.impl.co.jp/1414/#toc2)
 
 - CSS Modules ... デザイナーと分業したい場合
@@ -8,6 +9,7 @@
 - Emotion ... MUIでも使われており、Emotionでstyled componentsを適用するといいかも
 
 ## Inline Styles
+
 - このパターンは煩雑になりやすいのであまり使わない
 
 ```tsx
@@ -36,11 +38,13 @@ return (
 ```
 
 ## CSS Modules
+
 - `.css`や`.scss`ファイルを定義していくやり方で、デザイナーとの分業がしやすい
 - React開発において、コンポーネント毎にCSSファイルを用意していく
 - `npm install node-sass` が必要
 
 - xxx.module.scss
+
 ```scss
 .container {
   border: solid 1px #aaa;
@@ -67,7 +71,9 @@ return (
   }
 }
 ```
+
 - xxx.jsx
+
 ```tsx
 import classes from './xxx.module.scss'
 
@@ -82,6 +88,7 @@ return (
 ```
 
 ## styled components
+
 - スタイルを適用したコンポーネントを定義する
 - いまだによく使われているらしい
 - `scss記法`が使える
@@ -126,6 +133,7 @@ const SButton = styled.button`
 ```
 
 ## Styled JSX
+
 - `CSS-in-JS`と呼ばれるライブラリ
 - Next.jsに標準で組み込まれている
 - あまり使われていないらしい
@@ -166,6 +174,7 @@ return (
 ```
 
 ## Emotion
+
 - `CSS-in-JS` ライブラリ
 - 幅広い使い方が用意されているが、混在させると可読性が低下する
   - Inline Styles
@@ -220,6 +229,7 @@ const SButton = styled.button`
 ```
 
 ## Tailwind CSS
+
 - Utility firstな？CSSフレームワークで、2022年現在、人気が出てきている
 - `CreateReactApp`の場合、Tailwindの動作に必要な`PostCSS`を上書くことができないため、`CRACO`が必要となる
 - 設定が若干めんどくさい

@@ -3,6 +3,7 @@
 Beacon Chian とも言われ、Ethereum2.0 のコンセンサスエンジンとして機能するブロックチェーン
 
 ## 特徴
+
 - PoS システムを実装することができる最小限の構造として設計されている
 - Transaction の処理やスマートコントラクトのホストは行わない
 - Proof of Work における Miner またはパズル解決者を、ブロックを決定する Validator に置き換えた Ethereum 2.0 の中核となることを意図している
@@ -11,6 +12,7 @@ Beacon Chian とも言われ、Ethereum2.0 のコンセンサスエンジンと�
 - `RANDAO` と呼ばれる疑似乱数処理に基づいてブロックのバリデータをランダムに選択し、コンセンサスメカニズムを管理する
 
 ## References
+
 - [The Beacon Chain](https://medium.com/blockchain-stories/ethereum-2-0-the-beacon-chain-d669fa65e50d)
 - [The Beacon Chain Ethereum 2.0 explainer you need to read first](https://ethos.dev/beacon-chain)
 - [Ethereum 2.0 (Eth2)・コンセンサスレイヤーとは？](https://pontem.network/posts/ethereum-2-0-eth2-konsensasureiyatoha)
@@ -43,6 +45,7 @@ Beacon Chian とも言われ、Ethereum2.0 のコンセンサスエンジンと�
   - TypeScript Implementation of Ethereum Consensus
 
 ### 考察
+
 - [Diversify Now](https://clientdiversity.org/)
 - クライアントの多様性の重要性と、イーサリアム ブロックチェーンを実行するプロトコル実装をより均等に分散させることの重要性について議論されている
   - [Prysmatic Labs’ Statement on Client Diversity](https://medium.com/prysmatic-labs/prysmatic-labs-statement-on-client-diversity-c0e3c2f05671)

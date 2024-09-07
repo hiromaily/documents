@@ -5,4 +5,3 @@
 - [Sequelize](https://www.npmjs.com/package/sequelize)
 - [typeorm](https://www.npmjs.com/package/typeorm)
 - [Prisma](https://www.prisma.io/)
-

@@ -1,9 +1,13 @@
 # Array
+
 TypescriptではなくJavascriptに備わっている機能ではあるが、こちらに記述
 
 ## map
+
 新しい配列を作る
+
 ### 基本
+
 ```ts
 const numbers: number[] = [1, 2, 3, 4, 5];
 
@@ -21,6 +25,7 @@ console.log(multiplied); // [ 0, 2, 6, 12, 20 ]
 ```
 
 ### objectを拡張する
+
 ```ts
 interface Month {
   month: string;
@@ -56,8 +61,11 @@ console.log(customMonth);
 ```
 
 ## filter
+
 特定の要素のみ取得する
+
 ### 基本
+
 ```ts
 const files = ['foobar.gif', 'bob.html', 'mike.mp3'];
 
@@ -69,6 +77,7 @@ console.log(mp3Files);
 ```
 
 ### Array.filter(Boolean)
+
 ```ts
 interface Month {
   month: string;
@@ -121,10 +130,12 @@ const customMonth2 = months
   })
   .filter((month): month is ExtMonth => month !== undefined);
 ```
+
 - Falsy な値は Boolean() で false になるので、.filter(Boolean) で除外できる
 - 問題点として、型推論がうまく行かないケースがある
 
 ## find
+
 特定の要素のみ取得する
 
 ```ts
@@ -150,9 +161,11 @@ const birthMonth = months.find((month: Month): boolean => {
 ```
 
 ## reduce
+
 配列から新しい単一要素を返す
 
 ### 例: object配列から一部の要素を使ってKey Value型のオブジェクトを返す
+
 ```ts
 interface genreInfo {
   id: number;
@@ -195,9 +208,11 @@ console.log(genreMap);
 ```
 
 ## concat
+
 配列と配列を結合する
 
 ### 組み合わせ例
+
 - 配列名.concat(配列)
 - 配列名.concat(配列, 配列, ...)
 - 配列名.concat(値, 値, ...)
@@ -206,14 +221,18 @@ console.log(genreMap);
 let fruit = ['Apple', 'Melon', 'Orange'];
 let fruitAll = fruit.concat('Peach', ['Grapes', 'Strawberry']);
 ```
+
 ### concatメソッドを使った配列のコピー
+
 ```ts
 let fruit = ['Apple', 'Melon', 'Orange'];
 let copyFruit = fruit.concat();
 ```
 
 ## every
+
 - everyは配列が条件をすべて満たす場合にtrueを返す
+
 ```ts
 const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 arr.every(value => value > 0)
@@ -222,7 +241,9 @@ arr.every(value => value < 5)
 ```
 
 ## some
+
 - someは配列が条件を一つでも満たしていればtrueを返す
+
 ```ts
 const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 arr.some(value => value < 10)

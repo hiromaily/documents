@@ -77,7 +77,7 @@ fi
 ```
 
 ```sh
-$ zcompile ~/.zshrc
+zcompile ~/.zshrc
 ```
 
 ## [zsh のプラグインマネージャー](framework.md)は遅い

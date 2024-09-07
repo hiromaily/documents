@@ -1,6 +1,7 @@
 # Frontend Architecture
 
 ## Architecture
+
 - Model-View-Controller (MVC)
   - データを表現する`Model`、データをユーザーに見せる`View`、ユーザーの入力を処理し、`Model`と`View`間のデータの流れを管理する`Controller`の3つのコンポーネントにアプリケーションを分離する、確立されたアーキテクチャ
 - Single-page Application（SPA）

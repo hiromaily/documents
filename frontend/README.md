@@ -35,13 +35,13 @@
         - JPEGs should be minimized ([MozJPEG](https://github.com/mozilla/mozjpeg), [Guetzli](https://github.com/google/guetzli))
       - Apply lazy loading
       - Enable prefetching
-        - https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
+        - <https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ>
         - `<link rel="prefetch" href="/images/big.jpeg">`
         - ユーザーが pre-fetch されたドキュメントの 1 つにアクセスすると、ブラウザのキャッシュからすぐに提供される
       - Use a Content Delivery Network (CDN)
         - Netlify, Cloudflare, Google Cloud CDN, Amazon CloudFront, etc
   - Schema Markup (for search rankings)
-    - https://developers.google.com/search/docs/advanced/structured-data
+    - <https://developers.google.com/search/docs/advanced/structured-data>
   - Headless Architecture (headless CMS)
     - バックエンドのコンテンツ機能 (作成、管理、保存など) をフロントエンドの機能 (プレゼンテーションや配信など) から分離する。
   - Websites Rapidly Improve Accessibility
@@ -59,7 +59,7 @@
     - Service Worker、マニフェスト、その他の Web プラットフォーム機能をプログレッシブ エンハンスメントと組み合わせて使用し、ネイティブ アプリと同等のエクスペリエンスをユーザーに提供する Web アプリ。
   - Adopting GraphQL
   - Motion UI
-    - https://github.com/foundation/motion-ui
+    - <https://github.com/foundation/motion-ui>
     - [What is Motion UI?](https://www.geeksforgeeks.org/what-is-motion-ui/)
   - [Single Page Applications (SPAs)](https://developer.mozilla.org/en-US/docs/Glossary/SPA)
     - 単一のページでコンテンツの切り替えを行う

@@ -1,10 +1,11 @@
 # Type-fest
+
 重要な TypeScript 型のコレクション。
 Type定義を強化し、TypeScriptの型推論能力を向上させ、コードをより表現豊かで簡潔にする。
 
 ## 機能
 
-- `Except`, `Merge`: 
+- `Except`, `Merge`:
   - `Except` ユーティリティは、指定されたプロパティを型から除外するためのもの
   - `Merge` は2つの型を結合するためのもの
   - TypeScriptの組み込みユーティリティである `Partial` に似ている
@@ -30,6 +31,6 @@ Type定義を強化し、TypeScriptの型推論能力を向上させ、コード
 - `Tuple`:
   - 固定サイズのタプル型を作成するためのユーティリティ型を提供する
 
-
 ## References
+
 - [github](https://github.com/sindresorhus/type-fest)

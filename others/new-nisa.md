@@ -60,7 +60,7 @@
 - [三井住友カード (NL)](https://www.smbc-card.com/camp/numberless/affiliate_index.jsp)
   - 年会費無料
   - 積立還元率: 0.5% (毎月 50000 円積立で、年 3000 ポイント)
-- [三井住友カード ゴールド(NL) ](https://www.smbc-card.com/camp/gold-numberless/index.jsp)
+- [三井住友カード ゴールド(NL)](https://www.smbc-card.com/camp/gold-numberless/index.jsp)
   - 年会費: 5500 円 (年:100 万円利用で無料だが、そんなに使わない)
   - 積立還元率: 1.0% (毎月 50000 円積立で、年 6000 ポイント)
   - 年間利用額次第で年会費無料とあるが、積立投資額が集計対象とならない

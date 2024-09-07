@@ -11,7 +11,7 @@
   - [Docs: Solid Principle](../../architecture/principle/solid-go-design.md)
 - 並列処理における`Race Condition`が起きやすい
 
-##　例外
+## 　例外
 
 - 変更を許さない値
   - 定数

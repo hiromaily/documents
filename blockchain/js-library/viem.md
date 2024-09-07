@@ -4,10 +4,12 @@ wagmiのdevチームが開発しているEthereum用の TypeScript Interface モ
 [Ethers v5 → viem Migration Guide](https://viem.sh/docs/ethers-migration.html)のセクションを見る限り、ethersjsの代替え手段となり得る。
 
 ## References
+
 - [Official](https://viem.sh/)
 - [github](https://github.com/wagmi-dev/viem)
 
 ## 機能
+
 - JSON-RPC API の抽象化により作業が容易になる
 - コントラクトと対話するためのファーストクラス API
 - Ethereumの公式用語に厳密に準拠した言語
@@ -19,4 +21,5 @@ wagmiのdevチームが開発しているEthereum用の TypeScript Interface モ
 - フォークされた Ethereum ネットワークに対して実行されるTest suite
 
 ## Provider
+
 - [Ethers v5 → viem Migration Guide](https://viem.sh/docs/ethers-migration.html)

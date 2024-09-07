@@ -6,7 +6,7 @@
 
 Utilize interoperability protocols like `Cosmos IBC`, `Polkadot`, or `Interledger` to facilitate token transfers between different blockchains. These protocols provide frameworks for building cross-chain communication and asset transfer mechanisms.
 
-### Cosmos (Inter-Blockchain Communication Protocol - IBC):
+### Cosmos (Inter-Blockchain Communication Protocol - IBC)
 
 Cosmos provides a framework for building interconnected blockchains, allowing tokens and data to be transferred between different chains within the Cosmos ecosystem.
 

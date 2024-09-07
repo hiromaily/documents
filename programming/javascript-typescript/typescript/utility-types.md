@@ -10,8 +10,8 @@ const value: StringNumber = { a: 1, b: 2, c: 3 };
 ```
 
 ### References
-[サバイバルTypescript Record](https://typescriptbook.jp/reference/type-reuse/utility-types/record)
 
+[サバイバルTypescript Record](https://typescriptbook.jp/reference/type-reuse/utility-types/record)
 
 ## Partial<T>
 
@@ -33,8 +33,8 @@ type PartialPerson = Partial<Person>;
 ```
 
 ### References
-[サバイバルTypescript Partial](https://typescriptbook.jp/reference/type-reuse/utility-types/partial)
 
+[サバイバルTypescript Partial](https://typescriptbook.jp/reference/type-reuse/utility-types/partial)
 
 ## Readonly<T>
 
@@ -83,8 +83,8 @@ type Person = Pick<User, "surname" | "middleName" | "givenName">;
 ```
 
 ### References
-[サバイバルTypescript Pick](https://typescriptbook.jp/reference/type-reuse/utility-types/pick)
 
+[サバイバルTypescript Pick](https://typescriptbook.jp/reference/type-reuse/utility-types/pick)
 
 ## Omit<T, Keys>
 
@@ -115,8 +115,8 @@ type Person = Omit<User, Optional>;
 ```
 
 ### References
-[サバイバルTypescript Omit](https://typescriptbook.jp/reference/type-reuse/utility-types/omit)
 
+[サバイバルTypescript Omit](https://typescriptbook.jp/reference/type-reuse/utility-types/omit)
 
 ## Exclude<T, U>
 
@@ -134,7 +134,6 @@ type PassGrade2 = Exclude<Grade, "D" | "E">;
 // type PassGrade = "A" | "B" | "C"
 ```
 
-
 ## Extract<T, U>
 
 Extract<T, U>は、ユニオン型TからUで指定した型だけを抽出した型を返すユーティリティ型
@@ -148,8 +147,8 @@ type FailGrade = Extract<Grade, "D" | "E">;
 // type FailGrade = "D" | "E"
 ```
 
-
 ## 合併型(Union Types)と交差型(Intersection Types)
+
 ```ts
 type Dog = {
   cute: boolean;
@@ -166,6 +165,7 @@ type DogAndCat = Dog & Cat; // 型 Dog と Cat の交差型
 ```
 
 ### 合併型(Union Types)の特徴 `|`
+
 ```ts
 // 合併型なので、Dog, Cat型両方のプロパティが使える
 const SuperPet1: DogOrCat = {
@@ -182,6 +182,7 @@ const SuperPet2: DogOrCat = {
 ```
 
 ### 交差型(Intersection Types)の特徴 `&`
+
 ```ts
 // 交差型なので、合併型同様Dog, Cat型両方のプロパティが使える
 const doubleAtack: KickAndPunch = {

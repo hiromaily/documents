@@ -39,7 +39,7 @@
 
 ### Lean Software Development
 
-### DevOps:
+### DevOps
 
 ### Test-Driven Development
 

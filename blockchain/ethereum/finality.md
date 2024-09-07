@@ -36,7 +36,7 @@ PoS Ethereum では、Finality は`checkpoint` Block を使用して管理され
 ## Gaspe
 
 Gasper（Casper FFG + LMD GHOST）によって、ターゲット ブロックに投票するため、明示的なファイナリティを提供する。Epoch ごとに、バリデーターが投票を送信して収集し、Block を完成させるまでに 2 エポックかかる。
-平均 Block Finality 時間は 2.5 エポック タイムとなり、960 秒 (12 秒 _ 32 _ 2.5) に相当する。
+平均 Block Finality 時間は 2.5 エポック タイムとなり、960 秒 (12 秒 _32_ 2.5) に相当する。
 
 ## [What Happens After Finality in ETH2?](https://hackmd.io/@prysmaticlabs/finality)
 

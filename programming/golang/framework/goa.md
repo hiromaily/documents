@@ -1,6 +1,7 @@
 # Goa Framework
 
 ## References
+
 - [Design: Overview](https://goa.design/design/overview/)
 - [Design: Overview (ja)](https://goa.design/ja/design/overview/)
 - [Design: Types (may be outdated)](https://goa.design/design/types/)
@@ -21,6 +22,7 @@
   - [新プロダクトでスモールチームを作りつつ、goaからgo-swaggerへの乗り換えていった話](https://tech.layerx.co.jp/entry/2021/04/23/191354)
 
 ## Designについて
+
 ```
 API --- Service 1
      |- Service 2
@@ -30,6 +32,7 @@ API --- Service 1
 ```
 
 ### API
+
 - API定義。全体を通した説明, タイトル, どのURLで待ち受けるかなどの設定
 
 ```go
@@ -81,14 +84,18 @@ var _ = API("adder", func() {
     })
 }
 ```
+
 ### Server
+
 - サーバー定義
 
 ### Service
+
 - 通常、APIの中に、複数のServiceが存在する。`user`, `production` といった複数のServiceに分けて定義する。
 - 具体的なAPIのメソッドを定義していく。
- 
+
 ### HTTP
+
 - HTTPリクエストと、サービスのメソッドの関連付けを行う
 - Service直下に定義したものが、Service内の共通の設定になり、共通の`PATH`を定義できる
 - Method内は、それそれのGet, PostといったMethodの指定だったり、Responseのコードを定義できる
@@ -96,26 +103,30 @@ var _ = API("adder", func() {
 ### Security
 
 ### Method
+
 - Service内における、get, create といったmethodを定義していく
 - HTTPのエンドポイントの定義
 
 ### Payload
+
 - どんな値を受け取るか
 - この中に定義する`Attribute`が値の名前と型を定義するもの
 
 ### Result
+
 - 返り値の型を定義する
 
 ### View
 
 ### Attribute と Fieldの違い
 
-
 ## 開発メモ (TODO: go-goaのREADME.mdに移動する)
+
 - [go-goa](https://github.com/hiromaily/go-goa)
 - [Getting Started](https://goa.design/learn/getting-started/)
 
 ### Install
+
 ```
 go install goa.design/goa/v3/cmd/goa@v3
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
@@ -123,16 +134,20 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 ```
 
 ### Design
+
 - `<service-name>/design`ディレクトリ内にDSL定義をgoで作成していく
 
 ### 生成
+
 - designが修正されるタイミングで実行する
+
 ```
 goa gen resume/design
 ```
 
 - goaのバージョンがupgradeされたタイミングなどで実行する
   - ここで生成されたファイルを修正し、ロジックを実装していく
+
 ```
 goa example resume/design
 ```
@@ -142,6 +157,6 @@ goa example resume/design
   - endpointを確認してcurlコマンドを実行してみる
 
 ### Swaggerでの確認
+
 - [Swagger Editor](https://editor.swagger.io/)にアクセス
 - `goa gen`コマンドで生成された`gen/http`ディレクトリ配下に、openapiファイルが生成されているので、そちらを閲覧する
-

@@ -11,7 +11,7 @@ TCP/IP を使用するネットワークのネットワーク・インターフ�
 - Mostly we use this command `to check the IP address assigned to the system`.
 
 ```sh
-$ sudo apt install net-tools
+sudo apt install net-tools
 ```
 
 ```sh
@@ -137,7 +137,7 @@ udp        0      0 0.0.0.0:30303           0.0.0.0:*                           
 - show open ports
 
 ```sh
-$ netstat -nap
+netstat -nap
 ```
 
 ## 4. lsof
@@ -209,7 +209,7 @@ parity  25166   hy  412u  IPv4 857935      0t0  TCP hy-UX430UAR:33774->112.169.6
 - Destination host or IP is mandatory parameter to use this utility
 
 ```sh
-$ sudo apt install tracetoute
+sudo apt install tracetoute
 ```
 
 ```sh
@@ -243,10 +243,10 @@ $ dig google.com
 ;; OPT PSEUDOSECTION:
 ; EDNS: version: 0, flags:; udp: 65494
 ;; QUESTION SECTION:
-;google.com.			IN	A
+;google.com.   IN A
 
 ;; ANSWER SECTION:
-google.com.		120	IN	A	172.217.31.142
+google.com.  120 IN A 172.217.31.142
 
 ;; Query time: 4 msec
 ;; SERVER: 127.0.0.53#53(127.0.0.53)
@@ -264,12 +264,12 @@ IP アドレスからドメイン名を確認すること、ドメイン名か�
 ```sh
 $ nslookup google.com
 
-Address:	127.0.0.53#53
+Address: 127.0.0.53#53
 
 Non-authoritative answer:
-Name:	google.com
+Name: google.com
 Address: 172.217.26.46
-Name:	google.com
+Name: google.com
 Address: 2404:6800:400a:80b::200e
 ```
 
@@ -280,7 +280,7 @@ Address: 2404:6800:400a:80b::200e
 - nmap is a one of the powerful commands, which checks the opened port on the server.
 
 ```sh
-$ nmap $server_name
+nmap $server_name
 ```
 
 ## 9. Enable/Disable Network Interface
@@ -290,13 +290,13 @@ Network Interface の ON/OFF の仕方
 - To enable eth0
 
 ```sh
-$ ifup eth0
+ifup eth0
 ```
 
 - To disable eth0
 
 ```sh
-$ ifdown eth0
+ifdown eth0
 ```
 
 ## 10. w
@@ -322,7 +322,7 @@ hy       :0       :0               Fri22   ?xdm?   1:49m  0.01s /usr/lib/gdm3/gd
 - telnet connect destination host:port via a telnet protocol if connection establishes means connectivity between two hosts is working fine.
 
 ```sh
-$ telnet xxx.xxx.xxx 443
+telnet xxx.xxx.xxx 443
 ```
 
 ## 12. htop

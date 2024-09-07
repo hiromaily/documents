@@ -20,6 +20,7 @@
 - `initial deposit`時に`withdrawal credentials`を提供しなかった staker が withdrawal が可能となる
 
 ## Paris (The Merge) - 2022/9/15
+
 - [spec](https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/paris.md)
 
 - Proof of Work のブロックチェーンが terminal total difficulty `58750000000000000`を通過したことによって引き起こされた
@@ -27,6 +28,7 @@
 - Paris は`The Merge transaction`であり、その主な特徴は、PoW のマイニングアルゴリズムと関連するコンセンサスロジックを止め、代わりに PoS に切り替えたこと
 
 ### 概要
+
 `Ethereum1.0`と`Ethereum2.0`の名称は廃止され、`Execution Layer`と`Consensus Layer`という呼称に改めされた
 
 - Eth1 -> 実行レイヤー
@@ -34,10 +36,10 @@
 - 実行レイヤー + 合意レイヤー = イーサリアム
 
 ### References
+
 - [The Merge](https://ethereum.org/en/upgrades/merge/)
 - [リブランディング: Eth2 の名称廃止](https://blog.ethereum.org/ja/2022/01/24/the-great-eth2-renaming)
 - [The New Ethereum Upgrade (2.0): Your Guide 2022](https://www.alchemy.com/overviews/ethereum-2-0-your-guide-for-2022)
-
 
 ## Bellatrix - 2022/9/6
 

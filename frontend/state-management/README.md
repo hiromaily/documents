@@ -28,15 +28,18 @@
   - 2021年の記事なので古い
 
 ## Principle
+
 - クライアント側に状態を持たせないように設計すべき
 - APIで取得した値はすべてキャッシュとして管理
 - 認証情報などページをまたぐ必要のあるもの、継続してユーザーに知らせ続けるものはグローバルに状態を管理できるライブライを利用
 - ~~見た目の制御もローカルな状態管理である`useState`, `useRef`などもなるべく利用しない~~
 
 ## Flux アーキテクチャ
+
 - [Flux](../architecture/flux.md)
 
 ## WIP: トップダウン型とボトムアップ型
+
 - [トップダウン型の状態管理 (#Redux #Zustand )と比較して知るボトムアップ型の状態管理 (#Recoil #Jotai )](https://zenn.dev/jotaifriends/articles/d714f9c16c1d3a)
 
 - トップダウン型 ... Redux, Zustand

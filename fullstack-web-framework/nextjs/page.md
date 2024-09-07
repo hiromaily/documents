@@ -1,6 +1,7 @@
 # Page
 
 - `Pages`ディレクトリ以下に配置したtsxなどのファイルは、1つのファイルが1つのページに対応する
+
 ```tsx
 import { NextPage } from 'next'
 import Head from 'next/head';
@@ -21,8 +22,10 @@ export default Page
 - ここでexportする関数とファイル名は同一の名前にすること
 
 ## SSGによるPage実装
+
 - `getStaticProps()`を定義し、exportする
 - `getStaticProps()`の引数に`context`が渡されるが、これはReactの`context`ではない。
+
 ```
 # contextのparameter
 - params
@@ -34,6 +37,7 @@ export default Page
 ```
 
 ### Basic
+
 ```tsx
 import { GetStaticProps, NextPage, NextPageContext } from "next";
 import Head from "next/head";
@@ -81,6 +85,7 @@ export default SSG;
 ```
 
 ### Blogなど、表示するデータが違うPageにおけるSSG
+
 - Dynamic Routing機能を使って、path parameterを使って、複数ページを1つのファイルで生成できる
 - Dynamic Routingの要素は以下の通り
   - [parameter].tsxのような`[]`で囲んだファイル名
@@ -170,6 +175,7 @@ export default Post
 ```
 
 ## SSRによるPage実装
+
 - `getServerSideProps()`を定義し、exportする
 - `getServerSideProps()`引数の`context`では、`getStaticProps`の`context`で参照できるデータに加え、リクエスト情報などを参照できる
 
@@ -182,6 +188,7 @@ export default Post
 ```
 
 ### Code
+
 ```tsx
 import { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
@@ -228,6 +235,7 @@ export default SSR
 ```
 
 ### ISRによるPage実装
+
 - `revalidate`を返す`getStaticProps`を使うのだが、`revalidate`を返すとその値が有効期間となり、有効期間が過ぎたページは再生成される
 
 ```tsx

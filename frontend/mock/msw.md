@@ -62,7 +62,7 @@ afterAll(() => server.close());
 
 ### Next.js 13 の App directory で動かない問題
 
-- [Support Next.js 13 (App directory) ](https://github.com/mswjs/msw/issues/1644)
+- [Support Next.js 13 (App directory)](https://github.com/mswjs/msw/issues/1644)
 
 ### Next.js を使った場合における問題 (Node.js 関連)
 

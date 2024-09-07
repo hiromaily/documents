@@ -42,21 +42,21 @@
 package main
 
 import (
-	"context"
-	"github.com/aws/aws-lambda-go/events"
-	"github.com/aws/aws-lambda-go/lambda"
+ "context"
+ "github.com/aws/aws-lambda-go/events"
+ "github.com/aws/aws-lambda-go/lambda"
 )
 
 func handler(ctx context.Context, event events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	response := events.APIGatewayProxyResponse{
-		StatusCode: 200,
-		Body:       "\"Hello from Lambda!\"",
-	}
-	return response, nil
+ response := events.APIGatewayProxyResponse{
+  StatusCode: 200,
+  Body:       "\"Hello from Lambda!\"",
+ }
+ return response, nil
 }
 
 func main() {
-	lambda.Start(handler)
+ lambda.Start(handler)
 }
 ```
 
@@ -138,8 +138,6 @@ aws lambda create-function \
 
 - Lamda関数のアップデート
 
-
-
 #### 6. 関数を呼び出す
 
 ```sh
@@ -199,7 +197,7 @@ aws lambda invoke --function-name hello-world response.json
 
 - `--cli-input-json` (string)
 
-提供された JSON 文字列に基づいてサービス操作を実行する。JSON 文字列は、`--generate-cli-skeleton` で提供される形式に従う。コマンド ラインで他の引数が指定された場合、CLI 値は JSON で提供される値を上書きする。文字列は文字通りに解釈されるため、JSON で提供される値を使用して任意のバイナリ値を渡すことはできない。 
+提供された JSON 文字列に基づいてサービス操作を実行する。JSON 文字列は、`--generate-cli-skeleton` で提供される形式に従う。コマンド ラインで他の引数が指定された場合、CLI 値は JSON で提供される値を上書きする。文字列は文字通りに解釈されるため、JSON で提供される値を使用して任意のバイナリ値を渡すことはできない。
 `--generate-cli-skeleton`を確認してみたが、これは用途が異なるようだ。  
 
 - `--image-config` (structure)
@@ -317,7 +315,6 @@ aws lambda invoke --function-name hello-world response.json
 
 AWS Lambda はシンプルさとスケーラビリティのために`コンテナイメージごとに 1 つの関数を実行するように設計されている`ため、単一の Docker コンテナイメージ内で複数の AWS Lambda 関数を実行することは一般的なユースケースではない。ただし、実行に基づいて同じイメージ内のハンドラーを切り替える必要があるユースケースの場合は、`環境変数`または同様の方法を使用して、呼び出すハンドラーを指定できる。これには次の方法がある。
 
-
 ```sh
 # Deploy function1
 aws lambda create-function \
@@ -377,13 +374,13 @@ WIP
 package main
 
 import (
-	"context"
-	"fmt"
-	"github.com/aws/aws-lambda-go/lambda"
+ "context"
+ "fmt"
+ "github.com/aws/aws-lambda-go/lambda"
 )
 
 type MyEvent struct {
-	Name string `json:"name"`
+ Name string `json:"name"`
 }
 
 // Lambda 関数のエントリポイント
@@ -394,15 +391,15 @@ type MyEvent struct {
 //   - *string: Lambda 関数の結果を含む文字列へのポインタ
 //   - error:   エラータイプで、エラーがない場合は nil となり、何か問題が発生した場合は標準的なエラー情報 を含む
 func HandleRequest(ctx context.Context, event *MyEvent) (*string, error) {
-	if event == nil {
-		return nil, fmt.Errorf("received nil event")
-	}
-	message := fmt.Sprintf("Hello %s!", event.Name)
-	return &message, nil
+ if event == nil {
+  return nil, fmt.Errorf("received nil event")
+ }
+ message := fmt.Sprintf("Hello %s!", event.Name)
+ return &message, nil
 }
 
 func main() {
-	lambda.Start(HandleRequest)
+ lambda.Start(HandleRequest)
 }
 ```
 
@@ -414,7 +411,6 @@ func main() {
 ### [コンテナイメージを使用して Go Lambda 関数をデプロイする](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/go-image.html)
 
 - まず、[AWS の OS 専用ベースイメージを使用する](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/images-create.html#runtimes-images-provided) こちらの方法で構築することになるはず
-
 
 #### provided.al2023 ベースイメージからイメージを作成する
 
@@ -440,7 +436,6 @@ ENTRYPOINT [ "./main" ]
 - [blank-go](https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-go)
   - go1.x ランタイムを使用
 
-
 ## [コンテナイメージを使用した Lambda 関数の作成](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/images-create.html)
 
 - [AWS Lambda の新機能 – コンテナイメージのサポート (古い)](https://aws.amazon.com/jp/blogs/news/new-for-aws-lambda-container-image-support/)
@@ -463,12 +458,11 @@ AWS OS 専用ベースイメージには、Amazon Linux ディストリビュー
 
 Alpine Linux や Debian など、別のコンテナレジストリの代替ベースイメージを使用することもできる。組織が作成したカスタムイメージを使用することもできる。イメージに Lambda との互換性を持たせるには、当該言語のランタイムインターフェイスクライアントをイメージに含める必要がある。
 
-
 ## [Lambda 関数の呼び出しメソッドについて](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/lambda-invocation.html)
 
 「Lambda 関数をデプロイ」した後、いくつかの方法で呼び出すことができる
 
-- Lambda コンソール 
+- Lambda コンソール
   - Lambda コンソールを使用し、テストイベントをすばやく作成して関数を呼び出す
 - AWS SDK
   - AWS SDK を使用して関数をプログラムによって呼び出す
@@ -489,7 +483,6 @@ aws lambda invoke --function-name my-function \
 
 - payload は、JSON 形式のイベントを含む文字列
 
-
 ## 対応している言語
 
 - [Go](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/lambda-golang.html)
@@ -500,7 +493,6 @@ aws lambda invoke --function-name my-function \
 - Ruby
 - C#
 - PowerShell
-
 
 ## WIP: 使い分け
 

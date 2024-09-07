@@ -22,8 +22,8 @@
     - GetPrvKeyFromMnemonicAndHDWPath() ... mnemonic 情報がパラメータとなる
       - pkg/relay/ethereum/chain.go の`NewChain()`では、こちらを呼び出している
 
-
 ### Prover
+
 Proverはターゲットチェーンの状態に関する証明を生成または照会する。この証明は、相手側のチェーンに配置された On-chain Light Client によって検証される
 
 例えば、`yui-fabric-ibc`のProverの[code](https://github.com/hyperledger-labs/yui-fabric-ibc/blob/d9230985e320ee0333c349bef80e822620c7150e/relay/prover.go)はFabric Chain向けのQuery機能を備え、yui-relayerからimportされて使われることになる。
@@ -60,14 +60,14 @@ ${RLY} tx acks ibc01
 import mock "github.com/hyperledger-labs/yui-relayer/provers/mock/module"
 
 func main() {
-	if err := cmd.Execute(
-		ethereum.Module{},
-		ethProver.Module{},
-		mock.Module{},
-		tendermint.Module{},
-	); err != nil {
-		log.Fatal(err)
-	}
+ if err := cmd.Execute(
+  ethereum.Module{},
+  ethProver.Module{},
+  mock.Module{},
+  tendermint.Module{},
+ ); err != nil {
+  log.Fatal(err)
+ }
 }
 ```
 
@@ -86,16 +86,16 @@ func main() {
     "connection_profile_path": "./configs/fabric/connection-profile/org1/local.yaml"
   },
   "prover": {
-	"@type": "/relayer.chains.fabric.config.ProverConfig",
-	"ibc_policies": [
-	  "Org1MSP"
-	],
-	"endorsement_policies": [
-	  "Org1MSP"
-	],
-	"msp_config_paths": [
-	  "./chains/fabric/organizations/peerOrganizations/org1.fabric-tendermint-cross-demo.com/peers/peer0.org1.fabric-tendermint-cross-demo.com/msp"
-	]
+ "@type": "/relayer.chains.fabric.config.ProverConfig",
+ "ibc_policies": [
+   "Org1MSP"
+ ],
+ "endorsement_policies": [
+   "Org1MSP"
+ ],
+ "msp_config_paths": [
+   "./chains/fabric/organizations/peerOrganizations/org1.fabric-tendermint-cross-demo.com/peers/peer0.org1.fabric-tendermint-cross-demo.com/msp"
+ ]
   }
 }
 ```
@@ -114,8 +114,8 @@ func main() {
     "gas_prices": "0.025stake"
   },
   "prover": {
-	  "@type": "/relayer.chains.tendermint.config.ProverConfig",
-	  "trusting_period": "336h"
+   "@type": "/relayer.chains.tendermint.config.ProverConfig",
+   "trusting_period": "336h"
   }
 }
 ```
@@ -133,16 +133,16 @@ func main() {
     "connection_profile_path": "./configs/fabric/connection-profile/org1/local.yaml"
   },
   "prover": {
-	  "@type": "/relayer.chains.fabric.config.ProverConfig",
-	  "ibc_policies": [
-	    "Org1MSP"
-	  ],
-	  "endorsement_policies": [
-	    "Org1MSP"
-	  ],
-	  "msp_config_paths": [
-	    "./chains/fabric/organizations/peerOrganizations/org1.fabric-tendermint-cross-demo.com/peers/peer0.org1.  fabric-tendermint-cross-demo.com/msp"
-	  ]
+   "@type": "/relayer.chains.fabric.config.ProverConfig",
+   "ibc_policies": [
+     "Org1MSP"
+   ],
+   "endorsement_policies": [
+     "Org1MSP"
+   ],
+   "msp_config_paths": [
+     "./chains/fabric/organizations/peerOrganizations/org1.fabric-tendermint-cross-demo.com/peers/peer0.org1.  fabric-tendermint-cross-demo.com/msp"
+   ]
   }
 }
 ```

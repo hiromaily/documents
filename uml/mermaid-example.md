@@ -18,7 +18,6 @@ Github の Markdown ファイルに「Mermaid」で図を挿入可能
 - 要件図
 - Gitグラフ
 
-
 ## シーケンス図
 
 ```mermaid

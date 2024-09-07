@@ -1,4 +1,5 @@
 # Recoil
+
 - Reduxの問題点
   - Reduxは状態管理を行なっているストアがひとつであるがゆえに、アプリケーション上のデータを常に上書きします。たとえばストアの状態を空オブジェクトのみで更新してしまうと、アプリケーション上のデータはすべて消えてしまう
 - Context APIの制約
@@ -9,26 +10,30 @@
   - 各Selectorは複数のAtomにもとづく派生状態の一部で、Atom・他のSelectorを受け取る純粋な関数として定義する
   - これらの単位をHooks APIで操作しながら状態管理を行うのがRecoil
 
-
 recoilより、[Jotai](./jotai.md)のほうがよさそう
 
 ## References
+
 - [recoil](https://recoiljs.org/)
 - [github](https://github.com/facebookexperimental/Recoil)
 - [Docs](https://recoiljs.org/docs/introduction/installation)
 - [Reactの新しい状態管理ライブラリ「Recoil」とは？ Reduxとの違いを解説](https://ics.media/entry/210224/)
 
 ## Atom
+
 - Atomは状態の単位で、Atomが更新されるとコンポーネントは再レンダリングされる
 - 同じAtomが複数のコンポーネントで使われるとき、全てのコンポーネントがそのAtomを共有する
 - Atom関数を使って定義するが、keyはユニークである必要がある
+
 ```ts
 const fontSizeState = atom({
   key: 'fontSizeState',
   default: 14,
 });
 ```
+
 - useRecoilState()を使ってアクセスするが、コンポーネント間で状態が共有される
+
 ```ts
 function FontButton() {
   const [fontSize, setFontSize] = useRecoilState(fontSizeState);
@@ -48,6 +53,7 @@ function Text() {
 ```
 
 ## Selector
+
 - `Selector`は`Atom`または他の`Selector`を入力として受け取る関数で、同期的または非同期的に状態を変化させる
 - 入力として受け取った`Atom`、または入力として受け取った`Selector`が更新されると`Selector`は再計算される
 - また、`Selector`が変わったときに再レンダリングされる
@@ -66,7 +72,9 @@ const fontSizeLabelState = selector({
   },
 });
 ```
+
 - `useRecoilValue()`を使うことで`Selector`から値の読み取りを行う
+
 ```ts
 function FontButton() {
   const [fontSize, setFontSize] = useRecoilState(fontSizeState);

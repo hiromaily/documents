@@ -77,7 +77,7 @@ fn main() {
 }
 ```
 
-### [ベクタ型](https://doc.rust-jp.rs/rust-by-example-ja/std/vec.html):
+### [ベクタ型](https://doc.rust-jp.rs/rust-by-example-ja/std/vec.html)
 
 `ベクタ: vec`はサイズを変更可能な配列。スライスと同様、そのサイズはコンパイル時には不定ですが、いつでも要素を追加したり削除したりすることができる。ベクタは 3 つの要素で、その特徴が完全に決まる。
 
@@ -106,7 +106,7 @@ fn main() {
     println!("Vector: {:?}", xs);
 ```
 
-### [スライス型](https://doc.rust-jp.rs/book-ja/ch04-03-slices.html):
+### [スライス型](https://doc.rust-jp.rs/book-ja/ch04-03-slices.html)
 
 - 配列やベクタへの参照で、型は&[要素の型] (可変は&mut [要素の型])となる。
 - スライス自体は要素のデータ領域を持っておらず、実行時にサイズが決まる。

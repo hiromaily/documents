@@ -1,6 +1,7 @@
 # Loop
 
 ## Array
+
 ```ts
 const numbers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
@@ -32,6 +33,7 @@ for (const index in numbers) {
 ```
 
 ## Array of Object
+
 ```ts
 interface Month {
   month: string;
@@ -60,6 +62,7 @@ for (const monthData of months) {
 ```
 
 ## Key Value
+
 ```ts
 interface Months {
   [month: string]: number;
@@ -84,6 +87,7 @@ for (const month in months) {
 ```
 
 ## Map Value
+
 ```ts
 const months = new Map<string, number>([
   ['Jan', 31],

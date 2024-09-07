@@ -79,5 +79,5 @@ AMD（Asynchronous Module Definition）も JS モジュールシステムの 1 �
 
 ## import 方法の違い
 
-- [import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import_
+- [import](<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import>_
 - [import(ja)](https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Statements/import)
