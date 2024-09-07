@@ -1,66 +1,73 @@
 # Frontend End to End Test
 
-初期導入時はノーコードから初めて、Playwright に移行していく流れがいいように思える。
+大きく、Open SourceによるTestフレームワークとAIを活用したSaasに分かれる
 
-## E2E テストフレームワーク
+## 自動ブラウザテスト技術
 
-### [Cypress](https://www.cypress.io/)
+### WebDriver型(Selenium, WebDriverIOなど)
 
-- E2E テストフレームワークで、Javascript で Test を書くことができ、無料で利用できる。
-- 記述に慣れるまでは実装に時間がかかるのがデメリット。
-- [github](https://github.com/cypress-io/cypress)
-  - 45.6k
+- WebDriver型は、`Selenium`がその代表例
+- WebDriverはWebブラウザを外部から制御するための標準インターフェースを目指してたもの
+- Seleniumが独自に実装したWebDriverの他に、各ベンダが各ブラウザに対応したそれぞれのWebDriverが存在している。
 
-### [Playwright](https://playwright.dev/)
+- Seleniumの独自実装が元となって2018年にはW3C勧告として標準化された
+- `W3CのWebDriver`はChrome Driver, geckodriverといった具体的な実装ではなく、ブラウザを自動化するための`API`と`プロトコル`を規定したもの
 
-- Microsoft から relesae されている E2E テストフレームワーク(Node.js のライブラリ)
-- [github](https://github.com/microsoft/playwright)
-  - 58.3k
+#### WebDriver型のメリット
 
-#### Blockchain project で Metamask などの Wallet を使う場合、どう対応するか？
+- クロスブラウザ対応が容易な点
 
-- [Synpress](https://github.com/Synthetixio/synpress)
-  - [Test e2e login to dApp with Metamask with Synpress](https://medium.com/coinmonks/test-e2e-login-to-dapp-with-metamask-with-synpress-5248dd1f17c1)
-  - Cypress もしくは、Playwright 上で動く
+#### WebDriver型のデメリット
 
-#### Cypress から Playwright へのリプレイスした例
+- 仕組み上動作に信頼性がない
+- websocketを使った実装に比べて低速
 
-- [Zenn の E2E テスト基盤をリプレイスしました（開発体験向上、CI 時間の短縮、Playwright 移行）](https://zenn.dev/team_zenn/articles/zenn-e2e-replace-to-playwright)
-  - 手元で特定のテストケースをデバッグすることが容易になった
-  - CI の実行時間が早くなった (並列数によるもの)
-- [Cypress から Playwright に移行しました](https://developers.prtimes.jp/2023/04/10/migrate-from-cypress-to-playwright/)
+#### WebDriver型のツールの動作
 
-## AI based E2E テスト クラウドサービス
+1. Driverに対してクライアントから自動化コマンドを送る
+2. Driverが実際のブラウザ操作に変換し、ブラウザを自動操作
 
-## [Autify](https://autify.com/)
+### Native型(Cypress, TestCafe)
 
-- ノーコードで使用できるテスト自動化プラットフォーム
-  - シナリオのレコーディングを行うことで Test を作成する
-- 作成した自動化のシナリオは、テンプレート化することが可能
-- 日本語対応可能
-- Metamask といった Extension の機能は使うことができない
+- `Cypress`などのNative型は、WebDriverを使用せずに`JavaScript API`を直接利用
+- テストランナー自体が実際のブラウザ内で動作しており`iframe`を通じてロードしたテスト対象のアプリケーションを直接操作することでUIのテストを行う
 
-### References
+### CDP型(Puppeteer, PlayWright)
 
-- [Autify University: 学ぶための Docs](https://help.autify.com/docs/ja/autify-university)
-- [なぜ Selenium を選ばなかったのか～ Autify と MagicPod を選びました～](https://blog.studysapuri.jp/entry/e2e-test-automation-adr)
-- [Autify について調べたことのまとめ](https://zenn.dev/d0ne1s/articles/2637d20f5133e6)
+- `Puppeteer`や最近人気の`Playwright`がこの方式
+- 開発者ツール用に作られている`Chrome DevTools Protocol`(CDP) を利用している
 
-### 料金
+- WebDriver型と似ていてクライアントからのリクエストをCDPコマンドに変換してブラウザを操作
+- クライアント、サーバー間はwebsocketで通信により高速で動作
+- コマンドを送信すると同時にサーバーからのイベント/メッセージをリアルタイムでリッスンできる
+- CDPは低レベルなAPIにもアクセスできるため、consoleのキャプチャやDOMの監視、ネットワークのinterceptなど低レベルな制御が可能
 
-- 年間 100 万ほどかかりそう？
+#### CDP型のデメリット
 
-## [mabl](https://www.mabl.com/)
+- Chromium baseのブラウザでしか動作しない
+- Puppeteerは試験的にFirefoxに対応しているが、完全な互換性はない
+- PlaywrightもFirefoxやsafariが動かせますが、FireFox、Safariの特定のバージョンに何かしらのパッチを当てて動かしている
 
-- ブラウザの操作内容を記録することにより、自動テストを作成できるクラウド型のソリューション
-- モバイルアプリの Test はできない
-- Metamask といった Extension の機能は使うことができない
+### [Web Driver BiDi](https://w3c.github.io/webdriver-bidi/)
 
-## [MagicPod](https://magicpod.com/)
+`BiDirectional WebDriver Protocol`の意味
 
-- モバイルアプリテスト、ブラウザテストの両方に対応した AI テスト自動化クラウドサービス
+- W3Cの`Browser Testing and Tools Working Group`にで`WebDriver BiDi`の策定が進んでいる
+- WebDriver型とCDP型のいいとこどりを目指しているプロトコル
+  - クロスブラウザ対応
+  - W3C準拠
+  - 高速
+  - 低レベルな操作にも対応
+  - `local end`(クライアント) と `remote end`(ユーザーエージェント) 間の双方向の通信プロトコルの定義
+  - session管理
+  - local-remote間のコマンド、イベント、エラー定義など
 
-## [Katalon](https://katalon.com/)
+#### ツールの対応状況
 
-- 設定したテスト項目を自動で実行するシステム
-- 昔からあるため、Update はあるものの、古い印象がある
+- PuppeteerやwebdriverIOといったツール側での試験的にサポートも始まっている
+- SeleniumなどのWebDriver型、Puppeteer、PlaywrightのようなCDP型のツールは今後このプロトコルの実装も進んでいくはず
+
+## References
+
+- [次世代のブラウザテスト自動化プロトコルWeb Driver BiDi](https://zenn.dev/togami2864/articles/65af759b4a34f6)
+- [Browser Automation Tools Protocols - WebDriver vs CDP](https://www.neovasolutions.com/2022/05/19/browser-automation-tools-protocols-webdriver-vs-cdp/)

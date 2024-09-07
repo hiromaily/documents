@@ -1,4 +1,4 @@
-# pnpm
+# [pnPm](https://pnpm.io/)
 
 ディスク容量の節約とインストール速度の向上、node_modules の厳格さに焦点を当てているので、monorepo 向きと言える
 
@@ -10,9 +10,13 @@
 
 ## Install
 
+Install by [volta](../../nodejs/version-manager.md)
+
 ```sh
 # 2024/8現在、`v9.9`がinstallされる
 volta install pnpm
+# or
+volta install pnpm@9
 ```
 
 ## コマンド例

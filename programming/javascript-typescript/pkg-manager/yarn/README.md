@@ -1,13 +1,24 @@
-# yarn
+# [yarn](https://yarnpkg.com/)
 
 - [npm vs pnpm vs yarn](https://npmtrends.com/npm-vs-pnpm-vs-yarn)
-  - 見てもわかるが、完全に down trend
+  - 見てもわかるが、完全に down trendのため、利用は避けた方が良い
 - `yarn v4`は速いが、mac 環境で`brew`経由で yarn を install している人は知らずに`v1`を使い続けることになるので注意
 
 ## Install
 
+2024 現在、`brew install yarn`で install されるのは`v1`だが、`v1`はパフォーマンスが悪い。
+そのため、[volta](../../nodejs/version-manager.md)などでinstallしたほうがよい。
+
 ```sh
 volta install yarn@4
+```
+
+## npm ci 相当の yarn command
+
+```sh
+yarn install --frozen-lockfile
+ or
+rm -rf node_modules && yarn install --frozen-lockfile
 ```
 
 ## monorepo における v1 の不具合

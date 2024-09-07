@@ -41,7 +41,7 @@
   - Golang
   - 頻繁に更新されている
 
-### Not Free??
+### 有償??
 
 - [Postman + Newman](https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/)
   - [Postman と Newman を組み合わせて、CI/CD に組み込む REST API の自動テストを作ろう！](https://qiita.com/developer-kikikaikai/items/74cedc67643ca93d2e0b)
