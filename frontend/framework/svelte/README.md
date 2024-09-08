@@ -42,7 +42,7 @@ Privary features are
 
 ## Setup
 
-```
+```sh
 # Use SvelteKit for building tool
 npm init svelte my-app
 cd my-app
@@ -68,7 +68,7 @@ cd my-app2
 
 ### Procedure
 
-```
+```sh
 tsc --noEmit
 npx vite build
 # target dirs are
@@ -79,7 +79,7 @@ npx vite build
 - github pages に、deploy する場合、svelte で出力したディレクトリ`_app`内のファイルが 400 エラーになり、`app`にリネームすることで対応した。
 - svelte.config.js の変更
 
-```
+```ts
 const config = {
  kit: {
     ...

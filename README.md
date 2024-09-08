@@ -14,6 +14,14 @@ summarized book contents and tips
 - [12 Factor Application](./architecture/12-factor-application.md)
 - [ソフトウェア開発手法](./software-development/README.md)
 
+## 関心のある技術(Sep 2024)
+
+- Rust and Wasm
+- Bun + Hono Framework
+- Svelte or HTMX as Frontend
+- 分散システム
+- 暗号技術
+
 ## Read books
 
 ### Architecture/Principle
