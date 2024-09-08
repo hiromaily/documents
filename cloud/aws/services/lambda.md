@@ -493,7 +493,3 @@ aws lambda invoke --function-name my-function \
 - Ruby
 - C#
 - PowerShell
-
-## WIP: 使い分け
-
-処理量が少なかったり、15 分といった長い時間実行するようなものでなければ、container 上に deploy した batch プログラムより`lamda`を使った方がよい

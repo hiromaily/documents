@@ -2,6 +2,8 @@
 
 DevSecOps（Development, Security, and Operations）は、DevOps の概念にセキュリティを統合したもの。つまり、ソフトウェア開発のライフサイクル全体にわたってセキュリティを組み込むアプローチ。
 
+[内部Docs: security](../security/dev-sec-ops.md)
+
 ## DevSecOps の概要
 
 DevSecOps は、開発と運用の間で緊密なコラボレーションを図る DevOps スタイルに、セキュリティの考慮も含めたもの。従来のセキュリティアプローチでは、ソフトウェア開発の終盤でセキュリティ検査が行われることが多いが、DevSecOps はこれを変えて、開発の初期段階からセキュリティを考慮する。

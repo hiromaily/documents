@@ -2,6 +2,8 @@
 
 DevSecOpsはセキュリティを開発と運用のプロセスに統合するアプローチ
 
+[内部Docs: devops/dev-sec-ops](../devops/dev-sec-ops.md)
+
 ## セキュリティスキャンツール
 
 1. **SonarQube**
