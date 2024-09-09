@@ -1,5 +1,7 @@
 # Mobile App
 
+TODO: 情報更新
+
 ここでは、クロスプラットフォームフレームワークに焦点を当てる
 
 - [Flutter](https://flutter.dev/)
