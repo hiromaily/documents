@@ -5,11 +5,6 @@
   - 返り値以外の出力（副作用）が無い
   - 引数が同じなら返り値は常に同じ
 
-## References
-
-- [関数型プログラミングはまず考え方から理解しよう](https://qiita.com/stkdev/items/5c021d4e5d54d56b927c)
-- [こわくない関数型プログラミング](https://zenn.dev/tockri/books/dcaf6c55e64448)
-
 ## なっとく！関数型プログラミング まとめ
 
 - 関数型プログラミング言語
@@ -65,10 +60,6 @@ for {
 
 - Option 型で null を回避
 
-## References
-
-- [こわくない関数型プログラミング](https://zenn.dev/tockri/books/dcaf6c55e64448)
-
 ### [For TypeScript](https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes-func.html)
 
 TypeScript は、JavaScript に伝統的な`オブジェクト指向の型`を持ち込もうとしたことから始まった。それが発展するにつれて、TypeScript の型システムはネイティブの JavaScript 者によって書かれたコードをモデル化するために進化してきた。
@@ -93,3 +84,8 @@ TypeScript は、JavaScript に伝統的な`オブジェクト指向の型`を�
 
 - [「Learning Functional Programming in Go」を読んだ](https://shinharad.hateblo.jp/entry/2018/08/30/172151)
 - [Functional Programming in Go 読書メモ](https://zenn.dev/ta_toshio/scraps/7b3e66fd311a70)
+
+## References
+
+- [関数型プログラミングはまず考え方から理解しよう](https://qiita.com/stkdev/items/5c021d4e5d54d56b927c)
+- [こわくない関数型プログラミング](https://zenn.dev/tockri/books/dcaf6c55e64448)
