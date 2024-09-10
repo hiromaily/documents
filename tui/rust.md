@@ -6,6 +6,8 @@
 
 Cargo.tomlに`tui`、`crossterm`、`git2`の依存関係を追加
 
+`tui`はメンテナンスされていないため、Forkedバージョンの[ratatui](https://github.com/ratatui/ratatui)を使う
+
 ```toml
 [dependencies]
 tui = "0.16"             # TUIライブラリ
