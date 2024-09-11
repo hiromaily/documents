@@ -27,3 +27,9 @@ SMS（ショートメッセージ／Short Message Service）
 ### AWS SNS (Simple Notification Service)
 
 AWS SNSを使うとSMSだけでなく、さまざまな通知サービスを統合できる。AWSの他のサービスとの連携もスムーズ。
+
+## Open Source
+
+### [novu](https://github.com/novuhq/novu)
+
+Open-Source Notification Platform. Embeddable Notification Center, E-mail, Push and Slack Integrations.
