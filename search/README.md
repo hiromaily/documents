@@ -1,37 +1,61 @@
-# Search systems
+# 検索システム
 
-## Search Engines
+検索技術は、多岐にわたる応用が可能であり、さまざまなシステムや技術が存在する。
 
-Search engines like Elasticsearch, Apache Solr, and Algolia are widely used for indexing and searching large volumes of data quickly. They offer features like full-text search, filtering, sorting, and relevance scoring.
+## 代表的な検索システムと関連技術について
 
-## Indexing
+### 1. ウェブ検索エンジン
 
-To make search fast, data is often pre-processed and indexed. This involves creating data structures that allow for quick retrieval based on search queries. Technologies like inverted indexes are commonly used for this purpose.
+これは、インターネット上の情報を検索するためのシステムで、Google、Bing、Yahoo などが有名。基本的な仕組みは、クロール、インデックス作成、ランク付け、検索結果の表示。
 
-## Natural Language Processing (NLP)
+### 2. データベース検索
 
-NLP techniques are used to understand and process user queries more accurately. This includes stemming, tokenization, synonym expansion, and entity recognition to handle variations in user input.
+リレーショナルデータベース管理システム（RDBMS）を使用した検索システム。例えば、SQL を使ってデータベースをクエリすることが一般的。
 
-## Machine Learning
+### 3. エンタープライズサーチ
 
-Machine learning algorithms are employed for improving search relevance. Techniques like collaborative filtering, content-based filtering, and learning to rank are used to personalize search results and enhance user experience.
+企業内部の情報を検索するためのシステム。ドキュメント、メール、社内ウェブサイトなど、多岐にわたる情報源を対象とし、統合された検索結果を提供する。`Elasticsearch` や `Apache Solr` がよく利用される。
 
-## Semantic Search
+### 4. ファジーサーチ / Fuzzy Search
 
-Semantic search technologies analyze the meaning of words and the context of queries to provide more relevant results. This includes techniques like semantic indexing, ontologies, and knowledge graphs.
+これは、部分的に一致する結果を返す検索技術。例えば、ユーザーがスペルミスをした場合でも、関連する結果を表示する。検索エンジンやデータベースシステムで使用されることが多い。
 
-## Distributed Systems
+### 5. 音声検索
 
-Distributed systems are often used to handle the scalability and fault tolerance requirements of search systems. Technologies like Apache Kafka, Apache Spark, and distributed databases help in processing and managing large volumes of search queries and data.
+スマートフォンやスマートスピーカーなどで使用される技術で、音声入力を解析して検索を行う。Google Assistant や Amazon Alexa が代表的。
 
-## Caching
+### 6. 画像検索
 
-Caching frequently accessed data and search results can significantly improve the performance of search systems. Technologies like Redis and Memcached are commonly used for caching search results and reducing latency.
+画像を入力データとして利用する検索技術。例えば、Google 画像検索や Pinterest のビジュアルサーチが該当する。
 
-## Monitoring and Analytics
+### 7. ソーシャルメディアサーチ
 
-Monitoring tools like Elasticsearch Watcher, Kibana, and Prometheus are used to track the performance and health of search systems. Analytics tools help in understanding user behavior and optimizing search algorithms.
+Facebook、Twitter、Instagram などのソーシャルメディアに投稿された内容を検索するシステム。特定のハッシュタグやキーワードを元に関連する投稿を抽出する。
 
-## APIs and SDKs
+### 8. ジオロケーションサーチ
 
-Search systems often provide APIs and SDKs for developers to integrate search functionality into their applications seamlessly. These APIs offer various features like query customization, result filtering, and real-time updates.
+ユーザーの位置情報を基に、最寄りの場所やサービスを検索する技術。Google Maps や Yelp などのサービスがこれに該当する。
+
+### 9. 無構造データ検索
+
+主に、ログファイルやテキストデータなどの無構造データを解析し、検索する技術。`Elasticsearch` や `Splunk` などが利用される。
+
+### 10. 機械学習と自然言語処理（NLP）
+
+機械学習や NLP を使用した検索システムは、ユーザーの意図を理解し、より適切な結果を提供することが可能。これには、`Google の BERT` や `OpenAI の GPT シリーズ`などがある。
+
+### 11. セマンティックサーチ
+
+これは、ユーザーの検索クエリのコンテキストや意味を理解し、関連性の高い結果を提供する技術。知識グラフやオントロジーを用いたシステムが該当する。
+
+### 12. メタサーチエンジン
+
+複数の検索エンジンの結果を統合して表示するシステム。例として、`Dogpile` や `Metacrawler` がある。
+
+### 13. 専門分野検索
+
+医学、法律、学術研究など、特定の分野に特化した検索システム。例えば、PubMed（医学文献）や Google Scholar（学術文献）などが該当する。
+
+### 14. クエリのオートコンプリートとサジェスト
+
+ユーザーが入力中のクエリに対して、候補となる検索語句やフレーズをリアルタイムで提示する技術。Google の検索ボックスのサジェスト機能がよく利用される。

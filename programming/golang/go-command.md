@@ -44,26 +44,37 @@ go build -v -trimpath -ldflags="-s -w" -o ${GOPATH}/bin/cmd-a ./cmd/cmd-a/
 GOOS=linux GOARCH=${ARCH} CGO_ENABLED=0 go build -o myapp
 ```
 
-1. **GOOS**: 実行バイナリのターゲットとなるオペレーティングシステムを指定。例えば、`GOOS=linux`と設定すると、Linux用のバイナリが生成される。他の選択肢としては、`windows`, `darwin`（macOS）など。
+#### GOOS
 
-    ```bash
-    export GOOS=linux
-    ```
+実行バイナリのターゲットとなるオペレーティングシステムを指定。例えば、`GOOS=linux`と設定すると、Linux用のバイナリが生成される。他の選択肢としては、`windows`, `darwin`（macOS）など。
 
-2. **GOARCH**: 実行バイナリのターゲットとなるアーキテクチャを指定。`${ARCH}`は一般的に環境変数に設定されているアーキテクチャ値。例えば、`amd64`, `arm`, `arm64`など。
+```bash
+export GOOS=linux
+```
 
-    ```bash
-    export GOARCH=amd64
-    ```
+#### GOARCH
 
-3. **CGO_ENABLED**: CGO（C言語のコードをGoコードから利用するためのインターフェース）の有効/無効を設定。`CGO_ENABLED=0`と設定すると、CGOを無効にし、純Go（Pure Go）でビルドされる。これによりクロスコンパイルが容易になる。
+実行バイナリのターゲットとなるアーキテクチャを指定。`${ARCH}`は一般的に環境変数に設定されているアーキテクチャ値。例えば、`amd64`, `arm`, `arm64`など。
 
-    ```bash
-    export CGO_ENABLED=0
-    ```
+```bash
+export GOARCH=amd64
+```
 
-4. **GOARM**: ARMアーキテクチャのバージョンを指定。例えば、ARMv6の場合は`GOARM=6`と設定。
+GOARCHを指定しない場合、デフォルトの値は、コマンドを実行しているマシンのアーキテクチャとなる。
+M2 Macbook環境だと、`arm64`となる
 
-    ```bash
-    export GOARM=6
-    ```
+#### CGO_ENABLED
+
+CGO（C言語のコードをGoコードから利用するためのインターフェース）の有効/無効を設定。`CGO_ENABLED=0`と設定すると、CGOを無効にし、純Go（Pure Go）でビルドされる。これによりクロスコンパイルが容易になる。
+
+```bash
+export CGO_ENABLED=0
+```
+
+#### **GOARM**
+
+ARMアーキテクチャのバージョンを指定。例えば、ARMv6の場合は`GOARM=6`と設定。
+
+```bash
+export GOARM=6
+```
