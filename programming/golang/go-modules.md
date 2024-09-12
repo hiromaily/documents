@@ -12,7 +12,7 @@
 
 ## About help
 
-```
+```sh
 $ go mod help                                                                                                                                                           (git)-[main]
 Go mod provides access to operations on modules.
 
@@ -143,7 +143,7 @@ go mod tidy
 
 - linterの実行
 
-```
+```sh
 go run github.com/golangci/golangci-lint/cmd/golangci-lint run
 ```
 

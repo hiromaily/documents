@@ -249,6 +249,20 @@ USER www-data
 CMD ["whoami"]
 ```
 
+#### rootとして実行させない方法
+
+```Dockerfile
+FROM base AS runner
+
+# Don't run production as root
+RUN addgroup --system --gid 1001 app
+RUN adduser --system --uid 1001 app
+
+COPY --from=builder --chown=root:root --chmod=755 /workspace/ .
+# 書き込み権限のないユーザーに切り替え
+USER app
+```
+
 ### VOLUME
 
 ボリュームは、コンテナのライフサイクルとは無関係にデータを`永続化する`方法を提供する。ボリュームは Docker コンテナとホストマシン間のブリッジとして機能し、コンテナが停止、削除、交換されてもボリューム内に保存されたデータが持続することを保証する。

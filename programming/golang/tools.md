@@ -10,12 +10,22 @@ Goのlinterだが、標準機能だけで完結できるようになったら嬉
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.60.3
 ```
 
+```sh
+golangci-lint run
+
+golangci-lint run --fix
+```
+
 ### [govulncheck](https://pkg.go.dev/golang.org/x/vuln/cmd/govulncheck)
 
 Goの脆弱性チェックができる。`golangci-lint`には含まれていない。[Add "govulncheck" to golangci-lint](https://github.com/golangci/golangci-lint/issues/4623)
 
 ```sh
 go install golang.org/x/vuln/cmd/govulncheck@latest
+```
+
+```sh
+govulncheck ./...
 ```
 
 ### [staticcheck](https://staticcheck.dev/)
@@ -41,6 +51,10 @@ go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
 major versionがupgrade可能かどうかチェックする
 
+```sh
+gomajor list
+```
+
 ## Taskランナー
 
 ### [go-task](https://taskfile.dev/)
@@ -64,3 +78,7 @@ brew install go-task/tap/go-task
 ### `go test -coverprofile & go tool cover`
 
 - テストカバレッジの可視化
+
+## go.modによるtool管理方法
+
+[内部Docs](./go-modules.md#go-moduleによるbinary-toolの管理)
