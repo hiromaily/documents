@@ -1,45 +1,33 @@
 # Mobile App
 
-TODO: 情報更新
+## 開発手法
 
-ここでは、クロスプラットフォームフレームワークに焦点を当てる
+1. **クロスプラットフォーム開発**
+   - **Flutter**: Googleが開発したUIツールキットで、1つのコードベースからiOSとAndroidの両方にネイティブアプリを構築できます。迅速な開発と美しいUIが特長。
+   - **React Native**: Facebookが開発したフレームワークで、JavaScriptを使用してネイティブアプリを構築します。大規模なエコシステムとプラグインが豊富であることが利点。
 
-- [Flutter](https://flutter.dev/)
-- [React Native](https://reactnative.dev/)
-- Kotlin/Native
-- Swift for Android
+2. **Kotlin Multiplatform Mobile (KMM)**
+   - Kotlinのマルチプラットフォーム機能を利用して、共通のコードベースからiOSとAndroid向けにアプリケーションを開発できる。コード共有の効率を上げ、プラットフォームごとのカスタマイズも可能。
 
-## [Flutter](https://flutter.dev/)
+3. **Jetpack ComposeとSwiftUI**
+   - **Jetpack Compose**: Android向けの最新のUIツールキットであり、宣言的にUIを構築できる。コードを短縮し、再利用性を高めることができる。
+   - **SwiftUI**: Appleが提供する宣言的なフレームワークで、iOS、macOS、tvOS、watchOS向けのUIを効率よく構築できる。
 
-- フラターという発音だが、日本人はフラッター？とかいうのが辛い
-- Language: Dart
-- Platform: Android, iOS
-- IDE: Android Studio, IntelliJ, VSCode
-- Native に近いパフォーマンスを発揮可能で、React Native よりもパフォーマンスは高い
-- APIs と UI についても、組み込みのライブラリがあるため、優れている
+4. **非同期プログラミング**
+   - **Coroutine**: Kotlinの非同期プログラミングライブラリ。コードの読みやすさと効率を向上させる。
+   - **Combine**: Swiftのリアクティブプログラミングフレームワーク。データの変化にリアクティブに対応できる。
 
-### References
+5. **暗黙的なアニメーションとUIトランジション**
+   - ユーザーエクスペリエンスを向上させるために、Flutter、Jetpack Compose、SwiftUIなどでアニメーションやトランジションの利用が増えている。
 
-- [Flutter で始めるアプリ開発](https://www.flutter-study.dev/)
+6. **拡張現実 (AR) と仮想現実 (VR)**
+   - **ARKit** (iOS) や **ARCore** (Android) を使用して、ARアプリケーションの開発が進んでいる。エンターテインメント、教育、ショッピング体験において特に注目されている。
 
-### [Install](https://docs.flutter.dev/get-started/install)
+7. **人工知能 (AI) と機械学習 (ML)**
+   - **Core ML** や **TensorFlow Lite** を利用して、アプリケーションに顔認識、音声認識、自然言語処理などのAI機能が統合されている。
 
-- zip ファイルを download し、展開後、PATH を通す
-- install 後は、`flutter doctor`コマンドで、実行環境の状態を調べ、足りない tool を install する
-- iOS setup
-- Set up the iOS simulator
+8. **サーバレスアーキテクチャ**
+   - FirebaseやAWS Amplifyを利用したサーバレスアーキテクチャにより、開発者はインフラ管理を最小限に抑え、迅速にアプリケーションをデプロイできる。
 
-### アプリケーションの作成と起動
-
-```sh
-flutter create flutter_sample_app
-cd flutter_sample_app
-flutter run
-```
-
-- `flutter run`実行前に、`iOS Simulator`を使う場合は事前に立ち上げておかねばならない
-
-## [React Native](https://reactnative.dev/)
-
-- Language: JavaScript
-- Platform: Android, iOS, Web Apps
+9. **セキュリティとプライバシー強化**
+   - GDPRやCCPAなどのプライバシー規制に対応するため、データ保護やセキュリティ対策がますます重要視されている。
