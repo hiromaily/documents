@@ -113,3 +113,139 @@ func (q *Queries) UpdateUserEmail(ctx context.Context, id int32, newEmail string
     return err
 }
 ```
+
+## クエリメタデータの`name`
+
+いくつかのフォーマットがあり、それに基づいて生成されるGoコードの関数名や戻り値の形式が変わる
+
+1. **`:one`**: クエリが単一の結果を返す場合に使用する。生成される関数は単一の結果を取得し、それを構造体として返す。
+   - `:one`: 単一の結果を返すクエリ
+
+2. **`:many`**: クエリが複数の結果を返す場合に使用する。生成される関数は結果のスライスを返す。
+   - `:many`: 複数の結果を返すクエリ
+
+3. **`:exec`**: クエリが結果を返さず、実行のみを行う場合に使用する。例えば、`INSERT`、`UPDATE`、`DELETE`などのクエリに対して使用する。
+   - `:exec`: 実行のみを行うクエリ（結果を返さない）
+
+4. **`:execrows`**: クエリが影響を受ける行数（`affectedRows`）を返す場合に使用する。通常の`exec`と同様に実行されるが、影響を受けた行数も返す。
+   - `:execrows`: 実行後に影響を受ける行数を返すクエリ
+
+5. **`:copy`**: PostgreSQLの`COPY`コマンドを使用する場合に使用する。この形式は特定のデータベースエンジンに依存する。
+   - `:copy`: COPYコマンドを実行するクエリ
+
+### `name`の使用例
+
+#### :one
+
+クエリが単一の結果を返す場合に使用
+
+```sql
+-- name: GetUserByID :one
+SELECT id, name, email
+FROM users
+WHERE id = $1;
+```
+
+```go
+func (q *Queries) GetUserByID(ctx context.Context, id int32) (User, error) {
+    row := q.db.QueryRowContext(ctx, getUserByID, id)
+    var i User
+    err := row.Scan(&i.ID, &i.Name, &i.Email)
+    return i, err
+}
+```
+
+#### :many
+
+クエリが複数の結果を返す場合に使用
+
+```sql
+-- name: ListUsers :many
+SELECT id, name, email
+FROM users;
+```
+
+```go
+func (q *Queries) ListUsers(ctx context.Context) ([]User, error) {
+    rows, err := q.db.QueryContext(ctx, listUsers)
+    if err != nil {
+        return nil, err
+    }
+    defer rows.Close()
+
+    var items []User
+    for rows.Next() {
+        var i User
+        if err := rows.Scan(&i.ID, &i.Name, &i.Email); err != nil {
+            return nil, err
+        }
+        items = append(items, i)
+    }
+    if err := rows.Err(); err != nil {
+        return nil, err
+    }
+    return items, nil
+}
+```
+
+#### :exec
+
+クエリが結果を返さず、実行のみを行う場合に使用
+
+```sql
+-- name: UpdateUserEmail :exec
+UPDATE users
+SET email = $2
+WHERE id = $1;
+```
+
+```go
+func (q *Queries) UpdateUserEmail(ctx context.Context, id int32, email string) error {
+    _, err := q.db.ExecContext(ctx, updateUserEmail, id, email)
+    return err
+}
+```
+
+#### :execrows
+
+クエリ実行後に影響を受ける行数を返す場合に使用
+
+```sql
+-- name: DeleteUser :execrows
+DELETE FROM users
+WHERE id = $1;
+```
+
+```go
+func (q *Queries) DeleteUser(ctx context.Context, id int32) (int64, error) {
+    result, err := q.db.ExecContext(ctx, deleteUser, id)
+    if err != nil {
+        return 0, err
+    }
+    return result.RowsAffected()
+}
+```
+
+#### :copy
+
+PostgreSQLのCOPYコマンドを使用する場合に使用
+
+```sql
+-- name: CopyUsersToStaging :copy
+COPY users
+TO STDOUT WITH (FORMAT csv);
+```
+
+#### その他の指定方法 (重要)
+
+クエリの実行結果をカスタムな構造体として受け取りたい場合など、特定のシチュエーションに対応するために、クエリメタデータにはカスタムの`ゴールデン型`も指定できる
+
+```sql
+-- name: CustomQuery :one
+-- @gotype: CustomResult
+SELECT ...
+```
+
+`gotype`注釈を使うことで、自分で定義したカスタム構造体にクエリの結果をマッピングすることができる。
+
+詳細は[こちら](./query-metadata-gotype.md)
