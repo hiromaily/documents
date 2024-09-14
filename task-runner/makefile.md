@@ -1,6 +1,6 @@
 # Makefile
 
-Makefileは `make` コマンドと連携してプログラムのビルドプロセスを自動化するための設定ファイル。CやC++などのコンパイルが必要なプログラムでよく使われるが、他の言語やツールでも利用可能。
+Makefile は `make` コマンドと連携してプログラムのビルドプロセスを自動化するための設定ファイル。C や C++などのコンパイルが必要なプログラムでよく使われるが、他の言語やツールでも利用可能。
 
 ## 書き方のサンプル
 
@@ -8,7 +8,7 @@ Makefileは `make` コマンドと連携してプログラムのビルドプロ�
 
 ## 基本的な構造
 
-Makefileの内容は主に`ターゲット`、`依存関係`、および`コマンド`で構成されている。
+Makefile の内容は主に`ターゲット`、`依存関係`、および`コマンド`で構成されている。
 
 ```makefile
 ターゲット: 依存関係
@@ -34,9 +34,11 @@ clean:
 ## 項目説明
 
 1. **ターゲット (`target`)**:
+
    - ターゲットは、`make` コマンドに実行される目的（生成物）を示す。例えば、上記の例では `myprogram` や `clean` がターゲットにあたる。
 
 2. **依存関係 (`dependencies`)**:
+
    - ターゲットが依存するファイルや他のターゲットを示す。`myprogram` は `main.o` と `util.o` に依存する。
 
 3. **コマンド (`commands`)**:
@@ -54,7 +56,7 @@ clean:
 
 ## 変数
 
-Makefileでは変数を使ってコードを再利用することができる。
+Makefile では変数を使ってコードを再利用することができる。
 
 ```makefile
 CC = gcc
@@ -99,7 +101,7 @@ include dependencies.mk
 
 ## 実行方法
 
-作成したMakefileと同じディレクトリでシェルやコマンドラインから以下のようにしてビルドを実行する。
+作成した Makefile と同じディレクトリでシェルやコマンドラインから以下のようにしてビルドを実行する。
 
 ```sh
 make
@@ -115,4 +117,12 @@ make myprogram
 
 ```sh
 make clean
+```
+
+## Makefile の Linter
+
+- [checkmake](https://github.com/mrtazz/checkmake)
+
+```
+go install github.com/mrtazz/checkmake/cmd/checkmake@latest
 ```
