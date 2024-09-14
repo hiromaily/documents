@@ -123,6 +123,6 @@ make clean
 
 - [checkmake](https://github.com/mrtazz/checkmake)
 
-```
+```sh
 go install github.com/mrtazz/checkmake/cmd/checkmake@latest
 ```

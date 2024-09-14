@@ -58,8 +58,8 @@ SQL のアンチパターンを避けることで、データベースの設計�
 
   ```sql
   CREATE TABLE settings (
-      setting_name VARCHAR(255),
-      setting_value VARCHAR(255)
+      name VARCHAR(255),
+      age VARCHAR(10) -- Integerのほうが望ましい
   );
   ```
 

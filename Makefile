@@ -5,5 +5,5 @@ install:
 
 .PHONY: lint
 lint:
-	checkmake Makefile
 	markdownlint-cli2 --fix "**/*.md"
+	checkmake Makefile

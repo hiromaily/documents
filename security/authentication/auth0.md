@@ -40,10 +40,10 @@ Auth0 platform側でパスワードは管理されるため、自身のサイト
 1. [Auth0 accountの作成](https://auth0.com/)
 2. Auth0のダッシュボード内
 
-- 新しいApplicationを作成する (ApplicationのTypeも入力)
-- 認証成功後、callbackする自身のアプリケーションのURLを設定。ログアウトも同様。
-- 必要に応じて、UserのRoleやPermissionの設定
-- Loginページの設定
+   - 新しいApplicationを作成する (ApplicationのTypeも入力)
+   - 認証成功後、callbackする自身のアプリケーションのURLを設定。ログアウトも同様。
+   - 必要に応じて、UserのRoleやPermissionの設定
+   - Loginページの設定
 
 3. 認証成功後はjwtが取得できるので、自身のアプリケーションのBandend側のEndpointに対して、Validation機能をSDKを使って実装する
 4. Auth0の[`Token Storage`](https://auth0.com/docs/secure/security-guidance/data-security/token-storage)の導入？
