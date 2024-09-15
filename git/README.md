@@ -2,10 +2,37 @@
 
 [Dangit, Git!?!](https://dangitgit.com/ja)
 
-- git add した後に変更点を見る
+## 新しいbranchの作成方法
+
+```sh
+# 古い方法
+git checkout -b ${new-branch} origin/main
+
+# 新しい方法
+git switch -c ${new-branch} origin/main
+```
+
+## 新しいbranchの変更方法
+
+```sh
+# 古い方法
+git checkout ${branch-name}
+
+# 新しい方法
+git switch ${branch-name}
+```
+
+## git add した後に変更点を見る
 
 ```sh
 git diff --cached
  or
 git diff --staged
+```
+
+## 特定のファイルの変更履歴を辿る
+
+```sh
+# ファイルの変更箇所といつ・誰が変更したかを表示
+git blame ${file-name}
 ```

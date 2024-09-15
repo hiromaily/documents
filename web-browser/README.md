@@ -1,5 +1,7 @@
 # Web Browser
 
+[ちいさなWebブラウザを作ろう](https://browserbook.shift-js.info)
+
 ## 仕組み
 
 ### 1. ユーザーインターフェース
