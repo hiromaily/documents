@@ -3,7 +3,7 @@
 - [The Clean Architecture from The Clean Code Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [The Clean Architecture 翻訳](https://blog.tai2.net/the_clean_architecture.html)
 
-![clean architecture](../images/clean-architecture-origin.jpg "clean architecture")
+![clean architecture](../../images/clean-architecture-origin.jpg "clean architecture")
 
 `依存性のルール`として、`ソースコードは、内側に向かってのみ依存することができる`
 
