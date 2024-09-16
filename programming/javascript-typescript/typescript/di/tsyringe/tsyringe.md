@@ -1,4 +1,4 @@
-# tsyringe
+# Tsyringe 仕様
 
 軽量 DI コンテナで、コンストラクタの注入を行う
 
@@ -379,7 +379,3 @@ function loggerFactory(container: DependencyContainer) {
 // Register the factory provider
 container.register<ILogger>("Logger", { useFactory: loggerFactory });
 ```
-
-## Typescript5.0 で動かない問題 (2023/7/1 現在)
-
-- [tsyringe を TypeScript 5 で使う方法](https://blog.open.tokyo.jp/2023/05/02/tsyringe-with-typescript-5.html)
