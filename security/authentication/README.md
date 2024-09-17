@@ -31,6 +31,8 @@
   - オープンソースのアイデンティティおよびアクセス管理 (IAM)ソフトウェア
 - OpenAM
   - OpenAM はシングルサインオンを実現するためのオープンソースで、Java で開発されている
+- [Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/ja-jp/entra/identity-platform/msal-overview)
+  - ユーザーを認証し、セキュリティで保護された Web API にアクセスするため、開発者は Microsoft ID プラットフォームからセキュリティ トークンを取得できる
 
 ## IDaaS
 

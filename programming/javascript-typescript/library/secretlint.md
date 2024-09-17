@@ -1,5 +1,58 @@
 # secretlint
 
-Secretlint is that Pluggable linting tool to prevent committing credential.
+`ソースコードや構成ファイル内に誤って含まれてしまった秘密情報（秘密鍵、API キー、パスワードなど）を検出するためのツール`。セキュリティの観点から、機密情報がリポジトリに含まれないようにすることは非常に重要であり、secretlint はその支援を行う。
+
+## 基本的な特徴
+
+1. **検出ルールのカスタマイズ**: secretlint は、さまざまな検出ルールを追加したりカスタマイズしたりすることができる。
+2. **プラグインベースの構造**: secretlint はプラグインを使用して機能を拡張できる。例えば、特定の形式の秘密情報を検出するためのプラグインがある。
+3. **設定ファイルの利用**: secretlint は設定ファイル（JSON/YAML）でコンフィギュレーションを行い、どの検出ルールを使用するか、どのファイルを対象にするかなどを指定できる。
+4. **自動修正**: 一部の検出ルールでは、自動修正を行う機能もある。
+
+## 使用方法
+
+### 1. 設定ファイルの作成
+
+プロジェクトのルートディレクトリに`secretlintrc.json`という名前の設定ファイルを作成する。
+
+```json
+{
+  "rules": [
+    {
+      "id": "@secretlint/secretlint-rule-git"
+    },
+    {
+      "id": "@secretlint/secretlint-rule-npm"
+    }
+  ]
+}
+```
+
+ここでは、git 関連の秘密情報と npm 関連の秘密情報を検出するルールを導入している。
+
+### 2. 実行
+
+```sh
+npx secretlint "**/*"
+```
+
+指定したパターン（ここではプロジェクトの全ファイルが対象）のファイルを検査し、検出結果が表示される。
+
+## 活用場面
+
+1. **継続的インテグレーション (CI) パイプライン**: 新しく追加されたコードが秘密情報を含んでいないか自動的にチェックするために、CI ツールで secretlint を実行するのが一般的。
+2. **事前コミットフック**: コードをコミットする前に、secretlint を実行して秘密情報が含まれていないかを確認することができます。これには Husky などのツールを使用する。
+
+## Husky と連携
+
+Husky を使った pre-commit フックの例:
+
+```bash
+npx husky add .husky/pre-commit "npx secretlint \"**/*\""
+```
+
+これにより、コミットの前に secretlint が実行され、問題があればコミットがキャンセルされる。
+
+## References
 
 - [github](https://github.com/secretlint/secretlint)

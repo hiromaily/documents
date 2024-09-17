@@ -22,5 +22,7 @@ Fast, lightweight, built on Web Standards. Support for any JavaScript runtime.
 
 ## References
 
-- [Hono を使い倒したい 2024](https://zenn.dev/aishift/articles/a3dc8dcaac6bfa)
 - [github: hono-bun-cleanArchitecture](https://github.com/kbkn3/hono-bun-cleanArchitecture)
+- [Hono を使い倒したい 2024](https://zenn.dev/aishift/articles/a3dc8dcaac6bfa)
+- [Honoハンズオン2024年3月沖縄](https://zenn.dev/yusukebe/articles/e258eb3ce536fc)
+- [新規サービスのバックエンド開発で3ヶ月経ったので、試した技術や取り組みをまとめてみた](https://www.ai-shift.co.jp/techblog/4234)

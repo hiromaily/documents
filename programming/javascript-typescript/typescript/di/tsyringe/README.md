@@ -1,6 +1,11 @@
 # TSyringe
 
 TSyringeは、非常にシンプルで軽量なDependency Injection（DI）ライブラリ
+シンプルな依存関係の解決にはいいが、初期化時に様々なパラメータを必要とする依存関係はコードが複雑化する
+
+## Note
+
+- 2024/9現在、bunを使った環境では動かない。[Reflect-metadata doesn't work for tsyringe](https://github.com/oven-sh/bun/issues/4677)
 
 ## インストール
 
@@ -151,11 +156,11 @@ console.log(ninja.fight()); // 'cut!'
 
 ## 依存関係が入れ子になっているケース
 
-### 1. エンティティの定義
-
-各クラスとインターフェースを定義。例えば、`Logger` インターフェースを定義し、`SimpleLogger` クラスがこれを実装する形にする。
-
 ```ts
+import 'reflect-metadata';
+import { container, inject, injectable } from 'tsyringe';
+
+// 新たにLoggerを追加
 interface Logger {
     log(message: string): void;
 }
@@ -166,15 +171,12 @@ class SimpleLogger implements Logger {
         console.log(message);
     }
 }
-```
 
-続いて、`Weapon` インターフェースとその実装である `Katana` クラスを定義し、`Katana` も `Logger` に依存すると仮定。
-
-```ts
 interface Weapon {
     attack(): string;
 }
 
+// KatanaがLoggerに依存
 @injectable()
 class Katana implements Weapon {
     constructor(@inject("Logger") private logger: Logger) {}
@@ -184,11 +186,7 @@ class Katana implements Weapon {
         return 'cut!';
     }
 }
-```
 
-そして、`Ninja` クラスが `Weapon` に依存します。
-
-```ts
 @injectable()
 class Ninja {
     constructor(@inject("Weapon") private weapon: Weapon) {}
@@ -197,33 +195,21 @@ class Ninja {
         return this.weapon.attack();
     }
 }
-```
 
-### 2. コンテナに登録
-
-各クラスをコンテナに登録する。ここでは、それぞれのインターフェースに対する具体的なクラス実装を登録する。
-
-```ts
 container.register<Logger>("Logger", { useClass: SimpleLogger });
 container.register<Weapon>("Weapon", { useClass: Katana });
-container.register<Ninja>(Ninja);  // Ninjaは直接クラスを登録
-```
 
-### 3. インスタンスの解決と使用
-
-コンテナから `Ninja` のインスタンスを解決し、そのメソッドを使用する。
-
-```ts
 const ninja = container.resolve<Ninja>(Ninja);
-console.log(ninja.fight()); // 'Katana used' と 'cut!' が表示される。
+console.log(ninja.fight()); // 'Katana used' と 'cut!' が表示される
 ```
 
-### 全体のコード例
+## 依存関係が初期化パラメータを必要としているケース
 
 ```ts
 import 'reflect-metadata';
 import { container, inject, injectable } from 'tsyringe';
 
+// Loggerクラス
 interface Logger {
     log(message: string): void;
 }
@@ -239,16 +225,21 @@ interface Weapon {
     attack(): string;
 }
 
+// Katanaクラスは初期化時にパラメータが必要
 @injectable()
 class Katana implements Weapon {
-    constructor(@inject("Logger") private logger: Logger) {}
+    constructor(
+        @inject("Logger") private logger: Logger,
+        private name: string
+    ) {}
 
     public attack(): string {
-        this.logger.log("Katana used");
-        return 'cut!';
+        this.logger.log(`${this.name} used`);
+        return `${this.name} cuts!`;
     }
 }
 
+// Ninja
 @injectable()
 class Ninja {
     constructor(@inject("Weapon") private weapon: Weapon) {}
@@ -258,8 +249,14 @@ class Ninja {
     }
 }
 
+// Register Logger
 container.register<Logger>("Logger", { useClass: SimpleLogger });
-container.register<Weapon>("Weapon", { useClass: Katana });
+
+// インスタンスを作成
+const katanaWithCustomName = new Katana(container.resolve("Logger"), "Sharp Katana");
+// 作成したインスタンスをregisterInstance()で登録
+container.registerInstance<Weapon>("Weapon", katanaWithCustomName);
+
 const ninja = container.resolve<Ninja>(Ninja);
-console.log(ninja.fight()); // 'Katana used' と 'cut!' が表示される
+console.log(ninja.fight()); // 'Sharp Katana used' と 'Sharp Katana cuts!' が表示されます
 ```
