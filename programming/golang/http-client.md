@@ -1,8 +1,6 @@
 # Application Tuning
 
-## Golang
-
-### [http#Client](https://pkg.go.dev/net/http#Client) package
+## [http#Client](https://pkg.go.dev/net/http#Client) package
 
 ```go
 package main
@@ -36,7 +34,7 @@ func main() {
 }
 ```
 
-### [httptrace](https://pkg.go.dev/net/http/httptrace) package
+## [httptrace](https://pkg.go.dev/net/http/httptrace) package
 
 ```go
 import (

@@ -1,49 +1,161 @@
-## Service manager
+# Service manager
 
-[systemd](https://en.wikipedia.org/wiki/Systemd)
-Systemd (stylized as systemd) is a software suite that provides fundamental building blocks for a Linux operating syste. Among other features, it includes the systemd "System and [Service Manager](https://en.wikipedia.org/wiki/Operating_system_service_management)", an init system used to bootstrap the user space and to manage system processes after booting.
+Linux のサービスマネージャーは、システムの起動、停止、再起動、およびステータスの確認など、サービスやデーモンを管理するためのツール。主なサービスマネージャーとして、`systemd`、`SysVinit`、`upstart`があるが、現在最も広く使われているのは `systemd` 。
 
-[Difference between systemctl init.d and service](https://askubuntu.com/questions/911525/difference-between-systemctl-init-d-and-service)
+## systemd (systemctl)
 
+`systemd` は、ほとんどの現代的な Linux ディストリビューションで使用されているサービスマネージャー。`journalctl`を利用したログ管理、デバイス管理、タイマー、依存関係の管理など、さまざまな機能を提供する。
+
+### systemd の基本コマンド
+
+- **サービスの起動**:
+
+  ```sh
+  sudo systemctl start <サービス名>
+  ```
+
+- **サービスの停止**:
+
+  ```sh
+  sudo systemctl stop <サービス名>
+  ```
+
+- **サービスの再起動**:
+
+  ```sh
+  sudo systemctl restart <サービス名>
+  ```
+
+- **サービスのステータス確認**:
+
+  ```sh
+  sudo systemctl status <サービス名>
+  ```
+
+- **サービスの自動起動を有効化**:
+
+  ```sh
+  sudo systemctl enable <サービス名>
+  ```
+
+- **サービスの自動起動を無効化**:
+
+  ```sh
+  sudo systemctl disable <サービス名>
+  ```
+
+### systemd の例
+
+Apache HTTP サーバー (`httpd` または `apache2`) のステータスを確認する場合：
+
+```sh
+sudo systemctl status httpd
 ```
-sudo /etc/init.d/apache2 status
-sudo systemctl status apache2.service
-sudo service apache2 status
+
+## SysVinit
+
+`SysVinit` は古くから使われているサービスマネージャーであり、設定ファイルやスクリプトを使用してサービスを管理します。現在では`systemd`に置き換えられていることが多いですが、古いシステムではまだ使用されています。
+
+### SysVinit の基本コマンド
+
+- **サービスの起動**:
+
+  ```sh
+  sudo service <サービス名> start
+  ```
+
+- **サービスの停止**:
+
+  ```sh
+  sudo service <サービス名> stop
+  ```
+
+- **サービスの再起動**:
+
+  ```sh
+  sudo service <サービス名> restart
+  ```
+
+- **サービスのステータス確認**:
+
+  ```sh
+  sudo service <サービス名> status
+  ```
+
+### SysVinit の例
+
+MySQL サービスを再起動する場合：
+
+```sh
+sudo service mysql restart
 ```
 
-1. `sudo systemctl status apache2.service`  
-   This is the new SystemD approach to handling services. Moving forward, applications on Linux are designed to uses the systemd method, not any other. So this command is recommended.
+## init.d
 
-2. `sudo /etc/init.d/apache2 status`  
-   This is the original SysVInit method of calling on a service. Init scripts would be written for a service and placed into this directory. While this method is still used by many, service was the command that replaced this method of calling on services in SysVInit. There's some legacy functionality for this on newer systems with SystemD, but most newer programs don't include this, and not all older application init scripts work with it.
+`init.d` は主に古い`SysVinit`システムに関連しており、`/etc/init.d/` ディレクトリに配置されたスクリプトを用いてサービスを管理する。これらのスクリプトは、基本的にシェルスクリプトであり、`start`、`stop`、`restart`、`status` などの引数を受け取る。`init.d` は従来の`SysVinit`システムの一部。
 
-3. `sudo service apache2 status`
-   This was the primary tool used on SysVInit systems for services. In some cases it just linked to the /etc/init.d/ scripts, but in other cases it went to an init script stored elsewhere. It was intended to provide a smoother transition into service dependency handling.
+### `init.d`の使用例
 
-`systemctl` is newer than `init.d` and `systemctl` is the new SystemD approach to handling services.
+各サービスには対応するスクリプトが`/etc/init.d/`に存在し、これを手動で実行することでサービスの制御を行います。
 
-## .profile, .bashrc etc
+- **サービスの起動**:
 
-1. `/etc/profile`  
-   This file is applied for all users
+  ```sh
+  sudo /etc/init.d/servicename start
+  ```
 
-- something which should be set only once when login
+- **サービスの停止**:
 
-2. `~/.bash_profile`  
-   If this file is exsiting, is loaded
+  ```sh
+  sudo /etc/init.d/servicename stop
+  ```
 
-- environmental variable should be set here(or .profile), not .bashrc
+- **サービスの再起動**:
 
-3. `~/.bash_login`  
-   After login, this file will be loaded as long as .bash_profile is not exsiting
+  ```sh
+  sudo /etc.init.d/servicename restart
+  ```
 
-4. `~/.profile`  
-   After login, this file will be loaded as long as .bash_profile and .bash_login are not exsiting
+- **サービスのステータス確認**:
 
-5. `~/.bashrc`  
-   After login by shell, this file is loaded each time
+  ```sh
+  sudo /etc/init.d/servicename status
+  ```
 
-- something which requires to be set anytime after login by bash
+## Upstart
 
-6. `~/.bash_logout`  
-   After logout by shell, this file is loaded each time
+`Upstart` は、イベントベースのサービスマネージャーであり、サービスやデーモンを管理するための新しいアプローチを提供しています。特に Ubuntu 9.10 から 14.10 にかけてのバージョンで使用されていましたが、現在では`systemd`に取って代わられています。
+
+### Upstart の基本コマンド
+
+- **サービスの起動**:
+
+  ```sh
+  sudo start <サービス名>
+  ```
+
+- **サービスの停止**:
+
+  ```sh
+  sudo stop <サービス名>
+  ```
+
+- **サービスの再起動**:
+
+  ```sh
+  sudo restart <サービス名>
+  ```
+
+- **サービスのステータス確認**:
+
+  ```sh
+  sudo status <サービス名>
+  ```
+
+### Upstart の例
+
+Network Manager サービスのステータスを確認する場合：
+
+```sh
+sudo status network-manager
+```

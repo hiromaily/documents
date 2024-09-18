@@ -1,6 +1,7 @@
 # HTTP Request
 
-[ブラウザキャッシュの仕組み](https://zenn.dev/msy/articles/e81ff7cd52659a)
+- [内部Docs: cache](../cache/http-header/README.md)
+- [ブラウザキャッシュの仕組み](https://zenn.dev/msy/articles/e81ff7cd52659a)
 
 ## [If-Modified-Since](https://developer.mozilla.org/ja/docs/Web/HTTP/Headers/If-Modified-Since)
 

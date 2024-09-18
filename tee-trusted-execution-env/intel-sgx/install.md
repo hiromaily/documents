@@ -45,227 +45,229 @@
 
 ### Intel SGX SDK ~~および Intel SGX PSW パッケージ~~ のビルド
 
-- Ubuntu22.04 にて実行
+- Ubuntu 22.04 にて実行
 
-1. 必要なツールを install
+1. 必要なツールをインストール
 
-```
-sudo apt install build-essential ocaml ocamlbuild automake autoconf libtool wget python-is-python3 libssl-dev git cmake perl
-sudo apt install libssl-dev libcurl4-openssl-dev protobuf-compiler libprotobuf-dev debhelper cmake reprepro unzip pkgconf libboost-dev libboost-system-dev protobuf-c-compiler libprotobuf-c-dev lsb-release
-```
+    ```sh
+    sudo apt install build-essential ocaml ocamlbuild automake autoconf libtool wget python-is-python3 libssl-dev git cmake perl
+    sudo apt install libssl-dev libcurl4-openssl-dev protobuf-compiler libprotobuf-dev debhelper cmake reprepro unzip pkgconf libboost-dev libboost-system-dev protobuf-c-compiler libprotobuf-c-dev lsb-release
+    ```
 
-2. ソースコードを download
+2. ソースコードをダウンロード
 
-```
-git clone https://github.com/intel/linux-sgx.git
-# build済のバイナリがdownloadされる
-cd linux-sgx && make preparation
-```
+    ```sh
+    git clone https://github.com/intel/linux-sgx.git
+    # ビルド済みのバイナリがダウンロードされる
+    cd linux-sgx && make preparation
+    ```
 
-3. tool の install
+3. ツールのインストール
 
-```
-sudo cp external/toolset/Ubuntu20.04/* /usr/local/bin
-which ar as ld objcopy objdump ranlib
-```
+    ```sh
+    sudo cp external/toolset/Ubuntu20.04/* /usr/local/bin
+    which ar as ld objcopy objdump ranlib
+    ```
 
-4. SGX SDK の build (Default で OK)
+4. SGX SDK のビルド（デフォルトで OK）
 
-```
-# Default
-make sdk
+    ```sh
+    # デフォルト
+    make sdk
 
- or
+    # または
 
-# SGXSSL とオープン ソースの文字列/数学を使用して SDK を構築
-make sdk USE_OPT_LIBS=0
+    # SGXSSL とオープンソースの文字列/数学を使用して SDK を構築
+    make sdk USE_OPT_LIBS=0
 
- or
-# DEBUG情報を出力
-make sdk DEBUG=1
-```
+    # または
 
-5. 生成されたファイルを消去する (このタイミングで必要か？)
+    # デバッグ情報を出力
+    make sdk DEBUG=1
+    ```
 
-```
-make clean
-```
+5. 生成されたファイルを消去
 
-6. SGX SDK Installer を build
+    ```sh
+    make clean
+    ```
 
-```
-make sdk_install_pkg
-```
+6. SGX SDK インストーラーをビルド
 
-- これにより、`linux/installer/bin/sgx_linux_x64_sdk_xxxxx.bin*` が作成される
+    ```sh
+    make sdk_install_pkg
+    ```
 
-7. デフォルト構成で、Intel SGX PSW を build
+    - これにより、`linux/installer/bin/sgx_linux_x64_sdk_xxxxx.bin*` が作成される
 
-```
-make psw
-```
+7. デフォルト構成で、Intel SGX PSW をビルド
 
-- 以下エラーが発生: [Error while executing "make psw"](https://github.com/intel/linux-sgx/issues/466)
+    ```sh
+    make psw
+    ```
 
-```
-❯ make psw
-make -C psw/ USE_OPT_LIBS=1
-make[1]: Entering directory '/home/hy/work/linux-sgx/psw'
-make -C uae_service/linux/
-make[2]: Entering directory '/home/hy/work/linux-sgx/psw/uae_service/linux'
-make -C ../../../psw/ae/aesm_service/source/core/ipc
-make[3]: Entering directory '/home/hy/work/linux-sgx/psw/ae/aesm_service/source/core/ipc'
-protoc  messages.proto --cpp_out=.
-make[3]: Leaving directory '/home/hy/work/linux-sgx/psw/ae/aesm_service/source/core/ipc'
-g++ -Wnon-virtual-dtor -std=c++14 -fstack-protector-strong -O2 -D_FORTIFY_SOURCE=2 -UDEBUG -DNDEBUG -ffunction-sections -fdata-sections -Wall -Wextra -Winit-self -Wpointer-arith -Wreturn-type -Waddress -Wsequence-point -Wformat-security -Wmissing-include-dirs -Wfloat-equal -Wundef -Wshadow -Wcast-align -Wconversion -Wredundant-decls -DITT_ARCH_IA64 -fcf-protection -fPIC -Werror -Wno-unused-parameter -g -DPROTOBUF_INLINE_NOT_IN_HEADERS=0 -Wno-deprecated-declarations -I. -I/home/hy/work/linux-sgx/common -I/home/hy/work/linux-sgx/common/inc -I/home/hy/work/linux-sgx/common/inc/internal  -I/home/hy/work/linux-sgx/psw/ae/common -I/home/hy/work/linux-sgx/psw/ae/inc -I/home/hy/work/linux-sgx/psw/ae/inc/internal -I/opt/intel/sgxsdk/include -I/home/hy/work/linux-sgx/external/epid-sdk -I../../../psw/ae/aesm_service/source/core/ipc -I../uae_wrapper/inc -I../../../psw/ae/aesm_service/source/core/ipc -I/home/hy/work/linux-sgx/psw/ae/aesm_service/source -I/home/hy/work/linux-sgx/psw/ae/aesm_service/source/common -c ../uae_wrapper/src/AEServicesImpl.cpp -o AEServicesImpl.o
-cc1plus: error: /opt/intel/sgxsdk/include: No such file or directory [-Werror=missing-include-dirs]
-cc1plus: all warnings being treated as errors
-make[2]: *** [Makefile:182: AEServicesImpl.o] Error 1
-make[2]: Leaving directory '/home/hy/work/linux-sgx/psw/uae_service/linux'
-make[1]: *** [Makefile:49: uae_service] Error 2
-make[1]: Leaving directory '/home/hy/work/linux-sgx/psw'
-make: *** [Makefile:62: psw] Error 2
-```
+    - 以下エラーが発生: [Error while executing "make psw"](https://github.com/intel/linux-sgx/issues/466)
 
-- [issue](<(https://github.com/intel/linux-sgx/issues/466)>)には、`You need to install the SDK before building PSW`とある
+        ```sh
+        ❯ make psw
+        make -C psw/ USE_OPT_LIBS=1
+        make[1]: Entering directory '/home/hy/work/linux-sgx/psw'
+        make -C uae_service/linux/
+        make[2]: Entering directory '/home/hy/work/linux-sgx/psw/uae_service/linux'
+        make -C ../../../psw/ae/aesm_service/source/core/ipc
+        make[3]: Entering directory '/home/hy/work/linux-sgx/psw/ae/aesm_service/source/core/ipc'
+        protoc  messages.proto --cpp_out=.
+        make[3]: Leaving directory '/home/hy/work/linux-sgx/psw/ae/aesm_service/source/core/ipc'
+        g++ -Wnon-virtual-dtor -std=c++14 -fstack-protector-strong -O2 -D_FORTIFY_SOURCE=2 -UDEBUG -DNDEBUG -ffunction-sections -fdata-sections -Wall -Wextra -Winit-self -Wpointer-arith -Wreturn-type -Waddress -Wsequence-point -Wformat-security -Wmissing-include-dirs -Wfloat-equal -Wundef -Wshadow -Wcast-align -Wconversion -Wredundant-decls -DITT_ARCH_IA64 -fcf-protection -fPIC -Werror -Wno-unused-parameter -g -DPROTOBUF_INLINE_NOT_IN_HEADERS=0 -Wno-deprecated-declarations -I. -I/home/hy/work/linux-sgx/common -I/home/hy/work/linux-sgx/common/inc -I/home/hy/work/linux-sgx/common/inc/internal  -I/home/hy/work/linux-sgx/psw/ae/common -I/home/hy/work/linux-sgx/psw/ae/inc -I/home/hy/work/linux-sgx/psw/ae/inc/internal -I/opt/intel/sgxsdk/include -I/home/hy/work/linux-sgx/external/epid-sdk -I../../../psw/ae/aesm_service/source/core/ipc -I../uae_wrapper/inc -I../../../psw/ae/aesm_service/source/core/ipc -I/home/hy/work/linux-sgx/psw/ae/aesm_service/source -I/home/hy/work/linux-sgx/psw/ae/aesm_service/source/common -c ../uae_wrapper/src/AEServicesImpl.cpp -o AEServicesImpl.o
+        cc1plus: error: /opt/intel/sgxsdk/include: No such file or directory [-Werror=missing-include-dirs]
+        cc1plus: all warnings being treated as errors
+        make[2]: *** [Makefile:182: AEServicesImpl.o] Error 1
+        make[2]: Leaving directory '/home/hy/work/linux-sgx/psw/uae_service/linux'
+        make[1]: *** [Makefile:49: uae_service] Error 2
+        make[1]: Leaving directory '/home/hy/work/linux-sgx/psw'
+        make: *** [Makefile:62: psw] Error 2
+        ```
 
-### Intel SGX SDK を Install する
+    - [issue](https://github.com/intel/linux-sgx/issues/466) には、`You need to install the SDK before building PSW`とある
 
-- Ubuntu22.04 にて実行
+### Intel SGX SDK をインストールする
 
-1. 必要な tool を install
+- Ubuntu 22.04 にて実行
 
-```
-sudo apt install build-essential python-is-python3
-```
+1. 必要なツールをインストール
 
-2. Install
+    ```sh
+    sudo apt install build-essential python-is-python3
+    ```
 
-```
-cd linux/installer/bin
+2. インストール
 
-# インストール パスを指定する必要がある
-export SDK_INSTALL_PATH_PREFIX=/opt/intel
-sudo ./sgx_linux_x64_sdk_${version}.bin --prefix $SDK_INSTALL_PATH_PREFIX
+    ```sh
+    cd linux/installer/bin
 
-# 環境変数の設定(.zprofile等に設定しておく)
-source /opt/intel/sgxsdk/environment
-```
+    # インストールパスを指定する必要がある
+    export SDK_INSTALL_PATH_PREFIX=/opt/intel
+    sudo ./sgx_linux_x64_sdk_${version}.bin --prefix $SDK_INSTALL_PATH_PREFIX
+
+    # 環境変数の設定（.zprofile 等に設定しておく）
+    source /opt/intel/sgxsdk/environment
+    ```
 
 ### Intel SGX PSW パッケージのビルド
 
-1. デフォルト構成で、Intel SGX PSW を build
+1. デフォルト構成で、Intel SGX PSW をビルド
 
-```
-make psw
-```
+    ```sh
+    make psw
+    ```
 
-2. 生成されたファイルを消去する (このタイミングで必要か？)
+2. 生成されたファイルを消去
 
-```
-make clean
-```
+    ```sh
+    make clean
+    ```
 
-3. Intel SGX PSW インストーラーを build
+3. Intel SGX PSW インストーラーをビルド
 
-```
-make deb_psw_pkg
-```
+    ```sh
+    make deb_psw_pkg
+    ```
 
-- これにより、`./linux/installer/deb`ディレクトリ下に様々なファイルができる
-  - libsgx-enclave-common/
-  - libsgx-epid/
-  - libsgx-headers/
-  - libsgx-launch/
-  - libsgx-quote-ex/
-  - libsgx-uae-service/
-  - libsgx-urts/
-  - local_repo_tool/
-  - sgx-aesm-service/
+    - これにより、`./linux/installer/deb`ディレクトリ下に様々なファイルができる
+        - `libsgx-enclave-common/`
+        - `libsgx-epid/`
+        - `libsgx-headers/`
+        - `libsgx-launch/`
+        - `libsgx-quote-ex/`
+        - `libsgx-uae-service/`
+        - `libsgx-urts/`
+        - `local_repo_tool/`
+        - `sgx-aesm-service/`
 
-4. ローカル Debian package repository を build
+4. ローカル Debian パッケージリポジトリをビルド
 
-- 実行したがエラーが発生: [Can't make deb_local_repo](https://github.com/intel/linux-sgx/issues/587)
+    - 実行したがエラーが発生: [Can't make deb_local_repo](https://github.com/intel/linux-sgx/issues/587)
 
-```
-make deb_local_repo
-# ./linux/installer/common/local_repo_builder/local_repo_builder.sh debian build
-# make: *** [Makefile:245: deb_local_repo] Error 249
-```
+        ```sh
+        make deb_local_repo
+        # ./linux/installer/common/local_repo_builder/local_repo_builder.sh debian build
+        # make: *** [Makefile:245: deb_local_repo] Error 249
+        ```
 
-- [issue](https://github.com/intel/linux-sgx/issues/587)によると、`apt install reprepro` が必要？？
-  - これは`Debian package repository producer` とあるが、既に install されていた
-- 実際に実行されているのは、`./linux/installer/deb/local_repo_tool/debian_repo.sh`内の`local_repo_build()`
+    - [issue](https://github.com/intel/linux-sgx/issues/587) によると、`apt install reprepro` が必要？？  
+      - これは `Debian package repository producer` とあるが、既にインストールされていた
+      - 実際に実行されているのは、`./linux/installer/deb/local_repo_tool/debian_repo.sh` 内の `local_repo_build()`
 
-```
-{
-    local_repo_clean
-    code_name=$(lsb_release -cs)
-    deb_pkgs=$(find ${SOURCE_PKG_DIR} -type f \( -name "*.deb" -o -name "*.ddeb" \))
-    if [[ ${deb_pkgs} != "" ]]
-    then
-        reprepro --confdir ${REPO_CONFIG_DIR} --outdir ${LOCAL_REPO_DIR} --dbdir ${LOCAL_REPO_DIR}/db --ignore=extension includedeb ${code_name} ${deb_pkgs} 2>/dev/null
-    fi
-}
-```
+        ```sh
+        {
+            local_repo_clean
+            code_name=$(lsb_release -cs)
+            deb_pkgs=$(find ${SOURCE_PKG_DIR} -type f \( -name "*.deb" -o -name "*.ddeb" \))
+            if [[ ${deb_pkgs} != "" ]]
+            then
+                reprepro --confdir ${REPO_CONFIG_DIR} --outdir ${LOCAL_REPO_DIR} --dbdir ${LOCAL_REPO_DIR}/db --ignore=extension includedeb ${code_name} ${deb_pkgs} 2>/dev/null
+            fi
+        }
+        ```
 
-- 一旦、ファイルに修正を加え、`2>/dev/null`を外し、再度実行してみる
+    - 一旦、ファイルに修正を加え、`2>/dev/null` を外し、再度実行してみる
 
-```
-Cannot find definition of distribution 'jammy'!
-There have been errors!
-```
+        ```sh
+        Cannot find definition of distribution 'jammy'!
+        There have been errors!
+        ```
 
-- Ubuntu22.04 固有の問題
-- `./linux/installer/deb/local_repo_tool/conf/distributions` ファイルに以下を追加
+    - Ubuntu 22.04 固有の問題
+        - `./linux/installer/deb/local_repo_tool/conf/distributions` ファイルに以下を追加
 
-```
-Origin: Intel Corporation
-Label: Intel Corporation
-Codename: jammy
-Architectures: amd64
-Components: main
-Description: ubuntu/jammy repository for SGX PSW
-DebIndices: Packages .
-```
+            ```sh
+            Origin: Intel Corporation
+            Label: Intel Corporation
+            Codename: jammy
+            Architectures: amd64
+            Components: main
+            Description: ubuntu/jammy repository for SGX PSW
+            DebIndices: Packages .
+            ```
 
-- 再度実行
+    - 再度実行
 
-```
-make deb_local_repo
+        ```sh
+        make deb_local_repo
 
-# Local repository is successfully generated at /home/hy/work/linux-sgx/linux/installer/deb/local_repo_tool/../sgx_debian_local_repo.
-# Please follow the instructions in README to use this repository.
-```
+        # Local repository is successfully generated at /home/hy/work/linux-sgx/linux/installer/deb/local_repo_tool/../sgx_debian_local_repo.
+        # Please follow the instructions in README to use this repository.
+        ```
 
-5. [WIP] ローカル Debian package repository をシステム repository 構成に追加する
+5. [WIP] ローカル Debian パッケージリポジトリをシステムリポジトリ構成に追加する
 
-- 追加後、`sudo apt update`でエラーが発生。`Release`ファイルは存在するが、`InRelease`ファイルは存在しない
+    - 追加後、`sudo apt update` でエラーが発生。`Release` ファイルは存在するが、`InRelease` ファイルは存在しない
 
-```
-sudo vim /etc/apt/sources.list
-# e.g
-# deb [trusted=yes arch=amd64] file:/PATH_TO_LOCAL_REPO focal main
-deb [trusted=yes arch=amd64] file:/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo jammy main
-sudo apt update
-# N: Download is performed unsandboxed as root as file '/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/dists/jammy/InRelease' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
-```
+        ```sh
+        sudo vim /etc/apt/sources.list
+        # e.g.
+        # deb [trusted=yes arch=amd64] file:/PATH_TO_LOCAL_REPO focal main
+        deb [trusted=yes arch=amd64] file:/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo jammy main
+        sudo apt update
+        # N: Download is performed unsandboxed as root as file '/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/dists/jammy/InRelease' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
+        ```
 
-- WIP
-  deb [trusted=yes arch=amd64] file:/opt/local/linux-sgx/linux/installer/deb/sgx_debian_local_repo focal main
-  " > /etc/apt/sources.list.d/intel-sgx.list && \
+    - WIP
+        - `/opt/local` を使うべきだった？
 
-=> /opt/local を使うべきだった？
+        ```sh
+        deb [trusted=yes arch=amd64] file:/opt/local/linux-sgx/linux/installer/deb/sgx_debian_local_repo focal main
+        ```
 
-- 以下対応したが、うまくいかなかった。。。
-  - `Release`というファイルは存在するので、これをコピーして`InRelease`を作成し、chmod で全権限を与えてみる
-  - 以下コマンドの実行
+    - 以下対応したが、うまくいかなかった。。。
+        - `Release` ファイルは存在するので、これをコピーして `InRelease` を作成し、`chmod` で全権限を与えてみる
+        - 以下コマンドの実行
 
-```
-usermod -aG hy _apt
-#sudo chown -Rv _apt:root /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
-# sudo chmod -Rv 775 /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
-```
+            ```sh
+            usermod -aG hy _apt
+            # sudo chown -Rv _apt:root /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
+            # sudo chmod -Rv 775 /home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/
+            ```
 
 ### Intel SGX PSW のインストール
 
@@ -285,73 +287,89 @@ usermod -aG hy _apt
 
 #### Install
 
-1. 必要となるライブラリを install
+1. 必要となるライブラリをインストール
 
-```
-sudo apt install libssl-dev libcurl4-openssl-dev libprotobuf-dev
-```
+    ```sh
+    sudo apt install libssl-dev libcurl4-openssl-dev libprotobuf-dev
+    ```
 
-2. ローカル リポジトリの使用（推奨）
+2. ローカルリポジトリの使用（推奨）
 
-1. ローンチサービス
+3. ローンチサービス
 
-```
-sudo apt install libsgx-launch libsgx-urts
- or
-cd ./linux/installer/deb/libsgx-launch/
-sudo apt install libsgx-launch_2.17.101.1-jammy1_amd64.deb
+    ```sh
+    sudo apt install libsgx-launch libsgx-urts
+    ```
 
-cd ./linux/installer/deb/libsgx-enclave-common
-sudo apt install libsgx-enclave-common_2.17.101.1-jammy1_amd64.deb
+    または
 
-cd ./linux/installer/deb/libsgx-urts
-sudo apt install libsgx-urts_2.17.101.1-jammy1_amd64.deb
-```
+    ```sh
+    cd ./linux/installer/deb/libsgx-launch/
+    sudo apt install libsgx-launch_2.17.101.1-jammy1_amd64.deb
 
-2. EPID ベースの認証サービス
+    cd ./linux/installer/deb/libsgx-enclave-common
+    sudo apt install libsgx-enclave-common_2.17.101.1-jammy1_amd64.deb
 
-```
-sudo apt install libsgx-epid libsgx-urts
- or
-cd ./linux/installer/deb/libsgx-epid
-sudo apt install libsgx-epid_2.17.101.1-jammy1_amd64.deb
-```
+    cd ./linux/installer/deb/libsgx-urts
+    sudo apt install libsgx-urts_2.17.101.1-jammy1_amd64.deb
+    ```
 
-3. アルゴリズムに依存しない認証サービス
+4. EPID ベースの認証サービス
 
-```
-sudo apt install libsgx-quote-ex libsgx-urts
- or
-cd ./linux/installer/deb/libsgx-quote-ex
-sudo apt install libsgx-quote-ex_2.17.101.1-jammy1_amd64.deb
-```
+    ```sh
+    sudo apt install libsgx-epid libsgx-urts
+    ```
 
-4. DCAP ECDSA ベースのサービス
+    または
 
-```
-sudo apt install libsgx-dcap-ql
- or
-cd ./linux/installer/deb/sgx-aesm-service
-```
+    ```sh
+    cd ./linux/installer/deb/libsgx-epid
+    sudo apt install libsgx-epid_2.17.101.1-jammy1_amd64.deb
+    ```
 
-- wip
+5. アルゴリズムに依存しない認証サービス
 
-```
-ibsgx-ae-qe3
-libsgx-ae-id-enclave
+    ```sh
+    sudo apt install libsgx-quote-ex libsgx-urts
+    ```
 
-libsgx-qe3-logic_1.14.100.3-jammy1_amd64.deb
-libsgx-pce-logic
-libsgx-dcap-quote-verify
+    または
 
-libsgx-dcap-ql_1.14.100.3-jammy1_amd64.deb
-```
+    ```sh
+    cd ./linux/installer/deb/libsgx-quote-ex
+    sudo apt install libsgx-quote-ex_2.17.101.1-jammy1_amd64.deb
+    ```
+
+6. DCAP ECDSA ベースのサービス
+
+    ```sh
+    sudo apt install libsgx-dcap-ql
+    ```
+
+    または
+
+    ```sh
+    cd ./linux/installer/deb/sgx-aesm-service
+    ```
+
+    - WIP
+
+        ```sh
+        ibsgx-ae-qe3
+        libsgx-ae-id-enclave
+
+        libsgx-qe3-logic_1.14.100.3-jammy1_amd64.deb
+        libsgx-pce-logic
+        libsgx-dcap-quote-verify
+
+        libsgx-dcap-ql_1.14.100.3-jammy1_amd64.deb
+        ```
 
 ### コード サンプルを使用して Intel SGX SDK パッケージをテストする
 
 - シミュレーション モードで実行する
 
-```
+```sh
 cd /opt/intel/sgxsdk/SampleCode/LocalAttestation
 sudo make SGX_MODE=SIM
 cd bin
@@ -367,7 +385,7 @@ cd bin
 - Intel SGX ハードウェア対応マシンを使用している場合は、コード サンプルをハードウェア モードで実行できる
 - 以下、`./app`実行後、エラーが発生: [Requires libsgx_urts.so to run in SGX hardware mode](https://github.com/hyperledger-labs/minbft/issues/93)
 
-```
+```sh
 cd /opt/intel/sgxsdk/SampleCode/LocalAttestation
 sudo make
 cd bin
