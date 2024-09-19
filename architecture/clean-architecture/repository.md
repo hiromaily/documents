@@ -46,7 +46,7 @@ export class MongoUserRepository implements UserRepository {
   async findById(userId: string): Promise<User | null> {
     // MongoDBの具体的なクエリを実行
     const user = await mongoCollection.findOne({ _id: userId });
-    return user ? new User(user._id, user.name) : null;
+    return user ? new User(user._id, user.name) : null;　// DB固有のモデルではなく、ドメイン(アプリケーション)固有のモデルを返す
   }
 
   async save(user: User): Promise<void> {
@@ -54,6 +54,29 @@ export class MongoUserRepository implements UserRepository {
   }
 }
 ```
+
+### Repository層はDBに関する依存性を持つことは避けるべき
+
+つまり、RepositoryのI/Fの戻り値に、DB固有のモデルが利用されるのは避ける必要がある。
+理由は、DBのデータモデルがアプリケーションのビジネスロジックに漏れ込むことを防ぎ、将来的なDB変更やテストの容易さを保つため。
+
+#### データモデルとドメインモデルの分離
+
+- Repository層はDBのデータモデルではなくアプリケーション固有のドメインモデルを返すべき
+- `データモデル（例えばORMエンティティ）`を`ドメインモデル`に変換するコンバータを実装する。
+
+#### データモデルをドメインモデルに変換する
+
+データモデル（エンティティ）とドメインモデルの変換は、通常インフラストラクチャ層に属する`Repository実装クラス内`で行われる。これにより、データモデルの変更がビジネスロジック層に直接伝播することを防ぐことができる。
+
+1. **ドメインモデル**: ビジネスロジックに直接使用される主要な構造体。
+2. **データモデル（ORMエンティティ）**: データベースに永続化するための構造体。
+3. **DTO（Data Transfer Object）**: 必要に応じて中間層として使用。
+4. **アダプター**: データモデルとドメインモデルの変換を行うロジック。
+
+つまり、Adapter層の役割としてDTOを実装する
+
+[Adapter](./adapter.md)
 
 ## 4. 外部エージェント層（Frameworks & Drivers）
 
@@ -89,8 +112,7 @@ async function handleGetUserByIdRequest(req, res) {
 ```go
 type SampleUsecaser interface {
   // parameter and response may be changed as specification
-  DoFirst(ctx context.Context) (response.Response, error)
-  DoSecond(ctx context.Context) (response.Response, error)
+  Do(ctx context.Context) (response.Response, error)
 }
 
 type SampleUsecase struct {
@@ -115,7 +137,6 @@ type AddressRepositorier interface {
 type AddressRepository struct {
   dbConn       *sql.DB
   tableName    string
-  logger       *zap.Logger
 }
 
 // NewAddressRepository returns AddressRepository object
@@ -123,13 +144,11 @@ func NewAddressRepository(dbConn *sql.DB, logger *zap.Logger) *AddressRepository
   return &AddressRepository{
     dbConn:       dbConn,
     tableName:    "address",
-    logger:       logger,
   }
 }
 
 // GetAll returns all records by account
 func (r *AddressRepository) GetAll(accountType account.AccountType) ([]*models.Address, error) {
-  // sql := "SELECT * FROM %s WHERE account=%s;"
   ctx := context.Background()
 
   items, err := models.Addresses(
@@ -145,45 +164,3 @@ func (r *AddressRepository) GetAll(accountType account.AccountType) ([]*models.A
 
 このとき、Repository (AddressRepository を実装した AddressRepository) は、`Interface Adapter (Controllers, Presenters, Gateways)`レイヤーに該当する。
 例えば、上記の`GetAll()`は Interface を介して Usecase 層から呼ばれる。そしてこの`GetAll()`内で`models.Addresses(..).All(..)`という DB ライブラリの実装を呼び出している。
-
-## Logger
-
-logger Interface は以下の通り
-
-```go
-type Logger interface {
-  Debug(msg string, args ...any)
-  Info(msg string, args ...any)
-  Warn(msg string, args ...any)
-  Error(msg string, args ...any)
-}
-```
-
-実装は以下の通り
-
-```go
-package logger
-
-import (
-  "log/slog"
-  "os"
-)
-
-type SlogLogger struct {
-  log *slog.Logger
-}
-
-func NewLogger() *SlogLogger {
-  return &SlogLogger{
-    log: slog.New(slog.NewJSONHandler(os.Stdout, nil)),
-  }
-}
-
-// Debug
-func (s *SlogLogger) Debug(msg string, args ...any) {
-  s.log.Debug(msg, args...)
-}
-```
-
-このとき、Logger (Logger を実装した SlogLogger) も、`Interface Adapter (Controllers, Presenters, Gateways)`レイヤーに該当する。
-例えば、上記の`Debug()`は Interface を介して Usecase 層から呼ばれる。そしてこの`Debug()`内で`log.Debug()`という slog 標準ライブラリの実装を呼び出している。

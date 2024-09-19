@@ -26,6 +26,23 @@
 
 ## プログラミングの Paradigms
 
+- オブジェクト指向プログラミング（OOP）
+  - Java、C++、Python、Ruby
+- 手続き指向プログラミング（POP）
+  - C、Pascal、BASIC
+- 関数型プログラミング（FP）
+  - Haskell、Erlang、Scala、F#
+- 論理型プログラミング
+  - Prolog
+- 宣言型プログラミング
+  - SQL、HTML、CSS
+- 並行プログラミング
+  - Go、Concurrent ML、Erlang
+- イベント駆動型プログラミング
+  - JavaScript、C#
+- リアクティブプログラミング
+  - ReactiveX、Elm、Akka Streams
+
 ### Object-Oriented (OOP)
 
 - オブジェクトの定義と、オブジェクト間の関係、相互作用を記述することによりプログラムを構築していく
@@ -39,12 +56,12 @@
 - データスキーマ(構造定義)とデータ表現を分離する
 - OOP の代わりになるものではなく、共存して利用することになる
 
-#### 有効な状況
+#### DOPが有効な状況
 
 - OOP では、各オブジェクトの責務が肥大化していくなど
 - OOP の複雑性を解消するために生まれた
 
-#### References
+#### DOP References
 
 - [オブジェクト指向の複雑性を軽減する、データ指向プログラミング入門](https://zenn.dev/chillnn_tech/articles/e78a76f94ad45a)
 
