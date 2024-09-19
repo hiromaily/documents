@@ -39,7 +39,7 @@ The commands are:
 
 ## 同一プロジェクト内のpackageのimportについて
 
-```
+```txt
 project
   cmd
     app1
@@ -151,27 +151,27 @@ go run github.com/golangci/golangci-lint/cmd/golangci-lint run
 
 - 通常のバージョン指定
 
-```
+```mod
 github.com/friendsofgo/errors v0.9.2
 ```
 
 - そのパッケージは tag で管理されておらず、`疑似バージョン`となる
   - 疑似バージョン：リビジョン識別子（Git コミットハッシュなど）とバージョン管理システムからのタイムスタンプをエンコードするバージョン
 
-```
+```mod
 github.com/hiromaily/ripple-lib-proto v0.0.0-20200615012248-6990db627c3d
 ```
 
 - `// indirect` .... 直接依存しているモジュールではないことを意味する
 
-```
+```mod
 github.com/go-stack/stack v1.8.1 // indirect
 ```
 
 - `+incompatible`
   - このタグが最新のタグだが、commit は進んでいる状況
 
-```
+```mod
 github.com/uber/jaeger-client-go v2.30.0+incompatible
 ```
 
@@ -215,7 +215,7 @@ go mod graph | grep github.com/Shopify/sarama
   - monorepo など、複数の module で構成されたプロジェクトなどで、local のファイルを参照したい場合など、
   - fork された repository を使う場合、向き先を fork 先の名前に差し替えるなど
 
-```
+```mod
 # e.g.
 replace golang.org/x/tools => ../../tools
 ```
@@ -227,7 +227,7 @@ replace golang.org/x/tools => ../../tools
 この fork された`quorum`を他のプロジェクトから import したい場合、
 go.mod 内の`replace`ディレクティブで、以下のように修正することで参照することができる
 
-```
+```mod
 # e.g.
 replace github.com/ethereum/go-ethereum => github.com/ConsenSys/quorum
 ```
@@ -265,14 +265,14 @@ go clean -modcache
 
 add the below setting in ~/.gitconfig
 
-```
+```config
 [url "git@github.com:private-repo-name/"]
  insteadOf = https://github.com/private-repo-name/
 ```
 
 or
 
-```
+```config
 [url "git@github.yourhost.com:"]
  insteadOf = https://github.yourhost.com/
 ```

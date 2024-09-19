@@ -27,7 +27,7 @@ OpenID Connect にはいくつかの認証フローがあるが、最も一般�
    - クライアント（Relying Party：RP）はユーザーを OpenID Provider（OP）の認証エンドポイントにリダイレクトし、認可コードをリクエストする。
    - リクエストの例：
 
-     ```
+     ```http
      GET /authorize?response_type=code&client_id={client_id}&redirect_uri={redirect_uri}&scope=openid%20profile%20email&state={state}
      ```
 
@@ -36,7 +36,7 @@ OpenID Connect にはいくつかの認証フローがあるが、最も一般�
    - ユーザーが OpenID Provider で認証を完了すると、OP は認可コードを手に入れて、指定されたリダイレクト URI（クライアントのエンドポイント）にリダイレクトする。
    - 例：
 
-     ```
+     ```http
      https://client.example.com/callback?code={authorization_code}&state={state}
      ```
 
@@ -45,7 +45,7 @@ OpenID Connect にはいくつかの認証フローがあるが、最も一般�
    - クライアントは認可コードを用いて、OP のトークンエンドポイントにアクセスし、ID トークンとアクセストークンを取得する。
    - リクエストの例：
 
-     ```
+     ```http
      POST /token
      Content-Type: application/x-www-form-urlencoded
 
@@ -74,7 +74,7 @@ OpenID Connect にはいくつかの認証フローがあるが、最も一般�
    - 必要に応じて、クライアントはアクセストークンを使ってオープン ID プロバイダーのユーザー情報エンドポイントにアクセスし、追加のユーザー情報を取得できる。
    - リクエストの例：
 
-     ```
+     ```http
      GET /userinfo
      Authorization: Bearer {access_token}
      ```

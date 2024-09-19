@@ -221,7 +221,7 @@ npx prisma validate
 以下のように命名規則が schema ファイルと、Datbase で異なるので、mapping が必要となる。
 そこで、[prisma-case-format](https://github.com/iiian/prisma-case-format)によって一括変換すると便利。
 
-```
+```prisma
 model Users {
   id             String         @id @default(uuid())
   name           String

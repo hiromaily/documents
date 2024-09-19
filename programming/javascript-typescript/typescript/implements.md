@@ -17,7 +17,7 @@ class Developer implements Human {
 `implements` キーワード の後にClassを指定することもできる。
 その場合、`implements` キーワードは、後続のClassをインターフェイスとして扱う。Classで定義されたすべてのメソッドを実装する必要がある。
 
-### References
+## References
 
 - [サバイバルTypescript Interfaceの実装](https://typescriptbook.jp/reference/object-oriented/interface/implementing-interfaces)
 - [What's the difference between 'extends' and 'implements' in TypeScript](https://stackoverflow.com/questions/38834625/whats-the-difference-between-extends-and-implements-in-typescript)

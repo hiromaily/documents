@@ -71,7 +71,7 @@ export async function getStaticProps() {.
 - ブラウザから環境変数の値にアクセスできるようにするために、Next.js はビルド時に、クライアントに配信される js バンドルに値を挿入し、process.env.VARIABLE への参照をすべてハードコードされた値に置き換えることができる
 - これを行うには、変数の前に`NEXT_PUBLIC_`を付ける
 
-```
+```env
 NEXT_PUBLIC_ANALYTICS_ID=abcdefghijk
 ```
 

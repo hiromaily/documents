@@ -7,7 +7,7 @@
 
 ## CLI 生成
 
-```
+```sh
 # 実行時のNode version: v18.11.0
 # CLI! Version: 3.6.3
 
@@ -28,7 +28,7 @@ npx oclif generate mynewcli
 
 package.json より
 
-```
+```json
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
     "lint": "eslint . --ext .ts --config .eslintrc",
@@ -57,22 +57,22 @@ package.json より
 
 1. 既に`npx oclif generate <dir-name>`で作成済みのディレクトリ内で実行する
 
-```sh
-npx oclif generate command <command-name>
+    ```sh
+    npx oclif generate command <command-name>
 
->create src/commands/hogehoge.ts
->create test/commands/hogehoge.test.ts
-```
+    >create src/commands/hogehoge.ts
+    >create test/commands/hogehoge.test.ts
+    ```
 
 2. 生成された src/commands 内のファイルを修正する
 3. `npm run build` でビルド
 4. 実行して確認
 
-```sh
-./bin/run <command-name>
-# e.g.
-./bin/run hogehoge --name Mike
-```
+    ```sh
+    ./bin/run <command-name>
+    # e.g.
+    ./bin/run hogehoge --name Mike
+    ```
 
 ## リリース方法
 

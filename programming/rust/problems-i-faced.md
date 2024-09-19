@@ -67,4 +67,4 @@ for a trait to be "object safe" it needs to allow building a vtable to allow the
 - trait から、Clone 実装を外す
   - 問題は clone が必要な場合
 - `dyn Trait` を使うときはコンパイル時にサイズが分からないので何かしらの参照の形で渡してあげる必要がある
-  - [actix-web で Data<dyn trait> を使い回す](https://teratail.com/questions/kb8b224km8a6hl)
+  - [actix-web で `Data<dyn trait>` を使い回す](https://teratail.com/questions/kb8b224km8a6hl)

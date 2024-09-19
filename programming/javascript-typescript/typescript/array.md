@@ -6,7 +6,7 @@ TypescriptではなくJavascriptに備わっている機能ではあるが、こ
 
 新しい配列を作る
 
-### 基本
+### mapの基本
 
 ```ts
 const numbers: number[] = [1, 2, 3, 4, 5];
@@ -64,7 +64,7 @@ console.log(customMonth);
 
 特定の要素のみ取得する
 
-### 基本
+### filterの基本
 
 ```ts
 const files = ['foobar.gif', 'bob.html', 'mike.mp3'];

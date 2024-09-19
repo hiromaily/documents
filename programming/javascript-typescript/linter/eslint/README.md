@@ -72,7 +72,7 @@
 
 ## `.eslintignore` の編集
 
-```
+```txt
 dist
 ```
 

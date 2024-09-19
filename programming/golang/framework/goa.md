@@ -23,7 +23,7 @@
 
 ## Designについて
 
-```
+```txt
 API --- Service 1
      |- Service 2
      |- Service 3 --- Method 1
@@ -127,7 +127,7 @@ var _ = API("adder", func() {
 
 ### Install
 
-```
+```sh
 go install goa.design/goa/v3/cmd/goa@v3
 go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
 go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
@@ -141,14 +141,14 @@ go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
 
 - designが修正されるタイミングで実行する
 
-```
+```sh
 goa gen resume/design
 ```
 
 - goaのバージョンがupgradeされたタイミングなどで実行する
   - ここで生成されたファイルを修正し、ロジックを実装していく
 
-```
+```sh
 goa example resume/design
 ```
 

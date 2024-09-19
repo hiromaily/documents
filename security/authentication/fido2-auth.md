@@ -3,6 +3,8 @@
 
 次世代のパスワードレス認証を実現するための標準規格で、特にWebベースのアプリケーションやサービスにおけるセキュアなユーザー認証を目指している。FIDO2は、Web Authentication（WebAuthn）APIとClient to Authenticator Protocol（CTAP）2という二つの主要コンポーネントから構成される。
 
+FIDO2は、パスワードに依存しない強力かつ使いやすい認証を提供するための標準規格。これにより、セキュリティとユーザビリティの両方を向上させることができる。WebAuthnとCTAPを組み合わせることで、さまざまなデバイスやプラットフォームでの安全な認証が可能となり、将来的にはインターネット上の標準的な認証手法となることが期待されている。
+
 ## FIDOとFIDO2の主要な違い
 
 ```markdown
@@ -71,7 +73,7 @@ FIDO2の認証フローは主に以下の二つのステップで構成される
 
 ## FIDO2/WebAuthnを用いた基本的なユーザー登録と認証の実装例
 
-#### ユーザー登録（Registration）
+### ユーザー登録（Registration）
 
 ```javascript
 async function registerUser() {
@@ -106,7 +108,7 @@ async function registerUser() {
 }
 ```
 
-#### ユーザー認証（Authentication）
+### ユーザー認証（Authentication）
 
 ```javascript
 async function authenticateUser() {
@@ -132,7 +134,3 @@ async function authenticateUser() {
     }
 }
 ```
-
-### 結論
-
-FIDO2は、パスワードに依存しない強力かつ使いやすい認証を提供するための標準規格です。これにより、セキュリティとユーザビリティの両方を向上させることができます。WebAuthnとCTAPを組み合わせることで、さまざまなデバイスやプラットフォームでの安全な認証が可能となり、将来的にはインターネット上の標準的な認証手法となることが期待されています。

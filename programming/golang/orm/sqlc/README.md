@@ -18,7 +18,7 @@ go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 
 ### sqlの用意
 
-```
+```sh
 cd [project]
 mkdir sqlfiles
 ```

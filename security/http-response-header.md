@@ -4,7 +4,7 @@
 
 このヘッダーを使用して、特定の種類の攻撃から保護するのに役立つ MIME タイプ スニッフィングを防止できる。 例えば：
 
-```
+```http
 X-Content-Type-Options: nosniff
 ```
 
@@ -15,7 +15,7 @@ nosniff これが含まれる場合はブラウザ側で MIME スニッフィン
 
 referer を送信するブラウザの挙動を変更することができる。
 
-```
+```http
 Referrer-Policy: strict-origin-when-cross-origin
 ```
 
@@ -25,7 +25,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 
 リソースの media type を示す
 
-```
+```http
 Content-Type: text/html; charset=UTF-8
 ```
 
@@ -44,7 +44,7 @@ Cookie の設定
 
 TLS による通信の強制
 
-```
+```http
 Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 ```
 
@@ -52,7 +52,7 @@ Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 
 CORS (cross-origin resource sharing)
 
-```
+```http
 Access-Control-Allow-Origin: https://yoursite.com
 ```
 
@@ -62,13 +62,13 @@ Access-Control-Allow-Origin: https://yoursite.com
 
 このヘッダーは、クリックジャッキング攻撃を防ぐために使用できます。クリックジャッキング攻撃は、ユーザーをだまして非表示または偽装したリンクをクリックさせるために使用できる。 例えば：
 
-```
+```http
 X-Frame-Options: DENY
 ```
 
 このヘッダーは、ページがフレームまたは iframe に読み込まれるのを防ぎ、クリックジャッキング攻撃から保護するのに役立つ。
 
-#### Replacement
+### X-Frame-OptionsのReplacement
 
 Content security policy の`frame-ancestors` directive を使う
 
@@ -78,12 +78,12 @@ Content security policy の`frame-ancestors` directive を使う
 
 このヘッダーを使用して、ブラウザーの組み込み XSS 保護を有効にすることができる。これは、クロスサイト スクリプティング攻撃から保護するのに役立つ。 例えば：
 
-```
+```http
 X-XSS-Protection: 1; mode=block
 ```
 
 このヘッダーは、ブラウザーの組み込み XSS 保護を有効にし、XSS 攻撃が検出された場合にページをブロックするように指示する。
 
-#### Replacement
+### X-XSS-ProtectionのReplacement
 
 Content security policy を使う

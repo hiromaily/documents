@@ -1,21 +1,21 @@
 # Utility Types
 
-## Record<Keys, Type>
+## `Record<Keys, Type>`
 
 Record<Keys, Type>はプロパティのキーがKeysであり、プロパティの値がTypeであるオブジェクト型を作るユーティリティ型
 
-```
+```ts
 type StringNumber = Record<string, number>;
 const value: StringNumber = { a: 1, b: 2, c: 3 };
 ```
 
-### References
+### `Record<Keys, Type>` References
 
 [サバイバルTypescript Record](https://typescriptbook.jp/reference/type-reuse/utility-types/record)
 
-## Partial<T>
+## `Partial<T>`
 
-Partial<T>は、オブジェクト型Tのすべてのプロパティをオプションプロパティにするユーティリティ型
+`Partial<T>`は、オブジェクト型Tのすべてのプロパティをオプションプロパティにするユーティリティ型
 
 ```ts
 type Person = {
@@ -32,13 +32,13 @@ type PartialPerson = Partial<Person>;
 // }
 ```
 
-### References
+### `Partial<T>` References
 
 [サバイバルTypescript Partial](https://typescriptbook.jp/reference/type-reuse/utility-types/partial)
 
-## Readonly<T>
+## `Readonly<T>`
 
-Readonly<T>は、オブジェクト型Tのプロパティをすべて読み取り専用にするユーティリティ型
+`Readonly<T>`は、オブジェクト型Tのプロパティをすべて読み取り専用にするユーティリティ型
 
 ```ts
 type Person = {
@@ -55,9 +55,9 @@ type ReadonlyPerson = Readonly<Person>;
 // }
 ```
 
-## Pick<T, Keys>
+## `Pick<T, Keys>`
 
-Pick<T, Keys>は、型TからKeysに指定したキーだけを含むオブジェクト型を返すユーティリティ型
+`Pick<T, Keys>`は、型TからKeysに指定したキーだけを含むオブジェクト型を返すユーティリティ型
 
 T: オブジェクト型
 Keys: オブジェクト型Tのプロパティキーを指定
@@ -82,13 +82,13 @@ type Person = Pick<User, "surname" | "middleName" | "givenName">;
 // };
 ```
 
-### References
+### `Pick<T, Keys>` References
 
 [サバイバルTypescript Pick](https://typescriptbook.jp/reference/type-reuse/utility-types/pick)
 
-## Omit<T, Keys>
+## `Omit<T, Keys>`
 
-Omit<T, Keys>は、オブジェクト型TからKeysで指定したプロパティを除いたオブジェクト型を返すユーティリティ型
+`Omit<T, Keys>`は、オブジェクト型TからKeysで指定したプロパティを除いたオブジェクト型を返すユーティリティ型
 
 T: オブジェクト型
 Keys: 引数Tのプロパティキーを指定
@@ -114,13 +114,13 @@ type Person = Omit<User, Optional>;
 // };
 ```
 
-### References
+### `Omit<T, Keys>` References
 
 [サバイバルTypescript Omit](https://typescriptbook.jp/reference/type-reuse/utility-types/omit)
 
-## Exclude<T, U>
+## `Exclude<T, U>`
 
-Exclude<T, U>は、ユニオン型TからUで指定した型を取り除いたユニオン型を返すユーティリティ型
+`Exclude<T, U>`は、ユニオン型TからUで指定した型を取り除いたユニオン型を返すユーティリティ型
 
 T: ユニオン型
 U: Tから取り除きたい型
@@ -134,9 +134,9 @@ type PassGrade2 = Exclude<Grade, "D" | "E">;
 // type PassGrade = "A" | "B" | "C"
 ```
 
-## Extract<T, U>
+## `Extract<T, U>`
 
-Extract<T, U>は、ユニオン型TからUで指定した型だけを抽出した型を返すユーティリティ型
+`Extract<T, U>`は、ユニオン型TからUで指定した型だけを抽出した型を返すユーティリティ型
 
 T: 抽出されるほうのユニオン型
 U: 抽出したい型

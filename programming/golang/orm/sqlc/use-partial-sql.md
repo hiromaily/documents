@@ -6,87 +6,106 @@ sqlcは`@include`ディレクティブを使って、別のSQLファイルをイ
 
 スキーマやクエリを部分的に分割してインクルードすることで、プロジェクト構造が整理され、保守性が向上する。
 
+## @includeは存在していないかも
+
+そのため、以下のようにまとめてsqlファイルを読み込むとよい。
+
+```yml
+version: "2"
+sql:
+  - engine: "mysql"
+    queries: "./queries/*.sql"
+    schema: "./schemas/*/**.sql"
+    gen:
+      go:
+        package: "sqlcgen"
+        out: "../pkg/storage/rds/sqlcgen"
+
+```
+
+もしくは、[パッケージの分割](./useful-feature.md#パッケージの分割)機能を使う
+
 ## 具体的な手順
 
 1. **SQLスキーマとクエリファイルの分割**: スキーマやクエリを複数のファイルに分割する。
 
-```sql
--- users.sql: ユーザーに関するテーブル定義
+    ```sql
+    -- users.sql: ユーザーに関するテーブル定義
 
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL
-);
-```
+    CREATE TABLE users (
+        id SERIAL PRIMARY KEY,
+        name TEXT NOT NULL,
+        email TEXT UNIQUE NOT NULL
+    );
+    ```
 
-```sql
--- products.sql: 商品に関するテーブル定義
+    ```sql
+    -- products.sql: 商品に関するテーブル定義
 
-CREATE TABLE products (
-    id SERIAL PRIMARY KEY,
-    name TEXT NOT NULL,
-    price NUMERIC NOT NULL
-);
-```
+    CREATE TABLE products (
+        id SERIAL PRIMARY KEY,
+        name TEXT NOT NULL,
+        price NUMERIC NOT NULL
+    );
+    ```
 
 2. **メインのスキーマファイルにインクルード**: スキーマファイルに他のSQLファイルをインクルードする。
 
-```sql
--- schema.sql: メインスキーマファイル
+    ```sql
+    -- schema.sql: メインスキーマファイル
 
-@include 'users.sql'
-@include 'products.sql'
-```
+    @include 'users.sql'
+    @include 'products.sql'
+    ```
 
 3. **クエリファイルの分割とインクルード**: クエリも同様に分割し、メインのクエリファイルでインクルードする。
 
-```sql
--- user_queries.sql: ユーザーに関するクエリ
+    ```sql
+    -- user_queries.sql: ユーザーに関するクエリ
 
--- name: CreateUser :one
-INSERT INTO users (name, email) VALUES ($1, $2)
-RETURNING id, name, email;
+    -- name: CreateUser :one
+    INSERT INTO users (name, email) VALUES ($1, $2)
+    RETURNING id, name, email;
 
--- name: GetUser :one
-SELECT id, name, email FROM users WHERE id = $1;
-```
+    -- name: GetUser :one
+    SELECT id, name, email FROM users WHERE id = $1;
+    ```
 
-```sql
--- product_queries.sql: 商品に関するクエリ
+    ```sql
+    -- product_queries.sql: 商品に関するクエリ
 
--- name: CreateProduct :one
-INSERT INTO products (name, price) VALUES ($1, $2)
-RETURNING id, name, price;
+    -- name: CreateProduct :one
+    INSERT INTO products (name, price) VALUES ($1, $2)
+    RETURNING id, name, price;
 
--- name: GetProduct :one
-SELECT id, name, price FROM products WHERE id = $1;
-```
+    -- name: GetProduct :one
+    SELECT id, name, price FROM products WHERE id = $1;
+    ```
 
-```sql
--- queries.sql: メインのクエリファイル
+    ```sql
+    -- queries.sql: メインのクエリファイル
 
-@include 'user_queries.sql'
-@include 'product_queries.sql'
-```
+    @include 'user_queries.sql'
+    @include 'product_queries.sql'
+    ```
 
 4. **sqlc.yaml設定ファイル**: sqlcの設定ファイルで、メインのスキーマファイルとクエリファイルを指定する。
 
-```yaml
-version: "2"
-sql:
-  - engine: "postgresql"
-    schema: "schema.sql"
-    queries: "queries.sql"
-    gen:
-      go: 
-        package: "db"
-        out: "db"
+    ```yaml
+    version: "2"
+    sql:
+    - engine: "postgresql"
+        schema: "schema.sql"
+        queries: "queries.sql"
+        gen:
+        go: 
+            package: "db"
+            out: "db"
+    ```
 
 5. **生成コマンドの実行**: `sqlc generate`を実行
-```
 
-## 生成された使い方の例
+## 生成されたコードの使い方
 
 生成されたコードを使ってクエリを呼び出す例としては以下のようになる。
 

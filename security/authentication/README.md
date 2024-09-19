@@ -31,9 +31,15 @@
   - オープンソースのアイデンティティおよびアクセス管理 (IAM)ソフトウェア
 - OpenAM
   - OpenAM はシングルサインオンを実現するためのオープンソースで、Java で開発されている
-- [Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/ja-jp/entra/identity-platform/msal-overview)
-  - ユーザーを認証し、セキュリティで保護された Web API にアクセスするため、開発者は Microsoft ID プラットフォームからセキュリティ トークンを取得できる
 
 ## IDaaS
 
-- `Identity as a Service`の略で、ID やパスワードなどのログイン情報の一括管理を行えるクラウド型の ID 管理サービス
+`Identity as a Service`の略で、ID やパスワードなどのログイン情報の一括管理を行えるクラウド型の ID 管理サービス
+
+### サービス
+
+- [Auth0](./auth0.md)
+  - サーバーレスアーキテクチャを用いた`認証クラウドサービス（Identity as a Service, IDaaS）`で、認証基盤そのものをサービスとして提供するソリューション
+- [Microsoft Authentication Library (MSAL)](https://learn.microsoft.com/ja-jp/entra/identity-platform/msal-overview)
+  - ユーザーを認証し、セキュリティで保護された Web API にアクセスするため、開発者は Microsoft ID プラットフォームからセキュリティ トークンを取得できる
+- [WorkOS](./work-os.md)

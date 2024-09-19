@@ -127,7 +127,7 @@ ERR_PNPM_WORKSPACE_PKG_NOT_FOUND  In apps/api: "@repo/typescript-config@worksp
 ```
 
 - [github:pnpm ERR_PNPM_WORKSPACE_PKG_NOT_FOUND  when pnpm install in a workspace with local package](https://github.com/pnpm/pnpm/issues/7678)
-- ["<PackageA> is in the dependencies but no package named <PackageA> is present in the workspace" - Error when running pnpm install](https://stackoverflow.com/questions/77865368/packagea-is-in-the-dependencies-but-no-package-named-packagea-is-present-in)
+- ["`<PackageA>` is in the dependencies but no package named `<PackageA>` is present in the workspace" - Error when running pnpm install](https://stackoverflow.com/questions/77865368/packagea-is-in-the-dependencies-but-no-package-named-packagea-is-present-in)
 
 #### pnpm-workspace.yamlに `'packages/common/*'` を追加
 

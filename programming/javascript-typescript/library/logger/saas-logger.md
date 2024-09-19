@@ -9,7 +9,7 @@
 
   - Client 側で API Key は使えず[client token](https://docs.datadoghq.com/account_management/api-app-keys/#client-tokens)を使ってアクセスする
 
-### How to use
+### Datadogの使い方
 
 - 初期設定
 
@@ -45,7 +45,7 @@ try {
 - [Sentry Docs: Browser Javascript](https://docs.sentry.io/platforms/javascript/)
 - [Official Sentry SDK for Browsers](https://www.npmjs.com/package/@sentry/browser)
 
-### How to use
+### Sentryの使い方
 
 - 初期設定
 

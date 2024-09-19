@@ -138,7 +138,7 @@ tower には、リクエストやレスポンスに簡単な修正を加える�
 - ヘッダーの追加など、ちょっとしたアドホック(その場その場)な操作を行いたい場合
 - ミドルウェアをクレートとして公開し、他の人が使えるようにするつもりがない場合
 
-## [tower::Service and Pin<Box<dyn Future>>](https://docs.rs/axum/latest/axum/middleware/index.html#towerservice-and-pinboxdyn-future)
+## [`tower::Service` and `Pin<Box<dyn Future>>`](https://docs.rs/axum/latest/axum/middleware/index.html#towerservice-and-pinboxdyn-future)
 
 最大限の制御（より低レベルの API）を行うには、`tower::Service` を実装して独自のミドルウェアを書くことができるが、これは、`tower::Service with Pin<Box<dyn Future>>` を使用してミドルウェアを記述する
 

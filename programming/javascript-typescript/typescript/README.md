@@ -6,7 +6,7 @@
 
 - [Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html)
 
-```
+```ts
 type PrefixName = `prefix_${string}`
 const cat: PrefixName = 'prefix_foo' // OK
 const wrongDog: PrefixName = 'foo'   // Error

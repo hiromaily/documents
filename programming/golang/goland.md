@@ -10,7 +10,7 @@ register for shortcut of coding
 
 ### bookmark
 
-```
+```txt
 [fn] + [option] + [F3]
  or
 [fn] + [F3]
@@ -18,46 +18,46 @@ register for shortcut of coding
 
 ### change to different window
 
-```
+```txt
 [Command] + 「`」
 ```
 
 ### move to the code last changed
 
-```
+```txt
 [Command] + 「[」
 [Command] + 「]」
 ```
 
 ### exclude files or directory from file search
 
-```
+```txt
 right click target directory from right project tab
 select [Mark Directory As] - [Excluded]
 ```
 
 ### jump to declaration (or implementation) of func
 
-```
+```txt
 [Command] + 「B」
 [Command] + [Option] +「B」
 ```
 
 ### see reference of function where to be called
 
-```
+```txt
 [Control] + [Option] + 「H」
 ```
 
 ### see structure of file
 
-```
+```txt
 [Command] + 7
 ```
 
 ### see changed source code in project
 
-```
+```txt
 [Command] + 9
 ```
 
@@ -85,42 +85,42 @@ Note: At the following version, remote debugging is not working. Use VSCODE with
 
 1. Dockerfile
 
-```Dockerfile
-# As debug mode
-RUN go build -v -gcflags "all=-N -l" -o /workspace/app .
-# Install dlv
-RUN GOBIN=/workspace go install github.com/go-delve/delve/cmd/dlv@latest
-```
+    ```Dockerfile
+    # As debug mode
+    RUN go build -v -gcflags "all=-N -l" -o /workspace/app .
+    # Install dlv
+    RUN GOBIN=/workspace go install github.com/go-delve/delve/cmd/dlv@latest
+    ```
 
 2. Command to run dlv with binary on remote host
 
-```sh
-dlv --listen=:40000 --headless=true --api-version=2 --accept-multiclient exec /usr/bin/app
-```
+    ```sh
+    dlv --listen=:40000 --headless=true --api-version=2 --accept-multiclient exec /usr/bin/app
+    ```
 
 3. docker-compose.yml
 
-```yml
-services:
-  my-app:
-    container_name: my-container
-    image: my-image:latest
-    ports:
-      - 40000:40000
-    security_opt:
-      - "seccomp:unconfined"
-    cap_add:
-      - SYS_PTRACE
-    #privileged: true
-```
+    ```yml
+    services:
+      my-app:
+        container_name: my-container
+        image: my-image:latest
+        ports:
+          - 40000:40000
+        security_opt:
+          - "seccomp:unconfined"
+        cap_add:
+          - SYS_PTRACE
+        #privileged: true
+    ```
 
 4. Goland setting
    File–> settings –> Go –> Go Modules and select both “Enable Go module integration” and “Enable Vendoring support automatically”
 
 5. Remote Debug by Goland
 
-- Host: localhost
-- Port: 40000
+   - Host: localhost
+   - Port: 40000
 
 ### Reference for debug
 

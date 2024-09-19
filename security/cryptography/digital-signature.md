@@ -52,13 +52,13 @@
 - メッセージを`秘密鍵で暗号化する`ことが、`署名の作成`に相当する
 - その暗号文を`公開鍵で復号化する`ことが`署名の検証`に相当する
 
-#### 公開鍵による暗号化 (公開鍵暗号)
+### 公開鍵による暗号化 (公開鍵暗号)
 
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/publickey-cryptography.jpg"  width="50%" height="50%">
+![公開鍵暗号](../../images/publickey-cryptography.jpg)
 
-#### プライベート鍵による暗号化 (デジタル署名)
+### プライベート鍵による暗号化 (デジタル署名)
 
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/degital-signature.jpg"  width="50%" height="50%">
+![デジタル署名](../../images/degital-signature.jpg)
 
 ## メッセージのハッシュ値に署名する方法
 
@@ -68,9 +68,9 @@
 4. ボブは受信した署名をアリスの公開鍵で復号化する
 5. ボブは受信した署名から得られたハッシュ値と、アリスから直接受信したメッセージのハッシュ値と比較する
 
-#### アリスがメッセージに署名してからボブが署名を検証するまでの流れ
+### アリスがメッセージに署名してからボブが署名を検証するまでの流れ
 
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/degital-signature-flow.jpg"  width="50%" height="50%">
+![署名の流れ](../../images/degital-signature-flow.jpg)
 
 ## デジタル署名の種類
 

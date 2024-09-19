@@ -1,17 +1,14 @@
 # Content-Security-Policy
 
-コンテンツ セキュリティ ポリシーを設定し、Web アプリケーションのセキュリティを向上させるために使用できる HTTP セキュリティ レスポンス ヘッダーは他にも多数るが、軽減しようとしている特定のセキュリティ リスクを慎重に検討し、それらのリスクに対処するための適切なヘッダーを選択することが重要
-Cross-site Scripting (XSS) や Clickjacking を防ぐのに有効
-
-## Content-Security-Policy
-
 このヘッダーを使用して、Web アプリケーションのコンテンツ セキュリティ ポリシー (CSP) を設定できる。 たとえば、次のように、信頼できるドメインからのリソースのロードのみを許可するポリシーを設定できる。
 
 以下のポリシーは、現在のドメインと信頼できるドメイン <https://trusted-domain.com> からのリソースのロードのみを許可する。
 
-```
+```html
 Content-Security-Policy: default-src 'self' https://trusted-domain.com;
 ```
+
+コンテンツ セキュリティ ポリシーを設定し、Web アプリケーションのセキュリティを向上させるために使用できる HTTP セキュリティ レスポンス ヘッダーは他にも多数るが、軽減しようとしている特定のセキュリティ リスクを慎重に検討し、それらのリスクに対処するための適切なヘッダーを選択することが重要。Cross-site Scripting (XSS) や Clickjacking を防ぐのに有効
 
 ## [8 Best Content Security Policies for 2022](https://www.reflectiz.com/blog/8-best-content-security-policies/)
 
@@ -29,7 +26,7 @@ Content-Security-Policy: default-src 'self' https://trusted-domain.com;
     - これは難しいかもしれない
   - スクリプトとスタイル リソースの`inlines`または`evals`はない
 
-```
+```html
 Content-Security-Policy: default-src ‘self’; frame-ancestors ‘self’; form-action ‘self’;
  Or
 Content-Security-Policy: default-src ‘none’; script-src ‘self’; connect-src ‘self’; img-src ‘self’; style-src ‘self’; frame-ancestors ‘self’; form-action ‘self’;
@@ -41,7 +38,7 @@ Content-Security-Policy: default-src ‘none’; script-src ‘self’; connect-
 - これにより、HTTP 経由で提供されるサイトのすべての安全でない URL が、安全な URL (HTTPS 経由で提供される) に置き換えられたかのように扱われる
 - このポリシーは、セキュリティで保護された URL に変換する必要がある、安全でない従来の URL が多数ある Web サイト向けに設計されている
 
-```
+```html
 Content-Security-Policy: upgrade-insecure-requests;
 ```
 
@@ -51,19 +48,19 @@ Content-Security-Policy: upgrade-insecure-requests;
 
 - コンテンツのすべてのフレーミングを禁止するには:
 
-```
+```html
 Content-Security-Policy: frame-ancestors 'none';
 ```
 
 - サイト自体のフレーミングを許可するには:
 
-```
+```html
 Content-Security-Policy: frame-ancestors’ self’;
 ```
 
 - 信頼できるドメインからのフレーミングを許可するには:
 
-```
+```html
 Content-Security-Policy: frame-ancestors trusted.com;
 ```
 
@@ -77,13 +74,13 @@ Content-Security-Policy: frame-ancestors trusted.com;
 
 - 厳格なポリシーは、次の 2 つのレベルで適用できます。
 
-```
+```html
 # Moderate Strict Policy:
 script-src ‘nonce-r4nd0m’ ‘strict-dynamic’;
 object-src ‘none’; base-uri ‘none’;
 ```
 
-```
+```html
 # Locked Down Strict Policy:
 script-src ‘nonce-r4nd0m’;
 object-src ‘none’; base-uri ‘none’;
@@ -132,14 +129,14 @@ document.getElementById("button1").addEventListener('click', doSomething);
 
 - Documentディレクティブは、コンテンツ セキュリティ ポリシーが適用されるドキュメントのプロパティをブラウザに通知する。 たとえば、ドキュメントの要素として使用できる URL を次のように制限する。
 
-```
+```html
 Content-Security-Policy: base-uri <source>;
 Content-Security-Policy: base-uri <source> <source>;
 ```
 
 または、要求されたリソースのサンドボックスを有効にすることによって:
 
-```
+```html
 Content-Security-Policy: sandbox;
 Content-Security-Policy: sandbox <value>;
 ```
@@ -150,7 +147,7 @@ Content-Security-Policy: sandbox <value>;
 - 次に、ナビゲーション ディレクティブ ポリシーは、ユーザーがフォームを移動または送信できる場所を制御する。
 - ナビゲーション ディレクティブは `default-src` ディレクティブに戻らず、代わりに次のようなディレクティブを含めます。
 
-```
+```html
 # フォームを送信できる URL を制限する
 Content-Security-Policy: form-action <source>;
 Content-Security-Policy: form-action <source> <source>;

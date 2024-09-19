@@ -761,10 +761,10 @@ trait がオブジェクトセーフであるのは、次の特性を備えて�
     - 次のいずれかの型のレシーバーを持つこと:
       - &Self (i.e. &self)
       - &mut Self (i.e &mut self)
-      - Box<Self>
-      - Rc<Self>
-      - Arc<Self>
-      - Pin<P> where P is one of the types above
+      - `Box<Self>`
+      - `Rc<Self>`
+      - `Arc<Self>`
+      - `Pin<P>` where P is one of the types above
     - 不透明な戻り型を持たないこと
       - `async fn` (隠された Future 型を持つ) ではないこと [重要]
       - 戻り値に `impl Trait` 型を持たないこと (`fn example(&self) -> impl Trait`)

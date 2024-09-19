@@ -247,7 +247,7 @@
 - サーバーは公開鍵によって暗号化された情報の復号化を行う
 - 作成した秘密鍵は root ユーザー以外から参照できないようにする
 
-```
+```sh
 openssl genrsa 2048 > /etc/httpd/conf/server.key
 ```
 
@@ -260,7 +260,7 @@ openssl genrsa 2048 > /etc/httpd/conf/server.key
 - 秘密鍵を input に CSR を作成
 - サーバーが公開鍵に署名をしてもらう際に送るメッセージが CSR
 
-```
+```sh
 openssl req -new -days 365 -key /etc/httpd/conf/server.key > /etc/httpd/conf/server.csr
 ```
 
@@ -274,7 +274,7 @@ openssl req -new -days 365 -key /etc/httpd/conf/server.key > /etc/httpd/conf/ser
 
 - サーバーの秘密鍵の正当性をそのサーバーの秘密鍵を使用して署名した証明書のこと
 
-```
+```sh
 openssl x509 -req -signkey server.key < server.csr > server.crt
 ```
 
@@ -288,7 +288,7 @@ openssl x509 -req -signkey server.key < server.csr > server.crt
 
 - `tcpdump`コマンドでパケットキャプチャを取り、`WireShark`でそれを閲覧する
 
-```
+```sh
 tcpdump -i eth1 -s 0 -w /tmp/dump_http.pcap prot 80
 tcpdump -i eth1 -s 0 -w /tmp/dump_https.pcap prot 443
 ```

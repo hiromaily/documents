@@ -225,4 +225,4 @@ Error トレイトの実装を持つ何らかのエラーを返す
 ## References
 
 - [Rust By Example 日本語版: Boxing Errors](https://doc.rust-jp.rs/rust-by-example-ja/error/multiple_error_types/boxing_errors.html)
-- [Box<dyn error::Error>とは？](https://zenn.dev/torohash/articles/5264df373d50af)
+- [`Box<dyn error::Error>`とは？](https://zenn.dev/torohash/articles/5264df373d50af)
