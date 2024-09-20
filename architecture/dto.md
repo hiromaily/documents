@@ -134,3 +134,7 @@ func main() {
     fmt.Println("UserDTO in JSON format:", string(userJSON))
 }
 ```
+
+## References
+
+- [オブジェクト指向のDTOを理解する](https://qiita.com/ebikun/items/0daa4029ef9358587e87)

@@ -30,3 +30,7 @@ brew install markdownlint-cli2
 ```sh
 markdownlint-cli2 --fix "**/*.md"
 ```
+
+## References
+
+- [Markdown 50のルール](https://qiita.com/antk/items/e11cac45f9da343e7bf0)

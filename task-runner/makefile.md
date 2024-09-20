@@ -5,7 +5,6 @@ Makefile は `make` コマンドと連携してプログラムのビルドプロ
 ## 書き方のサンプル
 
 - [mk](https://github.com/hiromaily/mk/blob/master/Makefile)
-- [Markdown 50のルール](https://qiita.com/antk/items/e11cac45f9da343e7bf0)
 
 ## 基本的な構造
 
