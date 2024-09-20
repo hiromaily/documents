@@ -161,6 +161,7 @@ func main() {
 
 ```go
 func someOtherFunc() error {
+    // "%w": fmt.Errorf の特別な書式指定子で、既存のエラーをラップするために使用する
     return fmt.Errorf("failed to process request: %w", &MyError{
         Msg: "unable to connect to database",
         Code: 500,
@@ -182,6 +183,7 @@ var ErrNotFound = errors.New("not found")
 
 func find(id int) error {
     if id == 0 {
+        // errorをwrapする
         return fmt.Errorf("user %d: %w", id, ErrNotFound)
     }
     return nil

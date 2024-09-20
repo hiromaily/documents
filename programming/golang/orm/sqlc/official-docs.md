@@ -1,0 +1,85 @@
+# sqlc Docs
+
+[Official Docs](https://docs.sqlc.dev/en/stable/index.html)
+
+- [`generate` - Generating code](https://docs.sqlc.dev/en/stable/howto/generate.html)
+  - コード生成
+- [`verify` - Verifying schema changes](https://docs.sqlc.dev/en/stable/howto/verify.html)
+  - 新しいスキーマ変更に対して既存のクエリを分析し、問題があればエラーにする
+- [`vet` - Linting queries](https://docs.sqlc.dev/en/stable/howto/vet.html)
+  - 一連のリント規則を通してクエリを実行する
+- [Modifying the database schema](https://docs.sqlc.dev/en/stable/howto/ddl.html)
+  - 対応しているmigration toolsについて
+- [Configuring generated structs](https://docs.sqlc.dev/en/stable/howto/structs.html)
+  - jsonタグのemit方法について
+- [Configuration](https://docs.sqlc.dev/en/stable/reference/config.html) [重要]
+  - sqlc.yamlの書き方について
+- [Overriding types](https://docs.sqlc.dev/en/stable/howto/overrides.html)
+  - sqlc に、問い合わせの入力や出力に使用したいGo型を明示的に伝える方法について
+  - overridesリスト
+    - db_type
+      - オーバーライドするデータベース・タイプ
+    - column
+      - オーバーライドするカラム名
+    - [go_type](https://docs.sqlc.dev/en/stable/howto/overrides.html#the-go-type-map)
+      - 生成されるコードで使用するGoタイプの完全修飾名
+    - go_struct_tag
+    - unsigned
+    - nullable
+- [Renaming fields](https://docs.sqlc.dev/en/stable/howto/rename.html)
+  - フィールド名の変更
+  - アンダースコアでカラム名を分割し、各部分の最初の文字を大文字にする
+- [managed database](https://docs.sqlc.dev/en/stable/howto/managed-databases.html)
+  - 管理データベース
+  - sqlc は、クエリ解析、リンティング、検証を行うための読み取り専用データベースを自動的に作成することができる
+  - PostgreSQLはサポート済みだが、MySQLは近々サポートされるとのこと
+- [Datatypes](https://docs.sqlc.dev/en/stable/reference/datatypes.html)
+  - sqlc は、内部データベース型をGo型にマッピングする際に、妥当なデフォルトの選択を試みる
+  - デフォルトに満足できない場合は、[overrides list にある sqlc 設定ファイル](https://docs.sqlc.dev/en/stable/reference/config.html#overrides)で任意の型を上書きすることができる
+- [Environment variables](https://docs.sqlc.dev/en/stable/reference/environment-variables.html)
+  - SQLCCACHE
+    - sqlc がキャッシュされた WASM ベースのプラグインとモジュールを保存する場所を指定する
+  - SQLCDEBUG
+    - ランタイム内のデバッグ変数を制御する。 これは、name=valペア設定のカンマ区切りのリスト
+  - SQLCTMPDIR
+    - 指定された場合、指定されたディレクトリを一時フォルダのベースとして使用する
+- [Database and language support](https://docs.sqlc.dev/en/stable/reference/language-support.html)
+  - Go: [sqlc-gen-go](https://github.com/sqlc-dev/sqlc-gen-go)
+  - Kotlin
+  - Python
+  - TypeScript
+- [Macros](https://docs.sqlc.dev/en/stable/reference/macros.html)
+  - sqlc.arg
+    - SQL クエリのパラメータに名前を付ける
+  - sqlc.embed
+    - 埋め込みを使用すると、既存のモデル構造体をより多くのクエリで再利用できるため、手作業によるシリアライズ作業が少なくなる
+  - sqlc.narg
+    - sqlc.argと同じですが、常にパラメータをnull可能としてマークする
+  - sqlc.slice
+    - IN 演算子にスライスを渡すことをサポートしないドライバの場合、sqlc.slice マクロは実行時に正しい数のパラメータを持つ動的なクエリを生成する
+- [Query annotations](https://docs.sqlc.dev/en/stable/reference/query-annotations.html)
+  - クエリの注釈
+  - `:exec`
+    - 生成されたメソッドはExecContextからエラーを返す
+  - `:execresult`
+    - 生成されたメソッドは、ExecContext が返す sql.Result を返す
+  - `:execrows`
+    - 生成されたメソッドは、ExecContextが返す結果から影響を受ける行の数を返す
+  - `:execlastid`
+    - generatedメソッドは、ExecContextが返す結果からデータベースが生成した数値を返す
+  - `:many`
+    - 生成されたメソッドはQueryContextを介してレコードのスライスを返す
+  - `:one`
+    - 生成されたメソッドは、QueryRowContextを介して単一のレコードを返す
+  - `:batchexec` (PostgreSQLを使い、`pgx/v4`と`pgx/v5`ドライバ利用時のみ)
+    - 生成されたメソッドはバッチオブジェクトを返す
+- [Using sqlc in CI/CD](https://docs.sqlc.dev/en/stable/howto/ci-cd.html)
+  - CI/CDパイプラインの一部としてsqlc を実行することをお勧めする。
+  - 実行したい4つのサブコマンドは、`diff`, `vet`, `verify`, `push`
+  - Github Actionの設定方法
+- [Using Go and pgx](https://docs.sqlc.dev/en/stable/guides/using-go-and-pgx.html)
+  - `pgx`はPostgreSQL用の純粋なGoドライバとツールキット
+  - `lib/pq`がメンテナンスモードになっているため
+- [Using plugins](https://docs.sqlc.dev/en/stable/guides/plugins.html)
+  - WASMプラグイン
+  - プロセスプラグイン
