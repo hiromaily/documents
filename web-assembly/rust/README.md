@@ -3,6 +3,7 @@
 - [Rust WebAssembly](https://www.rust-lang.org/what/wasm)
 - [Rust🦀 and WebAssembly Docs](https://rustwasm.github.io/docs/book/introduction.html)
 - [mdn: Compiling from Rust to WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly/Rust_to_Wasm)
+- [Rust to WebAssembly the hard way](https://surma.dev/things/rust-to-webassembly/) 重要
 
 ## Install
 
