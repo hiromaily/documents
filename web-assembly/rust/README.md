@@ -25,3 +25,17 @@ cargo install wasm-bindgen-cli
 4. build code by `wasm-pack build --target web` then `pkg` is generated
 5. put `index.html`
 6. check HTML. recommend [Simple Web Server](https://apps.apple.com/us/app/simple-web-server/id1625925255?mt=12&itsct=apps_box_badge&itscg=30200)
+
+## Sample Repository
+
+- [web-assembly-rust](https://github.com/hiromaily/web-assembly-rust)
+- [wasm-ar-rust](https://github.com/hiromaily/wasm-ar-rust)
+
+## Tools
+
+- [wasm-tools](https://crates.io/crates/wasm-tools)
+
+## `wasm-pack`の挙動
+
+- 内部では、`cargo build --target wasm32-unknown-unknown`が実行される
+- `wasm-bindgen-cli`でjsファイルを作成
