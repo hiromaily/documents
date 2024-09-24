@@ -7,13 +7,13 @@
 ### [vektra/mockery](https://github.com/vektra/mockery)
 
 - A mock code autogenerator for Go
-- Star: 5.9
+- Star: 5.9k
 - 本命感
   
 ### [matryer/moq](https://github.com/matryer/moq)
 
 - Interface mocking tool for go generate
-- Star: 1.9
+- Star: 1.9k
 
 ### [uber-go/mock](https://github.com/uber-go/mock)
 

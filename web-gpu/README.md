@@ -117,10 +117,10 @@ initWebGPU();
 
 ## 対応デバイス
 
-iOSは未対応？？
-
 - [Can I use WebGPU](https://caniuse.com/webgpu)
 - [Android版のChrome 121、高速なグラフィクス描画やGPUプログラミングを可能にする「WebGPU」が標準で利用可能に](https://www.publickey1.jp/blog/24/androidchrome_121gpuwebgpu.html)
+
+iOSは`2024/9`現在未対応だが、`Can be enabled in Safari with the WebGPU feature flag.` とある。
 
 ## References
 

@@ -23,7 +23,21 @@
 - ユーザビリティテスト
 - セキュリティーテスト
 
-## スタブとモックの違い
+## テストダブル
+
+テストダブル (Test Double) とは、ソフトウェアテストにおいて、テスト対象が依存しているコンポーネントを置き換える代用品のこと。ダブルは代役、影武者を意味する。
+
+### テストダブルの種類は以下の通り
+
+- スタブ
+- モック
+- スパイ
+- フェイク
+- ダミー
+
+[テストダブルをなんとなく理解する](https://qiita.com/kaleidot725/items/075934e8e6be902a7fe1)
+
+### スタブとモックの違い
 
 - [What's the difference between stub and mock in Go unit testing?](https://stackoverflow.com/questions/53360256/whats-the-difference-between-stub-and-mock-in-go-unit-testing)
 

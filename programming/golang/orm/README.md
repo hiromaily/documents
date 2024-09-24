@@ -11,6 +11,8 @@
   - [github](https://github.com/ent/ent)
   - Star: 15.4k
 - [sqlx](https://github.com/jmoiron/sqlx)
+  - Star: 16k
+  - 自動生成機能はないが、軽量で使いやすい
 
 ## Migration
 
