@@ -1,6 +1,6 @@
-# AWS Lamda
+# AWS Lambda
 
-- [Lamda](https://aws.amazon.com/jp/pm/lambda/)
+- [Lambda](https://aws.amazon.com/jp/pm/lambda/)
 - [AWS Lambda FAQs](https://aws.amazon.com/lambda/faqs/)
 
 ## [Lambda プログラミングモデル](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/foundation-progmodel.html)
@@ -15,7 +15,7 @@
 - 関数は、`/tmp` ディレクトリ内のローカルストレージにもアクセスできる。
 - ディレクトリのコンテンツは、実行環境が停止された際に維持され、複数の呼び出しに使用できる一時的なキャッシュとなる
 - ランタイムは、関数からのログ出力をキャプチャし、`Amazon CloudWatch Logs` に送信する。
-  - 普通のlogで良い
+  - 普通の log で良い
 - ランタイムは、関数の出力をログに記録するだけでなく、`関数の呼び出しの開始時`と`終了時`にエントリも記録する。
 - これには、`リクエスト ID`、`請求期間`、`初期化期間`、およびその他の詳細を含むレポートログが含まれる。
 - 関数によりエラーがスローされた場合、そのエラーは、ランタイムにより呼び出し元に返信される。
@@ -25,7 +25,7 @@
   - 関数のインスタンスが長く存続することを想定せず、アプリケーションの状態を別の場所に保存する
   - ローカルストレージとクラスレベルのオブジェクトを使用することで、パフォーマンスを向上させられる。その場合でも、デプロイパッケージのサイズと実行環境に転送するデータの量は最小限に抑える。
 
-## Lamdaのアーキテクチャ
+## Lambda のアーキテクチャ
 
 AWS Lambda はシンプルさとスケーラビリティのために`コンテナイメージごとに 1 つの関数を実行するように設計されている`ため、単一の Docker コンテナイメージ内で複数の AWS Lambda 関数を実行することは一般的なユースケースではない。ただし、実行に基づいて同じイメージ内のハンドラーを切り替える必要があるユースケースの場合は、`環境変数`または同様の方法を使用して、呼び出すハンドラーを指定できる。これには次の方法がある。
 
@@ -47,9 +47,9 @@ aws lambda create-function \
     --role arn:aws:iam::your-account-id:role/lambda-role
 ```
 
-とはいえ、`create-function`コマンドの`--image-config`オプションでコンテナのcommandを変更できる
+とはいえ、`create-function`コマンドの`--image-config`オプションでコンテナの command を変更できる
 
-## [Lamdaの実行環境](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html)
+## [Lambda の実行環境](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html)
 
 WIP
 

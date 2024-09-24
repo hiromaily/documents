@@ -115,3 +115,4 @@ Amazon API Gateway とサーバーレス機能を活用することで、需要�
 ## References
 
 - [Datadog: Serverless Architecture Overview](https://www.datadoghq.com/knowledge-center/serverless-architecture/)
+- WIP: [サーバーレス技術の今と未来について ServerlessDays Tokyo の PreEvent で話してきました](https://d.nekoruri.jp/entry/2024/09/20/serverlessjp)

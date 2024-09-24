@@ -1,4 +1,4 @@
-# Lamda環境構築の流れ
+# Lambda 環境構築の流れ
 
 [参考: コンテナイメージを使用して Go Lambda 関数をデプロイする](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/go-image.html)
 
@@ -9,7 +9,7 @@
 
 ## 手順
 
-### 1. lamda環境で実行可能な`handler()`を備えた`main.go`を実装
+### 1. Lambda 環境で実行可能な`handler()`を備えた`main.go`を実装
 
 ```go
 package main
@@ -33,7 +33,7 @@ func main() {
 }
 ```
 
-### 2. Dockerfileの作成
+### 2. Dockerfile の作成
 
 ```dockerfile
 FROM golang:1.23 as build
@@ -50,13 +50,13 @@ COPY --from=build /helloworld/main ./main
 ENTRYPOINT [ "./main" ]
 ```
 
-### 3. Imageのビルド + 任意のtagをセット
+### 3. Image のビルド + 任意の tag をセット
 
 ```sh
 docker build --platform linux/amd64 -t docker-image:test .
 ```
 
-### 4. ImageをLocalで実行できるかどうか、確認する
+### 4. Image を Local で実行できるかどうか、確認する
 
 ```sh
 docker run -d -p 9000:8080 \
@@ -64,7 +64,7 @@ docker run -d -p 9000:8080 \
 docker-image:test ./main
 ```
 
-- endpointにイベントをpost
+- endpoint にイベントを post
 
 ```sh
 curl "http://localhost:9000/2015-03-31/functions/function/invocations" -d '{}'
@@ -109,7 +109,7 @@ aws lambda create-function \
   --role arn:aws:iam::111122223333:role/lambda-ex
 ```
 
-- Lamda関数のアップデート
+- Lambda 関数のアップデート
 
 ### 6. 関数を呼び出す
 

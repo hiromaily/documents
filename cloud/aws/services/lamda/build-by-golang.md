@@ -27,7 +27,7 @@
 
 ## [Go の Lambda 関数ハンドラーの定義](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/golang-handler.html)
 
-- Lamdaで実行されるアプリケーション実装時に必要なDocs
+- Lambda で実行されるアプリケーション実装時に必要な Docs
 
 ```go
 package main
@@ -62,10 +62,10 @@ func main() {
 }
 ```
 
-### Lamda Handlerの疑問
+### Lambda Handler の疑問
 
-- `lambda.Start`は何も戻り値を受け取らないが、`HandleRequest()`の戻り値は何によって処理されるのか？また、そのI/Fはどうなっているのか？
-- EventはおそらくLamda起動時に設定するもの
+- `lambda.Start`は何も戻り値を受け取らないが、`HandleRequest()`の戻り値は何によって処理されるのか？また、その I/F はどうなっているのか？
+- Event はおそらく Lambda 起動時に設定するもの
 
 ## [コンテナイメージを使用して Go Lambda 関数をデプロイする](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/go-image.html)
 

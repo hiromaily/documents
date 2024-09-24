@@ -1,6 +1,6 @@
-# LamdaのOS専用ランタイム
+# Lambda の OS 専用ランタイム
 
-`provided.al2023`ベースランタイムは `AL2023 の最小コンテナイメージに基づいており`、AL2023 ベースの Lambda マネージドランタイムとコンテナベースイメージを提供する。package managerすらinstallされていない。
+`provided.al2023`ベースランタイムは `AL2023 の最小コンテナイメージに基づいており`、AL2023 ベースの Lambda マネージドランタイムとコンテナベースイメージを提供する。package manager すら install されていない。
 
 ## `provided.al2023` および `provided.al2` ランタイムの利点
 
@@ -29,7 +29,7 @@ WORKDIR /var/task
 ENTRYPOINT ["/lambda-entrypoint.sh"]
 ```
 
-## provided:al2023 Imageを使ったDockerfileの例
+## provided:al2023 Image を使った Dockerfile の例
 
 ```Dockerfile
 FROM golang:1.20 as build
@@ -54,6 +54,6 @@ ENTRYPOINT [ "./main" ]
 ## References
 
 - [Lambda の OS 専用ランタイムを使用する状況](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/runtimes-provided.html)
-- [AWS LambdaでAL2023 を使用する](https://docs.aws.amazon.com/ja_jp/linux/al2023/ug/lambda.html)
+- [AWS Lambda で AL2023 を使用する](https://docs.aws.amazon.com/ja_jp/linux/al2023/ug/lambda.html)
 - [AL2023 Minimal container image](https://docs.aws.amazon.com/linux/al2023/ug/minimal-container.html)
 - [コンテナ (AL2023) で AWS Lambda を構築するのに必要な事項のメモ](https://zenn.dev/hassaku63/scraps/58de9fc1d8a338)

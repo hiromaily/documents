@@ -1,4 +1,4 @@
-# [AWS Lamdaコマンド](https://docs.aws.amazon.com/cli/latest/reference/lambda/)
+# [AWS Lambda コマンド](https://docs.aws.amazon.com/cli/latest/reference/lambda/)
 
 ## [create-function](https://docs.aws.amazon.com/cli/latest/reference/lambda/create-function.html)
 
@@ -47,12 +47,12 @@
 [--cli-connect-timeout <value>]
 ```
 
-### このとき、docker imageのコマンドラインパラメータをどうやって付与するか？
+### このとき、docker image のコマンドラインパラメータをどうやって付与するか？
 
 - `--cli-input-json` (string)
 
 提供された JSON 文字列に基づいてサービス操作を実行する。JSON 文字列は、`--generate-cli-skeleton` で提供される形式に従う。コマンド ラインで他の引数が指定された場合、CLI 値は JSON で提供される値を上書きする。文字列は文字通りに解釈されるため、JSON で提供される値を使用して任意のバイナリ値を渡すことはできない。
-`--generate-cli-skeleton`を確認してみたが、これは用途が異なるようだ。  
+`--generate-cli-skeleton`を確認してみたが、これは用途が異なるようだ。
 
 - `--image-config` (structure)
 
