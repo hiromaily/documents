@@ -85,8 +85,3 @@
 - モノレポをベースとした build system
 - .nxignore
 - nx.json
-
-## lerna.json
-
-- [Lerna](https://lerna.js.org/)
-- モノレポ管理ツール
