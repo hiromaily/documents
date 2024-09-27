@@ -59,3 +59,7 @@ Facebook、Twitter、Instagram などのソーシャルメディアに投稿さ�
 ### 14. クエリのオートコンプリートとサジェスト
 
 ユーザーが入力中のクエリに対して、候補となる検索語句やフレーズをリアルタイムで提示する技術。Google の検索ボックスのサジェスト機能がよく利用される。
+
+## References
+
+- [誰でもわかる全文検索入門](https://zenn.dev/segavvy/articles/e97fa8417a0ee3)

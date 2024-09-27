@@ -2,6 +2,8 @@
 
 - シェルとは、オペレーティングシステム（OS）の操作を行うためのコマンドインターフェイスを指す
 
+- [explainshell.com](https://explainshell.com/)
+
 ## 主要な shell の種類
 
 - sh: Borrne Shell

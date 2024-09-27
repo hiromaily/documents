@@ -1,5 +1,7 @@
 # front-end
 
+[The End of Front-End Development](https://www.joshwcomeau.com/blog/the-end-of-frontend-development/)
+
 ## Design Pattern
 
 - [JavaScript Patterns Workshop](https://javascriptpatterns.vercel.app/patterns)

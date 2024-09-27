@@ -45,5 +45,6 @@
 
 - [Postman + Newman](https://learning.postman.com/docs/running-collections/using-newman-cli/command-line-integration-with-newman/)
   - [Postman と Newman を組み合わせて、CI/CD に組み込む REST API の自動テストを作ろう！](https://qiita.com/developer-kikikaikai/items/74cedc67643ca93d2e0b)
+  - [Postman Newman とは、その使い方を解説](https://apidog.com/jp/blog/how-to-use-postman-newman/)
 - [Katalon](https://katalon.com/)
 - [TestGrid](https://www.testgrid.io/)

@@ -6,6 +6,8 @@ The React Framework for Production
 - [Docs](https://nextjs.org/docs/getting-started)
 - [Docs (ja)](https://nextjs-ja-translation-docs.vercel.app/docs/getting-started)
 
+- [Zenn: Next.js の考え方](https://zenn.dev/akfm/books/nextjs-basic-principle)
+
 ## 2024 年、Frontend のみの利用は Anti パターンか？
 
 [Do you guys use Next js only for frontend or for both backend and frontend?](https://www.reddit.com/r/nextjs/comments/1bffsq1/do_you_guys_use_next_js_only_for_frontend_or_for/)

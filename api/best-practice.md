@@ -1,4 +1,4 @@
-# Rest ベストプラクティス
+# REST API ベストプラクティス
 
 [RESTful のウェブ API 設計で避けるべき 6 つのよくあるミス](https://cloud.google.com/blog/ja/products/api-management/restful-web-api-design-best-practices/?hl=ja)
 

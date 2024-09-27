@@ -5,6 +5,7 @@
 - [REST API 設計のパターンと原則](https://note.com/skijima/n/n8c3b18f93c80)
 - [API Testing Tools & Approaches to know in 2022](https://aglowiditsolutions.com/blog/api-testing-tools/)
 - [Google: RESTful のウェブ API 設計で避けるべき 6 つのよくあるミス](https://cloud.google.com/blog/ja/products/api-management/restful-web-api-design-best-practices/?hl=ja)
+- [API 設計スキルを次のレベルに引き上げるベストプラクティス 22 選](https://qiita.com/baby-degu/items/6f516189445d98ddbb7d)
 
 ## 設計ガイドライン
 

@@ -1,8 +1,9 @@
 # Git
 
-[Dangit, Git!?!](https://dangitgit.com/ja)
+- [Dangit, Git!?!](https://dangitgit.com/ja)
+- WIP: [GitHub コマテク集](https://techblog.openwork.co.jp/entry/github-tips)
 
-## 新しいbranchの作成方法
+## 新しい branch の作成方法
 
 ```sh
 # 古い方法
@@ -12,7 +13,7 @@ git checkout -b ${new-branch} origin/main
 git switch -c ${new-branch} origin/main
 ```
 
-## 新しいbranchの変更方法
+## 新しい branch の変更方法
 
 ```sh
 # 古い方法
