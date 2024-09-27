@@ -10,6 +10,10 @@
   - [web-sys](https://github.com/rustwasm/wasm-bindgen/tree/main/crates/web-sys)も`wasm-bindgen`のgithub repository内に存在する
   - wasm-bindgenを使っているプロジェクトにおいて、ブラウザのWeb APIへのbindingを行うもの
   - これにより様々なWeb APIが利用できるようになる
+- [js-sys](https://crates.io/crates/js-sys)
+  - [rustwasmのページによる説明](https://rustwasm.github.io/wasm-bindgen/examples/wasm-in-wasm.html)
+  - js-sys クレートを使用すると、WebAssembly モジュール内からかなりメタな WebAssembly モジュールを取得し、インスタンス化することができる
+  - 例えば、これによってWasm上でJavaScriptの関数をインポートして利用できる
 - [wee_alloc](https://crates.io/crates/wee_alloc)
   - [rustwasmのページによる説明](https://rustwasm.github.io/docs/wasm-pack/tutorials/npm-browser-packages/template-deep-dive/wee_alloc.html)
   - 小さなコードサイズのために最適化されたアロケータ

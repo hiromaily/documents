@@ -14,3 +14,6 @@
   - vscodeのチェッカー
 - [CSpell](https://cspell.org/)
 - [markdownlint](https://github.com/DavidAnson/markdownlint)
+  - markdownのlinter
+- [checkmake](https://github.com/mrtazz/checkmake)
+  - Makefileのlinter

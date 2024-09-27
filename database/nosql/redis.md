@@ -2,6 +2,15 @@
 
 メモリ上で動作するキーバリューストア型のデータベース
 
+## Redisの動向について　(2024/9)
+
+Resisは元々オープンソースだったが、`Redis Source Available License (RSALv2)`と`Server Side Public License (SSPLv1)`のデュアルライセンスに変更された。これにより同社の許可なくRedisを用いたマネージドサービスなどを提供することができなくなる。
+しかし引き続きソースコードは公開され、自社で利用することなどにも制限はない、いわゆるソースコードアベイラブルなライセンスとなる。
+
+### [Valkey](https://valkey.io/)
+
+`Valkey`とは、OSSであったRedisのソースコードから開発が始まった、インメモリデータベースなどと呼ばれる分野のデータベースソフトウェア。Valkeyは、多くのOSSプロジェクトを管理・運営しているLinux foundationという組織によって管理されている。AmazonやGoogleなど多くの企業が、Valkeyプロジェクトに協力をしており、AWSでは、AWSのサービスでValkeyを利用していくことを表明している。
+
 ## Version
 
 ### `Redis 7`

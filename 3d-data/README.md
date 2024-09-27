@@ -61,26 +61,25 @@
 1. **`wavefront_obj`** ライブラリ
 
    - 使い方: Wavefront OBJ 形式のパーシングに利用。
-   - リンク: [wavefront_obj](https://crates.io/crates/wavefront_obj)
 
 2. **`gltf`** ライブラリ
 
    - 使い方: glTF 形式のファイルを読み書きするためのライブラリ。
-   - リンク: [gltf](https://crates.io/crates/gltf)
 
 3. **`nalgebra`** ライブラリ
 
    - 使い方: 線形代数の演算をサポート。ベクトル、行列、クォータニオンなどを取り扱う。
-   - リンク: [nalgebra](https://crates.io/crates/nalgebra)
 
 4. **`ncollide`**（衝突検出と物理計算）
 
    - 使い方: 物理シミュレーションや衝突検出に利用。
-   - リンク: [ncollide](https://crates.io/crates/ncollide)
 
 5. **`winit`** + **`wgpu`** ライブラリ
+
    - 使い方: レンダリングのために使う。`winit`はウィンドウ管理とイベントシステム、`wgpu`はグラフィック API の抽象化ライブラリ。
-   - リンク: [winit](https://crates.io/crates/winit), [wgpu](https://crates.io/crates/wgpu)
+
+6. **`kiss3d`** ライブラリ
+   - 使い方: 3dをシンプルなコードで実装するためのライブラリ
 
 ## Rust サンプルコード
 
@@ -88,10 +87,10 @@
 
    ```toml
    [dependencies]
-   nalgebra = "0.27"
-   winit = "0.26"
-   wgpu = "0.11"
-   wavefront_obj = "5.0"
+   nalgebra = "0.33"
+   winit = "0.30"
+   wgpu = "22.1"
+   wavefront_obj = "10.0"
    ```
 
 2. 基本的な 3D レンダリングのセットアップを行う。
