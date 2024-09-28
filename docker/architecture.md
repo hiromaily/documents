@@ -1,41 +1,10 @@
 # Docker イメージの Architecture
 
-- Docker イメージも、イメージを実行するハードウェアと同じアーキテクチャのハードウェアでビルドする必要がある
+[ReadLater]
 
-## CPU アーキテクチャの種類
+Docker イメージも、イメージを実行するハードウェアと同じアーキテクチャのハードウェアでビルドする必要がある
 
-### よく見かけるのは、
-
-- x86
-- x64
-- x86_64
-- amd64
-- arm
-- arm64 (IntelMac の場合、`uname -m`で確認できる)
-
-### 命令セット
-
-- `x86`, `x64` は CISC(Complex Instruction Set Computer) と呼ばれる命令セット
-- `arm` は RISC(Reduced Instruction Set Computer) と呼ばれる命令セット
-
-### ビット数
-
-- `x86` は 32bit
-- `x64` は 64bit
-
-### 開発会社
-
-- `x86`, `x64` は、インテル社、AMD 社が開発
-- `arm` は Arm 社が開発
-- `amd` は Advanced Micro Devices 社
-
-### 確認方法
-
-```sh
-uname -m
-```
-
-### [Docker でサポートされているアーキテクチャー](https://github.com/docker-library/official-images?tab=readme-ov-file#architectures-other-than-amd64)
+## [Docker でサポートされているアーキテクチャー](https://github.com/docker-library/official-images?tab=readme-ov-file#architectures-other-than-amd64)
 
 - Architectures officially supported by Docker, Inc. for running Docker
   - ARMv6 32-bit (arm32v6): <https://hub.docker.com/u/arm32v6/>

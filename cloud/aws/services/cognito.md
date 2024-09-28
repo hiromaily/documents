@@ -82,7 +82,73 @@ Azure Active Directory B2Cは、コンシューマー向けのアプリケーシ
 - **多要素認証（MFA）**： 強力なセキュリティ向けのMFAを提供。
 - **B2Bコラボレーション**： 外部の組織やユーザーと簡単に安全に共有できる。
 
-## WIP: 使い方
+## 使い方
+
+Amazon Cognitoは、ウェブアプリケーションやモバイルアプリケーションにユーザー認証、認可、ユーザーデータ管理の機能を簡単に追加するためのAWSサービス。
+
+### 1. Amazon Cognitoのセットアップ
+
+1. ユーザープールの作成
+2. アプリクライアントの作成
+
+### 2. ユーザープールの設定
+
+### 3. ユーザーの管理
+
+ユーザープールにユーザーを手動で追加するか、サインアップのためのフローを実装する方法がある
+
+### 4. アプリケーションへの統合
+
+#### AWS SDKを使って、認証フローを実装する例
+
+```js
+import { CognitoUserPool, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
+
+const poolData = { 
+    UserPoolId : 'us-east-1_ExamplePoolId',
+    ClientId : '1example234client567id'
+}; 
+const userPool = new CognitoUserPool(poolData);
+
+// ユーザーのサインアップ
+userPool.signUp('username', 'password', attributeList, null, (err, result) => {
+    if (err) {
+        alert(err.message || JSON.stringify(err));
+        return;
+    }
+    cognitoUser = result.user;
+    console.log('user name is ' + cognitoUser.getUsername());
+});
+
+// ユーザーのサインイン
+const authenticationDetails = new AuthenticationDetails({
+    Username : 'username',
+    Password : 'password',
+});
+
+const userData = {
+    Username : 'username',
+    Pool : userPool
+};
+
+const cognitoUser = new CognitoUser(userData);
+cognitoUser.authenticateUser(authenticationDetails, {
+    onSuccess: (result) => {
+        console.log('access token + ' + result.getAccessToken().getJwtToken());
+    },
+    onFailure: (err) => {
+        alert(err.message || JSON.stringify(err));
+    },
+});
+```
+
+### 5. 認証後のユーザーの扱い
+
+認証に成功したユーザーに対して、特定のリソースやサービスへのアクセス権を付与するために、認可プロセスを設定することができる。これには、AWS IAMポリシーの設定や、カスタム属性を利用した権限の制御が含まれる。
+
+### 6. 自動スケーリングとセキュリティ
+
+Amazon Cognitoは自動スケーリング機能を持ち、大規模なユーザー管理に対応する。また、データは暗号化され、セキュリティの向上が図られている。
 
 ## References
 

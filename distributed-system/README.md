@@ -1,5 +1,7 @@
 # 分散システム
 
+[WIP]
+
 ## 分散システムの文脈で語られる技術
 
 - Microservices Architecture

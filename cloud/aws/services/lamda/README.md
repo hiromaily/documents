@@ -51,7 +51,48 @@ aws lambda create-function \
 
 ## [Lambda の実行環境](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtime-environment.html)
 
-WIP
+Lambdaは、安全で分離された実行環境を提供する実行環境で関数を呼び出す。 実行環境は、関数の実行に必要なリソースを管理する。 実行環境はまた、関数のランタイムと、関数に関連付けられた外部拡張のライフサイクルサポートを提供する。
+
+関数のランタイムは Runtime API を使って Lambda と通信する。 エクステンションは Extensions API を使って Lambda と通信する。 エクステンションは Telemetry API を使って、関数からログメッセージやその他の遠隔測定を受け取ることもできる。
+
+![lambda api concept](../../../../images/lambda-telemetry-api-concept.png "lambda api concept")
+
+Lambda関数を作成する際には、利用可能なメモリ量や関数の最大実行時間などの設定情報を指定する。 Lambdaはこの情報を使って実行環境を設定する。
+
+関数のランタイムと各外部拡張は、実行環境内で実行されるプロセスのこと。 パーミッション、リソース、認証情報、環境変数は、関数と拡張の間で共有される。
+
+### ラムダ実行環境のライフサイクル
+
+![lambda execution environment lifecycle](../../../../images/lambda-execution-env-lifecycle.png "lambda execution environment lifecycle")
+
+各フェーズは、Lambdaがランタイムと登録されているすべてのエクステンションに送信するイベントで始まる。 ランタイムと各拡張機能は、Next APIリクエストを送信することで完了を示す。 ランタイムと各拡張機能が完了し、保留中のイベントがなくなると、Lambdaは実行環境をフリーズする。
+
+#### 1. 初期化 / Init phase
+
+Initフェーズでは、Lambdaは3つのタスクを実行する
+
+- すべてのエクステンションを起動する（Extension init）
+- ランタイムをブートストラップする (Runtime init)
+- 関数の静的コードを実行する (Function init)
+- 任意のbeforeCheckpoint ランタイムフックを実行する（Lambda SnapStartのみ）
+
+Initフェーズは、ランタイムとすべてのエクステンションがNext APIリクエストを送信して準備ができたことを通知すると終了する。 Initフェーズは10秒に制限されている。 3つのタスクが10秒以内に完了しなかった場合、Lambdaは設定されたファンクションタイムアウトで最初のファンクション呼び出し時にInitフェーズを再試行する。
+
+#### 2. リストア / Restore phase (Lambda SnapStart only)
+
+SnapStart関数を最初に呼び出したときと、関数がスケールアップしたときに、Lambdaは関数をゼロから初期化する代わりに、永続化されたスナップショットから新しい実行環境を再開する。 afterRestore() ランタイムフックがある場合、コードはRestoreフェーズの最後に実行される。 afterRestore()ランタイムフックの期間中は課金される。 ランタイム（JVM）がロードされ、afterRestore()ランタイム・フックがタイムアウト制限（10秒）内に完了する必要がある。 そうしないと、SnapStartTimeoutExceptionが発生する。 Restoreフェーズが完了すると、Lambdaは関数ハンドラを呼び出す（Invokeフェーズ）。
+
+#### 3. 起動 / Invoke phase
+
+Next APIリクエストに応答してLambda関数が呼び出されると、LambdaはInvokeイベントをランタイムと各拡張機能に送信する。
+
+関数のタイムアウト設定は、Invokeフェーズ全体の時間を制限する。 例えば、関数のタイムアウトを360秒に設定した場合、関数とすべての拡張機能は360秒以内に完了する必要がある。 独立したポスト呼び出しフェーズはないことに注意すること。 持続時間はすべての呼び出し時間（ランタイム＋エクステンション）の合計であり、関数とすべてのエクステンションの実行が終了するまで計算されない。
+
+ランタイムが終了し、すべてのエクステンションがNext APIリクエストを送信して終了を知らせると、呼び出しフェーズは終了する。
+
+#### 4. Shutdown phase
+
+Lambdaがランタイムをシャットダウンしようとすると、Shutdownイベントを登録された各外部拡張に送信する。 エクステンションは、この時間を最終的なクリーンアップ作業に使うことができる。 Shutdown イベントは、Next API リクエストへの応答となる。
 
 ## [Lambda サンプルアプリケーション](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/lambda-samples.html)
 

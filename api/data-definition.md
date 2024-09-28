@@ -8,3 +8,11 @@
 - [Apache Thrift](https://thrift.apache.org/)
 
 個人的には`Protocol Buffer`がよい
+
+## Generator
+
+- [OpenAPI/Swagger](../open-api/README.md)
+- [GraphQL](../graphql/README.md)
+- [gRPC](../grpc-proto/README.md)
+- [tRPC](https://trpc.io/)
+- OpenRPC

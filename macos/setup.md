@@ -170,9 +170,14 @@ mv .fzf.zsh .config/zsh/
 [ -f ~/.config/zsh/.fzf.zsh ] && source ~/.config/zsh/.fzf.zsh
 ```
 
-## fig [WIP]
+## fig
 
-- <https://fig.io/>
+ターミナルで入力したコマンドに対して、サブコマンド等を補完してくれる。
+ターミナルで文字を打った後、`tab`キーを押す
+
+```sh
+brew install fig
+```
 
 ## 既存のマシンからの設定引き継ぎ
 

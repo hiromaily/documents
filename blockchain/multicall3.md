@@ -1,16 +1,12 @@
 # Multicall3
 
+複数のコントラクトの読み取り結果を1つのJSON-RPCリクエストに集約するためのContract
+
+## 特徴
+
 - 複数のコントラクトの読み取り結果を1つのJSON-RPCリクエストに集約する
 - 単一のトランザクションで複数の状態変更コールを実行する
 - 100以上のETH系のchain上にdeployされている
-
-## References
-
-- [Official](https://www.multicall3.com/)
-- [github: multicall](https://github.com/mds1/multicall)
-
-- [Deploy Chain List](https://www.multicall3.com/deployments)
-- [ABI](https://www.multicall3.com/abi)
 
 ## Request例
 
@@ -90,3 +86,10 @@ console.log(decodedParameters);
 //   ]
 // ]
 ```
+
+## References
+
+- [Official](https://www.multicall3.com/)
+- [github: multicall](https://github.com/mds1/multicall)
+- [Deploy Chain List](https://www.multicall3.com/deployments)
+- [ABI](https://www.multicall3.com/abi)

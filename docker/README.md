@@ -49,47 +49,45 @@ First create network
 docker network create --driver bridge our_network
 ```
 
-1. compose A
+1. **compose A**:
 
-```sh
-#version: '3'
-services:
-  app1:
-    image: app1:1.0
-    container_name: app1
-    ports:
-      - "8888:8888"
+    ```yaml
+    services:
+      app1:
+        image: app1:1.0
+        container_name: app1
+        ports:
+          - "8888:8888"
+        networks:
+          - our_network
+
     networks:
-      - our_network
+      our_network:
+        external: true
+    ```
 
-networks:
-  our_network:
-    external: true
-```
+2. **compose B**:
 
-2. compose B
+    ```yaml
+    services:
+      app2:
+        image: app2:1.0
+        container_name: app2
+        ports:
+          - "8888:8888"
+        networks:
+          - our_network
 
-```sh
-#version: '3'
-services:
-  app2:
-    image: app2:1.0
-    container_name: app2
-    ports:
-      - "8888:8888"
     networks:
-      - our_network
-
-networks:
-  our_network:
-    external: true
-```
+      our_network:
+        external: true
+    ```
 
 In this case, app1 can connect to app2 with container_name and internal port
 
 ## 3. run complicated shell in command in compose
 
-```sh
+```yaml
   something-service:
     image: "something:latest"
     command: >

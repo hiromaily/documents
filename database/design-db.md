@@ -18,8 +18,8 @@ SQL における`DDL`には、データベースやテーブル、ビューな�
   - [Mermaid with ChatGPT](https://www.mermaidchart.com/landing)
 - [PlantUML](https://plantuml.com/ja-dark/ie-diagram)
 - [draw.io](https://app.diagrams.net/)
-  - DDL や mermaid から生成することができるが、mermaid から生成したほうがクオリティーが高い
-  - [配置]-[挿入]-[高度な設定]
+  - DDL や mermaid から生成することができるが、`mermaid記法` から生成したほうがクオリティーが高い
+  - メニューの `[配置]-[挿入]-[高度な設定]`
 - [SchemaSpy](https://schemaspy.org/)
   - これもよく使われており、良さげ
   - しかし、Java依存はあまりにダサすぎる

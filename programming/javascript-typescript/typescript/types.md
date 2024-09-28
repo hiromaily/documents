@@ -75,7 +75,6 @@ export interface APIConfigMap {
   [name: string]: APIConfig;
 }
 
-// WIP: add or modify as needed
 // For now, only backendAPI is expected
 export const requestConfigMap: RequestConfigMap = {
   [KEY_CONFIG]: {

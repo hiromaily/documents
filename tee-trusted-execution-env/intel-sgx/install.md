@@ -239,7 +239,7 @@
         # Please follow the instructions in README to use this repository.
         ```
 
-5. [WIP] ローカル Debian パッケージリポジトリをシステムリポジトリ構成に追加する
+5. ローカル Debian パッケージリポジトリをシステムリポジトリ構成に追加する
 
     - 追加後、`sudo apt update` でエラーが発生。`Release` ファイルは存在するが、`InRelease` ファイルは存在しない
 
@@ -252,8 +252,7 @@
         # N: Download is performed unsandboxed as root as file '/home/hy/work/linux-sgx/linux/installer/deb/sgx_debian_local_repo/dists/jammy/InRelease' couldn't be accessed by user '_apt'. - pkgAcquire::Run (13: Permission denied)
         ```
 
-    - WIP
-        - `/opt/local` を使うべきだった？
+    - `/opt/local` を使うべきだった？
 
         ```sh
         deb [trusted=yes arch=amd64] file:/opt/local/linux-sgx/linux/installer/deb/sgx_debian_local_repo focal main
@@ -352,18 +351,16 @@
     cd ./linux/installer/deb/sgx-aesm-service
     ```
 
-    - WIP
+    ```sh
+    ibsgx-ae-qe3
+    libsgx-ae-id-enclave
 
-        ```sh
-        ibsgx-ae-qe3
-        libsgx-ae-id-enclave
+    libsgx-qe3-logic_1.14.100.3-jammy1_amd64.deb
+    libsgx-pce-logic
+    libsgx-dcap-quote-verify
 
-        libsgx-qe3-logic_1.14.100.3-jammy1_amd64.deb
-        libsgx-pce-logic
-        libsgx-dcap-quote-verify
-
-        libsgx-dcap-ql_1.14.100.3-jammy1_amd64.deb
-        ```
+    libsgx-dcap-ql_1.14.100.3-jammy1_amd64.deb
+    ```
 
 ### コード サンプルを使用して Intel SGX SDK パッケージをテストする
 

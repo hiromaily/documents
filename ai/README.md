@@ -1,4 +1,4 @@
-# Artficial Intelligence
+# Artificial Intelligence
 
 ## 種類
 

@@ -1,6 +1,6 @@
 # SQL
 
-WIP: 中身の確認
+[ReadLater]
 
 **SQL tips and tricks**
 

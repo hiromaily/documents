@@ -20,6 +20,39 @@ ISAは、コンピュータアーキテクチャの「契約書」とも言え�
 
 ISAは、プロセッサの性能、エネルギー効率、プログラムの互換性などに大きな影響を与えるため、非常に重要な役割を果たす。
 
+## CPU アーキテクチャの種類
+
+### よく見かけるのは、
+
+- x86
+- x64
+- x86_64
+- amd64
+- arm
+- arm64 (IntelMac の場合、`uname -m`で確認できる)
+
+### 命令セット
+
+- `x86`, `x64` は CISC(Complex Instruction Set Computer) と呼ばれる命令セット
+- `arm` は RISC(Reduced Instruction Set Computer) と呼ばれる命令セット
+
+### ビット数
+
+- `x86` は 32bit
+- `x64` は 64bit
+
+### 開発会社
+
+- `x86`, `x64` は、インテル社、AMD 社が開発
+- `arm` は Arm 社が開発
+- `amd` は Advanced Micro Devices 社
+
+### 確認方法
+
+```sh
+uname -m
+```
+
 ## `exec format error`エラー
 
 これは多くの場合、実行しようとしているバイナリがその実行環境(OSの違いなど)と互換性がないことを示している

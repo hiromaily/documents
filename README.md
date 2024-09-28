@@ -1,6 +1,9 @@
 # documents
 
-summarized book contents and tips
+## TODO
+
+- 情報を整理中。architecture,blockchainは量が多いので後で。
+- 未作業には`WIP`をつけている
 
 ## 原点回帰 / ロードマップ
 
@@ -116,3 +119,7 @@ summarized book contents and tips
 ## Markdown で tree を書く
 
 [tree.nathanfriend.io](https://tree.nathanfriend.io/)
+
+## ChatGPTによって調査する場合
+
+です・ます調が不要なのだが、「です・ます調を使わずにXXXについて詳しく説明して」といっても、情報がかなり簡略化されてしまうのが難点

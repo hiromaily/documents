@@ -1,5 +1,7 @@
 # データ指向アプリケーションデザイン
 
+[WIP]
+
 [Oreilly: データ指向アプリケーションデザイン - 信頼性、拡張性、保守性の高い分散システム設計の原理 (2017)](https://www.oreilly.co.jp/books/9784873118703/)
 
 原書のタイトル：`Designing Data-Intensive Application`  

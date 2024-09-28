@@ -1,3 +1,3 @@
 # Cache
 
-[内部Docs](../cache/README.md)
+[Cache: 内部Docs](../cache/README.md)
