@@ -354,6 +354,6 @@ sudo tcpdump -i en0 -s 0 -w output.pcap host jp.indeed.com
 
 wireshark で開く
 
-```
+```txt
 wireshark output.pcap
 ```

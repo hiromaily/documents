@@ -37,7 +37,7 @@ The React Framework for Production
 
 - [Docs](https://nextjs.org/docs/basic-features/image-optimization)
 
-- Next.js Image コンポーネント next/image は、HTML の <img> 要素を拡張し、モダンウェブ用に進化させたもの
+- Next.js Image コンポーネント next/image は、HTML の `<img>` 要素を拡張し、モダンウェブ用に進化させたもの
 - このコンポーネントには、優れた`Core Web Vitals`を実現するための、さまざまなパフォーマンスの最適化が組み込まれている
 
 ### Internationalized Routing 国際化ルーティング
@@ -100,7 +100,7 @@ The React Framework for Production
 - これらはサーバーサイドのみのバンドルであり、クライアントサイドのバンドルサイズを増やすことはない
 - 例えば、以下の API ルート `pages/api/user.js` は、ステータスコード 200 の json レスポンスを返す
 
-```
+```js
 export default function handler(req, res) {
   res.status(200).json({ name: 'John Doe' })
 }

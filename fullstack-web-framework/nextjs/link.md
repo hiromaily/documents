@@ -2,7 +2,7 @@
 
 - `next/link`という組み込みコンポーネントがある
 - Linkコンポーネントを使ってページ遷移する場合、Client Side Renderingが発生する。必要なデータは非同期で予め取得されている。
-- Linkコンポーネントを使う場合、<a>タグをLinkコンポーネントでラップする
+- Linkコンポーネントを使う場合、`<a>`タグをLinkコンポーネントでラップする
 
 ```tsx
 import Link from 'next/link'

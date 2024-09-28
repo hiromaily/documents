@@ -23,7 +23,7 @@
 
 ブラウザの console に以下のメッセージ表示される
 
-```
+```log
 > [MSW] Mocking enabled
 ```
 
@@ -68,7 +68,7 @@ afterAll(() => server.close());
 
 Next.js の[example](https://github.com/vercel/next.js/tree/canary/examples/with-msw)でも再現するが、以下のエラーが発生する
 
-```
+```log
 error - unhandledRejection: Error [ERR_UNSUPPORTED_DIR_IMPORT]: Directory import '/Users/user/github.com/repo/path/node_modules/@mswjs/interceptors/lib/interceptors/ClientRequest' is not supported resolving ES modules imported from /Users/user/github.com/repo/path/node_modules/msw/lib/node/index.mjs
 Did you mean to import @mswjs/interceptors/lib/interceptors/ClientRequest/index.js?
     at new NodeError (node:internal/errors:387:5)

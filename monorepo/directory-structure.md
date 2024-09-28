@@ -23,7 +23,7 @@
 
 ## 具体的な例
 
-```
+```txt
 my-monorepo/
   ├── package.json  # ルートのpackage.json
   ├── packages/

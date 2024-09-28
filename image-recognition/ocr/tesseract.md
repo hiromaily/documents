@@ -32,7 +32,7 @@ tesseract sample.png output_file --oem 1 -l jpn
 
 ## help
 
-```
+```txt
 tesseract --help-extra
 
 Usage:
@@ -94,7 +94,7 @@ Single options:
 
 Specify page segmentation mode
 
-```
+```txt
 Page segmentation modes:
   0    Orientation and script detection (OSD) only.
   1    Automatic page segmentation with OSD.
@@ -117,7 +117,7 @@ Page segmentation modes:
 
 Specify OCR Engine mode.
 
-```
+```txt
 OCR Engine modes:
   0    Legacy engine only.
   1    Neural nets LSTM engine only.

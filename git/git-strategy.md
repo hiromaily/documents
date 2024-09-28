@@ -100,7 +100,7 @@ WIP: This page is outdated
     - リポジトリがメンテナンスに失敗すると、プッシュ更新と参照更新の両方のパフォーマンスが低下する
   - 以下コマンドの実行にて不要なファイルをへらす
 
-  ```
+  ```sh
   % git gc # Cleanup unnecessary files and optimize the local repository
   % git repack -Ad # Pack unpacked objects in a repository
   % git prune # Prune all unreachable objects from the object database

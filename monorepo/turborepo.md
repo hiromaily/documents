@@ -49,7 +49,7 @@ RUN turbo prune frontend --docker
 
 package 名に`frontend`を指定していても、それ以外も格納されている？
 
-```
+```txt
 .
 ├── pnpm-lock.yaml (partial)
 ├── full/
@@ -126,7 +126,7 @@ Turborepo は npm エコシステムの規約に準拠しているため、npm�
 
 Turborepo では、`apps` と `packages` ディレクトリを作ることを慣例としている
 
-```
+```txt
 .
 ├── package.json
 ├── package-lock.json

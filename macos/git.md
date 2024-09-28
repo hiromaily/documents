@@ -13,7 +13,7 @@ touch ~/.ssh/config
 
 modify `config`
 
-```
+```config
 Host github.com
   AddKeysToAgent yes
   UseKeychain yes
@@ -28,7 +28,7 @@ ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 
 - config would be stored as `~/.config/git/config`
 
-```
+```config
 [user]
  name = MyName
  email = me@gmail.com

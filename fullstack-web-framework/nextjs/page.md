@@ -26,15 +26,14 @@ export default Page
 - `getStaticProps()`を定義し、exportする
 - `getStaticProps()`の引数に`context`が渡されるが、これはReactの`context`ではない。
 
-```
-# contextのparameter
+### SSG contextのparameter
+
 - params
 - locale ... next.config.jsでi18nの設定をした場合に取得できる
 - locales
 - defaultLocale
 - preview
 - previewData
-```
 
 ### Basic
 
@@ -179,13 +178,12 @@ export default Post
 - `getServerSideProps()`を定義し、exportする
 - `getServerSideProps()`引数の`context`では、`getStaticProps`の`context`で参照できるデータに加え、リクエスト情報などを参照できる
 
-```
-# contextのparameter
+### SSR contextのparameter
+
 - req
 - res
 - resolvedUrl
 - query
-```
 
 ### Code
 

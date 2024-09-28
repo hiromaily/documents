@@ -4,7 +4,7 @@
 - [Clean Architecture using Golang](https://eminetto.medium.com/clean-architecture-using-golang-b63587aa5e3f)
   - example のディレクトリ構成は整っているが、わかりにくい。機能単位のほうがわかりやすいものまでドメインレベルに分離されてしまっている
 
-  ```
+  ```txt
   pkg/user
   - entity.go ...userモデルの構造体を定義
   - mongodb.go ...DB操作の実装

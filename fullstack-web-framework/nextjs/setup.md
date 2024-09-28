@@ -6,7 +6,7 @@
 
 - [Docs](https://nextjs.org/docs/api-reference/create-next-app)
 
-```
+```sh
 npx create-next-app@latest
  or
 npx create-next-app@latest --ts
@@ -16,7 +16,7 @@ npx create-next-app <app-name> --ts --use-npm
 
 - [next.js/example](https://github.com/vercel/next.js/tree/canary/examples)をtemplateとすることもできる。
 
-```
+```sh
 npx create-next-app --example https://github.com/vercel/next.js/tree/canary/examples/hello-world-esm app-name
 ```
 

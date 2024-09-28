@@ -39,7 +39,7 @@
 
 - **モノレポの構造:**
 
-```
+```txt
 /monorepo
 ├── package.json (ルートレベルの package.json)
 ├── node_modules/ ( hoisting された依存関係はここに配置)
