@@ -33,10 +33,10 @@ Rancher Desktop では、コンテナイメージを build、push、pull する�
 ### Install 時の注意点
 
 - path を通す
-  ![rancher path](../images/rancher-path.png "rancher path")
+  ![rancher path](https://github.com/hiromaily/documents/raw/main/images/rancher-path.png "rancher path")
 
 - Administrative にチェックを入れる
-  ![rancher admin](../images/rancher-administrative.png "rancher admin")
+  ![rancher admin](https://github.com/hiromaily/documents/raw/main/images/rancher-administrative.png "rancher admin")
 
 - `docker-credential-desktop` 起因のエラー
   - [docs source about docker-credential-desktop](https://github.com/docker/docker-credential-helpers/issues/149)

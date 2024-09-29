@@ -3,7 +3,7 @@
 NoSQL の柔軟性と SQL データベースの強力な機能を組み合わせた`分散データベース`。NewSQL は、ACID トランザクションや SQL による複雑なクエリーをサポートすることで、NoSQL の弱点であるデータの一貫性や性能の課題を解決している。
 しかし、クエリのスループット(一定時間あたりのデータ転送量)を出すためにレイテンシ(通信の遅延時間)を犠牲にしているので本当にトレードオフを解消はしていない、などの問題が指摘されている。
 
-![db-comparison](../../images/db-comparison.webp "db-comparison")
+![db-comparison](https://github.com/hiromaily/documents/raw/main/images/db-comparison.webp "db-comparison")
 
 ## NewSQL の種類
 

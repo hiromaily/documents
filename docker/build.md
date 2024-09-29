@@ -20,8 +20,8 @@
 
 ## Layer と Cache
 
-![layer1](../images/docker-layer1.png "layer1")
-![layer2](../images/docker-layer2.png "layer2")
+![layer1](https://github.com/hiromaily/documents/raw/main/images/docker-layer1.png "layer1")
+![layer2](https://github.com/hiromaily/documents/raw/main/images/docker-layer2.png "layer2")
 
 docker は可能な限り 構築キャッシュ build-cache を使用し、 docker build の処理を著しく高速にする。その場合はコンソール出力に `CACHED` というメッセージが表示される。
 

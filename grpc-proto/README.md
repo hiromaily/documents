@@ -32,7 +32,7 @@ RPC はリモートプロシージャコール(RPC)システムの 1 つ。RPC �
 
 - Server streaming RPC はクライアント側の投げてくるリクエストは Unary(単一)でレスポンス側が複数(Streaming)の通信方式
 
-![Server streaming RPC](../images/grpc-server-streaming.webp "Server streaming RPC")
+![Server streaming RPC](https://github.com/hiromaily/documents/raw/main/images/grpc-server-streaming.webp "Server streaming RPC")
 
 ### [Client streaming RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#client-streaming-rpc)
 

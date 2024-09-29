@@ -1,6 +1,6 @@
 # Actions secrets and variables
 
-![github actions secret](../../../images/github-actions-secret.png "github actions secret")
+![github actions secret](https://github.com/hiromaily/documents/raw/main/images/github-actions-secret.png "github actions secret")
 
 ## シークレット情報の追加
 

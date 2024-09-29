@@ -153,7 +153,7 @@ Geth のような Ethereum クライアントがこの署名プロセスを処�
 // Validator's tip: 0.000210 ETH
 ```
 
-![gas](../../images/gas-tx.png "gas")
+![gas](https://github.com/hiromaily/documents/raw/main/images/gas-tx.png "gas")
 
 ### [トランザクションのライフサイクル](./transaction.md#トランザクションのライフサイクル)
 
@@ -184,7 +184,7 @@ Gas とは、Ethereum ネットワーク上で特定の操作を実行するた�
 Ethereum のトランザクションは実行するために計算リソースを必要とするため、トランザクションごとに手数料が必要となる  
 Gas とは、Ethereum 上でトランザクションを正常に行うために必要な fee のことを指す
 
-![gas](../../images/gas.png "gas")
+![gas](https://github.com/hiromaily/documents/raw/main/images/gas.png "gas")
 
 - `Gas fees`は、Ethereum のネイティブ通貨である`ether（ETH）`で支払われる
 - `Gas prices`は`gwei`で表記される
@@ -192,8 +192,8 @@ Gas とは、Ethereum 上でトランザクションを正常に行うために�
 
 ## 計算式概要
 
-![gas calc1](../../images/gas_calc1.png "gas")
-![gas calc2](../../images/gas_calc2.png "gas")
+![gas calc1](https://github.com/hiromaily/documents/raw/main/images/gas_calc1.png "gas")
+![gas calc2](https://github.com/hiromaily/documents/raw/main/images/gas_calc2.png "gas")
 
 ### 2021/8 に発生した London アップグレード以前
 
@@ -247,7 +247,7 @@ units of gas used * (base fee + priority fee)
 - 目標ブロックサイズを超えた場合、`base fee`は 1 ブロックあたり最大`12.5％`増加する
 - この指数関数的な増加により、ブロックサイズをいつまでも高いままにしておくことは経済的に不可能となる。
 
-![base fee](../../images/base_fee.png "base fee")
+![base fee](https://github.com/hiromaily/documents/raw/main/images/base_fee.png "base fee")
 
 - London アップグレード以前の gas auction 市場と比較すると、このトランザクション手数料の仕組みの変更により、手数料の予測はより確実なものとなっている。
 - また、full ブロックの基本料金の上昇スピードが速いので、full ブロックのスパイクが長く続くことはないだろうということも重要。

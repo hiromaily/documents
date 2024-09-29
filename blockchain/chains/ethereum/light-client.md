@@ -100,7 +100,7 @@ Beacon Chain は、リソースに制約のあるデバイスやメーター付�
 
 - 前者が最新のブロック ヘッダーに同期したい場合に、light-nodes と full-nodes の間で発生する知識の転送
 
-![Light Client](../../../images/light-node-full-node.jpg "Light Client")
+![Light Client](https://github.com/hiromaily/documents/raw/main/images/light-node-full-node.jpg "Light Client")
 
 ##### Header
 
@@ -120,7 +120,7 @@ checkpoint ルートの最新性に応じて、light client は checkpoint の�
 light-nodes は、committee が変更して、彼らが知っている最新の checkpoint ルートから現在のブロックに到達するたびに、各同期期間の終わりに更新する必要があります。
 2000 と 18384 の間には 16384 スロットの違いがあり、同期期間には 8192 スロットがあるため、2 つの同期期間が経過したことを意味します。 したがって、`sync committees`は 2 回変更されており、light client は 2 つの更新をフェッチしてこれらの変更を知る必要があります。 更新はスナップショットに似ていますが、次の`sync committees`と追加フィールドに関する情報が含まれています。
 
-![Light Client eth-sync](../../../images/eth-sync.jpg "Light Client eth-sync")
+![Light Client eth-sync](https://github.com/hiromaily/documents/raw/main/images/eth-sync.jpg "Light Client eth-sync")
 
 ##### Attested Header
 

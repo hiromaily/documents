@@ -30,21 +30,21 @@
   - 消滅しない
 - `つみたて投資枠`と`成長投資枠`で、投資対象商品は異なる
 
-![つみたて投資枠と成長投資枠 01](../images/nisa/nisa-ovewview.png)
+![つみたて投資枠と成長投資枠 01](https://github.com/hiromaily/documents/raw/main/images/nisa/nisa-ovewview.png)
 
-![つみたて投資枠と成長投資枠 02](../images/nisa/nisa-table.png)
+![つみたて投資枠と成長投資枠 02](https://github.com/hiromaily/documents/raw/main/images/nisa/nisa-table.png)
 
-![つみたて投資枠と成長投資枠 03](../images/nisa/nisa-merit.png)
+![つみたて投資枠と成長投資枠 03](https://github.com/hiromaily/documents/raw/main/images/nisa/nisa-merit.png)
 
-![つみたて投資枠と成長投資枠 04](../images/nisa/how-to-use-money.png)
+![つみたて投資枠と成長投資枠 04](https://github.com/hiromaily/documents/raw/main/images/nisa/how-to-use-money.png)
 
-![つみたて投資枠と成長投資枠 05](../images/nisa/objective-investment.png)
+![つみたて投資枠と成長投資枠 05](https://github.com/hiromaily/documents/raw/main/images/nisa/objective-investment.png)
 
-![つみたて投資枠と成長投資枠 06](../images/nisa/objective-investment2.png)
+![つみたて投資枠と成長投資枠 06](https://github.com/hiromaily/documents/raw/main/images/nisa/objective-investment2.png)
 
-![つみたて投資枠と成長投資枠 07](../images/nisa/nisa-reuse.png)
+![つみたて投資枠と成長投資枠 07](https://github.com/hiromaily/documents/raw/main/images/nisa/nisa-reuse.png)
 
-![つみたて投資枠と成長投資枠 08](../images/nisa/nisa-vs-ideco.png)
+![つみたて投資枠と成長投資枠 08](https://github.com/hiromaily/documents/raw/main/images/nisa/nisa-vs-ideco.png)
 
 ## SBI 証券でどこに積み立てるべきか？
 

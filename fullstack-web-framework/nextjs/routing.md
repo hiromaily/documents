@@ -10,7 +10,7 @@
 
 [Routing](https://nextjs.org/docs/app/building-your-application/routing)
 
-![component-tree](../../../../images/nextjs-component-tree.png 'component-tree')
+![component-tree](https://github.com/hiromaily/documents/raw/main/images/nextjs-component-tree.png 'component-tree')
 
 - Version:13 で、Next.js は`React Server Components`をベースにした新しい`App Router`を導入し、共有レイアウト、ネストされたルーティング、loding states、エラー処理などをサポートした
 - App Router は`app`ディレクトリで動作する
@@ -52,11 +52,11 @@
 - not-found.js (React error boundary)
 - page.js or nested layout.js
 
-![component-hierarchy](../../../../images/nextjs-file-conventions-component-hierarchy.png 'component-hierarchy')
+![component-hierarchy](https://github.com/hiromaily/documents/raw/main/images/nextjs-file-conventions-component-hierarchy.png 'component-hierarchy')
 
 - 入れ子になった Route では、セグメントのコンポーネントは、親セグメントのコンポーネントの中に入れ子になる
 
-![nested-component-hierarchy](../../../../images/nextjs-nested-file-conventions-component-hierarchy.png 'nexted-component-hierarchy')
+![nested-component-hierarchy](https://github.com/hiromaily/documents/raw/main/images/nextjs-nested-file-conventions-component-hierarchy.png 'nexted-component-hierarchy')
 
 ### Client-side Navigation による Server 中心の Routing
 

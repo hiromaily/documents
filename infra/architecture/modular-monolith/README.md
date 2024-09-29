@@ -6,9 +6,9 @@
 
 モジュラーモノリスは、システムの複雑性とスケールの要求に対処するためのバランスの取れたアプローチとして、現代のソフトウェア設計において有力な選択肢となっている。部署がモジュラリティを維持しつつ、シンプルなデプロイメントと運用のメリットを享受し、必要に応じて段階的にマイクロサービスへ移行することも可能。
 
-![modular monolith](../../../images/modular_monolith.png "modular monolith")
+![modular monolith](https://github.com/hiromaily/documents/raw/main/images/modular_monolith.png "modular monolith")
 
-![modular monolith comparison](../../../images/modular_monolith_vs_microservices.png "modular monolith comparison")
+![modular monolith comparison](https://github.com/hiromaily/documents/raw/main/images/modular_monolith_vs_microservices.png "modular monolith comparison")
 
 ## モジュラーモノリスの特徴
 

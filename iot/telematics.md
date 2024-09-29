@@ -51,7 +51,7 @@
 
 ## [オリックス自動車: 運行管理: Safe Driving Management](https://www.orix.co.jp/auto/service/operation/)
 
-![safe driving management](../images/telematics/service-operation_img01.png "safe driving management")
+![safe driving management](https://github.com/hiromaily/documents/raw/main/images/telematics/service-operation_img01.png "safe driving management")
 
 ### サービス一覧
 

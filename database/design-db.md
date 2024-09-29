@@ -77,4 +77,4 @@ sql2dbml sample_pg.sql --postgres
 
 [Creating Databases, Schemas, and Tables on pgAdmin](https://www.youtube.com/watch?v=6DzCWzeVFD0)
 
-![pgadmin gui](../images/pgadmin4-create-table.png "pgadmin gui")
+![pgadmin gui](https://github.com/hiromaily/documents/raw/main/images/pgadmin4-create-table.png "pgadmin gui")

@@ -54,11 +54,11 @@
 
 ### 公開鍵による暗号化 (公開鍵暗号)
 
-![公開鍵暗号](../../images/publickey-cryptography.jpg)
+![公開鍵暗号](https://github.com/hiromaily/documents/raw/main/images/publickey-cryptography.jpg)
 
 ### プライベート鍵による暗号化 (デジタル署名)
 
-![デジタル署名](../../images/degital-signature.jpg)
+![デジタル署名](https://github.com/hiromaily/documents/raw/main/images/degital-signature.jpg)
 
 ## メッセージのハッシュ値に署名する方法
 
@@ -70,7 +70,7 @@
 
 ### アリスがメッセージに署名してからボブが署名を検証するまでの流れ
 
-![署名の流れ](../../images/degital-signature-flow.jpg)
+![署名の流れ](https://github.com/hiromaily/documents/raw/main/images/degital-signature-flow.jpg)
 
 ## デジタル署名の種類
 

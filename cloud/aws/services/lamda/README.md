@@ -55,7 +55,7 @@ Lambdaは、安全で分離された実行環境を提供する実行環境で�
 
 関数のランタイムは Runtime API を使って Lambda と通信する。 エクステンションは Extensions API を使って Lambda と通信する。 エクステンションは Telemetry API を使って、関数からログメッセージやその他の遠隔測定を受け取ることもできる。
 
-![lambda api concept](../../../../images/lambda-telemetry-api-concept.png "lambda api concept")
+![lambda api concept](https://github.com/hiromaily/documents/raw/main/images/lambda-telemetry-api-concept.png "lambda api concept")
 
 Lambda関数を作成する際には、利用可能なメモリ量や関数の最大実行時間などの設定情報を指定する。 Lambdaはこの情報を使って実行環境を設定する。
 
@@ -63,7 +63,7 @@ Lambda関数を作成する際には、利用可能なメモリ量や関数の�
 
 ### ラムダ実行環境のライフサイクル
 
-![lambda execution environment lifecycle](../../../../images/lambda-execution-env-lifecycle.png "lambda execution environment lifecycle")
+![lambda execution environment lifecycle](https://github.com/hiromaily/documents/raw/main/images/lambda-execution-env-lifecycle.png "lambda execution environment lifecycle")
 
 各フェーズは、Lambdaがランタイムと登録されているすべてのエクステンションに送信するイベントで始まる。 ランタイムと各拡張機能は、Next APIリクエストを送信することで完了を示す。 ランタイムと各拡張機能が完了し、保留中のイベントがなくなると、Lambdaは実行環境をフリーズする。
 

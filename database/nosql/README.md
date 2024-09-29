@@ -22,7 +22,7 @@ NoSQL データベースでは、さまざまなデータモデルを使用し�
 
 ## SQL と NoSQL の用語
 
-![nosql-terminology](../../images/nosql-terminology.png "nosql-terminology")
+![nosql-terminology](https://github.com/hiromaily/documents/raw/main/images/nosql-terminology.png "nosql-terminology")
 
 ## References
 

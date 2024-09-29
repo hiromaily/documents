@@ -20,7 +20,7 @@ LocalStackは、AWSのクラウドサービスをローカル環境で模倣す�
 1. **DockerのExtensionをインストール**
    LocalStackは、Dockerコンテナとして提供されている
 
-   ![docker localstack](../../../images/docker-localstack.png "docker localstack")
+   ![docker localstack](https://github.com/hiromaily/documents/raw/main/images/docker-localstack.png "docker localstack")
 
 2. **LocalStackのインストールと起動**:
 

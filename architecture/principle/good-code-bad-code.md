@@ -9,7 +9,7 @@
 - 低品質なコード
   - 信頼度が低く、メンテナンスしにくく、バグだらけ
 
-![code quality](../../images/goodcode-badcode/quality-of-code.png "code quality")
+![code quality](https://github.com/hiromaily/documents/raw/main/images/goodcode-badcode/quality-of-code.png "code quality")
 
 #### 高品質なコードが大事な理由
 

@@ -1,6 +1,6 @@
 # Database 比較
 
-![db-comparison](../images/db-comparison.webp "db-comparison")
+![db-comparison](https://github.com/hiromaily/documents/raw/main/images/db-comparison.webp "db-comparison")
 
 ## MySQL と PostgreSQL について
 

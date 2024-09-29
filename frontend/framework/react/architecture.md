@@ -39,19 +39,19 @@ import { Button } from '@components';
 
 コンポーネントと機能の分離
 
-![コンポーネントと機能の分離](../../../images/react-ui-business.webp "コンポーネントと機能の分離")
+![コンポーネントと機能の分離](https://github.com/hiromaily/documents/raw/main/images/react-ui-business.webp "コンポーネントと機能の分離")
 
 Page, Component, Hook の関係性
 
-![Page, Component, Hook の関係性](../../../images/react-ui-business2.webp "Page, Component, Hook の関係性")
+![Page, Component, Hook の関係性](https://github.com/hiromaily/documents/raw/main/images/react-ui-business2.webp "Page, Component, Hook の関係性")
 
 Hook からビジネス層に依存するパターン１:抽象への依存を DI で解決する
 
-![抽象への依存を DI で解決する](../../../images/react-ui-business3.webp "抽象への依存を DI で解決する")
+![抽象への依存を DI で解決する](https://github.com/hiromaily/documents/raw/main/images/react-ui-business3.webp "抽象への依存を DI で解決する")
 
 外部通信発生時のレイヤーの分離
 
-![外部通信発生時のレイヤーの分離](../../../images/front-end-layer.png "外部通信発生時のレイヤーの分離")
+![外部通信発生時のレイヤーの分離](https://github.com/hiromaily/documents/raw/main/images/front-end-layer.png "外部通信発生時のレイヤーの分離")
 
 ### ビジネスロジックに Testability を持たすためには
 

@@ -15,7 +15,7 @@ Reduxは、Flixアーキテクチャーに基づき`Action`と呼ばれるイベ
 
 ## Redux Data Flow
 
-![redux data flow](../../../../images/redux-basics-animation-1.gif 'redux data flow')
+![redux data flow](https://github.com/hiromaily/documents/raw/main/images/redux-basics-animation-1.gif 'redux data flow')
 
 ### 1. ユーザーインタラクションにより、Actionを作成
 

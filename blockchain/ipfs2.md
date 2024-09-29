@@ -53,7 +53,7 @@
 
 ## IPFSが使われているプロジェクト
 
-![ipfs-project](../images/IPFS.png "ipfs")
+![ipfs-project](https://github.com/hiromaily/documents/raw/main/images/IPFS.png "ipfs")
 
 - [エコシステム](https://ecosystem.ipfs.tech/)
 

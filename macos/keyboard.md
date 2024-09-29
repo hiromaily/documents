@@ -62,14 +62,14 @@
 
 - [Chrome のキーボード ショートカット](https://support.google.com/chrome/answer/157179?hl=ja&co=GENIE.Platform%3DDesktop)
 
-![mac chrome shortcut 1](../images/mac-chrome-shortcut01.png "mac chrome shortcut 1")
+![mac chrome shortcut 1](https://github.com/hiromaily/documents/raw/main/images/mac-chrome-shortcut01.png "mac chrome shortcut 1")
 
-![mac chrome shortcut 2](../images/mac-chrome-shortcut02.png "mac chrome shortcut 2")
+![mac chrome shortcut 2](https://github.com/hiromaily/documents/raw/main/images/mac-chrome-shortcut02.png "mac chrome shortcut 2")
 
-![mac chrome shortcut 3](../images/mac-chrome-shortcut03.png "mac chrome shortcut 3")
+![mac chrome shortcut 3](https://github.com/hiromaily/documents/raw/main/images/mac-chrome-shortcut03.png "mac chrome shortcut 3")
 
-![mac chrome shortcut 4](../images/mac-chrome-shortcut04.png "mac chrome shortcut 4")
+![mac chrome shortcut 4](https://github.com/hiromaily/documents/raw/main/images/mac-chrome-shortcut04.png "mac chrome shortcut 4")
 
-![mac chrome shortcut 5](../images/mac-chrome-shortcut05.png "mac chrome shortcut 5")
+![mac chrome shortcut 5](https://github.com/hiromaily/documents/raw/main/images/mac-chrome-shortcut05.png "mac chrome shortcut 5")
 
 ## VSCode

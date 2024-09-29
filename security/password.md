@@ -63,7 +63,7 @@
 - Pepperは`Secret Salt`とも言われ、ハッシュ値やSaltと別の場所に保存するが、一般的には、`HSM`(Hierarchical Storage Management)などの機密性を高めたストレージに保存することになる
 - Pepperは、ユーザー毎ではなく共通のケースが多い
 
-![store password](../images/pass-db-hash.png 'store password')
+![store password](https://github.com/hiromaily/documents/raw/main/images/pass-db-hash.png 'store password')
 
 ### Stretching
 

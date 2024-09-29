@@ -60,7 +60,7 @@ Route 内のリクエスト同時にデータを読み込むことによって�
 - Static Data: 頻繁に変化しないデータのこと。例えば、ブログ記事
 - Dynamic Data: 頻繁に変更されるデータのこと。例えばユーザー固有のショッピングデータなど
 
-![dynamic-and-static-data](../../../../images/nextjs-dynamic-and-static-data-fetching.png 'dynamic-and-static-data')
+![dynamic-and-static-data](https://github.com/hiromaily/documents/raw/main/images/nextjs-dynamic-and-static-data-fetching.png 'dynamic-and-static-data')
 
 - Default では、Next.js は自動的に`Static Fetch`を行う。つまり、データはビルド時に fetch され、cache され、リクエストごとに再利用される。開発者であれば、Static データをどのように cache し、再検証するかをコントロールできる。
 - [Static Data Fetching と Dynamic Data Fetching のデータ取得方法](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching#static-data-fetching)
@@ -192,7 +192,7 @@ export default function MyComponent() {}
 
 - [Caching Data 詳細](https://nextjs.org/docs/app/building-your-application/data-fetching/caching)
 
-![cache](../../../../images/nextjs-caching.png 'cache')
+![cache](https://github.com/hiromaily/documents/raw/main/images/nextjs-caching.png 'cache')
 
 - ここでいう Cache とは、データをある CDN に保存して、リクエストのたびに元のソースから再フェッチする必要がないようにするプロセスを指す
 - Next.js Cache は、グローバルに分散可能な永続的[HTTP キャッシュ](https://developer.mozilla.org/ja/docs/Web/HTTP/Caching)

@@ -4,7 +4,7 @@
 - レイヤードアーキテクチャーに見られるような、レイヤー間の望ましくない依存関係や UI コードの ビジネスロジックへの混入など、オブジェクト指向ソフトウェア設計における構造上の既知の問題を回避する試みとして発表された
 - `Hexagonal`という言葉は、アプリケーション・コンポーネントを六角形のセルのように見せる図式的な慣例に由来する
 
-![Hexagonal Architecture](../../images/Hexagonal-Architecture.svg.png "Hexagonal Architecture")
+![Hexagonal Architecture](https://github.com/hiromaily/documents/raw/main/images/Hexagonal-Architecture.svg.png "Hexagonal Architecture")
 
 ## Principle: 原理
 

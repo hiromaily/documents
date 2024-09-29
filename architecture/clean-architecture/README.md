@@ -3,7 +3,7 @@
 - [The Clean Architecture from The Clean Code Blog](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [The Clean Architecture 翻訳](https://blog.tai2.net/the_clean_architecture.html)
 
-![clean architecture](../../images/clean-architecture-origin.jpg "clean architecture")
+![clean architecture](https://github.com/hiromaily/documents/raw/main/images/clean-architecture-origin.jpg "clean architecture")
 
 `依存性のルール`として、`ソースコードは、内側に向かってのみ依存することができる`
 
@@ -62,21 +62,21 @@
 
 最上部の図の右下の図の「コントローラーからはじまり、ユースケースを抜けて、プレゼンターで実行される」という矛盾は `依存関係逆転の原則(Dependency Inversion Principle)` で解決される
 
-![dip](../images/dip.png "dip")
+![dip](https://github.com/hiromaily/documents/raw/main/images/dip.png "dip")
 
 ## 図解による依存関係の整理
 
 `Application Business Rules(UseCases)`レイヤー及び、`Interface Adapter` レイヤーは抽象に依存することで、`依存関係逆転の法則(DIP)`によって`依存性のルール`を満たす
 
-![依存関係の整理1](../../images/clean-architecture1.png "依存関係の整理2")
+![依存関係の整理1](https://github.com/hiromaily/documents/raw/main/images/clean-architecture1.png "依存関係の整理2")
 
 実際にコードを書くことによって見えたことだが、システムの Usecase 部となる Handler を持つ`WebFramework`だったり、`UI`は`依存関係逆転の法則(DIP)`によって`UseCases`の Interface に依存せずとも、直接`UseCases`に依存すればよいのではないか？つまり、GUI や CUI といった UI 部の数と Usecase は 1:1 である必要はなく、ただその UI 部のコンポーネントが存在するかどうかのみで、WebFramework や UI は変更せずとも追加可能であり、入力の数に制限はない(CUI も GUI も備えるシステムでもよい)。ただし、Usecase 部に渡ってくるデータを統一するための Interface は必要となる。
 
-![依存関係の整理2](../../images/clean-architecture2.png "依存関係の整理2")
+![依存関係の整理2](https://github.com/hiromaily/documents/raw/main/images/clean-architecture2.png "依存関係の整理2")
 
 Device には Adapter が必要なく、`依存関係逆転の法則(DIP)`によって UseCases に直接依存可能なケースも存在するはず。これは UseCases のためにデータの最適化が不要な場合がこれに該当する
 
-![依存関係の整理3](../../images/clean-architecture3.png "依存関係の整理3")
+![依存関係の整理3](https://github.com/hiromaily/documents/raw/main/images/clean-architecture3.png "依存関係の整理3")
 
 ## Clean Architecture と相性のいいデザインパターン
 

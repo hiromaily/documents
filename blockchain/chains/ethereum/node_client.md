@@ -11,7 +11,7 @@
 - `実行クライアント`（実行エンジン、EL クライアント(execution layer)、または旧 Eth1 クライアントとも呼ばれる）は、ネットワークでブロードキャストされた新しいトランザクションを聞き、EVM で実行し、最新の状態と現在のすべての Ethereum データのデータベースを保持する。
 - `コンセンサスクライアント`（ビーコン Node、CL クライアント(consensus layer)、旧 Eth2 クライアントとも呼ばれる）は、Proof-of-stake コンセンサスアルゴリズムを実装し、実行クライアントからの検証済みデータに基づいてネットワークの合意を達成することができる
 
-![client](../../images/eth1eth2client.png "client")
+![client](https://github.com/hiromaily/documents/raw/main/images/eth1eth2client.png "client")
 
 ## Spec References
 
@@ -128,7 +128,7 @@
 
 ## Node アーキテクチャー
 
-![node-architecture](../../images/node-architecture.png "node-architecture")
+![node-architecture](https://github.com/hiromaily/documents/raw/main/images/node-architecture.png "node-architecture")
 
 - この 2 つのクライアント構造が機能するためには、コンセンサスクライアントがトランザクションのバンドルを実行クライアントに渡すことができなければならない
 - ローカルでトランザクションを実行することで、クライアントはトランザクションが Ethereum の規則に違反していないこと、そして Ethereum の状態への更新が正しいことを検証する

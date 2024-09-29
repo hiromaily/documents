@@ -38,7 +38,7 @@
   - `app/page.tsx`が初期の中身となる
 - `/`にアクセスすることで、これらにアクセスできる
 
-![app direcotry](../../../../images/nextjs-app-directory.png 'app directory')
+![app direcotry](https://github.com/hiromaily/documents/raw/main/images/nextjs-app-directory.png 'app directory')
 
 ### [`app` Routing Conventions](https://nextjs.org/docs/getting-started/project-structure#app-routing-conventions)
 

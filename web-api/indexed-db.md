@@ -10,7 +10,7 @@
 - IndexedDB を扱う操作は非同期に実行する
 - 注意点として、プライベートブラウジングモードは、大半のデータストレージに対応していない
 
-![IndexedDB space](../../images/indexeddb-image.webp 'IndexedDB space')
+![IndexedDB space](https://github.com/hiromaily/documents/raw/main/images/indexeddb-image.webp 'IndexedDB space')
 
 ## 利用可能な容量について
 

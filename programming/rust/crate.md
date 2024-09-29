@@ -2,7 +2,7 @@
 
 パッケージ、モジュール、ライブラリを意味する。
 
-![rust package/crate](../images/rust-package-crate.png "rust package/crate")
+![rust package/crate](https://github.com/hiromaily/documents/raw/main/images/rust-package-crate.png "rust package/crate")
 
 ```rs
 # rand crate

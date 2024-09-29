@@ -2,7 +2,7 @@
 
 [ReadLater]
 
-![coding-principle](../images/coding-principle.webp "coding-principle")
+![coding-principle](https://github.com/hiromaily/documents/raw/main/images/coding-principle.webp "coding-principle")
 
 ## [EP97: 10 Good Coding Principles to Improve Code Quality](https://blog.bytebytego.com/p/ep97-10-good-coding-principles-to)
 

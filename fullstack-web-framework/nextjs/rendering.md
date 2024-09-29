@@ -22,7 +22,7 @@
   - これは、[Route Segment Config](https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config)によって設定することも可能
   - 詳細は、[Data Fetching](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching)
 
-![rendering pattern](../../../../images/nextjs-rendering-pattern.png 'rendering pattern')
+![rendering pattern](https://github.com/hiromaily/documents/raw/main/images/nextjs-rendering-pattern.png 'rendering pattern')
 
 ## Dynamic Functions
 

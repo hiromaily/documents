@@ -35,7 +35,7 @@ docker build -t mermade/openapi-gui .
 docker run --name openapi-gui -p 3000:3000 -d mermade/openapi-gui
 ```
 
-![openapi-gui](../images/openapi-gui.png "openapi-gui")
+![openapi-gui](https://github.com/hiromaily/documents/raw/main/images/openapi-gui.png "openapi-gui")
 
 ## DSL 等からの Spec 生成
 

@@ -8,7 +8,7 @@ Backends For Frontends（BFF）は、マイクロサービスベースのシス�
 
 SoundCloud の Phil Calcado によって初めて紹介された BFF パターンは、各クライアント・プラットフォームに合わせたカスタム・バックエンド・サービスの作成を提案している。これらのバックエンドサービスは、フロントエンドと基礎となるマイクロサービス間の仲介役として機能し、`各プラットフォームの特定の要件を満たすようにデータを集約し、変換する`。その結果、`フロントエンドの開発が簡素化され、パフォーマンスが向上し、保守性が向上する`。
 
-![bff](../../images/bff-architecture.png "bff")
+![bff](https://github.com/hiromaily/documents/raw/main/images/bff-architecture.png "bff")
 
 ## 仕組み
 
@@ -121,7 +121,7 @@ BFF は実際には API Gateway の一種。実際、両者は同じ機能を果
 
 コンポーザブル（Composable）とは、直訳すると「複数の要素や部品などを結合して、構成や組み立てが可能な」の意になる。従来からのモノシリックなシステムをコンポーネントに分割して組み換え（コンポジション）を容易にするとともに、コンポーネントごとの変更を通じて他システムへの影響を排除することで、安全かつ迅速、しかも効率的なシステムの見直しを可能とするアーキテクチャーのこと。`変化に強い`インフラ構築技術の 1 つ。
 
-![composable](../images/composable.jpg "composable")
+![composable](https://github.com/hiromaily/documents/raw/main/images/composable.jpg "composable")
 
 ## References
 

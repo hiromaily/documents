@@ -2,7 +2,7 @@
 
 RDBMS, NoSQL, NewSQL の比較
 
-![db-comparison](../images/db-comparison.webp "db-comparison")
+![db-comparison](https://github.com/hiromaily/documents/raw/main/images/db-comparison.webp "db-comparison")
 
 ## マスタデータとトランザクションデータ
 

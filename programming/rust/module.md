@@ -1,6 +1,6 @@
 # モジュール Module
 
-![rust package/crate](../images/rust-package-crate.png "rust package/crate")
+![rust package/crate](https://github.com/hiromaily/documents/raw/main/images/rust-package-crate.png "rust package/crate")
 
 ## モジュールの公開と非公開
 

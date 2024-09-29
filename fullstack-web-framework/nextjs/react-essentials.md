@@ -58,7 +58,7 @@ Next.js における Server Components は、パフォーマンスの向上、�
 - ページを小さなコンポーネントに分割してみると、大半のコンポーネントは`非インタラクティブ`で、Server Components としてサーバー上でレンダリングできることに気づくはず
 - 小さなインタラクティブな UI には、Client Components を使用する (これは、Next.js のサーバーファーストのアプローチに沿ったもの)
 
-![components comparison](../../../../images/nextjs-components.png 'components comparison')
+![components comparison](https://github.com/hiromaily/documents/raw/main/images/nextjs-components.png 'components comparison')
 
 ## [パターン](https://nextjs.org/docs/getting-started/react-essentials#patterns): 重要
 
