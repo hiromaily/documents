@@ -309,7 +309,7 @@ units of gas used * (base fee + priority fee)
 
 - ETH の Gas Cost を削減したい場合、トランザクションの優先レベルを示す tip を設定することができる
 - マイナーたちは、あなたが支払う tip を維持できるため、gas あたりの tip が高いトランザクションを優先して実行し、低い tip が設定されたトランザクションを実行しようとは思わなくなる
-- gas prices を監視して、ETH をより安く送れるようにしたい場合は、さまざまなツールを使うことができます。
+- gas prices を監視して、ETH をより安く送れるようにしたい場合は、さまざまなツールを使うことができる。
   - [Ethereum Gas Tracker](https://etherscan.io/gastracker)
   - [Chrome Extension: Blocknative Gas Fee Estimator for ETH & MATIC](https://chrome.google.com/webstore/detail/blocknative-gas-fee-estim/ablbagjepecncofimgjmdpnhnfjiecfm)
   - [Eth Gas Station](https://ethgasstation.info/)

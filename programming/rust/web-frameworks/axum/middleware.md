@@ -93,7 +93,7 @@ let app = Router::new()
     );
 ```
 
-`ServiceBuilder` は、すべてのレイヤーを、上から下へ流れるように 1 つにまとめることで動作する。 つまり、前のコードでは layer_one が最初にリクエストを受け取り、次に layer_two 、そして layer_three となります、 そしてハンドラーを経て、レスポンスは layer_three、layer_two、最後に layer_one とバブルアップしていく。
+`ServiceBuilder` は、すべてのレイヤーを、上から下へ流れるように 1 つにまとめることで動作する。 つまり、前のコードでは layer_one が最初にリクエストを受け取り、次に layer_two 、そして layer_three となる、 そしてハンドラーを経て、レスポンスは layer_three、layer_two、最後に layer_one とバブルアップしていく。
 
 ミドルウェアを上から下へ実行することは、一般的に理解しやすいため、`ServiceBuilder` が推奨される。
 

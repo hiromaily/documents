@@ -192,7 +192,7 @@ func ScaleAndPrint(p Point) {
 ```
 
 - 残念ながらこれはコンパイルできず、`r.String undefined (type []int32 has no field or method String)`といったエラーで失敗する
-- 問題は、Scale 関数が`[]E`型（E は引数 slice の要素型）の値を返すこと。 基礎型が`[]int32`である Point 型の値で Scale を呼ぶと、Point 型ではなく`[]int32型`の値を返す。 これは Generics コードの書き方からすれば当然ですが、我々が望むものとは異なっている。
+- 問題は、Scale 関数が`[]E`型（E は引数 slice の要素型）の値を返すこと。 基礎型が`[]int32`である Point 型の値で Scale を呼ぶと、Point 型ではなく`[]int32型`の値を返す。 これは Generics コードの書き方からすれば当然だが、我々が望むものとは異なっている。
 - これを解決するためには、Scale 関数を変更して、Slice 型に`Type parameters`を使用するようにする必要がある。
 
 ```go

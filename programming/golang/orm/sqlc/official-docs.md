@@ -54,7 +54,7 @@
   - sqlc.embed
     - 埋め込みを使用すると、既存のモデル構造体をより多くのクエリで再利用できるため、手作業によるシリアライズ作業が少なくなる
   - sqlc.narg
-    - sqlc.argと同じですが、常にパラメータをnull可能としてマークする
+    - sqlc.argと同じだが、常にパラメータをnull可能としてマークする
   - sqlc.slice
     - IN 演算子にスライスを渡すことをサポートしないドライバの場合、sqlc.slice マクロは実行時に正しい数のパラメータを持つ動的なクエリを生成する
 - [Query annotations](https://docs.sqlc.dev/en/stable/reference/query-annotations.html)

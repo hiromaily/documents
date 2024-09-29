@@ -3,7 +3,7 @@
 ## 開発手法
 
 1. **クロスプラットフォーム開発**
-   - **Flutter**: Googleが開発したUIツールキットで、1つのコードベースからiOSとAndroidの両方にネイティブアプリを構築できます。迅速な開発と美しいUIが特長。
+   - **Flutter**: Googleが開発したUIツールキットで、1つのコードベースからiOSとAndroidの両方にネイティブアプリを構築できる。迅速な開発と美しいUIが特長。
    - **React Native**: Facebookが開発したフレームワークで、JavaScriptを使用してネイティブアプリを構築する。大規模なエコシステムとプラグインが豊富であることが利点。
 
 2. **Kotlin Multiplatform Mobile (KMM)**

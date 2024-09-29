@@ -45,7 +45,7 @@ type MyEvent struct {
 // Lambda 関数のエントリポイント
 // 関数が呼び出されたときに実行されるロジック
 // - ctx context.Context: Lambda 関数呼び出しへのランタイム情報
-// - event *MyEvent: これは MyEvent をポイントする event という名前のパラメータです。Lambda 関数への入力を表す
+// - event *MyEvent: これは MyEvent をポイントする event という名前のパラメータ。Lambda 関数への入力を表す
 // - 戻り値
 //   - *string: Lambda 関数の結果を含む文字列へのポインタ
 //   - error:   エラータイプで、エラーがない場合は nil となり、何か問題が発生した場合は標準的なエラー情報 を含む

@@ -241,7 +241,7 @@ function Page(props) {
   return <PageLayout userLink={userLink} />;
 }
 
-// これで以下のようになります。
+// これで以下のようになる
 <Page user={user} avatarSize={avatarSize} />
 // ... Page コンポーネントは以下をレンダー ...
 <PageLayout userLink={...} />

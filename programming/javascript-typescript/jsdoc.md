@@ -6,7 +6,7 @@
 
 ```js
 /**
- * Helloを付与する関数です。
+ * Helloを付与する関数
  * @param {string} message メッセージ
  * @return {string} 加工された文字列
  */

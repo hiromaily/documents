@@ -100,7 +100,7 @@ import styled from "styled-components";
 export const StyledComponents = () => {
   return (
     <SContainer>
-      <STitle>styled componentsです</STitle>
+      <STitle>styled components</STitle>
       <SButton>ボタン</SButton>
     </SContainer>
   );
@@ -144,7 +144,7 @@ const SButton = styled.button`
 return (
   <>
     <div className="container">
-      <p className="title">Styled JSXです</p>
+      <p className="title">Styled JSX</p>
       <button className="button">ボタン</button>
     </div>
 
@@ -208,7 +208,7 @@ export const Emotion = () => {
 
   return (
     <div css={containerStyle}>
-      <p css={titleStyle}>Emotion です </p>
+      <p css={titleStyle}>Emotion</p>
       <SButton>ボタン</SButton>
     </div>
   );
@@ -238,7 +238,7 @@ const SButton = styled.button`
 ```tsx
 return (
   <div className="border border-gray-400 rounded-2xl p-2 m-2 flex justify-around items-center">
-    <p className="m-0 text-gray-400">Tailwind CSSです</p>
+    <p className="m-0 text-gray-400">Tailwind CSS</p>
     <button className="bg-gray-300 border-0 p-2 rounded-md hover:bg-gray-400 hover:text-white">
       ボタン
     </button>

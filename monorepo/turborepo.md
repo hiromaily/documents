@@ -685,7 +685,7 @@ turbo build
 #### turbo.json 設定の上書き
 
 CLI フラグの中には、`turbo.json` に同等のものがあり、それを上書きすることができる。
-グローバルな turbo を使えば、`turbo lint --output-logs=errors-only` でエラーだけを表示できます。
+グローバルな turbo を使えば、`turbo lint --output-logs=errors-only` でエラーだけを表示できる。
 
 (global な turbo 限定?)
 

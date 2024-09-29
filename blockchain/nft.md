@@ -53,12 +53,12 @@ interface ERC721 {
 }
 ```
 
-- `balanceOf`: 引数に指定したアドレスが所有している NFT の数を取得することができます
-- `ownerOf`: 引数に指定した NFT の tokenId の所有者のアドレスを取得することができます。
-- `safeTransferFrom`: 第 1 引数に NFT の所有者のアドレス、第 2 引数に NFT の譲渡先のアドレス、第 3 引数に NFT の tokenId を渡すことで第２引数に指定したアドレスへ NFT の所有権を移動させることができます。
-- `approve`: 引数に渡したアドレスに対して指定した NFT の tokenId の転送許可を与えることができます。
-- `setApprovalForAll`: 引数で渡した owner のアドレスが持つすべての NFT の転送権限を operator に与えることができます。
-- `getApproved`: 指定した tokenId に転送許可が与えられているアドレスを取得することができます。
+- `balanceOf`: 引数に指定したアドレスが所有している NFT の数を取得することができる
+- `ownerOf`: 引数に指定した NFT の tokenId の所有者のアドレスを取得することができる
+- `safeTransferFrom`: 第 1 引数に NFT の所有者のアドレス、第 2 引数に NFT の譲渡先のアドレス、第 3 引数に NFT の tokenId を渡すことで第２引数に指定したアドレスへ NFT の所有権を移動させることができる
+- `approve`: 引数に渡したアドレスに対して指定した NFT の tokenId の転送許可を与えることができる
+- `setApprovalForAll`: 引数で渡した owner のアドレスが持つすべての NFT の転送権限を operator に与えることができる
+- `getApproved`: 指定した tokenId に転送許可が与えられているアドレスを取得することができる
 - `isApprovedForAll`: owner が operator に転送許可を与えているかどうかを判定する。
 
 NFT を発行する mint 関数は ERC721 のサブクラスである`ERC721Mintable`で定義されている。これは、所有者のアドレスと tokenId を渡すことで NFT と所有者を紐づける

@@ -189,7 +189,7 @@ function App() {
 
 #### Bound Mutate
 
-- global mutate 関数と機能的に同等ですが、key パラメーターは必要ない
+- global mutate 関数と機能的に同等だが、key パラメーターは必要ない
 
 ```ts
 import useSWR from "swr";

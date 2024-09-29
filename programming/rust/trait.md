@@ -636,7 +636,7 @@ draw_text(&boxed_greeting);
 
 Trait オブジェクトは、Trait のセットを実装する別の型の不透明な値である。Trait のセットは、オブジェクト安全性を持つ `base trait` と任意の数の[auto traits](https://doc.rust-lang.org/reference/special-types-and-traits.html#auto-traits) から構成される。
 Trait オブジェクトは、`base trait`、その `auto trait`、および base trait の`supertraits` を実装する。
-Trait オブジェクトは、キーワード `dyn` に続いて Trait 境界のセットを記述するが、Trait 境界には以下の制限がある。最初の trait を除くすべての trait は `auto traits` でなければならず、複数の lifetime を指定することはできず、opt-out bounds（例えば?Sized）は許可されない。さらに、Trait へのパスは括弧で囲むことができます。
+Trait オブジェクトは、キーワード `dyn` に続いて Trait 境界のセットを記述するが、Trait 境界には以下の制限がある。最初の trait を除くすべての trait は `auto traits` でなければならず、複数の lifetime を指定することはできず、opt-out bounds（例えば?Sized）は許可されない。さらに、Trait へのパスは括弧で囲むことができない。
 
 ```rs
 // Traitオブジェクト
@@ -717,7 +717,7 @@ trait Person {
     fn name(&self) -> String;
 }
 
-// PersonはStudentのスーパートレイトです。
+// PersonはStudentのスーパートレイト
 // Studentを実装するにはPersonも実装する必要がある
 trait Student: Person {
     fn university(&self) -> String;

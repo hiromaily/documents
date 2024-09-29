@@ -17,7 +17,7 @@ goimports -w <filename-or-directory>
 
 ### gorename
 
-- `gorename`は Go コードのリネームツールで、安全にシンボルの名前を変更できます。
+- `gorename`は Go コードのリネームツールで、安全にシンボルの名前を変更できる。
 
 ```sh
 go install golang.org/x/tools/cmd/gorename@latest
@@ -26,7 +26,7 @@ gorename -from <import-path>.<oldname> -to <newname>
 
 ### godoc
 
-- `godoc`は Go コードのドキュメントサーバです。パッケージのドキュメントを生成してブラウザで閲覧できます。
+- `godoc`は Go コードのドキュメントサーバ。パッケージのドキュメントを生成してブラウザで閲覧できる。
 
 ```sh
 go install golang.org/x/tools/cmd/godoc@latest
@@ -67,7 +67,7 @@ go tool cover -html=coverage.out
 go install golang.org/x/tools/cmd/goimports@latest
 ```
 
-インストールが完了すると、以下のようにツールを使用できます。
+インストールが完了すると、以下のようにツールを使用できる。
 
 ```sh
 goimports -w .    # カレントディレクトリ以下のGoファイルをフォーマットし、インポートを整理

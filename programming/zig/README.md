@@ -69,7 +69,7 @@ fn add(x: i32, y: i32) i32 {
     return x + y;
 }
 
-const result = add(5, 3); // result は 8になります
+const result = add(5, 3); // result は 8になる
 ```
 
 ### 制御構文

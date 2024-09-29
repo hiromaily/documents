@@ -25,7 +25,7 @@ function LinkSample() {
     // /ssrへ遷移する
     router.push('/ssr')
 
-    // 文字列の代わりにオブジェクトで指定できます
+    // 文字列の代わりにオブジェクトで指定できる
     // /ssg?keyword=helloへ遷移する
     router.push({
       pathname: '/ssg',

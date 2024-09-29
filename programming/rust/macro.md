@@ -21,11 +21,11 @@
 ### `print!`, `println!`, `format!`
 
 - `format!`: フォーマットされたテキストを文字列(String)型に書き込む
-- `print!`: `format!` と同様ですが、コンソール (io::stdout) にそのテキストを出力する
-- `println!`: `print!` と同じですが改行が付け加えられる
+- `print!`: `format!` と同様だが、コンソール (io::stdout) にそのテキストを出力する
+- `println!`: `print!` と同じだが改行が付け加えられる
   - `std::println()`
-- `eprint!`: `format!` と同様ですが、標準エラー出力 (io::stderr) にそのテキストを出力する
-- `eprintln!`: `eprint!` と同じですが改行が付け加えられる
+- `eprint!`: `format!` と同様だが、標準エラー出力 (io::stderr) にそのテキストを出力する
+- `eprintln!`: `eprint!` と同じだが改行が付け加えられる
 
 ### `vec!`
 
