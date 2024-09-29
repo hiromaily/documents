@@ -19,7 +19,7 @@ Frontend
 
 マイクロサービスは、特定のタスクに特化した小さなアプリケーションである。これらは、より大きなソフトウェアシステム構成の一部として、容易に置き換えられ、独立して開発され、デプロイされる。マイクロサービスにより、マーケットプレイスはシステムの残りの部分を変更することなく、各ビジネス機能ごとに技術プロバイダーを選び出すことができる。
 
-![distributed vs headless](../images/distributed_arch_vs_headless_arch.png "distributed vs headless")
+![distributed vs headless](../../images/distributed_arch_vs_headless_arch.png "distributed vs headless")
 
 ## ChatGPT より
 

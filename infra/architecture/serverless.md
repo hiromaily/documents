@@ -1,5 +1,7 @@
 # Serverless Architecture
 
+[ReadLater]
+
 Serverless Architecture とは、開発者が基盤となるインフラを管理することなくサービスを構築・実行できるようにするソフトウェア設計のアプローチ。開発者はコードを書いてデプロイし、クラウド・プロバイダーはアプリケーション、データベース、ストレージ・システムを任意の規模で実行するためのサーバーを用意する。
 
 ## 仕組み
@@ -8,7 +10,7 @@ Serverless Architecture とは、開発者が基盤となるインフラを管�
 
 最も人気のあるサーバーレスアーキテクチャの 1 つは、`FaaS（Function as a Service）` で、開発者はアプリケーションコードを個別の関数セットとして記述する。各関数は、電子メールの着信や HTTP リクエストなどのイベントによってトリガーされると、特定のタスクを実行する。通常のテスト段階を経て、開発者はトリガーとともに関数をクラウド・プロバイダーのアカウントにデプロイする。関数が呼び出されると、クラウド・プロバイダーは実行中のサーバー上で関数を実行するか、現在実行中のサーバーがない場合は、関数を実行するために新しいサーバーを立ち上げる。この実行プロセスは、アプリケーションコードの記述とデプロイに集中する開発者の視界から抽象化される。
 
-![serverless](../images/serverless-functions.avif "severless")
+![serverless](../../images/serverless-functions.avif "severless")
 
 ## 利用されているクラウドサービス
 
@@ -110,7 +112,7 @@ Amazon API Gateway とサーバーレス機能を活用することで、需要�
 
 ほとんどの開発者は段階的にサーバーレスに移行し、アプリケーションの一部を徐々にサーバーレスに移行させ、残りは従来のサーバーに残す。サーバーレスアーキテクチャは簡単に拡張できるため、機会があればいつでも機能を追加できる。
 
-![serverless use case](../images/serverless-architecture-use-case.avif "severless use case")
+![serverless use case](../../images/serverless-architecture-use-case.avif "severless use case")
 
 ## References
 
