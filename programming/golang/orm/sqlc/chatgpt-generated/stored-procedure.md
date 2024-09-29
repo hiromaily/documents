@@ -126,7 +126,7 @@ func main() {
     q := db.New(dbConn)
     ctx := context.TODO()
 
-    // ユーザーのメールアドレスを更新するためにストアドプロシージャを呼び出します。
+    // ユーザーのメールアドレスを更新するためにストアドプロシージャを呼び出す。
     updateParams := db.UpdateUserEmailParams{
         UserID:   1,
         NewEmail: "new.email@example.com",

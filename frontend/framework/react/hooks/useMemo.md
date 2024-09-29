@@ -47,7 +47,7 @@ const UseMemoSample = () => {
   // numberOfCharacters2はuseMemoを使い、itemsが更新されるタイミングでitems.reduceを実行して結果を得る
   const numberOfCharacters2 = useMemo(() => {
     return items.reduce((sub, item) => sub + item.length, 0);
-    // 第2引数の配列の中にitemsがあるので、itemsが新しくなった時だけ関数を実行してメモを更新します
+    // 第2引数の配列の中にitemsがあるので、itemsが新しくなった時だけ関数を実行してメモを更新する
   }, [items]);
 
   return (

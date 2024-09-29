@@ -59,7 +59,7 @@ interface ERC721 {
 - `approve`: 引数に渡したアドレスに対して指定した NFT の tokenId の転送許可を与えることができます。
 - `setApprovalForAll`: 引数で渡した owner のアドレスが持つすべての NFT の転送権限を operator に与えることができます。
 - `getApproved`: 指定した tokenId に転送許可が与えられているアドレスを取得することができます。
-- `isApprovedForAll`: owner が operator に転送許可を与えているかどうかを判定します。
+- `isApprovedForAll`: owner が operator に転送許可を与えているかどうかを判定する。
 
 NFT を発行する mint 関数は ERC721 のサブクラスである`ERC721Mintable`で定義されている。これは、所有者のアドレスと tokenId を渡すことで NFT と所有者を紐づける
 

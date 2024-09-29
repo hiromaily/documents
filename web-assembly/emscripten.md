@@ -6,18 +6,18 @@ Emscriptenは、LLVMを基盤としたコンパイラテクノロジーで、C�
 
 ## Emscriptenの特徴と利点
 
-- **クロスプラットフォーム**: Emscriptenを使用することで、既存のC/C++コードベースを変更することなく、ブラウザで動作させることが可能です。
-- **高速**: LLVMを使用して最適化されているため、生成されたWASMやasm.jsコードは高速に実行されます。
-- **ブラウザ互換性**: Emscriptenが生成するコードは、主要なモダンブラウザで動作します。
-- **JavaScriptインターオペラビリティ**: EmscriptenはJavaScriptとの相互運用性が高く、JavaScriptからC/C++コードを呼び出したり、その逆も可能です。
+- **クロスプラットフォーム**: Emscriptenを使用することで、既存のC/C++コードベースを変更することなく、ブラウザで動作させることが可能。
+- **高速**: LLVMを使用して最適化されているため、生成されたWASMやasm.jsコードは高速に実行される。
+- **ブラウザ互換性**: Emscriptenが生成するコードは、主要なモダンブラウザで動作する。
+- **JavaScriptインターオペラビリティ**: EmscriptenはJavaScriptとの相互運用性が高く、JavaScriptからC/C++コードを呼び出したり、その逆も可能。
 
 ## Emscripten SDK (emsdk)
 
-Emscripten SDK（通称emsdk）は、Emscriptenツールチェーンを簡単にダウンロード、インストール、構成するためのものです。
+Emscripten SDK（通称emsdk）は、Emscriptenツールチェーンを簡単にダウンロード、インストール、構成するためのもの。
 
 ## インストールとセットアップ
 
-以下に、Emscripten SDKを使った基本的なセットアップ手順を示します。
+以下に、Emscripten SDKを使った基本的なセットアップ手順を示す。
 
 1. **emsdkのインストール**
 
@@ -33,7 +33,7 @@ Emscripten SDK（通称emsdk）は、Emscriptenツールチェーンを簡単に
     source ./emsdk_env.sh
     ```
 
-    `source ./emsdk_env.sh`を毎回シェルを開く度に実行する必要があります。これを自動化するために、`~/.bashrc`や`~/.zshrc`などのシェル設定ファイルに追加できます。
+    `source ./emsdk_env.sh`を毎回シェルを開く度に実行する必要がある。これを自動化するために、`~/.bashrc`や`~/.zshrc`などのシェル設定ファイルに追加できる。
 
     ```sh
     echo 'source /path/to/emsdk/emsdk_env.sh' >> ~/.bashrc
@@ -41,13 +41,13 @@ Emscripten SDK（通称emsdk）は、Emscriptenツールチェーンを簡単に
 
 2. **確認**
 
-    正しくインストールされていることを確認するには、以下のコマンドを実行します。
+    正しくインストールされていることを確認するには、以下のコマンドを実行する。
 
     ```sh
     emcc --version
     ```
 
-    このコマンドがEmscriptenのバージョン情報を表示すれば、インストールは成功しています。
+    このコマンドがEmscriptenのバージョン情報を表示すれば、インストールは成功している。
 
 ## 基本的な使用例
 

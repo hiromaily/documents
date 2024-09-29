@@ -22,11 +22,11 @@ function LinkSample() {
   const router = useRouter()
 
   const onSubmit = () => {
-    // /ssrへ遷移します
+    // /ssrへ遷移する
     router.push('/ssr')
 
     // 文字列の代わりにオブジェクトで指定できます
-    // /ssg?keyword=helloへ遷移します
+    // /ssg?keyword=helloへ遷移する
     router.push({
       pathname: '/ssg',
       query: { keyword: 'hello' },
@@ -42,12 +42,12 @@ function LinkSample() {
   }
 
   useEffect(() => {
-    // 遷移開始時のイベントを購読します
+    // 遷移開始時のイベントをsubscribeする
     router.events.on('routeChangeStart', (url, { shallow }) => {
       console.log('routeChangeStart', url)
     })
 
-    // 遷移完了時のイベントを購読します
+    // 遷移完了時のイベントをsubscribeする
     router.events.on('routeChangeComplete', (url, { shallow }) => {
       console.log('routeChangeComplete', url)
     })
@@ -74,7 +74,7 @@ function LinkSample() {
       </Link>
       
       <Link href="/ssg">
-        {/* aの代わりにbuttonを使うと、onClickが呼ばれたタイミングで遷移します */}
+        {/* aの代わりにbuttonを使うと、onClickが呼ばれたタイミングで遷移する */}
         <button>Jump to SSG page</button>
       </Link>
       <button onClick={onSubmit}>Submit</button>

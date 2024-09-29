@@ -117,7 +117,7 @@ sqlcはSQLクエリに関する自動生成されたドキュメントを提供�
 
 ```sql
 -- name: GetUserByEmail :one
--- @desc: このクエリは、指定されたメールアドレスでユーザーを検索します。
+-- @desc: このクエリは、指定されたメールアドレスでユーザーを検索する。
 SELECT id, name, email
 FROM users
 WHERE email = $1;
@@ -155,7 +155,7 @@ sqlcはクエリに関するメタデータも管理している。このメタ�
 
 ```sql
 -- name: GetUserStats :one
--- @desc: このクエリは、ユーザーの統計情報を取得します。
+-- @desc: このクエリは、ユーザーの統計情報を取得する。
 SELECT COUNT(*)
 FROM users;
 ```

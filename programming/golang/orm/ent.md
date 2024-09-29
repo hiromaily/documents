@@ -5,7 +5,7 @@ Entは、Facebookによって開発されたGo言語用のEntity Framework（ORM
 ## Entの基本的な特徴
 
 1. **スキーマの定義**
-   - スキーマはGoの構造体で定義され、専用のDSL（Domain Specific Language）を用いて属性やリレーションを記述します。
+   - スキーマはGoの構造体で定義され、専用のDSL（Domain Specific Language）を用いて属性やリレーションを記述する。
 
    ```go
    type User struct {
@@ -29,14 +29,14 @@ Entは、Facebookによって開発されたGo言語用のEntity Framework（ORM
    ```
 
 2. **コードの自動生成**
-   - 定義したスキーマに基づいて、型安全なクエリビルダーやクライアントコードを自動生成します。
+   - 定義したスキーマに基づいて、型安全なクエリビルダーやクライアントコードを自動生成する。
 
    ```sh
    entc generate ./schema
    ```
 
 3. **クエリの作成**
-   - 自動生成されたクエリビルダーを用いてクエリを作成します。
+   - 自動生成されたクエリビルダーを用いてクエリを作成する。
 
    ```go
    client.User.

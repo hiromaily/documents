@@ -8,7 +8,7 @@
 
 ### goimports
 
-- `goimports`は`go fmt`と似ていますが、インポート文も自動的に整理します。使用されていないインポートを削除し、必要なインポートを追加します。
+- `goimports`は`go fmt`と似ていますが、インポート文も自動的に整理する。使用されていないインポートを削除し、必要なインポートを追加する。
 
 ```sh
 go install golang.org/x/tools/cmd/goimports@latest
@@ -35,7 +35,7 @@ godoc -http=:6060
 
 ### stringer
 
-- `stringer`は、Go `Stringer`インターフェースの実装を自動生成するツールです。
+- `stringer`は、Go `Stringer`インターフェースの実装を自動生成するツール。
 
 ```sh
 go install golang.org/x/tools/cmd/stringer@latest
@@ -44,7 +44,7 @@ stringer -type=<TypeName>
 
 ### benchcmp
 
-- `benchcmp`は、ベンチマークの結果を比較するためのツールです。
+- `benchcmp`は、ベンチマークの結果を比較するためのツール。
 
 ```sh
 go install golang.org/x/tools/cmd/benchcmp@latest
@@ -53,7 +53,7 @@ benchcmp old.txt new.txt
 
 ### cover
 
-- `cover`は、テストカバレッジの分析をサポートするツールです。
+- `cover`は、テストカバレッジの分析をサポートするツール。
 
 ```sh
 go test -coverprofile=coverage.out

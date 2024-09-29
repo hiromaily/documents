@@ -36,8 +36,8 @@ trim_trailing_whitespace = false
 - `root`: これはオプションで、設定を検索する際のルートディレクトリを指定。
 - `indent_style`: インデントスタイルを指定（`space`または`tab`）。
 - `indent_size`: インデントの幅を指定。
-- `charset`: 文字エンコーディングを指定します（例：`utf-8`）。
-- `end_of_line`: 改行コードを指定します（`lf`、`cr`、`crlf`）。
+- `charset`: 文字エンコーディングを指定する（例：`utf-8`）。
+- `end_of_line`: 改行コードを指定する（`lf`、`cr`、`crlf`）。
 - `insert_final_newline`: ファイルの最後に必ず改行を挿入するかどうかを指定。
 - `trim_trailing_whitespace`: 行末の空白を自動的に削除するかどうかを指定。
 

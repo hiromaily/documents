@@ -37,7 +37,7 @@ overrides:
 - `overrides`: 型のオーバーライドを定義。
   - `db_type`: データベースのカラムタイプ。ここでは例として`text`、`uuid`、`jsonb`を指定しています。
   - `go_import`: カスタムタイプをインポートする際に必要なGoパッケージを指定（オプション）。
-  - `go_type`: オーバーライドするカスタムのGoタイプ。パッケージパスも含めて指定します。
+  - `go_type`: オーバーライドするカスタムのGoタイプ。パッケージパスも含めて指定する。
 
 例えば、PostgreSQLの`uuid`タイプのカラムを`google/uuid.UUID`型にマッピングしたい場合、設定ファイルに次のように記述できる
 
@@ -60,7 +60,7 @@ package customtypes
 type UserEmail string
 ```
 
-そして、設定ファイルで以下のように定義します：
+そして、設定ファイルで以下のように定義する：
 
 ```yaml
 overrides:

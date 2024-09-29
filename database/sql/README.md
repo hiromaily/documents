@@ -19,22 +19,22 @@ Please note that some of these tips might not be relevant for all RDBMs. For exa
 
 ### 2.Useful features
 
-5. [You can use the `::` operator to cast the data type of a value](#you-can-use-the--operator-to-cast-the-data-type-of-a-value)
-6. [Anti-joins are your friend](#anti-joins-are-your-friend)
-7. [Use `QUALIFY` to filter window functions](#use-qualify-to-filter-window-functions)
-8. [You can (but shouldn't always) `GROUP BY` column position](#you-can-but-shouldnt-always-group-by-column-position)
-9. [Use `EXCLUDE` to... exclude columns](#use-exclude-to-exclude-columns)
-10. [You can create a grand total with `GROUP BY ROLLUP`](#you-can-create-a-grand-total-with-group-by-rollup)
+1. [You can use the `::` operator to cast the data type of a value](#you-can-use-the--operator-to-cast-the-data-type-of-a-value)
+2. [Anti-joins are your friend](#anti-joins-are-your-friend)
+3. [Use `QUALIFY` to filter window functions](#use-qualify-to-filter-window-functions)
+4. [You can (but shouldn't always) `GROUP BY` column position](#you-can-but-shouldnt-always-group-by-column-position)
+5. [Use `EXCLUDE` to... exclude columns](#use-exclude-to-exclude-columns)
+6. [You can create a grand total with `GROUP BY ROLLUP`](#you-can-create-a-grand-total-with-group-by-rollup)
 
 ### 3.Avoid pitfalls
 
-11. [Be aware of how `NOT IN` behaves with `NULL` values](#be-aware-of-how-not-in-behaves-with-null-values)
-12. [Rename calculated fields to avoid ambiguity](#rename-calculated-fields-to-avoiding-ambiguity)
-13. [Always specify which column belongs to which table](#always-specify-which-column-belongs-to-which-table)
-14. [Understand the order of execution](#understand-the-order-of-execution)
-15. [Comment your code!](#comment-your-code)
-16. [Read the documentation (in full)](#read-the-documentation-in-full)
-17. [Use descriptive names for your saved queries](#use-descriptive-names-for-your-saved-queries)
+1. [Be aware of how `NOT IN` behaves with `NULL` values](#be-aware-of-how-not-in-behaves-with-null-values)
+2. [Rename calculated fields to avoid ambiguity](#rename-calculated-fields-to-avoiding-ambiguity)
+3. [Always specify which column belongs to which table](#always-specify-which-column-belongs-to-which-table)
+4. [Understand the order of execution](#understand-the-order-of-execution)
+5. [Comment your code!](#comment-your-code)
+6. [Read the documentation (in full)](#read-the-documentation-in-full)
+7. [Use descriptive names for your saved queries](#use-descriptive-names-for-your-saved-queries)
 
 ## Formatting/readability
 

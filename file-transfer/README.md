@@ -3,7 +3,7 @@
 ## プロトコル
 
 1. **SCP (Secure Copy Protocol)**:
-   - SSHを利用して安全にファイルを転送します。コマンドラインを使うことが多い。
+   - SSHを利用して安全にファイルを転送する。コマンドラインを使うことが多い。
    - よく利用される
 
 2. **SFTP (SSH File Transfer Protocol)**:

@@ -96,13 +96,13 @@ tsoaはTypeScriptを使用して`Express`や`Koa`のルーティングとAPIド�
 ### tsoaの主な機能
 
 1. **自動ルーティング**：
-   - TypeScriptのデコレータを使用してAPIエンドポイントを定義し、自動的にルーティングを生成します。
+   - TypeScriptのデコレータを使用してAPIエンドポイントを定義し、自動的にルーティングを生成する。
 
 2. **OpenAPI Specificationの生成**：
-   - APIの定義から自動的にOpenAPI Specificationを生成し、Swagger UIなどでドキュメントを表示できます。
+   - APIの定義から自動的にOpenAPI Specificationを生成し、Swagger UIなどでドキュメントを表示できる。
 
 3. **型安全なコード**：
-   - TypeScriptの強力な型安全性を活用して、APIエンドポイントの定義とバリデーションを行います。
+   - TypeScriptの強力な型安全性を活用して、APIエンドポイントの定義とバリデーションを行う。
 
 ### コントローラーの作成例
 

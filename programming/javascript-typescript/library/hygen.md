@@ -35,7 +35,7 @@ Hygenを使用すると、テンプレート化されたコード生成で反復
    `_templates/component/new/index.js.ejs` のようなテンプレートファイルに、生成するコードの雛形を書きます。このファイル内では、EJS（Embedded JavaScript）テンプレートエンジンを使用して動的な内容を埋め込むことができる。
 
 4. **コードの生成**:
-   コマンドラインから以下のようにしてコード生成を実行します。
+   コマンドラインから以下のようにしてコード生成を実行する。
 
    ```sh
    hygen component new --name MyComponent

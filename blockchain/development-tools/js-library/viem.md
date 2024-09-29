@@ -13,7 +13,7 @@ wagmiのdevチームが開発しているEthereum用の TypeScript Interface モ
 - JSON-RPC API の抽象化により作業が容易になる
 - コントラクトと対話するためのファーストクラス API
 - Ethereumの公式用語に厳密に準拠した言語
-- ブラウザ拡張機能、WalletConnect、またはPrivate key ウォレットをインポートします
+- ブラウザ拡張機能、WalletConnect、またはPrivate key ウォレットをインポートする
 - 大規模な BigNumber ライブラリではなく、ブラウザ ネイティブの BigInt
 - ABI を操作するためのユーティリティ (エンコード/デコード/検査)
 - TypeScript 対応 (ABI および EIP-712 型付きデータから型を推測)

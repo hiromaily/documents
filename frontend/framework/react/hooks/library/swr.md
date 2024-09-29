@@ -98,7 +98,7 @@ useSWR("/api/todos", fetcher, { refreshInterval: 1000 });
 - `refreshWhenHidden` (default: false)
   - ウィンドウが非表示の場合にポーリングする（refreshInterval が有効になっているときのみ）
 - `refreshWhenOffline` (default: false)
-  - ブラウザがオフラインのときにポーリングします（navigator.onLine によって決定される）
+  - ブラウザがオフラインのときにポーリングする（navigator.onLine によって決定される）
 
 ### この機能を無効化するには？
 
