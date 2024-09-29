@@ -45,7 +45,7 @@ await endpoint.methods
 1. 実行したい Contract のアドレスを etherscan などで探す
 2. function の signature を使って function selector を抽出する
 
-- `defaultAdapterParams(uint16,uint16)` の場合, [keccak-256 で hash 化できるサイト](https://emn178.github.io/online-tools/keccak_256.html)などで、signature を hash 化し、出力された hash 値から 8 バイト取得し、それに 0x をつけて、`0x2a819bbf`といった文字列を作成する
+   - `defaultAdapterParams(uint16,uint16)` の場合, [keccak-256 で hash 化できるサイト](https://emn178.github.io/online-tools/keccak_256.html)などで、signature を hash 化し、出力された hash 値から 8 バイト取得し、それに 0x をつけて、`0x2a819bbf`といった文字列を作成する
 
 3. function のパラメータの値をそれぞれ 16 進数化する
 4. curl で以下のようなコマンドを実行する

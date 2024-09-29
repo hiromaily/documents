@@ -6,7 +6,7 @@
 - 慣習的に`use`から始まる名前にする
 - 同じカスタムフックを使っても state は別々
 
-### Example
+## Example
 
 ```tsx
 import React, { useState, useCallback, useDebugValue } from "react";

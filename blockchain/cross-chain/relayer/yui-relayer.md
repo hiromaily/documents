@@ -43,7 +43,7 @@ Tendermint向けChainについては、yui-relayer側の[code](https://github.co
 
 - [test-tx](https://github.com/hyperledger-labs/yui-relayer/blob/main/tests/cases/tm2tm/scripts/test-tx)
 
-```
+```sh
 # transfer tx
 ${RLY} tx transfer ibc01 ibc0 ibc1 100samoleans ${TM_ADDRESS1}
 # relay packet
@@ -73,9 +73,9 @@ func main() {
 
 ## relayer の config ファイルについて
 
-### fabric sample
+### fabric sample 1
 
-```
+```json
 {
   "chain": {
     "@type": "/relayer.chains.fabric.config.ChainConfig",
@@ -102,7 +102,7 @@ func main() {
 
 ### tendermint sample
 
-```
+```json
 {
   "chain": {
     "@type": "/relayer.chains.tendermint.config.ChainConfig",
@@ -120,9 +120,9 @@ func main() {
 }
 ```
 
-### fabric sample
+### fabric sample 2
 
-```
+```json
 {
   "chain": {
     "@type": "/relayer.chains.fabric.config.ChainConfig",
@@ -149,7 +149,7 @@ func main() {
 
 ### ethereum sample
 
-```
+```json
 {
   "chain": {
     "@type": "/relayer.chains.ethereum.config.ChainConfig",

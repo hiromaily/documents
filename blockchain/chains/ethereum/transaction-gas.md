@@ -45,15 +45,15 @@
 
 - トランザクションオブジェクト例
 
-```
+```json
 {
-  from: "0xEA674fdDe714fd979de3EdF0F56AA9716B898ec8",
-  to: "0xac03bb73b6a9e108530aff4df5077c2b3d481e5a",
-  gasLimit: "21000",
-  maxFeePerGas: "300",
-  maxPriorityFeePerGas: "10",
-  nonce: "0",
-  value: "10000000000"
+  "from": "0xEA674fdDe714fd979de3EdF0F56AA9716B898ec8",
+  "to": "0xac03bb73b6a9e108530aff4df5077c2b3d481e5a",
+  "gasLimit": "21000",
+  "maxFeePerGas": "300",
+  "maxPriorityFeePerGas": "10",
+  "nonce": "0",
+  "value": "10000000000"
 }
 ```
 
@@ -62,7 +62,7 @@ Geth のような Ethereum クライアントがこの署名プロセスを処�
 
 - JSON-RPC による`account_signTransaction` call の例
 
-```
+```json
 // Request
 {
   "id": 2,
@@ -121,14 +121,14 @@ Geth のような Ethereum クライアントがこの署名プロセスを処�
 - `関数セレクタ`は 0xa9059cbb だが、このシグネチャを持つ既知の関数がいくつかある。 この場合、コントラクトのソースコードが Etherscan にアップロードされているので、関数は transfer(address,uint256)であることがわかっている
 - 残りのデータ
 
-```
-0000000000000000000000004f6742badb049791cd9a37ea913f2bac38d01279
-000000000000000000000000000000000000000000000000000000003b0559f4
-```
+  ```text
+  0000000000000000000000004f6742badb049791cd9a37ea913f2bac38d01279
+  000000000000000000000000000000000000000000000000000000003b0559f4
+  ```
 
-    - ABIの仕様によると、整数値（アドレスなど、20バイトの整数）は、`32バイト`のワードとして現れ、前面にゼロがパディングされる
-    - つまり、`to`アドレス は`4f6742badb049791cd9a37ea913f2bac38d01279`とわかる
-    - その値は0x3b0559f4=990206452である。
+  - ABIの仕様によると、整数値（アドレスなど、20バイトの整数）は、`32バイト`のワードとして現れ、前面にゼロがパディングされる
+  - つまり、`to`アドレス は`4f6742badb049791cd9a37ea913f2bac38d01279`とわかる
+  - その値は0x3b0559f4=990206452である。
 
 ### トランザクションの Type
 
@@ -145,7 +145,7 @@ Geth のような Ethereum クライアントがこの署名プロセスを処�
 - 単純な Transfer トランザクションには`21000`ユニットのガスが必要
 - つまり、ボブがアリスに`1ETH`を`baseFeePerGas:190gwei`、`maxPriorityFeePerGas:10gwei`で送るには、ボブは以下の手数料を自分のアカウントから支払う必要がある。
 
-```
+```text
 // (baseFeePerGas + maxPriorityFeePerGas) * GasLimit
 (190 + 10) * 21000 = 4,200,000 gwei (0.0042 ETH)
 // 0.0042というfeeの内訳は以下の通り
@@ -162,7 +162,7 @@ Geth のような Ethereum クライアントがこの署名プロセスを処�
 - Ethereum はもともと、トランザクションのフォーマットが 1 つだった
 - 各トランザクションには、`nonce, gas price, gas limit, to address, value, data, v, r, s` が含まれており、これらのフィールドは`RLPエンコード`され、以下のような形になっている
 
-```
+```text
 RLP([nonce、gasPrice、gasLimit、to、value、data、v、r、s])
 ```
 
@@ -172,7 +172,7 @@ RLP([nonce、gasPrice、gasLimit、to、value、data、v、r、s])
   - `EIP-2718`は、型付けされたトランザクションのための新しい一般化されたエンベロープである
   - 新しい規格では、トランザクションは次のように解釈される
 
-```
+```text
 TransactionType || TransactionPayload
 // TransactionType: 0から0x7fまでの数字で、合計128のトランザクションタイプが可能
 // TransactionPayload: トランザクションの種類によって定義される任意のバイト配列
@@ -200,7 +200,7 @@ Gas とは、Ethereum 上でトランザクションを正常に行うために�
 例えば、アリスがボブに 1ETH を支払う場合、このトランザクションでは、`gas limit`は`21,000`で、`gas price`は 200gwei となる  
 このとき、手数料の合計は、
 
-```
+```text
 Gas units (limit) * Gas price per unit
 => 21,000 * 200 = 4,200,000 gwei (0.0042 ETH)
 ```
@@ -213,7 +213,7 @@ Ethereum ネットワークのトランザクション fee の計算方法が変
 例えば、Jordan が Taylor に 1ETH を支払う場合、このトランザクションでは、`gas limit`は`21,000`で、`base fee`は 10gwei となり、Jordan はこれに、2gwei の`priority fee`を含んでいる  
 このとき、手数料の合計は、
 
-```
+```text
 // base fee: protocolによって設定されるvalue
 // priority fee: ユーザーによって設定されるvalueで、validatorへのtipとなる
 units of gas used * (base fee + priority fee)

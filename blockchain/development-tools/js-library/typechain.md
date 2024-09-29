@@ -4,13 +4,13 @@
 
 ## Install
 
-```
+```sh
 npm install --save-dev typechain
 ```
 
 ## Generate
 
-```
+```sh
 #e.g.
 #typechain --target=(ethers-v5|ethers-v6|truffle-v4|truffle-v5|web3-v1|path-to-custom-target) [glob]
 
@@ -99,7 +99,7 @@ echo "TS File generation completed."
 
 [Typechain issue: Feature request: add support for viem](https://github.com/dethcrypto/TypeChain/issues/844)
 
-```
+```text
 With viem, there is no longer a need for TypeChain. Smart contract interactions are typed using abi-type. Users simply need to store ABI in TypeScript files and declared as const.
 ```
 

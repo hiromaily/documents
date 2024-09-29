@@ -6,7 +6,7 @@
 
 ## [Vanila JS](https://www.patterns.dev/vanilla)
 
-### Design Patterns
+### Vanila JS: Design Patterns
 
 - Command Pattern
 - Factory Pattern
@@ -42,7 +42,7 @@
 
 ## [React](https://www.patterns.dev/react)
 
-### Design Patterns
+### React: Design Patterns
 
 - Compound Pattern (複合パターン)
   - Application は互いに関連し合うコンポーネントをもつが、それらは共有された状態を通じて互いに依存し合い、ロジックを共有する

@@ -110,7 +110,7 @@ Go パッケージは UNIX 哲学の精神を体現していると思います�
 
 このアドバイスは、21 年後に書かれた言語にどのように適用されますか？
 
-```
+```go
 package main
 
 type A struct {
@@ -145,7 +145,7 @@ func main() {
 
 したがって、埋め込みは、Go のタイプを拡張用に開くことができる強力なツールです。
 
-```
+```go
 package main
 
 type Cat struct {
@@ -184,7 +184,7 @@ func main() {
 
 実際、Go のメソッドは、事前に宣言された仮パラメーター、つまりレシーバーを持つ関数の周りの`syntactic sugar(構文糖衣)`にすぎません。
 
-```
+```go
 func (c Cat) PrintLegs() {
     fmt.Printf("I have %d legs\n", c.Legs())
 }
@@ -212,7 +212,7 @@ Go では、インターフェースは明示的にではなく暗黙的に満�
 
 ### io.Reader
 
-```
+```go
 type Reader interface {
     // Read reads up to len(buf) bytes into buf.
     Read(buf []byte) (n int, err error)
@@ -241,7 +241,7 @@ type Reader interface {
 
 Go では、インターフェイス分離の原則の適用は、関数がその仕事をするために必要な動作を分離するプロセスを参照できます。 具体的な例として、ドキュメント構造をディスクに永続化する関数を作成するタスクが与えられたとします。
 
-```
+```go
 // Save writes the contents of doc to the file f.
 func Save(f *os.File, doc *Document) error
 ```
@@ -256,7 +256,7 @@ func Save(f *os.File, doc *Document) error
 
 これらの問題について何ができるでしょうか。
 
-```
+```go
 // Save writes the contents of doc to the supplied ReadWriterCloser.
 func Save(rwc io.ReadWriteCloser, doc *Document) error
 ```
@@ -269,7 +269,7 @@ Save の作成者として、`io.ReadWriteCloser`インターフェイスの背�
 
 まず、Save が単一責任の原則に従っている場合、書き込んだばかりのファイルを読み取ってその内容を確認する可能性はほとんどありません。これは、別のコードの責任である必要があります。 したがって、Save に渡すインターフェイスの仕様を、書き込みと終了だけに絞り込むことができます。
 
-```
+```go
 // Save writes the contents of doc to the supplied WriteCloser.
 func Save(wc io.WriteCloser, doc *Document) error
 ```
@@ -278,7 +278,7 @@ func Save(wc io.WriteCloser, doc *Document) error
 
 これは、ドキュメントの書き込み後にストリームに追加のデータを書き込みたい場合があるため、Save の呼び出し元に問題を提示します。
 
-```
+```go
 type NopCloser struct {
         io.Writer
 }
@@ -291,7 +291,7 @@ func (c *NopCloser) Close() error { return nil }
 
 しかし、NopCloser は実際には何も閉じないため、これはおそらくリスコフの置換原則の違反になります。
 
-```
+```go
 // Save writes the contents of doc to the supplied Writer.
 func Save(w io.Writer, doc *Document) error
 ```

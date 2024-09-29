@@ -207,7 +207,7 @@ Docs に用意されている Hook は比較的利用頻度が高いものと思
 
 - 複数の contract を後述する`multicall`を使って呼び出す
 
-#### 必須 Parameter
+#### useContractReads: 必須 Parameter
 
 - address (optional とあるが必須では？)
   - contract アドレス
@@ -220,7 +220,7 @@ Docs に用意されている Hook は比較的利用頻度が高いものと思
 - args (optional)
   - 呼び出す function に引数を渡す場合、こちらに設定する
 
-#### 状況によって使い分ける Parameter
+#### useContractReads: 状況によって使い分ける Parameter
 
 - allowFailure (optional)
   - 読み込み時にエラーが発生した場合、通常はエラーが throw されるが、`true`の場合はエラーを throw しない
@@ -279,7 +279,7 @@ const { write, isLoading: isWritePending } = useContractWrite({
   - ただし、[usePrepareContractWrite()](https://wagmi.sh/react/prepare-hooks/usePrepareContractWrite)は、そのまま実行される hook function のため、`enabled`パラメータをつかって、調整が必要
   - config の準備ができていない状態では、`write`は`undefined`になる
 
-#### 必須 Parameter
+#### useContractWrite: 必須 Parameter
 
 - address (optional とあるが必須では？)
   - contract アドレス
@@ -292,7 +292,7 @@ const { write, isLoading: isWritePending } = useContractWrite({
 - args (optional)
   - 呼び出す function に引数を渡す場合、こちらに設定する
 
-#### 状況によって使い分ける Parameter
+#### useContractWrite: 状況によって使い分ける Parameter
 
 - account (optional)
   - from address

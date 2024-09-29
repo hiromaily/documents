@@ -11,6 +11,8 @@
 
 ## サービス
 
+### [GitHub Pages](./github-pages.md)
+
 ### [Netlify](https://www.netlify.com/)
 
 - Netlify Functions
@@ -26,8 +28,6 @@
   - [wrangler](https://www.npmjs.com/package/wrangler)
 
 ### [Fastly Edge Compute](https://www.fastly.com/products/edge-compute)
-
-### GitHub Pages
 
 ### [AWS Amplify](https://aws.amazon.com/jp/amplify/)
 

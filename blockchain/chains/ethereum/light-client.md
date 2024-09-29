@@ -99,7 +99,8 @@ Beacon Chain は、リソースに制約のあるデバイスやメーター付�
 最新のブロック ヘッダーに同期するには、Light Client は現在の`sync committees`を知る必要があります。 つまり、その委員会の一部であるバリデーターのすべての公開鍵を知っているということです。 この情報は、証明とともに、信頼された checkpoint ルートを提供することによって full-nodes から要求されます。 weak subjectivity(弱い主観) checkpoint とも呼ばれるこの checkpoint は、正規チェーンの一部として主観的に合意されたブロックのマークル ルートです。 証明は、ノードによって提供される`sync committees`がチェーンの一部であるかどうかを証明するマークル ブランチです。 リクエストを送信した後、ノードは、以下に規定する次の情報を含むスナップショットで応答します。 ブランチの検証が成功すると、light client はスナップショットを保存し、最新の同期期間に達するまで委員会の更新をフェッチします。
 
 - 前者が最新のブロック ヘッダーに同期したい場合に、light-nodes と full-nodes の間で発生する知識の転送
-  <img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/light-node-full-node.jpg"  width="50%" height="50%">
+
+![Light Client](../../../images/light-node-full-node.jpg "Light Client")
 
 ##### Header
 
@@ -118,7 +119,8 @@ Merkle branch の形での現在の`sync committees`の proof(証明)
 checkpoint ルートの最新性に応じて、light client は checkpoint の同期期間から最新の同期期間まで同期する必要があります。 たとえば、提供された checkpoint ルートがスロット 2000 の古いブロック用であり、現在のブロックがスロット 18384 にある場合、ライト クライアントは 2 つの同期期間の更新を取得します。
 light-nodes は、committee が変更して、彼らが知っている最新の checkpoint ルートから現在のブロックに到達するたびに、各同期期間の終わりに更新する必要があります。
 2000 と 18384 の間には 16384 スロットの違いがあり、同期期間には 8192 スロットがあるため、2 つの同期期間が経過したことを意味します。 したがって、`sync committees`は 2 回変更されており、light client は 2 つの更新をフェッチしてこれらの変更を知る必要があります。 更新はスナップショットに似ていますが、次の`sync committees`と追加フィールドに関する情報が含まれています。
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/eth-sync.jpg"  width="50%" height="50%">
+
+![Light Client eth-sync](../../../images/eth-sync.jpg "Light Client eth-sync")
 
 ##### Attested Header
 

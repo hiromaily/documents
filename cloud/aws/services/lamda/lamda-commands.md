@@ -2,7 +2,7 @@
 
 ## [create-function](https://docs.aws.amazon.com/cli/latest/reference/lambda/create-function.html)
 
-```
+```txt
   create-function
 --function-name <value>
 [--runtime <value>]
@@ -68,7 +68,7 @@
 
 ## [invoke](https://docs.aws.amazon.com/cli/latest/reference/lambda/invoke.html)
 
-```
+```txt
 --function-name <value>
 [--invocation-type <value>]
 [--log-type <value>]
@@ -94,7 +94,7 @@
 
 ## [update-function-code](https://docs.aws.amazon.com/cli/latest/reference/lambda/update-function-code.html)
 
-```
+```txt
  update-function-code
 --function-name <value>
 [--zip-file <value>]
@@ -126,7 +126,7 @@
 
 ## [update-function-configuration](https://docs.aws.amazon.com/cli/latest/reference/lambda/update-function-configuration.html)
 
-```
+```txt
   update-function-configuration
 --function-name <value>
 [--role <value>]

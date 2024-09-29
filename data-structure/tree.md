@@ -310,7 +310,7 @@ func getIndent(level int) string {
 
 プログラムを実行すると、次のように木構造が標準出力に表示される。
 
-```
+```txt
 10
   5
     2

@@ -124,7 +124,7 @@ curl -X POST --data '{"jsonrpc":"2.0","method":"eth_getBlockByNumber","params":[
 
 コントラクトの特定のストレージ位置に保存されている値を取得できるため、コントラクトの状態変数に直接アクセスして検査したい場合に便利
 
-### Parameters
+### eth_getBlockByNumber: Parameters
 
 - data: storage の address
 - quantity: storage 内の position(index) (integer)
@@ -271,7 +271,7 @@ web3.eth
 
 - [`eth_call`を使ってコマンドラインから呼び出す方法](../solidity/contract.md#eth_callを使ってコマンドラインから呼び出す方法)
 
-### Parameters
+### eth_call: Parameters
 
 #### Transaction call object
 
@@ -320,7 +320,7 @@ EVM の仕組みやノードの性能など様々な理由により、推定値�
 - nonce (optional): int
   - nonce 値
 
-### Parameters
+### eth_sendTransaction: Parameters
 
 eth_call と同じだが、data も optional となる。
 

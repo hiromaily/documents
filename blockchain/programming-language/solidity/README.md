@@ -23,7 +23,7 @@
 
 - function では複数の戻り値を定義できる。この時、タプルが使われる。呼び出した test コードは配列として値に index でアクセスできる。以下のやり方でも可能。
 
-```
+```sol
 const {value, dates} = await fundraiser.myDoanations();
 ```
 
@@ -38,7 +38,7 @@ const {value, dates} = await fundraiser.myDoanations();
 
 コントラクトから他のコントラクトの関数を実行する際に、Method IDをFunction Selectorに渡して実行する。関数名と引数の型の文字列を`keccak256`でハッシュ化し、頭の4byteを取ったものがMethod IDとなる
 
-```
+```sol
 bytes4(keccak256("setNum(uint256)") = 0xcd16ecbf
 ```
 
@@ -49,7 +49,7 @@ bytes4(keccak256("setNum(uint256)") = 0xcd16ecbf
   - コントラクトが定義済みのどの関数とも一致しないシグネチャを持つ関数で呼び出されたとき
 - fallback 関数はパラメータなしの external 関数として宣言する
 
-```
+```sol
 # 0.6.0より古い場合
 function () external payable {
   ...
@@ -68,7 +68,7 @@ receive () external payable {
 
 - Truffle で test を書く時、solidity の function を呼び出すときに、from プロパティを持つオブジェクトを設定可能だが、実行するアカウントの情報に加えて、value(ウェイ単位)の設定も可能。
 
-```
+```js
 await fundraiser.donate({from: accounts[0], value})
 ---------------
 function donate() public payable {
@@ -129,7 +129,7 @@ function donate() public payable {
 
 - インターフェースは関数定義のみしかできない。状態変数を含めること、インターフェイスから他のコントラクトを継承することはできないが、他のインターフェースを継承することはできる。
 
-```
+```sol
 interface IHelloWorld {
   function GetValue() public view returns (uint);
   function SetValue(uint _value) public;
@@ -153,7 +153,7 @@ contract client {
 - Truffle で書く test は、Mocha がベースとなっている
 - コントラクトのインスタンス化には 2 通りあり、既に Deploy されているコントラクトアドレスを利用して、インスタンス化する方法もあり、これは参照にあたる。
 
-```
+```js
 # 新たにインスタンスを生成
 HelloWorld myObj = new HelloWorld();
 # アドレスからコントラクトを参照

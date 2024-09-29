@@ -28,7 +28,7 @@
 
 これはアプリケーションの規模によって 3 層だったり 5 層だったりと異なる
 
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/layered-architecture.webp"  width="50%" height="50%">
+![Layered Architecture](../../images/layered-architecture.webp.png "Layered Architecture")
 
 ## DDD の文脈で語られる 4 つのレイヤー
 
@@ -41,7 +41,7 @@
 - Infrastructure
   - 上記のレイヤーをサポートする技術的能力、すなわち永続性やメッセージングなどが含まれる
 
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/layered-architecture%2Bddd.png"  width="50%" height="50%">
+![Layered Architecture2](../../images/layered-architecture%2Bddd.png "Layered Architecture2")
 
 ## 利点
 

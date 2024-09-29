@@ -33,44 +33,44 @@
 
 - 呼び出し元のスクリプトだけがアクセスできる
 
-#### 起動
+#### 専用 Workers の起動
 
 - Worker スレッドで実行するスクリプトの URI を指定した `Worker()` コンストラクターを呼び出す
 
 ```js
-const myWorker = new Worker('worker.js');
+const myWorker = new Worker("worker.js");
 ```
 
-#### メッセージのやり取り
+#### 専用 Workers のメッセージのやり取り
 
-- `postMessage()`` メソッドと`onmessage` イベントハンドラーを使う
+- ` postMessage()`` メソッドと `onmessage` イベントハンドラーを使う
 - main.js
 
 ```js
 myWorker.postMessage([first.value, second.value]);
 myWorker.onmessage = (e) => {
-  console.log('Message received from worker', e.data);
+  console.log("Message received from worker", e.data);
 };
 ```
 
 - worker.js
 
-```js
-onmessage = (e) => {
-  console.log('Message received from main script');
-  const workerResult = `Result: ${e.data[0] * e.data[1]}`;
-  console.log('Posting message back to main script');
-  postMessage(workerResult);
-};
-```
+  ```js
+  onmessage = (e) => {
+    console.log("Message received from main script");
+    const workerResult = `Result: ${e.data[0] * e.data[1]}`;
+    console.log("Posting message back to main script");
+    postMessage(workerResult);
+  };
+  ```
 
-#### 終了
+#### 専用 Workers の終了
 
 ```js
 myWorker.terminate();
 ```
 
-#### エラー処理
+#### 専用 Workers のエラー処理
 
 - Worker 内で実行時エラーが発生すると、 onerror イベントハンドラーが呼び出される
 
@@ -84,10 +84,10 @@ myWorker.terminate();
 
 ```js
 importScripts(); /* imports nothing */
-importScripts('foo.js'); /* imports just "foo.js" */
-importScripts('foo.js', 'bar.js'); /* imports two scripts */
+importScripts("foo.js"); /* imports just "foo.js" */
+importScripts("foo.js", "bar.js"); /* imports two scripts */
 importScripts(
-  '//example.com/hello.js'
+  "//example.com/hello.js"
 ); /* You can import scripts from other origins */
 ```
 
@@ -99,13 +99,13 @@ importScripts(
   - メッセージを送信する前に `onmessage` イベントハンドラーを使用して暗黙的に行う
   - あるいは `start()` メソッドを使用して明示的に開始するか
 
-#### 起動
+#### 共有 Workers の起動
 
 ```js
-const myWorker = new SharedWorker('worker.js');
+const myWorker = new SharedWorker("worker.js");
 ```
 
-#### メッセージのやり取り
+#### 共有 Workers のメッセージのやり取り
 
 割愛
 
@@ -130,94 +130,94 @@ const myWorker = new SharedWorker('worker.js');
 - 渡される Object は、Worker に渡されるときにシリアライズされ、その後、反対側でシリアライズが解除される
 - Main Page と Worker は同じインスタンスを共有しないため、最終的には両側に複製が作成される
 
-## コード例
+### Worker とのデータ転送 コード例
 
 - main.js
 
-```js
-// main.js
+  ```js
+  // main.js
 
-document.addEventListener('DOMContentLoaded', () => {
-  const startButton = document.getElementById('startButton');
-  const statusElement = document.getElementById('status');
+  document.addEventListener("DOMContentLoaded", () => {
+    const startButton = document.getElementById("startButton");
+    const statusElement = document.getElementById("status");
 
-  let worker;
+    let worker;
 
-  startButton.addEventListener('click', () => {
-    // 1.Worker機能の検出
-    if (typeof Worker !== 'undefined' && window.Worker) {
-      if (!worker) {
-        // 2.専用Workerの起動
-        // Worker object
-        // - 名前付きの Workerスレッドで実行するコードを保持するjsファイルを実行する
-        worker = new Worker('worker.js');
+    startButton.addEventListener("click", () => {
+      // 1.Worker機能の検出
+      if (typeof Worker !== "undefined" && window.Worker) {
+        if (!worker) {
+          // 2.専用Workerの起動
+          // Worker object
+          // - 名前付きの Workerスレッドで実行するコードを保持するjsファイルを実行する
+          worker = new Worker("worker.js");
 
-        // workerから返されたmessageに応答する
-        worker.onmessage = function (event) {
-          statusElement.textContent = event.data;
-        };
+          // workerから返されたmessageに応答する
+          worker.onmessage = function (event) {
+            statusElement.textContent = event.data;
+          };
 
-        // workerにmessageを送る
-        worker.postMessage('start');
+          // workerにmessageを送る
+          worker.postMessage("start");
 
-        startButton.textContent = 'Stop Polling';
+          startButton.textContent = "Stop Polling";
+        } else {
+          // workerの終了
+          worker.terminate();
+          worker = undefined;
+
+          startButton.textContent = "Start Polling";
+        }
       } else {
-        // workerの終了
-        worker.terminate();
-        worker = undefined;
-
-        startButton.textContent = 'Start Polling';
+        statusElement.textContent =
+          "Web Workers are not supported in this browser.";
       }
-    } else {
-      statusElement.textContent =
-        'Web Workers are not supported in this browser.';
-    }
+    });
   });
-});
-```
+  ```
 
 - worker.js
 
-```js
-// worker.js
+  ```js
+  // worker.js
 
-let isPolling = false;
+  let isPolling = false;
 
-function pollAPI() {
-  if (!isPolling) {
-    return;
-  }
+  function pollAPI() {
+    if (!isPolling) {
+      return;
+    }
 
-  // Perform your API request here and check for specific data
-  // If the specific data is found, post a message to the main thread
-  // If not found, schedule the next polling iteration
+    // Perform your API request here and check for specific data
+    // If the specific data is found, post a message to the main thread
+    // If not found, schedule the next polling iteration
 
-  // Example:
-  fetch('https://api.example.com/status')
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.status === 'completed') {
-        // main.jsにmessageを送信する (main側は、worker.onmessageイベントで検知)
-        postMessage('Status changed to completed.');
+    // Example:
+    fetch("https://api.example.com/status")
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.status === "completed") {
+          // main.jsにmessageを送信する (main側は、worker.onmessageイベントで検知)
+          postMessage("Status changed to completed.");
+          isPolling = false;
+        } else {
+          setTimeout(pollAPI, 5000); // Poll every 5 seconds (adjust as needed)
+        }
+      })
+      .catch((error) => {
+        console.error("Error polling API:", error);
         isPolling = false;
-      } else {
-        setTimeout(pollAPI, 5000); // Poll every 5 seconds (adjust as needed)
-      }
-    })
-    .catch((error) => {
-      console.error('Error polling API:', error);
-      isPolling = false;
-    });
-}
-
-// worker側でevent受信。main側でpostMessageされたmessageを受信できる
-onmessage = function (event) {
-  if (event.data === 'start' && !isPolling) {
-    isPolling = true;
-    pollAPI();
+      });
   }
-};
-```
+
+  // worker側でevent受信。main側でpostMessageされたmessageを受信できる
+  onmessage = function (event) {
+    if (event.data === "start" && !isPolling) {
+      isPolling = true;
+      pollAPI();
+    }
+  };
+  ```
 
 ## [Web Workers が使用できる関数やクラス](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Functions_and_classes_available_to_workers)
 
@@ -260,51 +260,51 @@ onmessage = function (event) {
 - last updated: Feb 2023
 - [Example](https://github.com/GoogleChromeLabs/comlink#examples)
 
-#### コード例
+#### Comlink: コード例
 
 - main.js
 
 ```js
 // main.js
-import { wrap } from 'comlink';
+import { wrap } from "comlink";
 
 async function init() {
-  const startPollingButton = document.getElementById('startPollingButton');
-  const statusElement = document.getElementById('status');
+  const startPollingButton = document.getElementById("startPollingButton");
+  const statusElement = document.getElementById("status");
 
   let pollingWorker;
 
-  startPollingButton.addEventListener('click', async () => {
+  startPollingButton.addEventListener("click", async () => {
     if (!pollingWorker) {
       // 専用Workerの起動
       // Worker object
       // - 名前付きの Workerスレッドで実行するコードを保持するjsファイルを実行する
-      pollingWorker = new Worker('polling-worker.js');
+      pollingWorker = new Worker("polling-worker.js");
       // worker objectをwrap()して、こちらをmain側で取り扱う
       const pollServer = wrap(pollingWorker);
 
-      startPollingButton.textContent = 'Stop Polling';
-      statusElement.textContent = 'Polling...';
+      startPollingButton.textContent = "Stop Polling";
+      statusElement.textContent = "Polling...";
 
       try {
         // worker側からexposeされたfunctionを呼び出す
         const updateAvailable = await pollServer();
         if (updateAvailable) {
-          statusElement.textContent = 'Update available!';
+          statusElement.textContent = "Update available!";
         }
       } catch (error) {
-        console.error('Error polling server:', error);
-        statusElement.textContent = 'Error occurred while polling.';
+        console.error("Error polling server:", error);
+        statusElement.textContent = "Error occurred while polling.";
       } finally {
         pollingWorker.terminate();
         pollingWorker = undefined;
-        startPollingButton.textContent = 'Start Polling';
+        startPollingButton.textContent = "Start Polling";
       }
     } else {
       pollingWorker.terminate();
       pollingWorker = undefined;
-      startPollingButton.textContent = 'Start Polling';
-      statusElement.textContent = 'Not polling';
+      startPollingButton.textContent = "Start Polling";
+      statusElement.textContent = "Not polling";
     }
   });
 }
@@ -316,14 +316,14 @@ init();
 
 ```js
 // polling-worker.js
-import { expose } from 'comlink';
+import { expose } from "comlink";
 
 // Simulate a function that polls the server for updates
 async function pollServer() {
   while (true) {
     // Simulate an API request here
     // Replace this with your actual API polling logic
-    const response = await fetch('https://api.example.com/check_updates');
+    const response = await fetch("https://api.example.com/check_updates");
     const data = await response.json();
 
     // Check if the data indicates an update

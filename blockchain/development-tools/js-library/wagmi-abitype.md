@@ -6,7 +6,7 @@
 ## References
 
 - [github](https://github.com/wagmi-dev/abitype)
-- [ABI<Type> Docs](https://abitype.dev/)
+- [`ABI<Type>` Docs](https://abitype.dev/)
 
 ## 実現したいこと
 

@@ -387,7 +387,7 @@ function MyProjects() {
 - 新しいイベントが受信されると、フックは返されたデータを自動的に更新する
 - Data Source の例としては、Firestore や WebSocket が挙げられる
 
-### Deduplication 重複排除
+### useSWRSubscription: Deduplication 重複排除
 
 - 同じ key を使っている限り、重複排除が働く
 
@@ -621,7 +621,7 @@ function App() {
 
 ## [Performance](https://swr.vercel.app/docs/advanced/performance)
 
-### Deduplication 重複排除
+### Performance 観点での Deduplication 重複排除
 
 - useSWR を複数定義していても、同じ key であれば重複リクエストは行わない
 - `dedupingInterval = 2000` option: この期間内に同じキーを持つ重複排除リクエスト (ミリ秒単位)

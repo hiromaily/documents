@@ -9,47 +9,49 @@
 
 1. Using Functional Components and Hooks Instead of Classes
 2. Avoid Using State (If Possible)
+
    - bad
 
-```tsx
-const [username, setusername] = useState("");
-const [password, setpassword] = useState("");
-```
+   ```tsx
+   const [username, setusername] = useState("");
+   const [password, setpassword] = useState("");
+   ```
 
-    - good
+   - good
 
-```tsx
-const [user, setuser] = useState({});
-```
+   ```tsx
+   const [user, setuser] = useState({});
+   ```
 
 3. Organize Files Related to the Same Component in One Folder
 4. Avoid Using Indexes as Key Props
 5. Opt for Fragments Instead of Divs Where Possible
 
-```tsx
-const Button = () => {
-  return <button>Display</button>;
-};
-```
+   ```tsx
+   const Button = () => {
+     return <button>Display</button>;
+   };
+   ```
 
 6. Follow Naming Conventions
 7. Avoid Repetitive Code
 8. Use Object Destructuring For Props
+
    - bad
 
-```tsx
-const Button = (props) => {
-  return <button>{props.text}</button>;
-};
-```
+   ```tsx
+   const Button = (props) => {
+     return <button>{props.text}</button>;
+   };
+   ```
 
-- good
+   - good
 
-```tsx
-const Button = ({ text }) => {
-  return <button>{text}</button>;
-};
-```
+   ```tsx
+   const Button = ({ text }) => {
+     return <button>{text}</button>;
+   };
+   ```
 
 9. Dynamically Render Arrays Using Map
 10. Write Tests for Each React Component
@@ -87,33 +89,34 @@ const Button = ({ text }) => {
 3. Use a linter
 4. Extract reusable logic into custom hooks
 5. Write a fragment when a div is not needed
+
    - bad
 
-```tsx
-return (
-  <div>
-    <h1>Hello!</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum odio
-      odio, tempor non ipsum et, aliquam pharetra urna.
-    </p>
-  </div>
-);
-```
+   ```tsx
+   return (
+     <div>
+       <h1>Hello!</h1>
+       <p>
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+         odio odio, tempor non ipsum et, aliquam pharetra urna.
+       </p>
+     </div>
+   );
+   ```
 
-- good
+   - good
 
-```tsx
-return (
-  <>
-    <h1>Hello!</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum odio
-      odio, tempor non ipsum et, aliquam pharetra urna.
-    </p>
-  </>
-);
-```
+   ```tsx
+   return (
+     <>
+       <h1>Hello!</h1>
+       <p>
+         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+         odio odio, tempor non ipsum et, aliquam pharetra urna.
+       </p>
+     </>
+   );
+   ```
 
 6. Integrate Typescript
 7. Test your code

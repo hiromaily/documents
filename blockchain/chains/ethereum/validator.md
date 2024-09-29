@@ -68,7 +68,7 @@
 
 - [eth1 の genesis.json sample](https://github.com/rauljordan/eth-pos-devnet/blob/master/execution/genesis.json#L32-L35)
 
-```
+```json
   "0x4242424242424242424242424242424242424242": {
    "balance": "0",
    "code": "0x60806040526004361061003f5760003560e01c80630...."

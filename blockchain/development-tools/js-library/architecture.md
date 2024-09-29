@@ -11,7 +11,7 @@ BlockchainプロジェクトにおけるFrontendの設計について
 - view functionの呼び出し及びTransactionの送信をTypescriptで実装することになるが、そのときのI/F及び、Typeを定義する必要がある。
 - function毎に型定義することは現実的でないため、何かしらの手段が必要
   - [TypeChain](https://github.com/dethcrypto/TypeChain) + Ethers.js
-  - [ABI<Type>](https://abitype.dev/) + Viem、これは[zod](https://abitype.dev/api/zod)との相性も良い
+  - [`ABI<Type>`](https://abitype.dev/) + Viem、これは[zod](https://abitype.dev/api/zod)との相性も良い
 
 ## Responseに対してのType Guardをどうすべきか？
 
@@ -23,4 +23,4 @@ BlockchainプロジェクトにおけるFrontendの設計について
 
 ### [zod](https://zod.dev/)を使うケース
 
-- [ABI<Type>](https://abitype.dev/)が`zod`に対応している
+- [`ABI<Type>`](https://abitype.dev/)が`zod`に対応している

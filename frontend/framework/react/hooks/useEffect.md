@@ -12,47 +12,50 @@
 
 1. コンポーネントがレンダリングされる度に副作用を実行する
 
-```tsx
-// 第2引数に何も渡さない
-useEffect(() => {
-  console.log("conpleted render");
-});
-```
+   ```tsx
+   // 第2引数に何も渡さない
+   useEffect(() => {
+     console.log("conpleted render");
+   });
+   ```
 
 2. 副作用が依存する値が更新された時だけ、副作用を実行する
+
    - e.g. クエリパラメータが更新されたら外部 API からデータを取得する
 
-```tsx
-// 第2引数に依存する配列を渡す
-useEffect(() => {
-  console.log(message);
-}, [message]);
-```
+   ```tsx
+   // 第2引数に依存する配列を渡す
+   useEffect(() => {
+     console.log(message);
+   }, [message]);
+   ```
 
-`このとき、第2引数に依存する配列の中の値がobjectの場合、比較に失敗する可能性があるため、プリミティブな値を渡すこと`
+   `このとき、第2引数に依存する配列の中の値がobjectの場合、比較に失敗する可能性があるため、プリミティブな値を渡すこと`
 
 3. 副作用を一度だけ実行させる
+
    - e.g. 外部 API からデータを取得する
 
-```tsx
-// 第2引数に空の配列を渡す
-useEffect(() => {
-  console.log("conpleted render");
-}, []);
-```
+   ```tsx
+   // 第2引数に空の配列を渡す
+   useEffect(() => {
+     console.log("conpleted render");
+   }, []);
+   ```
 
 4. コンポーネントがアンマウント、もしくは副作用が再実行した時に実行される
+
    - TODO: 自分で確認
    - [sample code](https://codesandbox.io/s/04-useeffectdekurinatuputaimawoxuechusuruchuliwoshixingsaseru-gygtc)
 
-```tsx
-useEffect(() => {
-  // 関数を返す
-  return () => {
-    console.log("cleanup");
-  };
-}, []);
-```
+   ```tsx
+   useEffect(() => {
+     // 関数を返す
+     return () => {
+       console.log("cleanup");
+     };
+   }, []);
+   ```
 
 ## Example
 

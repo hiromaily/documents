@@ -118,6 +118,6 @@ CREATE TABLE my_table2 (
 
 ドライバの設定で、以下を修正する
 
-```
+```conf
 allowPublicKeyRetrieval=true
 ```

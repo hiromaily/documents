@@ -124,7 +124,7 @@ requestPut.onerror = (event) => {
 
   - `upgradeneeded`` イベントは、現在のバージョンより高いバージョン番号でデータベースを開こうとしたときに fire される
 
-#### コード例
+#### IDBRequest:コード例
 
 - `success`: This event is fired when an asynchronous request succeeds.
 
@@ -161,7 +161,7 @@ request.onblocked = (event) => {
 
 ### [IDBTransaction](https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction) object
 
-#### コード例
+#### IDBTransaction: コード例
 
 - `complete``: This event is fired when a transaction is completed
 

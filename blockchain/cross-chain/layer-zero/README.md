@@ -8,7 +8,7 @@
 
 - [Docs](https://layerzero.gitbook.io/docs/evm-guides/code-examples/estimating-message-fees)
 
-```
+```sol
 // Endpoint.sol
 // https://github.com/LayerZero-Labs/LayerZero/blob/main/contracts/Endpoint.sol
 function estimateFees(uint16 _dstChainId, address _userApplication, bytes calldata _payload, bool _payInZRO, bytes calldata _adapterParams) external view override returns (uint nativeFee, uint zroFee) {
@@ -18,7 +18,7 @@ function estimateFees(uint16 _dstChainId, address _userApplication, bytes callda
 }
 ```
 
-```
+```sol
 // UltraLightNodeV2.sol
 // https://github.com/LayerZero-Labs/LayerZero/blob/main/contracts/UltraLightNodeV2.sol
 // returns the native fee the UA pays to cover fees
@@ -47,7 +47,7 @@ function estimateFees(uint16 _dstChainId, address _ua, bytes calldata _payload, 
 }
 ```
 
-```
+```sol
 // RelayerV2.sol
 // https://github.com/LayerZero-Labs/LayerZero/blob/main/contracts/RelayerV2.sol
 function getFee(uint16 _dstChainId, uint16 _outboundProofType, address _userApplication, uint _payloadSize, bytes calldata _adapterParams) external view override returns (uint) {
@@ -107,7 +107,7 @@ function _getPrices(uint16 _dstChainId, uint16 _outboundProofType, address, byte
 
 使われる要素として、`gas limit`, `base fee`, `validator tips`があり、計算式は
 
-```
+```text
 // gas limit * (base fee + validator tips)
 21,000 * (10 + 2) = 252,000 gwei (0.000252 ETH)
 ```
@@ -116,7 +116,7 @@ function _getPrices(uint16 _dstChainId, uint16 _outboundProofType, address, byte
 
 Ethereumの場合、`base fee`が常に変動する
 
-```
+```sol
 // Native Fee
 nativeFee = relayerFee + oracleFee + protocolFee
 

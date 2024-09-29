@@ -251,7 +251,7 @@
 - [Multitier architecture](https://en.wikipedia.org/wiki/Multitier_architecture)
 - [レイヤードアーキテクチャの視点](https://qiita.com/kichion/items/aca19765cb16e7e65946)
 
-### Topology
+### レイヤードアーキテクチャー Topology
 
 ### Layers of Isolation 分離のレイヤー
 
@@ -261,29 +261,29 @@
 
 ### Why Use This Architecture Style なぜこのアーキテクチャーを使うのか？
 
-### Architecture Characteristics Ratings アーキテクチャ特性の評価
+### レイヤード Architecture Characteristics Ratings アーキテクチャ特性の評価
 
 ## 11. Pipeline Architecture Style パイプライン アーキテクチャー
 
 - [Pipes and Filters pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/pipes-and-filters)
 - [Pipes and Filters pattern(ja)](https://docs.microsoft.com/ja-jp/azure/architecture/patterns/pipes-and-filters)
 
-### Topology
+### パイプライン アーキテクチャー Topology
 
 #### Pipes
 
 #### Filters
 
-### Example
+### パイプライン アーキテクチャー Example
 
-### Architecture Characteristics Ratings アーキテクチャ特性の評価
+### Architecture Characteristics Ratings パイプラインアーキテクチャ特性の評価
 
 ## 12. Microkernel Architecture Style マイクロカーネル アーキテクチャー
 
 - [Software Architecture Patterns — Microkernel Architecture](https://priyalwalpita.medium.com/software-architecture-patterns-microkernel-architecture-97cee200264e)
 - [Microkernel アーキテクチャパターン](https://yusuke-ujitoko.hatenablog.com/entry/2016/11/19/105525)
 
-### Topology
+### マイクロカーネル アーキテクチャー Topology
 
 #### Core System
 
@@ -293,9 +293,9 @@
 
 ### Contracts
 
-### Examples and Use Cases
+### マイクロカーネル アーキテクチャー Examples and Use Cases
 
-### Architecture Characteristics Ratings アーキテクチャ特性の評価
+### マイクロカーネル Architecture Characteristics Ratings アーキテクチャ特性の評価
 
 ## 13. Service-Based Architecture Style サービス指向アーキテクチャー
 
@@ -303,7 +303,7 @@
 - [Service-Based Architecture as an Alternative to Microservice Architecture](https://www.infoq.com/news/2016/10/service-based-architecture/)
 - [SOA（サービス指向アーキテクチャー）](https://www.ibm.com/jp-ja/cloud/learn/soa)
 
-### Topology
+### サービス指向アーキテクチャー Topology
 
 ### Topology Variants
 
@@ -311,9 +311,9 @@
 
 ### Database Partitioning
 
-### Example Architecture
+### サービス指向アーキテクチャー Example Architecture
 
-### Architecture Characteristics Ratings アーキテクチャ特性の評価
+### サービス指向 Architecture Characteristics Ratings アーキテクチャ特性の評価
 
 ### When to Use This Architecture Style
 
@@ -324,7 +324,7 @@
 - [イベント駆動アーキテクチャとは?](https://aws.amazon.com/jp/serverless/patterns/eda/)
 - [イベント駆動型アーキテクチャとは](https://www.redhat.com/ja/topics/integration/what-is-event-driven-architecture)
 
-### Topology
+### イベント駆動アーキテクチャー Topology
 
 ### Broker Topology 仲介者トポロジー
 
@@ -344,7 +344,7 @@
 
 ### Hybrid Event-Driven Architectures ハイブリッドイベント駆動アーキテクチャー
 
-### Architecture Characteristics Ratings アーキテクチャ特性の評価
+### イベント駆動 Architecture Characteristics Ratings アーキテクチャ特性の評価
 
 ## 15. Space-Based Architecture Style
 
@@ -378,13 +378,13 @@
 
 #### Online Auction System オンラインオークションシステム
 
-### Architecture Characteristics Ratings アーキテクチャ特性の評価
+### Space-Based Architecture Characteristics Ratings アーキテクチャ特性の評価
 
 ## 16. Orchestration-Driven Service-Oriented Architecture オーケストレーション駆動 サービス指向アーキテクチャ
 
 ### History and Philosophy 歴史と哲学
 
-### Topology
+### オーケストレーション駆動 サービス指向アーキテクチャ Topology
 
 ### Taxonomy 分類法
 
@@ -402,7 +402,7 @@
 
 ### Reuse…and Coupling 再利用、そして結合
 
-### Architecture Characteristics Ratings アーキテクチャ特性の評価
+### オーケストレーション駆動 サービス指向 Architecture Characteristics Ratings アーキテクチャ特性の評価
 
 ## 17. Microservices Architecture マイクロサービスアーキテクチャー
 
@@ -472,7 +472,7 @@
 
 #### Using ADRs for Standards
 
-#### Example
+#### アーキテクチャの決定 Example
 
 ## 20. Analyzing Architecture Risk アーキテクチャリスクの分析
 
@@ -544,7 +544,7 @@
 
 ### Providing Guidance ガイダンスの提供
 
-### Summary
+### チームを効果的にする Summary
 
 ## 23. Negotiation and Leadership Skills 交渉とリーダーシップのスキル
 
@@ -568,7 +568,7 @@
 
 ### Integrating with the Development Team 開発チームとの統合
 
-### Summary
+### 交渉とリーダーシップのスキル Summary
 
 ## 24. Developing a Career Path キャリアパスの開発
 

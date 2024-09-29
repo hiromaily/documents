@@ -5,16 +5,16 @@
 - [Container/Presentational Pattern](https://javascriptpatterns.vercel.app/patterns/react-patterns/conpres)
 - [コンテナ・プレゼンテーションパターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/presentational-container-pattern)
 
-### 概要
+### Container/Presentational Pattern の概要
 
 - React において関心の分離を実現する方法の一つ
 - 多くの場合、コンテナ・プレゼンテーションパターンは React のフックに置き換えることができる
 - このパターンは小規模なアプリケーションでは不要に複雑となりがちなので注意
 
-#### 2つのコンポーネント
+#### 2 つのコンポーネント
 
 - プレゼンテーションコンポーネント
-  - view相当
+  - view 相当
   - データがユーザーにどのように表示されるかを管理するコンポーネント
   - プレゼンテーションコンポーネントは、 props を通じてデータを受け取る
 - コンテナコンポーネント
@@ -32,7 +32,7 @@ export default function useDogImages() {
 
   useEffect(() => {
     fetch("https://dog.ceo/api/breed/labrador/images/random/6")
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(({ message }) => setDogs(message));
   }, []);
 
@@ -66,7 +66,7 @@ export default function useDogImages() {
 
 #### プレゼンテーションコンポーネント
 
-- ここでは、上記で作成したHookを利用してデータを取得している
+- ここでは、上記で作成した Hook を利用してデータを取得している
 
 ```ts
 import React from "react";
@@ -85,17 +85,17 @@ export default function DogImages() {
 - [高階 (Higher-Order) コンポーネント](https://ja.reactjs.org/docs/higher-order-components.html)
 - [HOC パターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/hoc-pattern)
 
-### 概要
+### Higher-Order Components の概要
 
 - 複数のコンポーネントで同じロジックを再利用する方法の 1 つ
-- 横断的関心事にHOCを適用する
+- 横断的関心事に HOC を適用する
 - HOC は、あるコンポーネントを受け取って新規のコンポーネントを返すような関数
 - HOC には、パラメータとして渡されるコンポーネントに適用する何らかのロジックが含まれており、そのロジックを適用した上で、HOC は追加されたロジックとともに要素を返す
 - HOC は入力のコンポーネントを改変したり、振る舞いをコピーするのに継承を利用したりせず、元のコンポーネントをコンテナコンポーネント内にラップすることで組み合わせる
 
-### サンプルコード
+### Higher-Order Components のサンプルコード
 
-- このHOCの役割は渡されたコンポーネントに、`style`を適用し、修正されたコンポーネントを返す
+- この HOC の役割は渡されたコンポーネントに、`style`を適用し、修正されたコンポーネントを返す
 
 ```tsx
 function withStyles(Component) {
@@ -118,17 +118,17 @@ const StyedText = withStyles(Text)
 - [Render prop](https://ja.reactjs.org/docs/render-props.html)
 - [レンダープロップ パターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/render-props-pattern)
 
-### 概要
+### Render Props Patternの概要
 
 - props を 通じて JSX 要素をコンポーネントに渡す
 - レンダープロップは、JSX の要素を返す関数を値とするコンポーネントの prop
 - コンポーネント自身は、レンダープロップ以外のものをレンダリングしない
 - コンポーネントは、独自のレンダリングロジックを実装する代わりに、単にレンダープロップを呼び出すだけ
 
-### サンプルコード
+### Render Props Patternのサンプルコード
 
 ```tsx
-import React from 'react';
+import React from "react";
 
 // prop
 export function Kelvin({ value }) {
@@ -172,7 +172,7 @@ export default function TemperatureConverter(props) {
 - [フック パターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/hooks-pattern)
 - [About Hooks](https://github.com/hiromaily/documents/blob/main/frontend/framework/react/hook.md)
 
-### 概要
+### Hooks Pattern の概要
 
 - 関数により、アプリケーション内の複数のコンポーネントでステートフルなロジックを再利用する
 - フックにより、クラスコンポーネントを使わずに、React のステートやライフサイクルメソッドを利用することができる
@@ -190,7 +190,7 @@ export default function TemperatureConverter(props) {
 - [プロバイダ パターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/provider-pattern)
 - [About Context](https://github.com/hiromaily/documents/blob/main/frontend/framework/react/context.md)
 
-### 概要
+### Provider Pattern の概要
 
 - 複数の子コンポーネントからデータを利用できるようにする
 - アプリケーション内の多くのコンポーネントからデータを利用できるようにしたい場合、prop のバケツリレー (prop drilling) を回避する仕組み
@@ -198,7 +198,7 @@ export default function TemperatureConverter(props) {
 - 各コンポーネントは、`useContext` フックを使って data にアクセスすることができる
 - プロバイダパターンは、グローバルなデータの共有に非常に有効
 
-### サンプルコード
+### Provider Pattern のサンプルコード
 
 ```tsx
 const DataContext = React.createContext();
@@ -242,8 +242,8 @@ function Header() {
 - [Compound Pattern](https://javascriptpatterns.vercel.app/patterns/react-patterns/compound-pattern)
 - [複合 パターン](https://zenn.dev/morinokami/books/learning-patterns-1/viewer/compound-pattern)
 
-### 概要
+### Compound Pattern の概要
 
 - 1 つのタスクを実行するために連携する複数のコンポーネントを作成する
 
-### サンプルコード
+### Compound Pattern のサンプルコード

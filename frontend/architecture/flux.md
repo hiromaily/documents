@@ -4,7 +4,7 @@ FluxはReactと組み合わせて使われるSPA構築のためのアプリケ�
 
 公式サイトには、
 
-```
+```txt
 The Flux project has been archived and no further changes will be made. We recommend using modern alternatives like Redux, MobX, Recoil, Zustand, or Jotai instead.
 ```
 

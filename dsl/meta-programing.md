@@ -75,34 +75,34 @@ Rust では、リフレクションは他の言語ほど強力ではないが、
 
 1. まず、Cargo.toml に必要なクレートを追加する。
 
-```toml
-[dependencies]
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-```
+   ```toml
+   [dependencies]
+   serde = { version = "1.0", features = ["derive"] }
+   serde_json = "1.0"
+   ```
 
 2. 次に、コードを書く。
 
-```rust
-use serde::{Serialize, Deserialize};
+   ```rust
+   use serde::{Serialize, Deserialize};
 
-#[derive(Serialize, Deserialize, Debug)]
-struct MyStruct {
-    name: String,
-    age: u8,
-}
+   #[derive(Serialize, Deserialize, Debug)]
+   struct MyStruct {
+       name: String,
+       age: u8,
+   }
 
-fn main() {
-    // データを構造体にデシリアライズ
-    let data = r#"{ "name": "Alice", "age": 30 }"#;
-    let s: MyStruct = serde_json::from_str(data).unwrap();
-    println!("{:?}", s);
+   fn main() {
+       // データを構造体にデシリアライズ
+       let data = r#"{ "name": "Alice", "age": 30 }"#;
+       let s: MyStruct = serde_json::from_str(data).unwrap();
+       println!("{:?}", s);
 
-    // 構造体をJSONにシリアライズ
-    let json = serde_json::to_string(&s).unwrap();
-    println!("{}", json);
-}
-```
+       // 構造体をJSONにシリアライズ
+       let json = serde_json::to_string(&s).unwrap();
+       println!("{}", json);
+   }
+   ```
 
 ### Python のリフレクション
 
@@ -129,17 +129,17 @@ print(method())  # "A method"と出力
 
 ## テンプレートメタプログラミング
 
-### Goのテンプレートメタプログラミング
+### Go のテンプレートメタプログラミング
 
-Goはサポートしていないため、`go generate`といった`コード生成ツール`を使うのが一般的
+Go はサポートしていないため、`go generate`といった`コード生成ツール`を使うのが一般的
 
-### Rustのテンプレートメタプログラミング
+### Rust のテンプレートメタプログラミング
 
-Rustもサポートしていないが、`マクロ`や`プロシージャルマクロ（proc-macro）`を使って、かなり強力なコード生成ができる
+Rust もサポートしていないが、`マクロ`や`プロシージャルマクロ（proc-macro）`を使って、かなり強力なコード生成ができる
 
-### TypeScriptのテンプレートメタプログラミング
+### TypeScript のテンプレートメタプログラミング
 
-JavaScriptと同様にクラスや関数、リフレクションに加えて、型システムを活用したジェネリクスやデコレーターを利用してテンプレートメタプログラミングに似た効果を得ることができる。
+JavaScript と同様にクラスや関数、リフレクションに加えて、型システムを活用したジェネリクスやデコレーターを利用してテンプレートメタプログラミングに似た効果を得ることができる。
 
 ### C++のテンプレートメタプログラミング
 
@@ -172,15 +172,15 @@ int main() {
 
 ## マクロ
 
-### Goのマクロ
+### Go のマクロ
 
 存在しないため、コード生成ツールやジェネリクスが代替え案となる
 
-### Rustのマクロ
+### Rust のマクロ
 
-Rustにはマクロのサポートが非常に強力で、2種類のマクロが存在する。
+Rust にはマクロのサポートが非常に強力で、2 種類のマクロが存在する。
 
-1. **`macro_rules!` マクロ**：Rustの定義済みマクロで、コンパイル時に展開される。
+1. **`macro_rules!` マクロ**：Rust の定義済みマクロで、コンパイル時に展開される。
 2. **プロシージャルマクロ（proc-macro）**：より複雑なコード生成を行うためのマクロで、外部クレートとして提供されることが多い。
 
 #### `macro_rules!` マクロの例
@@ -253,9 +253,9 @@ fn main() {
 }
 ```
 
-### TypeScriptのマクロ
+### TypeScript のマクロ
 
-TypeScript自体にはマクロの機能はない
+TypeScript 自体にはマクロの機能はない
 
 ### Lisp のマクロ
 

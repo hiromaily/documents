@@ -4,7 +4,7 @@
 
 ## Commands
 
-```
+```sh
 ❯ npx truffle --help
 Truffle v5.7.4 - a development framework for Ethereum
 
@@ -50,7 +50,7 @@ Options:
 - build crtifacts and files are generated in `build/contracts/`
 - [Compiling contracts](https://trufflesuite.com/docs/truffle/getting-started/compiling-contracts/)
 
-```
+```sh
 truffle compile
 # ignore cache
 truffle compile --all
@@ -108,7 +108,7 @@ const ERC1400ContractModule = artifacts.require('ERC1400ContractModule');
 
 ## Migration
 
-```
+```sh
 npx truffle migrate --network development
 
 npx truffle migrate --network development --reset
@@ -123,7 +123,7 @@ npx truffle migrate -f 2 --to 2 --network development --reset
 - txHash を取得後、以下のコマンドを実行する
   - network name は`truffle-config.js`の定義より取得
 
-```
+```sh
 npx truffle debug <txHash> --network <network-name>
 ```
 
@@ -131,7 +131,7 @@ npx truffle debug <txHash> --network <network-name>
 
 ### Debug Command
 
-```
+```sh
 Commands:
 (enter) last command entered (step next)
 (o) step over, (i) step into, (u) step out, (n) step next
@@ -178,7 +178,7 @@ Commands:
 
 `truffle test`にて、`console.log`が使える
 
-```
+```sol
 pragma solidity >=0.4.25 <0.9.0;
 import "truffle/console.sol";
 ```
@@ -189,7 +189,7 @@ import "truffle/console.sol";
 
 ### test コマンド
 
-```
+```sh
 # test with specific network
 $ truffle test --debug --network test
 
@@ -205,7 +205,7 @@ $ truffle test --debug test/ERC1400.test.js --network test
 
 Show addresses for deployed contracts on each network
 
-```
+```sh
 ❯ npx truffle networks
 
 The following networks are configured to match any network id ('*'):
@@ -247,7 +247,7 @@ Network: UNKNOWN (id: 5777)
 
 - config例
 
-```
+```js
 networks: {
   development: {
     host: "127.0.0.1",

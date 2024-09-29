@@ -75,9 +75,9 @@ const Page = () => {
 export default Page;
 ```
 
-## Example2
+## Example 2
 
-- [How to pass Multiple Values in React Context?]()
+WIP: How to pass Multiple Values in React Context?
 
 ```tsx
 const CounterContext = React.createContext("counter");
@@ -123,7 +123,7 @@ const CounterComponent = () => {
   - React.memo を利用する (コンポーネントのメモ化)
   - useMemo を利用する (値のメモ化)
 
-### Example
+### Example 3
 
 ```tsx
 import React, { createContext, useContext, useReducer, useMemo } from "react";

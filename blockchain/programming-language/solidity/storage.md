@@ -3,7 +3,7 @@
 - [ストレージ内の状態変数のレイアウト](https://solidity-ja.readthedocs.io/ja/latest/internals/layout_in_storage.html)
 - [メモリ内のレイアウト](https://solidity-ja.readthedocs.io/ja/latest/internals/layout_in_memory.html)
 
-```
+```sol
 pragma solidity >=0.4.16 <0.9.0;
 
 contract SimpleStorage {

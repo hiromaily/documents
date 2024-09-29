@@ -8,7 +8,7 @@
 
 ## Structure
 
-```
+```txt
 └── /src
     ├── /assets
     ├── /components
@@ -29,7 +29,7 @@
 
 ### 絶対パスによる Imports
 
-```
+```jsx
 import { Button } from '@components';
 ```
 
@@ -38,16 +38,20 @@ import { Button } from '@components';
 - UI をコンポーネントに定義し、ビジネスロジックを Hooks に定義し、Hooks はビジネスロジックの function 自体をコンポーネントに渡す
 
 コンポーネントと機能の分離
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/react-ui-business.webp"  width="50%" height="50%">
+
+![コンポーネントと機能の分離](../../../images/react-ui-business.webp "コンポーネントと機能の分離")
 
 Page, Component, Hook の関係性
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/react-ui-business2.png"  width="50%" height="50%">
+
+![Page, Component, Hook の関係性](../../../images/react-ui-business2.webp "Page, Component, Hook の関係性")
 
 Hook からビジネス層に依存するパターン１:抽象への依存を DI で解決する
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/react-ui-business3.png"  width="80%" height="80%">
+
+![抽象への依存を DI で解決する](../../../images/react-ui-business3.webp "抽象への依存を DI で解決する")
 
 外部通信発生時のレイヤーの分離
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/front-end-layer.png"  width="80%" height="80%">
+
+![外部通信発生時のレイヤーの分離](../../../images/front-end-layer.png "外部通信発生時のレイヤーの分離")
 
 ### ビジネスロジックに Testability を持たすためには
 

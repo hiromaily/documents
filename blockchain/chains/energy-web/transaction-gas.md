@@ -63,13 +63,13 @@
 
 - 上記の 3 つの変数を使用すると、総トランザクションコストを計算することができる
 
-```
+```txt
 TxCost(unit:fiat$) = GasCost(unit:gas) x GasPrice(unit:token/gas) x TokenValue($/token)
 ```
 
 - EWC でのトランザクションを想定した場合の手数料の算出方法は以下のとおり
 
-```
+```txt
 50,000ガス×1gasあたり1gwei＝50,000gwei＝0.00005EWT
 ```
 

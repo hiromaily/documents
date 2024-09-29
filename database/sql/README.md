@@ -12,29 +12,29 @@ Please note that some of these tips might not be relevant for all RDBMs. For exa
 
 ### 1.Formatting/readability
 
-1) [Use a leading comma to separate fields](#use-a-leading-comma-to-separate-fields)
-2) [Use a dummy value in the WHERE clause](#use-a-dummy-value-in-the-where-clause)
-3) [Indent your code where appropriate](#indent-your-code-where-appropriate)
-4) [Consider CTEs when writing complex queries](#consider-ctes-when-writing-complex-queries)
+1. [Use a leading comma to separate fields](#use-a-leading-comma-to-separate-fields)
+2. [Use a dummy value in the WHERE clause](#use-a-dummy-value-in-the-where-clause)
+3. [Indent your code where appropriate](#indent-your-code-where-appropriate)
+4. [Consider CTEs when writing complex queries](#consider-ctes-when-writing-complex-queries)
 
 ### 2.Useful features
 
-5) [You can use the `::` operator to cast the data type of a value](#you-can-use-the--operator-to-cast-the-data-type-of-a-value)
-6) [Anti-joins are your friend](#anti-joins-are-your-friend)
-7) [Use `QUALIFY` to filter window functions](#use-qualify-to-filter-window-functions)
-8) [You can (but shouldn't always) `GROUP BY` column position](#you-can-but-shouldnt-always-group-by-column-position)
-9) [Use `EXCLUDE` to... exclude columns](#use-exclude-to-exclude-columns)
-10) [You can create a grand total with `GROUP BY ROLLUP`](#you-can-create-a-grand-total-with-group-by-rollup)
+5. [You can use the `::` operator to cast the data type of a value](#you-can-use-the--operator-to-cast-the-data-type-of-a-value)
+6. [Anti-joins are your friend](#anti-joins-are-your-friend)
+7. [Use `QUALIFY` to filter window functions](#use-qualify-to-filter-window-functions)
+8. [You can (but shouldn't always) `GROUP BY` column position](#you-can-but-shouldnt-always-group-by-column-position)
+9. [Use `EXCLUDE` to... exclude columns](#use-exclude-to-exclude-columns)
+10. [You can create a grand total with `GROUP BY ROLLUP`](#you-can-create-a-grand-total-with-group-by-rollup)
 
 ### 3.Avoid pitfalls
 
-11) [Be aware of how `NOT IN` behaves with `NULL` values](#be-aware-of-how-not-in-behaves-with-null-values)
-12) [Rename calculated fields to avoid ambiguity](#rename-calculated-fields-to-avoiding-ambiguity)
-13) [Always specify which column belongs to which table](#always-specify-which-column-belongs-to-which-table)
-14) [Understand the order of execution](#understand-the-order-of-execution)
-15) [Comment your code!](#comment-your-code)
-16) [Read the documentation (in full)](#read-the-documentation-in-full)
-17) [Use descriptive names for your saved queries](#use-descriptive-names-for-your-saved-queries)
+11. [Be aware of how `NOT IN` behaves with `NULL` values](#be-aware-of-how-not-in-behaves-with-null-values)
+12. [Rename calculated fields to avoid ambiguity](#rename-calculated-fields-to-avoiding-ambiguity)
+13. [Always specify which column belongs to which table](#always-specify-which-column-belongs-to-which-table)
+14. [Understand the order of execution](#understand-the-order-of-execution)
+15. [Comment your code!](#comment-your-code)
+16. [Read the documentation (in full)](#read-the-documentation-in-full)
+17. [Use descriptive names for your saved queries](#use-descriptive-names-for-your-saved-queries)
 
 ## Formatting/readability
 
@@ -84,11 +84,11 @@ AND dept_no != 5
 
 Indent your code to make it more readable to colleagues and your future self:
 
-``` SQL
+```SQL
 -- Bad:
-SELECT 
+SELECT
 timeslot_date
-, timeslot_channel 
+, timeslot_channel
 , overnight_fta_share
 , IFF(DATEDIFF(DAY, timeslot_date, CURRENT_DATE()) > 7, LAG(overnight_fta_share, 1) OVER (PARTITION BY timeslot_date, timeslot_channel ORDER BY timeslot_activity), NULL) AS C7_fta_share
 , IFF(DATEDIFF(DAY, timeslot_date, CURRENT_DATE()) >= 29, LAG(overnight_fta_share, 2) OVER (PARTITION BY timeslot_date, timeslot_channel ORDER BY timeslot_activity), NULL) AS C28_fta_share
@@ -96,15 +96,15 @@ FROM timeslot_data
 ;
 
 -- Good:
-SELECT 
+SELECT
 timeslot_date
-, timeslot_channel 
+, timeslot_channel
 , overnight_fta_share
 , IFF(DATEDIFF(DAY, timeslot_date, CURRENT_DATE()) > 7, -- First argument of IFF.
  LAG(overnight_fta_share, 1) OVER (PARTITION BY timeslot_date, timeslot_channel ORDER BY timeslot_activity), -- Second argument of IFF.
   NULL) AS C7_fta_share -- Third argument of IFF.
-, IFF(DATEDIFF(DAY, timeslot_date, CURRENT_DATE()) >= 29, 
-  LAG(overnight_fta_share, 2) OVER (PARTITION BY timeslot_date, timeslot_channel ORDER BY timeslot_activity), 
+, IFF(DATEDIFF(DAY, timeslot_date, CURRENT_DATE()) >= 29,
+  LAG(overnight_fta_share, 2) OVER (PARTITION BY timeslot_date, timeslot_channel ORDER BY timeslot_activity),
    NULL) AS C28_fta_share
 FROM timeslot_data
 ;
@@ -125,11 +125,11 @@ demonstrating the difference between the two.
 */
 
 -- Using nested inline views.
-SELECT 
+SELECT
 vhs.movie
 , vhs.vhs_revenue
 , cs.cinema_revenue
-FROM 
+FROM
     (
     SELECT
     movie_id
@@ -137,9 +137,9 @@ FROM
     FROM tickets
     GROUP BY movie_id
     ) AS cs
-    INNER JOIN 
+    INNER JOIN
         (
-        SELECT 
+        SELECT
         movie
         , movie_id
         , SUM(revenue) AS vhs_revenue
@@ -150,9 +150,9 @@ FROM
 ;
 
 -- Using CTEs.
-WITH cinema_sales AS 
+WITH cinema_sales AS
     (
-        SELECT 
+        SELECT
         movie_id
         , SUM(ticket_sales) AS cinema_revenue
         FROM tickets
@@ -160,14 +160,14 @@ WITH cinema_sales AS
     ),
     vhs_sales AS
     (
-        SELECT 
+        SELECT
         movie
         , movie_id
         , SUM(revenue) AS vhs_revenue
         FROM blockbuster
         GROUP BY movie, movie_id
     )
-SELECT 
+SELECT
 vhs.movie
 , vhs.vhs_revenue
 , cs.cinema_revenue
@@ -193,12 +193,12 @@ SELECT '5'::INTEGER; -- Using :: syntax.
 Anti-joins are incredible useful, mostly (in my experience) for when you only want to return rows/values from one table that aren't present in another table.
 
 - You could instead use a subquery although conventional wisdom dictates that
-anti-joins are faster.
+  anti-joins are faster.
 - `EXCEPT` is an interesting operator for removing rows from one table which appear in another query table but I suggest you read up on it further before using it.
 
 ```SQL
 -- Anti-join.
-SELECT 
+SELECT
 video_content.*
 FROM video_content
     LEFT JOIN archive
@@ -207,14 +207,14 @@ WHERE 1=1
 AND archive.series_id IS NULL -- Any rows with no match will have a NULL value.
 
 -- Subquery.
-SELECT 
+SELECT
 *
 FROM video_content
 WHERE 1=1
 AND series_id NOT IN (SELECT DISTINCT SERIES_ID FROM archive) -- Be mindful of NULL values.
 
 -- Correlated subquery.
-SELECT 
+SELECT
 *
 FROM video_content vc
 WHERE 1=1
@@ -242,10 +242,10 @@ For example, if I want to return the top 10 markets per product I can use
 
 ```SQL
 -- Using QUALIFY:
-SELECT 
+SELECT
 product
 , market
-, SUM(revenue) AS market_revenue 
+, SUM(revenue) AS market_revenue
 FROM sales
 GROUP BY product, market
 QUALIFY DENSE_RANK() OVER (PARTITION BY product ORDER BY SUM(revenue) DESC)  <= 10
@@ -253,13 +253,13 @@ ORDER BY product, market_revenue
 ;
 
 -- Without QUALIFY:
-SELECT 
+SELECT
 product
 , market
-, market_revenue 
+, market_revenue
 FROM
 (
-SELECT 
+SELECT
 product
 , market
 , SUM(revenue) AS market_revenue
@@ -278,10 +278,10 @@ Instead of using the column name, you can `GROUP BY` or `ORDER BY` using the
 column position.
 
 - This can be useful for ad-hoc/one-off queries, but for production code
-you should always refer to a column by its name.
+  you should always refer to a column by its name.
 
 ```SQL
-SELECT 
+SELECT
 dept_no
 , SUM(salary) AS dept_salary
 FROM employees
@@ -312,7 +312,7 @@ can use `GROUP BY ROLLUP` to create a grand total that sums up the aggregated
 `dept_salary` column.
 
 ```SQL
-SELECT 
+SELECT
 COALESCE(dept_no, 'Total') AS dept_no
 , SUM(salary) AS dept_salary
 FROM employees
@@ -328,21 +328,21 @@ ORDER BY dept_salary -- Be sure to order by this column to ensure the Total appe
 
 - Instead use `NOT EXISTS`.
 
-``` SQL
+```SQL
 INSERT INTO departments (id)
 VALUES (1), (2), (NULL);
 
 -- Doesn't work due to NULL being present.
-SELECT * 
-FROM employees 
+SELECT *
+FROM employees
 WHERE department_id NOT IN (SELECT DISTINCT id from departments)
 
 -- Solution.
-SELECT * 
+SELECT *
 FROM employees e
 WHERE NOT EXISTS (
-    SELECT 1 
-    FROM departments d 
+    SELECT 1
+    FROM departments d
     WHERE d.id = e.department_id
 )
 ;
@@ -356,17 +356,17 @@ window function operating on the wrong field:
 
 ```SQL
 INSERT INTO products (product, revenue)
-VALUES 
+VALUES
     ('Shark', 100),
     ('Robot', 150),
     ('Alien', 90);
 
 -- The window function will rank the 'Robot' product as 1 when it should be 3.
-SELECT 
+SELECT
 product
 , CASE product WHEN 'Robot' THEN 0 ELSE revenue END AS revenue
 , RANK() OVER (ORDER BY revenue DESC)
-FROM products 
+FROM products
 ```
 
 ### Always specify which column belongs to which table
@@ -378,12 +378,12 @@ Additionally, your RDBMS might raise an error if two tables share the same
 column name and you don't specify which column you are using.
 
 ```SQL
-SELECT 
+SELECT
 vc.video_id
 , vc.series_name
 , metadata.season
 , metadata.episode_number
-FROM video_content AS vc 
+FROM video_content AS vc
     INNER JOIN video_metadata AS metadata
     ON vc.video_id = metadata.video_id
 ```
@@ -402,10 +402,10 @@ the code weeks, months or years later you might not remember.
 - Your colleagues and future self will thank you!
 
 ```SQL
-SELECT 
+SELECT
 video_content.*
 FROM video_content
-    LEFT JOIN archive -- New CMS cannot process archive video formats. 
+    LEFT JOIN archive -- New CMS cannot process archive video formats.
     on video_content.series_id = archive.series_id
 WHERE 1=1
 AND archive.series_id IS NULL

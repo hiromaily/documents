@@ -8,7 +8,7 @@
 
 - [go-ethereum: ChainConfig](https://github.com/ethereum/go-ethereum/blob/v1.10.26/params/config.go#L348-L388)
 
-```
+```go
 type ChainConfig struct {
  ChainID *big.Int `json:"chainId"` // chainId identifies the current chain and is used for replay protection
 

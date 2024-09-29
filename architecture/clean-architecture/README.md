@@ -68,15 +68,15 @@
 
 `Application Business Rules(UseCases)`レイヤー及び、`Interface Adapter` レイヤーは抽象に依存することで、`依存関係逆転の法則(DIP)`によって`依存性のルール`を満たす
 
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture1.png"  width="50%" height="50%">
+![依存関係の整理1](../../images/clean-architecture1.png "依存関係の整理2")
 
 実際にコードを書くことによって見えたことだが、システムの Usecase 部となる Handler を持つ`WebFramework`だったり、`UI`は`依存関係逆転の法則(DIP)`によって`UseCases`の Interface に依存せずとも、直接`UseCases`に依存すればよいのではないか？つまり、GUI や CUI といった UI 部の数と Usecase は 1:1 である必要はなく、ただその UI 部のコンポーネントが存在するかどうかのみで、WebFramework や UI は変更せずとも追加可能であり、入力の数に制限はない(CUI も GUI も備えるシステムでもよい)。ただし、Usecase 部に渡ってくるデータを統一するための Interface は必要となる。
 
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture2.png"  width="50%" height="50%">
+![依存関係の整理2](../../images/clean-architecture2.png "依存関係の整理2")
 
 Device には Adapter が必要なく、`依存関係逆転の法則(DIP)`によって UseCases に直接依存可能なケースも存在するはず。これは UseCases のためにデータの最適化が不要な場合がこれに該当する
 
-<img src="https://raw.githubusercontent.com/hiromaily/documents/main/images/clean-architecture3.png"  width="60%" height="60%">
+![依存関係の整理3](../../images/clean-architecture3.png "依存関係の整理3")
 
 ## Clean Architecture と相性のいいデザインパターン
 

@@ -4,66 +4,66 @@
 
 1. Presentational Component
 
-- 見た目を実装するコンポーネントで、渡された props を元に UI を調整する
+   - 見た目を実装するコンポーネントで、渡された props を元に UI を調整する
 
 2. Container Component
 
-- デザインは実装せず、ビジネスロジックのみを担い、振る舞いを実装する
-- Hooks を持たせて、状態を使って表示内容を変える、API コールなどの副作用を実行するなど
-- Context を参照し、Presentational Component へ表示に必要なデータを渡す
+   - デザインは実装せず、ビジネスロジックのみを担い、振る舞いを実装する
+   - Hooks を持たせて、状態を使って表示内容を変える、API コールなどの副作用を実行するなど
+   - Context を参照し、Presentational Component へ表示に必要なデータを渡す
 
-```tsx
-import { useState, useCallback} from 'react'
-import { Button } from './button'
+   ```tsx
+   import { useState, useCallback} from 'react'
+   import { Button } from './button'
 
-// ポップアップを表示するためのフック
-const usePopup = () {
-  // 与えられたテキストを表示するポップアップを出現させる関数
-  const cb = useCallback((text: string) => {
-    prompt(text)
-  }, [])
-  return cb
-}
+   // ポップアップを表示するためのフック
+   const usePopup = () {
+     // 与えられたテキストを表示するポップアップを出現させる関数
+     const cb = useCallback((text: string) => {
+       prompt(text)
+     }, [])
+     return cb
+   }
 
-type CountButtonProps = {
-  label: string
-  maximum: number
-}
+   type CountButtonProps = {
+     label: string
+     maximum: number
+   }
 
-// クリックされた回数を表示するボタンを表示するコンポーネント
-export const CountButton = (props: CountButtonProps) => {
-  const { label, maximum } = props
+   // クリックされた回数を表示するボタンを表示するコンポーネント
+   export const CountButton = (props: CountButtonProps) => {
+     const { label, maximum } = props
 
-  // アラートを表示させるためのフックを使う
-  const displayPopup = usePopup()
+     // アラートを表示させるためのフックを使う
+     const displayPopup = usePopup()
 
-  // カウントを保持する状態を定義する
-  const [count, setCount] = useState(0)
+     // カウントを保持する状態を定義する
+     const [count, setCount] = useState(0)
 
-  // ボタンが押されたときの挙動を定義する
-  const onClick = useCallback(() => {
-    // カウントを更新する
-    const newCount = count + 1
-    setCount(newCount)
+     // ボタンが押されたときの挙動を定義する
+     const onClick = useCallback(() => {
+       // カウントを更新する
+       const newCount = count + 1
+       setCount(newCount)
 
-    if (newCount >= maximum) {
-      // アラートを出す
-      displayPopup(`You have clicked ${newCount} times`)
-    }
-  }, [count, maximum])
+       if (newCount >= maximum) {
+         // アラートを出す
+         displayPopup(`You have clicked ${newCount} times`)
+       }
+     }, [count, maximum])
 
-  // 状態を元に表示に必要なデータを求める
-  const disabled = count >= maximum
-  const text = disabled
-    ? 'Can not click any more'
-    : `You have clicked ${count} times`
+     // 状態を元に表示に必要なデータを求める
+     const disabled = count >= maximum
+     const text = disabled
+       ? 'Can not click any more'
+       : `You have clicked ${count} times`
 
-  // Presentational Componentを返す
-  return {
-    <Button disabled={disabled} onClick={onClick} label={label} text={text}>
-  }
-}
-```
+     // Presentational Componentを返す
+     return {
+       <Button disabled={disabled} onClick={onClick} label={label} text={text}>
+     }
+   }
+   ```
 
 ## Atomic Design
 
@@ -92,24 +92,24 @@ export const CountButton = (props: CountButtonProps) => {
 
 - install
 
-```sh
-npm install --save styled-components
-npm install --save-dev @types/styled-components
-```
+  ```sh
+  npm install --save styled-components
+  npm install --save-dev @types/styled-components
+  ```
 
 - next.config.js
 
-```js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  compiler: {
-    styledComponents: true, //この設定が必要
-  },
-};
+  ```js
+  /** @type {import('next').NextConfig} */
+  const nextConfig = {
+    reactStrictMode: true,
+    compiler: {
+      styledComponents: true, //この設定が必要
+    },
+  };
 
-module.exports = nextConfig;
-```
+  module.exports = nextConfig;
+  ```
 
 #### SSG/SSR 使用時にサーバーサイドでスタイルを適用させるための設定
 
@@ -118,8 +118,8 @@ module.exports = nextConfig;
   - 以下では、スタイルを差し込む処理を追加している
 
 ```tsx
-import Document, { DocumentContext } from 'next/document';
-import { ServerStyleSheet } from 'styled-components';
+import Document, { DocumentContext } from "next/document";
+import { ServerStyleSheet } from "styled-components";
 
 // デフォルトのDocumentをMyDocumentで上書き
 export default class MyDocument extends Document {
@@ -161,10 +161,10 @@ export default class MyDocument extends Document {
 - これにより、スタイルが適用された`要素`ができあがる
 
 ```tsx
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import styled from 'styled-components';
+import type { NextPage } from "next";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import styled from "styled-components";
 
 // スタイルが適用された要素
 const H1 = styled.h1`
@@ -190,8 +190,8 @@ export default Home;
 #### styled-components を使ってコンポーネントを実装する
 
 ```tsx
-import { NextPage } from 'next';
-import styled from 'styled-components';
+import { NextPage } from "next";
+import styled from "styled-components";
 
 // スタイルが適用された要素だが、コンポーネントにもなりえる
 const Badge = styled.span`
@@ -213,8 +213,8 @@ export default Page;
 #### props を使って、外部からスタイルを制御する
 
 ```tsx
-import { NextPage } from 'next';
-import styled from 'styled-components';
+import { NextPage } from "next";
+import styled from "styled-components";
 
 type ButtonProps = {
   color: string;
@@ -259,8 +259,8 @@ export default Page;
 - styled-components の`mixin`では CSS の定義を再利用できる
 
 ```tsx
-import { NextPage } from 'next';
-import styled, { css } from 'styled-components';
+import { NextPage } from "next";
+import styled, { css } from "styled-components";
 
 // 赤色のボーダーを表示するスタイル
 const redBox = css`
@@ -311,8 +311,8 @@ export default Page;
 - スタイルを再利用したいとき、違う方法として、ある要素のスタイルを継承することも有用
 
 ```tsx
-import { NextPage } from 'next';
-import styled from 'styled-components';
+import { NextPage } from "next";
+import styled from "styled-components";
 
 // 青いボールド文字を表示するコンポーネント
 const Text = styled.p`
@@ -344,8 +344,8 @@ export default Page;
 - props の`as`に使いたい要素名を指定するとその要素で表示できる
 
 ```tsx
-import { NextPage } from 'next';
-import styled from 'styled-components';
+import { NextPage } from "next";
+import styled from "styled-components";
 
 // 青色のテキストを表示するコンポーネント
 const Text = styled.p`
@@ -374,9 +374,9 @@ export default Page;
 - コンポーネント内の特定のコンポーネントにスタイルを適用したい場合は、class 属性（props に渡される className)を任意のコンポーネントに渡す
 
 ```tsx
-import { NextPage } from 'next';
-import Link, { LinkProps } from 'next/link';
-import styled from 'styled-components';
+import { NextPage } from "next";
+import Link, { LinkProps } from "next/link";
+import styled from "styled-components";
 
 type BaseLinkProps = React.PropsWithChildren<LinkProps> & {
   className?: string;
@@ -421,66 +421,66 @@ export default Page;
 
 1. まず、theme.ts を作成し、Theme を定義
 
-```ts
-export const theme = {
-  space: ['0px', '4px', '8px', '16px', '24px', '32px'],
-  colors: {
-    white: '#ffffff',
-    black: '#000000',
-    red: '#ff0000',
-  },
-  fontSizes: ['12px', '14px', '16px', '18px', '20px', '23px'],
-  fonts: {
-    primary: `arial, sans-serif`,
-  },
-};
-```
+   ```ts
+   export const theme = {
+     space: ["0px", "4px", "8px", "16px", "24px", "32px"],
+     colors: {
+       white: "#ffffff",
+       black: "#000000",
+       red: "#ff0000",
+     },
+     fontSizes: ["12px", "14px", "16px", "18px", "20px", "23px"],
+     fonts: {
+       primary: `arial, sans-serif`,
+     },
+   };
+   ```
 
 2. 作成した Theme を`ThemeProvider`に渡す。それぞれのページコンポーネントが`Context`経由で参照できるようにする
 
-- `pages/_app`はページの処理かのために用いられ、`カスタムApp`と呼ばれる。
-- 全ページに共通する処理をページ初期化時に追加するもの
+   - `pages/_app`はページの処理かのために用いられ、`カスタムApp`と呼ばれる。
+   - 全ページに共通する処理をページ初期化時に追加するもの
 
-```tsx
-import '../styles/globals.css';
-import type { AppProps } from 'next/app';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../theme';
+   ```tsx
+   import "../styles/globals.css";
+   import type { AppProps } from "next/app";
+   import { ThemeProvider } from "styled-components";
+   import { theme } from "../theme";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  // styled-componentsでテーマを使用するためにThemeProviderを置く
-  return (
-    <ThemeProvider theme={theme}>
-      <Component {...pageProps} />
-    </ThemeProvider>
-  );
-}
+   function MyApp({ Component, pageProps }: AppProps) {
+     // styled-componentsでテーマを使用するためにThemeProviderを置く
+     return (
+       <ThemeProvider theme={theme}>
+         <Component {...pageProps} />
+       </ThemeProvider>
+     );
+   }
 
-export default MyApp;
-```
+   export default MyApp;
+   ```
 
 3. Theme で定義した値を使用するには、props の theme オブジェクトを参照する
 
-```tsx
-import { NextPage } from 'next';
-import styled from 'styled-components';
+   ```tsx
+   import { NextPage } from "next";
+   import styled from "styled-components";
 
-const Text = styled.span`
-  /* themeから値を参照してスタイルを適用 */
-  color: ${(props) => props.theme.colors.red};
-  font-size: ${(props) => props.theme.fontSizes[3]};
-  margin: ${(props) => props.theme.space[2]};
-`;
+   const Text = styled.span`
+     /* themeから値を参照してスタイルを適用 */
+     color: ${(props) => props.theme.colors.red};
+     font-size: ${(props) => props.theme.fontSizes[3]};
+     margin: ${(props) => props.theme.space[2]};
+   `;
 
-const Page: NextPage = () => {
-  return (
-    <div>
-      <Text>Themeから参照した色を使用しています</Text>
-    </div>
-  );
-};
+   const Page: NextPage = () => {
+     return (
+       <div>
+         <Text>Themeから参照した色を使用しています</Text>
+       </div>
+     );
+   };
 
-export default Page;
-```
+   export default Page;
+   ```
 
 ## [WIP] コンポーネントの UnitTest

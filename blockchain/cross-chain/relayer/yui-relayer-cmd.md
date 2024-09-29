@@ -4,7 +4,7 @@
 
 ### Sub Commands
 
-```
+```sh
 
 Usage:
   yrly [command]
@@ -30,7 +30,7 @@ Flags:
 
 ### Config Sub Commands
 
-```
+```sh
 manage configuration file
 
 Usage:
@@ -46,7 +46,7 @@ Available Commands:
 
 ### Chains Sub Commands
 
-```
+```sh
 manage chain configurations
 
 Usage:
@@ -59,7 +59,7 @@ Available Commands:
 
 ### Tx Sub Commands
 
-```
+```sh
 Commands to create IBC transactions on configured chains.
   Most of these commands take a '[path]' argument. Make sure:
  1. Chains are properly configured to relay over by using the 'rly chains list' command
@@ -81,7 +81,7 @@ Available Commands:
 
 ### Paths Sub Commands
 
-```
+```sh
 A path represents the "full path" or "link" for communication between two chains. This includes the client,
 connection, and channel ids from both the source and destination chains as well as the strategy to use when relaying
 
@@ -98,7 +98,7 @@ Available Commands:
 
 ### Query Sub Commands
 
-```
+```sh
 Commands to query IBC primitives, and other useful data on configured chains.
 
 Usage:
@@ -116,7 +116,7 @@ Available Commands:
 
 ### Modules Sub Commands
 
-```
+```sh
 show an info about Relayer Module
 
 Usage:
@@ -128,7 +128,7 @@ Available Commands:
 
 ### Service Sub Commands
 
-```
+```sh
 Commands to manage the relay service
 
 Usage:
@@ -140,7 +140,7 @@ Available Commands:
 
 ### Tendermint Sub Commands
 
-```
+```sh
 manage tendermint configurations
 
 Usage:

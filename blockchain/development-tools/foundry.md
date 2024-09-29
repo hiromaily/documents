@@ -18,14 +18,14 @@ Ethereum のアプリケーション開発のための toolkit で、構成は�
 
 ## Install
 
-```
+```sh
 curl -L https://foundry.paradigm.xyz | bash
 foundryup
 ```
 
 ### Options
 
-```
+```sh
 ❯ forge --help
 Build, test, fuzz, debug and deploy Solidity contracts.
 
