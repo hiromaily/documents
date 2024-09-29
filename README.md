@@ -11,19 +11,21 @@
 
 ## Work in progress
 
-- [暗号技術/公開鍵暗号](./security/cryptography/public-key-cryptography.md)
 - [分散システム/データ指向アプリケーションデザイン](./distributed-system/designing-data-intensive-applications.md)
-- [データ構造/木構造](./data-structure/tree.md)
-- [12 Factor Application](./architecture/12-factor-application.md)
-- [ソフトウェア開発手法](./software-development/README.md)
+- [暗号技術/公開鍵暗号](./security/cryptography/public-key-cryptography.md)
 
 ## 関心のある技術(Sep 2024)
+
+- [モジュラーモノリス](./infra/architecture/modular-monolith/README.md)
+- [Serverlessアーキテクチャ](./infra/architecture/serverless.md)
+- [分散システム](./distributed-system/README.md)
+- [暗号技術](./security/cryptography/README.md)
+
+### 開発に伴う関心
 
 - Rust and Wasm
 - Bun + Hono Framework
 - Svelte or HTMX as Frontend
-- 分散システム
-- 暗号技術
 
 ## Read books
 
@@ -45,8 +47,8 @@
 
 - ● ソフトウェア設計のトレードオフと誤り
 - ● データ思考アプリケーションデザイン
-- 進化的アーキテクチャー
 - ● Google のソフトウェアエンジニアリング
+- 進化的アーキテクチャー
 - レガシーコードからの脱却
 - ベタープログラマ
 - 達人プログラマー
@@ -66,13 +68,13 @@
 
 ### セキュリティー
 
+- ● 暗号技術入門
 - セキュア・バイ・デザイン
 - ハッキング API
 
 ### Blockchain
 
-- ● 暗号技術入門
-- ● Python によるブロックチェーン開発教本
+- Python によるブロックチェーン開発教本
 - マスタリング・イーサリアム
 - Solidity と Ethereum による実践スマートコントラクト開発
 - ブロックチェーン技術概論
@@ -119,7 +121,3 @@
 ## Markdown で tree を書く
 
 [tree.nathanfriend.io](https://tree.nathanfriend.io/)
-
-## ChatGPTによって調査する場合
-
-です・ます調が不要なのだが、「です・ます調を使わずにXXXについて詳しく説明して」といっても、情報がかなり簡略化されてしまうのが難点
