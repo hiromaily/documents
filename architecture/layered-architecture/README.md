@@ -28,7 +28,7 @@
 
 これはアプリケーションの規模によって 3 層だったり 5 層だったりと異なる
 
-![Layered Architecture](https://github.com/hiromaily/documents/raw/main/images/layered-architecture.webp.png "Layered Architecture")
+![Layered Architecture](https://github.com/hiromaily/documents/raw/main/images/layered-architecture.webp "Layered Architecture")
 
 ## DDD の文脈で語られる 4 つのレイヤー
 
