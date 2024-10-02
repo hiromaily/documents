@@ -43,11 +43,11 @@ import { Button } from '@components';
 
 Page, Component, Hook の関係性
 
-![Page, Component, Hook の関係性](https://github.com/hiromaily/documents/raw/main/images/react-ui-business2.webp "Page, Component, Hook の関係性")
+![Page, Component, Hook の関係性](https://github.com/hiromaily/documents/raw/main/images/react-ui-business2.png "Page, Component, Hook の関係性")
 
 Hook からビジネス層に依存するパターン１:抽象への依存を DI で解決する
 
-![抽象への依存を DI で解決する](https://github.com/hiromaily/documents/raw/main/images/react-ui-business3.webp "抽象への依存を DI で解決する")
+![抽象への依存を DI で解決する](https://github.com/hiromaily/documents/raw/main/images/react-ui-business3.png "抽象への依存を DI で解決する")
 
 外部通信発生時のレイヤーの分離
 

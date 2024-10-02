@@ -7,7 +7,7 @@
 - 異なる hook を差し込みたい場合、その Hook を使う Component 単位で分けてしまう
 - [patterns](https://www.patterns.dev/)の[Container/Presentational Pattern](https://www.patterns.dev/posts/presentational-container-pattern)によって、デザイン用の component とロジック用の component を分ける。
 
-![Injecting Hook Dependencies](https://github.com/hiromaily/documents/raw/main/images/prescon-pattern.jpeg "Injecting Hook Dependencies")
+![Injecting Hook Dependencies](https://github.com/hiromaily/documents/raw/main/images/prescon-pattern.jpg "Injecting Hook Dependencies")
 
 - [Composition vs Inheritance](https://legacy.reactjs.org/docs/composition-vs-inheritance.html)
   - `React has a powerful composition model, and we recommend using composition instead of inheritance to reuse code between components`
