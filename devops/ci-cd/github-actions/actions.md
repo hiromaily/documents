@@ -22,7 +22,7 @@ Actions には大きく分けて以下の 2 つのタイプがある
    ```yaml
    steps:
      - name: Check out code
-       uses: actions/checkout@v2
+       uses: actions/checkout@v4
    ```
 
 2. **actions/cache**:
