@@ -2,12 +2,14 @@
 
 [Official Docs](https://code.visualstudio.com/docs/editor/userdefinedsnippets)
 
-- Built-in snippet と、Marketplace から install 可能な snippet が存在する
-- 自分で snippet を作成することも可能
-  - `Code > Preferences > Configure User Snippets`
-- パレットから、`Snippet serach` を選択すると一覧から検索ができる
+- `Built-in snippet` と、`Marketplace から install 可能な snippet` が存在する
 
-## Build-in Typescript
+## どのようなSnippetsが利用できるのか調べるには？
+
+- パレットから、`Snippet search` を選択すると一覧から検索ができる
+- パレットから、`Insert Snippet`を選択。例えば、`go`のファイルを開いているのであれば、`go`で利用可能なsnippetsが表示される
+
+### Build-in Typescript
 
 - `if`: Creates a basic if statement.
 - `ife`: Creates an if-else statement.
@@ -19,7 +21,13 @@
 - `clg`: console.log()
 - `cdb`: console.debug()
 
-## User Snippets
+## Snippetsの作成
+
+自分で snippet を作成することも可能
+
+`Code > Preferences > Configure User Snippets`
+
+### User Snippets
 
 ```sh
 cd  ~/Library/Application\ Support/Code/User

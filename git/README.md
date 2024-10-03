@@ -37,3 +37,16 @@ git diff --staged
 # ファイルの変更箇所といつ・誰が変更したかを表示
 git blame ${file-name}
 ```
+
+## 月間のコミット数のランキング
+
+```sh
+git log --since="2024-09-01" --until="2024-09-30" --format='%aN' | sort | uniq -c | sort -nr
+```
+
+結果
+
+```sh
+  69 HirokiYasui
+  56 FooBar
+```
