@@ -5,7 +5,9 @@
 ## 種類
 
 - Default: `defaultSettings.json` ... すべての設定が含まれる。修正すべきではないかと。
+  - `default`と入力すると出てくる
 - User: `settings.json` ... ユーザーによってカスタマイズする設定ファイル
+  - `user`と入力すると出てくる
 - Workspace: `settings.json` ... その環境下(ディレクトリ下)に`.vscode`が作成され、その中に`settings.json`ができる
 
 ## 便利な設定
