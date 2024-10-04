@@ -58,3 +58,9 @@ SELECT * FROM table WHERE column % 'searchTerm';
 - **全文検索エンジン**: ユーザーが正確なスペルを知らなくても関連する結果を検索できるようにする。
 - **オートコンプリート機能**: 部分的に入力された単語を補完する。
 - **データマッチング&レコードリンク**: 異なるデータソース間で似たレコードを見つける。
+
+## PostgreSQLのファジーサーチ機能
+
+- [内部Docs: PostgreSQL/Extensions](../database/sql/postgresql/extension/README.md)
+  - fuzzystrmatch拡張
+  - pg_trgm拡張

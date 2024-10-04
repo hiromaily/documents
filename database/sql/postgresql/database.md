@@ -2,7 +2,7 @@
 
 ## データベースの作成
 
-新しいデータベースを作成するための SQL 文です。
+新しいデータベースを作成するための SQL 文
 
 ```sql
 CREATE DATABASE mydatabase;
@@ -10,7 +10,7 @@ CREATE DATABASE mydatabase;
 
 ## データベースの削除
 
-既存のデータベースを削除するための SQL 文です。
+既存のデータベースを削除するための SQL文
 
 ```sql
 DROP DATABASE mydatabase;

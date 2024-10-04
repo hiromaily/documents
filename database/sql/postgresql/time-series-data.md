@@ -2,7 +2,7 @@
 
 ## テーブルの作成
 
-時系列データを格納するためのテーブルを作成する例です。
+時系列データを格納するためのテーブルを作成する例
 
 ```sql
 CREATE TABLE metrics (
@@ -21,7 +21,7 @@ INSERT INTO metrics (time, value) VALUES
 
 ## 時系列データの集計
 
-集計関数を用いてデータを時系列で集計する例です。
+集計関数を用いてデータを時系列で集計する例
 
 ```sql
 SELECT DATE_TRUNC('hour', time) as hour, AVG(value)
