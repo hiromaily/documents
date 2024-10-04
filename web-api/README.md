@@ -11,6 +11,23 @@ Web APIs (Web Application Programming Interfaces) は、ウェブブラウザや
 2. **Web API の定義**:
    - **Web API**: 具体的には、ウェブブラウザやサーバーが提供する API で、ウェブアプリケーションが特定の操作や機能を実行するために使用される。これには DOM 操作、ネットワークリクエスト、グラフィクス描画、メディア操作などが含まれる。
 
+## [12 Essential Web APIs Every Developer Should Know](https://dev.to/vyan/12-essential-web-apis-every-developer-should-know-1m28)
+
+[ReadLater]
+
+- Storage API
+- Payment Request API
+- DOM API
+- HTML Sanitizer API
+- Canvas API
+- History API
+- Clipboard API
+- Fullscreen API
+- FormData API
+- Fetch API
+- Drag and Drop API
+- Geolocation API
+
 ## 主なカテゴリ
 
 ### 1. **DOM (Document Object Model) API**
@@ -152,4 +169,4 @@ observer.observe(document.querySelector("#myElement"));
 
 ## References
 
-[MDN Web APIs](https://developer.mozilla.org/en-US/docs/Web/API)
+- [MDN Web APIs](https://developer.mozilla.org/en-US/docs/Web/API)
