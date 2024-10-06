@@ -66,3 +66,7 @@
   }
 }
 ```
+
+## References
+
+- [そのLambda、本当に必要ですか…？Step Functionsのすゝめ](https://blog.usize-tech.com/stepfunctions-without-lambda/)

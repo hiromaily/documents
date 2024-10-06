@@ -42,6 +42,10 @@
   - Star: 1.1k
   - Golang
   - 頻繁に更新されている
+- [SuperTest](https://github.com/ladjs/supertest)
+  - Super-agent driven library for testing node.js HTTP servers
+  - Star: 13.8k
+  - Javascript
 
 ### 有償??
 

@@ -24,7 +24,7 @@ SELECT * FROM pg_available_extensions;
 
 ### 1. PostGIS
 
-**説明**: 地理空間データの格納、解析、および操作を行うための拡張機能。GIS データを扱うには不可欠。
+**説明**: `地理空間データの格納、解析、および操作`を行うための拡張機能。GIS データを扱うには不可欠。
 
 ```sql
 CREATE EXTENSION postgis;
@@ -32,7 +32,7 @@ CREATE EXTENSION postgis;
 
 ### 2. pg_stat_statements
 
-**説明**: データベースで実行された全ての SQL ステートメントの統計情報を収集する拡張機能。クエリのパフォーマンスチューニングに役立つ。
+**説明**: データベースで実行された全ての SQL ステートメントの統計情報を収集する拡張機能。`クエリのパフォーマンスチューニング`に役立つ。
 
 ```sql
 CREATE EXTENSION pg_stat_statements;
@@ -46,7 +46,7 @@ SELECT * FROM pg_stat_statements ORDER BY total_time DESC LIMIT 10;
 
 ### 3. hstore
 
-**説明**: キー/バリューペアを格納するためのデータ型を提供する拡張機能。スキーマの自由度が高いデータを扱う場合に便利。
+**説明**: `Key/Valueペアを格納する`ためのデータ型を提供する拡張機能。スキーマの自由度が高いデータを扱う場合に便利。
 
 ```sql
 CREATE EXTENSION hstore;
@@ -64,7 +64,7 @@ INSERT INTO example VALUES ('key1 => value1, key2 => value2');
 
 ### 4. citext
 
-**説明**: 大文字小文字を区別しないテキストデータ型を提供する拡張機能。ユーザー名やメールアドレスなど大文字小文字を意識したくないデータに役立つ。
+**説明**: `大文字小文字を区別しないテキストデータ型`を提供する拡張機能。ユーザー名やメールアドレスなど大文字小文字を意識したくないデータに役立つ。
 
 ```sql
 CREATE EXTENSION citext;
@@ -85,7 +85,7 @@ SELECT * FROM users WHERE email = 'user@example.com';
 
 ### 5. pg_trgm
 
-**説明**: テキストの類似度検索を行うためのトリグラム（3-gram）マッチングをサポートする拡張機能。部分一致やファジーマッチ検索に利用される。
+**説明**: `テキストの類似度検索を行う`ためのトリグラム（3-gram）マッチングをサポートする拡張機能。`部分一致やファジーマッチ検索`に利用される。
 
 ```sql
 CREATE EXTENSION pg_trgm;
@@ -100,7 +100,7 @@ SELECT similarity('hello', 'hallo');
 
 ### 6. cube
 
-**説明**: 多次元データを扱うためのデータ型と関数群を提供する拡張機能。多次元座標データやカスタム KNN 検索で利用される。
+**説明**: `多次元データを扱うためのデータ型と関数群`を提供する拡張機能。多次元座標データやカスタム KNN 検索で利用される。
 
 ```sql
 CREATE EXTENSION cube;
@@ -118,7 +118,7 @@ INSERT INTO multidimensional_data (data) VALUES (CUBE(1, 2, 3));
 
 ### 7. intarray
 
-**説明**: 整数配列データ型用の一連の関数と演算子を提供する拡張機能。整数配列の簡単な操作が可能になる。
+**説明**: `整数配列データ型用の一連の関数と演算子`を提供する拡張機能。整数配列の簡単な操作が可能になる。
 
 ```sql
 CREATE EXTENSION intarray;
@@ -133,7 +133,7 @@ SELECT sort(ARRAY[3, 1, 2]);
 
 ### 8. fuzzystrmatch
 
-**説明**: テキストの曖昧一致を行うための関数（Soundex や Levenshtein 距離）を提供する拡張機能。ファジーマッチ検索やテキスト正規化に利用される。
+**説明**: テキストの曖昧一致を行うための関数（Soundex や Levenshtein 距離）を提供する拡張機能。`ファジーマッチ検索やテキスト正規化`に利用される。
 
 ```sql
 CREATE EXTENSION fuzzystrmatch;
@@ -151,7 +151,7 @@ SELECT levenshtein('kitten', 'sitting');
 
 ### 9. btree_gin
 
-**説明**: `GIN`（Generalized Inverted Index）インデックスを作成するための演算子を拡張。複数カラムのインデックスを効率的に作成・利用できる。
+**説明**: `GIN`（Generalized Inverted Index）インデックスを作成するための演算子を拡張。`複数カラムのインデックスを効率的に作成・利用できる`。
 
 ```sql
 CREATE EXTENSION btree_gin;
@@ -181,7 +181,7 @@ SELECT unaccent('école') = 'ecole';
 
 ### 11. uuid-ossp
 
-**説明**: UUID を生成するための関数を提供する拡張機能。グローバルにユニークな ID が必要な場合に利用される。
+**説明**: `UUID を生成するための関数を提供する拡張機能`。グローバルにユニークな ID が必要な場合に利用される。
 
 ```sql
 CREATE EXTENSION "uuid-ossp";
@@ -196,7 +196,7 @@ SELECT uuid_generate_v4();
 
 ### 12. tablefunc
 
-**説明**: クロス集計（クロス集計テーブル）や他の特殊なテーブル操作を行うための関数を提供する拡張機能。
+**説明**: `クロス集計（クロス集計テーブル）`や他の特殊なテーブル操作を行うための関数を提供する拡張機能。
 
 ```sql
 CREATE EXTENSION tablefunc;
@@ -213,7 +213,7 @@ SELECT * FROM crosstab(
 
 ### 13. plpgsql
 
-**説明**: PostgreSQL の組み込み手続き言語である PL/pgSQL を有効にする拡張機能。関数やトリガを定義する際に使用される。
+**説明**: PostgreSQL の組み込み手続き言語である `PL/pgSQL を有効にする`拡張機能。関数やトリガを定義する際に使用される。
 
 ```sql
 -- PostgreSQL のバージョンによっては既にインストール済み

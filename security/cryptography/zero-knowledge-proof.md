@@ -44,3 +44,8 @@
 - **ブロックチェーンと暗号通貨**: ZKPはプライバシーを守りながら取引の正当性を証明するために使用される。 例としては、Zcash（zk-SNARKs使用）が有名。
 - **認証システム**: パスワードを共有せずに認証を行うことが可能。
 - **選挙システム**: 投票内容を公開せずに票を正しく集計することができる。
+
+## References
+
+- [世界一わかりやすいゼロ知識証明 Vol.1: A Gentle Primer on Ethereum](https://blog.seiya.work/2024/05/09/a-gentle-primer-on-ethereum.html)
+- [世界一わかりやすいゼロ知識証明 Vol.2: Zero-Knowledge Proofs in the Context of Modern Cryptography](https://blog.seiya.work/2024/10/04/modern-cryptography.html)
