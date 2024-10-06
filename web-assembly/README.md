@@ -1,9 +1,32 @@
 # WebAssembly
 
-WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine.  
-Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.
+WebAssembly（略称Wasm）は、ブラウザや他の環境で高パフォーマンスな実行を可能にするバイナリインストラクション形式の新しい技術。JavaScriptだけでなく他の多くのプログラミング言語で書かれたコードを、Web上で効率的に実行するための標準。
 
-Web ブラウザ上で高速に動作するバイナリコードの仕様で、WebAssembly の頭文字を取って、`Wasm`と略される。Web ブラウザでコンパイルされた C/C++や Rust を実行する仕組み（アセンブラ）を指すもの。
+## 主な特徴
+
+1. **高効率・高速な実行**:
+   WebAssemblyはバイナリフォーマットを採用しており、直接コンパイルされた低レベルの命令セットを実行する。そのため、JavaScriptと比較して高効率・高速な実行が可能。
+
+2. **言語中立**:
+   WebAssembly自体は特定のプログラミング言語に依存しない。C、C++、Rust、Go、さらには高級言語（Python、Rubyなど）でも、コンパイルさえすればWebAssemblyで動作するコードに変換できる。
+
+3. **セキュアな実行環境**:
+   WebAssemblyは`ブラウザのサンドボックス内で動作する`よう設計されており、高いセキュリティを確保している。他のサイトやブラウザの機能に直接アクセスすることはできない。
+
+4. **ブラウザの互換性**:
+   主要なブラウザ（Chrome、Firefox、Safari、Edgeなど）でサポートされている。これにより、WebAssemblyを利用したアプリケーションは広く互換性があり、多くのユーザーにアクセス可能。
+
+## 構成要素
+
+WebAssemblyのエコシステムは、いくつかの主要なコンポーネントから成り立っている。
+
+1. **コンパイラ**: 高級言語で書かれたソースコードをWebAssemblyにコンパイルするツール。例えば、LLVMが代表的。
+
+2. **ランタイム**: WebAssemblyコードを実行するための環境。ブラウザがその一例ですが、Node.jsのようなサーバーサイドの環境でも利用可能。
+
+3. **バイトコード形式**: WebAssemblyは.wasmという拡張子を持つバイトコード形式で提供される。これは非常にコンパクトで、ネットワーク経由での転送や読み込みが効率的。
+
+4. **JavaScriptインターフェース**: WebAssemblyはJavaScriptと連携して使用されることが多いため、JavaScript APIが提供されている。これにより、WebAssemblyコードをJavaScriptから呼び出すことができる。
 
 ## WASM でできること (ブラウザ上)
 
@@ -27,7 +50,7 @@ Web ブラウザ上で高速に動作するバイナリコードの仕様で、W
 
 ### できないこと
 
-- WebAssembly は、DOM 操作が出来ない
+- ~~WebAssembly は、DOM 操作が出来ない~~
 - ブラウザ API の実行
 
 ### 利用シーン
