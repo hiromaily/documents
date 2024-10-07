@@ -112,6 +112,45 @@ LocalStackを使用する際、基本的なAWS CLIコマンドにエンドポイ
        --role arn:aws:iam::123456789012:role/lamda-ex-role
    ```
 
+## docker起動時に初期化する
+
+[Initialization Hooks](https://docs.localstack.cloud/references/init-hooks/)
+
+```txt
+/etc
+└── localstack
+    └── init
+        ├── boot.d           <-- executed in the container before localstack starts
+        ├── ready.d          <-- executed when localstack becomes ready
+        ├── shutdown.d       <-- executed when localstack shuts down
+        └── start.d          <-- executed when localstack starts up
+```
+
+compose.yaml
+
+```yaml
+services:
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME:-localstack-main}"
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4566:4566"
+    environment:
+      - DEBUG=1
+    volumes:
+      - "/path/to/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"  # ready hook
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+```
+
+init-aws.sh
+
+```sh
+#!/bin/bash
+
+awslocal s3 mb s3://my-buckets
+```
+
 ## 注意点
 
 - 本番環境とは異なる動作をすることがあるため、本番前に必ずAWS実環境でのテストを行うことが推奨される

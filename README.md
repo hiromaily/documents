@@ -23,9 +23,10 @@
 
 ### 開発に伴う関心
 
-- Rust and Wasm
-- Bun + Hono Framework
-- Svelte or HTMX as Frontend
+- [ ] Bun + Hono Framework
+- [ ] Supabaseを使ったアプリケーション
+- [ ] HTMX as Frontend
+- [x] Rust and Wasm
 
 ## Read books
 
