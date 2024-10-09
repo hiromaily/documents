@@ -1,8 +1,8 @@
-# ENUM 列挙型
+# PostgreSQLの ENUM 列挙型
 
-データ型として利用できるが、[サーティーワンフレーバー](./anti-patterns.md)にある通りアンチパターンであり、ENUM は変更が入らない確証が得られる場合のみの利用に留めたほうがよい。しかし、変更が発生すると、どのようになるのか？
+## 作成したEnumに変更が必要な場合
 
-## PostgreSQL
+データ型として利用できるが、[サーティーワンフレーバー](../sql/anti-patterns.md)にある通りアンチパターンであり、ENUM は変更が入らない確証が得られる場合のみの利用に留めたほうがよい。しかし、変更が発生すると、どのようになるのか？
 
 ### Enum の作成 (PostgreSQL を想定)
 
@@ -71,15 +71,3 @@ ALTER TYPE job_status RENAME VALUE 'pending' TO 'suspended';
 4. 古い列挙型を削除
 
 上記のようにクエリが複雑になる
-
-## MySQL
-
-- 内部的には整数として保持される
-- ENUM 型を独立して定義できず、テーブルに紐づけられる
-
-```sql
-CREATE TABLE products (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  price ENUM('cheap', 'reasonable', 'expensive')
-);
-```

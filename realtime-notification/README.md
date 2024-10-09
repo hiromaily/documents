@@ -52,7 +52,7 @@
 
 割愛
 
-## DynamoDB Streams
+## [DynamoDB Streams](../cloud/aws/services/dynamo-db.md#dynamodb-streams-について)
 
 - **概要**: DynamoDB Streamsは、DynamoDBテーブル内のデータ操作（挿入、更新、削除）の変更をリアルタイムでキャプチャする機能。
 - **主な機能**:

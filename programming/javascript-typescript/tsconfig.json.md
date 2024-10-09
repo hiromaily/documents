@@ -112,6 +112,21 @@ TypeScriptコンパイラーに関する設定を行うセクション
 }
 ```
 
+### import pathの絶対パス指定
+
+```json
+{
+  "baseUrl": "./",
+  "paths": {
+      "@/*": ["./src/*"]
+  }
+}
+```
+
+```ts
+import moduleA from '@/modules/A'
+```
+
 ## References
 
 - [tsconfig.json の最近の新機能　ファイルパス編](https://speakerdeck.com/uhyo/tsconfig-dot-jsonnozui-jin-noxin-ji-neng-huairupasubian)
