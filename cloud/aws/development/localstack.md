@@ -126,7 +126,32 @@ LocalStackを使用する際、基本的なAWS CLIコマンドにエンドポイ
         └── start.d          <-- executed when localstack starts up
 ```
 
-compose.yaml
+1. **boot.d**:
+   - **概要**: LocalStackのコンテナ内でLocalStackが起動する前に実行されるスクリプトを配置するディレクトリ。
+   - **用途**: 環境設定や依存関係のインストール、ネットワーク設定の調整など、LocalStack自体が開始する前に行いたい準備を記述できる。
+
+2. **ready.d**:
+   - **概要**: LocalStackが完全に起動し、準備ができた状態になったときに実行されるスクリプトを配置するディレクトリ。
+   - **用途**: サービスの起動確認や初期データのロード、APIのモック設定など、LocalStackが使用可能になったタイミングで実行したいタスクを記述できる。
+
+3. **shutdown.d**:
+   - **概要**: LocalStackがシャットダウンする際に実行されるスクリプトを配置するディレクトリ。
+   - **用途**: ログの保存、リソースのクリーンアップ、セッションの終了処理など、シャットダウン前に行いたい後処理を記述できる。
+
+4. **start.d**:
+   - **概要**: LocalStackのプロセスが開始するタイミングで実行されるスクリプトを配置するディレクトリ。
+   - **用途**: サービスのヘルスチェックや初期設定、デバッグ用の設定など、LocalStackが稼働し始めたタイミングで実行したいタスクを記述できる。
+
+### スクリプト実行順序
+
+1. boot.d内のスクリプトが順に実行される。
+   LocalStackのメインプロセスが開始。
+2. start.d内のスクリプトが順に実行される。
+   LocalStackの全サービスが「準備完了」状態になる。
+3. ready.d内のスクリプトが順に実行される。
+   LocalStackがシャットダウンされるタイミングでshutdown.d内のスクリプトが順に実行される。
+
+### 初期化処理のための `compose.yaml` の書き方
 
 ```yaml
 services:
@@ -149,6 +174,26 @@ init-aws.sh
 #!/bin/bash
 
 awslocal s3 mb s3://my-buckets
+```
+
+## [localstackのディレクトリ構成](https://docs.localstack.cloud/references/filesystem/)
+
+## S3のコマンド
+
+```sh
+# バケットの作成
+aws --endpoint-url=${AWS_ENDPOINT_URL} s3 mb s3://my-bucket
+
+
+# ファイルのアップロード
+aws --endpoint-url=${AWS_ENDPOINT_URL} s3 cp ./tmp/dummy.txt s3://my-bucket/example/dummy
+
+# ファイルのダウンロード
+aws --endpoint-url=${AWS_ENDPOINT_URL} s3 cp s3://my-bucket/example/dummy ./tmp/dummy-dl.txt
+
+# ファイルの確認
+aws --endpoint-url=${AWS_ENDPOINT_URL} s3 ls s3://my-bucket --recursive
+aws --endpoint-url=${AWS_ENDPOINT_URL} s3api get-object --bucket my-bucket --key example/dummy /dev/stdout
 ```
 
 ## 注意点
