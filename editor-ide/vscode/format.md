@@ -47,9 +47,7 @@ VSCode の設定ファイル（`settings.json`）において、ファイル保�
 
 1. **コマンドパレットを表示**: `Cmd + Shift + P`（Mac）を押してコマンドパレットを表示
 
-2. **コマンドを検索**: `Format Document With…`と入力してから選択
-
-3. **コマンドを検索 2**: `Configure Default Formatter…`を選択
+2. **コマンドを検索**: `Configure Default Formatter…`を選択
 
 これらの操作により、`settings.json`ファイルが自動的に更新される。
 
