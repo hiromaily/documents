@@ -1,6 +1,6 @@
 # Serverless Hosting Platforms
 
-`Vercel`、`Netlify`、`Cloudflare Pages`などのサービスは、一般的に`serverless deployment platforms`または`serverless hosting platforms`と呼ばれている。これらのプラットフォームは、基盤となるインフラストラクチャを管理することなく、ウェブアプリケーションをデプロイおよびホストする方法を提供する。スケーリング、デプロイ、サーバー管理を自動的に処理するため、コードの記述とアプリケーションのデプロイに集中することができる。
+`Vercel`、`Netlify`、`Cloudflare Pages`などのサービスは、一般的に`serverless deployment platforms`または`serverless hosting platforms`と呼ばれている。これらのプラットフォームは、基盤となるインフラストラクチャを管理することなく、Web Applicationをデプロイおよびホストする方法を提供する。スケーリング、デプロイ、サーバー管理を自動的に処理するため、コードの記述とアプリケーションのデプロイに集中することができる。
 
 サーバーレスであることに加え、これらのプラットフォームは、最新のウェブ開発で人気の高い**JAMstack**(JavaScript、API、マークアップ) アーキテクチャをサポートしていることが多い。
 

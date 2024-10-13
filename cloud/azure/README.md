@@ -9,7 +9,7 @@
 3. **Azure SQL Database**: フルマネージドな関係データベースサービスで、高可用性とスケーラビリティを提供する。
 4. **Azure Cosmos DB**: グローバル分散対応のマルチモデルデータベースで、高いスループットと低レイテンシを実現する。
 5. **Azure Functions**: サーバーレスでイベント駆動型のコードを実行するためのプラットフォーム。
-6. **Azure App Service**: ウェブアプリケーションやAPIをホスティングするための完全に管理されたプラットフォーム。
+6. **Azure App Service**: Web ApplicationやAPIをホスティングするための完全に管理されたプラットフォーム。
 7. **Azure DevOps**: 継続的インテグレーションと継続的デリバリー (CI/CD) を支援するための開発者向けツールセット。
 8. **Azure Kubernetes Service (AKS)**: Kubernetesを利用したコンテナオーケストレーションサービス。
 9. **Azure Active Directory (AAD)**: アイデンティティおよびアクセス管理サービス。

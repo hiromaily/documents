@@ -20,6 +20,7 @@
 - [Serverlessアーキテクチャ](./infra/architecture/serverless.md)
 - [分散システム](./distributed-system/README.md)
 - [暗号技術](./security/cryptography/README.md)
+- [クラウドデザインパターン](./cloud/cloud-design-pattern/README.md)
 
 ### 開発に伴う関心
 

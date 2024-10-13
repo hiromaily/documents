@@ -15,7 +15,7 @@ Cloudflareは、ウェブパフォーマンス、セキュリティ、エッジ�
 ### 2. **セキュリティ**
 
 - **DDoS保護**: 世界最大規模のDDoS攻撃から守る能力を持ち、リアルタイムでの攻撃検知と防御を行う。
-- **WAF（Web Application Firewall）**: OWASP Top 10の攻撃ベクトルに対する防御を提供し、ウェブアプリケーションのセキュリティを強化する。
+- **WAF（Web Application Firewall）**: OWASP Top 10の攻撃ベクトルに対する防御を提供し、Web Applicationのセキュリティを強化する。
 - **SSL/TLS暗号化**: 簡単にSSL証明書を設定し、ウェブサイトの通信を暗号化する。
 - **Bot Management**: 悪意のあるボットからのアクセスをブロックし、必要なトラフィックのみを受け入れる。
 
@@ -45,7 +45,7 @@ Cloudflareは、ウェブパフォーマンス、セキュリティ、エッジ�
 
 ### 4. **WAF（Web Application Firewall）**
 
-- 複雑なセキュリティルールやカスタムルールを設定することができ、ウェブアプリケーションを守る。
+- 複雑なセキュリティルールやカスタムルールを設定することができ、Web Applicationを守る。
 
 ### 5. **Cloudflare Workers**
 

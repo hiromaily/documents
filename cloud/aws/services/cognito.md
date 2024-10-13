@@ -84,7 +84,7 @@ Azure Active Directory B2Cは、コンシューマー向けのアプリケーシ
 
 ## 使い方
 
-Amazon Cognitoは、ウェブアプリケーションやモバイルアプリケーションにユーザー認証、認可、ユーザーデータ管理の機能を簡単に追加するためのAWSサービス。
+Amazon Cognitoは、Web Applicationやモバイルアプリケーションにユーザー認証、認可、ユーザーデータ管理の機能を簡単に追加するためのAWSサービス。
 
 ### 1. Amazon Cognitoのセットアップ
 

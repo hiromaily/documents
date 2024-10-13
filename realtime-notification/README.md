@@ -4,7 +4,7 @@
 
 ## Firebase Realtime Database / Firestore
 
-- **Firebase Realtime Database**： Google が提供するクラウドベースの NoSQL データベース。データの変更が即座にクライアントにプッシュされ、モバイルアプリケーションやウェブアプリケーションでのリアルタイム更新が可能。
+- **Firebase Realtime Database**： Google が提供するクラウドベースの NoSQL データベース。データの変更が即座にクライアントにプッシュされ、モバイルアプリケーションやWeb Applicationでのリアルタイム更新が可能。
 - **Firestore**： Firebase の次世代データベースで、柔軟なデータモデルとスケールを兼ね備えている。オフラインサポートや高度なクエリ機能も提供。
 
 ## WebSocket

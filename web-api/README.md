@@ -1,6 +1,6 @@
 # Web APIs
 
-Web APIs (Web Application Programming Interfaces) は、ウェブブラウザやサーバーとウェブアプリケーションがやり取りを行うための一連のインターフェースとプロトコルを指す。これにより、開発者はウェブページ上で複雑な操作や機能を実装しやすくなる
+Web APIs (Web Application Programming Interfaces) は、ウェブブラウザやサーバーとWeb Applicationがやり取りを行うための一連のインターフェースとプロトコルを指す。これにより、開発者はウェブページ上で複雑な操作や機能を実装しやすくなる
 
 ## 基本的な概念
 
@@ -9,7 +9,7 @@ Web APIs (Web Application Programming Interfaces) は、ウェブブラウザや
    - **API（Application Programming Interface）**: 異なるソフトウェアコンポーネントが互いに通信するための手段を提供するインターフェースのこと。API は、特定の操作や機能を利用するための定義済みの方法（メソッド、プロパティ）を提供する。
 
 2. **Web API の定義**:
-   - **Web API**: 具体的には、ウェブブラウザやサーバーが提供する API で、ウェブアプリケーションが特定の操作や機能を実行するために使用される。これには DOM 操作、ネットワークリクエスト、グラフィクス描画、メディア操作などが含まれる。
+   - **Web API**: 具体的には、ウェブブラウザやサーバーが提供する API で、Web Applicationが特定の操作や機能を実行するために使用される。これには DOM 操作、ネットワークリクエスト、グラフィクス描画、メディア操作などが含まれる。
 
 ## [12 Essential Web APIs Every Developer Should Know](https://dev.to/vyan/12-essential-web-apis-every-developer-should-know-1m28)
 

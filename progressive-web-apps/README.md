@@ -1,6 +1,6 @@
 # Progressive Web Apps (PWA)
 
-PWA とは、`Progressive Web Apps`の略で、Web 技術を使って、ネイティブアプリのようなエクスペリエンスを提供するウェブアプリケーションのことで、モバイル向けの Web サイトをアプリのように使える仕組みのこと。PWA は Web とモバイルアプリの利点を組み合わせたものと言える。
+PWA とは、`Progressive Web Apps`の略で、Web 技術を使って、ネイティブアプリのようなエクスペリエンスを提供するWeb Applicationのことで、モバイル向けの Web サイトをアプリのように使える仕組みのこと。PWA は Web とモバイルアプリの利点を組み合わせたものと言える。
 
 ## 主な特徴
 
