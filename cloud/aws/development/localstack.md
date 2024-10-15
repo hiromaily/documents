@@ -98,19 +98,58 @@ LocalStackを使用する際、基本的なAWS CLIコマンドにエンドポイ
        --provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5
    ```
 
-3. **Dockerコンテナ+Goによる、Lambda functionのデプロイ**:
+### Dockerコンテナ+Goによる、Lambda functionのデプロイ
 
-   ```sh
-   # Goのプログラムを書いて、ImageでDeployしている前提
-   # Docker Imageは、Docker HubもしくはECR
-   # REPOSITORY: 339712726982.dkr.ecr.ap-northeast-1.amazonaws.com/dev-comm-hub-lambda-handler-repository:b8892b4-20240925T091915
+Note: `無料版ではコンテナイメージを使用したAWS Lambda関数の実行はサポートされていない`
 
-   aws --endpoint-url=$AWS_ENDPOINT_URL lambda create-function \
-       --function-name Health \
-       --package-type Image \
-       --code ImageUri=<your-dockerhub-username>/my-go-lambda:latest \
-       --role arn:aws:iam::123456789012:role/lamda-ex-role
-   ```
+まず、local環境用のimageのregistryを用意する
+
+compose.yaml
+
+```yaml
+services:
+  localstack:
+    ...
+
+  # local docker image registry for lambda on localstack
+  registry:
+    image: registry:2
+    ports:
+      - "5000:5000"
+    restart: always
+    container_name: registry
+```
+
+次に、imageをビルドし、tag付してpushする
+
+```sh
+docker build --progress=plain --build-arg COMMIT_ID=$(COMMIT_ID) --build-arg ENV_FILE=.env.local -t my-program:latest -f ./Dockerfile .
+docker tag communication-hub-batch:local localhost:5000/my-program:latest
+docker push localhost:5000/my-program:latest
+```
+
+次に、`create function`を実行する
+
+```sh
+# Goのプログラムを書いて、ImageでDeployしている前提
+# Docker Imageは、通常、Docker HubもしくはECRだが、先ほど指定したlocal環境に向ける
+# --roleはdummyでもセットしておく必要がある
+aws --endpoint-url=$AWS_ENDPOINT_URL lambda create-function \
+      --function-name my-function \
+      --package-type Image \
+      --code ImageUri=localhost:5000/my-program:latest \
+      --role arn:aws:iam::000000000000:role/lambda-ex \
+      --image-config '{"Command":["health"]}'
+```
+
+実行するには、
+
+```sh
+aws --endpoint-url=$AWS_ENDPOINT_URL lambda invoke \
+    --function-name my-function \
+    --payload '{"name": "World"}' \
+    output.txt
+```
 
 ## docker起動時に初期化する
 
@@ -166,6 +205,14 @@ services:
       - "/path/to/init-aws.sh:/etc/localstack/init/ready.d/init-aws.sh"  # ready hook
       - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
       - "/var/run/docker.sock:/var/run/docker.sock"
+
+  # local docker image registry for lambda on localstack
+  registry:
+    image: registry:2
+    ports:
+      - "5000:5000"
+    restart: always
+    container_name: registry
 ```
 
 init-aws.sh
