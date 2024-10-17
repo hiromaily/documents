@@ -247,6 +247,7 @@ aws --endpoint-url=${AWS_ENDPOINT_URL} s3api get-object --bucket my-bucket --key
 
 - 本番環境とは異なる動作をすることがあるため、本番前に必ずAWS実環境でのテストを行うことが推奨される
 - LocalStackの無料バージョンには、一部制限があり、もし高度な機能が必要な場合は、LocalStack有料版を検討する
+- Makefileで`AWS_ENDPOINT_URL`という名前のlocal変数を定義したら、target内で実行されるgoのコードにも影響を与えたので注意が必要
 
 ## References
 
