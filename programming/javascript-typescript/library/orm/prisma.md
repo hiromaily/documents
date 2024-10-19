@@ -88,6 +88,79 @@ npx prisma db pull
 npx prisma generate
 ```
 
+### Seedの作成
+
+1. package.jsonに、`seed`を追加
+
+    ```json
+      "prisma": {
+        "schema": "prisma/schema.prisma",
+        "seed": "tsx src/seeds/index.ts"
+      },
+    ```
+
+2. [tsx](https://github.com/privatenumber/tsx)といったtypescriptコードを実行できるpakcageをインストール
+
+3. seed用のコードを作成
+
+    ```ts
+    import { PrismaClient } from '@prisma/client';
+
+    import { seedCountries } from './countries.js';
+    import { seedBeerTypes } from './beer-types.js';
+
+    // https://www.prisma.io/docs/orm/prisma-migrate/workflows/seeding
+
+    const prisma = new PrismaClient();
+
+    async function main() {
+      await seedCountries(prisma);
+      await seedBeerTypes(prisma);
+    }
+
+    main()
+      .then(async () => {
+        await prisma.$disconnect();
+        process.exit(0);
+      })
+      .catch(async (e) => {
+        console.error(e);
+        await prisma.$disconnect();
+        process.exit(1);
+      });
+    ```
+
+    ```ts
+    import { PrismaClient } from '@prisma/client';
+
+    export async function seedCountries(prisma: PrismaClient) {
+      await prisma.countries.createMany({
+        data: [
+          {
+            code: 'JP',
+            nameEn: 'Japan',
+            nameJa: '日本',
+          },
+          {
+            code: 'US',
+            nameEn: 'United States',
+            nameJa: 'アメリカ',
+          },
+          {
+            code: 'NL',
+            nameEn: 'Netherlands',
+            nameJa: 'オランダ',
+          },
+          {
+            code: 'DE',
+            nameEn: 'Germany',
+            nameJa: 'ドイツ',
+          },
+        ],
+      });
+    }
+    ```
+
 ## Client による操作方法
 
 ### レコード作成
@@ -186,7 +259,8 @@ npx prisma db seed
 - 既存 DB から schema を生成 (おそらく最初のみ)
 
 ```sh
-npx prisma introspect
+#npx prisma introspect # outdated
+npx prisma db pull
 ```
 
 - DB の変更を schema へ反映
@@ -210,7 +284,7 @@ npx prisma validate
 ## 実際の手順
 
 - DDL の作成
-- `prisma introspect`で schema を生成
+- ~~`prisma introspect`~~`prisma db pull`で schema を生成
 - schema を修正
 - `prisma format`で schema をフォーマット
 - `prisma migrate dev` でマイグレーションファイル(sql)を作成し、DB へ反映
@@ -232,10 +306,6 @@ model Users {
   @@map("users")
 }
 ```
-
-## schema のコメントを DDL に反映させる
-
-- [prisma-db-comments-generator](https://github.com/onozaty/prisma-db-comments-generator)を install し、`prisma generate`で出力
 
 ### [prisma-case-format](https://github.com/iiian/prisma-case-format)
 
@@ -293,6 +363,10 @@ prisma-case-format --file ./prisma/schema.prisma --map-field-case=snake
 #### `"punycode" module is deprecated`エラーが出る場合
 
 yarn と nodev21 によるものらしいので、node のバージョンを v20 に下げることで解消する
+
+## schema のコメントを DDL に反映させる
+
+- [prisma-db-comments-generator](https://github.com/onozaty/prisma-db-comments-generator)を install し、`prisma generate`で出力
 
 ## References
 

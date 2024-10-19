@@ -4,8 +4,11 @@
 
 - adminjs: 7.7
 - prisma: 5.6
+- Typescript: 5.0
 
 ## Procedure
+
+### 1. Setup
 
 1. Run first command
 
@@ -64,13 +67,51 @@
     npx prisma generate
     ```
 
-9. Run adminjs
+### 2. Code
+
+1. Code [Adapter for prisma](https://docs.adminjs.co/installation/adapters/prisma)
+
+    modify `admin/options.ts`
+
+    ```ts
+    import { AdminJS, AdminJSOptions } from 'adminjs';
+    import { Database, Resource, getModelByName } from '@adminjs/prisma';
+    import { PrismaClient } from '@prisma/client';
+
+    import componentLoader from './component-loader.js';
+
+    // Prisma
+    const prisma = new PrismaClient();
+    AdminJS.registerAdapter({ Database, Resource });
+
+    const resources = [{
+    resource: { model: getModelByName('Beers'), client: prisma },
+    options: {},
+    }, {
+    resource: { model: getModelByName('BeerTypes'), client: prisma },
+    options: {},
+    }];
+
+    const options: AdminJSOptions = {
+    componentLoader,
+    rootPath: '/admin',
+    resources,
+    databases: [],
+    };
+
+    export default options;
+    ```
+
+## Run Adminjs
+
+1. Run adminjs
 
     ```sh
+    npm run build
     npm run start
     ```
 
-10. Access to `http://localhost:3000/admin`
+2. Access to `http://localhost:3000/admin`
 
     Email and Password is in `src/admin/constants.ts`
 
