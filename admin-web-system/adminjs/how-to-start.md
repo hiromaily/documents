@@ -69,7 +69,7 @@
 
 ### 2. Code
 
-1. Code [Adapter for prisma](https://docs.adminjs.co/installation/adapters/prisma)
+1. Code [Adapter for prisma](https://docs.adminjs.co/installation/adapters/prisma) (DBのModelの設定)
 
     modify `admin/options.ts`
 
@@ -100,6 +100,45 @@
     };
 
     export default options;
+    ```
+
+2. Code [Authentication](https://docs.adminjs.co/basics/authentication) logic
+
+    modify `admin/auth-provider.ts`
+
+    ```ts
+    const provider = new DefaultAuthProvider({
+    componentLoader,
+    authenticate: async ({ email, password }) => {
+        if (email === DEFAULT_ADMIN.email) {
+        return { email };
+        }
+
+        return null;
+    },
+    });
+    ```
+
+    supabaseによる認証
+
+    ```ts
+    const provider = new DefaultAuthProvider({
+    componentLoader,
+    authenticate: async ({ email, password }) => {
+        // use supabase
+        const supabaseUrl = process.env.SUPABASE_URL;
+        const supabaseKey = process.env.SUPABASE_KEY;
+        const supabase = createClient(supabaseUrl, supabaseKey);
+        // sign in
+        const res = await supabase.auth.signInWithPassword({
+        email,
+        password,
+        });
+        if (res.error) return null;
+
+        return { email };
+    },
+    });
     ```
 
 ## Run Adminjs
