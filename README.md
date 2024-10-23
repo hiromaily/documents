@@ -25,8 +25,8 @@
 ### 開発に伴う関心
 
 - [ ] Bun + Hono Framework
-- [ ] [Supabase](https://supabase.com/)を使ったアプリケーション
 - [ ] HTMX as Frontend
+- [x] [Supabase](https://supabase.com/)を使ったアプリケーション
 - [x] Rust and Wasm
 
 ## Read books
