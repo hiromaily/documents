@@ -6,7 +6,7 @@
 go install github.com/vektra/mockery/v2@latest
 
 # 生成
-mockery --dir=pkg/repository --name=AllRepositorier --output=pkg/repository/mocks --outpkg=mocks
+mockery --dir=pkg/repository --name=UserRepositorier --output=pkg/repository/mocks --outpkg=mocks
 ```
 
 ## mockeryのパラメータ
