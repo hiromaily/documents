@@ -9,7 +9,7 @@
 - Rust 製
 - Star: 10.8k
 
-## [asdf](https://github.com/jdx/mise)
+## [asdf](https://github.com/asdf-vm/asdf)
 
 - Shell
 - Star: 21.5k
