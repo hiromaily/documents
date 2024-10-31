@@ -79,3 +79,5 @@ yarn と nodev21 によるものらしいので、node のバージョンを v20
 ## 2. schema のコメントを DDL に反映させる
 
 - [prisma-db-comments-generator](https://github.com/onozaty/prisma-db-comments-generator)を install し、`prisma generate`で出力
+  - ただし、これはPostgreSQL専用
+- [prisma-mysql-comments-generator](https://github.com/thelinuxlich/prisma-mysql-comments-generator)というものがあるが、エラーが出て使えない
