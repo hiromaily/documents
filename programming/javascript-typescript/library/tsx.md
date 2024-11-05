@@ -1,13 +1,23 @@
 # [tsx](https://github.com/privatenumber/tsx)
 
-TypeScript Execute (tsx): The easiest way to run TypeScript in Node.js.
+tsxは、TypeScript (TS) と拡張された TypeScript (TSX) 両方のファイルを直接実行できるツール。tsxは`esbuild`をバックエンドに利用しており、高速なトランスパイルを実現している。Reactコンポーネントで使うJSXスタイルの構文（.tsxファイル）についてもネイティブに対応している。
 
-## 類似パッケージ
+Star: 9.6k
 
-- [ts-node](https://github.com/TypeStrong/ts-node)
-- [esbuild-register](https://github.com/egoist/esbuild-register)
+## [esbuild-register](https://github.com/egoist/esbuild-register)
 
-## ts-nodeのデメリット
+Star: 989
+
+## ts-node
+
+ts-nodeによって、JavaScriptにトランスパイルせずに直接TypeScriptコードを実行することができる。とはいえ、内部的にはトランスパイルしてから実行している。
+
+### ts-nodeのデメリット
 
 - ts-nodeでもTypescriptをトランスパイルしないで実行できるが遅い
 - nodeのバージョンが20.xになると動かない (2024/10現在)
+
+## Typescript実行ライブラリ：類似パッケージ
+
+- [ts-node](https://github.com/TypeStrong/ts-node)
+- [esbuild-register](https://github.com/egoist/esbuild-register)
