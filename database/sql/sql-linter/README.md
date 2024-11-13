@@ -6,6 +6,13 @@
 - [SQLTools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools)
   - DBの接続設定が必要
 
+## Tool
+
+- [sqlfluff](https://github.com/sqlfluff/sqlfluff)
+  - Python製
+  - [Official](https://docs.sqlfluff.com/en/stable/index.html)
+  - [SQLFluffを導入しました](https://qiita.com/n-gondo123/items/455047a063d39789df2b)
+
 ## Web Service
 
 - [SQL Fiddle](https://sqlfiddle.com/)
