@@ -1,5 +1,10 @@
 # Go Error
 
+## References
+
+- [Google: General error handling rules](https://developers.google.com/tech-writing/error-messages/error-handling)
+  - [Error handling](https://google.github.io/styleguide/go/best-practices#error-handling)
+
 ## エラーパッケージ
 
 - [errors](https://pkg.go.dev/errors)
