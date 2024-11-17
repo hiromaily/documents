@@ -12,9 +12,15 @@ OCR（`Optical Character Recognition/Reader`、オーシーアール、光学的
 
 ## OCRでよく使われるサービス及びライブラリ
 
-| ライブラリ/Service | 形態        | 説明                                                                             | 使用例                             |
-|--------------------|-------------|--------------------------------------------------------------------------------|----------------------------------|
-| tesseract          | OpenSource  | OCR engine機能をもつライブラリ                                                  |                                  |
-| GCP Vision API     | Cloud       | 画像、ドキュメント、動画から分析情報を抽出する                                   | [Link](https://note.com/newbees/n/n39f67f6daff0) |
-| AWS Textract       | Cloud       | データを、あらゆるドキュメントから自動的に抽出                                   |                                  |
-| AWS Rekognition Image | Cloud    | ラベル検出と画像プロパティ                                                     |                                  |
+| ライブラリ/Service    | 形態       | 説明                                           | 使用例                                           |
+| --------------------- | ---------- | ---------------------------------------------- | ------------------------------------------------ |
+| tesseract             | OpenSource | OCR engine機能をもつライブラリ                 |                                                  |
+| GCP Vision API        | Cloud      | 画像、ドキュメント、動画から分析情報を抽出する | [Link](https://note.com/newbees/n/n39f67f6daff0) |
+| AWS Textract          | Cloud      | データを、あらゆるドキュメントから自動的に抽出 |                                                  |
+| AWS Rekognition Image | Cloud      | ラベル検出と画像プロパティ                     |                                                  |
+
+## OCRのサービス
+
+- [Llama OCR](https://llamaocr.com/)
+  - [npm: llama-ocr](https://github.com/Nutlope/llama-ocr)
+  - 日本語もきれいに文字に起こすことができるが、完全ではない

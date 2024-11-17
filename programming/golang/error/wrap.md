@@ -40,7 +40,8 @@ fmt.Println(newErr) // failed to open files, file is not found
 fmt.Println(errors.Unwrap(newErr)) // file is not found
 ```
 
-尚、複数のエラーのwrapが可能
+- `%w`はformat文字列の最後に置くこと
+- 複数のエラーのwrapが可能
 
 ## [参考] `pkg/errors` パッケージの `Wrap` 関数
 

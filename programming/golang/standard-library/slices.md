@@ -14,18 +14,10 @@ import (
 )
 
 var SuccessStatusCodes []int = []int{200, 202}
-
-func Send() error {
-    ...
-  res, err := s.client.Send(m)
-  if err != nil {
-    return fmt.Errorf("%w: %v", errmsg.ErrSendGridBySending, err)
-  }
-  // check status code
-  if slices.Contains(SuccessStatusCodes, res.StatusCode) {
-    // true
-  } else {
-    // false
-  }
+// check status code
+if slices.Contains(SuccessStatusCodes, res.StatusCode) {
+  // true
+} else {
+  // false
 }
 ```

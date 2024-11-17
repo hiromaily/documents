@@ -18,3 +18,7 @@
 
 5. **PyCharmのAIアシスタント**:
    - JetBrainsの統合開発環境PyCharmには、AIを利用したコード補完やリファクタリング支援機能が搭載されている。
+
+## その他
+
+- [Llama Coder](https://llamacoder.together.ai/)
