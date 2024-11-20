@@ -1,6 +1,7 @@
 # Concurrency
 
 - [内部Docs: 並行処理](../../../architecture/concurrency/README.md)
+- [Sample Code: go-concurrency](https://github.com/hiromaily/go-concurrency)
 
 ## Go 言語による並行処理 要約
 
