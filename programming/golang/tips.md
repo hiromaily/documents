@@ -1,6 +1,6 @@
 # Tips
 
-## `make` with slice
+## `make`によるSliceの初期化
 
 ```go
 package main
@@ -46,4 +46,28 @@ string
 
 ```go
 (*string)(&s.SomethingType)
+```
+
+## `for range`のアドレスについて
+
+以前は同じアドレスが使われていたが、現在は毎回異なるアドレスが使われる
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+    numbers := []int{1, 2, 3, 4, 5}
+
+    for i, n := range numbers {
+        // nのアドレスは毎回異なる
+        fmt.Printf("i: %d, n: %d, addr of n: %p\n", i, n, &n)
+    }
+
+    for n := range numbers {
+        // nのアドレスは毎回異なる
+        fmt.Printf("n: %d, addr of n: %p\n", n, &n)
+    }
+}
 ```
