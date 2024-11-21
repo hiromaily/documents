@@ -2,7 +2,11 @@
 
 独立したバッチプログラムを Cron ジョブで実行すべきケースとの違いについて
 
-`短時間で頻繁に実行されるタスクはLambda`で、`長時間または複雑な依存関係があるタスクはCronジョブ`で
+- `短時間で頻繁に実行されるタスクはLambda`
+- `長時間または複雑な依存関係があるタスクはCronジョブ`
+
+
+- [Lambda 関数呼び出しタイムアウトエラーをトラブルシューティングするにはどうすればよいですか?](https://repost.aws/ja/knowledge-center/lambda-troubleshoot-invocation-timeouts)
 
 ## AWS Lambda を使うべきケース
 
