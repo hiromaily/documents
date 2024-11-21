@@ -22,6 +22,8 @@
 
 ## [AWS](https://aws.amazon.com/jp/certification/)
 
+- [AWS Cloud Quest](https://aws.amazon.com/jp/training/digital/aws-cloud-quest/)
+
 ### 基礎レベル (Foundational)
 
 - AWS 認定クラウドプラクティショナー (Cloud Practitioner)
@@ -36,6 +38,10 @@
 - [AWS 認定デベロッパー アソシエイト (Developer Associate)](https://aws.amazon.com/jp/certification/certified-developer-associate/)
   - 概要：AWS を使用したアプリケーション開発の知識を問う試験
   - 試験時間: 130 分, 問題数: 65 問
+  - References
+    - [AWS Certified Developer - Associate Official Practice Question Set (DVA-C02 - Japanese)](https://explore.skillbuilder.aws/learn/course/external/view/elearning/14060/aws-certified-developer-associate-official-practice-question-set-dva-c02-japanese)
+    - [合格までの勉強方法「AWS Developer Associate」（認定デベロッパー アソシエイト）資格 【2024 年秋版】](https://zenn.dev/mkj/articles/223c914ad5ef79)
+    - [AWS 認定 Developer Associate（DVA-C02）試験 対策トレーニング](https://www.udemy.com/course/aws-developer-associate-dva/?couponCode=UPGRADE02223)
 - AWS 認定 SysOps アドミニストレーター アソシエイト (SysOps Administrator Associate)
   - 概要：AWS 上でのワークロード管理・運用・保守の知識を問う試験
   - 試験時間: 130 分
