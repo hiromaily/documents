@@ -33,6 +33,8 @@ func main() {
 
 ## **`errors.Is`**: エラーチェックと比較
 
+`func Is(err, target error) bool`
+
 標準的なエラー型は独自のエラーと比較できるので、簡単なエラーハンドリングが可能
 
 ```go
@@ -57,12 +59,24 @@ func main() {
     if errors.Is(err, ErrNotFound) {
         fmt.Println("error:", err)
     }
+
+    // エラーチェーンにも使える
+    err1 := errors.New("err1")
+    err2 := errors.New("err2")
+    err3 := errors.New("err3")
+    errJoined := errors.Join(err1, err2)
+
+    fmt.Println(errors.Is(errJoined, err1)) // true
+    fmt.Println(errors.Is(errJoined, err3)) // false
 }
 ```
 
 ## **`errors.As`**: 特定のエラーを検索する
 
-エラーチェインの中から特定の型のエラーを見つけ出したい場合に使用する
+`func As(err error, target any) bool`
+
+エラーチェインの中から特定の型のエラーを見つけ出したい場合に使用する。
+とあるが、`errors.Is()`でもできそう。`errors.As()`は、ポインタ型のアドレスを使う必要がある。
 
 ```go
 

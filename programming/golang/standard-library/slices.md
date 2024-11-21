@@ -62,32 +62,59 @@
 
 ```go
 import (
-  "slices"
+    "slices"
 )
 
 // [Contains] sliceに含まれている値があるかどうか
 var SuccessStatusCodes []int = []int{200, 202}
 // check status code
 if slices.Contains(SuccessStatusCodes, res.StatusCode) {
-  // true
+    // true
 } else {
-  // false
+    // false
 }
 
 // [Chunk] 配列を第二パラメータで指定した数を最大要素数とする配列に分割する
 nums := []int{1, 2, 3, 4, 5, 6, 7}
 for chunk := range slices.Chunk(nums, 3) {
-  fmt.Println(chunk)
-  // [1 2 3]
-  // [4 5 6]
-  // [7]
+    fmt.Println(chunk)
+    // [1 2 3]
+    // [4 5 6]
+    // [7]
 }
 
 for chunk := range slices.Chunk(nums, 2) {
-  fmt.Println(chunk)
-  // [1 2]
-  // [3 4]
-  // [5 6]
-  // [7]
+    fmt.Println(chunk)
+    // [1 2]
+    // [3 4]
+    // [5 6]
+    // [7]
+}
+
+// 値が均等に配分された3個のSliceが作成される
+res := splitSlice(nums, 3)
+for _, v := range res {
+    fmt.Println(v)
+}
+
+func splitSlice(nums []int, parts int) [][]int {
+    length := len(nums)
+    subSliceSize := length / parts
+    remainder := length % parts
+
+    result := make([][]int, 0, parts)
+    start := 0
+
+    for i := 0; i < parts; i++ {
+        end := start + subSliceSize
+        if remainder > 0 {
+            end++
+            remainder--
+        }
+        result = append(result, nums[start:end])
+        start = end
+    }
+
+    return result
 }
 ```
