@@ -1,6 +1,6 @@
 # OpenTelemetry
 
-OpenTelemetryは、分散トレーシング、メトリクス、ログの収集とエクスポートを標準化するためのオープンソースのツールキットだ。CNCF（Cloud Native Computing Foundation）のプロジェクトであり、Observabilityの標準化に取り組んでいる。サービスメッシュやマイクロサービスアーキテクチャの普及により、システム全体の監視とトラブルシューティングが困難になっているが、OpenTelemetryを使うことでこれを一元的に管理できる。
+OpenTelemetry は、分散トレーシング、メトリクス、ログの収集とエクスポートを標準化するためのオープンソースのツールキットだ。CNCF（Cloud Native Computing Foundation）のプロジェクトであり、Observability の標準化に取り組んでいる。サービスメッシュやマイクロサービスアーキテクチャの普及により、システム全体の監視とトラブルシューティングが困難になっているが、OpenTelemetry を使うことでこれを一元的に管理できる。
 
 また、異なるプログラミング言語、フレームワーク、環境で動作する統一された観測可能性ソリューションを提供するように設計されている。開発者が共通の API セットを使ってコードを計測することを可能にし、遠隔計測バックエンドの選択に柔軟性を提供する。OpenTelemetry は、ベンダーにとらわれないことを目指し、異なる遠隔測定バックエンドを選択し、それらの間を簡単に移動できるようにする。テレメトリーデータの標準フォーマットを推進し、異なるシステムやツール間の互換性と相互運用性を可能にする。
 
@@ -15,9 +15,9 @@ OpenTelemetryは、分散トレーシング、メトリクス、ログの収集�
 
 ### メトリクス収集
 
-CPU使用率やリクエスト数、エラーレートなどのパフォーマンスデータを収集・分析できる。
+CPU 使用率やリクエスト数、エラーレートなどのパフォーマンスデータを収集・分析できる。
 
-- システム資源の利用状況（CPU、メモリ、I/Oなど）をモニタリング。
+- システム資源の利用状況（CPU、メモリ、I/O など）をモニタリング。
 - アプリケーションのパフォーマンスメトリクス（リクエスト数、エラーレートなど）を収集し、トレンド分析やアラート設定が可能。
 
 ### ログ収集
@@ -26,6 +26,25 @@ CPU使用率やリクエスト数、エラーレートなどのパフォーマ�
 
 - 各サービスのログデータを収集し、一元的に管理。
 - トレースデータとログデータを統合し、深いトラブルシューティングを実現。
+
+### [Sampling](https://opentelemetry.io/docs/concepts/sampling/)
+
+#### サンプリングルールの構成要素例
+
+- **ルール名 (Rule Name)**: サンプリングルールの識別子。
+- **前提条件 (Condition)**:
+  - サービス名（Service Name）
+  - ホスト名（HostName）
+  - HTTP メソッド（HTTP Method）
+  - URL パス（URL Path）
+- **固定サンプリング率 (Fixed Rate)**: 毎秒サンプリングするリクエストの割合。
+- **リクエスト数の上限 (Reservoir Size)**: 固定の数値、あるいは、1 秒あたりにサンプリングするリクエストの数の上限。
+
+#### サンプリングの利点
+
+1. **効率的なリソース利用**: 大量のデータを収集せずとも、代表的なトレース情報だけを収集することでリソース使用を最適化。
+2. **コスト削減**: データストレージとトランザクションコストを削減することができます。
+3. **パフォーマンスの影響を最小限に**: フルスケールでのトレースがシステムパフォーマンスに与える影響を最小限に抑える。
 
 ## 主要コンポーネント
 
@@ -43,7 +62,7 @@ CPU使用率やリクエスト数、エラーレートなどのパフォーマ�
 
 ### Collector
 
-トレース、メトリクス、ログを集約し、他のObservabilityサービスへエクスポートするための集積ポイントとして機能する。
+トレース、メトリクス、ログを集約し、他の Observability サービスへエクスポートするための集積ポイントとして機能する。
 
 ## OpenTelemetry と OpenTracing 比較
 
@@ -61,24 +80,24 @@ CPU使用率やリクエスト数、エラーレートなどのパフォーマ�
   - 2024 時点で、`ブラウザ JS で OpenTelemetry を利用するのは避け、監視 SaaS ベンダーの SDK を利用した方が良い`としている
 - [Datadog の OpenTelemetry](https://docs.datadoghq.com/ja/opentelemetry/)
 
-## Cloud上で利用できるOpenTelemetry
+## Cloud 上で利用できる OpenTelemetry
 
-### AWSでの利用
+### AWS での利用
 
-- **AWS X-Ray**: OpenTelemetryから収集されたトレースデータをAWS X-Rayにエクスポートし、可視化と分析を行う。
-- **Amazon CloudWatch**: メトリクスデータをCloudWatchに送信し、アラートやダッシュボードを作成。
+- **AWS X-Ray**: OpenTelemetry から収集されたトレースデータを AWS X-Ray にエクスポートし、可視化と分析を行う。
+- **Amazon CloudWatch**: メトリクスデータを CloudWatch に送信し、アラートやダッシュボードを作成。
 
 ### Google Cloud Platform (GCP)での利用
 
-- **Google Cloud Trace、Cloud Monitoring**: トレースデータをGoogle Cloud Traceに、メトリクスデータをCloud Monitoringに送信して分析・可視化。
+- **Google Cloud Trace、Cloud Monitoring**: トレースデータを Google Cloud Trace に、メトリクスデータを Cloud Monitoring に送信して分析・可視化。
 - **Google Cloud Logging**: ログデータを統合管理。
 
-### Microsoft Azureでの利用
+### Microsoft Azure での利用
 
-- **Azure Monitor**: トレース、メトリクス、ログをAzure Monitorにエクスポートし、包括的な監視と分析を実現。
+- **Azure Monitor**: トレース、メトリクス、ログを Azure Monitor にエクスポートし、包括的な監視と分析を実現。
 
-### Kubernetes環境での利用
+### Kubernetes 環境での利用
 
-- **JaegerやZipkinと統合**: OpenTelemetryから収集されたトレースデータをJaegerやZipkinにエクスポートして可視化。
-- **Prometheusと統合**: メトリクスデータをPrometheusにエクスポートし、Grafanaで可視化。
-- **FluentdやFluent Bitと統合**: ログデータを収集し、Elasticsearchや他のログ管理システムに送信。
+- **Jaeger や Zipkin と統合**: OpenTelemetry から収集されたトレースデータを Jaeger や Zipkin にエクスポートして可視化。
+- **Prometheus と統合**: メトリクスデータを Prometheus にエクスポートし、Grafana で可視化。
+- **Fluentd や Fluent Bit と統合**: ログデータを収集し、Elasticsearch や他のログ管理システムに送信。

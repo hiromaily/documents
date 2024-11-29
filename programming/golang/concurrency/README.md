@@ -861,4 +861,3 @@ func main() {
 ### 5. 大規模開発での並行処理
 
 ### 6. goroutine と Go runtime
-

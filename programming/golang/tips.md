@@ -2,6 +2,8 @@
 
 ## `make`によるSliceの初期化
 
+- [内部Docs: makeについて](./reference-types.md#makeについて)
+
 ```go
 package main
 
@@ -70,4 +72,18 @@ func main() {
         fmt.Printf("n: %d, addr of n: %p\n", n, &n)
     }
 }
+```
+
+## 循環参照 `import cycle not allowed` エラー
+
+[godepgraph](https://github.com/kisielk/godepgraph)
+
+```sh
+# Install
+go install github.com/kisielk/godepgraph@latest
+# Install dot
+brew install graphviz
+
+# グラフ生成
+godepgraph package-name | dot -Tpng -o import-cycle-graph.png
 ```
