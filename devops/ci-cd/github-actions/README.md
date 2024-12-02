@@ -4,6 +4,12 @@ GitHub Actions は、GitHub が提供する CI/CD ツールで、リポジトリ
 
 GitHub リポジトリと深く統合された強力な CI/CD ツール。設定が簡単で使いやすく、豊富なアクションライブラリやシークレット管理、並列実行などの機能により、さまざまなワークフローを効率的に自動化できる。ただし、`特定のセットアップ`や`大規模プロジェクト`においては、`制限や依存を考慮する必要がある`。
 
+## コスト最適化
+
+[BlacksmithというGithub Action用のイメージ](https://www.blacksmith.sh/)
+
+`GitHub Actions ‍Twice as fast. Half the cost.`と謳っている
+
 ## GitHub Actions の主な特徴
 
 1. **シームレスな GitHub 統合**

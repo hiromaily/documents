@@ -19,6 +19,9 @@
 5. **PyCharmのAIアシスタント**:
    - JetBrainsの統合開発環境PyCharmには、AIを利用したコード補完やリファクタリング支援機能が搭載されている。
 
+6. **Perplexity AI**:
+   - 使用した限り、ChatGPT, Geminiと比較して、コードが的確だった。
+
 ## その他
 
 - [Llama Coder](https://llamacoder.together.ai/)
