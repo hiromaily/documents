@@ -56,7 +56,7 @@ CPU 使用率やリクエスト数、エラーレートなどのパフォーマ�
 
 各プラットフォーム向けの具体的な実装を提供し、トレース、メトリクス、ログを収集・処理する。
 
-### エージェント
+### エージェント (Exporter)
 
 各マイクロサービスやコンテナ内で動作し、トレースやメトリクスを収集・エクスポートする。
 
@@ -66,38 +66,12 @@ CPU 使用率やリクエスト数、エラーレートなどのパフォーマ�
 
 ## OpenTelemetry と OpenTracing 比較
 
+OpenTracingはDeprecatedされている
+
+- `OpenTracing は現在非推奨`
 - OpenTelemetry と OpenTracing は共通の祖先を持ち、`OpenTelemetry は OpenTracing と OpenCensus の合併の結果`
 - OpenTelemetry は、テレメトリー計測と収集のための単一の標準化されたソリューションを提供するために、両プロジェクトの最良の機能を組み合わせることを目的とする
 - OpenTracing が分散トレースにフォーカスしている
 - OpenTelemetry はメトリックスやロギングといった観測性の他の側面を含むように範囲を広げている
 - OpenTelemetry は、より広範な観測可能性という点では OpenTracing に取って代わられていますが、OpenTracing の原則と仕様は依然として価値があり、OpenTelemetry の開発に影響を与えている
 - OpenTelemetry は、すでに OpenTracing を使用しているプロジェクトがスムーズに移行できるように、後方互換性を念頭に設計されている
-- `OpenTracing は現在非推奨`
-
-## Frontend での OpenTelemetry 対応
-
-- [フロントエンドで収集するべきテレメトリは何か](https://zenn.dev/kimitsu/articles/frontend-and-telemetry)
-  - 2024 時点で、`ブラウザ JS で OpenTelemetry を利用するのは避け、監視 SaaS ベンダーの SDK を利用した方が良い`としている
-- [Datadog の OpenTelemetry](https://docs.datadoghq.com/ja/opentelemetry/)
-
-## Cloud 上で利用できる OpenTelemetry
-
-### AWS での利用
-
-- **AWS X-Ray**: OpenTelemetry から収集されたトレースデータを AWS X-Ray にエクスポートし、可視化と分析を行う。
-- **Amazon CloudWatch**: メトリクスデータを CloudWatch に送信し、アラートやダッシュボードを作成。
-
-### Google Cloud Platform (GCP)での利用
-
-- **Google Cloud Trace、Cloud Monitoring**: トレースデータを Google Cloud Trace に、メトリクスデータを Cloud Monitoring に送信して分析・可視化。
-- **Google Cloud Logging**: ログデータを統合管理。
-
-### Microsoft Azure での利用
-
-- **Azure Monitor**: トレース、メトリクス、ログを Azure Monitor にエクスポートし、包括的な監視と分析を実現。
-
-### Kubernetes 環境での利用
-
-- **Jaeger や Zipkin と統合**: OpenTelemetry から収集されたトレースデータを Jaeger や Zipkin にエクスポートして可視化。
-- **Prometheus と統合**: メトリクスデータを Prometheus にエクスポートし、Grafana で可視化。
-- **Fluentd や Fluent Bit と統合**: ログデータを収集し、Elasticsearch や他のログ管理システムに送信。

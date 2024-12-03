@@ -1,6 +1,6 @@
-# Open Tracing / OpenTelemetry
+# Open Tracing  (Deprecated)
 
-OpenTracing は、ベンダーに依存しない分散トレースのオープン スタンダードであり、インストルメンテーション用の一貫した API と、分散システム内のコンポーネント間でコンテキスト情報を表現および伝達するための標準化された方法を提供する
+OpenTracing は、ベンダーに依存しない分散トレースのオープン スタンダードであり、インストルメンテーション用の一貫した API と、分散システム内のコンポーネント間でコンテキスト情報を表現および伝達するための標準化された方法を提供する。
 
 `OpenTracing は現在非推奨`のため[Open Telemetry](./open-telemetry.md)を参照
 
