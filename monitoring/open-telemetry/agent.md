@@ -2,11 +2,9 @@
 
 各マイクロサービスやコンテナ内で動作し、トレースやメトリクスを収集し、収集したトレース、メトリクス、およびログデータを外部のシステムやバックエンドに送信する役割を担うコンポーネントであり、Application 側に組み込むものとなる。
 
-## [Exporters](<(https://opentelemetry.io/docs/languages/go/exporters/)>)
+## [Exporters](https://opentelemetry.io/docs/languages/go/exporters/)
 
-- [github: opentelemetry-go](https://github.com/open-telemetry/opentelemetry-go/tree/main/exporters)
-
-### Exporter の種類
+### [Exporter の種類 (opentelemetry-go内)](https://github.com/open-telemetry/opentelemetry-go/tree/main/exporters)
 
 - Stdout (console)
   - Debug や UT などに便利
@@ -14,6 +12,13 @@
   - Jaeger など
 - Prometheus (Experimental) プロメテウス
 - Zipkin
+
+### [3rd PartyのExporter (opentelemetry-collector-contrib内)](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter)
+
+- [Datadog](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/datadogexporter)
+- [AWS X-Ray](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/awsxrayexporter)
+- [AWS Cloud Watch Logs](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/awscloudwatchlogsexporter)
+- [GCP](https://github.com/GoogleCloudPlatform/opentelemetry-operations-go)
 
 #### OTLP について
 
@@ -53,52 +58,32 @@ OTLP（OpenTelemetry Protocol）は、OpenTelemetry プロジェクトによっ�
 
 #### 3. B3 Propagator
 
-- **概要**: B3 は、Twitter が開発した Zipkin トレースシステム用のプロパゲーションフォーマット。
+- **概要**: B3 は、Twitter が開発した `Zipkin` トレースシステム用のプロパゲーションフォーマット。
 - **HTTP ヘッダー**:
   - `X-B3-TraceId`: トレース ID。
   - `X-B3-SpanId`: スパン ID。
   - `X-B3-ParentSpanId`: 親スパン ID。
   - `X-B3-Sampled`: サンプルフラグ。
 
-### Go 言語でのプロパゲーター設定例
+#### [opentelemetry-go-contrib propagators内](https://github.com/open-telemetry/opentelemetry-go-contrib/tree/main/propagators)
 
-以下は、Go 言語における OpenTelemetry のプロパゲーター設定の一例です：
+- autoprop
+- aws
+- b3
+- jaeger
+- opencensus
+- ot
 
-```go
-import (
-    "go.opentelemetry.io/otel"
-    "go.opentelemetry.io/otel/propagation"
-    "go.opentelemetry.io/otel/trace"
-    "go.opentelemetry.io/otel/exporters/stdout"
-    sdktrace "go.opentelemetry.io/otel/sdk/trace"
-)
+## [Trace Noop](https://github.com/open-telemetry/opentelemetry-go/tree/main/trace/noop)について
 
-func initTracer() {
-    // Create and configure a stdout exporter
-    exporter, _ := stdout.NewExporter(stdout.WithPrettyPrint())
+実装時に機能をOffにしたい場合に使うためのもの
 
-    // Create a simple span processor
-    bsp := sdktrace.NewSimpleSpanProcessor(exporter)
 
-    // Create a trace provider
-    tp := sdktrace.NewTracerProvider(sdktrace.WithSpanProcessor(bsp))
 
-    // Configure the global trace provider
-    otel.SetTracerProvider(tp)
+## DatadogのTracingについて
 
-    // Configure the global propagator to use W3C TraceContext
-    otel.SetTextMapPropagator(propagation.TraceContext{})
-}
-
-func main() {
-    initTracer()
-
-    // Use your tracer
-    tracer := otel.Tracer("example")
-    ctx, span := tracer.Start(context.Background(), "example-operation")
-    defer span.End()
-}
-```
+- [OpenTelemetry Collector and Datadog Exporter](https://docs.datadoghq.com/opentelemetry/collector_exporter/)
+  - [github: datadog exporter](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/exporter/datadogexporter)
 
 ## Go のコード
 
