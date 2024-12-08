@@ -46,3 +46,15 @@ func TestInternalFunction(t *testing.T) {
     }
 }
 ```
+
+## Testのcacheのクリア
+
+```sh
+go clean -testcache
+```
+
+## Testの実行方法
+
+```sh
+go test -race -v -run TestSomething github.com/hiromaily/my-project/pkg/something -count=1
+```

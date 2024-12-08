@@ -5,6 +5,7 @@
 - `短時間で頻繁に実行されるタスクはLambda`
 - `長時間または複雑な依存関係があるタスクはCronジョブ`
 
+## Lambdaでタイムアウトが発生する場合の対応
 
 - [Lambda 関数呼び出しタイムアウトエラーをトラブルシューティングするにはどうすればよいですか?](https://repost.aws/ja/knowledge-center/lambda-troubleshoot-invocation-timeouts)
 

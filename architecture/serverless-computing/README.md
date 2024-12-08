@@ -6,7 +6,7 @@ Serverless Computing（サーバーレス・コンピューティング）は、
 
 サーバーレス・コンピューティングは、適切なユースケースで活用すれば、大幅に効率を向上し、コストを削減することができる。特に、変動するトラフィックに対応が必要なサービや迅速なプロトタイピングが求められるプロジェクトに向いている。
 
-[内部Docs: Serverless](../../infra/architecture/serverless.md)
+[内部Docs: Lambda](../../cloud/aws/services/lambda/README.md)
 
 ## 基本的な概念
 
