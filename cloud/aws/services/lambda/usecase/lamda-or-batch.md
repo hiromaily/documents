@@ -5,10 +5,6 @@
 - `短時間で頻繁に実行されるタスクはLambda`
 - `長時間または複雑な依存関係があるタスクはCronジョブ`
 
-## Lambdaでタイムアウトが発生する場合の対応
-
-- [Lambda 関数呼び出しタイムアウトエラーをトラブルシューティングするにはどうすればよいですか?](https://repost.aws/ja/knowledge-center/lambda-troubleshoot-invocation-timeouts)
-
 ## AWS Lambda を使うべきケース
 
 1. **短時間のタスク**: Lambda は基本的に短時間の処理に向いている。最大実行時間は`15分`だから、それ以内で完了するタスクが適している。

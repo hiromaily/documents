@@ -56,5 +56,24 @@ go clean -testcache
 ## Testの実行方法
 
 ```sh
+# 全てのTestを実行する（ただしbuild tagが付いているものは除く)
+go test -v ./...
+
+# 特定のfunctionを実行する
+go test -race -v -run TestSomething github.com/hiromaily/my-project/pkg/something
+
+# cacheを無効化する
 go test -race -v -run TestSomething github.com/hiromaily/my-project/pkg/something -count=1
+```
+
+### 特定のtagが付いているTestのみを実行する
+
+```sh
+# これでは、tagがついていないファイルまで実行されてしまう
+go test -v -tags=integration ./...
+
+# そのため、ファイルまで実行せねばならないが、その場合tagをつける必要はない
+go test -v --tags=integration ./tests/integration_test.go
+# or
+go test -v ./tests/integration_test.go
 ```

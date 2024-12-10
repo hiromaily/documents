@@ -11,10 +11,12 @@
   - range の場合、loop はすぐに抜ける
 - 複数回の同一の channel の close はできない
   - 閉じようとすると panic が発生: `panic: close of closed channel`
+
     ```go
     var closeOnce sync.Once
     closeOnce.Do(func() { close(resultCh) })
     ```
+
 - close の処理は、ブロードキャストの役割を持つ
 
 ## Select 内における挙動
