@@ -70,8 +70,8 @@ func NewNoopProvider() *NoopProvider {
     }
 }
 
-func (n *NoopProvider) NewSpan(ctx context.Context, name string) (context.Context, oteltrace.Span) {
-    return n.tracer.Start(ctx, name)
+func (n *NoopProvider) NewSpan(ctx context.Context, name string, opts ...oteltrace.SpanStartOption) (context.Context, oteltrace.Span) {
+    return n.tracer.Start(ctx, name, opts...)
 }
 
 // Note: batchが終了する直前に呼び出すこと
@@ -79,3 +79,9 @@ func (n *NoopProvider) Close() error {
     return nil
 }
 ```
+
+### SpanStartOption
+
+- WithLinks(links ...Link)
+- WithNewRoot()
+- WithSpanKind(kind SpanKind)
