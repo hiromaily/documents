@@ -1,6 +1,15 @@
 # context.Context
 
+[Docs: context](https://pkg.go.dev/context)
+
 複数のGoroutinesを管理する場合、リソースを適切に管理し、不要なGoroutinesをキャンセルすることが重要。これには`context`パッケージを利用する。
+
+## 備わっている関数
+
+- WithCancel
+- WithDeadline
+- WithTimeout
+- WithValue
 
 ## context.WithCancel()
 

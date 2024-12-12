@@ -6,72 +6,55 @@
 
 ## 1. AWS SDKを使用して自分自身の関数を呼び出す例
 
-```go
-package main
+[Go V2 のSDKのInvoke()メソッド](https://docs.aws.amazon.com/ja_jp/code-library/latest/ug/go_2_lambda_code_examples.html)
 
+```go
 import (
+    "bytes"
     "context"
     "encoding/json"
-    "fmt"
-    "os"
+    "errors"
+    "log"
+    "time"
 
-    "github.com/aws/aws-lambda-go/events"
-    "github.com/aws/aws-lambda-go/lambda"
-    "github.com/aws/aws-sdk-go/aws"
-    "github.com/aws/aws-sdk-go/aws/session"
-    "github.com/aws/aws-sdk-go/service/lambda"
+    "github.com/aws/aws-sdk-go-v2/aws"
+    "github.com/aws/aws-sdk-go-v2/service/lambda"
+    "github.com/aws/aws-sdk-go-v2/service/lambda/types"
 )
 
-func handler(ctx context.Context, event events.CloudWatchEvent) error {
-    // Lambdaの実行ロジック
+// FunctionWrapper encapsulates function actions used in the examples.
+// It contains an AWS Lambda service client that is used to perform user actions.
+type LambdaClient struct {
+    client *lambda.Client
+}
 
-    // 条件をチェック（例としてイベントのDetailに特定のフィールドがあるか確認）
-    if checkCondition(event) {
-        // 再実行
-        err := reinvokeFunction(event)
-        if err != nil {
-            return fmt.Errorf("failed to re-invoke function: %v", err)
-        }
-        fmt.Println("Function will be re-invoked")
+// Invoke invokes the Lambda function specified by functionName, passing the parameters
+// as a JSON payload. When getLog is true, types.LogTypeTail is specified, which tells
+// Lambda to include the last few log lines in the returned result.
+func (l *LambdaClient) Invoke(ctx context.Context, functionName string, parameters any, getLog bool) *lambda.InvokeOutput {
+    logType := types.LogTypeNone
+    if getLog {
+        logType = types.LogTypeTail
     }
-
-    return nil
-}
-
-// 条件判別
-func checkCondition(event events.CloudWatchEvent) bool {
-    // ここで条件を確認
-    // 例：特定のフィールドが存在するかどうか
-    return true
-}
-
-// 再実行
-func reinvokeFunction(event events.CloudWatchEvent) error {
-    svc := lambda.New(session.Must(session.NewSession()))
-    
-    payload, err := json.Marshal(event)
+    payload, err := json.Marshal(parameters)
     if err != nil {
-        return fmt.Errorf("failed to marshal event: %v", err)
+        log.Panicf("Couldn't marshal parameters to JSON. Here's why %v\n", err)
     }
-
-    _, err = svc.Invoke(&lambda.InvokeInput{
-        FunctionName: aws.String(os.Getenv("AWS_LAMBDA_FUNCTION_NAME")), // 環境変数から関数名を取得
-        InvocationType: aws.String("Event"), // 非同期実行
-        Payload: payload,
+    invokeOutput, err := l.client.Invoke(ctx, &lambda.InvokeInput{
+        FunctionName: aws.String(functionName),
+        LogType:      logType,
+        Payload:      payload,
     })
     if err != nil {
-        return fmt.Errorf("failed to invoke function: %v", err)
+        log.Panicf("Couldn't invoke function %v. Here's why: %v\n", functionName, err)
     }
-
-    return nil
-}
-
-func main() {
-    lambda.Start(handler)
+    return invokeOutput
 }
 ```
 
 ## 2. EventBridgeと組み合わせる例
+
+[Go V2 のSDKのeventbridge package](https://pkg.go.dev/github.com/aws/aws-sdk-go-v2/service/eventbridge)
 
 ### 1. Lambda関数の作成
 
@@ -84,64 +67,51 @@ import (
     "context"
     "encoding/json"
     "fmt"
+    "log"
 
-    "github.com/aws/aws-lambda-go/lambda"
-    "github.com/aws/aws-sdk-go/aws"
-    "github.com/aws/aws-sdk-go/aws/session"
-    "github.com/aws/aws-sdk-go/service/eventbridge"
+    "github.com/aws/aws-sdk-go-v2/aws"
+    "github.com/aws/aws-sdk-go-v2/config"
+    "github.com/aws/aws-sdk-go-v2/service/eventbridge"
 )
 
-type MyEvent struct {
-    Detail string `json:"detail"`
-}
-
-func handler(ctx context.Context, event MyEvent) error {
-    // Lambdaの実行ロジック
-    fmt.Println("Function executed")
-
-    // 条件をチェック
-    if event.Detail == "reinvoke" {
-        err := triggerEventBridge()
-        if err != nil {
-            return fmt.Errorf("failed to trigger EventBridge: %v", err)
-        }
-        fmt.Println("EventBridge triggered for reinvocation")
-    }
-
-    return nil
-}
-
-// Eventを発火
-func triggerEventBridge() error {
-    svc := eventbridge.New(session.Must(session.NewSession()))
-
-    detail := map[string]string{"detail": "reinvoke"}
-    detailJson, err := json.Marshal(detail)
+func main() {
+    // AWS SDKの設定をロード
+    cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithRegion("us-west-2"))
     if err != nil {
-        return err
+        log.Fatalf("Unable to load SDK config, %v", err)
     }
 
+    // EventBridgeクライアントを作成
+    svc := eventbridge.NewFromConfig(cfg)
+
+    // カスタムイベントのデータを作成
+    eventDetail := map[string]string{
+        "key1": "value1",
+        "key2": "value2",
+    }
+
+    eventDetailJson, err := json.Marshal(eventDetail)
+    if err != nil {
+        log.Fatalf("Error marshaling event detail: %v", err)
+    }
+
+    // PutEventsInput を作成
     input := &eventbridge.PutEventsInput{
-        Entries: []*eventbridge.PutEventsRequestEntry{
+        Entries: []eventbridge.PutEventsRequestEntry{
             {
-                Detail:       aws.String(string(detailJson)),
-                DetailType:   aws.String("MyEvent"),
-                Source:       aws.String("my.event.source"),
+                Detail:       aws.String(string(eventDetailJson)),
+                DetailType:   aws.String("myDetailType"),
                 EventBusName: aws.String("default"),
+                Source:       aws.String("mySource"),
             },
         },
     }
 
-    _, err = svc.PutEvents(input)
+    // EventBridgeにイベントを送信
+    result, err := svc.PutEvents(context.Background(), input)
     if err != nil {
-        return err
+        log.Fatalf("Error sending event to EventBridge: %v", err)
     }
-
-    return nil
-}
-
-func main() {
-    lambda.Start(handler)
 }
 ```
 
