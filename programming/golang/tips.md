@@ -1,5 +1,13 @@
 # Tips
 
+## `build constraints exclude all Go files in`
+
+ビルド制約は、以下のGoファイルすべてを除外します
+
+- [cmd/go: don't make "build constraints exclude all Go files" a fatal error for go test](https://github.com/golang/go/issues/43424)
+
+ビルド制約コメントが付いているファイルと付いていないファイルが混在している場合、特定のビルド制約コメントがないファイルだけを実行することは、残念ながら標準のgo testコマンドでは直接的にはサポートされていないらしい（ChatGPT談)
+
 ## `make`によるSliceの初期化
 
 - [内部Docs: makeについて](./reference-types.md#makeについて)

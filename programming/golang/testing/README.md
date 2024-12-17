@@ -68,12 +68,26 @@ go test -race -v -run TestSomething github.com/hiromaily/my-project/pkg/somethin
 
 ### 特定のtagが付いているTestのみを実行する
 
+2024年現在、go testに`tags`フラグは存在しない
+
 ```sh
 # これでは、tagがついていないファイルまで実行されてしまう
-go test -v -tags=integration ./...
+#go test -v -tags=integration ./...
 
 # そのため、ファイルまで実行せねばならないが、その場合tagをつける必要はない
-go test -v --tags=integration ./tests/integration_test.go
-# or
+#go test -v --tags=integration ./tests/integration_test.go
 go test -v ./tests/integration_test.go
 ```
+
+## benchmarkの実行
+
+- `-bench regexp`
+- `-benchmem`: Print memory allocation statistics for benchmarks
+
+```sh
+go test -benchmem -bench BenchmarkEncryptIDs github.com/org/repo/pkg/entity
+```
+
+## UnittestとIntegrationTestを分ける方法
+
+- [Separating unit tests and integration tests in Go](https://stackoverflow.com/questions/25965584/separating-unit-tests-and-integration-tests-in-go)

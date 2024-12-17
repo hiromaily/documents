@@ -1,5 +1,7 @@
 # Lambdaのタイムアウト対応
 
+[内部Docs: ある条件下でLambda functionを再度実行する](./conditional-re-execution.md)
+
 ## Lambdaでタイムアウトが発生する場合の対応
 
 - [Lambda 関数呼び出しタイムアウトエラーをトラブルシューティングするにはどうすればよいですか?](https://repost.aws/ja/knowledge-center/lambda-troubleshoot-invocation-timeouts)
