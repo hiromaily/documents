@@ -68,11 +68,20 @@ func AgentURLFromEnv() *url.URL {
 
 - AWS Lambda関数にDatadog Lambda Layerを追加する
   - [Datadog-Extension](https://docs.datadoghq.com/serverless/libraries_integrations/extension/)レイヤーのARNを追加する
+- Lambda上で動作するアプリケーション側に環境変数を設定
 
-[Datadog Lambda Extenstionについて](https://docs.datadoghq.com/serverless/libraries_integrations/extension/)
+```env
+DD_API_KEY=<YOUR_DATADOG_API_KEY>
+DD_SITE=datadoghq.com
+```
 
+##### [Datadog Lambda Extenstionについて](https://docs.datadoghq.com/serverless/libraries_integrations/extension/)
 
+Datadog Lambda Extension は、AWS Lambda 関数のメトリクス収集、トレース、ログの収集を簡単に行うための拡張機能。Datadog は総合的な監視およびセキュリティプラットフォームであり、この拡張機能を使用することで、サーバーレスアプリケーションのパフォーマンスと信頼性をリアルタイムでモニタリングできるようになる。
 
+1. **メトリクス収集**：Lambda 関数の実行に関する詳細なメトリクス（例：実行時間、エラー率、コールドスタートの頻度など）を収集し、Datadog に送信できり。
+2. **トレース**：分散トレースを有効にすることで、エンドツーエンドの要求を追跡し、パフォーマンスボトルネックや障害点を特定できる。
+3. **ログ収集**：Lambda 関数のログを Datadog に自動的に送信し、集中管理および分析が可能。
 
 #### 2. `OTEL Collectorを利用するパターン`
 
