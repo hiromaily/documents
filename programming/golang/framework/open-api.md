@@ -1,4 +1,4 @@
-# GolangのOpenAPIに対応したFramework
+# Golang の OpenAPI に対応した Framework
 
 - [open-api](../../../api/open-api/README.md)
 
@@ -12,11 +12,17 @@
   - [echo](https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/go-echo-server.md)
   - あまり使いやすいコードを生成するわけではない
 
+## [huma](https://github.com/danielgtaylor/huma)
+
+- Star: 2.2 K
+- OpenAPI v3.1
+- 2024/11 時点で Star は急上昇中
+
 ## [ogen](https://github.com/ogen-go/ogen)
 
 - Star: 1.3 K
 - OpenAPI v3
-- 2024時点では伸びてきている
+- 2024 時点では伸びてきている
 - [最近の Go の OpenAPI Generator の推しは ogen](https://blog.p1ass.com/posts/ogen/)
 
 ## [go-swagger](https://github.com/go-swagger/go-swagger)

@@ -89,3 +89,4 @@ TypeScript は、JavaScript に伝統的な`オブジェクト指向の型`を�
 
 - [関数型プログラミングはまず考え方から理解しよう](https://qiita.com/stkdev/items/5c021d4e5d54d56b927c)
 - [こわくない関数型プログラミング](https://zenn.dev/tockri/books/dcaf6c55e64448)
+- [A Guide to Functional Programming](https://dev.to/dhanush9952/a-guide-to-functional-programming-18h9)
