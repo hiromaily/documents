@@ -1,4 +1,4 @@
-# 公開鍵暗号 / Public-key Cryptography
+# 非対称暗号 (公開鍵暗号) / Public-key Cryptography
 
 [WIP]
 
