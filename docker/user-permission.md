@@ -24,6 +24,16 @@
   - [Run the Docker daemon as a non-root user (Rootless mode)](https://docs.docker.com/engine/security/rootless/)
   - [Rootless Docker を安全に一般ユーザで実行する](https://e-penguiner.com/rootless-docker-for-nonroot/)
 
+## Dockerfileのセキュリティーの問題を回避する
+
+`nobody` ユーザは、UNIX システム上で最も権限が低いユーザーで、root ユーザの対極にあり、必要最低限の権限しか持っていない。
+システムに対する悪用や不正アクセスを防ぐため、プロセスを nobody ユーザで動かすことが推奨されている。
+
+```Dockerfile
+# 最後の実行前に
+USER nobody
+```
+
 ## Github Action で Permission に問題がある場合
 
 ```yaml

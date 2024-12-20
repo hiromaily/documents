@@ -115,6 +115,29 @@ defaultで利用されるため、以下の設定をいれることで、デフ�
 GODEBUG=tlskyber=0
 ```
 
+### AWSの特定のLambda環境にて、HTTPS通信時にエラー`net/http: TLS handshake timeout`が発生する
+
+- [Go 1.23: Additional key exchange mechanism X25519Kyber768Draft00 causes AWS Network Firewall to drop packets](https://github.com/hashicorp/terraform-provider-aws/issues/39311)
+- [[Bug]: AWS STS TLS Timeouts when running terraform init](https://github.com/hashicorp/terraform-provider-aws/issues/39125)
+
+ドメイン ベースのファイアウォールでは、HTTPS 接続で SNI が設定されていないと正しく機能しない、とのこと
+
+#### ドメインベースのファイアウォールにおけるSNIの役割
+
+1. **SNI (Server Name Indication)とは**:
+   - SNIはSSL/TLSの拡張仕様で、一つのサーバー（同じグローバルIPアドレス）で複数のドメイン名を使用する場合に、複数のSSL証明書を運用できるようにする。
+
+2. **ドメインベースのファイアウォールとSNI**:
+   - ファイアウォールが正しく機能するためには、HTTPS接続においてSNIが設定されている必要がある。SNIはクライアントがSSLハンドシェイクの際に、通信先のドメイン名をサーバーに通知する仕組み。これにより、サーバーは該当のドメインに対応するSSL証明書を返すことができる。
+
+3. **SNIが設定されていない場合の問題**:
+   - SNIが設定されていない場合、同一のグローバルIPアドレスを持つサーバーは、異なるドメインに対して同じSSL証明書を返すことになる。これは、複数のドメインを一つのサーバーで運用する名前ベースバーチャルホストにおいて不具合を引き起こす。
+
+したがって、ドメインベースのファイアウォールで正しく機能させるには、HTTPS接続に対してSNIが必要。SNIの導入により、ユーザが取得した独自のドメイン名とSSLサーバ証明書のドメイン名を一致させることができる。
+
+- [AWS post-quantum cryptography migration plan](https://aws.amazon.com/blogs/security/aws-post-quantum-cryptography-migration-plan/)
+- [【AWS re:Invent 2024】ポスト量子暗号時代への備え！AWSの取り組みと顧客の一歩](https://blog.serverworks.co.jp/aws-post-quantum-cryptography)
+
 ## References
 
 - [Wiki: ポスト量子暗号](https://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%B9%E3%83%88%E9%87%8F%E5%AD%90%E6%9A%97%E5%8F%B7)
