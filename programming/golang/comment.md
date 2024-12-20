@@ -2,7 +2,7 @@
 
 ## GoDoc
 
-- [Go Doc Comments](https://go.dev/doc/commentg)
+- [Go Doc Comments](https://go.dev/doc/comment)
 - [tolang.org/x/tools/cmd/godoc](https://pkg.go.dev/golang.org/x/tools/cmd/godoc)
 
 ## [Deprecated](https://go.dev/wiki/Deprecated)
