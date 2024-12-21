@@ -61,8 +61,30 @@ templater = placeholder
 param_regex = sqlc\.slice\([\'"][a-zA-Z_][a-zA-Z_0-9]*[\'"]\)|\?
 ```
 
+```config
+[sqlfluff]
+  dialect = snowflake
+  templater = raw
+  max_line_length = 80
+  exclude_rules = L042
+
+[sqlfluff:layout:type:comma]
+  spacing_after = single
+  line_position = leading
+
+[sqlfluff:rules:aliasing.table]
+  aliasing = explicit
+
+[sqlfluff:rules:aliasing.column]
+  aliasing = explicit
+
+[sqlfluff:rules:references.consistent]
+  force_enable = true
+```
+
 - [Rules](https://docs.sqlfluff.com/en/stable/reference/rules.html)
 - [Ignoring Errors & Files](https://docs.sqlfluff.com/en/stable/configuration/ignoring_configuration.html)
+- [Slide: SQLFluff Rules(日本語)](https://speakerdeck.com/jimatomo/sqlfluff-rules)
 
 ## [Placeholder](https://docs.sqlfluff.com/en/stable/configuration/templating/placeholder.html)
 

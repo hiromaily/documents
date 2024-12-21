@@ -31,6 +31,14 @@ panic: send on closed channel
 
 上記の例では、`panic: send on closed channel` 閉じられたチャネルを使って送信しようとした場合に起きるエラー
 
+### `-race`オプション利用時の、注意点
+
+- `-race`オプションをつけると、実行コストがあがるため、testでは実行時間が増加する点に注意
+- 稀に`ld: warning`が発生する。Macの場合、XCodeのlinkerの問題によって発生している
+  - [cmd/link: issues with Apple's new linker in Xcode 15 beta](https://github.com/golang/go/issues/61229)
+  - [go test --race causes linker warning: undefined symbols to start](https://github.com/golang/go/issues/65940)
+  - 解決策は、goコマンド実行時に、`CGO_ENABLED=0`をつけて実行することで解決する。 `CGO_ENABLED=0 go test -race -v ./...`
+
 ## Race Conditionの防止
 
 共有データへのアクセスを同期する必要がある
