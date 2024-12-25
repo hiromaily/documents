@@ -41,6 +41,10 @@
 10. **キャッシュの活用**:
     - データの再計算や再取得を避けるために、キャッシュメカニズムを利用する。例えば、Go の標準ライブラリの`sync.Map`やサードパーティ製のキャッシュライブラリを活用する。
 
+### goのビルド時のオプション
+
+[内部Docs: go build](./go-command.md#ビルド時)
+
 ## PGO（Profile-Guided Optimization）
 
 PGO（Profile-Guided Optimization）を有効化し、ほとんどのプログラムのパフォーマンスを 2%～ 14%向上させることができる（らしい）。

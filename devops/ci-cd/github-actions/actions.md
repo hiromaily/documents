@@ -67,6 +67,11 @@ Actions には大きく分けて以下の 2 つのタイプがある
          VALIDATE_GO: true
    ```
 
+4. **[actions/github-script](https://github.com/actions/github-script)**:
+
+   - GitHub APIを使ったscriptを記述できる
+   - これにより、結果をPRにコメントするといったことが可能
+
 ## プログラム言語別 Actions
 
 ### Golang で使われる Actions

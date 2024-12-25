@@ -1,5 +1,9 @@
 # [testing package](https://pkg.go.dev/testing)
 
+## vscodeで、unit testを生成する
+
+vscode上で、functionにカーソルを合わせて右クリックし、`Go:Generate Unit Tests For Function`を選択する
+
 ## パッケージ名に`_test`をつける場合
 
 - **ブラックボックステストを行いたい場合**:

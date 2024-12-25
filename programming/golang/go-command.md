@@ -42,6 +42,28 @@ go build -v -trimpath -ldflags="-s -w" -o ${GOPATH}/bin/cmd-a ./cmd/cmd-a/
 
 この二つのフラグを組み合わせることで、ビルドされるバイナリのサイズが最小限に抑えられる。
 
+### `-gcflags` option
+
+`-gcflags`は、Goコンパイラに特定のフラグを渡すためのオプションであり、Goのコードをコンパイルする際に特別な設定をするために使用できる。
+
+```sh
+# デバッグ情報を含めたり、最適化を無効にしたりするためのフラグ
+# `-N`は最適化を無効にし、`-l`はインライン展開（関数呼び出しのインライン化）を無効にする。
+go build -gcflags="-N -l" ./cmd/cmd-a/
+```
+
+### `-asmflags`
+
+`-asmflags`は、Goのアセンブリコードをビルドする際のオプションを設定する。アセンブリコードに特定のフラグを渡したい場合に用いられる。
+
+```sh
+# `-D myConstant=1`: アセンブリコード内で`myConstant`という定数を定義してコンパイルする
+go build -asmflags="-D myConstant=1" ./cmd/cmd-a/
+
+# アセンブリコードのデバッグ
+go build -asmflags="-g" ./...
+```
+
 ### build時に使われる環境変数
 
 ```sh

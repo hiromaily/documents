@@ -39,6 +39,10 @@ panic: send on closed channel
   - [go test --race causes linker warning: undefined symbols to start](https://github.com/golang/go/issues/65940)
   - 解決策は、goコマンド実行時に、`CGO_ENABLED=0`をつけて実行することで解決する。 `CGO_ENABLED=0 go test -race -v ./...`
 
+#### Go実行時における `ld: warning`の意味
+
+Goのコンパイルまたはリンクプロセス中に何かが失敗したことを示している。具体的には、ld（リンカ）がいくつかの未定義のシンボルまたは不正なバイナリ形式を検出している。この問題は、コンパイラやリンカ、または使用されているライブラリまたは依存関係のいずれかにバグがある場合に発生する可能性がある。
+
 ## Race Conditionの防止
 
 共有データへのアクセスを同期する必要がある
