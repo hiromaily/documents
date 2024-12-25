@@ -135,7 +135,10 @@ jobs:
         run: |
           echo "ユニットテストの実行"
           cd batch
-          dotenvx run -f .env.test -- gotestsum --junitfile unit-tests.xml -- -race -short -v ./...
+          dotenvx run -f .env.test -- gotestsum --junitfile unit-tests.xml -- -race -short -cover -coverprofile=coverage.out -v ./...
+
+      - name: Report coverage
+        uses: k1LoW/octocov-action@v1
 
       - name: Test Report Summary
         if: success() || failure()
