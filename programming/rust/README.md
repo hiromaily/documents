@@ -31,6 +31,7 @@ RUST は式指向言語
 - [ライブラリ辞典(α): Rust](https://libdict.com/rust)
 - [とほほの Rust 入門](https://www.tohoho-web.com/ex/rust.html)
 - [Gopher が Rust 入門したので違いをまとめてみた](https://zenn.dev/skanehira/articles/2024-08-12-go-rust-pros-cons)
+- [RealWorld 業務 Rust](https://qiita.com/legokichi/items/4e85ec1e74f4e754fb94)
 
 ## [Rust 初心者が実務レベルになるまでの学習ステップ](https://ai-techblog.hatenablog.com/entry/2023/03/26/082349)
 

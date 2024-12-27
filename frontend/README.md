@@ -1,6 +1,8 @@
 # front-end
 
-[The End of Front-End Development](https://www.joshwcomeau.com/blog/the-end-of-frontend-development/)
+- [The End of Front-End Development](https://www.joshwcomeau.com/blog/the-end-of-frontend-development/)
+- [State of JS 2024](https://2024.stateofjs.com/en-US/)
+- [Top 10 Modern JavaScript Patterns for 2025](https://dev.to/balrajola/top-10-modern-javascript-patterns-for-2025-1hle)
 
 ## Design Pattern
 

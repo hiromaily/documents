@@ -61,7 +61,8 @@ OS の 1 つで、Linux をベースとして、システムや製品、新た�
   - `Windows-like` user interface
   - Tailored as a lightweight Linux distribution
   - Easy to use
-- [Manjaro Linux]
+- [Manjaro Linux](https://manjaro.org/)
+  - [「Manjaro 24.1」レビュー--高機能で使いやすく、見た目も美しい「Linux」ディストロ](https://japan.zdnet.com/article/35225742/)
 
 ## Ubuntu Themes
 

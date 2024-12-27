@@ -2,8 +2,10 @@
 
 ## TODO
 
-- 情報を整理中。architecture,blockchainは量が多いので後で。
+- 情報を整理中。architecture,blockchain は量が多いので後で。
 - 未作業には`WIP`をつけている
+- 確認: [25 top open-source tools for building web apps you can't afford to miss in 2025](https://dev.to/composiodev/25-top-open-source-tools-for-building-web-apps-you-cant-afford-to-miss-in-2025-5005)
+- 確認: [Web Development Trends in 2024: A Shift Back to Simplicity](https://thenewstack.io/web-development-trends-in-2024-a-shift-back-to-simplicity/)
 
 ## 原点回帰 / ロードマップ
 
@@ -12,14 +14,12 @@
 ## Work in progress
 
 - [分散システム/データ指向アプリケーションデザイン](./distributed-system/designing-data-intensive-applications.md)
-- [暗号技術/公開鍵暗号](./security/cryptography/public-key-cryptography.md)
 
 ## 関心のある技術(Sep 2024)
 
 - [モジュラーモノリス](./infra/architecture/modular-monolith/README.md)
-- [Serverlessアーキテクチャ](./infra/architecture/serverless.md)
+- [Serverless アーキテクチャ](./infra/architecture/serverless.md)
 - [分散システム](./distributed-system/README.md)
-- [暗号技術](./security/cryptography/README.md)
 - [クラウドデザインパターン](./cloud/cloud-design-pattern/README.md)
 
 ### 開発に伴う関心

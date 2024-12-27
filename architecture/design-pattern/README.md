@@ -1,6 +1,6 @@
 # Design Pattern
 
-- [Refactoring Guru](<https://refactoring.guru/ja/design-patterns>_
+- [Refactoring Guru](<https://refactoring.guru/ja/design-patterns>\_
 - [Good Refactoring vs Bad Refactoring](https://www.builder.io/blog/good-vs-bad-refactoring)
 
 ## Cases
@@ -51,3 +51,17 @@
 - アスペクト指向プログラミング(AOP)
   - AOP では、特定の関心事を実現するために、システム内の振る舞いのどの点に対し、整合性を維持したままで変更を加えるかをアスペクトと呼ばれるモジュールで指定する。この指定は、簡潔な宣言的、あるいは手続き的な構造を使って行われる
 - `Decorator Design Pattern`によって、データアクセスオブジェクト(DAO)に振る舞いを拡張するデコレータだったり、トンランザクション、キャッシュといったデコレータを追加していく
+
+## References
+
+- [Top 10 Design Patterns for Programming Interviews](https://dev.to/somadevtoo/top-10-design-patterns-for-programming-interviews-8j4)
+  1.  Singleton Pattern
+  2.  Factory Method Pattern
+  3.  Observer Pattern
+  4.  Strategy Pattern
+  5.  Decorator Pattern
+  6.  Adapter Pattern
+  7.  Command Pattern
+  8.  Composite Pattern
+  9.  Chain of Responsibility Pattern
+  10. State Pattern
