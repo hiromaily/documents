@@ -24,6 +24,8 @@
 
 ### 開発に伴う関心
 
+- [ ] [LangChain](https://www.langchain.com/)
+- [ ] [Browser Use](https://github.com/browser-use/browser-use)
 - [ ] Bun + Hono Framework
 - [ ] HTMX as Frontend
 - [x] [Supabase](https://supabase.com/)を使ったアプリケーション

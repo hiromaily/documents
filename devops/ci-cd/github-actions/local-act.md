@@ -14,6 +14,16 @@ brew install act
 actを実行するのは、projectのroot
 
 ```sh
+act
+
+# 特定のジョブを実行する
+act -j job-id
+
+# 特定のワークフローファイル内にあるワークフローを実行する場合
+act -W .github/workflows/deploy.yml
+
+# イベントの種類を指定する
+act push
 ```
 
 ## References
