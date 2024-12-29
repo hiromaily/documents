@@ -32,6 +32,7 @@ RUST は式指向言語
 - [とほほの Rust 入門](https://www.tohoho-web.com/ex/rust.html)
 - [Gopher が Rust 入門したので違いをまとめてみた](https://zenn.dev/skanehira/articles/2024-08-12-go-rust-pros-cons)
 - [RealWorld 業務 Rust](https://qiita.com/legokichi/items/4e85ec1e74f4e754fb94)
+- [Re: RealWorld 業務 Rust (業務以外編)](https://kenoss.github.io/blog/2024-12-27-re-real-world-gyomu-rust/)
 
 ## [Rust 初心者が実務レベルになるまでの学習ステップ](https://ai-techblog.hatenablog.com/entry/2023/03/26/082349)
 

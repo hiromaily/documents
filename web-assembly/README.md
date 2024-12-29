@@ -166,3 +166,4 @@ WebAssembly（Wasm）のビルド後のファイルサイズは、使用する�
 - [WebAssembly 開発環境構築の本](https://wasm-dev-book.netlify.app/)
   - Rust を用いた WebAssembly の開発環境を構築する
 - [Linux コンテナの「次」としての WebAssembly、の解説](https://zenn.dev/koduki/articles/9f86d03cd703c4)
+- [2023: WebAssembly の過去・現在・未来](https://qiita.com/sachaos/items/e3a613b018febb898fde)

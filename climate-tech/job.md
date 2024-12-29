@@ -2,6 +2,7 @@
 
 電力系の会社が多い
 
+- [《2024年最新版》「カーボンクレジット市場カオスマップ」を公開](https://prtimes.jp/main/html/rd/p/000000009.000119520.html)
 - [Climate Tech Jobs: 10 Sites to Find Jobs in Climate Tech](https://naturetech.io/blog/10-sites-to-find-climate-tech-jobs-in-2022)
 - [ClimateBase](https://climatebase.org/jobs)
 - [ClimateTechCareers](https://www.climatetechcareers.com/)
@@ -9,6 +10,12 @@
 - [Discover your dream job in climate](https://www.terra.do/climate-jobs/job-board/)
 
 ## Japan
+
+- [Indeed: Climate Techで検索した結果](https://jp.indeed.com/q-climate-tech-%e6%b1%82%e4%ba%ba.html?vjk=563d151d9207678c)
+
+### [Terrascope](https://www.terrascope.com/ja/)
+
+- 脱炭素化クラウドTerrascope
 
 ### [octopus energy](https://octopusenergy.co.jp/)
 
@@ -28,6 +35,13 @@
     - Container technologies (Docker, Kubernetes etc)
   - [Frontend Developer (Mid or Senior)](https://jobs.lever.co/octoenergy/54b420c6-0c38-4b25-839b-ff35607cdb1a)
 
+### [Sustineri株式会社](https://sustineri.co.jp/)
+
+### [株式会社Updater](https://www.updater.co.jp/)
+
+- リードエンジニアの職種を見ると、Java、JavaScript、TypeScriptとあり、技術的親和性は低い
+- 会社が三茶
+
 ## Asia
 
 ## Australia
@@ -46,3 +60,5 @@
 - [Senior Software Engineer](https://climatebase.org/job/48761902/senior-software-engineer-dfm?utm_source=jobs_directory&queryID=22ac34a9b53bde5543feed0cb408f1a5)
   - Python
   - AWS cloud platform, and services like Lambda, DynamoDb, ApiGW
+
+### [E.ON](https://www.eon.com/en.html)

@@ -42,3 +42,10 @@
 ## Framework
 
 - [LangChain](https://www.langchain.com/)
+
+## その他
+
+- [Gitingest](https://gitingest.com/)
+  - Prompt-friendly codebase 
+  - Turn any Git repository into a simple text ingest of its codebase.
+  - This is useful for feeding a codebase into any LLM.
