@@ -32,3 +32,6 @@
 1. **Sora**：物理法則も正確に再現した動画生成 AI。アニメーションを作成できる
 2. **Lumiere**：Google の開発した自由な編集が可能な動画生成 AI
 
+## References
+
+- [遂にChatGPT Plusを解約してGeminiに移行した話](https://zenn.dev/zuzuzu/articles/gemini_vs_chatgpt)

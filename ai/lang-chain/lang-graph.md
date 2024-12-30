@@ -1,6 +1,6 @@
 # LangGraph
 
-LangGraph は、LangChain を基に開発されたライブラリであり、大規模言語モデル（LLM）を用いて、複数のエージェントが協調して動作するシステムを構築するためのツール。LangChain と比べて、LangGraph には以下のような特徴がある。
+LangGraph は、LangChain を基に開発されたライブラリであり、大規模言語モデル（LLM）を用いて、複数のエージェントが協調して動作するシステムを構築するためのツール。LangChain と比べて、LangGraph には以下のような特徴がある。AIエージェントを作るためのツール。
 
 ## **グラフ構造とマルチエージェント**
 
@@ -30,3 +30,8 @@ LangGraph は、LangChain を基に開発されたライブラリであり、大
 
 - **実装の複雑性** : LangGraph はより複雑だが、高い柔軟性を実現する。LangChain はシンプルな実装から始めることができる。
 - **プロジェクトの要件** : プロジェクトの要件に応じて、LangChain と LangGraph を適切に組み合わせることで、効率的で柔軟なシステムを構築することができる。
+
+## References
+
+- [AIスクレインピングエージェントの構築(LangGraph, Firecrawl)](https://zenn.dev/shoheiweb/articles/86ef445581d8b0)
+  - Firecrawlは、Webページから情報を集めるスクレイピングツール
