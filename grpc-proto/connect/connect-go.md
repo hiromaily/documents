@@ -13,41 +13,34 @@
 - [grpc/grpc-web](https://github.com/grpc/grpc-web)
 - [Blog](https://buf.build/blog)
 
-## protocols in connect-go
+## connect-goのProtocols
 
-### gRPC protocol
+### 1. gRPC protocol
 
 - gRPC エコシステム全体で使用されるプロトコルであり、`connect-go` をすぐに他の gRPC 実装と互換性を持たせることができる
 - `grpc-go` client は `connect-go` server と問題なく動作し、その逆も問題なく動作する
 
-### gRPC-Web protocol
+### 2. gRPC-Web protocol
 
 - [grpc/grpc-web](https://github.com/grpc/grpc-web) で使用される gRPC-Web プロトコル
 - Envoy といった仲介 proxy を必要とせずに、`connect-go` server が `grpc-web` front-end と相互運用できるようにする
 
-### [Connect protocol](https://connect.build/docs/protocol/)
+### 3. [Connect protocol](https://connect.build/docs/protocol/)
 
+- HTTP 上で RPC を行うためのプロトコル
 - HTTP/1.1 または HTTP/2 で動作するシンプルな POST 専用プロトコル
 - ストリーミングを含む gRPC と gRPC-Web の最良の部分を取り、それらをブラウザー、モノリス、およびマイクロサービスで同等に機能するプロトコルにパッケージ化したもの
 - デフォルトでは、JSON およびバイナリでエンコードされた Protobuf がサポートされている
-- 詳細は次節にて
-
-## [Connect Protocol](https://connect.build/docs/protocol/)
-
-- HTTP 上で RPC を行うためのプロトコル
 - RFC5234 の[Augmented BNF for Syntax Specifications: ABNF](https://datatracker.ietf.org/doc/html/rfc5234.html)のルールに従っている
-
 - プロトコルの目的
-
   - 特に単項の RPC については、人間が読めるようにし、汎用の HTTP ツールでデバッグできるようにすること。
   - gRPC の HTTP/2 プロトコルに近い概念で、Connect の実装が両方のプロトコルをサポートできるようにする。
   - 広く実装されている HTTP の機能のみに依存し、高レベルのセマンティクスで動作を指定するため、Connect の実装では、既製のネットワークライブラリを容易に使用することができる。
-
 - Connect プロトコルは、Protobuf または JSON のバイナリペイロードを持つ、`unary`(単体)、`client streamin`、`server streaming`、および`bidirectional streaming`(双方向ストリーミング) RPC をサポートしている
 - 双方向ストリーミングは HTTP/2 を必要とするが、他の RPC タイプは HTTP/1.1 もサポートしている
 - このプロトコルは HTTP トレーラを全く使用しないので、どのようなネットワークインフラでも動作する
 
-### unary RPC
+#### unary RPC
 
 - `application/proto`もしくは `application/json` Content-Types を使用する
 - リクエストはすべて POST
@@ -55,7 +48,7 @@
 - Request と Response の Body は有効な`Protobuf`または`JSON`（gRPC スタイルのバイナリ構成なし）
 - レスポンスは意味のある HTTP ステータスコードを持つ
 
-### client streaming RPC
+#### client streaming RPC
 
 - 当然ながら少し複雑で、`application/connect+proto`または`application/connect+json` Content-Types を使用する
 - `gRPC-Web` に似た外観をしている

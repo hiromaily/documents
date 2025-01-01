@@ -13,6 +13,7 @@
 - tcsh
 - ksh
 - [fish](https://github.com/fish-shell/fish-shell)
+- [elvish](https://github.com/elves/elvish)
 
 ## [`.`] によるファイル実行
 

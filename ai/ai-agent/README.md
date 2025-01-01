@@ -94,3 +94,4 @@ AI エージェントは、多種多様な分野で活用されており、そ�
 
 - [Unity と Dify で自分専用の AI エージェントを作成する](https://creators.bengo4.com/entry/2024/12/20/000000)
 - [2024年 ビッグテックのAI Agent 動向まとめ](https://zenn.dev/neoai/articles/fc5e39cffeb461)
+- [AIエージェントの事例5選、ウォルマート、NEC、NTTデータの“面白い活用法”を解説](https://www.sbbit.jp/article/cont1/152258)

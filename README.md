@@ -15,12 +15,13 @@
 
 - [分散システム/データ指向アプリケーションデザイン](./distributed-system/designing-data-intensive-applications.md)
 
-## 関心のある技術(Sep 2024)
+## 関心のある技術(Jan 2025)
 
+- [AIエージェント](./ai/ai-agent/README.md)
 - [モジュラーモノリス](./infra/architecture/modular-monolith/README.md)
 - [Serverless アーキテクチャ](./infra/architecture/serverless.md)
-- [分散システム](./distributed-system/README.md)
 - [クラウドデザインパターン](./cloud/cloud-design-pattern/README.md)
+- [分散システム](./distributed-system/README.md)
 
 ### 開発に伴う関心
 

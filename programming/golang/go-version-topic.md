@@ -4,6 +4,8 @@
 
 [Go 1.24 Release Notes](https://tip.golang.org/doc/go1.24), [Blog: Go 1.24 is released!](https://go.dev/blog/go1.24)
 
+- [Coming in Go 1.24: testing/synctest experiment for time and concurrency testing](https://danp.net/posts/synctest-experiment/)
+
 ## Go 1.23
 
 [Go 1.23 Release Notes](https://tip.golang.org/doc/go1.23), [Blog: Go 1.23 is released!](https://go.dev/blog/go1.23)
