@@ -60,3 +60,4 @@ AIエージェントがブラウザを自動で操作するためのAIツール�
 - [AI Agent がブラウザを操作する「Browser Use」を試してみよう！](https://note.com/jolly_dahlia842/n/nb09c594eae7f)
 - [これはもう実質 AGI では? AI が勝手にブラウザを操作していろいろやってくれちゃう BrowserUse が爆誕](https://note.com/shi3zblog/n/n960fc72b36e9)
 - [browser-useの基礎理解](https://zenn.dev/gunjo/articles/8450e69537dbb6)
+- [browser-use やばいです](https://qiita.com/Syoitu/items/5aa84b5d8c6047c4d41b)
