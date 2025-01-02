@@ -40,3 +40,7 @@ ADRはしばしば次のような構造を持つ一般的なテンプレート�
 1. **明確で簡潔に書く:** 複雑な技術的内容でも、誰が読んでも理解できるよう簡潔に書く。
 2. **頻繁に更新:** 新しい情報や変化があれば、ADRを更新する。
 3. **バージョン管理:** バージョン管理システムを利用して、変更履歴を追跡する。
+
+## References
+
+- [アーキテクチャ設計の民主化とADR(Architectural Decision Records)による意思決定の未来 - Facilitating Software Architecture の読書感想文](https://syu-m-5151.hatenablog.com/entry/2024/12/31/232546)

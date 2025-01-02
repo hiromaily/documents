@@ -50,3 +50,4 @@ Dify は AI アプリケーション開発を支援するためのローコー�
 ## References
 
 - [UnityとDifyで自分専用のAIエージェントを作成する](https://creators.bengo4.com/entry/2024/12/20/000000)
+- [Dify講座 超入門編 ~まだチャットでポン出し？ワークフローで生成AIが本領発揮](https://engineering.reiwatravel.co.jp/blog/Advent-Calendar-20241225)
