@@ -1,6 +1,7 @@
 # pytest
 
-pytest-mock を使ったモック化は、`return_value`で固定値を戻り値として返す方法と、`side_effect`で戻り値の振る舞いを制御することができる
+pytestはPython 用 UnitTest モジュール。
+`pytest-mock` を使ったモック化は、`return_value`で固定値を戻り値として返す方法と、`side_effect`で戻り値の振る舞いを制御することができる。
 
 ## Example
 
