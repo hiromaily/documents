@@ -1,6 +1,8 @@
 # Framework
 
 - plugin マネージャーと言われることもある
+- [Oh My Zsh Alternatives](https://alternativeto.net/software/oh-my-zsh/)
+  - [starship](https://github.com/starship/starship)の人気が高い
 
 ## [Zim](https://zimfw.sh/) 個人的イチオシ
 
@@ -45,5 +47,5 @@
 ## [pure](https://github.com/sindresorhus/pure)
 
 - Pretty, minimal and fast ZSH prompt
-- 全てShellで書かれている
+- 全て Shell で書かれている
 - Github `star: 13.2k`
