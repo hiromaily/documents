@@ -75,6 +75,11 @@ LangChain は多くの分野で応用されている。以下はその一部。
 5. **データ解析およびレポート作成**:
    - 数値データやテキストデータの解析結果を元に、自動でレポートを生成するシステム。
 
+## 類似フレームワーク
+
+- [LlamaIndex](https://www.llamaindex.ai/)
+- [MS: Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
+
 ## References
 
-- [【図解解説/初心者OK】たった1時間でNext.jsで最新AIを使ったチャットアプリを作ろう【RAG/LangChain/OpenAI/TypeScript】](https://qiita.com/Sicut_study/items/d133120dd32d2d6a248c)
+- [【図解解説/初心者 OK】たった 1 時間で Next.js で最新 AI を使ったチャットアプリを作ろう【RAG/LangChain/OpenAI/TypeScript】](https://qiita.com/Sicut_study/items/d133120dd32d2d6a248c)
