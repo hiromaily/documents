@@ -9,16 +9,17 @@
 
 以下は一部のみ抜粋
 
-| 項目              | Type            | Required/Optional | 説明                                                                                                                                                                                            |
-| ----------------- | --------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| messages          | array           | Required          | これまでの会話を構成するメッセージのリスト。使用するモデルに応じて、テキスト、画像、音声などがサポートされる。                                                                                  |
-| model             | string          | Required          | 使用するモデルの ID。(e.g. gpt-4o)                                                                                                                                                              |
-| store             | boolean or null | Optional (false)  | このチャット完了リクエストの出力を保存するかどうか                                                                                                                                              |
-| reasoning_effort  | string          | Optional (medium) | o1 model 限定。推論モデルの推論にかかる労力を制限する                                                                                                                                           |
-| metadata          | object or null  | Optional          | ダッシュボードで補完をフィルタリングするために使用される、開発者用のタグと値                                                                                                                    |
-| frequency_penalty | number or null  | Optional (0)      | -2.0 から 2.0 までの数値。正の値は、これまでのテキスト内の既存の頻度に基づいて新しいトークンにペナルティを課し、モデルが同じ行を逐語的に繰り返す可能性を減らす。                                |
-| stream            | boolean or null | Optional (false)  | 設定されている場合、ChatGPT 部分的なメッセージ が送信される。トークンは、利用可能になるとデータのみの`server-sent events`として送信され、ストリームは `data: [DONE]` メッセージによって終了する |
-| response_format   | object          | Optional          | モデルが出力する必要がある形式を指定するオブジェクト(e.g. {"type": "json_object"})                                                                                                              |
+| 項目              | Type            | Required/Optional | 説明                                                                                                                                                                                                                                 |
+| ----------------- | --------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| messages          | array           | Required          | これまでの会話を構成するメッセージのリスト。使用するモデルに応じて、テキスト、画像、音声などがサポートされる。                                                                                                                       |
+| model             | string          | Required          | 使用するモデルの ID。(e.g. gpt-4o)                                                                                                                                                                                                   |
+| store             | boolean or null | Optional (false)  | このチャット完了リクエストの出力を保存するかどうか                                                                                                                                                                                   |
+| reasoning_effort  | string          | Optional (medium) | o1 model 限定。推論モデルの推論にかかる労力を制限する                                                                                                                                                                                |
+| metadata          | object or null  | Optional          | ダッシュボードで補完をフィルタリングするために使用される、開発者用のタグと値                                                                                                                                                         |
+| frequency_penalty | number or null  | Optional (0)      | -2.0 から 2.0 までの数値。正の値は、これまでのテキスト内の既存の頻度に基づいて新しいトークンにペナルティを課し、モデルが同じ行を逐語的に繰り返す可能性を減らす。                                                                     |
+| stream            | boolean or null | Optional (false)  | 設定されている場合、ChatGPT 部分的なメッセージ が送信される。トークンは、利用可能になるとデータのみの`server-sent events`として送信され、ストリームは `data: [DONE]` メッセージによって終了する                                      |
+| response_format   | object          | Optional          | モデルが出力する必要がある形式を指定するオブジェクト(e.g. {"type": "json_object"})                                                                                                                                                   |
+| temperature       | number or null  | Optional (1)      | 使用するサンプリング値 (0~2 の間)。0.8 などの高い値を指定すると出力はよりランダムになり、0.2 などの低い値を指定すると出力はより集中的かつ決定論的になる。通常は、この値か `top_p` のいずれかを変更するが、両方を変更する必要はない。 |
 
 ## Request 例
 

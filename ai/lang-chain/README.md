@@ -75,6 +75,12 @@ LangChain は多くの分野で応用されている。以下はその一部。
 5. **データ解析およびレポート作成**:
    - 数値データやテキストデータの解析結果を元に、自動でレポートを生成するシステム。
 
+## LangChain ライブラリ
+
+- [python](https://github.com/langchain-ai/langchain)
+- [typescript](https://github.com/langchain-ai/langchainjs)
+- [golang (非公式)](https://github.com/tmc/langchaingo)
+
 ## 類似フレームワーク
 
 - [LlamaIndex](https://www.llamaindex.ai/)
