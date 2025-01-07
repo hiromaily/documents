@@ -169,6 +169,8 @@ BuildKit サーバは Docker engine に組み込まれて提供されており�
 
 `docker build` を実行する前に、CLI 上で環境変数 `DOCKER_BUILDKIT=1` を設定する
 
+[github: buildkit](https://github.com/moby/buildkit)によると、`docker build uses Buildx and BuildKit by default` とある。
+
 ### [Buildx Bake](https://docs.docker.com/build/bake/)
 
 複数のイメージを並列でビルドする
