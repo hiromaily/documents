@@ -109,6 +109,9 @@ RUN --mount=type=cache,target=/go/pkg/mod/ \
 
 #### WIP: キャッシュマウントを使った場合、どこにcacheは作られるのか？
 
+ホストマシンのファイルシステム上に保存されるとのこと。
+Github Actionsの環境では、Linuxランナーであれば、`/home/runner/work/_temp/_github_home/docker/volumes/` など
+
 わざわざ、[buildkit-cache-dance](https://github.com/reproducible-containers/buildkit-cache-dance)というGithub Actionが存在する。
 [GitHub Actions 上での Go の Docker ビルドを高速化する](https://zenn.dev/cybozu_ept/articles/productivity-weekly-20240515)によると、
 `--mount=type=cache オプションを利用すると Docker のビルド時にキャッシュをローカルに保存することが可能`とのことだが、残念ながら GitHub Actions はローカルマシンと異なりビルドのたびに毎回新しいマシンが割り当てられるため RUN --mount=type=cache のキャッシュが残っていない、とある。
