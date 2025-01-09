@@ -62,3 +62,4 @@ AI エージェントがブラウザを自動で操作するための AI ツー�
 - [browser-use の基礎理解](https://zenn.dev/gunjo/articles/8450e69537dbb6)
 - [browser-use やばいです](https://qiita.com/Syoitu/items/5aa84b5d8c6047c4d41b)
 - [browser-use によるブラウザ操作自動化のサンプル集](https://zenn.dev/gunjo/articles/2f6898b846d371)
+- [DevelopersIO: Browser Useを用いたブラウザ操作の自動化AIエージェント](https://dev.classmethod.jp/articles/browser-use-start/)
