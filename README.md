@@ -17,7 +17,7 @@
 
 ## 関心のある技術(Jan 2025)
 
-- [AIエージェント](./ai/ai-agent/README.md)
+- [AI エージェント](./ai/ai-agent/README.md)
 - [モジュラーモノリス](./infra/architecture/modular-monolith/README.md)
 - [Serverless アーキテクチャ](./infra/architecture/serverless.md)
 - [クラウドデザインパターン](./cloud/cloud-design-pattern/README.md)
@@ -122,6 +122,7 @@
 ## WebSites
 
 - [プログラマが知るべき 97 のこと](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/)
+- [ソフトウェアエンジニアにおすすめしたい本を 100 冊選んでみた](https://blog.gennei.coffee/post/recommended-books-for-foftware-engineers/)
 
 ## Markdown で tree を書く
 

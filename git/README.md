@@ -3,6 +3,10 @@
 - [Dangit, Git!?!](https://dangitgit.com/ja)
 - WIP: [GitHub コマテク集](https://techblog.openwork.co.jp/entry/github-tips)
 
+## Github の検索
+
+- [grep.app](https://grep.app/)
+
 ## 新しい branch の作成方法
 
 ```sh

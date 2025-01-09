@@ -8,6 +8,7 @@
 - [OWASP Top Ten](https://owasp.org/www-project-top-ten/)
 - [OWASP Top 10:2021](https://owasp.org/Top10/)
   - [github](https://github.com/OWASP/Top10)
+- [ハッキング API ―Web API を攻撃から守るためのテスト技法](https://blog.tokumaru.org/2023/03/hacking-api-review.html)
 
 ## [Web Application Security, 2nd Edition](https://www.oreilly.com/library/view/web-application-security/9781098143923/)
 
