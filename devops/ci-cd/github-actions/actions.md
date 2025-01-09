@@ -72,6 +72,11 @@ Actions には大きく分けて以下の 2 つのタイプがある
    - GitHub APIを使ったscriptを記述できる
    - これにより、結果をPRにコメントするといったことが可能
 
+5. **[docker/build-push-action](https://github.com/docker/build-push-action)**:
+
+   - Buildxを使ってdokcer imageをbuildしたりpushする
+     - `cache-from`, `cache-to`の機能により、ビルド時のレイヤーキャッシュをGithub Actionsのキャッシュに保存することができる
+
 ## プログラム言語別 Actions
 
 ### Golang で使われる Actions
@@ -91,13 +96,16 @@ Actions には大きく分けて以下の 2 つのタイプがある
 2. **actions/golangci-lint-action**:
 
    - `golangci-lint`を使ってコードをリントするための Actions。
-   -
 
    ```yaml
    steps:
      - name: Run golangci-lint
        uses: golangci/golangci-lint-action@v6
    ```
+
+3. **reproducible-containers/buildkit-cache-dance**:
+
+   - dockerで使う`--mount=type=cache`によってキャッシュされた領域をGithub Actionsでキャッシュする。
 
 ### Node.js で使われる Actions
 

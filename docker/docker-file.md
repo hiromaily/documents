@@ -29,7 +29,7 @@ docker build -f ./docker/Dockerfile_rust . --check
 
 - [Docker ビルド チェックの概要: ベスト プラクティスを使用した Dockerfile の最適化](https://www.docker.com/ja-jp/blog/introducing-docker-build-checks/)
 
-## [Mounts](https://docs.docker.com/build/guide/mounts/)
+## [Mounts](https://docs.docker.com/build/cache/optimize/#use-bind-mounts)
 
 docker build 時の設定
 

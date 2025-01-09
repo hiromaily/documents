@@ -1,12 +1,14 @@
 # Chrome
 
-## Developer Toolの便利な機能
+## Tab
 
-`Command + Option + I キー`
+- タブを固定する機能
+  - タブの右クリックメニューから`固定`を選ぶと、タブが一番左側に寄せられ、そこに固定された状態になる
+- タブをグループ化してコンパクトに
+  - グループ化したいタブを選択し、右クリックメニューの`タブをグループに追加` > `新しいグループ` もしくは`既存のグループ`をクリック
+  - 作成したタブグループはブックマークに保存される
+- 「メモリセーバー」と呼ばれる機能
 
-### Run Command
+## References
 
-デベロッパーツールが開いた状態で、`Command + Shift + P キー` 押す
-
-- Show Recorder
-- Capture full size screenshot
+- [Chrome使いこなせてる？タブ管理や“マルチモニター化”の活用で作業効率アップ！](https://pc.watch.impress.co.jp/docs/topic/feature/1651976.html)
