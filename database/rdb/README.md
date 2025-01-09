@@ -7,6 +7,9 @@
 
 ## Database/Schema の使い分け
 
+MySQLでは「データベース」という言葉は「スキーマ」と同じ意味で使われる。CREATE DATABASEは、CREATE SCHEMAと同じ意味。
+それに対して、PostgreSQLの場合、スキーマは1つのデータベースの中に複数設定できる名前空間のこと。
+
 ### Database
 
 1. **独立性**:
