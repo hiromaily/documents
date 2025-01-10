@@ -33,7 +33,11 @@ RUST は式指向言語
 - [Gopher が Rust 入門したので違いをまとめてみた](https://zenn.dev/skanehira/articles/2024-08-12-go-rust-pros-cons)
 - [RealWorld 業務 Rust](https://qiita.com/legokichi/items/4e85ec1e74f4e754fb94)
 - [Re: RealWorld 業務 Rust (業務以外編)](https://kenoss.github.io/blog/2024-12-27-re-real-world-gyomu-rust/)
+
+## 高速化tips
+
 - [Rustプロジェクトのビルド高速化に関するベストプラクティス（ローカル環境編）](https://zenn.dev/fairydevices/articles/59cd718341da58)
+- [Rustのビルドを高速化する方法](https://postd.cc/fast-rust-builds/)
 
 ## [Rust 初心者が実務レベルになるまでの学習ステップ](https://ai-techblog.hatenablog.com/entry/2023/03/26/082349)
 

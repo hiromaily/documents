@@ -173,3 +173,4 @@ Kubernetes は、特にマイクロサービスアーキテクチャや複雑な
 ## References
 
 - [終わらせましょう。複雑過ぎる Kubernetes／クラウドネイティブが生む心理的安全性の低下を――無料でクラウドセキュリティの勘所が分かる 130 ページの電子書籍](https://atmarkit.itmedia.co.jp/ait/articles/2412/27/news090.html)
+- [Don't Use Kubernetes, Yet](https://matt-rickard.com/dont-use-kubernetes-yet)

@@ -49,3 +49,13 @@ FAILURE : this tx is not updated by worker
 FAILURE : tx is not monitored by worker anymore
 @enduml
 ```
+
+## References
+
+- [Diagram as Code](https://blog.bytebytego.com/p/diagram-as-code)
+  - 1. Diagrams
+  - 2. Mermaid
+  - 3. ASCII editor
+  - 4. PlantUML
+  - 5. Markmap
+  - 6. Go diagrams

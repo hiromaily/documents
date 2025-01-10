@@ -112,6 +112,7 @@
 - [Design Draft: First Class Fuzzing](https://go.googlesource.com/proposal/+/master/design/draft-fuzzing.md)
 - [Go 言語でファジング](https://deeeet.com/writing/2015/12/21/go-fuzz/)
 - [dvyukov/go-fuzz](https://github.com/dvyukov/go-fuzz)
+- [Go製のネットワーククライアントに対する継続的 Fuzzing](https://speakerdeck.com/mururu/fuzzing-for-network-client-in-go)
 
 ## Go 1.17
 

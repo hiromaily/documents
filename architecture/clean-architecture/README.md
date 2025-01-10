@@ -93,3 +93,8 @@ Device には Adapter が必要なく、`依存関係逆転の法則(DIP)`によ
 
 Clean Architecture の文脈で `Domain-Driven Design (DDD)` がよく語られるが、DDD は Clean Architecture の一部ではなくこれは `Layered-Architecture` や他のアーキテクチャーにも適用できる。
 この認識の齟齬が `Clean Architecture = 実装が大変、難しい` につながっていると感じる。
+
+## References
+
+- [2018: Clean Architecture using Golang](https://eminetto.medium.com/clean-architecture-using-golang-b63587aa5e3f)
+- [クリーンアーキテクチャ完全に理解した](https://gist.github.com/mpppk/609d592f25cab9312654b39f1b357c60)

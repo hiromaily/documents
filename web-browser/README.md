@@ -1,6 +1,8 @@
 # Web Browser
 
-[ちいさなWebブラウザを作ろう](https://browserbook.shift-js.info)
+- [ちいさなWebブラウザを作ろう](https://browserbook.shift-js.info)
+- [ブラウザレンダリングの仕組み](https://zenn.dev/ak/articles/c28fa3a9ba7edb)
+- [web.dev: ウェブ上でのレンダリング](https://web.dev/articles/rendering-on-the-web?hl=ja)
 
 ## 仕組み
 
@@ -52,3 +54,4 @@ Cookie、ローカルストレージ、セッションストレージなど、�
 5. **Opera**: 独自の機能やインターフェースが特徴で、ページを速く表示するための「Turbo」モードなどがある。
 6. **Brave**: 広告ブロックやプライバシー保護に力を入れたブラウザ。
 7. **Vivaldi**: 高度なカスタマイズ性と豊富な機能を持つブラウザで、プロユーザー向けの機能が多く含まれている。
+

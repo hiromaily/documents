@@ -18,6 +18,9 @@
 - [Aerospike](https://aerospike.com/)
 - [Memcached](https://memcached.org/)
   - Redis と比べると down trend 感がある
+- [Dragonfly](https://www.dragonflydb.io/)
+  - [github](https://github.com/dragonflydb/dragonfly)
+  - `A modern replacement for Redis and Memcached`とある
 - [Riak](https://riak.com/index.html)
   - 検索すると記事が古い。。。
 

@@ -6,7 +6,7 @@
 - [Solidity 日本語](https://solidity-ja.readthedocs.io/ja/latest/)
 - [Solidity 日本語(古い)](https://solidity-jp.readthedocs.io/ja/latest/)
 - [Solidityの基本構文 0.8.7](https://note.com/npaka/n/n4fb510d2b3b4)
--
+- [Solidity-quick-guide (日本語)](https://www.finddevguides.com/Solidity-quick-guide)
 
 ## 基本
 

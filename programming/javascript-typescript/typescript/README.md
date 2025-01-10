@@ -33,3 +33,7 @@ type AllLocaleIDs = `${EmailLocaleIDs | FooterLocaleIDs}_id`;
 - satisfies operator
   - 型チェックを行う
   - 従来の`as const`と組み合わせ、型チェックと widening(拡張) 防止を同時に行うことができる
+
+## References
+
+- [TypeScriptを雰囲気で使っていたので勉強し直したら知らなかったこと](https://zenn.dev/nrikiji/articles/45721c42b48124)

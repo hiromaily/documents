@@ -21,3 +21,4 @@
 ## References
 
 - [とりあえずで Docker イメージに Alpine Linux を選択するのはやめましょうという話](https://engineering.nifty.co.jp/blog/26586)
+- [2021: 軽量Dockerイメージに安易にAlpineを使うのはやめたほうがいいという話](https://blog.inductor.me/entry/alpine-not-recommended)

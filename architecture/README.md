@@ -62,3 +62,8 @@
 ### Command Query Responsibility Segregation (CQRS)
 
 ### Event Sourcing
+
+## References
+
+- [保守性の高いソフトウェア開発のTips集](https://zenn.dev/riku/books/36d9873ee1c0e6)
+- [良いコードとは何か - エンジニア新卒研修 スライド公開](https://note.com/cyberz_cto/n/n26f535d6c575)

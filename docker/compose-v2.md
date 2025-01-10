@@ -1,6 +1,8 @@
 # Docker compose
 
-docker compose cli `v2`より様々な機能が追加されている
+docker compose cli `v2`より様々な機能が追加されている。
+
+[compose specification](https://www.compose-spec.io/)というサイトがあり、仕様書としてまとまっている。
 
 ## docker compose ファイル名
 
@@ -189,4 +191,5 @@ service1:
 
 ## References
 
+- [Docker Compose V2で変わったdocker-compose.ymlの書き方](https://zenn.dev/miroha/articles/whats-docker-compose-v2)
 - [個人的 docker compose おすすめ tips 9 選](https://future-architect.github.io/articles/20240620a/)

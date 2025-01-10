@@ -30,3 +30,7 @@ N 件のデータ行を持つテーブルをごそっと読みだすのに 1 回
 SELECT * FROM parent;
 SELECT * FROM child WHERE ID IN (3, 1, 2, 1, 4);
 ```
+
+## References
+
+- [The database platform built for scale](https://planetscale.com/)

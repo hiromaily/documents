@@ -52,6 +52,11 @@
 
 ブロックチェーンは、その透明性、セキュリティ、分散型の性質により、多くの分野で革命をもたらす可能性がある。ただし、まだ発展途上の技術であり、課題も多く存在している。
 
+## コラム
+
+- [Web3というテロリズム](https://note.com/fshin2000/n/naf69a2e36aca)
+- [Re: Web3というテロリズム](https://kumagi.hatenablog.com/entry/re-web3-terrorism)
+
 ## References
 
 - [ブロックチェーンの仕組み](https://www.nttdata.com/jp/ja/services/blockchain/002/)

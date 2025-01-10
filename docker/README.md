@@ -109,6 +109,7 @@ docker build -f ./docker/Dockerfile . --check
 ```
 
 - Outdated: [hadolint](https://github.com/hadolint/hadolint)
+  - 2022年から更新されていない
 
 ## 5. Containerを待機状態にして、コマンドを待ち受ける
 

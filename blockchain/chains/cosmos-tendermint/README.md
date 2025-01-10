@@ -72,6 +72,8 @@ Tendermint（テンダーミント）は、Cosmos エコシステムの中心的
 - [How does Cosmos work? Part2](https://www.preethikasireddy.com/post/how-does-cosmos-work-how-does-it-compare-to-bitcoin-and-ethereum-part-2)
 - [Cosmos SDK の教科書](https://zenn.dev/kimurayu45z/books/abf4114858f7c35b775d)
 - [IBC(ブロックチェーン間通信)の概要](https://zenn.dev/qope/articles/51bc0d7ff25fc8)
+- [Cosmos IBCの仕様の網羅的説明](https://yu-kimura.jp/2021/03/29/cosmos-ibc-ics/)
+- [IBC(ブロックチェーン間通信)の概要](https://zenn.dev/qope/articles/51bc0d7ff25fc8)
 
 ### Tendermint
 

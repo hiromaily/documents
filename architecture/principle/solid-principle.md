@@ -7,6 +7,7 @@
 - [SOLID principle in GO](https://medium.com/@s8sg/solid-principle-in-go-e1a624290346)
 - [SOLID Go Design](https://dave.cheney.net/2016/08/20/solid-go-design)
 - [SOLID 原則について簡単に書く](https://qiita.com/yui_mop/items/93fef037a787318e7067)
+- [単一責任の原則（Single responsibility principle）について、もう一度考える](https://www.ogis-ri.co.jp/otc/hiroba/others/OOcolumn/single-responsibility-principle.html)
 
 ## SOLID 原則
 

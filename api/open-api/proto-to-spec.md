@@ -75,3 +75,5 @@ plugins:
   - [protoc-gen-apigw](https://github.com/ductone/protoc-gen-apigw)
 - [google: protoc-gen-openapi](https://github.com/google/gnostic/tree/main/cmd/protoc-gen-openapi)
   - [buf.build/community/google-gnostic-openapi](https://github.com/bufbuild/plugins/blob/574b3e9c1d7a4137e6b91e9e4c53584d8503012e/plugins/community/google-gnostic-openapi/v0.7.0/buf.plugin.yaml#L2)の使い方
+- [2022: ProtobufでREST APIを快適に開発する方法のご紹介](https://tech.tier4.jp/entry/2022/02/02/160000)
+  - WIP: 要点だけまとめておく

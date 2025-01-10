@@ -85,3 +85,7 @@ SQL のアンチパターンを避けることで、データベースの設計�
   ```sql
   SELECT * FROM orders WHERE status = 1;
   ```
+
+## References
+
+- [SQLアンチパターン簡単まとめ](https://zenn.dev/yukito0616/articles/00ccc30b58e458)
