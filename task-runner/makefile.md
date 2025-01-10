@@ -2,6 +2,9 @@
 
 Makefile は `make` コマンドと連携してプログラムのビルドプロセスを自動化するための設定ファイル。C や C++などのコンパイルが必要なプログラムでよく使われるが、他の言語やツールでも利用可能。
 
+- [Makefile 101](https://odino.org/makefile-101/)
+- [自動化のためのGNU Make入門講座 - Makefileの基本：ルール](https://objectclub.jp/community/memorial/homepage3.nifty.com/masarl/article/gnu-make/rule.html)
+
 ## 書き方のサンプル
 
 - [mk](https://github.com/hiromaily/mk/blob/master/Makefile)

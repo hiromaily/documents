@@ -174,3 +174,7 @@ func splitSlice(nums []int, parts int) [][]int {
     return result
 }
 ```
+
+## References
+
+- [Go Slice Tricks Cheat Sheet](https://ueokande.github.io/go-slice-tricks/)

@@ -71,3 +71,5 @@ DDDはしばしば以下のレイヤーで構成されたシステムアーキ�
 
 - [「ドメイン駆動設計をはじめよう」の感想](https://zenn.dev/penginpenguin/articles/4b934b6468d3cf)
 - [2022: ドメイン駆動 + オニオンアーキテクチャ概略](https://qiita.com/little_hand_s/items/2040fba15d90b93fc124)
+- [2020: ドメイン駆動設計を導入するために転職して最初の3ヶ月でやったこと](https://little-hands.hatenablog.com/entry/2020/12/22/ddd-in-first-3month)
+- [CodeZine: ドメイン駆動設計とは何なのか？ ユーザーの業務知識をコードで表現する開発手法について](https://codezine.jp/article/detail/11968)

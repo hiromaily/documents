@@ -10,3 +10,4 @@
 ## References
 
 - [非同期処理においてデータの整合性を保つアーキテクチャパターン](https://blog.smartbank.co.jp/entry/asynchronous_architecture_patterns)
+- [2020: マルチスレッド・プログラミングの道具箱](https://zenn.dev/yohhoy/articles/multithreading-toolbox)

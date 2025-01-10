@@ -53,3 +53,4 @@ DMPは大量のオーディエンスデータを収集、整理、分析する�
 ## AdTech関連の動向
 
 - [サードパーティ Cookie 終了、広告業界のベテランたちに聞く今後の見通し](https://digiday.jp/platforms/nine-questions-to-consider-as-google-starts-its-move-away-from-third-party-cookies/)
+- [AWS: サーバー側の広告挿入 (SSAI)](https://aws.amazon.com/jp/media/tech/what-server-side-ad-insertion-ssai/)

@@ -63,3 +63,5 @@
 ## References
 
 - [2021: マイクロサービスアーキテクチャの経済と適応度](https://qiita.com/hirokidaichi/items/4d8f3479b52d00d00eba)
+- [2020: モノリスからマイクロサービスへの設計の切り替え方](https://qiita.com/yohira_dev/items/c1a3c8e4023abcbeac4c)
+- [2020: モノリスの分解において、マイクロサービスは必然ではない](https://www.infoq.com/jp/news/2020/06/monolith-decomposition-newman/)

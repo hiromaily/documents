@@ -57,3 +57,7 @@
 
 6. **監視とフォルトトレランス**:
    サービス間の故障が他のサービスに影響を与えないように、監視とフォルトトレランスのメカニズムを強化する。
+
+## References
+
+- [Is your microservice a distributed monolith?](https://www.gremlin.com/blog/is-your-microservice-a-distributed-monolith)

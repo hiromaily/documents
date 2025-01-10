@@ -7,6 +7,9 @@
 - [The Go Programming Language Specification](https://tip.golang.org/ref/spec)
 - [Awesome Go](https://go.libhunt.com/)
 - [Uber Go Style Guide](https://github.com/uber-go/guide/blob/master/style.md)
+- [Twelve Go Best Practices](https://go.dev/talks/2013/bestpractices.slide#1)
+- [2018: GoのためのGo](https://motemen.github.io/go-for-go-book/)
+- [2019: How Uber "Go"es](https://speakerdeck.com/lelenanam/how-uber-go-es)
 
 ## References
 

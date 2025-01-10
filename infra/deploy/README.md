@@ -46,3 +46,7 @@ Docker と Kubernetes を使ったデプロイ方法。これにより、環境�
 1. **コードの準備**: Lambda 関数や Cloud Functions を利用するためのコードを準備。
 2. **デプロイツールの使用**: サーバーレスフレームワーク（Serverless Framework など）を利用してデプロイ。
 3. **クラウド設定**: イベントトリガーや API Gateway の設定を行う。
+
+## References
+
+- [2020: デプロイ今昔](https://developer.hatenastaff.com/entry/2020/06/26/150300)

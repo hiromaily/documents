@@ -29,6 +29,7 @@ macOS にはデフォルトで`Terminal`アプリケーションがインスト�
 4. **[Kitty](https://sw.kovidgoyal.net/kitty/)**: パフォーマンスとカスタマイズ性を重視したターミナルエミュレータ。
 5. **[Terminus](https://termius.com/)**: もともとウェブベースのターミナルエミュレータですが、デスクトップ用としても人気がある。
 6. **[Ghostty](https://ghostty.org/)**: 2024 年に出てきたリッチでハイパフォーマンスなエミュレータ
+7. **[Tabby](https://tabby.sh/)**: githubで61kあるのでそこそこ人気のエミュレーター
 
 ## Linux の Terminal
 

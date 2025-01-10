@@ -54,3 +54,7 @@
 
 4. **ゼロ知識アーキテクチャ**:
    - 多くのサービスでは、運営会社自体がユーザーのデータにアクセスできないゼロ知識アーキテクチャを採用しており、ユーザーのプライバシーを確保する。
+
+## References
+
+- [2018: Why you need to use a password manager](https://techcrunch.com/2018/12/25/cybersecurity-101-guide-password-manager/)

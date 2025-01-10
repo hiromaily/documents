@@ -170,7 +170,16 @@ Kubernetes は、特にマイクロサービスアーキテクチャや複雑な
 - Kubernetes を導入する学習コスト
 - セットアップのコスト
 
+## Tools
+
+- [Play with Kubernetes](https://labs.play-with-k8s.com/)
+- [kind](https://kind.sigs.k8s.io/)
+  - local Kubernetes clusters
+- [k9s](https://github.com/derailed/k9s)
+  - Kubernetes CLI To Manage Your Clusters In Style
+
 ## References
 
 - [終わらせましょう。複雑過ぎる Kubernetes／クラウドネイティブが生む心理的安全性の低下を――無料でクラウドセキュリティの勘所が分かる 130 ページの電子書籍](https://atmarkit.itmedia.co.jp/ait/articles/2412/27/news090.html)
 - [Don't Use Kubernetes, Yet](https://matt-rickard.com/dont-use-kubernetes-yet)
+- [多分あなたにKubernetesは必要ない](https://yakst.com/ja/posts/5455)

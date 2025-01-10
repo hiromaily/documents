@@ -39,3 +39,7 @@
 
 - Tests related to setting up CI/CD pipelines, working with Docker, Kubernetes, or cloud services (AWS, Azure, Google Cloud).
 - This evaluates your understanding of deployment processes, automation, and infrastructure management.
+
+## References
+
+- [LINEの新卒採用試験ズバリ問題解説～アルゴリズム問題編～](https://engineering.linecorp.com/ja/blog/algorithm-description-for-coding-tests)

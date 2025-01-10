@@ -35,3 +35,8 @@
 9. **トライ（Trie）**:
    - 文字列集合を効率的に管理するための木構造。
    - 特に文字列の検索や補完によく使われる。
+
+## References
+
+- [gods](https://github.com/emirpasic/gods)
+  - Implementation of various data structures and algorithms in Go.

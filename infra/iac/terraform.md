@@ -62,3 +62,8 @@ output "instance_id" {
 ```
 
 この構成ファイルでは、`aws`プロバイダーを使用し、特定の AMI をベースにした`t2.micro`タイプの EC2 インスタンスを作成する。そして、作成されたインスタンスの ID を出力する。
+
+## References
+
+- [Terragrunt](https://terragrunt.gruntwork.io/)
+  - Terragrunt is a flexible orchestration tool that allows Infrastructure as Code to scale.

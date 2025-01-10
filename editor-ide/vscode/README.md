@@ -1,5 +1,7 @@
 # IDE / Visual Studio Code
 
+- [awesome-vscode](https://github.com/viatsko/awesome-vscode)
+
 ## よく使うショートカット
 
 - ファイル検索 => `Command + P`

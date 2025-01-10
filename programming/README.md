@@ -1,5 +1,7 @@
 # Programming
 
+[Learn X in Y minutes](https://learnxinyminutes.com/)
+
 ## Interpreted Language (Interpretive Language)
 
 - Python

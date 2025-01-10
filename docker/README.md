@@ -1,7 +1,7 @@
 # Docker Tips
 
-- [Dockerfile のベストプラクティス Top 20](https://sysdig.jp/blog/dockerfile-best-practices/)
-- [commands](https://github.com/hiromaily/documents/blob/main/docker-tips/commands.md)
+- [2021: Dockerfile のベストプラクティス Top 20](https://sysdig.jp/blog/dockerfile-best-practices/)
+- [awesome-docker](https://github.com/veggiemonk/awesome-docker)
 
 ## 1. Useful Commands
 

@@ -96,5 +96,7 @@ Clean Architecture の文脈で `Domain-Driven Design (DDD)` がよく語られ�
 
 ## References
 
+- [Combining DDD, CQRS, and Clean Architecture in Go](https://threedots.tech/post/ddd-cqrs-clean-architecture-combined/)
+- [2019: ソースコードで理解するクリーンアーキテクチャ](https://buildersbox.corp-sansan.com/entry/2019/07/10/110000)
 - [2018: Clean Architecture using Golang](https://eminetto.medium.com/clean-architecture-using-golang-b63587aa5e3f)
 - [クリーンアーキテクチャ完全に理解した](https://gist.github.com/mpppk/609d592f25cab9312654b39f1b357c60)

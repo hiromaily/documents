@@ -15,3 +15,7 @@
 - [ai-data-scientist](https://github.com/hiromaily/documents/raw/main/images/roadmap/ai-data-scientist.pdf)
 - [cyber-security](https://github.com/hiromaily/documents/raw/main/images/roadmap/cyber-security.pdf)
 - [blockchain](https://github.com/hiromaily/documents/raw/main/images/roadmap/backend.pdf)
+
+## その他
+
+- [2020: インフラエンジニア学習ロードマップ](https://densan-hoshigumi.com/other/infra-engineer-roadmap)

@@ -1,5 +1,7 @@
 # Golang Comment
 
+- [Go Wiki: Go Code Review Comments](https://go.dev/wiki/CodeReviewComments)
+
 ## GoDoc
 
 - [Go Doc Comments](https://go.dev/doc/comment)

@@ -41,3 +41,5 @@ RPC はリモートプロシージャコール(RPC)システムの 1 つ。RPC �
 ### [Bidirectional streaming RPC](https://grpc.io/docs/what-is-grpc/core-concepts/#bidirectional-streaming-rpc)
 
 - Bidirectional streaming RPC は Bidirectional(双方向)という語の通り、リクエストもレスポンスも両方複数(Streaming)の通信方式
+
+## WIP: [Error handling](https://grpc.io/docs/guides/error/)

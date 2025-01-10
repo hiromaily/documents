@@ -3,6 +3,8 @@
 - シェルとは、オペレーティングシステム（OS）の操作を行うためのコマンドインターフェイスを指す
 
 - [explainshell.com](https://explainshell.com/)
+- [Linux Command Library: Tips](https://linuxcommandlibrary.com/tips)
+  - [One-liners](https://linuxcommandlibrary.com/basic/oneliners)
 
 ## 主要な shell の種類
 

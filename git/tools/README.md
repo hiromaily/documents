@@ -31,3 +31,7 @@ tig
 # 特定のファイルの変更履歴を表示
 tig <filename>
 ```
+
+## [Jasper](https://jasperapp.io/)
+
+Issue reader
