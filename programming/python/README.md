@@ -64,7 +64,13 @@ pip install --upgrade package_name
 - venv
 - conda
 
-### Poetry
+### [uv](https://github.com/astral-sh/uv)
+
+高速なPythonパッケージ管理ツール
+
+- Ref: [uv の使い方](https://note.com/npaka/n/n44c54312fb04)
+
+### [Poetry](https://python-poetry.org/)
 
 Poetry は、依存関係管理とパッケージの公開を一括でサポートするツールであり、スムーズなワークフローと高い操作性が特徴。pip は不要。
 
