@@ -129,3 +129,18 @@ python3.3 以降のバージョンであればデフォルトで入っている�
 ## `__init__.py`ファイル
 
 Python の`__init__.py`ファイルは、ディレクトリを Python パッケージとして扱うことを示す特別なファイル
+
+## References
+
+- [『現場のPython』を読んでPythonでWeb Appを作るために必要なものが大体わかった気になった](https://blog.inorinrinrin.com/entry/2025/01/13/075841)
+  - Poetry
+  - black: フォーマッター
+  - mypy: 型リンター
+  - tox: lint, format, unit testのコマンドとかを一律で管理してくれるツール
+  - struct-log: ロガー
+  - Strawberry: GraphQLを使うためのライブラリ
+  - uvicorn: 開発用のWebサーバー
+  - sqlalchemy: ORM
+  - pytest-cov: カバレッジ測定ツール
+  - factory-boy: テストデータをいい感じに生成してくれるツール
+  - freezegun: テストコードで時刻をモックするためのライブラリ

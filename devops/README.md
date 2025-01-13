@@ -27,3 +27,7 @@ DevSecOpsはDevOpsのプロセスにセキュリティを統合したもの。�
 ### ChatOps
 
 ChatOpsは、チャットツールを用いて開発や運用の操作を行う手法。チャットツール（SlackやMicrosoft Teamsなど）を通じてコマンドを実行したり、通知を受け取ったりする。
+
+## References
+
+- [DevOps & Platform Engineering Suite](https://buddy.works/)

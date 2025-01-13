@@ -79,8 +79,6 @@
 
 ## その他のSaas
 
-## SaaS
-
 - [Sonar Cloud](https://www.sonarsource.com/products/sonarcloud/)
   - SaaS solution for Clean Code. Simple, Scalable, Fast
   - セキュリティのチェックもできる

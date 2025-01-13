@@ -191,3 +191,7 @@ WebAuthn（Web Authentication）やFIDO（Fast Identity Online）では、RPの�
 
 - **ソーシャルメディアプラットフォーム（例：Facebook、Twitter）**：
   - ユーザーがソーシャルメディアアカウントにログインする際、RPとしてのプラットフォームがユーザーの認証情報を受け取り、検証する。
+
+## References
+
+- [書籍: パスキーのすべて](https://gihyo.jp/book/2025/978-4-297-14653-5)

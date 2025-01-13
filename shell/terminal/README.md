@@ -30,6 +30,7 @@ macOS にはデフォルトで`Terminal`アプリケーションがインスト�
 5. **[Terminus](https://termius.com/)**: もともとウェブベースのターミナルエミュレータですが、デスクトップ用としても人気がある。
 6. **[Ghostty](https://ghostty.org/)**: 2024 年に出てきたリッチでハイパフォーマンスなエミュレータ
 7. **[Tabby](https://tabby.sh/)**: githubで61kあるのでそこそこ人気のエミュレーター
+8. **[WezTerm](https://wezfurlong.org/wezterm/)**: Rust製で2025年に紹介されていた
 
 ## Linux の Terminal
 
