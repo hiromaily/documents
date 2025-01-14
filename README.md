@@ -122,6 +122,7 @@
 ## WebSites
 
 - [プログラマが知るべき 97 のこと](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/)
+- [ソフトウェアアーキテクトが知るべき 97 のこと(日本語)](https://yoshi389111.github.io/kinokobooks/soft_ja/index.html)
 - [ソフトウェアエンジニアにおすすめしたい本を 100 冊選んでみた](https://blog.gennei.coffee/post/recommended-books-for-foftware-engineers/)
 - [github: Awesome Lists](https://github.com/topics/awesome)
 

@@ -75,9 +75,21 @@
 
 5. **ルール5**: データが支配する。正しいデータ構造を選択し、うまく整理していれば、アルゴリズムはほとんどの場合、自明のものになる。プログラミングの中心はアルゴリズムではなくデータ構造。
 
+
 ## References
 
 - [保守性の高いソフトウェア開発のTips集](https://zenn.dev/riku/books/36d9873ee1c0e6)
 - [良いコードとは何か - エンジニア新卒研修 スライド公開](https://note.com/cyberz_cto/n/n26f535d6c575)
 - [技術選定/アーキテクチャ設計で後悔しないためのガイドライン](https://qiita.com/hirokidaichi/items/a746062917595619720b)
 - [複雑さを相手に抽象化を盾にしましょう](https://tech.enigmo.co.jp/entry/2020/12/11/100000)
+- [10 Common Coding Mistakes That Every Developer Should Avoid](https://dev.to/balrajola/10-common-coding-mistakes-that-every-developer-should-avoid-55e2)
+  1. Neglecting Code Readability
+  2. Overcomplicating Logic
+  3. Ignoring Edge Cases
+  4. Not Using Version Control Properly
+  5. Skipping Tests
+  6. Hardcoding Values
+  7. Not Handling Errors Properly
+  8. Not Taking Advantage of Libraries and Frameworks
+  9. Ignoring Documentation
+  10. Not Refactoring Code Regularly

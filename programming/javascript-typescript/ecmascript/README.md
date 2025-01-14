@@ -33,3 +33,25 @@ ECMAScript (エクマスクリプト) は、主に`ブラウザ上で動作す�
 - **ES12 (ES2021)**: Logical Assignment Operators (&&=, ||=, ??=), String.prototype.replaceAll()など。
 - **ES13 (ES2022)**: ??
 - **ES14 (ES2023)**: 配列操作メソッドの追加、`#!（シバン）`のサポート、WeakMapのキーにおけるSymbolの利用
+
+## WinterTC
+
+WinterTC（TC55）は、Ecma Internationalの技術委員会で、サーバーサイドのJavaScriptランタイム間のAPI互換性を実現することを目指している。
+
+### WinterTCの目的
+
+1. **「Minimum Common API」の標準化**:
+   - Web標準（Web Platform API）のサブセットを定義し、サーバーサイドJavaScriptランタイムがこれを支援するようにする。
+   - これにより、Webブラウザとサーバーでも共通のAPIが利用でき、開発者の負担が軽減される。
+
+2. **Web標準へのフィードバックと協力**:
+   - Web標準の仕様策定者に対して、サーバーサイドJavaScriptランタイムからのフィードバックを提供する。
+   - 将来のWeb標準の変更や追加に際して、十分な情報に基づいた意思決定が可能になるようにする。
+
+3. **新しいAPIの開発と標準化**:
+   - Webブラウザでは不要またはセキュリティ上非適合であるが、サーバーサイドJavaScriptランタイムでは有用なAPIを開発し、標準化する。
+   - これらのAPIは、既存のWeb標準と重複しないように設計される。
+
+WinterTCの前身である`WinterCG`（Web Interoperable Runtimes Community Group）は、2022年にW3C（World Wide Web Consortium）で設立されたが、W3Cのコミュニティグループは標準を策定できないため、2024年12月にEcma Internationalの技術委員会としてWinterTC（TC55）が設立された。WinterTCには、Node.js、Deno、Verel、Fastly、Netlify、Shopifyなどが参加している。
+
+- [サーバサイドJavaScriptの標準策定を目指す「WinterTC」がECMA International傘下で始動、W3CのWinterCGから移行](https://www.publickey1.jp/blog/25/javascriptwintertcecma_internationalw3cwintergc.html)

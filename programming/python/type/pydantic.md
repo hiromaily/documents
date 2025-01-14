@@ -112,3 +112,7 @@ except ValidationError as e:
 ```
 
 その他、設定モデルの定義（`dataclass`のように簡単に設定ファイルを読み込むための機能）や環境変数のサポートなどの多機能も備えている。
+
+## References
+
+- [Pydantic入門 – Pythonでシンプルかつ強力なバリデーションを始めよう](https://qiita.com/Tadataka_Takahashi/items/8b28f49d67d7e1d65d11)

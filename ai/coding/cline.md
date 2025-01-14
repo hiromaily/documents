@@ -29,3 +29,5 @@ Clineは、Anthropic社が開発したAIエージェントで、Visual Studio Co
 - [Clineを使用した次世代AIコーディング。もうCursorは要らない？](https://qiita.com/noshut/items/0c1de89c766106b204a8)
 - [claude.aiとclineを活用したコストと精度を両立するAI駆動開発手法](https://zenn.dev/sunwood_ai_labs/articles/ai-driven-development-cost-accuracy)
 - [思いつきで作ったAIツールが5000スターを獲得した話](https://zenn.dev/yamadashy/articles/ai-tool-repomix-5000-star)
+- [VS CodeとAIチャットの往復いらず！ 話題の拡張機能Clineで爆速開発してみよう](https://qiita.com/minorun365/items/b2990a7228e8cc4ed025)
+- [Reclineという庶民の味方！！GitHub CopilotでClineが使える](https://sitochablog.pages.dev/posts/recline/)

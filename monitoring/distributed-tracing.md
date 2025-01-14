@@ -53,3 +53,16 @@
 ### Datadog APM
 
 - 分散トレーシング機能も含んでおり、他の監視ツールとシームレスに統合できる。トレースをリアルタイムで可視化するダッシュボードも提供。
+
+## 検索方法
+
+Jaegerだと、検索のプルダウンでは、以下のような項目がある
+
+- `Service`:　サービス名
+- `Operation`: `tracer.NewSpan(ctx, "HealthCheck")`に設定した名前
+
+DatadogのAPMのTracesでは、以下の項目で検索やフィルタリングができる
+
+- service: トレースが含まれるサービス
+- resource_name: トレースが関連するリソース（操作名）
+- operation_name: Spanに設定した名称？

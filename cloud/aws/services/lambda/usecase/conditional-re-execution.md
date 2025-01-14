@@ -40,6 +40,8 @@ func (l *LambdaClient) Invoke(ctx context.Context, functionName string, paramete
     if err != nil {
         log.Panicf("Couldn't marshal parameters to JSON. Here's why %v\n", err)
     }
+    // 同期的呼び出し
+    // 尚、InvokeAsync()は非推奨
     invokeOutput, err := l.client.Invoke(ctx, &lambda.InvokeInput{
         FunctionName: aws.String(functionName),
         LogType:      logType,
@@ -49,6 +51,75 @@ func (l *LambdaClient) Invoke(ctx context.Context, functionName string, paramete
         log.Panicf("Couldn't invoke function %v. Here's why: %v\n", functionName, err)
     }
     return invokeOutput
+}
+```
+
+### WIP: 非同期による自分自身の関数を呼び出すことは可能か
+
+Invoke メソッドの InvocationType を Event に設定することで非同期呼び出しを実現する。
+以下ののコードでは、`types.InvocationTypeEvent` を `lambda.InvokeInput` 構造体の `InvocationType` フィールドに設定することで、非同期でLambda関数を呼び出している。
+
+```go
+package main
+
+import (
+    "context"
+    "encoding/json"
+    "log"
+
+    "github.com/aws/aws-sdk-go-v2/aws"
+    "github.com/aws/aws-sdk-go-v2/config"
+    "github.com/aws/aws-sdk-go-v2/service/lambda"
+    "github.com/aws/aws-sdk-go-v2/service/lambda/types"
+)
+
+// LambdaClient encapsulates the AWS Lambda service client.
+type LambdaClient struct {
+    client *lambda.Client
+}
+
+// InvokeAsync invokes the Lambda function specified by functionName asynchronously,
+// passing the parameters as a JSON payload.
+func (l *LambdaClient) InvokeAsync(ctx context.Context, functionName string, parameters any) error {
+    payload, err := json.Marshal(parameters)
+    if err != nil {
+        return err
+    }
+
+    _, err = l.client.Invoke(ctx, &lambda.InvokeInput{
+        FunctionName:   aws.String(functionName),
+        InvocationType: types.InvocationTypeEvent, // Set to 'Event' for asynchronous invocation
+        Payload:        payload,
+    })
+
+    return err
+}
+
+func main() {
+    ctx := context.TODO()
+
+    // Load the AWS configuration
+    cfg, err := config.LoadDefaultConfig(ctx)
+    if err != nil {
+        log.Fatalf("unable to load SDK config, %v", err)
+    }
+
+    // Create Lambda service client
+    lambdaClient := LambdaClient{
+        client: lambda.NewFromConfig(cfg),
+    }
+
+    // Define the function name and parameters to invoke
+    functionName := "your_function_name"
+    parameters := map[string]string{"key": "value"} // Replace with actual parameters
+
+    // Invoke the function asynchronously
+    err = lambdaClient.InvokeAsync(ctx, functionName, parameters)
+    if err != nil {
+        log.Fatalf("Failed to invoke function asynchronously: %v", err)
+    }
+
+    log.Println("Function invoked asynchronously")
 }
 ```
 
@@ -134,3 +205,7 @@ EventBridgeルールにターゲット（Lambda関数）を追加。
 ```sh
 aws events put-targets --rule "MyEventRule" --targets "Id"="1","Arn"="arn:aws:lambda:your-region:your-account-id:function:your-lambda-function-name"
 ```
+
+## References
+
+- [[AWS]知っておいたほうがいいLambda関数の呼び出しタイプとリトライ方式まとめ](https://dev.classmethod.jp/articles/lambda-idempotency/)
