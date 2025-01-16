@@ -8,4 +8,5 @@
 ## References
 
 - [PostgreSQL と MySQL のメジャーバージョンアップのためのチートシート作った](https://soudai.hatenablog.com/entry/2023/10/07/142819)
-- [MariaDB vs MySQL vs PostgreSQL比較:最適なRDBは?ベンチマーク付選択フローチャート](https://vpshikaku.com/mariadb-mysql-postgresql/)
+- [MariaDB vs MySQL vs PostgreSQL 比較:最適な RDB は?ベンチマーク付選択フローチャート](https://vpshikaku.com/mariadb-mysql-postgresql/)
+- [PostgreSQL はなぜ MySQL を上回れた？ PostgreSQL 17 で見えた生成 AI 時代のデータベース](https://www.sbbit.jp/article/cont1/155196)
