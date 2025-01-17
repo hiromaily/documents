@@ -54,7 +54,7 @@ func (l *LambdaClient) Invoke(ctx context.Context, functionName string, paramete
 }
 ```
 
-### WIP: 非同期による自分自身の関数を呼び出すことは可能か
+### 非同期による自分自身の関数を呼び出すことは可能か
 
 Invoke メソッドの InvocationType を Event に設定することで非同期呼び出しを実現する。
 以下ののコードでは、`types.InvocationTypeEvent` を `lambda.InvokeInput` 構造体の `InvocationType` フィールドに設定することで、非同期でLambda関数を呼び出している。
@@ -205,6 +205,10 @@ EventBridgeルールにターゲット（Lambda関数）を追加。
 ```sh
 aws events put-targets --rule "MyEventRule" --targets "Id"="1","Arn"="arn:aws:lambda:your-region:your-account-id:function:your-lambda-function-name"
 ```
+
+## [Lambda 再帰ループ検出を使用した無限ループの防止](https://docs.aws.amazon.com/ja_jp/lambda/latest/dg/invocation-recursion.html)
+
+`デフォルトでは、Lambda が再帰ループを検出すると、関数の呼び出しを停止し、ユーザーに通知します`とのこと
 
 ## References
 
