@@ -25,3 +25,7 @@
   - 手元で特定のテストケースをデバッグすることが容易になった
   - CI の実行時間が早くなった (並列数によるもの)
 - [Cypress から Playwright に移行しました](https://developers.prtimes.jp/2023/04/10/migrate-from-cypress-to-playwright/)
+
+## [shortest](https://github.com/anti-work/shortest)
+
+Shortestは生成AIとE2EテストフレームワークのPlaywrightを組み合わせ、自然言語でE2Eテストを実施できるフレームワーク
