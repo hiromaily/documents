@@ -150,3 +150,4 @@ Python の`__init__.py`ファイルは、ディレクトリを Python パッケ�
   - pytest-cov: カバレッジ測定ツール
   - factory-boy: テストデータをいい感じに生成してくれるツール
   - freezegun: テストコードで時刻をモックするためのライブラリ
+- [Pyhton基礎 100本ノック](https://zenn.dev/python_academia/books/eabcc6b22afff5)

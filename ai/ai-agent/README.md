@@ -96,3 +96,9 @@ AI エージェントは、多種多様な分野で活用されており、そ�
 - [2024年 ビッグテックのAI Agent 動向まとめ](https://zenn.dev/neoai/articles/fc5e39cffeb461)
 - [AIエージェントの事例5選、ウォルマート、NEC、NTTデータの“面白い活用法”を解説](https://www.sbbit.jp/article/cont1/152258)
 - [2025年の年始に読み直したAIエージェントの設計原則とか実装パターン集](https://zenn.dev/r_kaga/articles/e0c096d03b5781)
+- [生成AIが人間の介在なしに自律的にソフトウェアテストを生成し実行、バグや脆弱性を発見してくれるAIテストエージェント「Spark」](https://www.publickey1.jp/blog/25/aiaispark.html)
+- [個人開発したサービスが２日で3 万リーチした話](https://zenn.dev/nogu66/articles/release-satorify-beta-version)
+  - サーバーサイド(API): Dify
+  - LLM: DeepSeek V3
+  - プロトタイピング: Bold
+  - Editor: Cursor
