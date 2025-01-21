@@ -52,15 +52,12 @@
 
 ブロックチェーンは、その透明性、セキュリティ、分散型の性質により、多くの分野で革命をもたらす可能性がある。ただし、まだ発展途上の技術であり、課題も多く存在している。
 
-## コラム
+## Frontend
 
-- [Web3というテロリズム](https://note.com/fshin2000/n/naf69a2e36aca)
-- [Re: Web3というテロリズム](https://kumagi.hatenablog.com/entry/re-web3-terrorism)
-- [2019: Why Blockchain is Not the Answer](https://jimmysong.medium.com/why-blockchain-is-not-the-answer-3b7d5f612d11)
-- [2019: ブロックチェーンは何も解決しない](https://note.com/strictlyes/n/n1cdf56072356)
-- [2019: ブロックチェーンが使い物にならない理由](https://note.com/strictlyes/n/n93c2e639ba1a)
+- [Web3 フロントエンド Tips](https://zenn.dev/yujiym/articles/web3-frontent-tips)
 
 ## References
 
 - [ブロックチェーンの仕組み](https://www.nttdata.com/jp/ja/services/blockchain/002/)
-- [Security 内部 Docs](./solidity/security/README.md)
+- [Solidity security 内部 Docs](./solidity/security/README.md)
+- [2022: A simple guide to the Web3 stack](https://www.coinbase.com/blog/a-simple-guide-to-the-web3-stack)

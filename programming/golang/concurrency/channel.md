@@ -10,6 +10,7 @@
   - channel に`nil`がセットされている場合、その channel を使った case は実行されない
   - range の場合、loop はすぐに抜ける
 - 複数回の同一の channel の close はできない
+
   - 閉じようとすると panic が発生: `panic: close of closed channel`
 
     ```go
@@ -46,9 +47,9 @@ default:
 }
 ```
 
-## 複数のgoroutineで送信しているchannelがある場合、close処理は1箇所に限定すること
+## 複数の goroutine で送信している channel がある場合、close 処理は 1 箇所に限定すること
 
-`for loop`を終了させてからchannelをcloseすること
+`for loop`を終了させてから channel を close すること
 
 ```go
 func (l *lineAPIConcurrentClient) getMessageContentsProducer(
@@ -134,3 +135,8 @@ func (l *lineAPIConcurrentClient) getMessageContentsProducer(
     return resultCh
 }
 ```
+
+## References
+
+- [2017: Go の channel 処理パターン集](https://hori-ryota.com/blog/golang-channel-pattern/)
+  - よくまとまっている

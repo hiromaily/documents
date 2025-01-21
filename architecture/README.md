@@ -35,33 +35,22 @@
 
 ## 開発手法
 
-### Agile Development
-
-### Lean Software Development
-
-### DevOps
-
-### Test-Driven Development
-
-### Waterfall Model
-
-### Spiral Model
+- Agile Development
+- Lean Software Development
+- DevOps
+- Test-Driven Development
+- Waterfall Model
+- Spiral Model
 
 ## ソフトウェアのシステムコンポーネント設計におけるパターン
 
-### DDD
-
-### MVC (Model-View-Controller)
-
-### MVVM (Model-View-ViewModel)
-
-### Repository Pattern
-
-### Dependency Injection (DI)
-
-### Command Query Responsibility Segregation (CQRS)
-
-### Event Sourcing
+- DDD
+- MVC (Model-View-Controller)
+- MVVM (Model-View-ViewModel)
+- Repository Pattern
+- Dependency Injection (DI)
+- Command Query Responsibility Segregation (CQRS)
+- Event Sourcing
 
 ## [「Go の父」ロブ・パイクの「プログラミング 5 カ条」](https://gigazine.net/news/20200817-rob-pike-5-rules-programming/)
 
@@ -81,6 +70,7 @@
 
 ## References
 
+- [スライド: これから学ぶ人のための ソフトウェアアーキテクチャ入門](https://speakerdeck.com/snoozer05/20230727-software-architecture-is-a-tool-to-enhance-our-humanity)
 - [保守性の高いソフトウェア開発の Tips 集](https://zenn.dev/riku/books/36d9873ee1c0e6)
 - [良いコードとは何か - エンジニア新卒研修 スライド公開](https://note.com/cyberz_cto/n/n26f535d6c575)
 - [技術選定/アーキテクチャ設計で後悔しないためのガイドライン](https://qiita.com/hirokidaichi/items/a746062917595619720b)

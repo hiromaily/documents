@@ -12,3 +12,11 @@
 - [Microsoft REST API Guidelines](https://github.com/microsoft/api-guidelines)
 - [Google API design guide](https://cloud.google.com/apis/design)
 - [Salesforce APIs](https://developer.salesforce.com/docs/apis)
+
+## WIP: [2021: API Design Patterns](https://www.oreilly.com/library/view/api-design-patterns/9781617295850/)
+
+- [API Design Patterns の読書感想文](https://syu-m-5151.hatenablog.com/entry/2024/08/20/191435)
+
+## Tools
+
+- [OpenAPI.Tools](https://openapi.tools/)
