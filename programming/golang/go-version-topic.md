@@ -31,6 +31,14 @@
 7. **uniqueパッケージの追加**:
    - uniqueパッケージが新たに追加され、スライスの重複要素を除去するための機能が提供された。
 
+8. **crypto/tlsパッケージのTLS clientがEncrypted Client Helloをサポートする**
+   - [参考: 内部Docs: TLS Encrypted Client Hello / ECH](../../security/tls/tls-encrypted-client-hello.md)
+   - [参考: 内部Docs: ポスト量子暗号](../../security/cryptography/public-key-cryptography/post-quantum-cryptography.md#golang-123に導入されたpost-quantum-key-exchange-mechanism-x25519kyber768draft00)
+
+   ```sh
+   GODEBUG=tlskyber=0
+   ```
+
 ## Go 1.22
 
 [Go 1.22 Release Notes](https://tip.golang.org/doc/go1.22), [Blog: Go 1.22 is released!](https://go.dev/blog/go1.22)

@@ -61,4 +61,5 @@ Goランタイムのデバッグ設定に関するもので、Goプログラム�
 
 ```sh
 GODEBUG=gctrace=1,schedtrace=1000
+GODEBUG=tlskyber=0
 ```
