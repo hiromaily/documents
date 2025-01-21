@@ -39,3 +39,7 @@ echo $FOO
 
 - この後、`echo $FOO`と実行しても、なにも表示されない
 - しかし、`. script.sh`を実行後、`echo $FOO`と実行すると、`foo`と表示される
+
+## References
+
+- [ShellScript で自動化を楽にしたい時に知っておいても良いこと](https://sreake.com/blog/shellscript-good-practices/)
