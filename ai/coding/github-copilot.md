@@ -27,6 +27,26 @@ GitHub Copilotは開発者にとってさらに強力なツールとなり、開
 [https://github.com/copilot](https://github.com/copilot)
 ここにアクセスすれば、チャット機能のみを単体で利用可能とのことだが、2024/12/19現在 何も表示されない？
 
+## GitHub Copilotの設定
+
+Githubページの設定内、[GitHub Copilot](https://github.com/settings/copilot)にアクセス
+
+### GitHub Copilot内 ドキュメント
+
+- [GitHub Copilot の使用についてのベスト プラクティス](https://docs.github.com/ja/copilot/using-github-copilot/best-practices-for-using-github-copilot)
+  - Copilot の長所と短所を理解する
+    - Copilot が最適な場合の一部を次に示します
+      - テストと繰り返しコードの記述
+      - デバッグと構文の修正
+      - コードの説明とコメント
+      - 正規表現の生成
+  - 思慮深いプロンプトを作成する
+    - 複雑なタスクを分割する
+    - 要件について具体化する
+    - 入力データ、出力、実装などの例を提供する
+    - 適切なコーディング プラクティスに従う
+- [GitHub Copilot のプロンプト エンジニアリング](https://docs.github.com/ja/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
+
 ## References
 
 - [GitHub Copilot のテクニック集](https://speakerdeck.com/rayuron/github-copilot-techniques)

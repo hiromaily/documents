@@ -30,3 +30,7 @@ Cursorの料金体系は以下の通り
 - **Basic**: 無料
 - **Pro**: 月額20ドル
 - **Business**: 月額40ドル
+
+## References
+
+- [最強神器「Cursor」の本当に使い方を徹底解説【知らないとヤバいレベルです】](https://zenn.dev/aimasaou/articles/f9b19ca901a0cd)
