@@ -54,3 +54,15 @@ git log --since="2024-09-01" --until="2024-09-30" --format='%aN' | sort | uniq -
   69 HirokiYasui
   56 FooBar
 ```
+
+## 現在のブランチがどのリモートブランチに追跡されているかを確認する
+
+```sh
+git branch -vv
+
+# 追跡ブランチを`origin/develop`に変更する例
+git branch -u origin/develop
+
+# 追跡ブランチがまだ作成されていない場合
+git push -u origin feature-branch
+```
