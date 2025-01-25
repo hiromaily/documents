@@ -86,3 +86,7 @@ else:
   ```
 
 正規表現は非常に強力で柔軟性のあるツールだが、複雑な正規表現は読みづらくなりがちなので注意が必要。
+
+## References
+
+- [regexr.com](https://regexr.com/)

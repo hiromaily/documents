@@ -2,6 +2,8 @@
 
 - [Top 10 Modern JavaScript Patterns for 2025](https://dev.to/balrajola/top-10-modern-javascript-patterns-for-2025-1hle)
 - [State of JS 2024](https://2024.stateofjs.com/en-US/)
+- [Front-End-Checklist](https://github.com/thedaviddias/Front-End-Checklist)
+  - かなり古いので陳腐化している
 
 ## コラム
 

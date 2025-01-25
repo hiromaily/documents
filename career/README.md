@@ -24,6 +24,7 @@
 - [40 歳を過ぎてもソフトウェアエンジニアを続けてるって話](https://bufferings.hatenablog.com/entry/2023/10/14/151123)
 - [テックリードとして入社してからやったことをまとめてみた。](https://qiita.com/ktoshiya/items/7da92159892eb4808cff)
 - [クックパッド・成田一生が感じた「CTO の賞味期限」とは。ワクワクを取り戻すために現場へ](https://levtech.jp/media/article/interview/detail_224/)
+  - 良記事
 - [エンジニアのスキルマップ・テックリードへの途](https://tech.dentsusoken.com/entry/fin_skill_map_techlead)
 - [40 代以降もエンジニアを続けていくためのちょっとした生存戦略](https://paiza.hatenablog.com/entry/2021/02/19/130000)
 - [伸びるエンジニア、伸びないエンジニア](https://qiita.com/rf_p/items/2480ad77c856e42b19b3)
