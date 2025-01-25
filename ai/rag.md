@@ -139,3 +139,6 @@ RAG（検索拡張生成）は、`自然言語処理`と`情報検索技術`の�
 - [AWS: RAG (検索拡張生成) とは何ですか?](https://aws.amazon.com/jp/what-is/retrieval-augmented-generation/)
 - [2025年はRAGの次にAIエージェントが来る](https://zenn.dev/mixi/articles/c18f4c5e2d84c5)
 - [AIエージェントの発展とRAGの新境地、「エージェンティックRAG」が注目される理由](https://ampmedia.jp/2024/12/29/agentic-rag/)
+- [2024: 新規サービスのバックエンド開発で3ヶ月経ったので、試した技術や取り組みをまとめてみた](https://www.ai-shift.co.jp/techblog/4234)
+  - AI Worker
+    - RAGを組み合わせたChatGPT Likeのチャットシステム(Streamを扱う)

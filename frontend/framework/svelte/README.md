@@ -1,4 +1,4 @@
-# Svelete
+# Svelte
 
 Privary features are
 
@@ -10,35 +10,6 @@ Privary features are
 ## Requirements
 
 - Node: 16.7+
-
-## References
-
-- [svelte official](https://svelte.dev/)
-- [svelte official (jp)](https://svelte.jp/)
-- [github](https://github.com/sveltejs/svelte)
-- [tutorial](https://svelte.dev/tutorial/basics)
-- [tutorial (jp)](https://svelte.jp/tutorial/basics)
-
-## Development reference
-
-- [Vitejs](https://vitejs.dev/)
-- [Vitejs plugin](https://github.com/sveltejs/vite-plugin-svelte/)
-- [vscode plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
-- [Svelte for new developers](https://svelte.jp/blog/svelte-for-new-developers)
-
-### SvelteKit
-
-- [SvelteKit](https://kit.svelte.dev/)
-- [SvelteKit (jp)](https://kit.svelte.jp/)
-- [Git Docs](https://github.com/sveltejs/kit/tree/master/documentation/docs)
-- [Docs](https://kit.svelte.dev/docs/introduction)
-- [Docs (jp)](https://kit.svelte.jp/docs/introduction)
-- [faq](https://kit.svelte.dev/faq)
-
-### Others
-
-- [Svelte + TypeScript のベストプラクティスを考える](https://zenn.dev/mizchi/scraps/a5644f129032aa)
-- [Svelte + TypeScript で軽量の JavaScript アプリを！](https://qiita.com/tronicboy/items/923fef6122ed3cf7031f)
 
 ## Setup
 
@@ -88,3 +59,33 @@ const config = {
  }
 };
 ```
+
+## References
+
+- [svelte official](https://svelte.dev/)
+- [svelte official (jp)](https://svelte.jp/)
+- [github](https://github.com/sveltejs/svelte)
+- [tutorial](https://svelte.dev/tutorial/basics)
+- [tutorial (jp)](https://svelte.jp/tutorial/basics)
+
+## Development reference
+
+- [Vitejs](https://vitejs.dev/)
+- [Vitejs plugin](https://github.com/sveltejs/vite-plugin-svelte/)
+- [vscode plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+- [Svelte for new developers](https://svelte.jp/blog/svelte-for-new-developers)
+
+### SvelteKit
+
+- [SvelteKit](https://kit.svelte.dev/)
+- [SvelteKit (jp)](https://kit.svelte.jp/)
+- [Git Docs](https://github.com/sveltejs/kit/tree/master/documentation/docs)
+- [Docs](https://kit.svelte.dev/docs/introduction)
+- [Docs (jp)](https://kit.svelte.jp/docs/introduction)
+- [faq](https://kit.svelte.dev/faq)
+
+### Others
+
+- [Svelte入門(Deprecated)](https://zenn.dev/k_sato/books/b868c1705b8337)
+- [Svelte + TypeScript のベストプラクティスを考える](https://zenn.dev/mizchi/scraps/a5644f129032aa)
+- [Svelte + TypeScript で軽量の JavaScript アプリを！](https://qiita.com/tronicboy/items/923fef6122ed3cf7031f)
