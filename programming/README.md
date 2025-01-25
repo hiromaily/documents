@@ -58,7 +58,7 @@
 - データスキーマ(構造定義)とデータ表現を分離する
 - OOP の代わりになるものではなく、共存して利用することになる
 
-#### DOPが有効な状況
+#### DOP が有効な状況
 
 - OOP では、各オブジェクトの責務が肥大化していくなど
 - OOP の複雑性を解消するために生まれた
@@ -84,3 +84,8 @@
 - [実行ファイル](https://ja.wikipedia.org/wiki/%E5%AE%9F%E8%A1%8C%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB)
 - [インタプリタ](https://ja.wikipedia.org/wiki/%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%97%E3%83%AA%E3%82%BF)
 - [バーチャルマシン](https://ja.wikipedia.org/wiki/%E4%BB%AE%E6%83%B3%E6%A9%9F%E6%A2%B0)
+
+## 人気のある言語
+
+- [Ranking Programming Languages by GitHub Users](https://www.benfrederickson.com/ranking-programming-languages-by-github-users/)
+  - 少し古い

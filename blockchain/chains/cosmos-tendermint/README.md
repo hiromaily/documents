@@ -4,7 +4,7 @@
 
 Cosmos（コスモス）は、異なるブロックチェーン間での相互運用性とスケーラビリティを高めることを目的とした分散型ネットワークプロジェクト。Cosmos のビジョンは、「インターネット・オブ・ブロックチェーン」を実現することであり、異なるブロックチェーンが互いに通信し、データや資産を交換できるように設計されている。
 
-CosmosとTendermintは、ブロックチェーン技術の次の進化において重要な要素を提供している。異なるブロックチェーンが相互に連携し、スケーラビリティとセキュリティを確保しつつ、開発者が簡単にブロックチェーンを構築できる環境を作り出すことができる。これにより、従来のブロックチェーン技術の限界を超えた新しい可能性が生まれつつある。
+Cosmos と Tendermint は、ブロックチェーン技術の次の進化において重要な要素を提供している。異なるブロックチェーンが相互に連携し、スケーラビリティとセキュリティを確保しつつ、開発者が簡単にブロックチェーンを構築できる環境を作り出すことができる。これにより、従来のブロックチェーン技術の限界を超えた新しい可能性が生まれつつある。
 
 ## Cosmos の主要コンポーネント
 
@@ -72,8 +72,7 @@ Tendermint（テンダーミント）は、Cosmos エコシステムの中心的
 - [How does Cosmos work? Part2](https://www.preethikasireddy.com/post/how-does-cosmos-work-how-does-it-compare-to-bitcoin-and-ethereum-part-2)
 - [Cosmos SDK の教科書](https://zenn.dev/kimurayu45z/books/abf4114858f7c35b775d)
 - [IBC(ブロックチェーン間通信)の概要](https://zenn.dev/qope/articles/51bc0d7ff25fc8)
-- [Cosmos IBCの仕様の網羅的説明](https://yu-kimura.jp/2021/03/29/cosmos-ibc-ics/)
-- [IBC(ブロックチェーン間通信)の概要](https://zenn.dev/qope/articles/51bc0d7ff25fc8)
+- [Cosmos IBC の仕様の網羅的説明](https://yu-kimura.jp/2021/03/29/cosmos-ibc-ics/)
 
 ### Tendermint
 

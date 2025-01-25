@@ -1,6 +1,6 @@
 # Web Browser
 
-- [ちいさなWebブラウザを作ろう](https://browserbook.shift-js.info)
+- [ちいさな Web ブラウザを作ろう](https://browserbook.shift-js.info)
 - [ブラウザレンダリングの仕組み](https://zenn.dev/ak/articles/c28fa3a9ba7edb)
 - [web.dev: ウェブ上でのレンダリング](https://web.dev/articles/rendering-on-the-web?hl=ja)
 
@@ -45,13 +45,16 @@ Cookie、ローカルストレージ、セッションストレージなど、�
 3. **レイアウト** - レンダーツリーに基づいてレイアウトを計算する。
 4. **描画** - レイアウト情報を基にして、各要素をピクセル単位で描画する。
 
-## Web Browserの種類
+## Web Browser の種類
 
-1. **Google Chrome**: Googleが提供するブラウザで、スピードと拡張機能の豊富さが特徴。
-2. **Mozilla Firefox**: Firefoxはオープンソースのブラウザで、プライバシー保護機能が充実している。
-3. **Microsoft Edge**: Microsoftが提供するブラウザで、Windows 10以降の標準ブラウザ。
-4. **Safari**: Appleが提供するブラウザで、特にMacやiPhone、iPadなどのApple製品と相性が良い。
+1. **Google Chrome**: Google が提供するブラウザで、スピードと拡張機能の豊富さが特徴。
+2. **Mozilla Firefox**: Firefox はオープンソースのブラウザで、プライバシー保護機能が充実している。
+3. **Microsoft Edge**: Microsoft が提供するブラウザで、Windows 10 以降の標準ブラウザ。
+4. **Safari**: Apple が提供するブラウザで、特に Mac や iPhone、iPad などの Apple 製品と相性が良い。
 5. **Opera**: 独自の機能やインターフェースが特徴で、ページを速く表示するための「Turbo」モードなどがある。
 6. **Brave**: 広告ブロックやプライバシー保護に力を入れたブラウザ。
 7. **Vivaldi**: 高度なカスタマイズ性と豊富な機能を持つブラウザで、プロユーザー向けの機能が多く含まれている。
 
+## References
+
+- [ちいさな Web ブラウザを作ろう](https://browserbook.shift-js.info/)

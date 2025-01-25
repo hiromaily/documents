@@ -6,6 +6,10 @@
 - [Ethereum 2.0 Knowledge Base](https://kb.beaconcha.in/)
 - [Ethereum Book (eth2)](https://eth2.incessant.ink/book/00__introduction/00__foreword.html)
 
+## Ethereum 関連サービス
+
+- [ETH vanity address generator](https://vanity-eth.tk/)
+
 ## Contents
 
 - [ABI](./abi.md)
@@ -70,3 +74,7 @@
     - 2 および 3 を 64 回繰り返して、最終的なアウトプットの Mix64 を出力する
     - Mix64 は、処理されて 32 バイトの Mix ダイジェストが生成される
     - Mix ダイジェストは、あらかじめ定義されたターゲットの閾値と比較される。この Mix ダイジェストが、ターゲット閾値以下であればマイニングが成功したとみなされ、イーサリアムネットワークにブロードキャストされ、マイナーは報酬を獲得する。
+
+## 外部の利用できる Node
+
+- [Web3 API: Ethereum](https://www.ankr.com/rpc/eth/)

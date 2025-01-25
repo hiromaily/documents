@@ -43,3 +43,6 @@ echo $FOO
 ## References
 
 - [ShellScript で自動化を楽にしたい時に知っておいても良いこと](https://sreake.com/blog/shellscript-good-practices/)
+- [シェルスクリプトを書くときは set -eu しておく](https://qiita.com/youcune/items/fcfb4ad3d7c1edf9dc96)
+  - `set -e`: エラーがあったらシェルスクリプトをそこで打ち止めにしてくれる
+  - `set -u`: 未定義の変数を使おうとしたときに打ち止めにしてくれる

@@ -119,6 +119,10 @@
 - エンジニアリングマネージャーのしごと
 - 小さな会社のスクラム実践講座
 
+## [技術書の技術術](https://www.shoeisha.co.jp/book/detail/9784798171548)
+
+- [「技術書の読書術」を読んだら読書効率が上がったので感想&サマリ抜粋](https://qiita.com/sugeta10/items/6ba136f67a2264d7ee03)
+
 ## WebSites
 
 - [プログラマが知るべき 97 のこと](https://xn--97-273ae6a4irb6e2hsoiozc2g4b8082p.com/)

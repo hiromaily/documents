@@ -10,7 +10,7 @@
 brew install golangci-lint
 ```
 
-たまにバグが発生するので、いかのようなscriptでバージョンを簡単に変更できるようにしておいたほうがよい
+たまにバグが発生するので、いかのような script でバージョンを簡単に変更できるようにしておいたほうがよい
 
 ```sh
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.61.0
@@ -87,7 +87,6 @@ linters:
     - unused
     - whitespace
 
-
 linters-settings:
   depguard:
     rules:
@@ -130,8 +129,8 @@ linters-settings:
       - FIXME
   gofmt:
     rewrite-rules:
-      - pattern: 'interface{}'
-        replacement: 'any'
+      - pattern: "interface{}"
+        replacement: "any"
   goimports:
     local-prefixes: github.com/golangci/golangci-lint
   mnd:
@@ -142,10 +141,10 @@ linters-settings:
       - condition
       - return
     ignored-numbers:
-      - '0'
-      - '1'
-      - '2'
-      - '3'
+      - "0"
+      - "1"
+      - "2"
+      - "3"
     ignored-functions:
       - strings.SplitN
   govet:
@@ -258,3 +257,7 @@ issues:
 run:
   timeout: 5m
 ```
+
+## References
+
+- [もう golangci-lint なんていらねいさ](https://qiita.com/kyoh86/items/3228dc6f0e0cd4dfa164)

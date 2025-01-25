@@ -1,6 +1,6 @@
 # Markdown
 
-`# 見出し`, `* リスト` など、シンプルな書き方で文書構造を明示でき、装飾されたHTML文書に変換できる軽量マークアップ言語
+`# 見出し`, `* リスト` など、シンプルな書き方で文書構造を明示でき、装飾された HTML 文書に変換できる軽量マークアップ言語
 
 ## Formatter
 
@@ -14,8 +14,8 @@
     "editor.wordWrap": "on",
     "files.trimTrailingWhitespace": false,
     "editor.trimAutoWhitespace": false,
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-  },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
 ```
 
@@ -33,4 +33,5 @@ markdownlint-cli2 --fix "**/*.md"
 
 ## References
 
-- [Markdown 50のルール](https://qiita.com/antk/items/e11cac45f9da343e7bf0)
+- [HackMD](https://hackmd.io/)
+- [Markdown 50 のルール](https://qiita.com/antk/items/e11cac45f9da343e7bf0)
