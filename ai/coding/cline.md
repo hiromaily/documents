@@ -1,6 +1,6 @@
-# Cline (Claude Dev)
+# Cline (Claude Dev) 
 
-Clineは、Anthropic社が開発したAIエージェントで、Visual Studio Code（VS Code）などの統合開発環境（IDE）上で動作する。オープンソースとして提供され、開発者の生産性向上を目的としている。主な機能にはコードの修正、プロジェクトの構造解析、タスク自動化などが含まれる。
+Cline(シーライン)は、Anthropic社が開発したAIエージェントで、Visual Studio Code（VS Code）などの統合開発環境（IDE）上で動作する。オープンソースとして提供され、開発者の生産性向上を目的としている。主な機能にはコードの修正、プロジェクトの構造解析、タスク自動化などが含まれる。
 
 ## 主な特徴
 
