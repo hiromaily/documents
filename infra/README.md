@@ -1,6 +1,6 @@
 # Infra
 
-## 内部関連Document
+## 内部関連 Document
 
 - [BigData](../big-data/README.md)
 - [Cloud](../cloud/README.md)
