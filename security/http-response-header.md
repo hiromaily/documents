@@ -68,7 +68,7 @@ X-Frame-Options: DENY
 
 このヘッダーは、ページがフレームまたは iframe に読み込まれるのを防ぎ、クリックジャッキング攻撃から保護するのに役立つ。
 
-### X-Frame-OptionsのReplacement
+### X-Frame-Options の Replacement
 
 Content security policy の`frame-ancestors` directive を使う
 
@@ -84,6 +84,6 @@ X-XSS-Protection: 1; mode=block
 
 このヘッダーは、ブラウザーの組み込み XSS 保護を有効にし、XSS 攻撃が検出された場合にページをブロックするように指示する。
 
-### X-XSS-ProtectionのReplacement
+### X-XSS-Protection の Replacement
 
 Content security policy を使う

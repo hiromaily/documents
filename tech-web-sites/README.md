@@ -53,6 +53,7 @@
 4. **[Hacker News](https://news.ycombinator.com/)**
 
    - Y Combinator が運営するサイトで、テクノロジー関連のニュース記事や投稿が集まる。コミュニティベースのアップボートシステムにより、重要なニュースやトピックが浮上する。
+   - [Hacker News 日本語まとめ](https://catnose.me/lab/hackernews-ja)
 
 5. **[Ars Technica](https://arstechnica.com/)**
 
