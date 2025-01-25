@@ -94,3 +94,7 @@
 - **LLVM**: コンパイラのフレームワークで、C++で実装されている。
 - **GCC**: GNU Compiler Collection は C と C++で実装されている。
 - **CPython**: Python のリファレンス実装で、C で書かれている。
+
+## References
+
+- [How I wrote my own "proper" programming language](https://mukulrathi.com/create-your-own-programming-language/intro-to-compiler/)
