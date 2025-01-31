@@ -1,4 +1,4 @@
-# Golang Tips
+# Golang
 
 - [Goの各バージョン毎の変更点について](./go-version-topic.md)
 

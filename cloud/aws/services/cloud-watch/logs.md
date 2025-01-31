@@ -109,3 +109,10 @@ and message have to include specific id `cfa4a43b-c066-442e-b3cc-a11785e0041c`
 fields @timestamp, @message 
 | filter @message like /(?i)Task timed out after/ and @message like /(?i)cfa4a43b-c066-442e-b3cc-a11785e0041c/
 ```
+
+例えば以下のjsonを検索する場合、`"detail-type": "ManualRestartedEvent"`
+
+```query
+fields @timestamp, @message 
+| filter @message like /(?i)"detail-type"\s*:\s*"ManualRestartedEvent"/
+```

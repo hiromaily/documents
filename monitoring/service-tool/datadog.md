@@ -2,6 +2,9 @@
 
 Datadogは広範なインフラストラクチャのモニタリング、ログ管理、セキュリティ、ネットワークパフォーマンスの監視など、多種多様な機能を提供する。これにより、システム全体のパフォーマンスとセキュリティを一元的に管理し、運用の効率化を図ることができる。
 
+![datadog apm](https://github.com/hiromaily/documents/raw/main/images/datadog-apm-traces-span-tab.png "datadog apm")
+![datadog apm2](https://github.com/hiromaily/documents/raw/main/images/datadog-apm-traces-trace-tab.png "datadog apm2")
+
 ## 機能
 
 ### 1. インフラストラクチャーモニタリング

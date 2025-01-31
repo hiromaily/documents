@@ -5,6 +5,8 @@ Jaeger は、オープンソースの分散トレーシングシステムで、�
 
 Jaeger の`v1.42.0`より、一部`OpenTelemetry SDK`に機能統合されている
 
+![jaeger](https://github.com/hiromaily/documents/raw/main/images/jaeger-screen-shot.png "jaeger")
+
 ## Jaeger の主要機能
 
 1. **分散コンテキスト伝播**：

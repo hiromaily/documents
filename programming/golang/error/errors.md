@@ -166,3 +166,11 @@ func main() {
     }
 }
 ```
+
+### `errors.Join`にて、`joinError`が発生するケース
+
+片方がerrorのInterfaceは満たしてはいるが、[smithy](https://pkg.go.dev/github.com/aws/smithy-go)という外部パッケージによるエラーのため、実体の構造が違うことが原因か？
+
+```go
+&errors.joinError{errs:[]error{(*errors.errorString)(0x823860), (*smithy.OperationError)(0x40001ee720)}}
+```

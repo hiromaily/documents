@@ -102,3 +102,4 @@ AI エージェントは、多種多様な分野で活用されており、そ�
   - LLM: DeepSeek V3
   - プロトタイピング: Bold
   - Editor: Cursor
+- [ジャック・ドーシー率いる決済サービス「Block」がAIエージェント「Goose」を発表](https://gigazine.net/news/20250129-jack-dorsey-introduces-goose/)
