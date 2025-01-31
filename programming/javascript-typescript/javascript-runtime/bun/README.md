@@ -86,3 +86,4 @@ bun run index.ts
 ## References
 
 - [Awesome Bun](https://github.com/oven-sh/awesome-bun)
+- [JavaScript ランタイムの Bun、PostgreSQL/MySQL の DB クライアント機能を搭載](https://www.publickey1.jp/blog/25/javascriptbunpostgresqlmysqldb.html)
