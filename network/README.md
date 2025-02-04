@@ -64,6 +64,15 @@ python -m http.server 8000
 - **127.0.0.1**や**localhost**は一般的にローカル開発環境やテスト環境で使用される。
 - **0.0.0.0**はサーバーアプリケーションが全てのネットワークインターフェース上で動作する場合に使用される。これはサーバーのアクセスを外部ネットワークからも受け入れるように設定する際に便利。
 
+## Tools
+
+[参考: Essential CLI/TUI Tools for Developers](https://packagemain.tech/p/essential-clitui-tools-for-developers)
+
+- [dog](https://github.com/ogham/dog)
+  - DNS Client
+- [gping](https://github.com/orf/gping)
+  - グラフィカルなPing
+
 ### References
 
 - [127.0.0.1とlocalhostと0.0.0.0の違い](https://qiita.com/1ain2/items/194a9372798eaef6c5ab)

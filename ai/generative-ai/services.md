@@ -21,7 +21,7 @@
 ## 画像生成 AI
 
 1. **Stable Diffusion**：オープンソースで無料の画像生成 AI。具体的なイメージをテキスト入力で生成する
-2. **Midjourney**：Discord 上で利用できる、ハイクオリティな画像生成 AI
+2. **Midjourney**：Discord 上で利用できる、ハイクオリティな画像生成 AI。これが一番使われているか？
 3. **DALL·E2**：OpenAI が提供するクリエイティブな画像生成 AI
 
 ## 音声合成 AI

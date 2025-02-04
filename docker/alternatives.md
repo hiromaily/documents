@@ -6,26 +6,28 @@ Docker Desktop の代替えとなるもの
 
 ## [OrbStack](https://orbstack.dev/)
 
-- [github](https://github.com/orbstack/orbstack): Star 1.8k
+- [github](https://github.com/orbstack/orbstack): Star 6.2k
 - [Docker Desktop for Mac 代替の OrbStack がすごい](https://ik.am/entries/746)
 
 macOS 上で Docker コンテナと Linux マシンを高速、軽量、かつシンプルに実行する方法で、超強力な WSL と Docker Desktop の代替品であり、すべてが 1 つの使いやすいアプリにまとめられている。
 
-## [Podman](https://podman.io/)
-
-- [github](https://github.com/containers/podman): Star 18.2k
-
-Podman（the POD MANager）は、コンテナやイメージ、それらのコンテナにマウントされたボリューム、コンテナのグループから作られる pod を管理するためのツール。Podman は Linux 上でコンテナを実行するが、Podman で管理された仮想マシンを使って Mac や Windows システムでも使用することができる。
-
 ## [colima](https://github.com/abiosoft/colima)
 
-- [github](https://github.com/abiosoft/colima): Star 12.1k
+- [github](https://github.com/abiosoft/colima): Star 21k
 
 Linux と macOS でのみ利用可能な Colima は、macOS 上で Linux VM を有効にするために Lima を使用している。Docker、Containerd、Kubernetes のランタイムをサポートしており、いずれの場合も Colima と並行してそのランタイムをインストールする必要がある。
 
+- [Docker Desktopがmac book proのバッテリーを浪費するのでColimaにしてみた話](https://qiita.com/Taichi-yzrh/items/e8070d387d358e408279)
+
+## [Podman](https://podman.io/)
+
+- [github](https://github.com/containers/podman): Star 25k
+
+Podman（the POD MANager）は、コンテナやイメージ、それらのコンテナにマウントされたボリューム、コンテナのグループから作られる pod を管理するためのツール。Podman は Linux 上でコンテナを実行するが、Podman で管理された仮想マシンを使って Mac や Windows システムでも使用することができる。
+
 ## [Rancher desktop](https://rancherdesktop.io/)
 
-- [github](https://github.com/rancher-sandbox/rancher-desktop/): Star 4.8k
+- [github](https://github.com/rancher-sandbox/rancher-desktop/): Star 6.2k
 
 Rancher Desktop は、デスクトップ上でコンテナ管理と Kubernetes を提供するアプリで、Mac（Intel と Apple Silicon の両方）、Windows、Linux で利用可能。
 Rancher Desktop では、コンテナイメージを build、push、pull する機能と、コンテナを実行する機能が提供されている。これは、Docker CLI（エンジンとして Moby/dockerd を選択した場合）または nerdctl（エンジンとして containerd を選択した場合）のいずれかによって提供される。

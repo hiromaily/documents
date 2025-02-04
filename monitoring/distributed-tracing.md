@@ -54,15 +54,27 @@
 
 - 分散トレーシング機能も含んでおり、他の監視ツールとシームレスに統合できる。トレースをリアルタイムで可視化するダッシュボードも提供。
 
-## 検索方法
+## 検索方法 (重要)
+
+```go
+// Trace名
+tracer := tp.Tracer(tracerName),
+
+// Span名
+spanCtx, span := tracer.NewSpan(ctx, "T001Usecase.Execute()")
+```
+
+### Jaegerでの検索
 
 Jaegerだと、検索のプルダウンでは、以下のような項目がある
 
 - `Service`:　サービス名
-- `Operation`: `tracer.NewSpan(ctx, "HealthCheck")`に設定した名前
+- `Operation`: Span名に該当する
 
-DatadogのAPMのTracesでは、以下の項目で検索やフィルタリングができる
+### Datadogでの検索
 
-- service: トレースが含まれるサービス
-- resource_name: トレースが関連するリソース（操作名）
+DatadogのAPMのTracesでは、以下の項目で検索やフィルタリングができる (以下抜粋)。
+
+- service: トレースが含まれるサービス名
+- resource_name: トレースが関連するリソース（操作名）。これがSpan名に該当する
 - operation_name: Spanに設定した名称？

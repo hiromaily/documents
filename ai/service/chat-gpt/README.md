@@ -56,3 +56,7 @@ ChatGPTのSearchGPT（ChatGPT Search）は、OpenAIが開発した新しい検�
 ## [OpenAPI: Operator](https://openai.com/index/introducing-operator/)
 
 ブラウザを操るAIエージェントで、ユーザーの代わりに複雑なタスクを処理する
+
+## モデル性能
+
+- [O3-miniとO1を比較してみた](https://zenn.dev/okikusan/articles/5ed583eef0a118)

@@ -172,11 +172,21 @@ Kubernetes は、特にマイクロサービスアーキテクチャや複雑な
 
 ## Tools
 
+[参考: Essential CLI/TUI Tools for Developers](https://packagemain.tech/p/essential-clitui-tools-for-developers)
+
+- [k9s](https://github.com/derailed/k9s)
+  - Kubernetes CLI To Manage Your Clusters In Style
+- [kdash](https://github.com/kdash-rs/kdash)
+  - Kubernetes用のterminal用のDashboard
+- [ktop](https://github.com/vladimirvivien/ktop)
+  - kbernetes clustersのためのtopコマンド
+- [kubectx](https://github.com/ahmetb/kubectx)
+  - kubectl上のcontext(cluster)を切り替えるツール
+- [kubescape](https://github.com/kubescape/kubescape)
+  - セキュリティーのためのscanツール
 - [Play with Kubernetes](https://labs.play-with-k8s.com/)
 - [kind](https://kind.sigs.k8s.io/)
   - local Kubernetes clusters
-- [k9s](https://github.com/derailed/k9s)
-  - Kubernetes CLI To Manage Your Clusters In Style
 
 ## その他のKubernetes ディストリビューション
 

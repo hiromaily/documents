@@ -46,6 +46,14 @@
   - Super-agent driven library for testing node.js HTTP servers
   - Star: 13.8k
   - Javascript
+- [ATAC](https://github.com/Julien-cpsn/ATAC)
+  - シンプルなPostmanのようなHTTP Client
+  - Star: 2.4k
+  - Rust
+- [httpie](https://github.com/httpie/cli)
+  - HTTP client
+- [asciinema](https://github.com/asciinema/asciinema)
+  - Terminal上で利用するセッションレコーダー
 
 ### 有償??
 
