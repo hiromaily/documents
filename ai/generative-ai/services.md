@@ -9,9 +9,7 @@
 
 ## 対話式検索ツール
 
-1. **Perplexity AI**：Bing検索エンジンと大規模言語モデル（GPTなど）を組み合わせた対話型AI検索エンジン。リアルタイム情報の検索、回答の出典元の明記、ファイルアップロードによるタスク処理などが特徴で、ビジネスや学術目的の情報収集に効果的。
-
-   - [perplexityのスペース機能がソフトウェアの調べものに便利](https://mrwk.hateblo.jp/entry/2025/01/03/081055)
+1. **Perplexity AI**：Bing 検索エンジンと大規模言語モデル（GPT など）を組み合わせた対話型 AI 検索エンジン。リアルタイム情報の検索、回答の出典元の明記、ファイルアップロードによるタスク処理などが特徴で、ビジネスや学術目的の情報収集に効果的。
 
 ## 文章生成 AI
 
@@ -36,4 +34,4 @@
 
 ## References
 
-- [遂にChatGPT Plusを解約してGeminiに移行した話](https://zenn.dev/zuzuzu/articles/gemini_vs_chatgpt)
+- [遂に ChatGPT Plus を解約して Gemini に移行した話](https://zenn.dev/zuzuzu/articles/gemini_vs_chatgpt)

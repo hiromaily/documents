@@ -89,6 +89,7 @@ LangChain は多くの分野で応用されている。以下はその一部。
 ## References
 
 - [【図解解説/初心者 OK】たった 1 時間で Next.js で最新 AI を使ったチャットアプリを作ろう【RAG/LangChain/OpenAI/TypeScript】](https://qiita.com/Sicut_study/items/d133120dd32d2d6a248c)
-- [AIエージェント開発を体系的に学ぶには最適の入門書「LangChainとLangGraphによるRAG・AIエージェント［実践］入門」](https://dev.classmethod.jp/articles/review-langchain-langgraph-ai-agent/)
-- [AIマルチエージェントのアプリをChainlitで爆速開発しよう](https://qiita.com/asuka0708japan/items/cdc9169cd06e03c14ada)
-- [「LangChainとLangGraphによるRAG・AIエージェント［実践］入門」でつまずいたことメモ](https://qiita.com/segavvy/items/b31efa98a2d4c20e9ec8)
+- [AI エージェント開発を体系的に学ぶには最適の入門書「LangChain と LangGraph による RAG・AI エージェント［実践］入門」](https://dev.classmethod.jp/articles/review-langchain-langgraph-ai-agent/)
+- [AI マルチエージェントのアプリを Chainlit で爆速開発しよう](https://qiita.com/asuka0708japan/items/cdc9169cd06e03c14ada)
+- [「LangChain と LangGraph による RAG・AI エージェント［実践］入門」でつまずいたことメモ](https://qiita.com/segavvy/items/b31efa98a2d4c20e9ec8)
+- [LangChain アプリケーション開発入門 - Streamlit 活用ガイド](https://zenn.dev/cloud_ace/articles/langchain-beginner-streamlit)

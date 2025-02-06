@@ -2,7 +2,9 @@
 
 Web サイトの URL を渡してその内容を要約してくれる AI サービス
 
-## [Perplexity.ia](https://www.perplexity.ai/)
+## [Perplexity.ai](https://www.perplexity.ai/)
+
+URL を渡して、日本語で簡単に説明して と入力すると、要約してくれる
 
 ## [NoteGPT](https://notegpt.io/)
 

@@ -34,10 +34,34 @@ RUST は式指向言語
 - [RealWorld 業務 Rust](https://qiita.com/legokichi/items/4e85ec1e74f4e754fb94)
 - [Re: RealWorld 業務 Rust (業務以外編)](https://kenoss.github.io/blog/2024-12-27-re-real-world-gyomu-rust/)
 
-## 高速化tips
+## 高速化 tips
 
-- [Rustプロジェクトのビルド高速化に関するベストプラクティス（ローカル環境編）](https://zenn.dev/fairydevices/articles/59cd718341da58)
-- [Rustのビルドを高速化する方法](https://postd.cc/fast-rust-builds/)
+- [Rust プロジェクトのビルド高速化に関するベストプラクティス（ローカル環境編）](https://zenn.dev/fairydevices/articles/59cd718341da58)
+- [Rust のビルドを高速化する方法](https://postd.cc/fast-rust-builds/)
+
+## [Rust でのプロトタイピングについて](https://corrode.dev/blog/prototyping/)
+
+Rust プログラミング言語を使ったプロトタイピングの利点と手法について
+Rust が安全性と生産性を両立させながら、プロトタイピングから本番コードへのスムーズな移行を可能にする
+
+### 主なポイント
+
+1. Rust は一般的な認識とは異なり、プロトタイピングに適している。
+2. 単一の言語でプロトタイプから本番コードまで開発できる利点がある。
+3. Rust の型システムは早期に設計の欠陥を発見するのに役立つ。
+
+### Rust でプロトタイピングするためのヒント
+
+1. シンプルな型（String, Vec など）を使用し、後で最適化する。
+2. 型推論を活用して、明示的な型宣言を減らす。
+3. Rust Playground を使用して素早くアイデアをテストする。
+4. 初期段階では`unwrap()`を積極的に使用し、後でエラー処理を改善する。
+5. `anyhow`クレートを使用してエラー処理を簡略化する。
+6. 優れた IDE を使用してコード補完や型ヒントを活用する。
+7. `bacon`ツールを使用して素早いフィードバックサイクルを実現する。
+8. 初期段階ではパフォーマンスを気にしすぎない。
+9. デバッグには`println!`や`dbg!`マクロを使用する。
+10. 型システムを活用して設計を進める。
 
 ## [Rust 初心者が実務レベルになるまでの学習ステップ](https://ai-techblog.hatenablog.com/entry/2023/03/26/082349)
 
