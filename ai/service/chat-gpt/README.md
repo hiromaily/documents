@@ -71,4 +71,6 @@ ChatGPT の SearchGPT（ChatGPT Search）は、OpenAI が開発した新しい�
 ## モデル性能
 
 - [O3-mini と O1 を比較してみた](https://zenn.dev/okikusan/articles/5ed583eef0a118)
-  - o3-mini: じっくり考えながら高速、o1 の後継となる o3
+  - o3-mini: じっくり考えながら高速、
+  - o1 の後継となる o3
+- [o1とo3-miniとo3-mini-highの性能比較](https://note.com/it_navi/n/nc9e6d154d703)

@@ -333,3 +333,4 @@ ENTRYPOINT ["apache2ctl", "-D", "FOREGROUND"]
 
 - [高度な Dockerfile ディレクティブ](https://dev.to/kalkwst/advanced-dockerfile-directives-193f)
 - [2024 年版の Dockerfile の考え方＆書き方](https://future-architect.github.io/articles/20240726a/)
+- [2025: Dockerfileの考え方](https://speakerdeck.com/qnighy/dockerfilenokao-efang)

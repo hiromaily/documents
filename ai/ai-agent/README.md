@@ -103,3 +103,4 @@ AI エージェントは、多種多様な分野で活用されており、そ�
   - プロトタイピング: Bold
   - Editor: Cursor
 - [ジャック・ドーシー率いる決済サービス「Block」がAIエージェント「Goose」を発表](https://gigazine.net/news/20250129-jack-dorsey-introduces-goose/)
+- [スライド: AIエージェントについてまとめてみた](https://speakerdeck.com/pharma_x_tech/aiezientonituitematometemita)
