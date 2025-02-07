@@ -62,6 +62,33 @@ Baggageは、サーバー間をまたいで伝播されるキーとバリュー�
 - **ユーザー情報**: リクエストが複数のマイクロサービスを通過する際に、ユーザーのIDや権限情報などを伝播させることができる。
 - **トランザクション情報**: 特定のトランザクションやセッションに関する詳細情報を保持し、関連するすべてのサービスに伝えることが可能。
 
+## 検索方法 (重要)
+
+この情報は、[分散トレーシング](../distributed-tracing.md)側にも記載している
+
+```go
+// Trace名
+tracer := tp.Tracer(tracerName),
+
+// Span名
+spanCtx, span := tracer.NewSpan(ctx, "T001Usecase.Execute()")
+```
+
+### Jaegerでの検索
+
+Jaegerだと、検索のプルダウンでは、以下のような項目がある
+
+- `Service`:　サービス名
+- `Operation`: Span名に該当する
+
+### Datadogでの検索
+
+DatadogのAPMのTracesでは、以下の項目で検索やフィルタリングができる (以下抜粋)。
+
+- service: トレースが含まれるサービス名
+- resource_name: トレースが関連するリソース（操作名）。これがSpan名に該当する
+- operation_name: Spanに設定した名称？
+
 ## まとめ
 
 分散トレーシングにおいて、Span、Tag、Log/Event、およびBaggageはそれぞれ重要な役割を果たしている：
@@ -72,61 +99,3 @@ Baggageは、サーバー間をまたいで伝播されるキーとバリュー�
 - **Baggage**: 分散コンテキスト全体で共有されるデータを保持し伝播。
 
 これらの機能を組み合わせて使用することで、分散システム内でのリクエストのフローを詳細に追跡し、効率的な監視とトラブルシューティングを行うことができるようになる。
-
-## [opentelemetry-goのtraceパッケージ](https://github.com/open-telemetry/opentelemetry-go/blob/main/trace/span.go)
-
-```go
-type Span interface {
-    // Users of the interface can ignore this. This embedded type is only used
-    // by implementations of this interface. See the "API Implementations"
-    // section of the package documentation for more information.
-    embedded.Span
-
-    // End completes the Span. The Span is considered complete and ready to be
-    // delivered through the rest of the telemetry pipeline after this method
-    // is called. Therefore, updates to the Span are not allowed after this
-    // method has been called.
-    End(options ...SpanEndOption)
-
-    // AddEvent adds an event with the provided name and options.
-    AddEvent(name string, options ...EventOption)
-
-    // AddLink adds a link.
-    // Adding links at span creation using WithLinks is preferred to calling AddLink
-    // later, for contexts that are available during span creation, because head
-    // sampling decisions can only consider information present during span creation.
-    AddLink(link Link)
-
-    // IsRecording returns the recording state of the Span. It will return
-    // true if the Span is active and events can be recorded.
-    IsRecording() bool
-
-    // RecordError will record err as an exception span event for this span. An
-    // additional call to SetStatus is required if the Status of the Span should
-    // be set to Error, as this method does not change the Span status. If this
-    // span is not being recorded or err is nil then this method does nothing.
-    RecordError(err error, options ...EventOption)
-
-    // SpanContext returns the SpanContext of the Span. The returned SpanContext
-    // is usable even after the End method has been called for the Span.
-    SpanContext() SpanContext
-
-    // SetStatus sets the status of the Span in the form of a code and a
-    // description, provided the status hasn't already been set to a higher
-    // value before (OK > Error > Unset). The description is only included in a
-    // status when the code is for an error.
-    SetStatus(code codes.Code, description string)
-
-    // SetName sets the Span name.
-    SetName(name string)
-
-    // SetAttributes sets kv as attributes of the Span. If a key from kv
-    // already exists for an attribute of the Span it will be overwritten with
-    // the value contained in kv.
-    SetAttributes(kv ...attribute.KeyValue)
-
-    // TracerProvider returns a TracerProvider that can be used to generate
-    // additional Spans on the same telemetry pipeline as the current Span.
-    TracerProvider() TracerProvider
-}
-```
