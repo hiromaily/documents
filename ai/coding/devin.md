@@ -27,3 +27,4 @@ Devinは、AIスタートアップのCognitionが2024年3月に発表した、�
 ## References
 
 - [Devinがすごすぎてガチ恋Devin沼ハマりしました](https://note.com/kokuyo_engineer/n/n2f4035ec6447)
+- [Devinにコンテナイメージサイズを70%削減・デプロイ時間を40%削減してもらった話](https://tech.layerx.co.jp/entry/2025/02/06/110027)
