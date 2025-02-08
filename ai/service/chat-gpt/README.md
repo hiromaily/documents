@@ -64,6 +64,10 @@ ChatGPT の SearchGPT（ChatGPT Search）は、OpenAI が開発した新しい�
 6. **ビジネスやリサーチ業務の効率化**:
    - 業界トレンド分析、店舗・施設検索、調査・研究作業の効率化など、多岐にわたる活用が可能。
 
+## [deep research](https://openai.com/index/introducing-deep-research/)
+
+- [何時間もかかる調査作業を数十分で実行できる ChatGPT の新機能「deep research」　これまでの AI モデルと性能はどう違う？](https://atmarkit.itmedia.co.jp/ait/articles/2502/05/news075.html)
+
 ## [OpenAPI: Operator](https://openai.com/index/introducing-operator/)
 
 ブラウザを操る AI エージェントで、ユーザーの代わりに複雑なタスクを処理する

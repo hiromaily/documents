@@ -13,6 +13,8 @@
 - オニオンアーキテクチャ
 - [Clean Architecture](./clean-architecture.md)
 
+[ストーリーでわかる！ソフトウェアアーキテクチャ 13 選](https://zenn.dev/mossan_hoshi/books/b2326637fec195)
+
 ## アーキテクチャ適用のメリット
 
 - 実装のための指針となるため、コードに規則性が生まれ、可読性が向上する
