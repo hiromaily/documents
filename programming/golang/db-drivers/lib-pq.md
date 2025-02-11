@@ -1,5 +1,7 @@
 # [lib/pq](https://github.com/lib/pq)
 
+2023/4で開発が止まっているため、[jackc/pgx](./jackc-pgx.md)を使用したほうがよい
+
 ## postgresql: DNS のパラメータについて
 
 ```go

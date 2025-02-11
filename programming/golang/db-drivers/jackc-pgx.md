@@ -1,4 +1,4 @@
-# [jackc/pgx](https://github.com/jackc/pgx)）
+# [jackc/pgx](https://github.com/jackc/pgx)
 
 `github.com/jackc/pgx` は、Go 言語用の高性能な PostgreSQL ドライバおよびデータベース接続プール。このパッケージは、純粋な Go で書かれており、標準ライブラリの `database/sql` インターフェースを拡張した機能を提供する。
 
@@ -45,7 +45,7 @@ import (
     "fmt"
     "log"
 
-    "github.com/jackc/pgx/v4"
+    "github.com/jackc/pgx/v5"
 )
 
 func main() {
