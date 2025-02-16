@@ -68,6 +68,7 @@ ChatGPT の SearchGPT（ChatGPT Search）は、OpenAI が開発した新しい�
 
 - [何時間もかかる調査作業を数十分で実行できる ChatGPT の新機能「deep research」　これまでの AI モデルと性能はどう違う？](https://atmarkit.itmedia.co.jp/ait/articles/2502/05/news075.html)
 - [ChatGPT deep research に見る AI が自律的に考える未来](https://tech.layerx.co.jp/entry/2025/02/13/175317)
+- [ChatGPT の deep research が凄すぎるので、徹底的に使い方と出力結果をまとめていくよ その 1](https://note.com/currypurin/n/n558fc5996586)
 
 ## [OpenAPI: Operator](https://openai.com/index/introducing-operator/)
 

@@ -13,6 +13,7 @@
 
 - [AI エージェント](./ai/ai-agent/README.md)
   - GitHub Copilot のエージェントモード
+  - ChatGPT deep research
 - [モジュラーモノリス](./infra/architecture/modular-monolith/README.md)
 - [Serverless アーキテクチャ](./infra/architecture/serverless.md)
 - [クラウドデザインパターン](./cloud/cloud-design-pattern/README.md)
