@@ -35,3 +35,5 @@ Devin は、AI スタートアップの Cognition が 2024 年 3 月に発表し
 - [Devin がすごすぎてガチ恋 Devin 沼ハマりしました](https://note.com/kokuyo_engineer/n/n2f4035ec6447)
 - [Devin にコンテナイメージサイズを 70%削減・デプロイ時間を 40%削減してもらった話](https://tech.layerx.co.jp/entry/2025/02/06/110027)
 - [Devin と Cursor を比較してみてわかった、マルチタスクエンジニアには Devin こそが救世主である理由](https://zenn.dev/ubie_dev/articles/e9682c9c6487c8)
+- [2025 年 2 月最新版：Devin に関するおすすめ資料](https://zenn.dev/yukinagae/articles/5f8f1d69116402)
+- [Devin を使ってみた - 自律型 AI エンジニアの実力と現状の課題・活用のヒント](https://zenn.dev/cureapp/articles/75b405a89068df)

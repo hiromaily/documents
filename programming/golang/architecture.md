@@ -60,3 +60,9 @@
 
 - 基本`pkg`配下はドメインレイヤーであり、その同階層に、`application`や`repository`を配置する
 - ただし、可能であれば、そのドメインも大カテゴリごとに大まかに分類できたほうがいい
+
+## アーキテクチャーの linter
+
+- [e3dback/go-arch-lint でアーキテクチャの破壊を防ぐ](https://debimate.jp/2025/02/13/%E3%80%90golang%E3%80%91fe3dback-go-arch-lint%E3%81%A7%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E3%81%AE%E7%A0%B4%E5%A3%8A%E3%82%92%E9%98%B2%E3%81%90/)
+- [fe3dback/go-arch-lint](https://github.com/fe3dback/go-arch-lint)
+- [arch-go/arch-go](https://github.com/arch-go/arch-go)

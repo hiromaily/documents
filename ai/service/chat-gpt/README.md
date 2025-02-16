@@ -35,6 +35,7 @@
 - [ChatGPT 新機能「タスク」](https://zenn.dev/acntechjp/articles/3a91d8db844b11)
 - [ChatGPT の新機能「Scheduled tasks」徹底解説](https://chatgpt-lab.com/n/naa1eb9becb85)
 - [OpenAI、新機能「ChatGPT Tasks」をリリース--情報収集などに有用](https://japan.zdnet.com/article/35228311/)
+- [I replaced my to-do list with ChatGPT’s Tasks feature and it completely changed the way I plan my life](https://www.techradar.com/computing/artificial-intelligence/i-replaced-my-to-do-list-with-chatgpts-tasks-feature-and-it-completely-changed-the-way-i-plan-my-life)
 
 ## [SearchGPT](https://openai.com/ja-JP/index/searchgpt-prototype/)
 

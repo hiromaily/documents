@@ -15,7 +15,7 @@ Dify は AI アプリケーション開発を支援するためのローコー�
 1. **低コードと可視化ワークフロー**:
 
    - **ユーザーフレンドリなインターフェース** : Dify は、視覚的なワークフローとドラッグ&ドロップ機能を提供し、ユーザーがコーディングの専門知識を必要とせずに AI アプリケーションを構築できるようにする。
-   - **高速開発** : Dify のPre構築されたコンポーネントとワークフローにより、開発プロセスを加速することができる。
+   - **高速開発** : Dify の Pre 構築されたコンポーネントとワークフローにより、開発プロセスを加速することができる。
 
 2. **モデル中立性と集成**:
 
@@ -49,5 +49,6 @@ Dify は AI アプリケーション開発を支援するためのローコー�
 
 ## References
 
-- [UnityとDifyで自分専用のAIエージェントを作成する](https://creators.bengo4.com/entry/2024/12/20/000000)
-- [Dify講座 超入門編 ~まだチャットでポン出し？ワークフローで生成AIが本領発揮](https://engineering.reiwatravel.co.jp/blog/Advent-Calendar-20241225)
+- [Unity と Dify で自分専用の AI エージェントを作成する](https://creators.bengo4.com/entry/2024/12/20/000000)
+- [Dify 講座 超入門編 ~まだチャットでポン出し？ワークフローで生成 AI が本領発揮](https://engineering.reiwatravel.co.jp/blog/Advent-Calendar-20241225)
+- [Dify × Bubble が、なぜ最強なのか](https://note.com/small_biz_lab/n/na7038c21e0c8)
