@@ -21,3 +21,4 @@ Claude は特に倫理性や安全性を重視するユーザーに適してい�
 ## References
 
 - [Introducing Citations on the Anthropic API](https://www.anthropic.com/news/introducing-citations-api)
+- [「AI の回答が信頼できない」に応える、Claude の新機能「Citations」の仕組みとは](https://atmarkit.itmedia.co.jp/ait/articles/2502/10/news065.html)

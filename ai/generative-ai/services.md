@@ -31,6 +31,7 @@
 
 1. **Sora**：物理法則も正確に再現した動画生成 AI。アニメーションを作成できる
 2. **Lumiere**：Google の開発した自由な編集が可能な動画生成 AI
+3. **Adobe Firefly**: Adobe 製
 
 ## References
 

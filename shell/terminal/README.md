@@ -29,8 +29,8 @@ macOS にはデフォルトで`Terminal`アプリケーションがインスト�
 4. **[Kitty](https://sw.kovidgoyal.net/kitty/)**: パフォーマンスとカスタマイズ性を重視したターミナルエミュレータ。
 5. **[Terminus](https://termius.com/)**: もともとウェブベースのターミナルエミュレータですが、デスクトップ用としても人気がある。
 6. **[Ghostty](https://ghostty.org/)**: 2024 年に出てきたリッチでハイパフォーマンスなエミュレータ
-7. **[Tabby](https://tabby.sh/)**: githubで61kあるのでそこそこ人気のエミュレーター
-8. **[WezTerm](https://wezfurlong.org/wezterm/)**: Rust製で2025年に紹介されていた
+7. **[Tabby](https://tabby.sh/)**: github で 61k あるのでそこそこ人気のエミュレーター
+8. **[WezTerm](https://wezfurlong.org/wezterm/)**: Rust 製で 2025 年に紹介されていた
 
 ## Linux の Terminal
 
@@ -56,3 +56,24 @@ Linux ディストリビューションにもさまざまな Terminal エミュ�
 - `top`: リアルタイムでシステムのプロセスとリソース使用量を表示。
 - `chmod`: ファイルやディレクトリのパーミッションを変更。
 - `chown`: ファイルやディレクトリの所有者を変更。
+
+## [2025: Best Terminal Applications for Development](https://thenewstack.io/best-terminal-applications-for-development/)
+
+- Warp
+  - モダンな機能を備えたターミナルアプリ。
+  - AI 機能を搭載し、自然言語でコマンドを入力可能。
+  - 無料プランと有料プラン（Pro、Team、Enterprise）があり、機能が異なる。
+- Windsurf
+  - 「エージェント IDE」として知られる。
+  - 70 以上のプログラミング言語に対応したコード補完機能を提供。
+  - 無料で使用可能。
+- Terminator
+  - 複数のペインを持つオープンソースの Linux ターミナル。
+  - タブ、カスタマイズ可能なレイアウト、コマンド履歴などの機能を提供。
+  - 無料で使用可能。
+- Guake
+  - キーボードショートカットで呼び出せる便利なターミナル。
+  - カスタマイズが可能で、必要なときにすぐにアクセスできる。
+- Contour
+  - パワーユーザー向けのモダンなターミナル。
+  - GPU 加速レンダリングや Unicode サポートなどの機能を備え、他のアプリとの統合も可能。

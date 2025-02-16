@@ -54,3 +54,4 @@ Github ページの設定内、[GitHub Copilot](https://github.com/settings/copi
 
 - [GitHub Copilot のテクニック集](https://speakerdeck.com/rayuron/github-copilot-techniques)
 - [GitHub Copilot:エージェントの覚醒](https://github.blog/jp/2025-02-07-github-copilot-the-agent-awakens/)
+- [「GitHub Copilot」のエージェントモードは、開発をどこまで自動化するのか？](https://atmarkit.itmedia.co.jp/ait/articles/2502/12/news060.html)

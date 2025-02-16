@@ -12,6 +12,7 @@
 ## 関心のある技術(Jan 2025)
 
 - [AI エージェント](./ai/ai-agent/README.md)
+  - GitHub Copilot のエージェントモード
 - [モジュラーモノリス](./infra/architecture/modular-monolith/README.md)
 - [Serverless アーキテクチャ](./infra/architecture/serverless.md)
 - [クラウドデザインパターン](./cloud/cloud-design-pattern/README.md)
