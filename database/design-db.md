@@ -78,3 +78,24 @@ sql2dbml sample_pg.sql --postgres
 [Creating Databases, Schemas, and Tables on pgAdmin](https://www.youtube.com/watch?v=6DzCWzeVFD0)
 
 ![pgadmin gui](https://github.com/hiromaily/documents/raw/main/images/pgadmin4-create-table.png "pgadmin gui")
+
+## [Liam](https://liambx.com/)
+
+Liam ERDは、データベースのER図を自動生成するオープンソースのツール
+
+### Liamの主な特徴
+
+1. **モダンでインタラクティブなUI**: ER図を動的に操作可能（パン、ズーム、フィルタリング、フォーカスなど）
+2. **ハイパフォーマンス**: 大規模なテーブル構造（100テーブル以上）でも、高速に動作する
+3. **CI/CD フレンドリー**: 簡単にセットアップとデプロイが可能で、多くのホスティングサービスで動作が確認されている
+4. **オープンソース&コミュニティ主導の開発**: コードを自由に改変可能で、コミュニティのフィードバックを受けて機能追加を進めていく
+
+### Liamの利用方法
+
+- **Web版**: パブリックなGitHubリポジトリの場合、スキーマファイルのURLの先頭に `https://liambx.com/erd/p/` を追加するだけでER図をレンダリングできる。例えば、MastodonのER図は `https://liambx.com/erd/p/github.com/mastodon/mastodon/blob/main/db/schema.rb` で見ることができる
+- **CLI版**: プライベートリポジトリやCI/CDパイプラインでの利用に対応している。`npx @liam-hq/cli erd build` コマンドを使用してER図を生成し、GitHub PagesやAWS S3でホスティングすることができる。
+
+### Liam利点
+
+- **ER図の自動生成**: 手動で更新する必要がないため、更新漏れや記載ミスを防ぐことができる
+- **高度な可読性**: テーブルのレイアウトが見やすく設定され、関連するテーブルやカラムをホバーするとハイライト表示される.

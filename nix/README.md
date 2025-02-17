@@ -64,3 +64,7 @@ nix-env -q
 ## Nixのユニークポイント
 
 Nixの特に強力な機能は再現性。すべての依存関係とそのバージョンが厳密に管理されるため、同じ.nixファイルを使えば、どのシステムでも同じ環境が再現可能。この特徴はCI/CDパイプラインや開発・本番環境の一貫性確保に大きく寄与する。
+
+## References
+
+- [開発マシンの環境セットアップをAnsibleからNixに移行した](https://blog.handlena.me/entry/2025/02/migrate-from-ansible-to-nix/)

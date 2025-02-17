@@ -1,5 +1,38 @@
 # [go-sql-driver/mysql](https://github.com/go-sql-driver/mysql)
 
+## 接続例
+
+```go
+   dsn := "user:password@tcp(127.0.0.1:3306)/dbname?charset=utf8&parseTime=True&loc=Local"
+    
+    db, err := sql.Open("mysql", dsn)
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer db.Close()
+
+    // 接続プールの設定
+    db.SetMaxOpenConns(10) // 最大オープン接続数
+    db.SetMaxIdleConns(5)  // 最大アイドル（待機）接続数
+    db.SetConnMaxLifetime(0) // 接続の再利用制限時間（0は無制限）
+
+    // テスト用に1つクエリを実行してみる
+    err = db.Ping()
+    if err != nil {
+        log.Fatal(err)
+    }
+    fmt.Println("Successfully connected to the database!")
+
+    // ここで実際のデータベース操作を行う
+    // 例えば、クエリを実行する
+    rows, err := db.Query("SELECT id, name FROM your_table")
+```
+
+- **db.SetMaxOpenConns(n int)**:
+  最大のオープン接続数を設定する。この数を超えると、新しい接続試行はブロックされるか、エラーが発生する
+- **db.SetMaxIdleConns(n int)**:
+  アイドル（待機状態）にできる最大接続数を設定します。この数を超えた余分な接続はクローズされる
+
 ## [mysql: DNS のパラメータについて](https://github.com/go-sql-driver/mysql/blob/00dc21a6243c02c1a84fc82d08a821c08fde4053/dsn.go#L61-L72)
 
 ```go

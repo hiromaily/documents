@@ -99,11 +99,6 @@ fields @timestamp, @message
 | filter @message like /(?i)Task timed out after/
 ```
 
-```prompt
-#prompt
-and message have to include specific id `cfa4a43b-c066-442e-b3cc-a11785e0041c`
-```
-
 ```query
 # requestIdをさらに指定
 fields @timestamp, @message 
