@@ -77,3 +77,4 @@
 ## International Certifications
 
 - [11 Software Engineering Certifications and Providers for 2024](https://www.indeed.com/career-advice/career-development/software-engineering-certifications)
+- [取りたいIT資格、システムアーキテクトと技術士がトップ10入り](https://active.nikkeibp.co.jp/atcl/act/19/00644/011600003/)

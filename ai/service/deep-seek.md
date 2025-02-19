@@ -28,3 +28,4 @@ DeepSeek は 2023 年に中国で設立された AI 企業で、汎用型 AI（A
 - [話題の中華 LLM「DeepSeek R1」の日本語追加学習モデル　サイバーエージェントが無料公開](https://www.itmedia.co.jp/aiplus/articles/2501/27/news163.html)
   - [cyberagent/DeepSeek-R1-Distill-Qwen-32B-Japanese](https://huggingface.co/cyberagent/DeepSeek-R1-Distill-Qwen-32B-Japanese)
 - [完全無料！話題の DeepSeek R1 をローカルで動かしてみた。Mac やスマホでも OK！](https://ascii.jp/elem/000/004/249/4249857/)
+- [rinnaのDeepSeek R1蒸留モデルがすごい](https://nowokay.hatenablog.com/entry/2025/02/17/152827)

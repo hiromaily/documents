@@ -15,7 +15,7 @@
   - GitHub Copilot のエージェントモード
   - ChatGPT deep research
 - [モジュラーモノリス](./infra/architecture/modular-monolith/README.md)
-- [Serverless アーキテクチャ](./infra/architecture/serverless.md)
+- [Serverless アーキテクチャ](./architecture/serverless-computing/serverless.md)
 - [クラウドデザインパターン](./cloud/cloud-design-pattern/README.md)
 - [分散システム](./distributed-system/README.md)
 

@@ -68,3 +68,11 @@ OS の 1 つで、Linux をベースとして、システムや製品、新た�
 
 - [10 Best Dark Themes for Ubuntu Linux](https://www.debugpoint.com/dark-themes-ubuntu/)
 - [20 Best Themes For Ubuntu In 2023](https://www.linuxandubuntu.com/home/20-best-themes-for-ubuntu-in-2017)
+- [7 tools to make your Linux desktop look amazing](https://www.xda-developers.com/make-your-linux-desktop-look-amazing/)
+  - KDE Plasma: Linux用のDesktop環境
+  - i3-gaps: Window managers
+  - awesomewm: Window managers
+  - openbox: minimalistic window manager
+  - Picom: ウィンドウの透明化、影、ぼかしなどの視覚効果を提供
+  - Animated Wallpapers: 動く壁紙
+  - Conky: lightweight system monitor

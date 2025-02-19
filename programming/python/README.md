@@ -151,3 +151,4 @@ Python の`__init__.py`ファイルは、ディレクトリを Python パッケ�
   - factory-boy: テストデータをいい感じに生成してくれるツール
   - freezegun: テストコードで時刻をモックするためのライブラリ
 - [Pyhton基礎 100本ノック](https://zenn.dev/python_academia/books/eabcc6b22afff5)
+- [Pythonの達人を目指して～Effective Pythonで学ぶコーディングテクニック～（前編）](https://qiita.com/NSS_FS_ENG/items/952072774acaaff8917d)

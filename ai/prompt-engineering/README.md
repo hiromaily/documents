@@ -47,3 +47,4 @@ AI モデルは広範な知識を持っているが、それでも文脈がな�
 ## References
 
 - [Prompt Engineering Guide](https://www.promptingguide.ai/jp)
+- [プロンプトエンジニアリング再入門](https://zenn.dev/acntechjp/articles/ad24cd00af552d)

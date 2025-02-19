@@ -55,3 +55,4 @@
 ## References
 
 - [Operating System in 1,000 Lines - Intro](https://operating-system-in-1000-lines.vercel.app/en)
+- [What is an operating system? Essential computing software explained](https://www.techradar.com/computing/software/what-is-an-operating-system)

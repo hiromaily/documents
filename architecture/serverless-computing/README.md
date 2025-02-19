@@ -23,6 +23,9 @@ Serverless Computing（サーバーレス・コンピューティング）は、
 - **AWS Lambda**: Amazon Web Services によるイベント駆動型の計算サービス。データの変化やユーザーアクションをトリガーとして関数を実行できる。
 - **Google Cloud Functions**: Google Cloud Platform の一部であり、サーバーレスな関数の実行環境を提供する。
 - **Azure Functions**: Microsoft Azure によるサーバーレス・コンピューティングサービス。
+- **Fluid compute by Vercel**: Vercelによるより効率的で高速とされるサービス
+
+- [従来のサーバレスよりさらに高効率で高速な「Fluid Compute」、Vercelが提供開始](https://www.publickey1.jp/blog/25/fluid_computevercel.html)
 
 ## 利点
 

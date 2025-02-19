@@ -7,8 +7,26 @@
 "github.com/stretchr/testify/require"
 ```
 
-assert パッケージはテストが失敗してもテストの実行を続行する。テストで複数のアサーションを行いたい場合に便利。
-require パッケージはテストが失敗した時点でテストの実行を停止する。重大な前提条件を確認する場合や、それ以降のテストが意味を持たない場合に使用する。
+- assert:
+  パッケージはテストが失敗してもテストの実行を続行する。テストで複数のアサーションを行いたい場合に便利。
+- require:
+  パッケージはテストが失敗した時点でテストの実行を停止する。重大な前提条件を確認する場合や、それ以降のテストが意味を持たない場合に使用する。
+
+## 比較する値の順番
+
+`expected`, `actual`の順番
+
+```go
+func Equal(t TestingT, expected interface{}, actual interface{}, msgAndArgs ...interface{}) {
+  if h, ok := t.(tHelper); ok {
+    h.Helper()
+  }
+  if assert.Equal(t, expected, actual, msgAndArgs...) {
+    return
+  }
+  t.FailNow()
+}
+```
 
 ## よく使われる Assert メソッド
 
@@ -107,12 +125,33 @@ require パッケージはテストが失敗した時点でテストの実行を
      ```
 
 10. **Len**
+
     - **説明**：スライス、マップ、チャネルの長さが指定された値と等しいことを確認する。
     - **シグネチャ**：`func Len(t TestingT, object interface{}, length int, msgAndArgs ...interface{}) bool`
     - **例**：
 
       ```go
       assert.Len(t, []int{1, 2, 3}, 3, "The length should be 3")
+      ```
+
+11. **InDelta**
+
+    - **説明**：2 つの値が特定のデルタ値（許容差）以内であることを確認する。浮動小数点数の計算結果の比較に便利。
+    - **シグネチャ**：`func InDelta(t TestingT, expected, actual interface{}, delta float64, msgAndArgs ...interface{}) bool`
+    - **例**：
+
+      ```go
+      assert.InDelta(t, 123.0, 123.1, 0.2, "The values should be within the delta")
+      ```
+
+12. **InEpsilon**
+
+    - **説明**：2 つの値の割合（相対誤差）が特定のイプシロン（許容値）以内であることを確認する。これも浮動小数点数の計算結果の比較に便利。
+    - **シグネチャ**：`func InEpsilon(t TestingT, expected, actual interface{}, epsilon float64, msgAndArgs ...interface{}) bool`
+    - **例**：
+
+      ```go
+      assert.InEpsilon(t, 100.0, 100.1, 0.001, "The values should be within the epsilon")
       ```
 
 ### assert のコード例
