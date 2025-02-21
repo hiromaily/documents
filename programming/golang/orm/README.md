@@ -13,6 +13,10 @@
 - [sqlx](https://github.com/jmoiron/sqlx)
   - Star: 16k
   - 自動生成機能はないが、軽量で使いやすい
+- [xo](https://github.com/xo/xo)
+  - Star: 3.8k
+  - データベーススキーマからデータアクセスコードを生成するツール
+  - シンプルなCRUDだけであれば、自動生成のみで実現できそう
 
 ## Migration
 

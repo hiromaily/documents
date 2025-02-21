@@ -112,3 +112,15 @@ dsn := "username:password@tcp(127.0.0.1:3306)/mydb?allowAllFiles=true&parseTime=
 12. **RejectReadOnly**
     - 読み取り専用接続を拒否する。読み取り専用の接続をエラーとして処理する。
     - **デフォルト:** `false`
+
+### `useAffectedRows=true`の設定はできない？これはJDBC専用？
+
+通常のMySQLの `UPDATE` 文では、影響を受けた行数を取得することができる。ただし、取得できる情報は、データベースのURL設定によって異なる。
+
+1. **データベースURLに `useAffectedRows=true` が含まれない場合**:
+   - 返される情報は **_適合行数** (Rows matched)、条件に合致する行数
+
+2. **データベースURLに `useAffectedRows=true` が含まれる場合**:
+   - 返される情報は **_影響行数** (Changed) 、影響を受けた行数
+
+DNS例: `mysql://localhost:3306/dbname?useAffectedRows=true`
