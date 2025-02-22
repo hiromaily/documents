@@ -35,6 +35,10 @@ RUST は式指向言語
 - [Re: RealWorld 業務 Rust (業務以外編)](https://kenoss.github.io/blog/2024-12-27-re-real-world-gyomu-rust/)
 - [Rustの誤解と改善](https://zenn.dev/toga/articles/rust-pitfalls)
 
+### 会社のRustを使った事例
+
+- [Rustで進化するPayPayのスケーラビリティ](https://blog.paypay.ne.jp/scaling-paypay-with-rust/)
+
 ## 高速化 tips
 
 - [Rust プロジェクトのビルド高速化に関するベストプラクティス（ローカル環境編）](https://zenn.dev/fairydevices/articles/59cd718341da58)

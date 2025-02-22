@@ -119,3 +119,4 @@ Amazon API Gateway とサーバーレス機能を活用することで、需要�
 - [Datadog: Serverless Architecture Overview](https://www.datadoghq.com/knowledge-center/serverless-architecture/)
 - WIP: [AWS Lambdaで実現するスケーラブルで低コストなWebサービス構築](https://speakerdeck.com/fujiwara3/yapc-hakodate2024)
 - WIP: [サーバーレス技術の今と未来について ServerlessDays Tokyo の PreEvent で話してきました](https://d.nekoruri.jp/entry/2024/09/20/serverlessjp)
+- WIP: [サーバーレスアーキテクチャと生成AIの融合](https://speakerdeck.com/_kensh/serverless-meets-generative-ai)
