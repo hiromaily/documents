@@ -7,6 +7,9 @@
 
 構造化ロギングパッケージlog/slog
 
+- [awesome-slog](awesome-slog)
+  - [console-slog](https://github.com/phsym/console-slog)
+
 ### slogの目的
 
 - 使いやすさ

@@ -2,6 +2,11 @@
 
 - [Network Security](../infra/security.md)
 
+## Trend
+
+- [2025: SMSを使った二要素認証、Googleが廃止へ--なぜ？ 「実は安全ではない」が業界の常識](https://japan.cnet.com/article/35229750/)
+  - GoogleはSMSで認証コードを送付する方式を廃止し、パスキーやQRコードに切り替える方針
+
 ## References
 
 - [情報処理推進機構: 安全なウェブサイトの作り方](https://www.ipa.go.jp/security/vuln/websecurity.html)

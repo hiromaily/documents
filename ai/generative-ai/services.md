@@ -21,6 +21,8 @@
 1. **[Midjourney](https://www.midjourney.com/home)**：Discord 上で利用できる、ハイクオリティな画像生成 AI。これが一番使われているか？
 2. **Stable Diffusion**：オープンソースで無料の画像生成 AI。具体的なイメージをテキスト入力で生成する
 3. **DALL·E2**：OpenAI が提供するクリエイティブな画像生成 AI
+4. **Whisk**: Google製
+   - [画像生成AI「Whisk」をさわってみる](https://zenn.dev/chameleonmeme/articles/020a4d8deeff68)
 
 ## 音声合成 AI
 

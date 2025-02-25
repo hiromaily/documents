@@ -132,3 +132,5 @@ Claude 3.5 Sonnet のエージェント コーディング機能のおかげで�
     - プログラマー人口の増加に貢献する可能性
   - CLINE が従来のコーディング支援ツールとは異なるアプローチを取っており、プログラミングの未来に大きな影響を与える可能性がある
 - [Cline ＋ローカル版 DeepSeek R1 で AI コーディングを使い放題にする（高スペックマシン向け）](https://note.com/cppp_cpchan/n/n92c7795f5939)
+- [Cline+Claude SonnetでのAIプログラミングが心地よい](https://speakerdeck.com/tomohisa/cline-plus-claude-sonnetdenoaipuroguramingugaxin-di-yoi)
+- [Clineに自分をエミュレートさせて技術記事を代筆させてみたらビビった](https://zenn.dev/mizchi/articles/auto-mizchi-writer)

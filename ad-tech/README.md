@@ -55,3 +55,4 @@ DMPは大量のオーディエンスデータを収集、整理、分析する�
 - [サードパーティ Cookie 終了、広告業界のベテランたちに聞く今後の見通し](https://digiday.jp/platforms/nine-questions-to-consider-as-google-starts-its-move-away-from-third-party-cookies/)
 - [AWS: サーバー側の広告挿入 (SSAI)](https://aws.amazon.com/jp/media/tech/what-server-side-ad-insertion-ssai/)
 - [広告が表示されるたびに、あなたの位置情報は無数の企業（とデータブローカー）に共有・蓄積され、そして転売されている](https://p2ptk.org/privacy/5287)
+- [Chromeの変更にともない、グーグルが「すべてのデバイスを追跡」開始](https://forbesjapan.com/articles/detail/77318)

@@ -31,3 +31,7 @@ xAI社が開発した対話型AI
 
 - xAI社は2023年7月にイーロン・マスク氏が設立し、わずか数カ月でGrokを公開した。
 - xAI社は2024年12月に米NVIDIAや米AMD、その他ベンチャーキャピタルから60億ドル（約9420億円）を調達した。
+
+## References
+
+- [【Grok3徹底解説】最新情報に強く『ChatGPT』『Gemini』より賢いAI　※事例&プロンプト付き](https://note.com/tiermind_aimedia/n/ne83154ce27a9)

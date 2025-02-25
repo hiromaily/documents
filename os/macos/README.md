@@ -10,3 +10,7 @@
 ## Mac 環境の Cleanup
 
 - [2024: macOS のファイルを断捨離して 60 GB 空ける](https://zenn.dev/inaniwaudon/articles/5e56e701fc7a41)
+
+## References
+
+- [【2025年版】Mac 使いのエンジニアの最初にやること / 初期設定](https://zenn.dev/gahuto/articles/tkt-mac-preferences-2025)

@@ -66,3 +66,4 @@
 - [Google の最新型 AI「Gemini 2.0」って何ができるの？](https://www.lifehacker.jp/article/2412-google-announced-efficient-new-gemini/)
 - [Gemini Advanced の新機能 Deep Research が日本語でも公開](https://blog.google/intl/ja-jp/company-news/technology/gemini-advanced-deep-research/)
 - [Gemini Deep Research が日本語に対応したので使ってみた！複雑な調査も 5 分で分析・考察まで](https://www.lifehacker.jp/article/2501-gemini-how-to-deepresearch/)
+- [Gemini 2.0 Flashで実現する高コスパAI開発 〜実践的プロンプトエンジニアリングと文書管理システムの実装例](https://speakerdeck.com/erukiti/gemini-2-dot-0-flash-prompt-engineering)

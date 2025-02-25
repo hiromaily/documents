@@ -76,3 +76,5 @@ ChatGPT の SearchGPT（ChatGPT Search）は、OpenAI が開発した新しい�
 ## [OpenAPI: Operator](https://openai.com/index/introducing-operator/)
 
 ブラウザを操る AI エージェントで、ユーザーの代わりに複雑なタスクを処理する
+
+- [AIがWeb操作してくれるOpenAI「Operator」、日本で解禁　飲食店やホテルの予約などもAIにおまかせ](https://www.itmedia.co.jp/aiplus/articles/2502/21/news165.html)

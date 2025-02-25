@@ -56,3 +56,4 @@ Perplexity AI には、Copilot チャットや Gemini と比較して、以下�
 
 - [perplexity のスペース機能がソフトウェアの調べものに便利](https://mrwk.hateblo.jp/entry/2025/01/03/081055)
 - [Perplexity のエージェント「Perplexity Assistant」登場。実際に何ができるか試してみた](https://www.lifehacker.jp/article/2502-new-perplexity-ai-assistant-for-android/)
+- [Perplexity、独自Webブラウザ「Comet」発表　「エージェント検索用ブラウザ」](https://www.itmedia.co.jp/news/articles/2502/25/news098.html)

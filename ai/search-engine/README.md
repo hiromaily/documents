@@ -3,6 +3,9 @@
 - [Perplexity](../service/perplexity/README.md)
 - [Felo](./felo.md)
 - [Genspark.ai](https://www.genspark.ai/)
+- [Sourcegraph](https://sourcegraph.com/)
+  - ソースコード特化の検索エンジン
+  - GithubやGitlabなどのpublicリポジトリを爆速で横断検索ができる
 
 ## References
 

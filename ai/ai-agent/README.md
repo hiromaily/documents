@@ -99,3 +99,7 @@ AI エージェントは、多種多様な分野で活用されており、そ�
 - [生成AIが人間の介在なしに自律的にソフトウェアテストを生成し実行、バグや脆弱性を発見してくれるAIテストエージェント「Spark」](https://www.publickey1.jp/blog/25/aiaispark.html)
 - [ジャック・ドーシー率いる決済サービス「Block」がAIエージェント「Goose」を発表](https://gigazine.net/news/20250129-jack-dorsey-introduces-goose/)
 - [スライド: AIエージェントについてまとめてみた](https://speakerdeck.com/pharma_x_tech/aiezientonituitematometemita)
+- [AIエージェントを開発するために注力すべきポイント](https://forest.watch.impress.co.jp/docs/serial/aidev/1662583.html)
+  - AIエージェントに「何を」任せるべきか？
+  - AIエージェントに「どこまで」任せるべきか？
+  - AIエージェントを「どう」運用すべきか？

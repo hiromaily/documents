@@ -142,3 +142,4 @@ RAG（検索拡張生成）は、`自然言語処理`と`情報検索技術`の�
 - [2024: 新規サービスのバックエンド開発で3ヶ月経ったので、試した技術や取り組みをまとめてみた](https://www.ai-shift.co.jp/techblog/4234)
   - AI Worker
     - RAGを組み合わせたChatGPT Likeのチャットシステム(Streamを扱う)
+- [RAGのビジネス適用に向けたパフォーマンス改善ガイド](https://note.com/wandb_jp/n/n8ea88483a96c)

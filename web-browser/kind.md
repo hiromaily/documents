@@ -16,6 +16,7 @@ Zen Browser は、Mozilla Firefox をベースにしたオープンソースの�
 Zen Browser は、高いカスタマイズ性とパフォーマンスを両立させることを目指しており、従来のブラウザにない特徴を持つ新しい選択肢として注目されている。
 
 - [Zen Browser is better than Brave, Arc, and Chrome, and I can't recommend anything else](https://www.xda-developers.com/zen-browser-better-brave-arc-chrome/)
+- [「Opera」から「Zen Browser」に乗り換えた5つの理由](https://japan.zdnet.com/article/35229675/)
 
 ### Zen Browser の主な特徴と機能
 

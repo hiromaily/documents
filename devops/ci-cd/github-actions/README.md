@@ -142,3 +142,7 @@ jobs:
 
 3. **依存**
    - GitHub のエコシステムに強く依存するため、他のバージョン管理システム（例：GitLab、Bitbucket など）を使っている場合には適用が難しい。
+
+## References
+
+- [GitHub Actions のワナ仕様](https://zenn.dev/simpleform_blog/articles/bff4e1a0286934)
