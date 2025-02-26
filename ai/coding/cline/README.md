@@ -134,3 +134,5 @@ Claude 3.5 Sonnet のエージェント コーディング機能のおかげで�
 - [Cline ＋ローカル版 DeepSeek R1 で AI コーディングを使い放題にする（高スペックマシン向け）](https://note.com/cppp_cpchan/n/n92c7795f5939)
 - [Cline+Claude SonnetでのAIプログラミングが心地よい](https://speakerdeck.com/tomohisa/cline-plus-claude-sonnetdenoaipuroguramingugaxin-di-yoi)
 - [Clineに自分をエミュレートさせて技術記事を代筆させてみたらビビった](https://zenn.dev/mizchi/articles/auto-mizchi-writer)
+- [CLINEに全部賭けろ](https://zenn.dev/mizchi/articles/all-in-on-cline)
+- [Cline 試してみた](https://voluntas.ghost.io/try-cline/)

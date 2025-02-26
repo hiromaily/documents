@@ -67,3 +67,6 @@
 - [Gemini Advanced の新機能 Deep Research が日本語でも公開](https://blog.google/intl/ja-jp/company-news/technology/gemini-advanced-deep-research/)
 - [Gemini Deep Research が日本語に対応したので使ってみた！複雑な調査も 5 分で分析・考察まで](https://www.lifehacker.jp/article/2501-gemini-how-to-deepresearch/)
 - [Gemini 2.0 Flashで実現する高コスパAI開発 〜実践的プロンプトエンジニアリングと文書管理システムの実装例](https://speakerdeck.com/erukiti/gemini-2-dot-0-flash-prompt-engineering)
+- [Google、「Gemini Code Assist」を無料公開　コード補完は月当たり18万回](https://www.itmedia.co.jp/aiplus/articles/2502/26/news125.html)
+  - GitHubとの連携により、「Gemini Code Assist for GitHub」を通じて無料のAIによるコードレビューが提供される
+  - IDE（Visual Studio CodeやJetBrains IDE）との統合により、コード補完、生成、チャット機能が利用可能

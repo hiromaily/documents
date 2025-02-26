@@ -7,3 +7,4 @@
   - LLM: DeepSeek V3
   - プロトタイピング: Bold
   - Editor: Cursor
+- [AIエージェントで前から欲しかったツールを作ってみた](https://knqyf263.hatenablog.com/entry/2025/02/25/120141)

@@ -13,41 +13,41 @@
 
 ## 主なモデル
 
-1. **Claude（Anthropic）**:
-   - **開発者**: Anthropic
-   - **特徴**: 安全性と倫理性を重視して開発されたモデルで、偏見や不適切な内容の生成を抑えるように設計されている。高度な自然言語処理能力を持ち、ユーザーとのインタラクションにおける透明性と監査可能性を重視している。
-
-2. **GPT-3（OpenAI）**:
+1. **GPT-3（OpenAI）**:
    - **開発者**: OpenAI
    - **特徴**: 非常に高い性能を持ち、大量のテキストデータを基にして多様なタスク（質問応答、文生成、対話、翻訳など）をこなすことができます。ChatGPTとして広く利用されている。
 
-3. **BERT（Bidirectional Encoder Representations from Transformers）**:
+2. **GPT-4（OpenAI）**:
+   - **開発者**: OpenAI
+   - **特徴**: GPT-3の後継であり、さらに多くのパラメータとデータセットを使用してトレーニングされ、高度な文章生成と理解能力を提供する。
+
+3. **Claude（Anthropic）**:
+   - **開発者**: Anthropic
+   - **特徴**: 安全性と倫理性を重視して開発されたモデルで、偏見や不適切な内容の生成を抑えるように設計されている。高度な自然言語処理能力を持ち、ユーザーとのインタラクションにおける透明性と監査可能性を重視している。
+
+4. **BERT（Bidirectional Encoder Representations from Transformers）**:
    - **開発者**: Google
    - **特徴**: 双方向的なテキスト処理能力を持ち、特に文脈理解に優れている。対話システムや検索エンジンの精度向上に寄与する。
 
-4. **RoBERTa（Robustly optimized BERT approach）**:
+5. **RoBERTa（Robustly optimized BERT approach）**:
    - **開発者**: Facebook AI Research（FAIR）
    - **特徴**: BERTを改良したモデルで、トレーニングのデータ量や方法を最適化することで性能を向上させた。
 
-5. **T5（Text-to-Text Transfer Transformer）**:
+6. **T5（Text-to-Text Transfer Transformer）**:
    - **開発者**: Google
    - **特徴**: すべてのテキスト形式のタスクを統一的に処理できるよう設計され、翻訳や要約、回答生成などに使用される。
 
-6. **XLNet**:
+7. **XLNet**:
    - **開発者**: Google
    - **特徴**: BERTの双方向トレーニングに加え、「置き換えトレーニング」手法を取り入れ、より高精度の文脈理解を実現している。
 
-7. **Albert（A Lite BERT）**:
+8. **Albert（A Lite BERT）**:
    - **開発者**: Google
    - **特徴**: BERTの軽量版で、パラメータの共有と情報の重複を回避することでスケーラビリティと性能を向上させた。
 
-8. **Megatron-Turing NLG**:
+9. **Megatron-Turing NLG**:
    - **開発者**: NVIDIAとMicrosoft
    - **特徴**: 非常に大規模なパラメータを持ち、高度な自然言語生成能力を持っている。特に生成タスクに優れている。
-
-9. **GPT-4（OpenAI）**:
-   - **開発者**: OpenAI
-   - **特徴**: GPT-3の後継であり、さらに多くのパラメータとデータセットを使用してトレーニングされ、高度な文章生成と理解能力を提供する。
 
 10. **PaLM（Pathways Language Model）**:
     - **開発者**: Google Research
