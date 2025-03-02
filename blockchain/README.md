@@ -61,3 +61,6 @@
 - [ブロックチェーンの仕組み](https://www.nttdata.com/jp/ja/services/blockchain/002/)
 - [Solidity security 内部 Docs](./solidity/security/README.md)
 - [2022: A simple guide to the Web3 stack](https://www.coinbase.com/blog/a-simple-guide-to-the-web3-stack)
+- [Web3開発者をねらったハッキング手口の全て（わたしは全て抜かれました...）](https://zenn.dev/mameta29/articles/7aa221046a87ff)
+  - Linkedin経由でweb3案件を紹介してくる輩は怪しいかもしれないので気を付ける
+  - [Web3 のマルウェアが話題なので解析してみた](https://zenn.dev/waki285/articles/web3-malware-deobfuscated)

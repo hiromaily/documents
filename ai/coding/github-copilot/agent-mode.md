@@ -24,6 +24,7 @@
 ## エージェントモードを有効にする
 
 - **前提条件**: `Visual Studio Code Insiders版`が必要です。通常版のVS Codeではサポートされていない.
+  - `Visual Studio Code Insiders版`で、Extensionとして、CopilotとCopilot Chatのプレリリース版をインストールする
 - **有効化手順**:
   1. **GitHub Copilotの設定を開く**:
      - VS Code Insidersの設定画面で「GitHub Copilot」を検索し、「GitHub Copilot: Enable Agent」を有効する.
@@ -32,9 +33,16 @@
   3. **サイドバーからの操作**:
      - VS Code Insidersのサイドバーで「GitHub Copilot」アイコンをクリックし、エージェントモードの切り替えスイッチをオンにする.
 
+## AIエージェントに対して普段から使うルールを登録しておく
+
+[Refer to: GitHub Copilot のリポジトリ カスタム命令を追加する](https://docs.github.com/ja/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot)
+
+`.github/copilot-instructions.md`に記載する
+
 ## References
 
 - [GitHub Copilot Agent Modeが登場。タスクを与えると自律的にプログラミング、テストコードも修正、テストが失敗すればデバッグも](https://www.publickey1.jp/blog/25/github_copilot_agent_mode.html)
 - [GitHub Copilot:エージェントの覚醒](https://github.blog/jp/2025-02-07-github-copilot-the-agent-awakens/)
 - [「GitHub Copilot」のエージェントモードは、開発をどこまで自動化するのか？](https://atmarkit.itmedia.co.jp/ait/articles/2502/12/news060.html)
 - [Github Copilot Agentでパワーが4倍に、1週間を振り返る](https://note.com/sys1yagi/n/n9a7b93554e3a)
+- [「Clineに全部賭ける」勇気がでないのでGitHub Copilot Agentでお安く試してみる](https://qiita.com/sigma_devsecops/items/cd420bd54cbbe1c40cc0)

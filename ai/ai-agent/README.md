@@ -103,3 +103,6 @@ AI エージェントは、多種多様な分野で活用されており、そ�
   - AIエージェントに「何を」任せるべきか？
   - AIエージェントに「どこまで」任せるべきか？
   - AIエージェントを「どう」運用すべきか？
+- [Slide: AIエージェント時代のエンジニアになろう](https://speakerdeck.com/yoshidashingo/20250301-agentic-ai-engineering)
+- [AIエージェントカオスマップ2025](https://aismiley.co.jp/ai_news/ai-agent-chaosmap-2025/)
+- [2025: AIエージェント入門](https://speakerdeck.com/minorun365/aiezientoru-men)

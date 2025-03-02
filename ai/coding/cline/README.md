@@ -9,7 +9,7 @@ Cline(シーライン)は、`Anthropic社`が開発した AI エージェント�
 ## 主な特徴
 
 - **コードのサイクル自動実行**: Cline は、チャットを通じてプログラミングコードのサイクルを AI が自動で実行する。最新の LLM を活用し、コードの賢い提案や自動補完、インラインでのドキュメント表示などを行う。
-- **複数の AI モデル選択可能**: Cline は、Claude 3.5 Sonnet モデルを基盤に、Google、AWS など主要な LLM を利用可能にするため、プロジェクトに最適なサービスを選択して利用できる。
+- **複数の AI モデル選択可能**: Cline は、`Claude 3.5 Sonnet` モデルを基盤に、Google、AWS など主要な LLM を利用可能にするため、プロジェクトに最適なサービスを選択して利用できる。
 - **オープンソースでカスタマイズ可能**: Cline はオープンソースとして提供されているため、開発者が自由にカスタマイズすることができる。
 - **様々な操作**: ファイルの作成・編集、プロジェクトの調査、ターミナルコマンドの実行が可能
 
@@ -23,11 +23,6 @@ Cline(シーライン)は、`Anthropic社`が開発した AI エージェント�
   - プロジェクト内のコード構造
   - コーディングルールの設定
   - コミットメッセージ, プルリクエストのタイトル・サマリーを生成するルール
-
-## 種類
-
-- **Cline（旧 Claude Dev）**: オリジナル版のツールで、Visual Studio Code などの IDE 内で動作する自律型コーディングエージェント。ファイルの作成・編集、ターミナルコマンドの実行、MCP（Model Context Protocol）によるカスタムツール作成などが可能。
-- **Roo Cline**: Cline のフォーク版で、新しい実験的な設定や自動化機能を追加したバージョン。特定のプロジェクトや環境に最適化されている可能性がある。
 
 ## Cline で利用可能な API Provider (2025/1 現在)
 
@@ -70,17 +65,19 @@ Cline(シーライン)は、`Anthropic社`が開発した AI エージェント�
 ## What can I do for you?の説明
 
 ```txt
-Thanks to Claude 3.5 Sonnet's agentic coding capabilities, I can handle complex software development tasks step-by-step. With tools that let me create & edit files, explore complex projects, use the browser, and execute terminal commands (after you grant permission), I can assist you in ways that go beyond code completion or tech support. I can even use MCP to create new tools and extend my own capabilities.
+Thanks to Claude 3.7 Sonnet's agentic coding capabilities, I can handle complex software development tasks step-by-step. With tools that let me create & edit files, explore complex projects, use the browser, and execute terminal commands (after you grant permission), I can assist you in ways that go beyond code completion or tech support. I can even use MCP to create new tools and extend my own capabilities.
 
-Claude 3.5 Sonnet のエージェント コーディング機能のおかげで、複雑なソフトウェア開発タスクを段階的に処理できます。ファイルの作成と編集、複雑なプロジェクトの調査、ブラウザーの使用、ターミナル コマンドの実行 (許可後) ができるツールにより、コード補完やテクニカル サポートを超えた方法でお客様を支援できます。MCP を使用して新しいツールを作成し、独自の機能を拡張することもできます。
+Claude 3.7 Sonnet のエージェント コーディング機能のおかげで、複雑なソフトウェア開発タスクを段階的に処理できます。ファイルの作成と編集、複雑なプロジェクトの調査、ブラウザーの使用、ターミナル コマンドの実行 (許可後) ができるツールにより、コード補完やテクニカル サポートを超えた方法でお客様を支援できます。MCP を使用して新しいツールを作成し、独自の機能を拡張することもできます。
 ```
+
+## Demo
 
 - [X 上の Demo](https://x.com/sdrzn/status/1881761978986934582)
 
 ## References
 
-- [Cline を使用した次世代 AI コーディング。もう Cursor は要らない？](https://qiita.com/noshut/items/0c1de89c766106b204a8)
-- [claude.ai と cline を活用したコストと精度を両立する AI 駆動開発手法](https://zenn.dev/sunwood_ai_labs/articles/ai-driven-development-cost-accuracy)
+- [2024/10: Cline を使用した次世代 AI コーディング。もう Cursor は要らない？](https://qiita.com/noshut/items/0c1de89c766106b204a8)
+- [2024/10: claude.ai と cline を活用したコストと精度を両立する AI 駆動開発手法](https://zenn.dev/sunwood_ai_labs/articles/ai-driven-development-cost-accuracy)
   - ステップ 1: Web UI ベースで要件を固める
     - 定額制で無制限に試行錯誤が可能
     - プロジェクトの構成を練りやすい
@@ -90,7 +87,7 @@ Claude 3.5 Sonnet のエージェント コーディング機能のおかげで�
     - 不足部分の自動補完
     - 変更ファイルの自動コミットとロールバック
     - ファイル作成とコマンド実行が得意
-- [思いつきで作った AI ツールが 5000 スターを獲得した話](https://zenn.dev/yamadashy/articles/ai-tool-repomix-5000-star)
+- [2025/01: 思いつきで作った AI ツールが 5000 スターを獲得した話](https://zenn.dev/yamadashy/articles/ai-tool-repomix-5000-star)
   - GitHub リポジトリのコードを 1 つのファイルにまとめるツール「Repomix」の開発と成功について説明
   - Repomix の主な特徴と利点:
     - GitHub リポジトリのコードを 1 つのファイルにまとめる
@@ -100,7 +97,7 @@ Claude 3.5 Sonnet のエージェント コーディング機能のおかげで�
   - 現在の状況と今後
     - 個人開発や小規模プロジェクトでは十分な機能を提供
     - 中規模以上のプロジェクトへの対応が今後の課題
-- [VS Code と AI チャットの往復いらず！ 話題の拡張機能 Cline で爆速開発してみよう](https://qiita.com/minorun365/items/b2990a7228e8cc4ed025)
+- [2025/01: VS Code と AI チャットの往復いらず！ 話題の拡張機能 Cline で爆速開発してみよう](https://qiita.com/minorun365/items/b2990a7228e8cc4ed025)
   - Cline の特徴
     - VS Code に拡張機能を追加するだけで使用可能
     - AI チャットとエディタの往復が不要になり、効率的な開発が可能
@@ -109,11 +106,9 @@ Claude 3.5 Sonnet のエージェント コーディング機能のおかげで�
     - API 利用料が発生する
     - AI の回答にハルシネーション (人工知能（AI）が誤った情報や事実とは異なる情報を生成する現象) が含まれる可能性がある
     - コストを抑えるには、こまめに新規スレッドを開始することが推奨される
-- [Recline という庶民の味方！！GitHub Copilot で Cline が使える](https://sitochablog.pages.dev/posts/recline/)
-  - Recline という Cline をフォークしたプロジェクトの使い方
-- [Cline を利用した開発が超快適なので、使っている.clinerules を解説します](https://zenn.dev/berry_blog/articles/c72564d4d89926)
+- [2025/01: Cline を利用した開発が超快適なので、使っている`.clinerules` を解説します](https://zenn.dev/berry_blog/articles/c72564d4d89926)
   - `.clinerules`の使い方について
-- [「プログラマと CLINE - これはパンドラの箱なのか」を観た](https://laiso.hatenablog.com/entry/2025/01/27/125645)
+- [2025/01: 「プログラマと CLINE - これはパンドラの箱なのか」を観た](https://laiso.hatenablog.com/entry/2025/01/27/125645)
   - CLINE の特徴と設計思想
     - 人間の介入を最小限に抑えながら自動的にコードを生成する
     - タスクランナーとして設計され、AI に主導権を与える
@@ -131,8 +126,15 @@ Claude 3.5 Sonnet のエージェント コーディング機能のおかげで�
     - AI エージェント最適化アーキテクチャの可能性
     - プログラマー人口の増加に貢献する可能性
   - CLINE が従来のコーディング支援ツールとは異なるアプローチを取っており、プログラミングの未来に大きな影響を与える可能性がある
-- [Cline ＋ローカル版 DeepSeek R1 で AI コーディングを使い放題にする（高スペックマシン向け）](https://note.com/cppp_cpchan/n/n92c7795f5939)
-- [Cline+Claude SonnetでのAIプログラミングが心地よい](https://speakerdeck.com/tomohisa/cline-plus-claude-sonnetdenoaipuroguramingugaxin-di-yoi)
-- [Clineに自分をエミュレートさせて技術記事を代筆させてみたらビビった](https://zenn.dev/mizchi/articles/auto-mizchi-writer)
-- [CLINEに全部賭けろ](https://zenn.dev/mizchi/articles/all-in-on-cline)
-- [Cline 試してみた](https://voluntas.ghost.io/try-cline/)
+- [2025/01: Cline ＋ローカル版 DeepSeek R1 で AI コーディングを使い放題にする（高スペックマシン向け）](https://note.com/cppp_cpchan/n/n92c7795f5939)
+- [2025/01:【完全版】Clineとは何かを徹底解説します](https://zenn.dev/aimasaou/articles/d5dfb5a5382440)
+  - Clineを補助的に利用という考え
+- [2025/02: [Slide] Cline+Claude SonnetでのAIプログラミングが心地よい](https://speakerdeck.com/tomohisa/cline-plus-claude-sonnetdenoaipuroguramingugaxin-di-yoi)
+- [2025/02: Clineに自分をエミュレートさせて技術記事を代筆させてみたらビビった](https://zenn.dev/mizchi/articles/auto-mizchi-writer)
+- [2025/02: CLINEに全部賭けろ](https://zenn.dev/mizchi/articles/all-in-on-cline)
+- [2025/02: Cline 試してみた](https://voluntas.ghost.io/try-cline/)
+
+### Ref: derivative
+
+- [2025/01: Recline という庶民の味方！！GitHub Copilot で Cline が使える](https://sitochablog.pages.dev/posts/recline/)
+  - Recline という Cline をフォークしたプロジェクトの使い方

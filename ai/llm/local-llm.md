@@ -38,3 +38,4 @@
 - [ローカル LLM の小説生成能力を評価する：中規模モデル編](https://note.com/kohya_ss/n/n07f550125282)
 - [2025 年さらに熱くなるであろうローカル LLM のための m4mac 購入検討](https://zenn.dev/afk2777/articles/localllm-mac)
 - [ローカル LLM の実行ツール「Ollama」の GUI フロントエンド ⁠⁠⁠⁠、Alpaca を使用して生成 AI を使用する［Radeon 編］](https://gihyo.jp/admin/serial/01/ubuntu-recipe/0849)
+- [ローカルLLMで遊ぶためにVRAM40GBのPCを構築したので、その顛末を記録する(計40万円)](https://www.robotech-note.com/entry/2025/02/28/%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%ABLLM%E3%81%A7%E9%81%8A%E3%81%B6%E3%81%9F%E3%82%81%E3%81%ABVRAM40GB%E3%81%AEPC%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%97%E3%81%9F%E3%81%AE%E3%81%A7%E3%80%81%E3%81%9D%E3%81%AE)

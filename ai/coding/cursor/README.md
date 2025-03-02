@@ -67,9 +67,29 @@ Cursor の料金体系は以下の通り
 - **Pro**: 月額 20 ドル
 - **Business**: 月額 40 ドル
 
+## [cursor.directory](https://cursor.directory/)
+
+Cursor Directoryは、Cursor AIユーザーのためのリソースサイトで、主な目的は、Cursor AIの効果的な利用をサポートすること。
+Cursor Directoryを利用することで、開発者はCursor AIの機能をより効果的に活用し、高品質なコードを効率的に生成することができる。
+
+### Cursor Directoryの特徴
+
+1. 最適化されたプロンプトとルールの提供: 各種フレームワークや言語に合わせた、最適化されたプロンプトやルールのテンプレートを提供する。
+
+2. プロジェクト品質の向上: 適切なルールを使用することで、Cursor AIの回答品質を飛躍的に向上させることができる。
+
+3. 開発効率の改善: 言語やフレームワーク固有の最適な設定を簡単に適用できるため、開発効率が向上する。
+
+4. カスタマイズの促進: 既存のルールを参考に、プロジェクトに合わせたカスタムルールを作成することができる。
+
+5. プロジェクト方針の統一: チーム開発において、コーディング規約や選定技術などのプロジェクト全体のルールを設定し、一貫性を保つことができる。
+
 ## References
 
 - [最強神器「Cursor」の本当に使い方を徹底解説【知らないとヤバいレベルです】](https://zenn.dev/aimasaou/articles/f9b19ca901a0cd)
 - [私のシンプルCursor活用方法](https://note.com/nike_cha_n/n/nd0f7566019ae)
 - [AIコーディングアシスタント「Cursor」が4カ月の短期間で1億ドル調達　加熱するコーディングAI開発競争](https://ampmedia.jp/2025/02/23/cursor/)
 - [Cursor 次期バージョン(v0.46)の 5 つのアップデートが超便利なので紹介したい](https://zenn.dev/kikagaku/articles/b074d9fbf01479)
+- [いま文章を書くのに「CURSOR」を使わないのは損だ](https://ascii.jp/elem/000/004/253/4253872/)
+- [Cursor活用で開発生産性を最大化するTips](https://zenn.dev/rikika/articles/d65e6e676e890d)
+- [Cursorを3週間使った所感・Clineとの違いまとめ](https://zenn.dev/robustonian/articles/cursor_vs_cline)

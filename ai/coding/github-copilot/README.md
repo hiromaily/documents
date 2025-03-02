@@ -34,6 +34,10 @@ GitHub Copilot は開発者にとってさらに強力なツールとなり、�
 
 Github ページの設定内、[GitHub Copilot](https://github.com/settings/copilot)にアクセス
 
+## [Copilot Language Server SDK](https://github.blog/changelog/2025-02-10-copilot-language-server-sdk-is-now-available/)
+
+- [GitHub、あらゆるエディタやIDEとGitHub Copilotとの統合を可能にする「Copilot Language Server SDK」を一般公開](https://codezine.jp/article/detail/20981)
+
 ### GitHub Copilot 内 ドキュメント
 
 - [GitHub Copilot の使用についてのベスト プラクティス](https://docs.github.com/ja/copilot/using-github-copilot/best-practices-for-using-github-copilot)

@@ -30,6 +30,23 @@
 6. **チャット形式での改良**:
    - レポート作成後も Gemini との対話形式で内容を改良・追記できるため、ユーザーは必要な情報をより深掘りすることができる。
 
+## Gemini Code Assist
+
+[Refer to: Gemini Code Assist によるコーディング支援が無償で利用可能に](https://cloud.google.com/blog/ja/topics/developers-practitioners/gemini-code-assist?hl=ja)
+
+Google Cloudの機能として、開発者向けに無償のAIコーディング支援ツール「Gemini Code Assist」が追加された。このツールは、世界中の開発者が利用できるように設計されいる。
+
+- **無制限のコード補完:** Gemini Code Assistは、月に最大180,000回のコード補完を提供し、一般的な無料コーディングアシスタントの90倍の使用制限を持っている。
+- **Gemini 2.0の活用:** 最新のAIモデルであるGemini 2.0を基盤にしており、さまざまなプログラミング言語をサポートしている。
+- **コードレビューの効率化:** GitHub向けの機能を通じて、AIがコードレビューを支援し、スタイルの問題やバグを検出して自動的に修正提案を行う。
+  - [gemini-code-assist](https://github.com/apps/gemini-code-assist)
+
+### Gemini Code Assistの利用可能なプラットフォーム
+
+- **IDEの統合:** Visual Studio CodeやJetBrains IDEで利用可能で、開発者はこれまでエンタープライズ向けに提供されていた機能を個人でも利用できる。
+- **自然言語による操作:** 開発者は自然言語でプロンプトを入力することで、迅速にコードを生成したり、既存のコードを改善したりできる。
+- [vscode extension](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist)
+
 ## AI Overview (旧 Google SGE)
 
 ### [生成 AI 検索](https://www.technologyreview.jp/s/352931/generative-ai-search-10-breakthrough-technologies-2025/)

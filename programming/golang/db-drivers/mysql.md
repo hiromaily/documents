@@ -33,21 +33,52 @@
 - **db.SetMaxIdleConns(n int)**:
   アイドル（待機状態）にできる最大接続数を設定します。この数を超えた余分な接続はクローズされる
 
-## [mysql: DNS のパラメータについて](https://github.com/go-sql-driver/mysql/blob/00dc21a6243c02c1a84fc82d08a821c08fde4053/dsn.go#L61-L72)
+## [mysql: DNS のパラメータについて](https://github.com/go-sql-driver/mysql/blob/00dc21a6243c02c1a84fc82d08a821c08fde4053/dsn.go#L37-L79)
 
 ```go
-  AllowAllFiles            bool // Allow all files to be used with LOAD DATA LOCAL INFILE
-  AllowCleartextPasswords  bool // Allows the cleartext client side plugin
-  AllowFallbackToPlaintext bool // Allows fallback to unencrypted connection if server does not support TLS
-  AllowNativePasswords     bool // Allows the native password authentication method
-  AllowOldPasswords        bool // Allows the old insecure password method
-  CheckConnLiveness        bool // Check connections for liveness before using them
-  ClientFoundRows          bool // Return number of matching rows instead of rows changed
-  ColumnsWithAlias         bool // Prepend table alias to column names
-  InterpolateParams        bool // Interpolate placeholders into query string
-  MultiStatements          bool // Allow multiple statements in one query
-  ParseTime                bool // Parse time values to time.Time
-  RejectReadOnly           bool // Reject read-only connections
+type Config struct {
+    // non boolean fields
+
+    User                 string            // Username
+    Passwd               string            // Password (requires User)
+    Net                  string            // Network (e.g. "tcp", "tcp6", "unix". default: "tcp")
+    Addr                 string            // Address (default: "127.0.0.1:3306" for "tcp" and "/tmp/mysql.sock" for "unix")
+    DBName               string            // Database name
+    Params               map[string]string // Connection parameters
+    ConnectionAttributes string            // Connection Attributes, comma-delimited string of user-defined "key:value" pairs
+    charsets             []string          // Connection charset. When set, this will be set in SET NAMES <charset> query
+    Collation            string            // Connection collation. When set, this will be set in SET NAMES <charset> COLLATE <collation> query
+    Loc                  *time.Location    // Location for time.Time values
+    MaxAllowedPacket     int               // Max packet size allowed
+    ServerPubKey         string            // Server public key name
+    TLSConfig            string            // TLS configuration name
+    TLS                  *tls.Config       // TLS configuration, its priority is higher than TLSConfig
+    Timeout              time.Duration     // Dial timeout
+    ReadTimeout          time.Duration     // I/O read timeout
+    WriteTimeout         time.Duration     // I/O write timeout
+    Logger               Logger            // Logger
+
+    // boolean fields
+
+    AllowAllFiles            bool // Allow all files to be used with LOAD DATA LOCAL INFILE
+    AllowCleartextPasswords  bool // Allows the cleartext client side plugin
+    AllowFallbackToPlaintext bool // Allows fallback to unencrypted connection if server does not support TLS
+    AllowNativePasswords     bool // Allows the native password authentication method
+    AllowOldPasswords        bool // Allows the old insecure password method
+    CheckConnLiveness        bool // Check connections for liveness before using them
+    ClientFoundRows          bool // Return number of matching rows instead of rows changed
+    ColumnsWithAlias         bool // Prepend table alias to column names
+    InterpolateParams        bool // Interpolate placeholders into query string
+    MultiStatements          bool // Allow multiple statements in one query
+    ParseTime                bool // Parse time values to time.Time
+    RejectReadOnly           bool // Reject read-only connections
+
+    // unexported fields. new options should be come here
+
+    beforeConnect func(context.Context, *Config) error // Invoked before a connection is established
+    pubKey        *rsa.PublicKey                       // Server public key
+    timeTruncate  time.Duration                        // Truncate time.Time values to the specified duration
+}
 ```
 
 ```go
@@ -124,3 +155,16 @@ dsn := "username:password@tcp(127.0.0.1:3306)/mydb?allowAllFiles=true&parseTime=
    - 返される情報は **_影響行数** (Changed) 、影響を受けた行数
 
 DNS例: `mysql://localhost:3306/dbname?useAffectedRows=true`
+
+### MySQL側でtimezoneの指定がある場合
+
+```ini
+[mysqld]
+default-time-zone='Asia/Tokyo'
+max_connections = 1000
+```
+
+```dns
+# dnsの設定に`loc`を設定する
+user:password@tcp(host:port)/dbname?parseTime=true&loc=Asia%2FTokyo
+```
