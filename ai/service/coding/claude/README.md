@@ -25,3 +25,5 @@ Claude は特に倫理性や安全性を重視するユーザーに適してい�
 - [Claude 3.7 Sonnet と Claude Code の概要](https://note.com/npaka/n/nde500a0458fd)
 - [Claude Code を試す](https://zenn.dev/schroneko/articles/a4496472b76477)
   - Claude Code とは Teminal 上で使うことのできる Agentic なコーディングツール
+- [無限に自動生成される3D地形を自転車に乗って自由に走れるプログラムを作った。ChatGPTとClaudeで俺もAIプログラマー](https://www.techno-edge.net/article/2025/03/02/4160.html)
+- [web開発素人だけど、Claude 3.7 Sonnetを使ったら半日でアプリ開発&リリースできた記念記事](https://qiita.com/ynmc0214/items/0a3ed437eeea02ccdefd)

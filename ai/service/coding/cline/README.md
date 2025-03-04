@@ -131,8 +131,9 @@ Claude 3.7 Sonnet のエージェント コーディング機能のおかげで�
   - Clineを補助的に利用という考え
 - [2025/02: [Slide] Cline+Claude SonnetでのAIプログラミングが心地よい](https://speakerdeck.com/tomohisa/cline-plus-claude-sonnetdenoaipuroguramingugaxin-di-yoi)
 - [2025/02: Clineに自分をエミュレートさせて技術記事を代筆させてみたらビビった](https://zenn.dev/mizchi/articles/auto-mizchi-writer)
-- [2025/02: CLINEに全部賭けろ](https://zenn.dev/mizchi/articles/all-in-on-cline)
 - [2025/02: Cline 試してみた](https://voluntas.ghost.io/try-cline/)
+- [2025/02: CLINEに全部賭けろ](https://zenn.dev/mizchi/articles/all-in-on-cline)
+- [2025/03: Clineに全部賭ける前に　〜Clineの動作原理を深掘り〜](https://zenn.dev/codeciao/articles/6d0a83e234a34a)
 
 ### Ref: derivative
 
