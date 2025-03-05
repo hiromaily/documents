@@ -106,3 +106,4 @@ AI エージェントは、多種多様な分野で活用されており、そ�
 - [Slide: AIエージェント時代のエンジニアになろう](https://speakerdeck.com/yoshidashingo/20250301-agentic-ai-engineering)
 - [AIエージェントカオスマップ2025](https://aismiley.co.jp/ai_news/ai-agent-chaosmap-2025/)
 - [2025: AIエージェント入門](https://speakerdeck.com/minorun365/aiezientoru-men)
+- [2025: AIエージェント開発のノウハウと課題](https://speakerdeck.com/pharma_x_tech/aiezientokai-fa-nonouhautoke-ti)

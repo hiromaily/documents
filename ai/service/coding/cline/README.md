@@ -134,8 +134,10 @@ Claude 3.7 Sonnet のエージェント コーディング機能のおかげで�
 - [2025/02: Cline 試してみた](https://voluntas.ghost.io/try-cline/)
 - [2025/02: CLINEに全部賭けろ](https://zenn.dev/mizchi/articles/all-in-on-cline)
 - [2025/03: Clineに全部賭ける前に　〜Clineの動作原理を深掘り〜](https://zenn.dev/codeciao/articles/6d0a83e234a34a)
+- [2025/03: Cline+Claudeでの開発を試してみた感想](https://zenn.dev/razokulover/articles/768337f838a110)
 
 ### Ref: derivative
 
 - [2025/01: Recline という庶民の味方！！GitHub Copilot で Cline が使える](https://sitochablog.pages.dev/posts/recline/)
   - Recline という Cline をフォークしたプロジェクトの使い方
+- [2025/03: AIコーディング時代の開発環境構築：VS Code × Cline（Roo Code）で爆速開発！](https://zenn.dev/mkj/articles/cf8536923d9cd7)
