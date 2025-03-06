@@ -35,9 +35,25 @@
       ssh -L 13306:db-endpoint.com:3306 -i /path/to/your/key.pem ec2-user@踏み台サーバーのIP
       # LocalからDBに接続
       mysql -h localhost -p 13306 -U mydbuser -d mydatabase
-      ```
 
-#### 3. IDE の設定
+#### 方法3: AWS Systems Manager (SSM)を使う方法
+
+`aws ssm start-session`コマンドは、AWS Systems Manager (SSM)を使用して、指定したEC2インスタンスへのセッションを開始する。具体的には、リモートホストへのポートフォワーディングセッションを作成するために使用される。
+
+```sh
+aws ssm start-session \
+  --target ec2-instance-id \
+  --document-name AWS-StartPortForwardingSessionToRemoteHost \
+  --parameters host='my-cluster.cluster-xxxxxxx.ap-northeast-1.rds.amazonaws.com',portNumber='3306',localPortNumber='13306' --region ap-northeast-1
+```
+
+- aws ssm start-session: AWS SSMセッションマネージャーを使用して、新しいセッションを開始
+- --target: セッションを開始するターゲットのEC2インスタンスIDを指定
+- --document-name: AWS-StartPortForwardingSessionToRemoteHost:
+   使用するドキュメント名を指定する。この例の場合、`AWS-StartPortForwardingSessionToRemoteHost`というドキュメントを使用する。このドキュメントはポートフォワーディングを実行するための事前定義された設定を含んでいる。
+- --parameters: ポートフォワーディングに必要なパラメータを指定する
+
+### 接続後、IDE の設定
 
 最後に、ローカルの IDE ツールを設定する。例えば、MySQL Workbench や DBeaver などのツールを使用しているとする。
 

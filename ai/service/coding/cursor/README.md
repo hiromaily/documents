@@ -94,3 +94,4 @@ Cursor Directoryを利用することで、開発者はCursor AIの機能をよ�
 - [Cursor活用で開発生産性を最大化するTips](https://zenn.dev/rikika/articles/d65e6e676e890d)
 - [Cursorを3週間使った所感・Clineとの違いまとめ](https://zenn.dev/robustonian/articles/cursor_vs_cline)
 - [Cursor Agentベストプラクティス](https://note.com/suthio/n/n6a7663311d50)
+- [Cursorとかいうやつを使ってみたらUnity効率上がりすぎた話](https://note.com/gigabit_million/n/nc793ceff3bf7)

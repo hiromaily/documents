@@ -19,3 +19,4 @@ NoSQL の柔軟性と SQL データベースの強力な機能を組み合わせ
 ## References
 
 - [NewSQL はデータベースに革命を起こすか - Netflix における CockroachDB のユースケース](https://note.com/mickmack/n/n45ded3a4e342)
+- [Slide: ここがつらいよ分散SQLデータベース](https://static.pingcap.co.jp/files/2025/03/03155117/JAWS-DAYS-2025-PingCAP-1.pdf)

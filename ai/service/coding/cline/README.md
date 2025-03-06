@@ -135,6 +135,8 @@ Claude 3.7 Sonnet のエージェント コーディング機能のおかげで�
 - [2025/02: CLINEに全部賭けろ](https://zenn.dev/mizchi/articles/all-in-on-cline)
 - [2025/03: Clineに全部賭ける前に　〜Clineの動作原理を深掘り〜](https://zenn.dev/codeciao/articles/6d0a83e234a34a)
 - [2025/03: Cline+Claudeでの開発を試してみた感想](https://zenn.dev/razokulover/articles/768337f838a110)
+- [わざわざ言語化されないClineのコツ](https://zenn.dev/watany/articles/85af6cfb8dccb2)
+- [色々なことをClineにやらせてみた](https://karaage.hatenadiary.jp/entry/2025/03/05/073000)
 
 ### Ref: derivative
 

@@ -83,3 +83,8 @@ WebAssembly自体は元々ブラウザ内での高性能なコード実行を目
    - **手順**:
       1. WASIコンパイラツールを使用してWebAssemblyバイナリを生成。
       2. WASIランタイム（WasmtimeやWasmer）を使用してバイナリを実行。
+
+## References
+
+- [2025/3: Lynx](https://lynxjs.org/)
+  - Desktop Appというより、AndroidやiOS向けのほうが強いかもしれない

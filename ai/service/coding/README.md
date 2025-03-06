@@ -41,3 +41,4 @@
 
 - [コーディング AI 課金するなら Cody が断トツ良い話](https://zenn.dev/sanami/articles/7c24ce973b7e7c)
 - [自分のコーディングスタイル(TDD/DDD/FP)をAIに叩き込む](https://zenn.dev/mizchi/articles/ai-ddd-tdd-prompt)
+- [AIコーディングのプラクティス](https://zenn.dev/devneko/scraps/f79aaba14f8868)
