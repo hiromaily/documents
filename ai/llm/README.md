@@ -94,3 +94,4 @@
   - Prompt-friendly codebase
   - Turn any Git repository into a simple text ingest of its codebase.
   - This is useful for feeding a codebase into any LLM.
+- [DeepSeekにほぼ並ぶ性能を実現したオープンソースのAIモデル「QWQ-32B」をQwenが公開](https://gigazine.net/news/20250306-qwen-qwq-32b/)

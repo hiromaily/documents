@@ -26,3 +26,4 @@ OCR（`Optical Character Recognition/Reader`、オーシーアール、光学的
   - 日本語もきれいに文字に起こすことができるが、完全ではない
 - [MPLUG-DOCOWL2](https://github.com/X-PLUG/mPLUG-DocOwl)
   - [OCR はもう不要？視覚的特徴とテキストを高精度に捉える！次世代マルチモーダル AI モデル『MPLUG-DOCOWL2』](https://qiita.com/ryosuke_ohori/items/34581692852b8b406139)
+- [Mistral OCR](https://mistral.ai/news/mistral-ocr)
