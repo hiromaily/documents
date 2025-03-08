@@ -137,6 +137,7 @@ Claude 3.7 Sonnet のエージェント コーディング機能のおかげで�
 - [2025/03: Cline+Claudeでの開発を試してみた感想](https://zenn.dev/razokulover/articles/768337f838a110)
 - [わざわざ言語化されないClineのコツ](https://zenn.dev/watany/articles/85af6cfb8dccb2)
 - [色々なことをClineにやらせてみた](https://karaage.hatenadiary.jp/entry/2025/03/05/073000)
+- [オレを救った Cline を紹介する](https://speakerdeck.com/codehex/orewojiu-tuta-cline-woshao-jie-suru)
 
 ### Ref: derivative
 

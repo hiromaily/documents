@@ -14,3 +14,4 @@
 ## References
 
 - [【2025年版】Mac 使いのエンジニアの最初にやること / 初期設定](https://zenn.dev/gahuto/articles/tkt-mac-preferences-2025)
+- [2025/03: 新型MacBook AirとMac Studio、iPhoneで簡単に初期設定できるらしい](https://www.gizmodo.jp/2025/03/how-to-set-up-new-macbookair-mac-studio.html)

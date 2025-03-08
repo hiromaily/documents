@@ -28,3 +28,4 @@ Claude は特に倫理性や安全性を重視するユーザーに適してい�
 - [無限に自動生成される3D地形を自転車に乗って自由に走れるプログラムを作った。ChatGPTとClaudeで俺もAIプログラマー](https://www.techno-edge.net/article/2025/03/02/4160.html)
 - [web開発素人だけど、Claude 3.7 Sonnetを使ったら半日でアプリ開発&リリースできた記念記事](https://qiita.com/ynmc0214/items/0a3ed437eeea02ccdefd)
 - [Claude Codeで感じたAIとソフトウェア開発の未来](https://zenn.dev/koher/articles/claude-code-and-development-future)
+- [話題のClaude 3.7で「ポケモンのゲーム作って」と入力するだけで数分でゲームが完成w](https://x.com/masahirochaen/status/1894283801326751818)

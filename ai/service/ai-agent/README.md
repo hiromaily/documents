@@ -108,3 +108,4 @@ AI エージェントは、多種多様な分野で活用されており、そ�
 - [2025: AIエージェント入門](https://speakerdeck.com/minorun365/aiezientoru-men)
 - [2025: AIエージェント開発のノウハウと課題](https://speakerdeck.com/pharma_x_tech/aiezientokai-fa-nonouhautoke-ti)
 - [10分で分かるAIエージェントの設計パターン](https://qiita.com/Kumacchiino/items/7a04b4ac74e266f2ace5)
+- [生成AIのAIエージェントを大手3社（AWS、Azure、Google Cloud）で徹底比較してみた](https://blog.g-gen.co.jp/entry/comparing-agent-architecture-across-cloud-vendors)

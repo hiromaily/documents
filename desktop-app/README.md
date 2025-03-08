@@ -88,3 +88,4 @@ WebAssembly自体は元々ブラウザ内での高性能なコード実行を目
 
 - [2025/3: Lynx](https://lynxjs.org/)
   - Desktop Appというより、AndroidやiOS向けのほうが強いかもしれない
+  - [次世代クロスプラットフォームフレームワーク「Lynx」 ファーストインプレッション](https://zenn.dev/tellernovel_inc/articles/3c2bece10afb3f)
