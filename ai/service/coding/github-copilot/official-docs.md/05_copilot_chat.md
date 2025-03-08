@@ -79,6 +79,25 @@ Adding Chat Context
    - e.g. @github #web what is the latest VS Code version
    - [参照: Using GitHub skills for Copilot](https://docs.github.com/en/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#using-github-skills-for-copilot)
 
+### 実際に`@`入力後に補完されたもの
+
+- @terminal
+- @vscode
+- @workspace
+- @terminal /explain
+- @vscode /search
+- @vscode /startDebugging
+- @workspace /explain
+- @workspace /fix
+- @workspace /fixTestFailure
+- @workspace /new
+- @workspace /newNotebook
+- @workspace /setupTests
+- @workspace /tests
+- /help
+- clear
+- install Chat Extensions...
+
 ### 拡張機能を利用した `Chat participants` の例
 
 - GitHub Pull Request
@@ -104,6 +123,21 @@ Adding Chat Context
 - `@workspace /new（または/new）`: 新しいワークスペースまたは新しいファイルのスキャフォールディングコード
 
 利用可能なすべてのスラッシュ コマンドを一覧表示するには、`/`をチャット入力フィールドに入力する。
+
+### 実際に`/`入力後に補完されたもの
+
+- `/search`
+- `/startDebugging`
+- `/explain`
+- `/fix`
+- `/fixTestFailure`
+- `/new`
+- `/newNotebook`
+- `/setupTests`
+- `/tests`
+- `/explain`
+- `/help`
+- `/clear`
 
 ## チャット変数
 

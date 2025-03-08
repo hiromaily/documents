@@ -19,7 +19,7 @@ Copilot Editsは2つのモードで機能する
    - VS CodeのタイトルバーのCopilotメニューから「Open Copilot Edits」を選択。
    - または、View > Appearance > Secondary Side Barを選択して、Secondary Side Barを開き、Copilot Editsビューを選択。
 
-2. モードのドロップダウンから「Edit」を選択します。
+2. モードのドロップダウンから「Edit」を選択する。
 
 3. Add Filesを使用して、Copilotへのプロンプトの関連コンテキストを示す。
    - ファイル、フォルダー、またはエディタタブをCopilot Editsビューにドラッグ＆ドロップして追加できる。
