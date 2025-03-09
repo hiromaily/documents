@@ -18,3 +18,4 @@ MCPはAIシステムとデータソースの統合を容易化し、AIの応用�
 ## References
 
 - [AI エージェント界隈で話題の MCP の凄さ実感！ー その特徴・技術概要・今後の展開 ー「メタ AI エージェント」実現なるか？](https://zenn.dev/h1deya/articles/mcp-introduction)
+- [MCPで広がるLLM　~Clineでの動作原理~](https://zenn.dev/codeciao/articles/cline-mcp-server-overview)

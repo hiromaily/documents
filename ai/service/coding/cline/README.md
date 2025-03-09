@@ -144,3 +144,4 @@ Claude 3.7 Sonnet のエージェント コーディング機能のおかげで�
 - [2025/01: Recline という庶民の味方！！GitHub Copilot で Cline が使える](https://sitochablog.pages.dev/posts/recline/)
   - Recline という Cline をフォークしたプロジェクトの使い方
 - [2025/03: AIコーディング時代の開発環境構築：VS Code × Cline（Roo Code）で爆速開発！](https://zenn.dev/mkj/articles/cf8536923d9cd7)
+- [MCPで広がるLLM　~Clineでの動作原理~](https://zenn.dev/codeciao/articles/cline-mcp-server-overview)

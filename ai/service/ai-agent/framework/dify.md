@@ -2,11 +2,12 @@
 
 WebSite より以下抜粋
 
-先進的な AI アプリケーションのためのイノベーションエンジン
+先進的な AI アプリケーションのためのイノベーションエンジン。
 Dify はオープンソースの LLM アプリ開発プラットフォームです。RAG エンジンを使用して、エージェントから複雑な AI ワークフローまで LLM アプリを編成します。
 LangChain よりも本番環境に適しています。
 
 [Github: langgenius/dify](https://github.com/langgenius/dify)
+これは、Typescriptで書かれている。
 
 ## **Dify の特徴**
 
@@ -52,3 +53,5 @@ Dify は AI アプリケーション開発を支援するためのローコー�
 - [Unity と Dify で自分専用の AI エージェントを作成する](https://creators.bengo4.com/entry/2024/12/20/000000)
 - [Dify 講座 超入門編 ~まだチャットでポン出し？ワークフローで生成 AI が本領発揮](https://engineering.reiwatravel.co.jp/blog/Advent-Calendar-20241225)
 - [Dify × Bubble が、なぜ最強なのか](https://note.com/small_biz_lab/n/na7038c21e0c8)
+- [プログラミング知識ゼロで自動化しまくる｜Difyの教科書](https://tips.jp/u/sora19ai/a/Dify)
+  - 29800円。。。
