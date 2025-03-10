@@ -29,3 +29,7 @@
 - Mobile
 - Microservices
 - Headless
+
+## References
+
+- [生成AIにdraw.ioのAWS構成図を作図させてみた](https://dev.classmethod.jp/articles/aws-drawio-genai/)

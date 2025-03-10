@@ -73,6 +73,7 @@
     - **共創と協働の体制づくり**: AIを業務のパートナーとして迎え入れることが重要。
     - **教育・学習のアップデート**: AIリテラシーの向上が求められています。
     - **ガバナンスの整備**: 安全かつ公正なAI活用のためのルール作りが急務です。
+- [Slide: AI-Agent時代のエンジニアの役割と野性](https://speakerdeck.com/jgeem/ai-agentshi-dai-noenzinianoyi-ge-toye-xing)
 
 ## 海外就業
 
@@ -88,6 +89,12 @@
 
 - [フリーランスエンジニア、契約終了の理由は？　「3 カ月以内」の早期解約は 65.3％に](https://www.itmedia.co.jp/business/articles/2411/15/news043.html)
 - [過半数の企業がITフリーランスエンジニアへの発注を増加、背景にあるものは？　PE-BANK調査](https://atmarkit.itmedia.co.jp/ait/articles/2503/03/news055.html)
+- [1000人のフリーランスエンジニアが語る「プロの条件は技術力だけじゃない」、では何が必要？](https://atmarkit.itmedia.co.jp/ait/articles/2503/07/news083.html)
+  - 技術力
+  - 報連相ができる、レスポンスが早い
+  - 質問ができる、質問の質が高い
+  - 新しい取り組みや改善提案ができる
+
 
 ## References
 

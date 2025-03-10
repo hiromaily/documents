@@ -37,6 +37,47 @@
 - [AIUI](https://www.aiui.me/)
   - ScreenShot から HTML を生成する？
 
+## [2025/3: AIによるコーディングアシスタント、コーディングエージェント、アプリケーション自動生成サービスまとめ](https://www.publickey1.jp/blog/25/ai20253_1.html)
+
+### コーディングアシスタント
+
+- GitHub Copilot
+- Gemini Code Assist
+- Amazon Q Developer
+- Swift Assist
+- JetBrains AI Assitant
+- GitLab Duo
+- Oracle Code Assist
+- Project IDX
+- Cursor
+- Codeium Windsurf
+- IBM watsonx Code Assistant
+- Continue
+- Quodo Gen
+- llama.vscode
+- SQLAI.ai
+- CodeRabbit
+- PR-Agent
+
+### コーディングエージェント
+
+- GitHub Copilot Agent Mode
+- GitHub Workspace
+- GitLab Duo Workflow
+- JetBrains Junie
+- Claude Code
+- Amazon Q Developer Agent
+- Windsurf Cascade
+- Cursor Agentモード
+- Devin
+- OpenHands
+- Cline
+- Roo Code
+- Tabnine
+- Jitera
+- Replit Agent
+- Code Intelligence Spark
+
 ## References
 
 - [コーディング AI 課金するなら Cody が断トツ良い話](https://zenn.dev/sanami/articles/7c24ce973b7e7c)
