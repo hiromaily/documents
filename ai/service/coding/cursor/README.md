@@ -96,3 +96,4 @@ Cursor Directoryを利用することで、開発者はCursor AIの機能をよ�
 - [Cursor Agentベストプラクティス](https://note.com/suthio/n/n6a7663311d50)
 - [Cursorとかいうやつを使ってみたらUnity効率上がりすぎた話](https://note.com/gigabit_million/n/nc793ceff3bf7)
 - [ノンエンジニアでもOKなCursorエージェント超入門](https://note.com/miyatad/n/nae304a0024af)
+- [【超実践】CursorでPM業務を圧倒的効率化](https://note.com/tttocklll/n/n3840b000ec51)
