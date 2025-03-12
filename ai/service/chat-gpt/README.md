@@ -79,3 +79,7 @@ ChatGPT の SearchGPT（ChatGPT Search）は、OpenAI が開発した新しい�
 ブラウザを操る AI エージェントで、ユーザーの代わりに複雑なタスクを処理する
 
 - [AIがWeb操作してくれるOpenAI「Operator」、日本で解禁　飲食店やホテルの予約などもAIにおまかせ](https://www.itmedia.co.jp/aiplus/articles/2502/21/news165.html)
+
+## [ChatGTP for Mac](https://openai.com/ja-JP/chatgpt/desktop/)
+
+- [ChatGPT、ローカルマシン上のXcodeやVSCodeのコードを読み込み、直接編集してプログラムを作成可能に。Mac版の新機能として](https://www.publickey1.jp/blog/25/chatgptxcodevscodemac.html)

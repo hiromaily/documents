@@ -62,3 +62,4 @@ Devin は、AI スタートアップの Cognition が 2024 年 3 月に発表し
 - [社内向けにDevinクイックスタートガイドを作った話](https://zenn.dev/tacoms/articles/efeb008ce810f3)
 - [数十名規模で Devin を1ヶ月トライして見えてきた点](https://zenn.dev/globis/articles/7733191f62d1e7)
 - [Devinの代替OSS OpenHandsを使ってみた](https://note.com/ioridev/n/n5525b1cabc5c)
+- [Devinにコードレビューをさせ、コード品質と開発速度を同時に高める話](https://zenn.dev/globis/articles/28e47f8107c5b5)

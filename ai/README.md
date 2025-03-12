@@ -130,6 +130,10 @@
 
 - [18 時間で作った AI プロダクトが 3 日で 3,000 人に使われた話](https://note.com/ysk_en/n/nc801e15b0c2f)
 
-## 総轄的な記事
+## 総括的な記事
 
 - [[2025年2月13日] もう全部Deep Reseachでいいんじゃないかな (週刊AI)](https://zenn.dev/carenet/articles/a212077632b9bb)
+
+## リンク集
+
+- [AIを学びたい中学生のためのリンク集](https://note.com/shi3zblog/n/nb101274e893e)

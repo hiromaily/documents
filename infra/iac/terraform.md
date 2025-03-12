@@ -67,3 +67,5 @@ output "instance_id" {
 
 - [Terragrunt](https://terragrunt.gruntwork.io/)
   - Terragrunt is a flexible orchestration tool that allows Infrastructure as Code to scale.
+- [Google CloudのTerraform職人が失職する機能が出てしまった](https://zenn.dev/nnaka2992/articles/intro_to_application_design_center)
+  - Google Cloudの`Application Design Center`という、構成図を書けばTerraformを書いて、デプロイまで行う機能
