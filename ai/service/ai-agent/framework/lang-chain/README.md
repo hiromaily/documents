@@ -78,13 +78,39 @@ LangChain は多くの分野で応用されている。以下はその一部。
 ## LangChain ライブラリ
 
 - [python](https://github.com/langchain-ai/langchain)
+  - Star: 103k
 - [typescript](https://github.com/langchain-ai/langchainjs)
+  - Star: 13.9k
 - [golang (非公式)](https://github.com/tmc/langchaingo)
+  - Star: 6k
 
 ## 類似フレームワーク
 
 - [LlamaIndex](https://www.llamaindex.ai/)
 - [MS: Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/overview/)
+
+## [Why Developers are Quitting LangChain](https://analyticsindiamag.com/ai-features/why-developers-are-quitting-langchain/)
+
+開発者たちがLangChainから離れている理由について
+
+### LangChainの現状
+
+- **期待と問題点**: LangChainは、LLM（大規模言語モデル）を活用したアプリケーションを構築するためのフレームワークとして期待されていたが、開発者たちはその複雑さや不安定な更新に不満を抱いている。
+- **不安定性**: APIの構造が頻繁に変更され、ドキュメントも一貫性がないため、多くの開発者がフラストレーションを感じている。ある開発者は「インターフェースが常に変わり、ドキュメントは古く、抽象化が過剰である」と述べている。
+
+### LangChainの複雑さ
+
+- **設計の批判**: LangChainの抽象化の層が多すぎて理解や修正が難しいとされ、特に経験豊富な開発者からは「生産環境には向かない」との声が上がっている。
+- **プロトタイプには適しているが**: LangChainはプロトタイプ作成には適しているものの、実際の製品開発には不向きとされている。
+
+### 代替案の模索
+
+- **他のフレームワーク**: 開発者たちは`PydanticAI`や`LlamaIndex`などの代替フレームワークを探し始めている。`PydanticAI`はよりシンプルなアプローチを提供し、PocketFlowはモジュール性を重視している。
+- **カスタムソリューションの推奨**: 経験豊富な開発者は、他のフレームワークに依存するのではなく、自分たちのスタックを構築することを勧めている。
+
+### 結論
+
+LangChainは依然として急速に開発が進められているが、多くの開発者はその不安定性や複雑さから離れつつある。今後、LangChainが開発者の信頼を取り戻すためには、安定性やドキュメントの改善、実用性の向上が必要。しかし、多くの開発者はすでに他の安定した選択肢に移行している状況。
 
 ## References
 

@@ -53,6 +53,12 @@ MacOS Apple Silicon 環境において、以下のコマンドで解決
 ln -s "/Applications/Docker.app/Contents//Resources/bin/docker-credential-desktop" "/usr/local/bin/docker-credential-desktop"
 ```
 
+## [AWS Finch](https://runfinch.com/)
+
+Amazonが開発したオープンソースのコンテナランタイムで、軽量なコンテナ環境を提供する
+
+- [AWS Finchでコンテナを立ち上げてみた](https://dev.classmethod.jp/articles/aws-finch/)
+
 ## References
 
 - [Docker 一強の終焉にあたり、押さえるべき Container 事情](https://zenn.dev/ttnt_1013/articles/f36e251a0cd24e)

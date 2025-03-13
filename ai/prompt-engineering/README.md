@@ -48,3 +48,6 @@ AI モデルは広範な知識を持っているが、それでも文脈がな�
 
 - [Prompt Engineering Guide](https://www.promptingguide.ai/jp)
 - [プロンプトエンジニアリング再入門](https://zenn.dev/acntechjp/articles/ad24cd00af552d)
+- [LLMのプロンプトもTSXで書く時代](https://blog.lai.so/prompt-tsx/)
+  - [microsoft/vscode-prompt-tsx](https://github.com/microsoft/vscode-prompt-tsx)
+- [プロンプトエンジニアリング - ReActに関して](https://zenn.dev/headwaters/articles/ccfa133c76c6f5)

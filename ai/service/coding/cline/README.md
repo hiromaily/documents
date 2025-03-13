@@ -138,10 +138,12 @@ Claude 3.7 Sonnet のエージェント コーディング機能のおかげで�
 - [わざわざ言語化されないClineのコツ](https://zenn.dev/watany/articles/85af6cfb8dccb2)
 - [色々なことをClineにやらせてみた](https://karaage.hatenadiary.jp/entry/2025/03/05/073000)
 - [オレを救った Cline を紹介する](https://speakerdeck.com/codehex/orewojiu-tuta-cline-woshao-jie-suru)
+- [VS Code拡張「Cline」、DeepSeek R1とV3を無料で利用可能に　AIコーディングアシスタントがより安価で使いやすく](https://www.itmedia.co.jp/aiplus/articles/2503/12/news182.html)
+- [MCPで広がるLLM　~Clineでの動作原理~](https://zenn.dev/codeciao/articles/cline-mcp-server-overview)
+- [ClineとAIエージェント時代のプログラミングに関する所感](https://zenn.dev/trysmr/articles/vscode_cline)
 
 ### Ref: derivative
 
 - [2025/01: Recline という庶民の味方！！GitHub Copilot で Cline が使える](https://sitochablog.pages.dev/posts/recline/)
   - Recline という Cline をフォークしたプロジェクトの使い方
 - [2025/03: AIコーディング時代の開発環境構築：VS Code × Cline（Roo Code）で爆速開発！](https://zenn.dev/mkj/articles/cf8536923d9cd7)
-- [MCPで広がるLLM　~Clineでの動作原理~](https://zenn.dev/codeciao/articles/cline-mcp-server-overview)

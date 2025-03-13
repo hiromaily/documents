@@ -66,9 +66,18 @@ pip install --upgrade package_name
 
 ### [uv](https://github.com/astral-sh/uv)
 
-高速なPythonパッケージ管理ツール
+高速なPythonパッケージ管理ツールで、Langchainでも利用されている。
 
-- Ref: [uv の使い方](https://note.com/npaka/n/n44c54312fb04)
+```sh
+# Install
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+To add $HOME/.local/share/../bin to your PATH, either restart your shell or run:
+
+    source $HOME/.local/share/../bin/env (sh, bash, zsh)
+```
+
+[参照: uv の使い方](https://note.com/npaka/n/n44c54312fb04)
 
 ### [Poetry](https://python-poetry.org/)
 

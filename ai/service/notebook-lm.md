@@ -49,3 +49,4 @@ AI駆動型のノートブックツールであり、企業向けの有料サー
 - [NotebookLM を日本語でも提供開始。ウェブサイトや Google スライドにもサポート](https://blog.google/intl/ja-jp/company-news/technology/notebooklm-google/)
 - [Google NotebookLM Plus を導入した](https://voluntas.ghost.io/google-notebooklm-plus-introduction/)
 - [Kindle書籍を爆速でPDF化して、NotebookLMで使う方法（Macのみ）](https://note.com/iam_shin/n/n4ed9e551b428)
+- [「Notebook LM」のつかいかた ～RAGを手軽に構築、自分専用にカスタマイズした生成AIを使い倒す](https://forest.watch.impress.co.jp/docs/serial/yaaiwatch/1667868.html)

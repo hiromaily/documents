@@ -29,3 +29,6 @@ Claude は特に倫理性や安全性を重視するユーザーに適してい�
 - [web開発素人だけど、Claude 3.7 Sonnetを使ったら半日でアプリ開発&リリースできた記念記事](https://qiita.com/ynmc0214/items/0a3ed437eeea02ccdefd)
 - [Claude Codeで感じたAIとソフトウェア開発の未来](https://zenn.dev/koher/articles/claude-code-and-development-future)
 - [話題のClaude 3.7で「ポケモンのゲーム作って」と入力するだけで数分でゲームが完成w](https://x.com/masahirochaen/status/1894283801326751818)
+- [Claude 3.7で色々な図表を作成してみた](https://note.com/it_navi/n/n2e2237d82d7b)
+- [【資料作成から解放？】ChatGPT超えの最新AIモデル「Claude 3.7」の性能が半端ない。使い方と活用事例5選を徹底解説。《資料作成・ゲーム開発が爆速に》](https://note.com/chaen_channel/n/n7c97f50dc938)
+- [Project単位でコード解析してみよう！Claude Code](https://zenn.dev/acntechjp/articles/4a9b7e2b6b92ad)

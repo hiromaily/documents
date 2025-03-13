@@ -75,6 +75,8 @@
   - エージェント間通信用の高度なデバッグツール。
   - AWSサービスとの緊密な統合。
 
+- [AWS、「Amazon Bedrock」でRAGワークフロー構築を支援する「データオートメーション機能」を提供開始](https://atmarkit.itmedia.co.jp/ait/articles/2503/07/news069.html)
+
 ### 9. [Microsoft AutoGen](https://www.microsoft.com/en-us/research/project/autogen/)
 
 - **使用言語**: Python、.NET（クロスランゲージ対応）
