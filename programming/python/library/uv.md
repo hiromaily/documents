@@ -2,6 +2,8 @@
 
 [uv](https://github.com/astral-sh/uv)は、高速なPythonパッケージおよびプロジェクトマネージャーで複数のツールを統合し、Pythonプロジェクトの管理を効率化することを目的としており、Langchainでも利用されている。
 
+[Document](https://docs.astral.sh/uv/)
+
 **主な機能**  
 
 - **速度**: `uv`は、従来のツール（例：`pip`）に比べて**10〜100倍速い**とされている。
@@ -108,19 +110,29 @@ This centralizes task definitions for easier management.
 
 - **Initialize a new project**:
 
-  ```bash
-  uv init my_project
-  cd my_project
-  uv run main.py
-  ```
+   ```bash
+   uv init my_project
+   cd my_project
+   uv run main.py
+   ```
 
-  This sets up a basic Python project with essential files like `pyproject.toml`.
+   This sets up a basic Python project with essential files like `pyproject.toml`.
+
+   ```
+   └── aiagent-cli
+       ├── README.md
+       ├── main.py
+       ├── pyproject.toml
+       └── .python-version
+   ```
 
 - **Add dependencies**:
 
-  ```bash
-  uv add requests flask
-  ```
+   内部的に、`.venv`が作成される
+   ```bash
+   uv add requests flask
+   uv add flake8 black isort mypy pytest --dev
+   ```
 
 ### 4. Debugging and One-Shot Scripts
 
@@ -190,3 +202,4 @@ This runs tests continuously as code changes.
 ## References
 
 - [uv の使い方](https://note.com/npaka/n/n44c54312fb04)
+- [さらなる進化を遂げた「uv」の新機能](https://gihyo.jp/article/2024/09/monthly-python-2409)

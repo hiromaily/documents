@@ -30,6 +30,13 @@
 6. **チャット形式での改良**:
    - レポート作成後も Gemini との対話形式で内容を改良・追記できるため、ユーザーは必要な情報をより深掘りすることができる。
 
+### Ref for Deep Research
+
+- [Gemini Advanced の新機能 Deep Research が日本語でも公開](https://blog.google/intl/ja-jp/company-news/technology/gemini-advanced-deep-research/)
+- [Gemini Deep Research が日本語に対応したので使ってみた！複雑な調査も 5 分で分析・考察まで](https://www.lifehacker.jp/article/2501-gemini-how-to-deepresearch/)
+- [Geminiの「Deep Research」が一部無料開放、ユーザーの趣味趣向に沿った回答生成も](https://k-tai.watch.impress.co.jp/docs/news/1670416.html)
+- [グーグル、「Gemini」の「Deep Research」と「Gems」を無料提供へ](https://japan.zdnet.com/article/35230493/)
+
 ## Gemini Code Assist
 
 [Refer to: Gemini Code Assist によるコーディング支援が無償で利用可能に](https://cloud.google.com/blog/ja/topics/developers-practitioners/gemini-code-assist?hl=ja)
@@ -46,6 +53,12 @@ Google Cloudの機能として、開発者向けに無償のAIコーディング
 - **IDEの統合:** Visual Studio CodeやJetBrains IDEで利用可能で、開発者はこれまでエンタープライズ向けに提供されていた機能を個人でも利用できる。
 - **自然言語による操作:** 開発者は自然言語でプロンプトを入力することで、迅速にコードを生成したり、既存のコードを改善したりできる。
 - [vscode extension](https://marketplace.visualstudio.com/items?itemName=Google.geminicodeassist)
+
+### Ref for Gemini Code Assist
+
+- [Google、「Gemini Code Assist」を無料公開　コード補完は月当たり18万回](https://www.itmedia.co.jp/aiplus/articles/2502/26/news125.html)
+  - GitHubとの連携により、「Gemini Code Assist for GitHub」を通じて無料のAIによるコードレビューが提供される
+  - IDE（Visual Studio CodeやJetBrains IDE）との統合により、コード補完、生成、チャット機能が利用可能
 
 ## AI Overview (旧 Google SGE)
 
@@ -81,9 +94,4 @@ Google Cloudの機能として、開発者向けに無償のAIコーディング
 - [ChatGPT o1 と Gemini 2.0 の性能を比較してみた](https://note.com/it_navi/n/nb14063a4f6e0)
 - [企業向け Gemini 活用ガイド pdf](../images/pdf/GeminiforBusiness_Handbook202406_eBook.pdf)
 - [Google の最新型 AI「Gemini 2.0」って何ができるの？](https://www.lifehacker.jp/article/2412-google-announced-efficient-new-gemini/)
-- [Gemini Advanced の新機能 Deep Research が日本語でも公開](https://blog.google/intl/ja-jp/company-news/technology/gemini-advanced-deep-research/)
-- [Gemini Deep Research が日本語に対応したので使ってみた！複雑な調査も 5 分で分析・考察まで](https://www.lifehacker.jp/article/2501-gemini-how-to-deepresearch/)
 - [Gemini 2.0 Flashで実現する高コスパAI開発 〜実践的プロンプトエンジニアリングと文書管理システムの実装例](https://speakerdeck.com/erukiti/gemini-2-dot-0-flash-prompt-engineering)
-- [Google、「Gemini Code Assist」を無料公開　コード補完は月当たり18万回](https://www.itmedia.co.jp/aiplus/articles/2502/26/news125.html)
-  - GitHubとの連携により、「Gemini Code Assist for GitHub」を通じて無料のAIによるコードレビューが提供される
-  - IDE（Visual Studio CodeやJetBrains IDE）との統合により、コード補完、生成、チャット機能が利用可能

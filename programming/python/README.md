@@ -103,34 +103,7 @@ poetry add -D flake8 black isort mypy pytest
 poetry add --group dev Flake8-pyproject
 ```
 
-1. **flake8**
-
-   - Python のコードスタイルや構文をチェックするための Linter。
-   - PEP 8 のガイドラインに基づいてコードのスタイルを保証し、エラーや警告を出す。
-
-2. **black**
-
-   - Python のコードフォーマッターで、PEP 8 に準拠したフォーマットスタイルを適用する
-   - コードの見た目を統一し、可読性を向上する
-
-3. **isort**
-
-   - Python のインポート文を自動的にソートする。
-   - インポートをアルファベット順やグループ別に整理し、コードの可読性を向上させる。
-
-4. **mypy**
-
-   - Python の静的型チェックを実行するツール。
-   - 型のエラーを事前に検出して、コードの安定性を向上させる。
-
-5. **pytest**
-
-   - Python のテストフレームワーク。
-   - テストコードを書いて、コードの正確性を確認する。
-
-6. **Flake8-pyproject**
-   - flake8 を pyproject.toml ファイルの設定をサポートする追加パッケージ
-   - pyproject.toml に設定を追加することで、flake8 の挙動を制御する
+各package詳細は、[linter](./linter.md)を参照
 
 ### venv
 

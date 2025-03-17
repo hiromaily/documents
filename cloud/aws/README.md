@@ -8,3 +8,8 @@
 ## 書籍
 
 - [［詳解］AWS Infrastructure as Code](https://gihyo.jp/book/2025/978-4-297-14724-2)
+
+## AWS + AI
+
+- [生成AIにdraw.ioのAWS構成図を作図させてみた](https://dev.classmethod.jp/articles/aws-drawio-genai/)
+- [AWS設計プロンプト](https://zenn.dev/devp/articles/b5bacf318809f5)

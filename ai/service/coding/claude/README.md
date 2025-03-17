@@ -32,3 +32,4 @@ Claude は特に倫理性や安全性を重視するユーザーに適してい�
 - [Claude 3.7で色々な図表を作成してみた](https://note.com/it_navi/n/n2e2237d82d7b)
 - [【資料作成から解放？】ChatGPT超えの最新AIモデル「Claude 3.7」の性能が半端ない。使い方と活用事例5選を徹底解説。《資料作成・ゲーム開発が爆速に》](https://note.com/chaen_channel/n/n7c97f50dc938)
 - [Project単位でコード解析してみよう！Claude Code](https://zenn.dev/acntechjp/articles/4a9b7e2b6b92ad)
+- [全ビジネスマンが使えるClaude3.7 sonnet と draw.ioで始める図の作成](https://note.com/japanmarketing/n/n6d73751105cc)

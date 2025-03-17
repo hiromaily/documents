@@ -111,3 +111,4 @@ AI エージェントは、多種多様な分野で活用されており、そ�
 - [生成AIのAIエージェントを大手3社（AWS、Azure、Google Cloud）で徹底比較してみた](https://blog.g-gen.co.jp/entry/comparing-agent-architecture-across-cloud-vendors)
 - [Mastra入門 〜AIエージェント開発ツールの概要と使い方〜](https://zenn.dev/yosh1/articles/mastra-ai-agent-framework-guide)
 - [Find Awesome MCP Servers](https://mcpserver.cc/)
+- [Slide: AI_Agent_の作り方](https://speakerdeck.com/kenjikondobai/ai-agent-nozuo-rifang-jin-teng-xian-er)

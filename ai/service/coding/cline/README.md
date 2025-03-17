@@ -141,6 +141,7 @@ Claude 3.7 Sonnet のエージェント コーディング機能のおかげで�
 - [VS Code拡張「Cline」、DeepSeek R1とV3を無料で利用可能に　AIコーディングアシスタントがより安価で使いやすく](https://www.itmedia.co.jp/aiplus/articles/2503/12/news182.html)
 - [MCPで広がるLLM　~Clineでの動作原理~](https://zenn.dev/codeciao/articles/cline-mcp-server-overview)
 - [ClineとAIエージェント時代のプログラミングに関する所感](https://zenn.dev/trysmr/articles/vscode_cline)
+- [Slide: エンジニアに許された特別な時間の終わり](https://speakerdeck.com/watany/the-end-of-the-special-time-granted-to-engineers)
 
 ### Ref: derivative
 

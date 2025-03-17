@@ -5,8 +5,14 @@
 - **flake8:**
 
   - Python のコードスタイルや潜在的なエラーをチェックする汎用的な linter 。
+  - PEP 8 のガイドラインに基づいてコードのスタイルを保証し、エラーや警告を出す。
   - **pycodestyle**、**pyflakes**、**mccabe**をまとめたラッパー。
   - これらのツールをまとめて使用することで、コードのスタイルや論理的なエラーを包括的にチェックできる。
+
+- **Flake8-pyproject**
+
+  - flake8 を pyproject.toml ファイルの設定をサポートする追加パッケージ
+  - pyproject.toml に設定を追加することで、flake8 の挙動を制御する
 
 - **pylint:**
 
@@ -17,7 +23,7 @@
   - 比較的新しい Python の linter で、静的コード解析ツールとして使われている。
   - コードの品質、可読性、開発効率の向上に役立つ。
 
-### Formatter
+## Formatter
 
 - **black:**
 
@@ -32,3 +38,22 @@
 - **autopep8:**
   - 昔からあるフォーマッターで、VSCode のデフォルトのフォーマッターとしても使われている。
   - 特徴は`--aggressive`オプションの数によって強さが変わること。
+
+## Linter / Formatter
+
+- **ruff**
+  - Python の Linter 兼 Formatter
+
+## Importer
+
+- **isort**
+
+  - Python のインポート文を自動的にソートする。
+  - インポートをアルファベット順やグループ別に整理し、コードの可読性を向上させる。
+
+## Type Checker
+
+- **mypy**
+
+  - Python の静的型チェックを実行するツール。
+  - 型のエラーを事前に検出して、コードの安定性を向上させる。

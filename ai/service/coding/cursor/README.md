@@ -1,4 +1,4 @@
-# Cursor
+# Cursor カーサー
 
 Cursor は、Anysphere 社が開発した AI エージェント。Visual Studio Code（VS Code）をベースに、AI による開発支援機能が充実しているコードエディタ。
 AI を活用してコードの自動生成からデバッグ、プロジェクト管理まで幅広いタスクをサポートする多機能なツールであり、自動デバッグ機能やターミナルコマンドの自動化など、開発の効率化に役立つ様々な機能を提供している。特に「Composer Agent」の導入により、プロジェクトの自動化がさらに進化し、開発効率が向上しているのが特徴。
@@ -97,3 +97,4 @@ Cursor Directoryを利用することで、開発者はCursor AIの機能をよ�
 - [Cursorとかいうやつを使ってみたらUnity効率上がりすぎた話](https://note.com/gigabit_million/n/nc793ceff3bf7)
 - [ノンエンジニアでもOKなCursorエージェント超入門](https://note.com/miyatad/n/nae304a0024af)
 - [【超実践】CursorでPM業務を圧倒的効率化](https://note.com/tttocklll/n/n3840b000ec51)
+- [あなたの仕事に“AI秘書”を。ノンエンジニアでもOKなCursorエージェント超入門](https://note.com/miyatad/n/nae304a0024af)

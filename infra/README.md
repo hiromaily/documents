@@ -32,4 +32,7 @@
 
 ## References
 
+### AWS + AI
+
 - [生成AIにdraw.ioのAWS構成図を作図させてみた](https://dev.classmethod.jp/articles/aws-drawio-genai/)
+- [AWS設計プロンプト](https://zenn.dev/devp/articles/b5bacf318809f5)

@@ -9,4 +9,5 @@
 - [Prisma](https://www.prisma.io/)
   - DL(w): 2,435,292
 - [drizzle-orm](https://www.npmjs.com/package/drizzle-orm)
+  - [Official](https://orm.drizzle.team/)
   - DL(w): 486,025

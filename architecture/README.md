@@ -70,6 +70,19 @@
 
 - [『ソフトウェアアーキテクトのための意思決定術』を読んだ](https://blog-dry.com/entry/2025/01/16/083430)
 
+## [10 Common Coding Mistakes That Every Developer Should Avoid](https://dev.to/balrajola/10-common-coding-mistakes-that-every-developer-should-avoid-55e2)
+
+1. Neglecting Code Readability
+2. Overcomplicating Logic
+3. Ignoring Edge Cases
+4. Not Using Version Control Properly
+5. Skipping Tests
+6. Hardcoding Values
+7. Not Handling Errors Properly
+8. Not Taking Advantage of Libraries and Frameworks
+9. Ignoring Documentation
+10. Not Refactoring Code Regularly
+
 ## References
 
 - [スライド: これから学ぶ人のための ソフトウェアアーキテクチャ入門](https://speakerdeck.com/snoozer05/20230727-software-architecture-is-a-tool-to-enhance-our-humanity)
@@ -77,14 +90,4 @@
 - [良いコードとは何か - エンジニア新卒研修 スライド公開](https://note.com/cyberz_cto/n/n26f535d6c575)
 - [技術選定/アーキテクチャ設計で後悔しないためのガイドライン](https://qiita.com/hirokidaichi/items/a746062917595619720b)
 - [複雑さを相手に抽象化を盾にしましょう](https://tech.enigmo.co.jp/entry/2020/12/11/100000)
-- [10 Common Coding Mistakes That Every Developer Should Avoid](https://dev.to/balrajola/10-common-coding-mistakes-that-every-developer-should-avoid-55e2)
-  1. Neglecting Code Readability
-  2. Overcomplicating Logic
-  3. Ignoring Edge Cases
-  4. Not Using Version Control Properly
-  5. Skipping Tests
-  6. Hardcoding Values
-  7. Not Handling Errors Properly
-  8. Not Taking Advantage of Libraries and Frameworks
-  9. Ignoring Documentation
-  10. Not Refactoring Code Regularly
+- [私のよく使うソフトウェアアーキテクチャの雛型](https://zenn.dev/m10maeda/articles/my-favorite-architecture-blueprint)

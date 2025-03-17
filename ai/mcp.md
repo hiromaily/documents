@@ -17,6 +17,11 @@ MCPはAIシステムとデータソースの統合を容易化し、AIの応用�
 
 ## References
 
+- [Find Awesome MCP Servers and Clients](https://mcp.so/)
 - [AI エージェント界隈で話題の MCP の凄さ実感！ー その特徴・技術概要・今後の展開 ー「メタ AI エージェント」実現なるか？](https://zenn.dev/h1deya/articles/mcp-introduction)
 - [MCPで広がるLLM　~Clineでの動作原理~](https://zenn.dev/codeciao/articles/cline-mcp-server-overview)
 - [【MCPのトリセツ #1】MCPの概要と導入方法](https://zenn.dev/takna/articles/mcp-server-tutorial-01-install)
+- [「MCP？聞いたことあるけど使ってない…😅」人向けに初歩から少し踏み込んだ内容まで解説](https://zenn.dev/yamada_quantum/articles/465c4993465053)
+- [TypeScript で MCP サーバーを実装し、Claude Desktop から利用する](https://azukiazusa.dev/blog/typescript-mcp-server/)
+- [MCPサーバーで開発効率が3倍に！2025年必須の10大ツール](https://qiita.com/takuya77088/items/58fd06fb46cecdd957d8)
+- [MCPに1mmだけ入門](https://zenn.dev/ks0318/articles/053b5bc1701c31)

@@ -15,3 +15,4 @@
 
 - [【2025年版】Mac 使いのエンジニアの最初にやること / 初期設定](https://zenn.dev/gahuto/articles/tkt-mac-preferences-2025)
 - [2025/03: 新型MacBook AirとMac Studio、iPhoneで簡単に初期設定できるらしい](https://www.gizmodo.jp/2025/03/how-to-set-up-new-macbookair-mac-studio.html)
+- [M1、M2、M3、M4の違いを比較！どっちがいい](https://www.drbuho.com/jp/wiki/apple-m1-m2-m3-m4)

@@ -59,3 +59,4 @@ Github ページの設定内、[GitHub Copilot](https://github.com/settings/copi
 - [GitHub Copilot のテクニック集](https://speakerdeck.com/rayuron/github-copilot-techniques)
 - [VSCodeでコードを修正すると、次に修正すべきコードの場所を提案してくれる「Copilot Next edit Suggetions」プレビュー公開](https://www.publickey1.jp/blog/25/vscodecopilot_next_edit_suggetions.html)
 - [マイクロソフト、VSCodeの新機能「Copilot Next Edit Suggestions」のプレビュー版公開](https://codezine.jp/article/detail/21039)
+- [GitHub Copilot の Agent mode の勘所](https://tech.andpad.co.jp/entry/2025/03/17/100000)

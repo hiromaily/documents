@@ -31,12 +31,79 @@ docker scout quickview
 
 ## `docker debug`
 
-Docker Desktop `4.33`からの機能で有償専用の機能
+`docker debug`は、任意のコンテナやイメージにシェルを取得するためのCLIコマンド。これは、`docker exec`を使用したデバッグの代替手段として機能する。特に、スリムイメージやツールが削除されたコンテナのデバッグに役立つ。Docker Desktop `4.33`からの機能で有償専用の機能
+
+### `docker debug`の使用方法
 
 ```sh
-Docker Debug requires a Pro, Teams, or Business Subcription.
-Learn more at https://docs.docker.com/subscription/details/
+docker debug [OPTIONS] {CONTAINER|IMAGE}
 ```
+
+### `docker debug`の特徴
+
+- **シェルの取得**: シェルが含まれていないコンテナやイメージでもデバッグシェルを取得できる。
+- **イメージの変更なし**: `docker debug`を使用しても、イメージ自体は変更されない。
+- **ツールボックス**: 標準的なLinuxツール（vim、nano、htop、curlなど）がプリインストールされたツールボックスを提供する。
+
+### `docker debug`のカスタムツール
+
+- `install [tool1] [tool2]`: Nixパッケージを追加する。
+- `uninstall [tool1] [tool2]`: Nixパッケージをアンインストールする。
+- `entrypoint`: エントリーポイントを表示、リント、または実行する。
+- `builtins`: カスタムビルトインツールを表示する。
+
+### `docker debug`のオプション
+
+| オプション      | デフォルト | 説明                                                                         |
+| --------------- | ---------- | ---------------------------------------------------------------------------- |
+| `--shell`       | auto       | 使用するシェルを選択します（bash、fish、zshなど）。                          |
+| `-c, --command` |            | インタラクティブセッションを開始する代わりに指定されたコマンドを評価します。 |
+| `--host`        |            | 接続するデーモンDockerソケットを指定します。                                 |
+
+### `docker debug`の使用例
+
+1. **シェルのないコンテナのデバッグ**:
+
+   ```bash
+   docker run --name my-app hello-world
+   docker debug my-app
+   ```
+
+2. **スリムイメージのデバッグ**:
+
+   ```bash
+   docker debug hello-world
+   ```
+
+3. **実行中のコンテナのファイルを変更**:
+
+   ```bash
+   docker run -d --name web-app -p 8080:80 nginx
+   docker debug web-app
+   vim /usr/share/nginx/html/index.html
+   ```
+
+4. **ツールの管理**:
+
+   ```bash
+   docker debug nginx
+   install nmap
+   ```
+
+5. **リモートデバッグ**:
+
+   ```bash
+   docker debug --host ssh://root@example.org my-container
+   ```
+
+### `docker debug`の注意点
+
+- 停止したコンテナやイメージに対する変更は、シェルを離れるとすべて破棄される。
+- 実行中または一時停止中のコンテナに対するファイルシステムの変更は、コンテナに直接表示される。
+
+このコマンドは、特にスリムイメージのデバッグにおいて非常に便利で、開発者が効率的に作業できるように設計されている。
+
+### Ref: docker debug
 
 - [docker buildx debug](https://docs.docker.com/reference/cli/docker/buildx/debug/)
 - [docker buildx debug build](https://docs.docker.com/reference/cli/docker/buildx/debug/build/)
