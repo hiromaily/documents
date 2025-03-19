@@ -83,3 +83,4 @@
 - [コーディング AI 課金するなら Cody が断トツ良い話](https://zenn.dev/sanami/articles/7c24ce973b7e7c)
 - [自分のコーディングスタイル(TDD/DDD/FP)をAIに叩き込む](https://zenn.dev/mizchi/articles/ai-ddd-tdd-prompt)
 - [AIコーディングのプラクティス](https://zenn.dev/devneko/scraps/f79aaba14f8868)
+- [AI駆動開発では「Project as Code」が超重要である！](https://qiita.com/kumai_yu/items/0aa2fc294f8e1347e36c)

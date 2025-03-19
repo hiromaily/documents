@@ -8,6 +8,7 @@
   - プロトタイピング: Bold
   - Editor: Cursor
 - [AIエージェントで前から欲しかったツールを作ってみた](https://knqyf263.hatenablog.com/entry/2025/02/25/120141)
+- [QGIS・Claude・MCPで誰でも簡単に自然言語で地理情報解析ができる！！！](https://qiita.com/nokonoko_1203/items/1e841cbecf6895273f5d)
 
 ## LINEヤフー「データアワード」生成AI部門
 

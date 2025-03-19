@@ -87,7 +87,7 @@ DatadogのAPMのTracesでは、以下の項目で検索やフィルタリング�
 
 - service: トレースが含まれるサービス名
 - resource_name: トレースが関連するリソース（操作名）。これがSpan名に該当する
-- operation_name: Spanに設定した名称？
+- operation_name: 明示的に指定できるかもしれないが、通常は設定しない
 
 ## まとめ
 

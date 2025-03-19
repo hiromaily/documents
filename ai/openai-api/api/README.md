@@ -1,4 +1,37 @@
-# Endpoint (API)
+# OpenAI API Docs
+
+[API Reference](https://platform.openai.com/docs/api-reference/introduction)
+
+OpenAI API は、OpenAI が提供するさまざまサービスが含まれる
+
+- 自然言語処理タスク
+- テキスト生成
+- テキスト要約
+- 質問への回答
+
+この API を使用すると、開発者はさまざまなアプリケーションで OpenAI の強力な AI モデルにアクセスできる。この API は、柔軟性が高く、既存のアプリケーションやサービスに簡単に統合できるように設計されている。
+
+## [Response API](https://platform.openai.com/docs/api-reference/responses)
+
+Response API は、AI アシスタントを構築するためのより新しく包括的なソリューション。これは、同社のサービスの進化形となる。主な機能は次のとおり。
+
+- 合理化された会話履歴管理
+- OpenAI がホストするツールへのアクセス
+- サードパーティ ツールの関数呼び出しの改善
+- 幅広いタスクを実行できる堅牢な AI アシスタントを構築するために設計されている
+
+## [Chat Completions API](https://platform.openai.com/docs/api-reference/chat)
+
+Chat Completions API は、会話のコンテキストで直接応答を生成することに重点を置いている。その特徴は次のとおり。
+
+- 提供されたメッセージ履歴に基づいて、特定のダイアログに対する応答を生成する
+- 機敏で直接的な応答に適している
+- 迅速で簡単なやり取りに最適
+- 軽量で効率的であるため、シンプルな AI アプリケーションに適している
+
+Chat Completions API は、`temperature`、`max_tokens`、`top_p` など、出力を制御するためのさまざまなパラメーターを受け入れる。また、テキスト、画像、音声など、さまざまな種類の入力を処理することもできる。
+
+## Outdated
 
 - [Audio](https://platform.openai.com/docs/api-reference/audio)
   - オーディオをテキストに変換する、またはテキストをオーディオに変換する

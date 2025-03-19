@@ -4,7 +4,7 @@ OpenAI が提供する一連のツールとサービスであり、これらを�
 
 ## 主な機能
 
-1. **言語モデル（GPT-3）**:
+1. **言語モデル（GPT-4o）**:
 
    - **テキスト生成**: 入力されたプロンプトに続くテキストを生成することができる。創造的な執筆、ストーリーテリング、コンテンツ作成に利用できる。
    - **会話型 AI**: 人間と対話するような形で自然な言語を生成できる。カスタマーサポートチャットボットや対話型アシスタントに適している。
@@ -41,6 +41,9 @@ Minimumで`$5` per Month
 
 ## [利用可能なモデル](https://platform.openai.com/docs/models)
 
+- gpt-4.5-preview
+- o1
+- o3-mini
 - gpt-4o
 - gpt-4o-mini
 - gpt-4
@@ -92,3 +95,4 @@ Minimumで`$5` per Month
 ## References
 
 - [OpenAI APIを使ってgit commitメッセージやコードレビューをAIに任せましょう！](https://recruit.gmo.jp/engineer/jisedai/blog/ai-gitcommit-message-codereview/)
+- [OpenAIが「Responses API」「Agents SDK」を発表 ～AIエージェント構築を容易にする新ツール](https://forest.watch.impress.co.jp/docs/news/1670067.html)

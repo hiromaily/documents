@@ -57,3 +57,9 @@
 
   - Python の静的型チェックを実行するツール。
   - 型のエラーを事前に検出して、コードの安定性を向上させる。
+
+## [Rust で書かれた高速な Python 型チェッカー 3 選](https://zenn.dev/nishikoh/articles/31441fa8fe1f73)
+
+- [pylyzer](https://github.com/mtshiba/pylyzer)
+- [Red Knot](https://github.com/astral-sh/ruff/tree/main/crates/red_knot)
+- [Pyrefly(pyre2)](https://github.com/facebook/pyrefly)

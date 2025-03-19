@@ -118,3 +118,12 @@
 
 5. 業界特化型やマルチモーダル対応が必要なら:
    - 「Phidata」が最適です。企業向けアプリケーション開発に向いている
+
+## References
+
+- [AIエージェントフレームワークの概要と比較](https://qiita.com/masterpiecehack/items/fd6f9ea4a91ecd8933ab)
+  - Agno (Python製)
+  - Mastra (TypeScript製)
+  - AutoGPT
+  - CrewAI
+  - Semantic Kernel

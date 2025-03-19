@@ -107,3 +107,4 @@ Grokking System Design and Coding Interview.One-Stop Portal For Tech Interviews.
 - [15 System design tradeoffs for Software Developer Interviews](https://dev.to/somadevtoo/15-system-design-tradeoffs-for-software-developer-interviews-613)
 - [15 System Design Resources for Interviews (including Cheat Sheets)](https://dev.to/somadevtoo/15-system-design-resources-for-interviews-including-cheat-sheets-4mak)
 - [かつてグーグルの面接で出題されていた超難問 16 選](https://www.businessinsider.jp/article/168509/)
+- [AIツールを使ってリモート面接で不正行為を行うエンジニア対策でGoogleなどが対面での面接を復活へ](https://gigazine.net/news/20250316-ai-tech-hiring/)

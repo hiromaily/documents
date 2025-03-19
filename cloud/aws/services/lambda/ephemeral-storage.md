@@ -7,7 +7,11 @@ AWS Lambda では、**一時フォルダ（エフェメラルストレージ）*
 
 ## 特徴
 
-- **容量**: 512 MB から 10,240 MB（最大 10 GB）まで、1 MB 単位で設定可能。
+- **容量**: 512 MB から 10,240 MB（最大 10 GB）まで、1 MB 単位で設定可能。デフォルトは`512MB`
 - **特性**: 一時的なストレージであり、各実行環境に固有のもの。データは AWS によって管理されるキーを使用して暗号化される。
 - **用途**: データ処理、ETLジョブ、ML推論、コンテンツ生成ワークフローなどで使用できる。
 - **設定方法**: AWS Lambda コンソールの「一般設定」セクションや AWS CLI の `update-function-configuration` コマンドを使用して設定する。
+
+## References
+
+- [AWS Lambda で最大 10 GB のエフェメラルストレージをサポート可能に](https://aws.amazon.com/jp/blogs/news/aws-lambda-now-supports-up-to-10-gb-ephemeral-storage/)

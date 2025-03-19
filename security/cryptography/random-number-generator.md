@@ -43,3 +43,7 @@ WIP
 9.  **ISAAC**（Indirection, Shift, Accumulate, Add, and XOR）
 10. **Xoroshiro**
 11. **SplitMix64**
+
+## References
+
+- [「真の乱数」を生成するためにCloudflareが波マシンを設置](https://gigazine.net/news/20250319-chaos-in-cloudflare-lisbon-wave/)

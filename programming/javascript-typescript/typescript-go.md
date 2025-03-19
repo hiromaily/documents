@@ -73,3 +73,31 @@
 また、わたしたちは大量のグラフ処理、特に多態性ノードを含む木構造の上下でのトラバースを行っています。Goはこれをエルゴノミックにするのが非常に上手です。
 
 いくつかの弱点を認めると、GoのインプロセスJS相互運用性は他の選択肢に比べて劣りますが、これを緩和するための今後の計画があります。意図的なAPI設計に移行し、相互運用性も考慮することで、これらの大きなパフォーマンス向上を維持しつつエコシステムを前進させることができます。
+
+## References
+
+- [TypeScript の Go 移植に備えて知っておくべきこと](https://zenn.dev/dinii/articles/typescript-go)
+
+### [But Why Did Microsoft Port TypeScript to Go Instead of Rust?](https://analyticsindiamag.com/ai-features/but-why-did-microsoft-port-typescript-to-go-instead-of-rust/)
+
+MicrosoftがTypeScriptコンパイラをRustではなくGoに移植する理由についての議論が行われている。
+MicrosoftはTypeScriptの移植においてGoを選んだ理由は、技術的な適合性と移行の容易さにある。
+
+#### 移植の背景
+
+- **移植の目的**: TypeScriptコンパイラとツールセットをGoに移植することで、異なるコードベース間で10倍のコンパイル速度を実現することを目指している。
+- **開発者の反応**: 多くの開発者はこの発表を称賛したが、一部はRustではなくGoを選んだことに失望を表明した。
+
+#### Microsoftの見解
+
+- **Ryan Cavanaughの説明**: TypeScriptのリード開発者であるCavanaughは、Rustも選択肢として考慮されたが、ポータビリティが重要な制約であったと述べている。Rustではパフォーマンスや使いやすさにおいて「受け入れがたい」トレードオフがあったため、Goが選ばれた。
+- **Goの利点**: Goは自動的にメモリを管理するガーベジコレクションを備えており、JavaScriptコードのポートに適しているとされている。
+
+#### 技術的な課題
+
+- **Rustの制約**: Rustは循環データ構造に対する厳しい制限があり、TypeScriptコンパイラが依存している抽象構文木（AST）などの構造を扱うのが難しいと指摘されている。
+- **移植の選択肢**: Cavanaughは、Rustでの完全な書き直しは「数年」かかり、互換性のないバージョンになる可能性があるため、Goでの移植を選択したと述べている。
+
+#### 結論
+
+- **移行の容易さ**: TypeScriptからJavaScriptに移行する際、Goへの移行はRustよりも簡単であるとCavanaughとTypeScriptのリードアーキテクトであるAnders Hejlsbergは強調している。Goはシンプルで、複雑な言語ではないため、移行がスムーズに行えるとされている。

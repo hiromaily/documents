@@ -1,7 +1,7 @@
-# [Chat](https://platform.openai.com/docs/api-reference/chat) Completion API
+# [Chat Completion API](https://platform.openai.com/docs/api-reference/chat)
 
 指定されたチャット会話のモデル応答を作成する。
-パラメータのサポートは、応答の生成に使用されるモデルによって異なる場合があります。特に新しい推論モデルの場合です。推論モデルでのみサポートされているパラメータについては、以下を参照してください。推論モデルでサポートされていないパラメータの現在の状態については、推論ガイドを参照してください。
+パラメータのサポートは、応答の生成に使用されるモデルによって異なる場合がある。特に新しい推論モデルの場合。
 
 `post: https://api.openai.com/v1/chat/completions`
 
@@ -42,7 +42,7 @@ curl https://api.openai.com/v1/chat/completions \
   }'
 ```
 
-## messages
+## [Messages and roles](https://platform.openai.com/docs/guides/prompt-engineering#messages-and-roles)
 
 ### role の種類
 
@@ -54,7 +54,7 @@ curl https://api.openai.com/v1/chat/completions \
 
    ```json
    {
-     "role": "system",
+     "role": "developer",
      "content": "You are a helpful assistant of software engineer."
    }
    ```

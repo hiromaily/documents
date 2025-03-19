@@ -137,3 +137,4 @@
 ## リンク集
 
 - [AIを学びたい中学生のためのリンク集](https://note.com/shi3zblog/n/nb101274e893e)
+- [AIのためのオンボーディングドキュメントを整備する](https://blog.smartbank.co.jp/entry/2025/03/17/120000)

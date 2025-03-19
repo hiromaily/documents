@@ -49,3 +49,55 @@ Tail Samplingの使用方法の例は、
   - たとえば、新しくデプロイされたサービスから発生するトレースをさらにサンプリングする。
 - 特定の基準に基づいてトレースに異なるサンプリング レートを適用する。
   - トレースが低ボリュームのサービスからのみ取得される場合と、高ボリュームのサービスからのトレースを取得する場合など
+
+## Loop内におけるTracing
+
+### 1. 統計的サンプリング
+
+```go
+if rand.Float32() < 0.1 { // 10%の確率でトレースを行う
+    _, span := b.tracer.NewSpan(ctx, "rdbRepo.GetSMSStatusSending()", true)
+    defer span.End()
+
+    exampleOperation()
+} else {
+    exampleOperation()
+}
+```
+
+### 2. レートリミットの実装
+
+```go
+rateLimit := time.Second // 1秒に1回しかトレースを取らない
+lastTraceTime := time.Now()
+
+for i := 0; i < 1000; i++ {
+    now := time.Now()
+    if now.Sub(lastTraceTime) >= rateLimit {
+        lastTraceTime = now
+        _, span := b.tracer.NewSpan(ctx, "rdbRepo.GetSMSStatusSending()", true)
+        defer span.End()
+
+        exampleOperation()
+    } else {
+        exampleOperation()
+    }
+}
+```
+
+### 3. 特定の条件に基づくトレース
+
+```go
+for i := 0; i < 1000; i++ {
+    if i%100 == 0 { // 100回ごとにトレースを行う
+        _, span := b.tracer.NewSpan(ctx, "rdbRepo.GetSMSStatusSending()", true)
+        defer span.End()
+
+        exampleOperation()
+    } else {
+        exampleOperation()
+    }
+
+    time.Sleep(1 * time.Millisecond) // サンプル実行の待機
+}
+```

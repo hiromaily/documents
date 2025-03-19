@@ -98,3 +98,4 @@ Cursor Directoryを利用することで、開発者はCursor AIの機能をよ�
 - [ノンエンジニアでもOKなCursorエージェント超入門](https://note.com/miyatad/n/nae304a0024af)
 - [【超実践】CursorでPM業務を圧倒的効率化](https://note.com/tttocklll/n/n3840b000ec51)
 - [あなたの仕事に“AI秘書”を。ノンエンジニアでもOKなCursorエージェント超入門](https://note.com/miyatad/n/nae304a0024af)
+- [Cursorの知るべき10個のTips](https://zenn.dev/superstudio/articles/28ecc293bd2437)

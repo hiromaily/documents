@@ -2,6 +2,7 @@
 
 - [Dangit, Git!?!](https://dangitgit.com/ja)
 - WIP: [GitHub コマテク集](https://techblog.openwork.co.jp/entry/github-tips)
+- [Gitの中身](https://kaityo256.github.io/github/internals/index.html)
 
 ## Github の検索
 
