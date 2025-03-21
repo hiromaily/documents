@@ -35,6 +35,4 @@
 2. **Lumiere**：Google の開発した自由な編集が可能な動画生成 AI
 3. **Adobe Firefly**: Adobe 製
 
-## References
-
-- [遂に ChatGPT Plus を解約して Gemini に移行した話](https://zenn.dev/zuzuzu/articles/gemini_vs_chatgpt)
+- [2D画像を入力するだけで遠近感のある没入型3D動画を生成できる動画生成AI「Stable Virtual Camera」をStability AIが発表](https://gigazine.net/news/20250319-stable-virtual-camera/)

@@ -63,3 +63,6 @@ Devin は、AI スタートアップの Cognition が 2024 年 3 月に発表し
 - [数十名規模で Devin を1ヶ月トライして見えてきた点](https://zenn.dev/globis/articles/7733191f62d1e7)
 - [Devinの代替OSS OpenHandsを使ってみた](https://note.com/ioridev/n/n5525b1cabc5c)
 - [Devinにコードレビューをさせ、コード品質と開発速度を同時に高める話](https://zenn.dev/globis/articles/28e47f8107c5b5)
+- [Devindabot: Devinで実現するライブラリの脆弱性自動対応システム](https://developers.freee.co.jp/entry/devindabot)
+- [今からでも遅くない！まだDevinと遊んでいない技術意思決定者へ](https://zenn.dev/ourly_tech_blog/articles/5c35ef83b341a1)
+- [チームでのDevin使いこなし術](https://note.com/suthio/n/n193a73f9eed4)

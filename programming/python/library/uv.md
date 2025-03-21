@@ -50,6 +50,16 @@ To add $HOME/.local/share/../bin to your PATH, either restart your shell or run:
     source $HOME/.local/share/../bin/env (sh, bash, zsh)
 ```
 
+## `uv.lock`
+
+`uv.lock` ファイルはプロジェクトのルート ディレクトリに生成され、インストールされたすべての依存関係とサブ依存関係の正確なバージョンを記録するために使用される。これにより、さまざまな環境で再現可能なビルドが保証され、依存関係の競合を防ぐことができる。
+
+`uv.lock`ファイルは、いくつかのシナリオで`uv`によって自動的に作成される。
+
+1. 新しいパッケージをインストールするために `uv add` などの依存関係を変更するコマンドを実行するとき
+2. `uv run`、`uv sync`、`uv lock` などのプロジェクト関連のコマンドを初めて実行したとき
+3. `uv lock` コマンドを使用してロックファイルを明示的に更新したとき
+
 ## 使い方
 
 ### 1. Python Scriptsの実行

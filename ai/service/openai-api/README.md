@@ -92,6 +92,31 @@ Minimumで`$5` per Month
    - **プロンプトの設定**: 入力テキスト（プロンプト）を提供する。
    - **パラメータ設定**: max_tokens、temperature（生成されるテキストのランダムさ）、presence_penalty などのパラメータを設定して出力を調整する。
 
+## [OpenAI.fm](https://www.openai.fm/)
+
+An interactive demo for developers to try the new text-to-speech model in the OpenAI API.
+
+OpenAIは2025年3月20日に次世代音声モデルをAPIに導入した。このAPIは[OpenAI.fm](https://www.openai.fm/)で試すことができる。この新しいモデルは「GPT-4o」および「GPT-4o-mini」アーキテクチャに基づいており、以下の特徴がある。
+
+- **精度の向上**: 
+   新しい音声モデルは、以前の「Whisper」モデルを上回る精度を持ち、特に単語の誤り率が改善されている。これにより、訛りや騒音、異なるスピードの発話が混在する状況でも高い認識精度が期待できる。
+
+- **モデルの種類**:
+  - **音声テキスト変換モデル**:
+    - `gpt-4o-transcribe`
+    - `gpt-4o-mini-transcribe`
+  - **テキスト音声変換モデル**:
+    - `gpt-4o-mini-tts`
+  
+- **カスタマイズ機能**: 
+   新しいテキスト音声変換モデルでは、話す内容だけでなく、話し方を指定することが可能。例えば、「親身に話す」や「感情豊かに読み聞かせる」といった指示ができる。
+- **開発者向けの提供**: 
+   これらの音声モデルはAPIを通じて全ての開発者が利用でき、会話型エージェントの開発を支援する新しいSDKも提供される。
+
+新しい技術は、カスタマーサービスや教育など、さまざまな分野での応用が期待されている。
+
+[OpenAI、次世代音声モデルをAPIに導入 ～「親身なカスタマー担当のように話して」も可能](https://forest.watch.impress.co.jp/docs/news/1671860.html)
+
 ## References
 
 - [OpenAI APIを使ってgit commitメッセージやコードレビューをAIに任せましょう！](https://recruit.gmo.jp/engineer/jisedai/blog/ai-gitcommit-message-codereview/)

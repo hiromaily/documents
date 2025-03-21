@@ -60,6 +60,10 @@ Google Cloudの機能として、開発者向けに無償のAIコーディング
   - GitHubとの連携により、「Gemini Code Assist for GitHub」を通じて無料のAIによるコードレビューが提供される
   - IDE（Visual Studio CodeやJetBrains IDE）との統合により、コード補完、生成、チャット機能が利用可能
 
+## [Gemini Canvas](https://gemini.google/overview/canvas/)
+
+- [ドキュメント作成/コード生成特化！Gemini「Canvas」展開](https://jetstream.blog/archives/196521)
+
 ## AI Overview (旧 Google SGE)
 
 ### [生成 AI 検索](https://www.technologyreview.jp/s/352931/generative-ai-search-10-breakthrough-technologies-2025/)

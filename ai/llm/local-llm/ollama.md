@@ -27,3 +27,8 @@ Ollamaは、開発者や研究者がローカルでLLMを効率的に扱うこ�
 ```sh
 ollama run llama3.2
 ```
+
+## その他の類似ツール
+
+- [LM Studio](https://lmstudio.ai/)
+  - [Gemma3](https://blog.google/technology/developers/gemma-3/)のダウンロードが可能
