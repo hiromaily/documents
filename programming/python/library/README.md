@@ -2,8 +2,9 @@
 
 ## ロギング (Logger)
 
-- **Loguru**: Pythonでのログ記録を簡単かつ強力にするライブラリです。設定が容易で、`from loguru import logger`と書くだけで使用を開始できる。
-- **logzero**: 標準のloggingライブラリよりも簡単に使えるログ出力ライブラリの一つ。
+- **[Loguru](https://github.com/Delgan/loguru)**: Pythonでのログ記録を簡単かつ強力にするライブラリです。設定が容易で、`from loguru import logger`と書くだけで使用を開始できる。
+- ~~**[logzero](https://github.com/metachris/logzero)**: 標準のloggingライブラリよりも簡単に使えるログ出力ライブラリの一つ。~~
+  - Archived
 
 ## データベースORM (Object-Relational Mapping)
 

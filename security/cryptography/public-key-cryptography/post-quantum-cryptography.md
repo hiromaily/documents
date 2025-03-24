@@ -141,3 +141,4 @@ GODEBUG=tlskyber=0
 ## References
 
 - [Wiki: ポスト量子暗号](https://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%B9%E3%83%88%E9%87%8F%E5%AD%90%E6%9A%97%E5%8F%B7)
+- [量子ハッカーから身を守るため「ポスト量子暗号」への移行タイムラインをイギリスNCSCが策定、2035年までに導入するよう大企業に対し要請](https://gigazine.net/news/20250321-pqc-migration-roadmap/)

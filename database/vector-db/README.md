@@ -50,20 +50,46 @@
 
 ## 代表的なベクターデータベースシステム
 
-1. **FAISS**（Facebook AI Similarity Search）:
+これらのベクトルデータベースは、セマンティック検索、推奨システム、画像およびビデオ分析、AI 搭載チャットボットなど、さまざまなアプリケーションで広く使用されている。リアルタイム更新、スケーラビリティ、一般的な機械学習フレームワークとの統合などの機能を備えており、2025 年には研究環境と本番環境の両方に適している。
 
-   - 特徴: Facebook によって開発されたオープンソースのベクターデータベース。大規模なベクトルの類似検索を可能にする
+1. **Elasticsearch**:
+   - ベクターデータベース機能を備えたマルチモデル検索エンジン
+2. **Pinecone**:
+   - スケーラビリティとリアルタイムのデータ取り込みで知られる、フルマネージドベクターデータベース。
+   - 高次元ベクトルのためのクラウドベースのベクターデータベース。不揮発性ストレージとリアルタイムの類似検索を提供する
+   - [Local development with Pinecone Local](https://docs.pinecone.io/guides/operations/local-development)
+3. **Milvus**:
+   - AIおよび分析ワークロード向けに設計されたオープンソースベクターデータベース。
+   - 大規模なデータを扱うために最適化されたオープンソースベクターデータベース。AI や機械学習のワークロードに特化している
+   - [DockerでMilvusを起動する](https://milvus.io/docs/ja/install_standalone-docker.md)
+4. **Chroma**:
+   - 最新のAIアプリケーション向けに特別に設計された、急速に成長しているベクターデータベース。
+   - [Docker](https://docs.trychroma.com/production/containers/docker)
+5. **Weaviate**:
+   - AIを活用したタスクを簡素化するクラウドネイティブのオープンソースベクターデータベース。
+   - [Docker](https://weaviate.io/developers/weaviate/installation/docker-compose)
+6. **Qdrant**:
+   - 広範なフィルタリング機能で知られるベクター類似性検索エンジン。
+   - オープンソースのRust製ベクトル検索エンジン
+   - [How to Get Started with Qdrant Locally](https://qdrant.tech/documentation/quickstart/)
+7. **FAISS （Facebook AI Similarity Search）** (Facebook AI 類似検索):
+   - 類似検索と高密度ベクトルのクラスタリングに最適化されたライブラリ。
+   - Facebook によって開発されたオープンソースのベクターデータベース。大規模なベクトルの類似検索を可能にする
+8. **Couchbase**:
+   - ベクトルデータベース機能を備えたマルチモデルデータベース。
+9. **Vespa**:
+   - マルチモデル検索エンジンとベクトルデータベース。
+10. **Deep Lake**:
+    - グラフ表現とベクトルストレージを組み合わせたベクトルデータベース。
 
+### その他
+
+1. PostgreSQL + pgvector
 2. **Annoy**（Approximate Nearest Neighbors Oh Yeah）:
-
    - 特徴: Spotify が開発したオープンソースライブラリで、主に高速な近似最近傍探索を提供する
 
-3. **Milvus**:
+## WIP: ElasticsearchをVector Databaseとして利用する
 
-   - 特徴: 大規模なデータを扱うために最適化されたオープンソースベクターデータベース。AI や機械学習のワークロードに特化している
-
-4. **Pinecone**:
-   - 特徴: 高次元ベクトルのためのクラウドベースのベクターデータベース。不揮発性ストレージとリアルタイムの類似検索を提供する
 
 ## 応用例
 

@@ -34,3 +34,5 @@ Claude は特に倫理性や安全性を重視するユーザーに適してい�
 - [Project単位でコード解析してみよう！Claude Code](https://zenn.dev/acntechjp/articles/4a9b7e2b6b92ad)
 - [全ビジネスマンが使えるClaude3.7 sonnet と draw.ioで始める図の作成](https://note.com/japanmarketing/n/n6d73751105cc)
 - [いつのまにか「Claude CodeをMCPサーバー化」してClaude Desktopから利用できる神機能が生えてた件について](https://zenn.dev/kazuph/articles/5a6cc61ae21940)
+- [Claude can now search the web](https://www.anthropic.com/news/web-search)
+  - [ClaudeがWeb検索に対応](https://www.watch.impress.co.jp/docs/news/1671824.html)
