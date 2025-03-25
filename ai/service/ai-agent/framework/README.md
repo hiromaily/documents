@@ -5,6 +5,7 @@
 ### 1. [LangChain](https://www.langchain.com/)
 
 - **使用言語**: Python、JavaScript
+  - [github](https://github.com/langchain-ai/langchain): Star: 104k
 - **主な特徴**:
   - **LLMインターフェース**: GPTやBard、PaLMなどの大規模言語モデル（LLM）と簡単に接続可能。
   - **プロンプトテンプレート**: 一貫したフォーマットでクエリを構成。
@@ -12,19 +13,33 @@
   - **メモリ機能**: 短期および長期メモリをサポートし、会話型アプリケーションに最適。
   - **RAG（リトリーバル強化生成）モジュール**: 情報の保存と取得を可能にするツールを提供。
   - **リアルタイムデータ処理**: チャットボット、パーソナライズされた推奨システム、自動コンテンツ生成に最適。
+- [Why Developers are Quitting LangChain](https://analyticsindiamag.com/ai-features/why-developers-are-quitting-langchain/)
+  - こちらにある通り、過度な抽象化により理解しづらく、Interfaceが頻繁に変更するため、プロト開発以外では利用は進めないとのこと
+
+### 2. [LlamaIndex](https://www.llamaindex.ai/)
+
+- **使用言語**: Python
+  - [github](https://github.com/run-llama/llama_index): Star: 40.3k
+- **主な特徴**:
+  - LLM（大規模言語モデル）を用いたデータインデックス作成と検索を支援するフレームワーク。
+  - 様々なデータソース（ドキュメント、データベース、APIなど）に対応。
+  - データの取り込み、構造化、インデックス作成、クエリ実行を効率化。
+  - 知識グラフの構築やセマンティック検索など、高度な検索機能を提供。
 
 ### 2. [CrewAI](https://www.crewai.com/)
 
 - **使用言語**: Python
+  - [github](https://github.com/crewAIInc/crewAI): Star: 29k
 - **主な特徴**:
   - 複数エージェントが役割分担して協力するマルチエージェントシステム。
   - 共有メモリとタスクの委任機能。
   - チームシミュレーションや研究ワークフロー向けの簡易オーケストレーション。
   - エージェント間での効率的な情報共有が可能。
 
-### 3. [Phidata](https://docs.phidata.com/introduction)
+### 3. [agno](https://docs.agno.com/introduction) / 旧[Phidata](https://docs.phidata.com/introduction)
 
 - **使用言語**: Python
+  - [github](https://github.com/agno-agi/agno): Star: 22k
 - **主な特徴**:
   - **マルチモーダルAIエージェント**: テキスト、画像、音声データを統合的に処理可能。
   - **ドメイン固有知識の統合**: ビジネスや業界特化型の知識をLLMに組み込む機能。
@@ -46,6 +61,7 @@
 ### 6. [Mastra](https://mastra.ai/)
 
 - **使用言語**: TypeScript（JavaScriptのスーパーセット）
+  - [github](https://github.com/mastra-ai/mastra): Star: 11.2k
 - **主な特徴**:
   - **型安全性**: TypeScriptを使用することで、開発中のエラーを減らし、コードの保守性を向上。
   - **モジュール性**: 必要なコンポーネントだけを選択して使用可能。
@@ -87,13 +103,19 @@
   - 組織全体でスケーラブルな分散型エージェントネットワーク構築が可能。
   - Microsoft WordやExcel、Azureサービスとの統合。
 
+### その他
+
+- [pydantic-ai](https://github.com/pydantic/pydantic-ai)
+  - Star: 7.6k
+
 ## 比較表
 
 | フレームワーク       | 使用言語     | 主な特徴                                                  | 人気度                        |
 | -------------------- | ------------ | --------------------------------------------------------- | ----------------------------- |
 | LangChain            | Python, JS   | LLMインターフェース、エージェント構築、RAG対応            | 非常に高い                    |
+| LlamaIndex           | Python, TS   | データオーケストレーション、RAGパイプライン、高度な検索   | 高い                          |
 | CrewAI               | Python       | マルチエージェント協調、タスク委任                        | 急速に成長中                  |
-| Phidata              | Python       | マルチモーダル対応、業界特化型知識統合                    | 中程度                        |
+| Agno(Phidata)        | Python       | マルチモーダル対応、業界特化型知識統合                    | 中程度                        |
 | Rig                  | Rust         | 型安全、高性能設計                                        | 新興                          |
 | Mastra               | TypeScript   | サーバーレス対応、RAG統合、グラフベースのワークフロー管理 | TypeScript開発者間で注目      |
 | Vertex AI            | Python       | モジュラー設計、Google Cloudとの連携                      | Google Cloudユーザー間で高い  |

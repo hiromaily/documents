@@ -25,3 +25,6 @@ MCPはAIシステムとデータソースの統合を容易化し、AIの応用�
 - [TypeScript で MCP サーバーを実装し、Claude Desktop から利用する](https://azukiazusa.dev/blog/typescript-mcp-server/)
 - [MCPサーバーで開発効率が3倍に！2025年必須の10大ツール](https://qiita.com/takuya77088/items/58fd06fb46cecdd957d8)
 - [MCPに1mmだけ入門](https://zenn.dev/ks0318/articles/053b5bc1701c31)
+- [結局MCPサーバーって何？Cursorで活躍する機能でもあります](https://zenn.dev/aimasaou/articles/96182d46ae6ad2)
+- [Microsoft Playwright MCPが切り拓くLLMとブラウザの新たな統合](https://zenn.dev/kimkiyong/articles/679faf454b0ee0)
+- [Claude + MCP + Deep Researchを試そう](https://note.com/hatti8/n/n07055f64f210)

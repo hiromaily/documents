@@ -12,6 +12,8 @@
 - Microsoft から relesae されている E2E テストフレームワーク(Node.js のライブラリ)
 - [github](https://github.com/microsoft/playwright)
   - 58.3k
+- [mcp-playwright](https://github.com/executeautomation/mcp-playwright)
+  - AIによるTestが可能となるか？
 
 ### Blockchain project で Metamask などの Wallet を使う場合、どう対応するか？
 
