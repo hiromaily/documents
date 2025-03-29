@@ -142,6 +142,11 @@ Claude 3.7 Sonnet のエージェント コーディング機能のおかげで�
 - [MCPで広がるLLM　~Clineでの動作原理~](https://zenn.dev/codeciao/articles/cline-mcp-server-overview)
 - [ClineとAIエージェント時代のプログラミングに関する所感](https://zenn.dev/trysmr/articles/vscode_cline)
 - [Slide: エンジニアに許された特別な時間の終わり](https://speakerdeck.com/watany/the-end-of-the-special-time-granted-to-engineers)
+- [ゼロからコーディングエージェントを作るならこんなふうに](https://zenn.dev/minedia/articles/11822c2b509a79)
+- [Cline、めっちゃ便利、お金が飛ぶ](https://speakerdeck.com/iwamot/cline-so-convenient-money-flies)
+  - PlanをDeepSeek-R1に変更: コスト削減のためのモデル選択。
+  - プロンプトキャッシュの利用:
+- [ClineでMemory Bankをやめてタスクリストを使うことによってコンテキストを最適化してる](https://zenn.dev/jtechjapan_pub/articles/a1cace00f7f96f)
 
 ### Ref: derivative
 

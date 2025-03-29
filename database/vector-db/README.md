@@ -100,3 +100,4 @@
 ## References
 
 - [ベクトルデータベースとして使える RDB、ベクトル検索と RAG への応用を学ぶ](https://xtech.nikkei.com/atcl/nxt/column/18/03004/122000004/)
+- [ベクトル検索システムの気持ち](https://speakerdeck.com/monochromegane/inside-vector-search)

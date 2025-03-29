@@ -122,7 +122,9 @@ OpenAPI互換のEndpointが備わっているが、2024/3時点では以下
 
 - [LM Studio](https://lmstudio.ai/)
   - [Gemma3](https://blog.google/technology/developers/gemma-3/)のダウンロードが可能
+  - [LM Studio REST API](https://lmstudio.ai/docs/app/api/endpoints/rest) (new, in beta)
+  - [TypeScript SDK](https://lmstudio.ai/docs/typescript) - lmstudio-js
+  - [Python SDK](https://lmstudio.ai/docs/python) - lmstudio-python
 - [ローカルLLM時代到来！Gemma 3の導入・活用ガイド(LMStudio)](https://note.com/swiftwand/n/n7446b89763f0)
-- [LM Studio REST API](https://lmstudio.ai/docs/app/api/endpoints/rest) (new, in beta)
-- [TypeScript SDK](https://lmstudio.ai/docs/typescript) - lmstudio-js
-- [Python SDK](https://lmstudio.ai/docs/python) - lmstudio-python
+- [LM Studio + Gemma 3 + Cline + VSCode](https://tech.mntsq.co.jp/entry/2025/03/25/102902)
+  - 一番軽量の`Gemma 3 4B Instruct`を利用している

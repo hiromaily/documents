@@ -19,3 +19,6 @@ Felo AIは、ユーザーが質問を入力するだけで、関連する情報�
 ## References
 
 - [検索AIエージェント　Feloがすごい](https://qiita.com/yossitech/items/04459bca6eb266d13162)
+- [Glarity](https://glarity.app/)
+  - Summarize & Translate Any Page
+  - Summarize YouTube videos and translate web pages using ChatGPT

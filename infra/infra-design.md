@@ -19,3 +19,7 @@
   - バックアップ/リカバリ要件
   - 監視/監査要件
   - その他
+
+## 構成図
+
+- [構成図 as Code](https://qiita.com/infra365/items/cf5402cc2a7da1c4bc16)

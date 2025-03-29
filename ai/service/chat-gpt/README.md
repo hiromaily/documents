@@ -71,6 +71,7 @@ ChatGPT の SearchGPT（ChatGPT Search）は、OpenAI が開発した新しい�
 - [ChatGPT deep research に見る AI が自律的に考える未来](https://tech.layerx.co.jp/entry/2025/02/13/175317)
 - [ChatGPT の deep research が凄すぎるので、徹底的に使い方と出力結果をまとめていくよ その 1](https://note.com/currypurin/n/n558fc5996586)
 - [月3万円で使えるOpenAIの「Deep Research」　驚異的だが、情報格差が広がる不安も感じた](https://ascii.jp/elem/000/004/251/4251719/)
+- [[2025年2月13日] もう全部Deep Reseachでいいんじゃないかな (週刊AI)](https://zenn.dev/carenet/articles/a212077632b9bb)
 
 ## Deep Researchの比較
 
@@ -87,3 +88,8 @@ ChatGPT の SearchGPT（ChatGPT Search）は、OpenAI が開発した新しい�
 ## [ChatGTP for Mac](https://openai.com/ja-JP/chatgpt/desktop/)
 
 - [ChatGPT、ローカルマシン上のXcodeやVSCodeのコードを読み込み、直接編集してプログラムを作成可能に。Mac版の新機能として](https://www.publickey1.jp/blog/25/chatgptxcodevscodemac.html)
+
+## Update
+
+- [ChatGPT『GPT-4o』の画像生成が大幅アップデート！新機能を徹底解説](https://chatgpt-lab.com/n/n8447382996d2)
+  - 2025年3月26日、OpenAIはChatGPTの基盤モデル「GPT-4o」に、ネイティブな画像生成機能を統合し、一般提供を開始

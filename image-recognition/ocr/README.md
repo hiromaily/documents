@@ -28,3 +28,5 @@ OCR（`Optical Character Recognition/Reader`、オーシーアール、光学的
   - [OCR はもう不要？視覚的特徴とテキストを高精度に捉える！次世代マルチモーダル AI モデル『MPLUG-DOCOWL2』](https://qiita.com/ryosuke_ohori/items/34581692852b8b406139)
 - [Mistral OCR](https://mistral.ai/news/mistral-ocr)
   - [高速かつ高精度な文字認識AIモデル「Mistral OCR」が登場](https://gigazine.net/news/20250307-mistral-ocr/)
+- [国立国会図書館のOCRライブラリが凄くよかった件(Windows向け)](https://qiita.com/yanosen_jp/items/9d3852c29c80dbb952f2)
+  - 国立国会図書館が公開しているOCRライブラリ、[NDLOCR](https://lab.ndl.go.jp/news/2023/2023-07-12/)

@@ -35,3 +35,4 @@ Bolt.new は、次世代の AI 駆動型 Web 開発ツールであり、ブラ�
 
 - [プロンプトの入力によってフルスタック Web アプリを開発、実行、編集、デプロイできる「Bolt.new」が登場　 AI で開発作業はどこまで楽になる？](https://atmarkit.itmedia.co.jp/ait/articles/2411/02/news040.html)
 - [AI にフルスタックアプリ生成を指示できる「Bolt.new」が、iOS/Android 対応のネイティブアプリ開発に対応](https://www.publickey1.jp/blog/25/aiboltnewiosandroid.html)
+- [Figmaで作ったデザインが自動的に生成AIでWebアプリに。「Bolt.new」がFigmaインポートに対応](https://www.publickey1.jp/blog/25/figmaaiwebboltnewfigma.html)

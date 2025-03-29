@@ -15,6 +15,11 @@ MCPはAIシステムとデータソースの統合を容易化し、AIの応用�
 - **開発効率の向上**: MCPは、AIモデルと既存のデータベースやAPIの接続を簡単に実現するための統一されたインターフェースを提供し、開発効率を向上させる。
 - **オープンソース**: MCPはオープンソースとして公開されており、多くの企業や開発者が自由に利用し、独自のユースケースに適用することができる。
 
+## Playwright MCP
+
+- [Microsoft Playwright MCPが切り拓くLLMとブラウザの新たな統合](https://zenn.dev/kimkiyong/articles/679faf454b0ee0)
+- [Playwright MCP技術解説 〜次世代ブラウザ自動化の可能性〜](https://qiita.com/cr_murai/items/13e55eab7e21f6f29619)
+
 ## References
 
 - [Find Awesome MCP Servers and Clients](https://mcp.so/)
@@ -26,5 +31,6 @@ MCPはAIシステムとデータソースの統合を容易化し、AIの応用�
 - [MCPサーバーで開発効率が3倍に！2025年必須の10大ツール](https://qiita.com/takuya77088/items/58fd06fb46cecdd957d8)
 - [MCPに1mmだけ入門](https://zenn.dev/ks0318/articles/053b5bc1701c31)
 - [結局MCPサーバーって何？Cursorで活躍する機能でもあります](https://zenn.dev/aimasaou/articles/96182d46ae6ad2)
-- [Microsoft Playwright MCPが切り拓くLLMとブラウザの新たな統合](https://zenn.dev/kimkiyong/articles/679faf454b0ee0)
 - [Claude + MCP + Deep Researchを試そう](https://note.com/hatti8/n/n07055f64f210)
+- [MCPサーバーを利用することはセキュリティ的に安全か?](https://zenn.dev/arrowkato/articles/mcp_security)
+- [CursorとMCPサーバーの接続を試してみる（AIエージェント入門）](https://zenn.dev/bamboohouse/articles/74037522a0a815)

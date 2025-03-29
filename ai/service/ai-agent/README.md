@@ -90,6 +90,10 @@ AI エージェントは、多種多様な分野で活用されており、そ�
 - **対話型 UI:** ユーザーがエージェントと対話できるインターフェースの設計（チャットボットなど）。
 - **ダッシュボード:** モデルの結果やステータスを視覚化するためのダッシュボードの作成。
 
+## Service
+
+- [マイクロソフト、AIエージェントがセキュリティ対応を自動化。Security Copilotエージェント群を発表](https://www.publickey1.jp/blog/25/aisecurity_copilot.html)
+
 ## References
 
 - [Unity と Dify で自分専用の AI エージェントを作成する](https://creators.bengo4.com/entry/2024/12/20/000000)

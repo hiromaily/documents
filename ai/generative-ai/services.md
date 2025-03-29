@@ -36,3 +36,4 @@
 3. **Adobe Firefly**: Adobe 製
 
 - [2D画像を入力するだけで遠近感のある没入型3D動画を生成できる動画生成AI「Stable Virtual Camera」をStability AIが発表](https://gigazine.net/news/20250319-stable-virtual-camera/)
+- [画像や動画から主要な3D情報を爆速で自動抽出できる「VGGT」が登場、カメラパラメータ・ポイントマップ・深度マップ・3Dポイントトラックなど](https://gigazine.net/news/20250326-vggt-visual-geometry-grounded-transformer/)

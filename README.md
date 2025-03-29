@@ -11,22 +11,12 @@
 
 ## 関心のある技術(Jan 2025)
 
-- [AI エージェント](./ai/ai-agent/README.md)
-  - GitHub Copilot のエージェントモード
-  - ChatGPT deep research
+- [AI エージェント全般](./ai/service/ai-agent/README.md)
+  - [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction)
 - [モジュラーモノリス](./infra/architecture/modular-monolith/README.md)
 - [Serverless アーキテクチャ](./architecture/serverless-computing/serverless.md)
 - [クラウドデザインパターン](./cloud/cloud-design-pattern/README.md)
 - [分散システム](./distributed-system/README.md)
-
-### ハンズオン
-
-- [ ] [LangChain](https://www.langchain.com/)
-- [ ] [Browser Use](https://github.com/browser-use/browser-use)
-- [ ] Bun + Hono Framework
-- [ ] HTMX as Frontend
-- [x] [Supabase](https://supabase.com/)を使ったアプリケーション
-- [x] Rust and Wasm
 
 ## Read books
 

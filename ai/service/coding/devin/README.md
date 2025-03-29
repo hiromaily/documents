@@ -67,3 +67,5 @@ Devin は、AI スタートアップの Cognition が 2024 年 3 月に発表し
 - [今からでも遅くない！まだDevinと遊んでいない技術意思決定者へ](https://zenn.dev/ourly_tech_blog/articles/5c35ef83b341a1)
 - [チームでのDevin使いこなし術](https://note.com/suthio/n/n193a73f9eed4)
 - [AIエージェント「Devin」はジュニアエンジニアの域を超えていた](https://forest.watch.impress.co.jp/docs/serial/aidev/1671331.html)
+- [Slide: Devin入門と最近のアップデートから見るDevinの進化](https://speakerdeck.com/rkaga/introduction-to-devin-and-the-evolution-of-devin-as-seen-in-recent-update)
+- [Devin AIは技術的負債解消の救世主となるか？](https://tech.medpeer.co.jp/entry/technical-debt-with-devin)

@@ -111,3 +111,6 @@ fields @timestamp, @message
 fields @timestamp, @message 
 | filter @message like /(?i)"detail-type"\s*:\s*"ManualRestartedEvent"/
 ```
+
+fields @timestamp, @message 
+| filter @message like /(?i)"sleep lambda function"/

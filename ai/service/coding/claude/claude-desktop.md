@@ -24,3 +24,7 @@ Claude Desktop は、ユーザーが自分のパソコンで Claude AI と対話
 - オンライン検索を実行する
 - スクリーンショットを生成する
 - タスク実行中のエラーを処理する
+
+## References
+
+- [Claude Desktopとmcp-server-qdrantで超お手軽ナレッジベースの構築](https://zenn.dev/inurun/articles/fc0ec63cad574b)
